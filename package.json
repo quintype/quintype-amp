@@ -1,0 +1,33 @@
+{
+  "name": "quintype-amp",
+  "version": "0.1.0",
+  "description": "Quintype's AMP component library for publisher apps to create amp layouts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quintype/quintype-amp.git"
+  },
+  "author": "dev-core@quintype.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/quintype/quintype-amp/issues"
+  },
+  "homepage": "https://github.com/quintype/quintype-amp#readme",
+  "devDependencies": {
+    "@types/react": "^16.9.19",
+    "@types/react-dom": "^16.9.5",
+    "source-map-loader": "^0.2.4",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.5",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^5.2.1",
+    "styled-components": "^5.0.0"
+  }
+}
