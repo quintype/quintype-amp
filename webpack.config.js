@@ -3,7 +3,7 @@ const path = require('path')
 const ampLibraryConfig = {
   mode: "development",
   target: 'node',
-  entry: './src/index.ts',
+  entry: './src/index',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
@@ -29,7 +29,7 @@ const ampLibraryConfig = {
     ]
   },
   resolve: {
-    extensions: ['.ts', '.tsx']
+    extensions: ['.ts', '.tsx', '.js', '.jsx']
   },
   devtool: "source-map"
 }
