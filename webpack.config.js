@@ -1,6 +1,6 @@
 const path = require('path')
 
-const ampLibraryConfig = {
+module.exports = {
   mode: "development",
   target: 'node',
   entry: './src/index',
@@ -20,18 +20,10 @@ const ampLibraryConfig = {
             loader: "ts-loader"
           }
         ]
-      },
-      {
-        enforce: "pre",
-        test: /\.js$/,
-        loader: "source-map-loader"
       }
     ]
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx']
-  },
-  devtool: "source-map"
+  }
 }
-
-module.exports = ampLibraryConfig
