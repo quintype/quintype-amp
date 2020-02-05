@@ -1,9 +1,4 @@
-import React from 'react';
-import ReactDOMServer from 'react-dom/server'
-import { headStart, headEndBodyStart, bodyEnd } from "./boilerplate"
-import App from './App'
+import { renderToString } from './coreFunctions'
+import Amp from './Components'
 
-const markup: string = ReactDOMServer.renderToStaticMarkup(<App />);
-const str: string = `${headStart}${headEndBodyStart}${markup}${bodyEnd}`
-
-export default str
+export {Amp, renderToString}
