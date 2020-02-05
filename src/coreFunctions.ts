@@ -1,6 +1,5 @@
 import { ReactElement } from 'react'
 import ReactDOMServer from 'react-dom/server'
-import amphtmlValidator from "amphtml-validator"
 import { headStart, headEndBodyStart, bodyEnd } from './boilerplate'
 import { getHelmetStr } from './helperFunctions'
 
@@ -31,19 +30,4 @@ export function renderToString (reactComponent: ReactElement) {
     console.error(e)
     return
    }
-}
-
-export async function validateAmpHtml (ampHtml: string) { // unit testing NOT DONE
-  // async function that takes html string and returns boolean true if valid amp or an error object if invalid
-  const validator = await amphtmlValidator.getInstance()
-  const { status, errors = [] } = validator.validateString(ampHtml)
-  let message = ""
-
-  errors.length && errors.forEach(error => {
-    message += `line ${error.line}, col ${error.col}, severity - ${error.severity}: ${error.message}\n`
-    error.specUrl && (message += `( see ${error.specUrl} )\n`)
-  })
-
-  // return status === 'PASS' ? true : new Error(message)
-  return !errors.length ? true : new Error(message)
 }
