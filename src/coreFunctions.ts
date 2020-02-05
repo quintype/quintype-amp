@@ -1,7 +1,8 @@
 import { ReactElement } from 'react'
 import ReactDOMServer from 'react-dom/server'
+import amphtmlValidator from "amphtml-validator"
 import { headStart, headEndBodyStart, bodyEnd } from './boilerplate'
-import { Helmet } from "react-helmet";
+import { getHelmetStr } from './helperFunctions'
 
 // const checkLayout = () => {
 //   // this should perform checks to decide whether the layout (i.e. stuff inside the accumulator) is fit for
@@ -32,22 +33,17 @@ export function renderToString (reactComponent: ReactElement) {
    }
 }
 
-const getHelmetStr = () => {
-  const helmet = Helmet.renderStatic()
-  let str = ''
+export async function validateAmpHtml (ampHtml: string) { // unit testing NOT DONE
+  // async function that takes html string and returns boolean true if valid amp or an error object if invalid
+  const validator = await amphtmlValidator.getInstance()
+  const { status, errors = [] } = validator.validateString(ampHtml)
+  let message = ""
 
-  const title = helmet.title.toString()
-  const script = helmet.script.toString()
+  errors.length && errors.forEach(error => {
+    message += `line ${error.line}, col ${error.col}, severity - ${error.severity}: ${error.message}\n`
+    error.specUrl && (message += `( see ${error.specUrl} )\n`)
+  })
 
-  str += `${title}${script}`
-  return str
-
-
-  // Object.keys(helmet)
-  //   .filter(key => ["style", "title", "meta", "script"].includes(key))
-  //   .forEach(key => {
-  //     console.log(`Adding ${helmet[key]} to head`)
-  //     str += helmet[key].toString()
-  //   })
-  // return str
-} 
+  // return status === 'PASS' ? true : new Error(message)
+  return !errors.length ? true : new Error(message)
+}

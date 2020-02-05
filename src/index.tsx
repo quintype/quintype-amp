@@ -1,4 +1,4 @@
-import { renderToString } from './coreFunctions'
+import { renderToString, validateAmpHtml } from './coreFunctions'
 import Amp from './Components'
 
-export {Amp, renderToString}
+export {Amp, renderToString, validateAmpHtml}
