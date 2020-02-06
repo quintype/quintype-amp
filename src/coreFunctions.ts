@@ -1,7 +1,6 @@
 import { ReactElement } from 'react'
-import ReactDOMServer from 'react-dom/server'
 import { headStart, headEndBodyStart, bodyEnd } from './boilerplate'
-import { getHelmetStr } from './helperFunctions'
+import { getHelmetStr, getHtmlAndStyles } from './helperFunctions'
 
 // const checkLayout = () => {
 //   // this should perform checks to decide whether the layout (i.e. stuff inside the accumulator) is fit for
@@ -16,12 +15,13 @@ export function renderToString (reactComponent: ReactElement) {
     // const check = checkLayout()
     // if (check instanceof Error) throw check
     const headStr = getHelmetStr()
-    const componentHtml = ReactDOMServer.renderToStaticMarkup(reactComponent)
+    const {htmlStr, customStyleStr} = getHtmlAndStyles(reactComponent)
 
     str += headStart
     str += headStr
+    str += customStyleStr
     str += headEndBodyStart
-    str += componentHtml
+    str += htmlStr
     str += bodyEnd
     return str
 

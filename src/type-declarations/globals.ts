@@ -1,12 +1,12 @@
-import * as components from './components'
+import * as atoms from './atomicComponents'
 
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      "amp-img": components.Image,
-      "amp-youtube": components.Youtube,
-      "amp-carousel": components.Carousel,
-      "amp-fit-text": components.FitText,
+      "amp-img": atoms.Image,
+      "amp-youtube": atoms.Youtube,
+      "amp-carousel": atoms.Carousel,
+      "amp-fit-text": atoms.FitText,
     }
   }
 }

@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react'
 import { Helmet } from 'react-helmet'
-import * as types from './type-declarations/components'
+import * as atomTypes from '../type-declarations/atomicComponents'
 
-const Image = (props: types.Image) => {
+export const Image = (props: atomTypes.Image) => {
   return <amp-img {...props}></amp-img>
 }
 
-const Title = (props: types.Title) => {
+export const Title = (props: atomTypes.Title) => {
   return (
     <Helmet>
       <title>{props.children}</title>
@@ -14,7 +14,7 @@ const Title = (props: types.Title) => {
   )
 }
 
-const Carousel = (props: types.Carousel) => {
+export const Carousel = (props: atomTypes.Carousel) => {
   return (
     <Fragment>
       <Helmet>
@@ -26,7 +26,7 @@ const Carousel = (props: types.Carousel) => {
   )
 }
 
-const FitText = (props: types.FitText) => {
+export const FitText = (props: atomTypes.FitText) => {
   return (
     <Fragment>
       <Helmet>
@@ -38,7 +38,7 @@ const FitText = (props: types.FitText) => {
   )
 }
 
-const Youtube = (props: types.Youtube) => {
+export const Youtube = (props: atomTypes.Youtube) => {
   return (
     <Fragment>
       <Helmet>
@@ -50,5 +50,5 @@ const Youtube = (props: types.Youtube) => {
   )
 }
 
-const Amp = {Image, Title, Carousel, FitText, Youtube}
-export default Amp
+// const Amp = {Image, Title, Carousel, FitText, Youtube}
+// export default Amp
