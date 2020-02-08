@@ -3,37 +3,27 @@ import { ReactElement } from 'react'
 import { ServerStyleSheet } from 'styled-components'
 import ReactDOMServer from 'react-dom/server'
 
+const removeEmptyStyleTag = (str: string) => str.replace(/<style amp-custom><\/style>/, '')
 
-export const getHelmetStr = () => {
+export const getHeadTags = () => {
+  // returns all the stuff that react-helmet generates to be put in the head.
+  // custom styles will come here as helmet collects them
+
   const helmet = Helmet.renderStatic()
-  let str = ''
-
   const title = helmet.title.toString()
   const script = helmet.script.toString()
-
-  str += `${title}${script}`
-  return str
-
-
-  // Object.keys(helmet)
-  //   .filter(key => ["style", "title", "meta", "script"].includes(key))
-  //   .forEach(key => {
-  //     console.log(`Adding ${helmet[key]} to head`)
-  //     str += helmet[key].toString()
-  //   })
-  // return str
+  let customStyles = helmet.style.toString().replace(/^<style[^>]*>/, `<style amp-custom>`) 
+  customStyles = removeEmptyStyleTag(customStyles)
+  return { title, script, customStyles }
 }
 
-export const getHtmlAndStyles = (component: ReactElement) => {
-  // string replace is dirty but cant think of any other way
+export const getHtmlAndDefaultStyles = (component: ReactElement) => {
   const sheet = new ServerStyleSheet()
-  const componentHtml = ReactDOMServer.renderToStaticMarkup(sheet.collectStyles(component))
-  const styleTags = sheet.getStyleTags()
-  const styles = styleTags.replace(/^<style[^>]*/, `<style amp-custom`)
-  const styles2 = styles.replace(/data-styled[^}]*}/g, '')
+  const htmlStr = ReactDOMServer.renderToStaticMarkup(sheet.collectStyles(component))
+  let defaultStyles = sheet.getStyleTags()
+  defaultStyles = defaultStyles.replace(/^<style[^>]*/, `<style amp-custom`)
+  defaultStyles = defaultStyles.replace(/data-styled[^}]*}/g, '')
+  defaultStyles = removeEmptyStyleTag(defaultStyles)
   sheet.seal()
-  return {
-    htmlStr: componentHtml,
-    customStyleStr: styles2
-  }
+  return { htmlStr, defaultStyles }
 }

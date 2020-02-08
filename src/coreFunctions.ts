@@ -1,6 +1,6 @@
 import { ReactElement } from 'react'
 import { headStart, headEndBodyStart, bodyEnd } from './boilerplate'
-import { getHelmetStr, getHtmlAndStyles } from './helperFunctions'
+import { getHeadTags, getHtmlAndDefaultStyles } from './helperFunctions'
 
 // const checkLayout = () => {
 //   // this should perform checks to decide whether the layout (i.e. stuff inside the accumulator) is fit for
@@ -8,18 +8,18 @@ import { getHelmetStr, getHtmlAndStyles } from './helperFunctions'
 //   return accumulator.title ? null : new Error('Title is mandatory. It is not set')
 // }
 
-export function renderToString (reactComponent: ReactElement) {
+export function renderToString (component: ReactElement) {
   // check if layout can be rendered (i.e. if title and stuff is present), else throw error
   let str = ''
   try {
     // const check = checkLayout()
     // if (check instanceof Error) throw check
-    const headStr = getHelmetStr()
-    const {htmlStr, customStyleStr} = getHtmlAndStyles(reactComponent)
+    const {title, script, customStyles} = getHeadTags()
+    const {htmlStr, defaultStyles} = getHtmlAndDefaultStyles(component)
 
     str += headStart
-    str += headStr
-    str += customStyleStr
+    str += `${title}${script}`
+    str += customStyles || defaultStyles
     str += headEndBodyStart
     str += htmlStr
     str += bodyEnd
