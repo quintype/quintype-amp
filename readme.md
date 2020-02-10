@@ -11,6 +11,9 @@
         - componetnt `AmpBlurb` has class name `amp-se-blurb`
         - `AmpBlockQuote` has classname `amp-se-blockquote`
 
+- #### Core Functions: renderToString
+    - Pass this function your `<Layout>` component and it will either return a string containing the amp HTML, or an error object
+
 ### Tech Notes:
 - The `<Layout>` component, which is the parent of all components, takes a props `customStyles`
 - It passes down boolean `ignoreDefaultStyles` as context.

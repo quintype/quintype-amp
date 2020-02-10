@@ -19,7 +19,7 @@ const StyledBlockQuote = styled.div`
   padding: 3rem;
 `
 
-const AmpBlurb = (props: moleculeTypes.Blurb) => (
+export const AmpBlurb = (props: moleculeTypes.Blurb) => (
   <AppContext.Consumer>
     {appContext => {
       return appContext.ignoreDefaultStyles ?
@@ -28,7 +28,7 @@ const AmpBlurb = (props: moleculeTypes.Blurb) => (
     }}
   </AppContext.Consumer>
 )
-const AmpBlockQuote = (props: moleculeTypes.BlockQuote) => (
+export const AmpBlockQuote = (props: moleculeTypes.BlockQuote) => (
   <AppContext.Consumer>
     {appContext => (
       appContext.ignoreDefaultStyles ?
@@ -37,7 +37,7 @@ const AmpBlockQuote = (props: moleculeTypes.BlockQuote) => (
     )}
   </AppContext.Consumer>
 )
-const Layout = (props: moleculeTypes.Layout) => (
+export const Layout = (props: moleculeTypes.Layout) => (
   <Fragment>
     <Helmet>
       <style>{props.customStyles}</style>
@@ -47,6 +47,3 @@ const Layout = (props: moleculeTypes.Layout) => (
     </AppContext.Provider>
   </Fragment>
 )
-
-const StoryElements = { AmpBlurb, AmpBlockQuote }
-export {Layout, StoryElements}

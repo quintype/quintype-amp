@@ -26,8 +26,6 @@ export function renderToString (component: ReactElement) {
     return str
 
   } catch(e) { 
-    console.log("something broke")
-    console.error(e)
-    return
+    return e
    }
 }

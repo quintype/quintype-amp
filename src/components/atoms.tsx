@@ -49,6 +49,3 @@ export const Youtube = (props: atomTypes.Youtube) => {
     </Fragment>
   )
 }
-
-// const Amp = {Image, Title, Carousel, FitText, Youtube}
-// export default Amp

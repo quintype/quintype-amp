@@ -1,6 +1,6 @@
 import { renderToString } from './coreFunctions'
-import { StoryElements, Layout } from './components/molecules'
-import * as atoms from './components/atoms'
-const Amp = {StoryElements, atoms, Layout}
+import * as StoryElements from './components/molecules'
+import * as Atoms from './components/atoms'
+const Amp = {...StoryElements, ...Atoms}
 
 export {Amp, renderToString}
