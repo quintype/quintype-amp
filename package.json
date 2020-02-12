@@ -28,6 +28,7 @@
     "@types/react-helmet": "^5.0.15",
     "@types/styled-components": "^4.4.2",
     "babel-loader": "^8.0.6",
+    "babel-plugin-styled-components": "^1.10.7",
     "nodemon": "^2.0.2",
     "ts-loader": "^6.2.1",
     "tslint": "^6.0.0",
