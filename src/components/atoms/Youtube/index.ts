@@ -1,1 +1,2 @@
-export { default } from './Youtube'
+import Youtube from './Youtube'
+export default Youtube

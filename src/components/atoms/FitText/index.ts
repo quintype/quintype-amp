@@ -1,1 +1,2 @@
-export { default } from './FitText' 
+import FitText from './FitText'
+export default FitText

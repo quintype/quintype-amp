@@ -1,1 +1,2 @@
-export { default } from './BlockQuote'
+import AmpBlockQuote from './BlockQuote'
+export default AmpBlockQuote

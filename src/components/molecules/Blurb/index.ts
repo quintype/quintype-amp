@@ -1,1 +1,2 @@
-export { default } from './Blurb'
+import AmpBlurb from './Blurb'
+export default AmpBlurb
