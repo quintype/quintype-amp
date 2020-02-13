@@ -1,8 +1,8 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import * as atomTypes from '../../type-declarations/atomicComponents'
+import { TitleTypes } from './types'
 
-const Title = (props: atomTypes.Title) => {
+const Title = (props: TitleTypes) => {
   return (
     <Helmet>
       <title>{props.children}</title>

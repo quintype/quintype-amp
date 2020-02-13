@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 import { Helmet } from 'react-helmet'
-import * as atomTypes from '../../type-declarations/atomicComponents'
+import {YoutubeTypes} from './types'
 
-const Youtube = (props: atomTypes.Youtube) => {
+const Youtube = (props: YoutubeTypes) => {
   return (
     <Fragment>
       <Helmet>

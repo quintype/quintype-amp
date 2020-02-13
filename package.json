@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "description": "Quintype's AMP component library for publisher apps to create amp layouts",
   "scripts": {
-    "dev": "webpack --watch & nodemon devServer.js",
+    "docz:dev": "docz dev",
+    "docz:build": "docz build",
+    "docz:serve": "docz build && docz serve",
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -29,6 +31,7 @@
     "@types/styled-components": "^4.4.2",
     "babel-loader": "^8.0.6",
     "babel-plugin-styled-components": "^1.10.7",
+    "docz": "^2.2.0",
     "nodemon": "^2.0.2",
     "ts-loader": "^6.2.1",
     "tslint": "^6.0.0",

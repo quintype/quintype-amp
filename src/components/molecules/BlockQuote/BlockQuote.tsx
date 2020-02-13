@@ -1,6 +1,6 @@
 import React from 'react'
-import * as moleculeTypes from '../../type-declarations/molecularComponents'
-import { AppContext } from '../Layout'
+import {BlockQuote} from './types'
+import { AppContext } from '../../../helperFunctions'
 import styled from 'styled-components'
 
 const StyledBlockQuote = styled.div`
@@ -8,7 +8,7 @@ const StyledBlockQuote = styled.div`
   margin: 5px solid purple;
   padding: 3rem;
 `
-const AmpBlockQuote = (props: moleculeTypes.BlockQuote) => (
+const AmpBlockQuote = (props: BlockQuote) => (
   <AppContext.Consumer>
     {appContext => (
       appContext.ignoreDefaultStyles ?

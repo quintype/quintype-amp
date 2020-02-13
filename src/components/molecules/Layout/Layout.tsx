@@ -1,12 +1,9 @@
 import React, { Fragment } from 'react'
-import * as moleculeTypes from '../type-declarations/molecularComponents'
-import { Helmet } from "react-helmet";
+import { Layout } from './types'
+import { AppContext } from '../../../helperFunctions'
+import { Helmet } from "react-helmet"
 
-export const AppContext = React.createContext<moleculeTypes.AppContextInterface>({
-  ignoreDefaultStyles: false
-})
-
-const Layout = (props: moleculeTypes.Layout) => (
+const Layout = (props: Layout) => (
   <Fragment>
     <Helmet>
       <style>{props.customStyles}</style>

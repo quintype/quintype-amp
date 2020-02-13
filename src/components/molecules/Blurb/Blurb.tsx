@@ -1,14 +1,19 @@
 import React from 'react'
-import * as moleculeTypes from '../../type-declarations/molecularComponents'
-import { AppContext } from '../Layout'
+import { Blurb } from './types'
+import { AppContext } from '../../../helperFunctions'
+// import { AppContext } from '../Layout/Layout'
 import styled from 'styled-components'
 
 const StyledBlurb = styled.blockquote`
   color: red;
   background-color: purple;
 `
+// const StyledBlurb2 = styled.blockquote`
+//   color: green;
+//   background-color: grey;
+// `
 
-const AmpBlurb = (props: moleculeTypes.Blurb) => (
+const AmpBlurb = (props: Blurb) => (
   <AppContext.Consumer>
     {appContext => {
       return appContext.ignoreDefaultStyles ?

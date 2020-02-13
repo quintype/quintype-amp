@@ -1,3 +1,20 @@
+// import * as atoms from './atomicComponents'
+import { CarouselTypes } from './Carousel/types'
+import { FitTextTypes } from './FitText/types'
+import { ImageTypes } from './Image/types'
+import { YoutubeTypes } from './Youtube/types'
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      "amp-img": ImageTypes,
+      "amp-youtube": YoutubeTypes,
+      "amp-carousel": CarouselTypes,
+      "amp-fit-text": FitTextTypes,
+    }
+  }
+}
+
 // This element includes common attributes extended to AMP components.
 // https://amp.dev/documentation/guides-and-tutorials/learn/common_attributes/?format=websites
 export interface Common {

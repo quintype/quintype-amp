@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 import { Helmet } from 'react-helmet'
-import * as atomTypes from '../../type-declarations/atomicComponents'
+import { FitTextTypes } from './types'
 
-const FitText = (props: atomTypes.FitText) => {
+const FitText = (props: FitTextTypes) => {
   return (
     <Fragment>
       <Helmet>

@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 import { Helmet } from 'react-helmet'
-import * as atomTypes from '../../type-declarations/atomicComponents'
+import { CarouselTypes } from './types'
 
-const Carousel = (props: atomTypes.Carousel) => {
+const Carousel = (props: CarouselTypes) => {
   return (
     <Fragment>
       <Helmet>
