@@ -1,7 +1,7 @@
 # ⚡ Quintype Amp ⚡
 
-### To Compile:
-```npx webpack```
+### To Start Storybook:
+```npm run storybook```
 
 ### API Reference
 - #### Adding custom styles:
