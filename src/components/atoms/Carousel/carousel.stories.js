@@ -1,28 +1,9 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import Carousel from './Carousel';
-import {Helmet} from 'react-helmet';
 
-import { ServerStyleSheet } from 'styled-components';
-
-const AmpDecorator = (storyFn) => {
-  const sheet = new ServerStyleSheet();
-  const styles = sheet.collectStyles();
-
-  return (
-    <div>
-    <Helmet>
-      <script src="https://cdn.ampproject.org/v0.js" async=""></script>
-      <script async={undefined} custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.2.js"></script>
-      <style amp-custom="">{styles.toString()}</style>
-    </Helmet>
-    { storyFn() }
-  </div>
-    );
-  };
 
   storiesOf('Carousel', module)
-    .addDecorator(AmpDecorator)
     .add('with images', () => (
       <Carousel height="300" width="500"
         layout="responsive"
