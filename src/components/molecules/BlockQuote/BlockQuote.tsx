@@ -1,6 +1,6 @@
 import React from 'react'
 import {BlockQuote} from './types'
-import { AppContext } from '../../../helper-functions'
+import { AppContext } from '../../../helperFunctions'
 import styled from 'styled-components'
 
 const StyledBlockQuote = styled.div`

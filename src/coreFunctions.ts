@@ -1,6 +1,6 @@
 import { ReactElement } from 'react'
 import { headStart, headEndBodyStart, bodyEnd } from './boilerplate'
-import { getHeadTags, getHtmlAndDefaultStyles } from './helper-functions'
+import { getHeadTags, getHtmlAndDefaultStyles } from './helperFunctions'
 
 // const checkLayout = () => {
 //   // this should perform checks to decide whether the layout (i.e. stuff inside the accumulator) is fit for

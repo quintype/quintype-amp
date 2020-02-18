@@ -1,4 +1,4 @@
-import { renderToString } from './core-functions'
+import { renderToString } from './coreFunctions'
 import * as molecules from './components/molecules'
 import * as atoms from './components/atoms'
 

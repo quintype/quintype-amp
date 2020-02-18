@@ -1,6 +1,7 @@
 import React from 'react'
 import { Blurb } from './types'
-import { AppContext } from '../../../helper-functions'
+import { AppContext } from '../../../helperFunctions'
+// import { AppContext } from '../Layout/Layout'
 import styled from 'styled-components'
 
 const StyledBlurb = styled.blockquote`
