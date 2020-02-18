@@ -1,8 +1,8 @@
 // import * as atoms from './atomicComponents'
-import { CarouselTypes } from './Carousel/types'
-import { FitTextTypes } from './FitText/types'
-import { ImageTypes } from './Image/types'
-import { YoutubeTypes } from './Youtube/types'
+import { CarouselTypes } from './carousel/types'
+import { FitTextTypes } from './fit-text/types'
+import { ImageTypes } from './image/types'
+import { YoutubeTypes } from './youtube/types'
 
 declare global {
   namespace JSX {

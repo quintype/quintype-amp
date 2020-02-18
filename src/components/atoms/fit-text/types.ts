@@ -1,5 +1,5 @@
 import { ReactElement } from 'react'
-import { Common } from '../commonTypes'
+import { Common } from '../common-types'
 
 export interface FitTextTypes extends Common {
   "min-font-size"?: string;
