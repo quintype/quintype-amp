@@ -1,6 +1,6 @@
 import { renderToString } from './core-functions'
-import * as molecules from './components/molecules'
-import * as atoms from './components/atoms'
+import * as molecules from './molecules'
+import * as atoms from './atoms'
 
 const Amp = { ...atoms, ...molecules }
 export {Amp, renderToString}
