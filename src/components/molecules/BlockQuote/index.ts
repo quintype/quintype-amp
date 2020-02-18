@@ -1,2 +1,2 @@
-import AmpBlockQuote from './BlockQuote'
+import AmpBlockQuote from './block-quote'
 export default AmpBlockQuote
