@@ -5,7 +5,6 @@ import { ServerStyleSheet } from "styled-components";
 const AmpDecorator = (storyFn) => {
   const sheet = new ServerStyleSheet();
   const styles = sheet.collectStyles();
-  console.log("styles", styles);
   return (
     <div>
       <Helmet>
