@@ -1,2 +1,2 @@
-import Layout from './layout'
-export default Layout
+import Layout from "./layout";
+export default Layout;

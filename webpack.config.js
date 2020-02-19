@@ -1,14 +1,14 @@
-const path = require('path')
+const path = require("path");
 
 module.exports = {
   mode: "development",
-  target: 'node',
-  entry: './src/index',
+  target: "node",
+  entry: "./src/index",
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    libraryTarget: 'commonjs2',
-    library: 'amp'
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "dist"),
+    libraryTarget: "commonjs2",
+    library: "amp"
   },
   module: {
     rules: [
@@ -24,6 +24,6 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx']
+    extensions: [".ts", ".tsx", ".js", ".jsx"]
   }
-}
+};

@@ -1,6 +1,6 @@
-import * as React from 'react';
-import {Helmet} from 'react-helmet';
-import { ServerStyleSheet } from 'styled-components';
+import * as React from "react";
+import { Helmet } from "react-helmet";
+import { ServerStyleSheet } from "styled-components";
 
 const AmpDecorator = (storyFn) => {
   const sheet = new ServerStyleSheet();
@@ -11,9 +11,9 @@ const AmpDecorator = (storyFn) => {
         <script src="https://cdn.ampproject.org/v0.js" async=""></script>
         <style amp-custom="">{styles.toString()}</style>
       </Helmet>
-      { storyFn() }
+      {storyFn()}
     </div>
-    );
-  };
+  );
+};
 
-  export {AmpDecorator}
+export { AmpDecorator };

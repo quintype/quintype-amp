@@ -1,2 +1,2 @@
-import Youtube from './youtube'
-export default Youtube
+import Youtube from "./youtube";
+export default Youtube;

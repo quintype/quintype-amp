@@ -1,3 +1,3 @@
 export interface Blurb {
-  children?: string|HTMLElement;
+  children?: string | HTMLElement;
 }

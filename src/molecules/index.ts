@@ -1,5 +1,5 @@
-import AmpBlurb from './blurb'
-import AmpBlockQuote from './block-quote'
-import Layout from './layout'
+import AmpBlurb from "./blurb";
+import AmpBlockQuote from "./block-quote";
+import Layout from "./layout";
 
-export { AmpBlurb, AmpBlockQuote, Layout}
+export { AmpBlurb, AmpBlockQuote, Layout };

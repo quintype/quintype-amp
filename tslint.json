@@ -1,4 +1,3 @@
 {
-  "extends": ["tslint:recommended", "tslint-config-prettier"],
-  "no-submodule-imports": [true, "react-dom"]
+	"extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"]
 }
