@@ -1,5 +1,5 @@
-import { ReactElement } from 'react'
-import { Common } from '../common-types'
+import { ReactElement } from "react";
+import { Common } from "../common-types";
 
 export interface YoutubeTypes extends Common {
   // https://developers.google.com/youtube/player_parameters

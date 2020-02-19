@@ -1,2 +1,2 @@
-import AmpBlurb from './blurb'
-export default AmpBlurb
+import AmpBlurb from "./blurb";
+export default AmpBlurb;

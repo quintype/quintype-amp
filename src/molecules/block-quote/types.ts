@@ -1,3 +1,3 @@
 export interface BlockQuote {
-  children?: string|HTMLElement;
+  children?: string | HTMLElement;
 }

@@ -1,2 +1,2 @@
-import FitText from './fit-text'
-export default FitText
+import FitText from "./fit-text";
+export default FitText;
