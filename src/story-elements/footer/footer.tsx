@@ -4,8 +4,7 @@ import {FooterTypes} from "./types"
 
 const StyledFooter = styled.footer``;
 
-const Footer = (props: FooterTypes) => {
-  const {footerText} = props;
+const Footer = ({footerText}: FooterTypes) => {
   return (
     <StyledFooter>
       <div>{footerText}</div>
