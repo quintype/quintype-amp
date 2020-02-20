@@ -18,6 +18,18 @@ storiesOf('Header', module)
       headerStyles="background: #36154f;"
     />
   ))
+  .add('Right aligned hamburger', () => (
+    <Header
+      logoSrc="/header-logo-image.png"
+      isLeftAligned={false}
+    />
+  ))
+  .add('With Callback function', () => (
+    <Header
+      logoSrc="/header-logo-image.png"
+      callback={() => {alert("Hamburger Clicked!")}}
+    />
+  ))
   .add('With PNG icon as src; without any custom styles', () => (
     <Header
       logoSrc="/header-logo-image.png"
