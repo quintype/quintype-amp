@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Quintype's AMP component library for publisher apps to create amp layouts",
   "scripts": {
-    "storybook": "start-storybook -p 9001",
+    "storybook": "start-storybook -s ./storybook-assets -p 9001",
     "build": "webpack",
 		"test": "jest --watch",
 		"format": "npx prettier '**/*.{js,jsx,ts,tsx,css,scss}' --write",

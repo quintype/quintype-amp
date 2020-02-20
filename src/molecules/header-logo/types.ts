@@ -3,6 +3,5 @@ export interface HeaderLogoTypes {
   logoStyles?: string;
 }
 export interface StyledHeaderLogoTypes {
-  logoSrc: string;
-  logoStyles?: string;
+  styles?: string;
 }

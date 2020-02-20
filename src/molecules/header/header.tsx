@@ -10,10 +10,10 @@ const StyledHeader = styled.header`
   ${(props: StyledHeaderTypes) => props.styles};
 `
 
-const Header = (props: HeaderTypes) => {
+const Header = ({headerStyles, logoSrc, logoStyles}: HeaderTypes) => {
   return (
-    <StyledHeader styles={props.headerStyles} >
-      <HeaderLogo logoSrc={props.logoSrc} logoStyles={props.logoStyles} />
+    <StyledHeader styles={headerStyles} >
+      <HeaderLogo logoSrc={logoSrc} logoStyles={logoStyles} />
     </StyledHeader>
   )
 }

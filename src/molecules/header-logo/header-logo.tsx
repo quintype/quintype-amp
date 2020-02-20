@@ -1,27 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
 import { HeaderLogoTypes, StyledHeaderLogoTypes } from './types'
-import FullWidthHeightAnchor from '../../atoms/full-width-height-anchor'
 
-const StyledHeaderLogo = styled.h2`
+const StyledHeaderLogo = styled.img`
   height: 50px;
   width: 200px;
   position: absolute;
-  top: 50%;
   left: 50%;
+  top: 50%;
   transform: translate(-50%, -50%);
-  background-size: contain;
-  background-position: center center;
-  background: transparent no-repeat url(${(props: StyledHeaderLogoTypes) => props.logoSrc});
-  margin: 0;
-  ${(props: any) => props.logoStyles};
+  ${({styles}: StyledHeaderLogoTypes) => styles};
 `
 
-const HeaderLogo = (props: HeaderLogoTypes) => {
+const HeaderLogo = ({logoSrc, logoStyles}: HeaderLogoTypes) => {
   return (
-    <StyledHeaderLogo {...props}>
-      <FullWidthHeightAnchor href="/" />
-    </StyledHeaderLogo>
+    <a href="/">
+      <StyledHeaderLogo src={logoSrc} styles={logoStyles} />
+    </a>
   )
 }
 

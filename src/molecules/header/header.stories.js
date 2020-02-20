@@ -32,7 +32,7 @@ storiesOf('Header', module)
   .add('With PNG icon as src; with custom styles for header and logo', () => (
     <Header
       logoSrc="/header-logo-image.png"
-      headerStyles="background: #36154f;"
-      logoStyles="width:500px;height:500px"
+      headerStyles="height:200px;background: #36154f;"
+      logoStyles="height:180px"
     />
   ))
