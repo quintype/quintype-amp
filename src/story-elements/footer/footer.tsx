@@ -4,10 +4,11 @@ import {FooterTypes} from "./types"
 
 const StyledFooter = styled.footer``;
 
-const Footer = (props: FooterTypes) => (
-  <StyledFooter>
-    <div>{props.footerText}</div>
-    <div>
+const Footer = (props: FooterTypes) => {
+  const {footerText} = props;
+  return (
+    <StyledFooter>
+      <div>{footerText}</div>
       <a
         href="https://www.quintype.com/"
         rel="noreferrer noopener"
@@ -15,8 +16,8 @@ const Footer = (props: FooterTypes) => (
       >
         Powered by Quintype
       </a>
-    </div>
-  </StyledFooter>
-);
+    </StyledFooter>
+  )
+}
 
 export default Footer;
