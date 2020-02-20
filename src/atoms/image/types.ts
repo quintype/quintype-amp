@@ -1,8 +1,8 @@
-import { Common } from '../common-types'
+import { Common } from "../common-types";
 
 export interface ImageTypes extends Common {
-  src?: string;
+  src: string;
+  alt: string;
   srcset?: string;
-  alt?: string;
   attribution?: string;
 }

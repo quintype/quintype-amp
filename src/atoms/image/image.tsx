@@ -1,8 +1,8 @@
-import React from 'react'
-import { ImageTypes } from './types'
+import React from "react";
+import { ImageTypes } from "./types";
 
-export const Image = (props: ImageTypes) => {
-  return <amp-img {...props}></amp-img>
-}
+export const Image = ({ src, alt, layout = "responsive", ...rest }: ImageTypes) => {
+  return <amp-img src={src} alt={alt} layout={layout} {...rest}></amp-img>;
+};
 
-export default Image
+export default Image;
