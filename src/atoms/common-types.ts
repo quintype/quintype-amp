@@ -1,16 +1,11 @@
-// import * as atoms from './atomicComponents'
 import { CarouselTypes } from "./carousel/types";
-import { FitTextTypes } from "./fit-text/types";
 import { ImageTypes } from "./image/types";
-import { YoutubeTypes } from "./youtube/types";
 
 declare global {
   namespace JSX {
     interface IntrinsicElements {
       "amp-img": ImageTypes;
-      "amp-youtube": YoutubeTypes;
       "amp-carousel": CarouselTypes;
-      "amp-fit-text": FitTextTypes;
     }
   }
 }
