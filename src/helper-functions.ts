@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet";
-import React, { ReactElement } from "react";
+import { ReactElement } from "react";
 import { ServerStyleSheet } from "styled-components";
 import ReactDOMServer from "react-dom/server";
 
@@ -27,12 +27,3 @@ export const getHtmlAndDefaultStyles = (component: ReactElement) => {
   sheet.seal();
   return { htmlStr, defaultStyles };
 };
-
-interface AppContextInterface {
-  ignoreDefaultStyles: boolean;
-}
-
-// only <Layout> component should be context provider, rest all are consumers
-export const AppContext = React.createContext<AppContextInterface>({
-  ignoreDefaultStyles: false
-});
