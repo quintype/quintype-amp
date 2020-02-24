@@ -1,3 +1,3 @@
 export interface Config {
-  "cdn_image": string;
+  cdn_image: string;
 }

@@ -12,7 +12,7 @@ storiesOf("Image", module)
     const metadata = _.get(textStory, "hero-image-metadata");
     const s3key = _.get(textStory, "hero-image-s3-key");
     const aspectRatio = [16, 9];
-    return <Image metadata={metadata} imgSlug={s3key} aspectRatio={aspectRatio} ></Image>
+    return <Image metadata={metadata} imgSlug={s3key} aspectRatio={aspectRatio}></Image>;
   })
   .add("fixed-height", () => {
     const metadata = {
@@ -21,18 +21,19 @@ storiesOf("Image", module)
       "mime-type": "image/jpeg",
       "file-size": 6127839,
       "file-name": "LSAC Launches New Initiatives to Support Law School Enrollment Efforts in India.JPG",
-      "focus-point": [0,0]
-    }
+      "focus-point": [0, 0]
+    };
     const s3key = _.get(textStory, "hero-image-s3-key");
     const aspectRatio = [16, 9];
-    return <Image
-      layout={"fixed-height"}
-      metadata={metadata}
-      imgSlug={s3key}
-      aspectRatio={aspectRatio}
-      width={"500"}
-      height={"100"}
-      ></Image>
+    return (
+      <Image
+        layout={"fixed-height"}
+        metadata={metadata}
+        imgSlug={s3key}
+        aspectRatio={aspectRatio}
+        width={"500"}
+        height={"100"}></Image>
+    );
   })
   .add("fixed", () => {
     const metadata = {
@@ -41,16 +42,17 @@ storiesOf("Image", module)
       "mime-type": "image/jpeg",
       "file-size": 6127839,
       "file-name": "LSAC Launches New Initiatives to Support Law School Enrollment Efforts in India.JPG",
-      "focus-point": [5472,3648]
-    }
+      "focus-point": [5472, 3648]
+    };
     const s3key = _.get(textStory, "hero-image-s3-key");
     const aspectRatio = [16, 9];
-    return <Image
-      layout={"fixed"}
-      metadata={metadata}
-      imgSlug={s3key}
-      aspectRatio={aspectRatio}
-      width={"500"}
-      height={"500"}
-      ></Image>
+    return (
+      <Image
+        layout={"fixed"}
+        metadata={metadata}
+        imgSlug={s3key}
+        aspectRatio={aspectRatio}
+        width={"500"}
+        height={"500"}></Image>
+    );
   });
