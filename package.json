@@ -5,9 +5,9 @@
   "scripts": {
     "storybook": "start-storybook -p 9001",
     "build": "webpack",
-		"test": "jest --watch",
-		"format": "npx prettier '**/*.{js,jsx,ts,tsx,css,scss}' --write",
-		"lint": "tslint 'src/**/*.tsx'"
+    "test": "jest --watch",
+    "format": "npx prettier '**/*.{js,jsx,ts,tsx,css,scss}' --write",
+    "lint": "tslint 'src/**/*.tsx'"
   },
   "repository": {
     "type": "git",
@@ -49,6 +49,7 @@
     "webpack-cli": "^3.3.10"
   },
   "dependencies": {
+    "quintype-js": "^1.2.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
