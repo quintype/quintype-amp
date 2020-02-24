@@ -2,10 +2,11 @@ import { Common } from "../common-types";
 
 export interface ImageTypes extends Common {
   metadata: ImageMetadata;
-  slug: string;
+  imgSlug: string;
   aspectRatio: [number];
   opts?: object;
-  cdnImage: string;
+  width: string;
+  height: string;
 }
 
 interface ImageMetadata {

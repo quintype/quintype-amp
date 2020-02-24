@@ -1,10 +1,9 @@
 import { CarouselTypes } from "./carousel/types";
-import { ImageTypes } from "./image/types";
 
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      "amp-img": ImageTypes;
+      "amp-img": any;
       "amp-carousel": CarouselTypes;
     }
   }
