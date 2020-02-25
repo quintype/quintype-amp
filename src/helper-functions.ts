@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet";
 import { ReactElement } from "react";
 import { ServerStyleSheet } from "styled-components";
 import ReactDOMServer from "react-dom/server";
+import quintypeJs from "quintype-js";
 
 const removeEmptyStyleTag = (str: string) => str.replace(/<style amp-custom><\/style>/, "");
 
@@ -26,4 +27,19 @@ export const getHtmlAndDefaultStyles = (component: ReactElement) => {
   defaultStyles = removeEmptyStyleTag(defaultStyles);
   sheet.seal();
   return { htmlStr, defaultStyles };
+};
+
+export const focusedImagePath = ({ opts, slug, metadata, aspectRatio, cdn_image }) => {
+  let auto = ["format"];
+  const supportsCompression = !/\.gif/.test(slug);
+  if (supportsCompression) auto = auto.concat(["compress"]);
+  opts = Object.assign({ auto }, opts);
+  const path = new quintypeJs.FocusedImage(slug, metadata).path(aspectRatio, opts);
+  const stripProtocol = (url: string) => url.replace(/^(http|https):/, "");
+  return `${stripProtocol(cdn_image)}/${path}`;
+};
+
+export const calculateImgHeight = (aspectRatio, width) => {
+  const ar = aspectRatio[0] / aspectRatio[1];
+  return Math.round(width / ar).toString();
 };

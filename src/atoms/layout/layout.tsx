@@ -17,13 +17,13 @@ const Layout = ({ style, children, story, config }: Layout) => {
       <Helmet>
         <style>{style}</style>
       </Helmet>
-      <StoryProvider value={story}>
-        <Theme>
-          <ConfigProvider value={config}>
+      <ConfigProvider value={config}>
+        <StoryProvider value={story}>
+          <Theme>
             <Container>{children}</Container>
-          </ConfigProvider>
-        </Theme>
-      </StoryProvider>
+          </Theme>
+        </StoryProvider>
+      </ConfigProvider>
     </Fragment>
   );
 };
