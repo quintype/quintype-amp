@@ -4,10 +4,10 @@ import { Image } from "./image";
 import { textStory } from "../../__fixtures__/story.fixture";
 import { config } from "../../__fixtures__/config.fixture";
 import Layout from "../layout";
-import _ from "lodash";
+import get from "lodash/get";
 
-const metadata = _.get(textStory, "hero-image-metadata");
-const s3key = _.get(textStory, "hero-image-s3-key");
+const metadata = get(textStory, "hero-image-metadata");
+const s3key = get(textStory, "hero-image-s3-key");
 const aspectRatio = [16, 9];
 
 storiesOf("Image", module)
