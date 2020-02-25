@@ -5,7 +5,13 @@
   "scripts": {
     "storybook": "start-storybook -p 9001",
     "build": "webpack",
+<<<<<<< HEAD
     "test": "jest --watch",
+=======
+    "test": "jest --env=jsdom --watch",
+    "test:cover": "jest --env=jsdom --coverage --watchAll; open coverage/index.html",
+    "test:ci": "jest --env=jsdom --coverage --maxWorkers=2",
+>>>>>>> master
     "format": "npx prettier '**/*.{js,jsx,ts,tsx,css,scss}' --write",
     "lint": "tslint 'src/**/*.tsx'"
   },
@@ -25,7 +31,7 @@
     "@babel/preset-react": "^7.8.3",
     "@babel/preset-typescript": "^7.8.3",
     "@storybook/react": "^5.3.13",
-    "@testing-library/react": "^9.4.0",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/jest": "^25.1.2",
     "@types/node": "^13.7.0",
     "@types/react": "^16.9.19",
@@ -35,6 +41,8 @@
     "@types/styled-components": "^4.4.2",
     "babel-loader": "^8.0.6",
     "babel-plugin-styled-components": "^1.10.7",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "jest": "^25.1.0",
     "lodash": "^4.17.15",
     "nodemon": "^2.0.2",
