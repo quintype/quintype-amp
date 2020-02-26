@@ -66,6 +66,7 @@ const spacing = {
 };
 
 const zindex = {
+  negativeZ1: -1,
   z1: 1,
   z100: 100,
   z200: 200,
