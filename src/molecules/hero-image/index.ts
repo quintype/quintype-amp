@@ -1,2 +1,2 @@
-import { HeroImage } from "./hero-image"
-export default HeroImage
+import { HeroImage } from "./hero-image";
+export default HeroImage;

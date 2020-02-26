@@ -76,7 +76,7 @@ const zindex = {
   z800: 800,
   z900: 900,
   z1000: 1000
-}
+};
 
 const tokens = {
   color: colors,
