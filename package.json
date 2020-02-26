@@ -54,6 +54,7 @@
     "webpack-cli": "^3.3.10"
   },
   "dependencies": {
+    "lodash.merge": "^4.6.2",
     "quintype-js": "^1.2.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",

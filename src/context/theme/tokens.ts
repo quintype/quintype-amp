@@ -65,8 +65,17 @@ const spacing = {
   xl: "32px"
 };
 
+const colorVariables = {
+  primaryColor: colors.brand1,
+  secondaryColor: colors.brand2,
+  headerBackground: colors.brand1,
+  footerBackground: colors.brand1,
+  footerTextColor: colors.mono2,
+  sectionTextColor: colors.mono2
+};
+
 const tokens = {
-  color: colors,
+  color: { ...colors, ...colorVariables },
   font: font,
   spacing: spacing
 };
