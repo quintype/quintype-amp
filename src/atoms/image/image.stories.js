@@ -12,6 +12,9 @@ const aspectRatio = [16, 9];
 
 storiesOf("Image", module)
   .addDecorator((story) => <Layout config={config}>{story()}</Layout>)
+  .add("Image without slug (s3Key)", () => {
+    return <Image metadata={metadata} aspectRatio={aspectRatio}></Image>;
+  })
   .add("layout responsive", () => {
     return <Image metadata={metadata} slug={s3key} aspectRatio={aspectRatio}></Image>;
   })

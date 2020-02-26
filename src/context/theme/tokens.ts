@@ -78,11 +78,16 @@ const zindex = {
   z1000: 1000
 };
 
+const breakpoints = {
+  desktop: 960,
+}
+
 const tokens = {
   color: colors,
   font,
   spacing,
-  zindex
+  zindex,
+  breakpoints
 };
 
 export default tokens;
