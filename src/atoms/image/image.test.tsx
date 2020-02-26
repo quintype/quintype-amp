@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import { BaseImage } from "./image";
-import get from "lodash/get";
+import get from "lodash.get";
 import { textStory } from "../../__fixtures__/story.fixture";
 import { config } from "../../__fixtures__/config.fixture";
 
