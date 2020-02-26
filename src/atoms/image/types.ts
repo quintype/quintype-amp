@@ -3,10 +3,10 @@ import { Common } from "../common-types";
 export interface ImageTypes extends Common {
   metadata: ImageMetadata;
   slug: string;
-  aspectRatio: [number];
-  width: string;
-  height: string;
+  aspectRatio: number[];
   alt: string;
+  width?: string;
+  height?: string;
   opts?: object;
 }
 

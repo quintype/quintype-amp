@@ -1,6 +1,6 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
-import Footer from "./footer";
+import { Footer } from "./footer";
 
 storiesOf("Footer", module)
   .add("No Footer Text", () => <Footer />)

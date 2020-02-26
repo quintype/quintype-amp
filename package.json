@@ -5,13 +5,9 @@
   "scripts": {
     "storybook": "start-storybook -p 9001",
     "build": "webpack",
-<<<<<<< HEAD
-    "test": "jest --watch",
-=======
     "test": "jest --env=jsdom --watch",
     "test:cover": "jest --env=jsdom --coverage --watchAll; open coverage/index.html",
     "test:ci": "jest --env=jsdom --coverage --maxWorkers=2",
->>>>>>> master
     "format": "npx prettier '**/*.{js,jsx,ts,tsx,css,scss}' --write",
     "lint": "tslint 'src/**/*.tsx'"
   },

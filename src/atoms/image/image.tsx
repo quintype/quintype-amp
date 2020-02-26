@@ -4,7 +4,12 @@ import { ConfigContext } from "../../context/config-context";
 import { Config } from "../../types/config";
 import { focusedImagePath, calculateImgHeight } from "../../helper-functions";
 
-export const Image = ({
+export const Image = (props: ImageTypes) => {
+  const config = useContext(ConfigContext) as Config;
+  return <BaseImage {...props} config={config} />;
+};
+
+export const BaseImage = ({
   metadata,
   width,
   height,
@@ -13,9 +18,9 @@ export const Image = ({
   alt,
   layout = "responsive",
   opts,
+  config,
   ...rest
-}: ImageTypes) => {
-  const config = useContext(ConfigContext) as Config;
+}: ImageTypes & { config: Config }) => {
   const { cdn_image } = config;
   const path = focusedImagePath({ opts, slug, metadata, aspectRatio, cdn_image });
   const value: AmpImgPropTypes = {
