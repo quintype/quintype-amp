@@ -12,8 +12,8 @@ export interface ImageTypes extends Common {
 }
 
 interface ImageMetadata {
-  width: string;
-  height: string;
+  width: number;
+  height: number;
 }
 
 export interface AmpImgPropTypes extends Common {

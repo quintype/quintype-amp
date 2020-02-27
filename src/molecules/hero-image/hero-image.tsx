@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import Image from "../../atoms/image";
 import { StoryContext } from "../../context/storyContext";
 import { Story } from "../../types/story";
+import { HeroImageTypes, HeroImageBaseTypes } from "./types"
 import styled from "styled-components";
 
 const StyledFigcaption = styled.figcaption`
@@ -23,22 +24,28 @@ const StyledFigcaption = styled.figcaption`
   }
 `;
 
-export const HeroImage = () => {
+export const HeroImage = (props: HeroImageTypes) => {
   const storyFromContext = useContext(StoryContext) as Story;
-  return <HeroImageBase story={storyFromContext} />;
+  return <HeroImageBase story={storyFromContext} {...props} />;
 };
 
-export const HeroImageBase = ({ story }) => {
+export const HeroImageBase = ({ story, attribution, slug, metadata, caption }: HeroImageBaseTypes ) => {
   const {
-    "hero-image-attribution": attribution,
-    "hero-image-s3-key": slug,
-    "hero-image-metadata": metadata,
-    "hero-image-caption": caption
+    "hero-image-attribution": ATTRIBUTION,
+    "hero-image-s3-key": SLUG,
+    "hero-image-metadata": METADATA,
+    "hero-image-caption": CAPTION
   } = story;
   return (
     <div>
-      <Image alt={caption} metadata={metadata} slug={slug} aspectRatio={[1200, 750]} attribution={attribution} />
-      <StyledFigcaption>{caption}</StyledFigcaption>
+      <Image
+        alt={caption || CAPTION!}
+        metadata={metadata || METADATA!}
+        slug={slug || SLUG!}
+        aspectRatio={[1200, 750]}
+        attribution={attribution || ATTRIBUTION!}
+      />
+      <StyledFigcaption>{caption || attribution || CAPTION || ATTRIBUTION}</StyledFigcaption>
     </div>
   );
 };
