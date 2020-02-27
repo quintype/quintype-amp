@@ -43,7 +43,7 @@ export const BaseImage = ({
       value.height = "";
       value.width = "";
     case "responsive":
-      value.width = metadata.width;
+      value.width = metadata.width.toString();
       value.height = calculateImgHeight(aspectRatio, metadata.width);
   }
 
