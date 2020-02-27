@@ -88,8 +88,8 @@ const colorVariables = {
 };
 
 const breakpoints = {
-  desktop: 960,
-}
+  desktop: 960
+};
 
 const tokens = {
   color: { ...colors, ...colorVariables },
