@@ -2,8 +2,9 @@ import React, { useContext } from "react";
 import Image from "../../atoms/image";
 import { StoryContext } from "../../context/storyContext";
 import { Story } from "../../types/story";
-import { HeroImageTypes, HeroImageBaseTypes } from "./types"
+import { HeroImageTypes, HeroImageBaseTypes } from "./types";
 import styled from "styled-components";
+import { media } from "../../utils/media";
 
 const StyledFigcaption = styled.figcaption`
   text-align: left;
@@ -19,9 +20,10 @@ const StyledFigcaption = styled.figcaption`
   font-size: ${(props) => props.theme.font.size.xxs};
   z-index: ${(props) => props.theme.zIndex.z100};
 
-  @media (min-width: ${props => props.theme.breakpoints.desktop}px) {
-    max-height: 130px;
-  }
+  ${media.laptop`
+		max-height: 130px;
+		overflow-y: scroll;
+	`}
 `;
 
 export const HeroImage = (props: HeroImageTypes) => {
@@ -29,19 +31,19 @@ export const HeroImage = (props: HeroImageTypes) => {
   return <HeroImageBase story={storyFromContext} {...props} />;
 };
 
-export const HeroImageBase = ({ story, attribution, slug, metadata, caption }: HeroImageBaseTypes ) => {
-  let overRideStory = false
+export const HeroImageBase = ({ story, attribution, slug, metadata, caption }: HeroImageBaseTypes) => {
+  let overRideStory = false;
   let figcaptionText: string | undefined | boolean;
   const imageProps: any = {
     aspectRatio: [1200, 750]
-  }
-  if (attribution || slug || metadata || caption) overRideStory = true
+  };
+  if (attribution || slug || metadata || caption) overRideStory = true;
   if (overRideStory) {
     imageProps.alt = caption;
     imageProps.metadata = metadata;
     imageProps.slug = slug;
     imageProps.attribution = attribution;
-    figcaptionText = getFigcaptionText(caption, attribution)
+    figcaptionText = getFigcaptionText(caption, attribution);
   } else {
     const {
       "hero-image-attribution": ATTRIBUTION,
@@ -53,18 +55,18 @@ export const HeroImageBase = ({ story, attribution, slug, metadata, caption }: H
     imageProps.metadata = METADATA;
     imageProps.slug = SLUG;
     imageProps.attribution = ATTRIBUTION;
-    figcaptionText = getFigcaptionText(CAPTION, ATTRIBUTION)
+    figcaptionText = getFigcaptionText(CAPTION, ATTRIBUTION);
   }
   return (
     <div>
       <Image {...imageProps} />
-      {figcaptionText ? <StyledFigcaption>{figcaptionText}</StyledFigcaption> : null }
+      {figcaptionText ? <StyledFigcaption>{figcaptionText}</StyledFigcaption> : null}
     </div>
   );
 };
 
 export function getFigcaptionText(caption, attribution) {
-  if (caption && attribution) return `${caption} | ${attribution}`
-  else if (caption || attribution) return `${caption || attribution}`
-  else return false
+  if (caption && attribution) return `${caption} | ${attribution}`;
+  else if (caption || attribution) return `${caption || attribution}`;
+  else return false;
 }
