@@ -78,12 +78,21 @@ const zindex = {
   z1000: 1000
 };
 
+const colorVariables = {
+  primaryColor: colors.brand1,
+  secondaryColor: colors.brand2,
+  headerBackground: colors.brand1,
+  footerBackground: colors.brand1,
+  footerTextColor: colors.mono2,
+  sectionTextColor: colors.mono2
+};
+
 const breakpoints = {
   desktop: 960,
 }
 
 const tokens = {
-  color: colors,
+  color: { ...colors, ...colorVariables },
   font,
   spacing,
   zindex,
