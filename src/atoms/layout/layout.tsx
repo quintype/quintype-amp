@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import { Theme } from "../../context/theme";
 import { StoryProvider } from "../../context/storyContext";
 import { ConfigProvider } from "../../context/config-context";
+import { getTokensFromConfig } from "../../utils/theme";
 
 import styled from "styled-components";
 
@@ -12,6 +13,7 @@ const Container = styled.main`
 `;
 
 const Layout = ({ style, children, story, config }: Layout) => {
+  const tokens = getTokensFromConfig(config);
   return (
     <Fragment>
       <Helmet>
@@ -19,7 +21,7 @@ const Layout = ({ style, children, story, config }: Layout) => {
       </Helmet>
       <ConfigProvider value={config}>
         <StoryProvider value={story}>
-          <Theme>
+          <Theme tokens={tokens}>
             <Container>{children}</Container>
           </Theme>
         </StoryProvider>
