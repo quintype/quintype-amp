@@ -65,7 +65,7 @@ const spacing = {
   xl: "32px"
 };
 
-const zindex = {
+const zIndex = {
   negativeZ1: -1,
   z1: 1,
   z100: 100,
@@ -95,7 +95,7 @@ const tokens = {
   color: { ...colors, ...colorVariables },
   font,
   spacing,
-  zindex,
+  zIndex,
   breakpoints
 };
 

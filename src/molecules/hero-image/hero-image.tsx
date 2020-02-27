@@ -17,7 +17,7 @@ const StyledFigcaption = styled.figcaption`
   line-height: ${(props) => props.theme.font.lineHeight.level1};
   background: ${(props) => `${props.theme.color.black}60`};
   font-size: ${(props) => props.theme.font.size.xxs};
-  z-index: ${(props) => props.theme.zindex.z100};
+  z-index: ${(props) => props.theme.zIndex.z100};
 
   @media (min-width: ${props => props.theme.breakpoints.desktop}px) {
     max-height: 130px;
