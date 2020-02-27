@@ -87,16 +87,11 @@ const colorVariables = {
   sectionTextColor: colors.mono2
 };
 
-const breakpoints = {
-  desktop: 960
-};
-
 const tokens = {
   color: { ...colors, ...colorVariables },
   font,
   spacing,
-  zIndex,
-  breakpoints
+  zIndex
 };
 
 export default tokens;

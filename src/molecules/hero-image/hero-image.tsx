@@ -4,6 +4,7 @@ import { StoryContext } from "../../context/storyContext";
 import { Story } from "../../types/story";
 import { HeroImageTypes, HeroImageBaseTypes } from "./types";
 import styled from "styled-components";
+import { media } from "../../utils/media";
 
 const StyledFigcaption = styled.figcaption`
   text-align: left;
@@ -19,9 +20,10 @@ const StyledFigcaption = styled.figcaption`
   font-size: ${(props) => props.theme.font.size.xxs};
   z-index: ${(props) => props.theme.zIndex.z100};
 
-  @media (min-width: ${(props) => props.theme.breakpoints.desktop}px) {
-    max-height: 130px;
-  }
+  ${media.laptop`
+		max-height: 130px;
+		overflow-y: scroll;
+	`}
 `;
 
 export const HeroImage = (props: HeroImageTypes) => {
