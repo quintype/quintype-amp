@@ -1,10 +1,12 @@
 import { CarouselTypes } from "./carousel/types";
+import { FacebookTypes } from "./facebook/types";
 
 declare global {
   namespace JSX {
     interface IntrinsicElements {
       "amp-img": any;
       "amp-carousel": CarouselTypes;
+      "amp-facebook": FacebookTypes;
     }
   }
 }
