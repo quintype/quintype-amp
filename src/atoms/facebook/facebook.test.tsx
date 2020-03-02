@@ -25,4 +25,23 @@ describe("Facebook", () => {
     expect(wrapper.find("amp-facebook").prop("width")).toBe("250")
     expect(wrapper.find("amp-facebook").prop("layout")).toBe("fixed")
   })
+  it("should render facebook video", () => {
+    const wrapper = shallow(
+      <Facebook
+        data-href="https://www.facebook.com/nasaearth/videos/10155187938052139"
+        data-embed-as="video"
+      />
+    );
+    expect(wrapper.find("amp-facebook").prop("data-embed-as")).toBe("video")
+  })
+  it("should render facebook comment", () => {
+    const wrapper = shallow(
+      <Facebook
+        data-href="https://www.facebook.com/zuck/posts/10102735452532991?comment_id=1070233703036185"
+        data-embed-type="comment"
+      />
+    );
+    expect(wrapper.find("amp-facebook").prop("data-embed-type")).toBe("comment")
+  })
+  
 });

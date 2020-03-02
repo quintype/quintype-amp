@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 export const Twitter = (props: TwitterTypes) => {
   const {width, height, layout} = props;
   const setDefaultLayout = (!width || !height || !layout);
-  const newProps: TwitterTypes = setDefaultLayout ? ({
+  const componentProps: TwitterTypes = setDefaultLayout ? ({
       ...props,
       width: "390",
       height: "330",
@@ -16,7 +16,7 @@ export const Twitter = (props: TwitterTypes) => {
       <Helmet>
         <script async={undefined} custom-element="amp-twitter" src="https://cdn.ampproject.org/v0/amp-twitter-0.1.js" />
       </Helmet>
-      <amp-twitter {...newProps} />
+      <amp-twitter {...componentProps} />
     </Fragment>
   )
 } 

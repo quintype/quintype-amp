@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 export const Facebook = (props: FacebookTypes) => {
   const {width, height, layout} = props;
   const setDefaultLayout = (!width || !height || !layout);
-  const newProps: FacebookTypes = setDefaultLayout ? ({
+  const componentProps: FacebookTypes = setDefaultLayout ? ({
       ...props,
       width: "16",
       height: "9",
@@ -16,7 +16,7 @@ export const Facebook = (props: FacebookTypes) => {
       <Helmet>
         <script async={undefined} custom-element="amp-facebook" src="https://cdn.ampproject.org/v0/amp-facebook-0.1.js" />
       </Helmet>
-      <amp-facebook {...newProps} />
+      <amp-facebook {...componentProps} />
     </Fragment>
   )
 }
