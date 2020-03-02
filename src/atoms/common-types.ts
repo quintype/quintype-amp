@@ -1,5 +1,6 @@
 import { CarouselTypes } from "./carousel/types";
 import { FacebookTypes } from "./facebook/types";
+import { TwitterTypes } from "./twitter/types";
 
 declare global {
   namespace JSX {
@@ -7,6 +8,7 @@ declare global {
       "amp-img": any;
       "amp-carousel": CarouselTypes;
       "amp-facebook": FacebookTypes;
+      "amp-twitter": TwitterTypes;
     }
   }
 }

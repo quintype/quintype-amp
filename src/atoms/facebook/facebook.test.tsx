@@ -2,7 +2,7 @@ import React from "react";
 import { shallow } from "enzyme";
 import { Facebook } from "./facebook";
 
-describe("Image", () => {
+describe("Facebook", () => {
   it("should render facebook element", () => {
     const wrapper = shallow(<Facebook data-href="https://www.facebook.com/ParksCanada/posts/1712989015384373" />);
     expect(wrapper.find("amp-facebook").length).toBe(1);
