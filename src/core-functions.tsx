@@ -1,6 +1,10 @@
-import { ReactElement } from "react";
+import React from "react";
 import { headStart, headEndBodyStart, bodyEnd } from "./boilerplate";
 import { getHeadTags, getHtmlAndDefaultStyles } from "./helper-functions";
+import Layout from "./atoms/layout";
+import { AmpifyStoryTypes } from "./types/core-function-types";
+import HeroImage from "./molecules/hero-image";
+
 
 // const checkLayout = () => {
 //   // this should perform checks to decide whether the layout (i.e. stuff inside the accumulator) is fit for
@@ -8,7 +12,7 @@ import { getHeadTags, getHtmlAndDefaultStyles } from "./helper-functions";
 //   return accumulator.title ? null : new Error('Title is mandatory. It is not set')
 // }
 
-export function renderToString(component: ReactElement) {
+export function renderToString(component) {
   // check if layout can be rendered (i.e. if title and stuff is present), else throw error
   let str = "";
   try {
@@ -27,4 +31,16 @@ export function renderToString(component: ReactElement) {
   } catch (e) {
     return e;
   }
+}
+
+export function ampifyTextStory({story, config}: AmpifyStoryTypes) {
+  // returns ready-to-render amp html. Intended to be used by publishers who donot need customizations
+  // mimics platform amp
+  const layout = (
+    <Layout story={story} config={config}>
+      <div>THIS IS AMPIFIED TEXT STORY!!!</div>
+      <HeroImage />
+    </Layout>
+  )
+  return renderToString(layout);
 }

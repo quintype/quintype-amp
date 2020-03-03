@@ -1,6 +1,6 @@
 import amphtmlValidator from "amphtml-validator";
 
-export function validateAmpHtml(str) {
+export function isValidAmpHtml(str) {
   // returns promise, which resolves to either boolean true or error object with remarks
   return amphtmlValidator.getInstance().then((validator) => {
     const result = validator.validateString(str);
