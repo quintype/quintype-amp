@@ -60,7 +60,7 @@ export const HeroImageBase = ({ story, attribution, slug, metadata, caption }: H
   return (
     <div>
       <Image {...imageProps} />
-      {figcaptionText ? <StyledFigcaption>{figcaptionText}</StyledFigcaption> : null}
+      {figcaptionText && <StyledFigcaption>{figcaptionText}</StyledFigcaption>}
     </div>
   );
 };
