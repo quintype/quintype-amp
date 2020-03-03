@@ -20,7 +20,7 @@ export interface Story {
   "custom-slug": string;
   "push-notification": null;
   "publisher-id": number;
-  "hero-image-metadata": HeroImageMetadata;
+  "hero-image-metadata": HeroImageMetadata | null;
   comments: null;
   "word-count": number;
   entities: any;
@@ -36,10 +36,10 @@ export interface Story {
   autotags: any[];
   "linked-entities": any[];
   status: string;
-  "hero-image-attribution": string;
+  "hero-image-attribution": string | null;
   "bullet-type": string;
   id: string;
-  "hero-image-s3-key": string;
+  "hero-image-s3-key": string | null;
   contributors: null;
   "associated-series-collection-ids": any[];
   cards: Card[];
@@ -53,7 +53,7 @@ export interface Story {
   access: string;
   "asana-project-id": null;
   "first-published-at": number;
-  "hero-image-caption": null;
+  "hero-image-caption": string | null;
   version: number;
   "story-template": StoryTemplate;
   "sequence-no": number | null;
@@ -111,10 +111,10 @@ export interface Image {
 export interface HeroImageMetadata {
   width: number;
   height: number;
-  "mime-type": string;
-  "file-size": number;
-  "file-name": string;
-  "focus-point": number[];
+  "mime-type"?: string;
+  "file-size"?: number;
+  "file-name"?: string;
+  "focus-point"?: number[];
 }
 
 export interface StoryElement {

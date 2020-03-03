@@ -48,11 +48,11 @@ const font = {
   },
 
   lineHeight: {
-    1: 1,
-    2: 1.2,
-    3: 1.3,
-    4: 1.4,
-    5: 1.5
+    level1: 1,
+    level2: 1.2,
+    level3: 1.3,
+    level4: 1.4,
+    level5: 1.5
   }
 };
 
@@ -63,6 +63,19 @@ const spacing = {
   m: "16px",
   l: "24px",
   xl: "32px"
+};
+
+const zIndex = {
+  negativeZ1: -1,
+  z1: 1,
+  z100: 100,
+  z200: 200,
+  z300: 300,
+  z600: 600,
+  z700: 700,
+  z800: 800,
+  z900: 900,
+  z1000: 1000
 };
 
 const colorVariables = {
@@ -76,8 +89,9 @@ const colorVariables = {
 
 const tokens = {
   color: { ...colors, ...colorVariables },
-  font: font,
-  spacing: spacing
+  font,
+  spacing,
+  zIndex
 };
 
 export default tokens;
