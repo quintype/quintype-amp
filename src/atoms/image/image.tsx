@@ -1,13 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import { ImageTypes, AmpImgPropTypes } from "./types";
-import { ConfigContext } from "../../context/config-context";
 import { Config } from "../../types/config";
 import { focusedImagePath, calculateImgHeight } from "../../helper-functions";
-
-export const Image = (props: ImageTypes) => {
-  const config = useContext(ConfigContext) as Config;
-  return <BaseImage {...props} config={config} />;
-};
+import { withStoryAndConfig } from "../../context/with-story-config";
 
 export const BaseImage = ({
   metadata,
@@ -49,3 +44,5 @@ export const BaseImage = ({
 
   return <amp-img {...value}></amp-img>;
 };
+
+export const Image = withStoryAndConfig(BaseImage);

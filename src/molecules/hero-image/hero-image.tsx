@@ -1,10 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import Image from "../../atoms/image";
-import { StoryContext } from "../../context/storyContext";
-import { Story } from "../../types/story";
-import { HeroImageTypes, HeroImageBaseTypes } from "./types";
+import { HeroImageBaseTypes } from "./types";
 import styled from "styled-components";
 import { media } from "../../utils/media";
+import { withStoryAndConfig } from "../../context/with-story-config";
 
 const StyledFigcaption = styled.figcaption`
   text-align: left;
@@ -25,11 +24,6 @@ const StyledFigcaption = styled.figcaption`
 		overflow-y: scroll;
 	`}
 `;
-
-export const HeroImage = (props: HeroImageTypes) => {
-  const storyFromContext = useContext(StoryContext) as Story;
-  return <HeroImageBase story={storyFromContext} {...props} />;
-};
 
 export const HeroImageBase = ({ story, attribution, slug, metadata, caption }: HeroImageBaseTypes) => {
   let overRideStory = false;
@@ -64,6 +58,8 @@ export const HeroImageBase = ({ story, attribution, slug, metadata, caption }: H
     </div>
   );
 };
+
+export const HeroImage = withStoryAndConfig(HeroImageBase);
 
 export function getFigcaptionText(caption, attribution) {
   if (caption && attribution) return `${caption} | ${attribution}`;
