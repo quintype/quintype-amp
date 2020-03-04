@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import Image from "../../atoms/image";
-import { StoryContext } from "../../context/storyContext";
-import { Story } from "../../types/story";
+import Image from "../../../atoms/image";
+import { StoryContext } from "../../../context/storyContext";
+import { Story } from "../../../types/story";
 import { HeroImageTypes, HeroImageBaseTypes } from "./types";
 import styled from "styled-components";
-import { media } from "../../utils/media";
+import { media } from "../../../utils/media";
 
 const StyledFigcaption = styled.figcaption`
   text-align: left;
@@ -59,8 +59,7 @@ export const HeroImageBase = ({ story, attribution, slug, metadata, caption }: H
   }
   return (
     <div>
-      <Image {...imageProps} />
-      {figcaptionText && <StyledFigcaption>{figcaptionText}</StyledFigcaption>}
+      <Image {...imageProps}>{figcaptionText && <StyledFigcaption>{figcaptionText}</StyledFigcaption>}</Image>
     </div>
   );
 };

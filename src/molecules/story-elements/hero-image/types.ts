@@ -1,4 +1,4 @@
-import { HeroImageMetadata, Story } from "../../types/story";
+import { HeroImageMetadata, Story } from "../../../types/story";
 
 export interface HeroImageTypes {
   attribution?: string;

@@ -47,5 +47,5 @@ export const BaseImage = ({
       value.height = calculateImgHeight(aspectRatio, metadata.width);
   }
 
-  return <amp-img {...value}></amp-img>;
+  return <amp-img {...value} />;
 };

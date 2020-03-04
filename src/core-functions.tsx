@@ -3,7 +3,7 @@ import { headStart, headEndBodyStart, bodyEnd } from "./boilerplate";
 import { getHeadTags, getHtmlAndDefaultStyles } from "./helper-functions";
 import Layout from "./atoms/layout";
 import { AmpifyStoryTypes } from "./types/core-function-types";
-import HeroImage from "./molecules/hero-image";
+import HeroImage from "./molecules/story-elements/hero-image";
 
 // const checkLayout = () => {
 //   // this should perform checks to decide whether the layout (i.e. stuff inside the accumulator) is fit for
