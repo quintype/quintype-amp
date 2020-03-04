@@ -5,7 +5,6 @@ import Layout from "./atoms/layout";
 import { AmpifyStoryTypes } from "./types/core-function-types";
 import HeroImage from "./molecules/hero-image";
 
-
 // const checkLayout = () => {
 //   // this should perform checks to decide whether the layout (i.e. stuff inside the accumulator) is fit for
 //   // rendering into an amp page or not, else it should return an error object with a proper message
@@ -33,7 +32,7 @@ export function renderToString(component) {
   }
 }
 
-export function ampifyTextStory({story, config}: AmpifyStoryTypes) {
+export function ampifyTextStory({ story, config }: AmpifyStoryTypes) {
   // returns ready-to-render amp html. Intended to be used by publishers who donot need customizations
   // mimics platform amp
   const layout = (
@@ -41,6 +40,6 @@ export function ampifyTextStory({story, config}: AmpifyStoryTypes) {
       <div>THIS IS AMPIFIED TEXT STORY!!!</div>
       <HeroImage />
     </Layout>
-  )
+  );
   return renderToString(layout);
 }
