@@ -1,3 +1,7 @@
+/**
+ * @jest-environment node
+ */
+
 import { ampifyTextStory } from "./core-functions"
 import { isValidAmpHtml } from "./utils/validate-amp";
 import { storyWithManyJsEmbeds } from "./__fixtures__/story.fixture";
