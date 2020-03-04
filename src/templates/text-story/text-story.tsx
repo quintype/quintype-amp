@@ -1,6 +1,6 @@
 import React from "react";
 import { Layout } from "../../atoms";
-import { HeroImage } from "../../molecules/story-elements";
+import { HeroImage } from "../../molecules";
 
 const TextStory = ({ story, config }) => {
   return (

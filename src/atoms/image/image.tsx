@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { ImageTypes, AmpImgPropTypes } from "./types";
 import { ConfigContext } from "../../context/config-context";
 import { Config } from "../../types/config";
-import { focusedImagePath, calculateImgHeight } from "../../helper-functions";
+import { focusedImagePath, calculateImgHeight } from "../../helpers";
 
 export const Image = (props: ImageTypes) => {
   const config = useContext(ConfigContext) as Config;
