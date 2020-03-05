@@ -5,7 +5,6 @@ import get from "lodash.get";
 
 export function ampifyStory({ story, config }: AmpifyStoryTypes) {
   // returns ready-to-render amp html. Intended to be used by publishers who donot need customizations
-  // mimics platform amp
   const template = getTemplate({ story, config });
   return renderToString(template);
 }

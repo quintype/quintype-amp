@@ -1,6 +1,3 @@
-// cdn_image for staging stories=> //thumbor-stg.assettype.com
-// cdn_image for prod stories => //images.assettype.com
-
 export const config = {
   asset_host: "https://fea.assettype.com",
   cdn_image: "//thumbor-stg.assettype.com",
