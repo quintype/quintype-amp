@@ -2,10 +2,15 @@ import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { Footer } from "./footer";
 import { config } from "../../__fixtures__/config.fixture";
+import { textStory } from "../../__fixtures__/story.fixture";
 import Layout from "../layout";
 
 storiesOf("Footer", module)
-  .addDecorator((story) => <Layout config={config}>{story()}</Layout>)
+  .addDecorator((story) => (
+    <Layout story={textStory} config={config}>
+      {story()}
+    </Layout>
+  ))
   .add("No Footer Text", () => <Footer />)
   .add("With Footer Text", () => (
     <Footer text="Copyright © 2020 Lorem Ipsum Media Private Limited. All Rights Reserved" />
