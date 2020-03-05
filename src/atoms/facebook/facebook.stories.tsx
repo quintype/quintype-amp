@@ -5,7 +5,7 @@ import { Facebook } from "./facebook";
 const postSrc = "https://www.facebook.com/ParksCanada/posts/1712989015384373";
 
 storiesOf("Facebook", module)
-  .add("Post with 16:9 responsive (default) layout", () => <Facebook data-href={postSrc}></Facebook>)
+  .add("Post with 16:9 responsive (default) layout", () => <Facebook data-href={postSrc} />)
   .add("Post with fixed (custom) layout", () => (
     <Facebook width="200" height="200" layout="fixed" data-href={postSrc} />
   ))

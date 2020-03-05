@@ -1,12 +1,12 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { Footer } from "./footer";
-import { textStory, config } from "../../__fixtures__";
+import { config, textStory } from "../../__fixtures__";
 import Layout from "../layout";
 
 storiesOf("Footer", module)
   .addDecorator((story) => (
-    <Layout config={config} story={textStory}>
+    <Layout story={textStory} config={config}>
       {story()}
     </Layout>
   ))
