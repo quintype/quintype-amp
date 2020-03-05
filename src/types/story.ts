@@ -9,15 +9,15 @@ export interface Story {
   votes: any;
   "story-content-id": string;
   slug: string;
-  "linked-stories": any;
+  "linked-stories"?: any;
   "last-published-at": number;
-  subheadline: string;
+  subheadline: string | null;
   sections: Section[];
   "read-time": number;
   "access-level-value": null;
   "content-created-at": number;
   "owner-name": string;
-  "custom-slug": string;
+  "custom-slug": string | null;
   "push-notification": null;
   "publisher-id": number;
   "hero-image-metadata": HeroImageMetadata | null;
@@ -40,7 +40,7 @@ export interface Story {
   "bullet-type": string;
   id: string;
   "hero-image-s3-key": string | null;
-  contributors: null;
+  contributors: [] | null;
   "associated-series-collection-ids": any[];
   cards: Card[];
   url: string;
@@ -50,12 +50,12 @@ export interface Story {
   "author-id": number;
   "owner-id": number;
   "linked-story-ids": string[];
-  access: string;
+  access: string | null;
   "asana-project-id": null;
   "first-published-at": number;
   "hero-image-caption": string | null;
   version: number;
-  "story-template": StoryTemplate;
+  "story-template": StoryTemplate | string;
   "sequence-no": number | null;
   "created-at": number;
   authors: Author[];
@@ -70,10 +70,15 @@ export interface Author {
   name: string;
   slug: string;
   "avatar-url": string;
-  "avatar-s3-key": string;
+  "avatar-s3-key": string | null;
   "twitter-handle": null;
   bio: null;
-  "contributor-role": null;
+  "contributor-role": ContributorRole | null;
+}
+
+export interface ContributorRole {
+  id: number;
+  name: string;
 }
 
 export interface Card {
@@ -104,7 +109,7 @@ export interface Image {
   key: string;
   url: null;
   attribution: string;
-  caption: null;
+  caption: string | null;
   metadata: HeroImageMetadata;
 }
 
@@ -119,19 +124,29 @@ export interface HeroImageMetadata {
 
 export interface StoryElement {
   description: string;
+  "embed-js"?: string;
   "page-url": string;
+  url?: string;
+  "embed-url"?: string;
   type: string;
   "family-id": string;
   title: string;
   id: string;
   metadata: StoryElementMetadata;
   subtype: null | string;
-  text: string;
+  text?: string;
 }
 
 export interface StoryElementMetadata {
   "linked-story-id"?: string;
   "linked-story"?: LinkedStory;
+  "facebook-url"?: string;
+  provider?: string;
+  "post-id"?: string;
+  "tweet-url"?: string;
+  "tweet-id"?: string;
+  "instagram-url"?: string;
+  "instagram-id"?: string | null;
 }
 
 export interface LinkedStory {
@@ -165,7 +180,7 @@ export interface Collection {
 }
 
 export interface StoryMetadata {
-  "sponsored-by": string;
+  "sponsored-by"?: string;
   "card-share": CardShare;
 }
 
@@ -183,8 +198,8 @@ export interface Tag {
 }
 
 export interface SEO {
-  "meta-keywords": string[];
-  "meta-title": string;
-  "meta-description": string;
-  "claim-reviews": any;
+  "meta-keywords"?: string[];
+  "meta-title"?: string;
+  "meta-description"?: string;
+  "claim-reviews"?: any;
 }

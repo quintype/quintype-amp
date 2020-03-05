@@ -1,8 +1,8 @@
 import React from "react";
 import { ImageTypes, AmpImgPropTypes } from "./types";
 import { Config } from "../../types/config";
-import { focusedImagePath, calculateImgHeight } from "../../helper-functions";
-import { withStoryAndConfig } from "../../context/with-story-config";
+import { focusedImagePath, calculateImgHeight } from "../../helpers";
+import { withConfig } from "../../context";
 
 export const BaseImage = ({
   metadata,
@@ -42,7 +42,7 @@ export const BaseImage = ({
       value.height = calculateImgHeight(aspectRatio, metadata.width);
   }
 
-  return <amp-img {...value}></amp-img>;
+  return <amp-img {...value} />;
 };
 
-export const Image = withStoryAndConfig(BaseImage);
+export const Image = withConfig(BaseImage);

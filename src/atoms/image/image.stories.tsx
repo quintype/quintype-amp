@@ -1,9 +1,7 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { Image } from "./image";
-import { textStory } from "../../__fixtures__/story.fixture";
-import { config } from "../../__fixtures__/config.fixture";
-
+import { textStory, config } from "../../__fixtures__";
 import Layout from "../layout";
 import get from "lodash.get";
 

@@ -1,5 +1,6 @@
-import { renderToString } from "./core-functions";
+import { renderToString, ampifyStory } from "./helpers";
 import * as atoms from "./atoms";
+import * as molecules from "./molecules";
 
-const Amp = { ...atoms };
-export { Amp, renderToString };
+const Amp = { ...atoms, ...molecules };
+export { Amp, renderToString, ampifyStory };

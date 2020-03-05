@@ -1,8 +1,7 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { Footer } from "./footer";
-import { config } from "../../__fixtures__/config.fixture";
-import { textStory } from "../../__fixtures__/story.fixture";
+import { config, textStory } from "../../__fixtures__";
 import Layout from "../layout";
 
 storiesOf("Footer", module)

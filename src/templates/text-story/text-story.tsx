@@ -1,11 +1,11 @@
 import React from "react";
 import { Layout } from "../../atoms";
-import { textStory } from "../../__fixtures__/story.fixture";
-import { config as storyConfig } from "../../__fixtures__/config.fixture";
+import { HeroImage } from "../../molecules";
 
-const TextStory = ({ story = textStory, config = storyConfig }: any) => {
+const TextStory = ({ story, config }) => {
   return (
     <Layout story={story} config={config}>
+      <HeroImage />
       <h1>This is a text story</h1>
     </Layout>
   );
