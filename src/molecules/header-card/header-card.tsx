@@ -1,10 +1,8 @@
-import React, { useContext } from "react";
-import { StoryContext } from "../../context/story-context";
-import { Story } from "../../types/story";
-import { withStoryAndConfig } from "../../context/with-story-config";
+import React from "react";
+import { withStoryAndConfig } from "../../context";
+import { HeaderCardTypes } from "./types";
 
-const HeaderCardBase = () => {
-  const story = useContext(StoryContext) as Story;
+const HeaderCardBase = ({ story }: HeaderCardTypes) => {
   return <h1>{story.headline}</h1>;
 };
 

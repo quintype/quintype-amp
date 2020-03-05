@@ -2,8 +2,8 @@ import React, { Fragment } from "react";
 import { Layout } from "./types";
 import { Helmet } from "react-helmet";
 import { Theme } from "../../context/theme";
-import { StoryProvider } from "../../context/story-context";
-import { ConfigProvider } from "../../context/config-context";
+import { StoryProvider } from "../../context/story/story-context";
+import { ConfigProvider } from "../../context/config/config-context";
 import { getTokensFromConfig } from "../../utils/theme";
 
 import styled from "styled-components";
