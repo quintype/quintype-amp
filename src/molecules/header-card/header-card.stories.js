@@ -2,8 +2,7 @@ import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { HeaderCard } from "./header-card";
 import { Layout } from "../../atoms";
-import { textStory } from "../../__fixtures__/story.fixture";
-import { config } from "../../__fixtures__/config.fixture";
+import { textStory, config } from "../../__fixtures__";
 
 storiesOf("Header Card", module)
   .addDecorator((story) => (

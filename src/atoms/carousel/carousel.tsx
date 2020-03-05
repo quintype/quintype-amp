@@ -7,7 +7,7 @@ const StyledCarousel = styled.div`
   background-color: purple;
 `;
 
-const Carousel = (props: CarouselTypes) => {
+export const Carousel = (props: CarouselTypes) => {
   return (
     <Fragment>
       <Helmet>
@@ -22,5 +22,3 @@ const Carousel = (props: CarouselTypes) => {
     </Fragment>
   );
 };
-
-export default Carousel;

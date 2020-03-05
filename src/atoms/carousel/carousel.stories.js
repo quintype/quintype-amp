@@ -1,6 +1,6 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
-import Carousel from "./carousel";
+import { Carousel } from "./carousel";
 
 storiesOf("Carousel", module).add("with images", () => (
   <Carousel height="300" width="500" layout="responsive" type="slides">

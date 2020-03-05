@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Image from "../../atoms/image";
+import { Image } from "../../atoms";
 import { StoryContext } from "../../context/storyContext";
 import { Story } from "../../types/story";
 import { HeroImageTypes, HeroImageBaseTypes } from "./types";

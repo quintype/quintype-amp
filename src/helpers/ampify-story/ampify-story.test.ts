@@ -4,8 +4,7 @@
 
 import { ampifyStory } from "./ampify-story";
 import { isValidAmpHtml } from "../../utils/validate-amp";
-import { storyWithManyJsEmbeds } from "../../__fixtures__/story.fixture";
-import { config } from "../../__fixtures__/config.fixture";
+import { storyWithManyJsEmbeds, config } from "../../__fixtures__";
 
 test("ampifyStory function should return valid amp-html", async () => {
   const ampHtml = ampifyStory({ story: storyWithManyJsEmbeds, config });

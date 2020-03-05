@@ -5,8 +5,7 @@
 import React from "react";
 import { Layout } from "../../atoms";
 import { HeroImage } from "../../molecules";
-import { storyWithManyJsEmbeds } from "../../__fixtures__/story.fixture";
-import { config } from "../../__fixtures__/config.fixture";
+import { storyWithManyJsEmbeds, config } from "../../__fixtures__";
 import { renderToString } from "./render-to-string";
 import { isValidAmpHtml } from "../../utils/validate-amp";
 
