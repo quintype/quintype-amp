@@ -3,7 +3,7 @@ import { Image } from "../../atoms";
 import { HeroImageBaseTypes } from "./types";
 import styled from "styled-components";
 import { media } from "../../utils/media";
-import { withStoryAndConfig } from "../../context/with-story-config";
+import { withStoryAndConfig } from "../../context";
 
 const StyledFigcaption = styled.figcaption`
   text-align: left;
