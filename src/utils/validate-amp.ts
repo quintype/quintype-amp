@@ -4,10 +4,10 @@ export function isValidAmpHtml(str) {
   // returns promise, which resolves to either boolean true or error object with remarks
   return amphtmlValidator.getInstance().then((validator) => {
     const result = validator.validateString(str);
-    return result.status === "PASS" ? true : collectError(result);
+    return result.status === "PASS" ? true : collectError(result, str);
   });
 
-  function collectError(result) {
+  function collectError(result, ampHtml) {
     let output = `AmpValidator status => ${result.status}\n`;
     // tslint:disable-next-line:prefer-for-of
     for (let ii = 0; ii < result.errors.length; ii++) {
@@ -18,6 +18,7 @@ export function isValidAmpHtml(str) {
       }
       output += `${msg}\n`;
     }
+    output += `Buggy amp-html >> \n${ampHtml}\n`;
     return output;
   }
 }

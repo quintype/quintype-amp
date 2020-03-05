@@ -2,7 +2,7 @@ import React from "react";
 import { ImageTypes, AmpImgPropTypes } from "./types";
 import { Config } from "../../types/config";
 import { focusedImagePath, calculateImgHeight } from "../../helpers";
-import { withStoryAndConfig } from "../../context/with-story-config";
+import { withConfig } from "../../context/with-config";
 
 export const BaseImage = ({
   metadata,
@@ -45,4 +45,4 @@ export const BaseImage = ({
   return <amp-img {...value} />;
 };
 
-export const Image = withStoryAndConfig(BaseImage);
+export const Image = withConfig(BaseImage);
