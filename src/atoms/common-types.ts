@@ -9,6 +9,7 @@ declare global {
       "amp-carousel": CarouselTypes;
       "amp-facebook": FacebookTypes;
       "amp-twitter": TwitterTypes;
+      "amp-sidebar";
     }
   }
 }

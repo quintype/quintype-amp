@@ -2,8 +2,8 @@ const colors = {
   white: "#FFF",
   black: "#0d0d0d",
 
-  brand1: "#b80002",
-  brand2: "#fff9f9",
+  brand1: "#FFFFFF",
+  brand2: "#004c90",
   brand3: "#4860bc",
   brand4: "#f6f8ff",
 

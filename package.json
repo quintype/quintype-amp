@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Quintype's AMP component library for publisher apps to create amp layouts",
   "scripts": {
-    "storybook": "start-storybook -p 9001",
+    "storybook": "start-storybook -s ./storybook-assets -p 9001",
     "build": "webpack",
     "test": "jest --env=jsdom --watch",
     "test:cover": "jest --env=jsdom --coverage --watchAll; open coverage/index.html",
@@ -47,7 +47,6 @@
     "enzyme-adapter-react-16": "^1.15.2",
     "husky": "^4.2.3",
     "jest": "^25.1.0",
-    "lodash.get": "^4.4.2",
     "prettier": "^1.19.1",
     "react-amphtml": "^2.2.2",
     "ts-jest": "^25.2.0",
@@ -60,6 +59,7 @@
     "webpack-cli": "^3.3.10"
   },
   "dependencies": {
+    "lodash.get": "^4.4.2",
     "lodash.merge": "^4.6.2",
     "quintype-js": "^1.2.0",
     "react": "^16.12.0",
