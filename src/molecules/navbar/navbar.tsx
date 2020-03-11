@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import styled from "styled-components";
 import { PublisherLogoHeader, icons, HamburgerMenu } from "../../atoms";
 import { NavbarTypes } from "./types";
@@ -43,6 +43,7 @@ const HamburgerLogoWrapper = styled.div<{ isLeft: boolean }>`
 
 export const NavbarBase = ({ logoSrc = "", align = "left", config }: NavbarTypes) => {
   const isLeft = align === "left";
+  const isMenuEnabled = get(config, ["theme", "menu", "enabled"], false);
   const hamburgerMenuItems = get(config, ["theme", "menu", "items"], []);
   const textDirection = get(config, ["theme", "text_direction"], "ltr");
   const logo = logoSrc || get(config, ["theme", "logo-url"], "");
@@ -51,16 +52,20 @@ export const NavbarBase = ({ logoSrc = "", align = "left", config }: NavbarTypes
       <LogoWrapper>
         <PublisherLogoHeader logoSrc={logo} />
       </LogoWrapper>
-      <HamburgerLogoWrapper on="tap:sidebar" isLeft={isLeft}>
-        <HamburgerLogo />
-      </HamburgerLogoWrapper>
-      <HamburgerMenu align={align} textDirection={textDirection} items={hamburgerMenuItems}>
-        <StyledListItem>
-          <StyledCloseIcon on="tap:sidebar.close">
-            <Close />
-          </StyledCloseIcon>
-        </StyledListItem>
-      </HamburgerMenu>
+      {isMenuEnabled && (
+        <Fragment>
+          <HamburgerLogoWrapper on="tap:sidebar" isLeft={isLeft}>
+            <HamburgerLogo />
+          </HamburgerLogoWrapper>
+          <HamburgerMenu align={align} textDirection={textDirection} items={hamburgerMenuItems}>
+            <StyledListItem>
+              <StyledCloseIcon on="tap:sidebar.close">
+                <Close />
+              </StyledCloseIcon>
+            </StyledListItem>
+          </HamburgerMenu>
+        </Fragment>
+      )}
     </StyledNavbar>
   );
 };
