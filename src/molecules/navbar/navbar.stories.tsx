@@ -18,7 +18,7 @@ storiesOf("Navbar", module)
   .add("With custom logo", () => <Navbar logoSrc="/header-logo.png" />)
   .add("Right Aligned", () => <Navbar align="right" />);
 
-storiesOf("Navbar for LTR publisher", module)
+storiesOf("Navbar for RTL publisher", module)
   .addDecorator((story) => (
     <Layout story={textStory} config={modifiedConfig}>
       {story()}
