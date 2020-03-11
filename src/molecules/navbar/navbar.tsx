@@ -41,14 +41,15 @@ const HamburgerLogoWrapper = styled.div<{ isLeft: boolean }>`
   `}
 `;
 
-export const NavbarBase = ({ logoSrc, align = "left", config }: NavbarTypes) => {
+export const NavbarBase = ({ logoSrc = "", align = "left", config }: NavbarTypes) => {
   const isLeft = align === "left";
   const hamburgerMenuItems = get(config, ["theme", "menu", "items"], []);
-  const textDirection = get(config, "text_direction", "ltr");
+  const textDirection = get(config, ["theme", "text_direction"], "ltr");
+  const logo = logoSrc || get(config, ["theme", "logo-url"], "");
   return (
     <StyledNavbar>
       <LogoWrapper>
-        <PublisherLogoHeader logoSrc={logoSrc} />
+        <PublisherLogoHeader logoSrc={logo} />
       </LogoWrapper>
       <HamburgerLogoWrapper on="tap:sidebar" isLeft={isLeft}>
         <HamburgerLogo />
