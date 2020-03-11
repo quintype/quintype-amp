@@ -3,10 +3,10 @@ import { Helmet } from "react-helmet";
 import { HamburgerMenuTypes } from "./types";
 import styled from "styled-components";
 
-const StyledList = styled.ul<{ isLeft: boolean }>`
+const StyledList = styled.ul`
   list-style: none;
   margin: 0;
-  padding: ${(props) => (props.isLeft ? "0 10px 0 20px" : "0 20px 0 10px")};
+  padding: 0 15px;
   min-width: 220px;
   font: ${(props) => {
     const fontFamily = props.theme.font.family.primary;
@@ -26,15 +26,14 @@ const StyledAnchor = styled.a`
   color: ${(props) => props.theme.color.secondaryColor};
 `;
 
-export const HamburgerMenu = ({ align, children, items }: HamburgerMenuTypes) => {
-  const isLeft = align === "left";
+export const HamburgerMenu = ({ align, children, items, textDirection }: HamburgerMenuTypes) => {
   return (
     <Fragment>
       <Helmet>
         <script async={undefined} custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js" />
       </Helmet>
       <amp-sidebar id="sidebar" layout="nodisplay" side={align}>
-        <StyledList isLeft={isLeft}>
+        <StyledList dir={textDirection}>
           {children}
           {items.map((item, i) => (
             <StyledListItem key={i}>

@@ -1,6 +1,7 @@
 export const config = {
   asset_host: "https://fea.assettype.com",
   cdn_image: "//thumbor-stg.assettype.com",
+  text_direction: "ltr",
   theme: {
     name: "default",
     "logo-html": '<h2 class="site-logo background-logo"><a class="logo" href="/" title="Home"></a></h2>',

@@ -1,6 +1,7 @@
 export interface Config {
   cdn_image: string;
   theme: ThemeConfig;
+  text_direction?: string;
 }
 
 interface ThemeConfig {
