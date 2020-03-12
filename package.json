@@ -67,9 +67,11 @@
   "dependencies": {
     "lodash.merge": "^4.6.2",
     "quintype-js": "^1.2.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "styled-components": "^5.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   }
 }
