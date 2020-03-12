@@ -4,10 +4,15 @@
   "description": "Quintype's AMP component library for publisher apps to create amp layouts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "storybook": "start-storybook -p 9001",
     "clean": "rimraf dist",
-    "build": "rollup -c",
+    "build": "npm run clean && rollup -c",
+    "pack": "npm run build && npm pack",
+    "dist": "npm run build && npm publish --access public",
     "test": "jest --env=jsdom --watch",
     "test:cover": "jest --env=jsdom --coverage --watchAll; open coverage/index.html",
     "test:ci": "jest --env=jsdom --coverage --maxWorkers=2",
