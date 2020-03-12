@@ -1,7 +1,7 @@
 import React from "react";
 import { ImageTypes, AmpImgPropTypes } from "./types";
 import { Config } from "../../types/config";
-import { focusedImagePath, calculateImgHeight } from "../../helpers";
+import { focusedImagePath, calculateImgHeight } from "../../helpers/image-helpers";
 import { withConfig } from "../../context";
 
 export const BaseImage = ({
