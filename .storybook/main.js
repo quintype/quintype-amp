@@ -1,15 +1,16 @@
+const path = require("path");
+
 module.exports = {
   stories: ["../src/**/*.stories.tsx"],
-  webpackFinal: async (config) => {
-    config.module.rules.push({
-      test: /\.(ts|tsx)$/,
-      use: [
-        {
-          loader: require.resolve("ts-loader")
+  addons: [
+    {
+      name: "@storybook/preset-typescript",
+      options: {
+        include: [path.resolve(__dirname, "../src")],
+        tsLoaderOptions: {
+          configFile: path.resolve(__dirname, "../tsconfig.json")
         }
-      ]
-    });
-    config.resolve.extensions.push(".ts", ".tsx");
-    return config;
-  }
+      }
+    }
+  ]
 };

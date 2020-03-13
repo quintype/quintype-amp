@@ -1,6 +1,7 @@
 import { renderToString, ampifyStory } from "./helpers";
+import * as Templates from "./templates";
 import * as atoms from "./atoms";
 import * as molecules from "./molecules";
 
-const Amp = { ...atoms, ...molecules };
-export { Amp, renderToString, ampifyStory };
+const AMP = { ...atoms, ...molecules };
+export { AMP, Templates, renderToString, ampifyStory };
