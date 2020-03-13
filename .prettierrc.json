@@ -1,5 +1,6 @@
 {
   "printWidth": 120,
   "jsxBracketSameLine": true,
-  "semi": true
+  "semi": true,
+  "arrowParens": "always"
 }
