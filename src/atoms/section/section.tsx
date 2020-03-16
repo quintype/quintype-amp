@@ -6,7 +6,7 @@ const StyledSection = styled.h5`
   font-family: ${(props) => props.theme.font.family.primary};
   font-size: ${(props) => props.theme.font.size.xs};
   letter-spacing: 1px;
-  margin: 5px 15px;
+  margin: 0;
   font-weight: bold;
 `;
 
