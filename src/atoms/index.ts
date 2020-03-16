@@ -6,5 +6,6 @@ import Twitter from "./twitter";
 import Footer from "./footer";
 import { Section } from "./section";
 import { Spacer } from "./spacer";
+import { Author } from "./author";
 
-export { Carousel, Image, Layout, Facebook, Twitter, Footer, Section, Spacer };
+export { Carousel, Image, Layout, Facebook, Twitter, Footer, Section, Spacer, Author };
