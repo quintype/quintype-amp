@@ -13,7 +13,7 @@ describe("Spacer", () => {
   });
   it("should generate proper margin value for horizontal", () => {
     const value = makeSpace("32px", "horizontal");
-    expect(value).toBe("0 0 0 32px");
+    expect(value).toBe("0 32px");
   });
   it("should return vertical margin when no direction is passed", () => {
     const value = makeSpace("32px");
