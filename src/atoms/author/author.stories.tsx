@@ -48,4 +48,8 @@ storiesOf("Author", module)
   ))
   .add("With one author", () => <Author authors={singleAuthor} />)
   .add("With two authors", () => <Author authors={twoAuthors} />)
-  .add("With multiple authors", () => <Author authors={multipleAuthors} />);
+  .add("With multiple authors", () => <Author authors={multipleAuthors} />)
+  .add("With prepend text", () => <Author authors={multipleAuthors} prepend="By" />)
+  .add("With prepend image/icon", () => (
+    <Author authors={multipleAuthors} prepend={<img src="https://placehold.it/32x32" />} />
+  ));

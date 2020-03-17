@@ -52,4 +52,13 @@ describe("Author", () => {
     const wrapper = shallow(<Author authors={twoAuthors} />);
     expect(wrapper.text()).toBe(" Alfred Pennyworth & Selena Kyle");
   });
+  it("should prepend text", () => {
+    const wrapper = shallow(<Author authors={multipleAuthors} prepend="By" />);
+    expect(wrapper.text()).toBe("By Bruce Wayne, Alfred Pennyworth & Selena Kyle");
+  });
+  it("should prepend an icon", () => {
+    const wrapper = shallow(<Author authors={multipleAuthors} prepend={<img src="https://placehold.it/32x32" />} />);
+    expect(wrapper.find("img").length).toBe(1);
+    expect(wrapper.text()).toBe(" Bruce Wayne, Alfred Pennyworth & Selena Kyle");
+  });
 });

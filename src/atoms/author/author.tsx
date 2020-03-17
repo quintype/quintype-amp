@@ -1,11 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { Author } from "../../types/story";
+import { AuthorProps } from "./types";
 
 const StyledAuthor = styled.div`
   font-family: ${(props) => props.theme.font.family.secondary};
   font-size: ${(props) => props.theme.font.size.xxs};
   font-weight: bold;
+  display: flex;
+  align-items: center;
 `;
 
 const getAuthorNames = (authors: Author[]) =>
@@ -22,8 +25,13 @@ const getAuthorNames = (authors: Author[]) =>
     return "";
   }, "");
 
-const Author = ({ authors }: { authors: Author[] }) => {
-  return <StyledAuthor>{getAuthorNames(authors)}</StyledAuthor>;
+const Author = ({ authors, prepend }: AuthorProps) => {
+  return (
+    <StyledAuthor>
+      {prepend && prepend}
+      {getAuthorNames(authors)}
+    </StyledAuthor>
+  );
 };
 
 export { Author };
