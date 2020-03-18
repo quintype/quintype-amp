@@ -7,5 +7,5 @@ import Footer from "./footer";
 import { Section } from "./section";
 import { Spacer } from "./spacer";
 import { Author } from "./author";
-
-export { Carousel, Image, Layout, Facebook, Twitter, Footer, Section, Spacer, Author };
+import { DateTime } from "./date-time";
+export { Carousel, Image, Layout, Facebook, Twitter, Footer, Section, Spacer, Author, DateTime };
