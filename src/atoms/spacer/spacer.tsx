@@ -13,11 +13,11 @@ const StyledSpacer = styled.div<SpacerProps>`
 const makeSpace = (token: string, align?: SpaceDirection) => {
   switch (align) {
     case "vertical":
-      return `${token} 0`;
+      return `0 0 ${token} 0`;
     case "horizontal":
-      return `0 ${token}`;
+      return `0 0 0 ${token}`;
     default:
-      return `${token} 0`;
+      return `0 0 ${token} 0`;
   }
 };
 
