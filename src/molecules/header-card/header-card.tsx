@@ -12,7 +12,6 @@ const Headline = styled.h1`
 	line-height: ${(props) => props.theme.font.lineHeight.level2};
 	margin: 0;
 	font-weight: bold;
-}
 `;
 const HeaderCardContainer = styled.div`
   padding: 0 ${(props) => props.theme.spacing.s};
