@@ -4,5 +4,8 @@ import Layout from "./layout";
 import Facebook from "./facebook";
 import Twitter from "./twitter";
 import Footer from "./footer";
-
-export { Carousel, Image, Layout, Facebook, Twitter, Footer };
+import { Section } from "./section";
+import { Spacer } from "./spacer";
+import { Author } from "./author";
+import { DateTime } from "./date-time";
+export { Carousel, Image, Layout, Facebook, Twitter, Footer, Section, Spacer, Author, DateTime };

@@ -62,7 +62,9 @@ const spacing = {
   s: "12px",
   m: "16px",
   l: "24px",
-  xl: "32px"
+  xl: "32px",
+  xxl: "40px",
+  huge: "48px"
 };
 
 const zIndex = {

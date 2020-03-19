@@ -9,7 +9,7 @@ import { getTokensFromConfig } from "../../utils/theme";
 import styled from "styled-components";
 
 const Container = styled.main`
-  background-color: ${(props) => props.theme.color.brand1};
+  font-family: ${(props) => props.theme.font.family.primary};
 `;
 
 const Layout = ({ style, children, story, config }: Layout) => {
