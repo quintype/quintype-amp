@@ -1,5 +1,13 @@
 import React from "react";
 
-const Pending = () => <div>This element is pending implementation</div>;
+const Pending = ({ element }) => (
+  <div style={{ backgroundColor: "tomato", color: "white", fontSize: "18px", fontFamily: "monospace" }}>
+    This element is pending implementation
+    <div>
+      Type: {element.type} <br />
+      Subtype: {element.subtype}
+    </div>
+  </div>
+);
 
 export { Pending };
