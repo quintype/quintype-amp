@@ -16,8 +16,8 @@ const colors = {
   mono3: "#d1d1d1",
   mono4: "#797979",
   mono5: "#636363",
-  mono6: "333333",
-  mono7: "0d0d0d"
+  mono6: "#333333",
+  mono7: "#0d0d0d"
 };
 
 const font = {
