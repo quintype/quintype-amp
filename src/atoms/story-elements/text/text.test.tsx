@@ -1,5 +1,5 @@
 import React from "react";
-import { BaseText } from "./text";
+import { Text } from "./text";
 import { shallow } from "enzyme";
 
 const sampleTextElement = {
@@ -12,11 +12,7 @@ const sampleTextElement = {
 
 describe("Text", () => {
   it("should render text", () => {
-    const wrapper = shallow(<BaseText element={sampleTextElement} />);
+    const wrapper = shallow(<Text element={sampleTextElement} />);
     expect(wrapper).toMatchSnapshot();
-  });
-  it("should convert links to external", () => {
-    const wrapper = shallow(<BaseText element={sampleTextElement} externalLink={true} />);
-    expect(wrapper.html().includes('<a target="_blank"')).toBe(true);
   });
 });
