@@ -123,16 +123,16 @@ export interface HeroImageMetadata {
 }
 
 export interface StoryElement {
-  description: string;
+  description?: string;
   "embed-js"?: string;
-  "page-url": string;
+  "page-url"?: string;
   url?: string;
   "embed-url"?: string;
   type: string;
-  "family-id": string;
-  title: string;
+  "family-id"?: string;
+  title?: string;
   id: string;
-  metadata: StoryElementMetadata;
+  metadata?: StoryElementMetadata;
   subtype: null | string;
   text?: string;
 }
@@ -147,6 +147,8 @@ export interface StoryElementMetadata {
   "tweet-id"?: string;
   "instagram-url"?: string;
   "instagram-id"?: string | null;
+  content?: string;
+  attribution?: string;
 }
 
 export interface LinkedStory {

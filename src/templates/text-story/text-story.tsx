@@ -1,12 +1,21 @@
 import React from "react";
-import { Layout } from "../../atoms";
-import { HeroImage } from "../../molecules";
+import { Layout, StoryElement, Spacer } from "../../atoms";
+import { HeaderCard } from "../../molecules";
+import styled from "styled-components";
 
+const StoryContainer = styled.div`
+  padding: 0 ${(props) => props.theme.spacing.s};
+`;
 const TextStory = ({ story, config }) => {
   return (
     <Layout story={story} config={config}>
-      <HeroImage />
-      <h1>This is a text story</h1>
+      <HeaderCard />
+      <Spacer token="s" />
+      <StoryContainer>
+        {story.cards.map((card) =>
+          card["story-elements"].map((element) => <StoryElement key={element.id} element={element} />)
+        )}
+      </StoryContainer>
     </Layout>
   );
 };
