@@ -8,8 +8,8 @@ import { Section } from "./section";
 import { Spacer } from "./spacer";
 import { Author } from "./author";
 import { DateTime } from "./date-time";
-import { StoryElements } from "./story-elements";
 import { StoryElement } from "./story-elements/story-element";
+import { StoryElements } from "./story-elements";
 
 export {
   Carousel,
