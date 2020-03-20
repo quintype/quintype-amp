@@ -147,6 +147,8 @@ export interface StoryElementMetadata {
   "tweet-id"?: string;
   "instagram-url"?: string;
   "instagram-id"?: string | null;
+  content?: string;
+  attribution?: string;
 }
 
 export interface LinkedStory {
