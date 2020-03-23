@@ -1,7 +1,12 @@
 import { Story } from "../../types/story";
-import { Config } from "../../types/config";
+import { AMPConfig, PublisherConfig } from "../../types/config";
 
 export interface AmpifyStoryTypes {
   story: Story;
-  config: Config;
+  ampConfig: AMPConfig;
+  publisherConfig: PublisherConfig;
+  opts?: {
+    templates?: object;
+    slots?: object;
+  };
 }
