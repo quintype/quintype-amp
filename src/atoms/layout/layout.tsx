@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import { Theme } from "../../context/theme";
 import { StoryProvider } from "../../context/story/story-context";
 import { ConfigProvider } from "../../context/config/config-context";
-import { getTokensFromConfig } from "../../utils/theme";
+import { getTokensFromAMPConfig } from "../../utils/theme";
 
 import styled from "styled-components";
 
@@ -13,7 +13,7 @@ const Container = styled.main`
 `;
 
 const Layout = ({ style, children, story, config }: Layout) => {
-  const tokens = getTokensFromConfig(config);
+  const tokens = getTokensFromAMPConfig(config.ampConfig);
   return (
     <Fragment>
       <Helmet>

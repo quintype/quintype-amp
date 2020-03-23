@@ -3,8 +3,9 @@ import renderToString from "../render-to-string";
 import { TextStory } from "../../templates";
 import get from "lodash.get";
 
-export function ampifyStory({ story, config }: AmpifyStoryTypes) {
+export function ampifyStory({ story, publisherConfig, ampConfig }: AmpifyStoryTypes) {
   // returns ready-to-render amp html. Intended to be used by publishers who donot need customizations
+  const config = { publisherConfig, ampConfig };
   const template = getTemplate({ story, config });
   return renderToString(template);
 }
