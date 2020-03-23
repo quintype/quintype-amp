@@ -5,6 +5,8 @@ export interface AmpifyStoryTypes {
   story: Story;
   ampConfig: AMPConfig;
   publisherConfig: PublisherConfig;
-  templates?: object;
-  slots?: object;
+  opts?: {
+    templates?: object;
+    slots?: object;
+  };
 }
