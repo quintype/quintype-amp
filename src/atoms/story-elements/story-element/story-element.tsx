@@ -1,5 +1,5 @@
 import React from "react";
-import { matchStoryElement } from "../../../helpers";
+import { matchStoryElement } from "../../../helpers/match-story-element";
 import { Spacer } from "../../spacer";
 
 const StoryElement = (props) => {

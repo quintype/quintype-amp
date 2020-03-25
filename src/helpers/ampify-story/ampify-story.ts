@@ -1,6 +1,6 @@
 import { AmpifyStoryTypes } from "./types";
 import renderToString from "../render-to-string";
-import { TextStory } from "../../templates";
+import { TextStory } from "../../templates/text-story/text-story";
 import get from "lodash.get";
 
 export function ampifyStory({ story, publisherConfig, ampConfig, opts }: AmpifyStoryTypes) {
