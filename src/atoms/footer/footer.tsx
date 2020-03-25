@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import styled, { css, DefaultTheme } from "styled-components";
 import { FooterTypes } from "./types";
-import { genStyles } from "../../helpers";
+import { genStyles } from "../../helpers/gen-styles";
 import { withTheme } from "styled-components";
 
 const baseStyles = css`

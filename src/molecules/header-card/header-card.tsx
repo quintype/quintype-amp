@@ -1,7 +1,7 @@
 import React from "react";
 import { withStoryAndConfig } from "../../context";
 import { HeaderCardTypes } from "./types";
-import { HeroImage } from "../index";
+import { HeroImage } from "../hero-image";
 import { Spacer, Section, Author, DateTime } from "../../atoms";
 import styled from "styled-components";
 
