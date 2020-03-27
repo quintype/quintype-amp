@@ -1,8 +1,8 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
-import { Footer } from "./footer";
+import { Footer, BaseFooter } from "./footer";
 import { config, textStory } from "../../__fixtures__";
-import Layout from "../layout";
+import { Layout } from "../layout";
 
 storiesOf("Footer", module)
   .addDecorator((story) => (
@@ -19,4 +19,22 @@ storiesOf("Footer", module)
       <p>This is a custom footer</p>
       <p>Powered by Quintype AMP</p>
     </Footer>
-  ));
+  ))
+  .add("With custom style", () => {
+    const customStyles = (props) => ({
+      backgroundColor: "blue",
+      color: `${props.theme.color.primaryColor}`
+    });
+
+    return (
+      <BaseFooter
+        text="I'm a footer"
+        style={customStyles}
+        theme={{
+          color: {
+            primaryColor: "pink"
+          }
+        }}
+      />
+    );
+  });

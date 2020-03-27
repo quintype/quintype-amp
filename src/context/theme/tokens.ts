@@ -16,8 +16,8 @@ const colors = {
   mono3: "#d1d1d1",
   mono4: "#797979",
   mono5: "#636363",
-  mono6: "333333",
-  mono7: "0d0d0d"
+  mono6: "#333333",
+  mono7: "#0d0d0d"
 };
 
 const font = {
@@ -62,7 +62,9 @@ const spacing = {
   s: "12px",
   m: "16px",
   l: "24px",
-  xl: "32px"
+  xl: "32px",
+  xxl: "40px",
+  huge: "48px"
 };
 
 const zIndex = {

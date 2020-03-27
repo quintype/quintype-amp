@@ -6,10 +6,10 @@ import { Layout } from "../../atoms";
 import cloneDeep from "lodash.clonedeep";
 
 const modifiedConfig1 = cloneDeep(config);
-modifiedConfig1.theme.text_direction = "rtl";
+modifiedConfig1.ampConfig.text_direction = "rtl";
 
 const modifiedConfig2 = cloneDeep(config);
-modifiedConfig2.theme.menu.enabled = false;
+modifiedConfig2.ampConfig.menu.enabled = false;
 
 storiesOf("Navbar", module)
   .addDecorator((story) => (

@@ -1,8 +1,10 @@
 import React, { Fragment } from "react";
-import styled from "styled-components";
+import styled, { css, DefaultTheme } from "styled-components";
 import { FooterTypes } from "./types";
+import { genStyles } from "../../helpers/gen-styles";
+import { withTheme } from "styled-components";
 
-const StyledFooter = styled.footer`
+const baseStyles = css`
   display: flex;
   padding: 8px 4px;
   justify-content: center;
@@ -10,7 +12,7 @@ const StyledFooter = styled.footer`
   align-items: center;
   min-height: 50px;
   font-family: ${(props) => props.theme.font.family.secondary};
-  background-color: ${(props) => props.theme.color.primaryColor};
+  background-color: ${(props) => props.theme.color.footerBackground};
 `;
 
 const PoweredBy = styled.a`
@@ -18,7 +20,13 @@ const PoweredBy = styled.a`
   color: ${(props) => props.theme.color.footerTextColor};
   font-size: ${(props) => props.theme.font.size.xxs};
 `;
-const Footer = ({ text, children }: FooterTypes) => {
+
+const BaseFooter = (props: FooterTypes & { theme?: DefaultTheme }) => {
+  const { text, children, style } = props;
+  const StyledFooter = styled.footer`
+    ${genStyles(baseStyles, style, props)}
+  `;
+
   return (
     <StyledFooter>
       {children ? (
@@ -35,4 +43,7 @@ const Footer = ({ text, children }: FooterTypes) => {
   );
 };
 
+export { BaseFooter };
+
+const Footer = withTheme(BaseFooter);
 export { Footer };

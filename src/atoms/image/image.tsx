@@ -1,7 +1,7 @@
 import React from "react";
 import { ImageTypes, AmpImgPropTypes } from "./types";
 import { Config } from "../../types/config";
-import { focusedImagePath, calculateImgHeight } from "../../helpers";
+import { focusedImagePath, calculateImgHeight } from "../../helpers/image-helpers";
 import { withConfig } from "../../context";
 
 export const BaseImage = ({
@@ -16,9 +16,9 @@ export const BaseImage = ({
   config,
   ...rest
 }: ImageTypes & { config: Config }) => {
-  const { cdn_image } = config;
-  if (!slug || !cdn_image) throw new Error("Required attributes missing, cant render image");
-  const path = focusedImagePath({ opts, slug, metadata, aspectRatio, cdn_image });
+  const cdnName = config.publisherConfig["cdn-name"];
+  if (!slug || !cdnName) throw new Error("Required attributes missing, cant render image");
+  const path = focusedImagePath({ opts, slug, metadata, aspectRatio, cdnName });
   const value: AmpImgPropTypes = {
     src: path,
     alt,

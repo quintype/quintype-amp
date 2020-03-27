@@ -31,7 +31,11 @@ export const HeroImageBase = ({ story, attribution, slug, metadata, caption }: H
   const imageProps: any = {
     aspectRatio: [1200, 750]
   };
-  if (attribution || slug || metadata || caption) overRideStory = true;
+
+  if (attribution || slug || metadata || caption) {
+    overRideStory = true;
+  }
+
   if (overRideStory) {
     imageProps.alt = caption;
     imageProps.metadata = metadata;

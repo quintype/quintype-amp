@@ -1,12 +1,10 @@
 export interface Config {
-  cdn_image: string;
-  theme: ThemeConfig;
-  text_direction?: string;
+  publisherConfig: PublisherConfig;
+  ampConfig: AMPConfig;
 }
 
-interface ThemeConfig {
-  fonts: Fonts;
-  colors: Colors;
+export interface PublisherConfig {
+  cdn_image: string;
 }
 
 interface Colors {
@@ -18,12 +16,41 @@ interface Colors {
   "section-text-color": string;
 }
 
-interface Fonts {
-  primary: FontItem;
-  secondary: FontItem;
-}
-
-interface FontItem {
-  url: string;
-  family: string;
+export interface AMPConfig {
+  text_direction?: string;
+  menu: {
+    enabled: boolean;
+  };
+  fonts: {
+    primary: {
+      url: string;
+      family: string;
+    };
+    secondary: {
+      url: string;
+      family: string;
+    };
+  };
+  colors: Colors;
+  "logo-url": string;
+  doubleclick: {
+    "top-ad": {
+      width: number;
+      height: number;
+      "unit-path": string;
+    };
+    "body-ad": {
+      width: number;
+      height: number;
+      "unit-path": string;
+    };
+    "bottom-ad": {
+      width: number;
+      height: number;
+      "unit-path": string;
+    };
+  };
+  "google-client-id-api": boolean;
+  "invalid-elements-strategy": string;
+  "google-analytics-tracking-id": string;
 }

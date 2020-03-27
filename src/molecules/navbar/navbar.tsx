@@ -43,10 +43,10 @@ const HamburgerLogoWrapper = styled.div<{ isLeft: boolean }>`
 
 export const NavbarBase = ({ logoSrc = "", align = "left", config }: NavbarTypes) => {
   const isLeft = align === "left";
-  const isMenuEnabled = get(config, ["theme", "menu", "enabled"], false);
-  const hamburgerMenuItems = get(config, ["theme", "menu", "items"], []);
-  const textDirection = get(config, ["theme", "text_direction"], "ltr");
-  const logo = logoSrc || get(config, ["theme", "logo-url"], "");
+  const isMenuEnabled = get(config, ["ampConfig", "menu", "enabled"], false);
+  const hamburgerMenuItems = get(config, ["ampConfig", "menu", "items"], []);
+  const textDirection = get(config, ["ampConfig", "text_direction"], "ltr");
+  const logo = logoSrc || get(config, ["ampConfig", "logo-url"], "");
   return (
     <StyledNavbar>
       <LogoWrapper>

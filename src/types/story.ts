@@ -14,24 +14,24 @@ export interface Story {
   subheadline: string | null;
   sections: Section[];
   "read-time": number;
-  "access-level-value": null;
+  "access-level-value": string | null;
   "content-created-at": number;
   "owner-name": string;
   "custom-slug": string | null;
-  "push-notification": null;
+  "push-notification": any | null;
   "publisher-id": number;
   "hero-image-metadata": HeroImageMetadata | null;
-  comments: null;
+  comments: any | null;
   "word-count": number;
   entities: any;
   "published-at": number;
   "is-live-blog": boolean;
-  "breaking-news-linked-story-id": null;
-  "storyline-title": null;
-  summary: null;
-  "push-notification-title": null;
-  "external-id": null;
-  "canonical-url": null;
+  "breaking-news-linked-story-id": any | null;
+  "storyline-title": any | null;
+  summary: any | null;
+  "push-notification-title": any | null;
+  "external-id": any | null;
+  "canonical-url": any | null;
   "is-amp-supported": boolean;
   autotags: any[];
   "linked-entities": any[];
@@ -40,7 +40,7 @@ export interface Story {
   "bullet-type": string;
   id: string;
   "hero-image-s3-key": string | null;
-  contributors: [] | null;
+  contributors: any[] | null;
   "associated-series-collection-ids": any[];
   cards: Card[];
   url: string;
@@ -51,7 +51,7 @@ export interface Story {
   "owner-id": number;
   "linked-story-ids": string[];
   access: string | null;
-  "asana-project-id": null;
+  "asana-project-id": any | null;
   "first-published-at": number;
   "hero-image-caption": string | null;
   version: number;
@@ -69,10 +69,10 @@ export interface Author {
   id: number;
   name: string;
   slug: string;
-  "avatar-url": string;
+  "avatar-url": string | null;
   "avatar-s3-key": string | null;
-  "twitter-handle": null;
-  bio: null;
+  "twitter-handle": any | null;
+  bio: any | null;
   "contributor-role": ContributorRole | null;
 }
 
@@ -95,20 +95,20 @@ export interface Card {
 
 export interface CardMetadata {
   "social-share": SocialShare;
-  attributes: any;
+  attributes?: any;
 }
 
 export interface SocialShare {
   shareable: boolean;
   title: string;
-  message: null;
+  message: string | null;
   image: Image;
 }
 
 export interface Image {
-  key: string;
-  url: null;
-  attribution: string;
+  key: string | null;
+  url: string | null;
+  attribution: string | null;
   caption: string | null;
   metadata: HeroImageMetadata;
 }
@@ -123,16 +123,16 @@ export interface HeroImageMetadata {
 }
 
 export interface StoryElement {
-  description: string;
+  description?: string;
   "embed-js"?: string;
-  "page-url": string;
+  "page-url"?: string;
   url?: string;
   "embed-url"?: string;
   type: string;
-  "family-id": string;
-  title: string;
+  "family-id"?: string;
+  title?: string;
   id: string;
-  metadata: StoryElementMetadata;
+  metadata?: StoryElementMetadata;
   subtype: null | string;
   text?: string;
 }
@@ -147,6 +147,8 @@ export interface StoryElementMetadata {
   "tweet-id"?: string;
   "instagram-url"?: string;
   "instagram-id"?: string | null;
+  content?: string;
+  attribution?: string;
 }
 
 export interface LinkedStory {
@@ -154,7 +156,7 @@ export interface LinkedStory {
   "story-content-id": string;
   "highlighted-text": string;
   id: string;
-  "highlighted-headline": null;
+  "highlighted-headline": string | null;
 }
 
 export enum StoryTemplate {
@@ -162,15 +164,15 @@ export enum StoryTemplate {
 }
 
 export interface Section {
-  "domain-slug": null;
+  "domain-slug": string | null;
   slug: string;
   name: string;
   "section-url": string;
   id: number;
-  "parent-id": null;
+  "parent-id": string | number | null;
   "display-name": string;
   collection: Collection;
-  data: null;
+  data: any | null;
 }
 
 export interface Collection {
@@ -191,8 +193,8 @@ export interface CardShare {
 export interface Tag {
   id: number;
   name: string;
-  "meta-description": null;
-  "meta-title": null;
+  "meta-description": string | null;
+  "meta-title": string | null;
   slug: string;
   "tag-type": string;
 }

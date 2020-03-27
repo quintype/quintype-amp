@@ -1,3 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Footer should render 1`] = `ShallowWrapper {}`;
+exports[`Footer should render 1`] = `
+<styled.footer>
+  <styled.a
+    href="https://www.quintype.com/"
+    rel="noreferrer noopener"
+    target="_blank"
+  >
+    Powered by Quintype
+  </styled.a>
+</styled.footer>
+`;

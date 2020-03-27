@@ -1,18 +1,18 @@
-import { Config } from "../types/config";
+import { AMPConfig } from "../types/config";
 
 const isEmpty = (text: string) => (text.length < 1 ? true : false);
 
-export const getTokensFromConfig = (config: Config) => {
-  const { theme } = config;
+export const getTokensFromAMPConfig = (config: AMPConfig) => {
+  const { colors } = config;
 
   return {
     color: {
-      ...(!isEmpty(theme.colors.primary) && { primaryColor: theme.colors.primary }),
-      ...(!isEmpty(theme.colors.secondary) && { secondaryColor: theme.colors.secondary }),
-      ...(!isEmpty(theme.colors["header-background"]) && { headerBackground: theme.colors["header-background"] }),
-      ...(!isEmpty(theme.colors["footer-background"]) && { footerBackground: theme.colors["footer-background"] }),
-      ...(!isEmpty(theme.colors["footer-text-color"]) && { footerTextColor: theme.colors["footer-text-color"] }),
-      ...(!isEmpty(theme.colors["section-text-color"]) && { sectionBackground: theme.colors["section-text-color"] })
+      ...(!isEmpty(colors.primary) && { primaryColor: colors.primary }),
+      ...(!isEmpty(colors.secondary) && { secondaryColor: colors.secondary }),
+      ...(!isEmpty(colors["header-background"]) && { headerBackground: colors["header-background"] }),
+      ...(!isEmpty(colors["footer-background"]) && { footerBackground: colors["footer-background"] }),
+      ...(!isEmpty(colors["footer-text-color"]) && { footerTextColor: colors["footer-text-color"] }),
+      ...(!isEmpty(colors["section-text-color"]) && { sectionBackground: colors["section-text-color"] })
     }
   };
 };
