@@ -5,7 +5,7 @@ import { NavbarTypes } from "./types";
 import { withConfig } from "../../context";
 import get from "lodash.get";
 
-const { HamburgerLogo, Close } = icons; // these are temporary, final icons will be given by design team later
+const { HamburgerLogo, Close } = icons;
 
 const StyledNavbar = styled.header`
   width: 100%;
@@ -54,12 +54,12 @@ export const NavbarBase = ({ logoSrc = "", align = "left", config }: NavbarTypes
       </LogoWrapper>
       {isMenuEnabled && (
         <Fragment>
-          <HamburgerLogoWrapper on="tap:sidebar" isLeft={isLeft}>
-            <HamburgerLogo />
+          <HamburgerLogoWrapper role="button" tabIndex={0} on="tap:sidebar.open" isLeft={isLeft}>
+            <HamburgerLogo width="40" height="40" />
           </HamburgerLogoWrapper>
           <HamburgerMenu align={align} textDirection={textDirection} items={hamburgerMenuItems}>
             <StyledListItem>
-              <StyledCloseIcon on="tap:sidebar.close">
+              <StyledCloseIcon role="button" tabIndex={0} on="tap:sidebar.close">
                 <Close />
               </StyledCloseIcon>
             </StyledListItem>

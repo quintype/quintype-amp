@@ -6,7 +6,7 @@ export const publisherConfig = {
 export const ampConfig = {
   text_direction: "ltr",
   menu: {
-    enabled: false,
+    enabled: true,
     items: [
       {
         title: "Home",

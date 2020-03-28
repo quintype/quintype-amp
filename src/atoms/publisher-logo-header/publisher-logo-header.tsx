@@ -1,15 +1,10 @@
 import React from "react";
-import styled from "styled-components";
 import { PublisherLogoHeaderTypes } from "./types";
-
-const StyledImg = styled.img`
-  width: 200px;
-`;
 
 export const PublisherLogoHeader = ({ logoSrc }: PublisherLogoHeaderTypes) => {
   return (
     <a href="/">
-      <StyledImg src={logoSrc} />
+      <amp-img alt="Publisher Logo" src={logoSrc} width="200px" height="50px" />
     </a>
   );
 };

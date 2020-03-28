@@ -1,7 +1,7 @@
 import React from "react";
 import { CloseTypes } from "./types";
 
-export const Close = ({ color = "#f44336", width = "1rem", height = "1rem" }: CloseTypes) => {
+export const Close = ({ color = "black", width = "16px", height = "16px" }: CloseTypes) => {
   return (
     <svg height={height} viewBox="0 0 329.26933 329" width={width} xmlns="http://www.w3.org/2000/svg">
       <g fill={color}>

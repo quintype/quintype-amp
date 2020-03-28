@@ -17,7 +17,7 @@ const StyledList = styled.ul`
 `;
 
 const StyledListItem = styled.li`
-  line-height: 54px;
+  margin: 15px 0;
   color: ${(props) => props.theme.color.secondaryColor};
 `;
 
