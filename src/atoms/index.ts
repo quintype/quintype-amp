@@ -10,6 +10,7 @@ import { Author } from "./author";
 import { DateTime } from "./date-time";
 import { StoryElement } from "./story-elements/story-element";
 import { StoryElements } from "./story-elements";
+import { SocialShareIcon } from "./social-share-icon";
 
 export {
   Carousel,
@@ -23,5 +24,6 @@ export {
   Author,
   DateTime,
   StoryElement,
-  StoryElements
+  StoryElements,
+  SocialShareIcon
 };

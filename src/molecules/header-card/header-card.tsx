@@ -3,18 +3,20 @@ import { withStoryAndConfig } from "../../context";
 import { HeaderCardTypes } from "./types";
 import { HeroImage } from "../hero-image";
 import { Spacer, Section, Author, DateTime } from "../../atoms";
+import { SocialShareHeader } from "../index";
 import styled from "styled-components";
 
 const Headline = styled.h1`
-	font-family: ${(props) => props.theme.font.family.primary};
-	font-size: ${(props) => props.theme.font.size.l};
-	color: ${(props) => props.theme.color.black}
-	line-height: ${(props) => props.theme.font.lineHeight.level2};
-	margin: 0;
-	font-weight: bold;
+  font-family: ${(props) => props.theme.font.family.primary};
+  font-size: ${(props) => props.theme.font.size.l};
+  color: ${(props) => props.theme.color.black};
+  line-height: ${(props) => props.theme.font.lineHeight.level2};
+  margin: 0;
+  font-weight: bold;
 `;
 const HeaderCardContainer = styled.div`
   padding: 0 ${(props) => props.theme.spacing.s};
+  border-bottom: ${(props) => `1px solid ${props.theme.color.black}`};
 `;
 const HeaderCardBase = ({ story }: HeaderCardTypes) => {
   return (
@@ -29,6 +31,9 @@ const HeaderCardBase = ({ story }: HeaderCardTypes) => {
         <Author authors={story.authors} prepend="By " />
         <Spacer token="xxs" />
         <DateTime dateTime={story["last-published-at"]} showTime={true} />
+        <Spacer token="m" />
+        <SocialShareHeader />
+        <Spacer token="s" />
       </HeaderCardContainer>
     </div>
   );
