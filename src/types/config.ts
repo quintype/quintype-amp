@@ -4,7 +4,7 @@ export interface Config {
 }
 
 export interface PublisherConfig {
-  cdn_image: string;
+  "cdn-image": string;
 }
 
 interface Colors {

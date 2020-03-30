@@ -1,6 +1,5 @@
 export const publisherConfig = {
-  asset_host: "https://fea.assettype.com",
-  cdn_image: "//thumbor-stg.assettype.com"
+  "cdn-image": "thumbor-stg.assettype.com"
 };
 
 export const ampConfig = {

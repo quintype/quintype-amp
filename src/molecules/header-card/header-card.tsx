@@ -3,7 +3,7 @@ import { withStoryAndConfig } from "../../context";
 import { HeaderCardTypes } from "./types";
 import { HeroImage } from "../hero-image";
 import { Spacer, Section, Author, DateTime } from "../../atoms";
-import { SocialShareHeader } from "../index";
+import { SocialShareHeader } from "../social-share-header";
 import styled from "styled-components";
 
 const Headline = styled.h1`
