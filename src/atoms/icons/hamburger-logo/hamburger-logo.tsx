@@ -1,6 +1,6 @@
 import React from "react";
 
-export const HamburgerLogo = ({ width = "54px", height = "54px", color = "black" }) => {
+export const HamburgerLogo = ({ width = "54px", height = "54px", color = "currentColor" }) => {
   return (
     <svg width={width} height={height} viewBox="0 -53 384 384" xmlns="http://www.w3.org/2000/svg">
       <path
