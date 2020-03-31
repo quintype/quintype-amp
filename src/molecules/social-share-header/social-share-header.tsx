@@ -1,12 +1,9 @@
 import React from "react";
-import { SocialShareIcon } from "../../atoms";
+import { SocialShareIcon, Spacer } from "../../atoms";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
   display: flex;
-`;
-const Spacer = styled.div`
-  width: 20px;
 `;
 
 const SocialShareHeader = () => {
@@ -14,9 +11,9 @@ const SocialShareHeader = () => {
   return (
     <Wrapper>
       <SocialShareIcon type="twitter" styles={styles} />
-      <Spacer />
+      <Spacer align="horizontal" token="m" />
       <SocialShareIcon type="facebook" styles={styles} />
-      <Spacer />
+      <Spacer align="horizontal" token="m" />
       <SocialShareIcon type="whatsapp" styles={styles} />
     </Wrapper>
   );
