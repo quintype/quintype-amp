@@ -1,8 +1,10 @@
-export const publisherConfig = {
+import { AMPConfig, PublisherConfig, Config } from "../types/config";
+
+export const publisherConfig: PublisherConfig = {
   "cdn-image": "thumbor-stg.assettype.com"
 };
 
-export const ampConfig = {
+export const ampConfig: AMPConfig = {
   menu: {
     enabled: false
   },
@@ -47,7 +49,7 @@ export const ampConfig = {
   "google-analytics-tracking-id": "UA-ABCDEFG"
 };
 
-export const config = {
+export const config: Config = {
   publisherConfig,
   ampConfig
 };
