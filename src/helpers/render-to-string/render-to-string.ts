@@ -9,8 +9,8 @@ export function renderToString(component) {
   try {
     // const check = checkLayout()
     // if (check instanceof Error) throw check
-    const { htmlStr, styles } = getHtmlAndStyles(component);
     const { title, script, customStyles } = getHeadTags(component);
+    const { htmlStr, styles } = getHtmlAndStyles(component);
 
     str += `${headStart}\n`;
     str += `${title}\n`;
