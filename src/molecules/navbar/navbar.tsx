@@ -26,12 +26,12 @@ const StyledCloseIcon = styled.div`
 const StyledListItem = styled.li`
   padding: 20px 0 0;
 `;
-const HamburgerLogoWrapper = styled.div<{ isLeft: boolean }>`
+const HamburgerLogoWrapper = styled.div<{ align: "left" | "right" }>`
   position: absolute;
   top: 50%;
   cursor: pointer;
   ${(props) =>
-    props.isLeft
+    props.align === "left"
       ? `
     transform: translate(15px, -50%);
   `
@@ -41,20 +41,20 @@ const HamburgerLogoWrapper = styled.div<{ isLeft: boolean }>`
   `}
 `;
 
-export const NavbarBase = ({ logoSrc = "", align = "left", config }: NavbarTypes) => {
-  const isLeft = align === "left";
+export const NavbarBase = ({ logoSrc, align = "left", config }: NavbarTypes) => {
   const isMenuEnabled = get(config, ["ampConfig", "menu", "enabled"], false);
   const hamburgerMenuItems = get(config, ["ampConfig", "menu", "items"], []);
   const textDirection = get(config, ["publisherConfig", "text-direction"], "ltr");
-  const logo = logoSrc || get(config, ["ampConfig", "logo-url"], "");
+  const logo = logoSrc || get(config, ["ampConfig", "logo-url"], null);
+  if (!logo) return null;
   return (
     <StyledNavbar>
       <LogoWrapper>
         <PublisherLogoHeader logoSrc={logo} />
       </LogoWrapper>
-      {isMenuEnabled && (
+      {isMenuEnabled && hamburgerMenuItems.length > 0 && (
         <Fragment>
-          <HamburgerLogoWrapper role="button" tabIndex={0} on="tap:sidebar.open" isLeft={isLeft}>
+          <HamburgerLogoWrapper role="button" tabIndex={0} on="tap:sidebar.open" align={align}>
             <HamburgerLogo width="40" height="40" />
           </HamburgerLogoWrapper>
           <HamburgerMenu align={align} textDirection={textDirection} items={hamburgerMenuItems}>

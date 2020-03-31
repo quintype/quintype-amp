@@ -1,10 +1,10 @@
 import React from "react";
 import { PublisherLogoHeaderTypes } from "./types";
 
-export const PublisherLogoHeader = ({ logoSrc }: PublisherLogoHeaderTypes) => {
+export const PublisherLogoHeader = ({ logoSrc, width = "200px", height = "50px" }: PublisherLogoHeaderTypes) => {
   return (
     <a href="/">
-      <amp-img alt="Publisher Logo" src={logoSrc} width="200px" height="50px" />
+      <amp-img alt="Publisher Logo" src={logoSrc} width={width} height={height} />
     </a>
   );
 };
