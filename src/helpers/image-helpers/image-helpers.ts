@@ -1,12 +1,12 @@
 import quintypeJs from "quintype-js";
 
-export const focusedImagePath = ({ opts, slug, metadata, aspectRatio, cdnImage }) => {
+export const focusedImagePath = ({ opts, slug, metadata, aspectRatio, cdnName }) => {
   let auto = ["format"];
   const supportsCompression = !/\.gif/.test(slug);
   if (supportsCompression) auto = auto.concat(["compress"]);
   opts = Object.assign({ auto, w: "1000" }, opts);
   const path = new quintypeJs.FocusedImage(slug, metadata).path(aspectRatio, opts);
-  return `//${cdnImage}/${path}`;
+  return `${cdnName}/${path}`;
 };
 
 export const calculateImgHeight = (aspectRatio, width) => {

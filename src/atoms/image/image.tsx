@@ -16,9 +16,9 @@ export const BaseImage = ({
   config,
   ...rest
 }: ImageTypes & { config: Config }) => {
-  const cdnImage = config.publisherConfig["cdn-image"];
-  if (!slug || !cdnImage) throw new Error("Required attributes missing, cant render image");
-  const path = focusedImagePath({ opts, slug, metadata, aspectRatio, cdnImage });
+  const cdnName = config.publisherConfig["cdn-name"];
+  if (!slug || !cdnName) throw new Error("Required attributes missing, cant render image");
+  const path = focusedImagePath({ opts, slug, metadata, aspectRatio, cdnName });
   const value: AmpImgPropTypes = {
     src: path,
     alt,

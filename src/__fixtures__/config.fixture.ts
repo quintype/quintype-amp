@@ -1,7 +1,7 @@
 import { AMPConfig, PublisherConfig, Config } from "../types/config";
 
 export const publisherConfig: PublisherConfig = {
-  "cdn-image": "thumbor-stg.assettype.com"
+  "cdn-name": "thumbor-stg.assettype.com"
 };
 
 export const ampConfig: AMPConfig = {
