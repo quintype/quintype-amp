@@ -1,10 +1,10 @@
 import React from "react";
-import { HamburgerLogo } from "./hamburger-logo";
+import { Hamburger } from "./hamburger";
 import { shallow } from "enzyme";
 
-describe("Hamburger Logo", () => {
+describe("Hamburger", () => {
   it("should render", () => {
-    const wrapper = shallow(<HamburgerLogo />);
+    const wrapper = shallow(<Hamburger />);
     expect(wrapper).toMatchSnapshot();
   });
 });

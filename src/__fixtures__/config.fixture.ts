@@ -2,7 +2,8 @@ import { Config, PublisherConfig, AMPConfig } from "../types/config";
 
 export const publisherConfig: PublisherConfig = {
   "cdn-name": "https://thumbor-stg.assettype.com/",
-  "text-direction": "ltr"
+  "text-direction": "ltr",
+  "publisher-name": "newslaundry"
 };
 
 export const ampConfig: AMPConfig = {

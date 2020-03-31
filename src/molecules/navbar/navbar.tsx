@@ -5,7 +5,7 @@ import { NavbarTypes } from "./types";
 import { withConfig } from "../../context";
 import get from "lodash.get";
 
-const { HamburgerLogo, Close } = icons;
+const { Hamburger, Close } = icons;
 
 const StyledNavbar = styled.header`
   width: 100%;
@@ -26,7 +26,7 @@ const StyledCloseIcon = styled.div`
 const StyledListItem = styled.li`
   padding: 20px 0 0;
 `;
-const HamburgerLogoWrapper = styled.div<{ align: "left" | "right" }>`
+const HamburgerWrapper = styled.div<{ align: "left" | "right" }>`
   position: absolute;
   top: 50%;
   cursor: pointer;
@@ -46,17 +46,18 @@ export const NavbarBase = ({ logoSrc, align = "left", config }: NavbarTypes) => 
   const hamburgerMenuItems = get(config, ["ampConfig", "menu", "items"], []);
   const textDirection = get(config, ["publisherConfig", "text-direction"], "ltr");
   const logo = logoSrc || get(config, ["ampConfig", "logo-url"], null);
+  const publisherName = get(config, ["publisherConfig", "publisher-name"], "");
   if (!logo) return null;
   return (
     <StyledNavbar>
       <LogoWrapper>
-        <PublisherLogoHeader logoSrc={logo} />
+        <PublisherLogoHeader publisherName={publisherName} logoSrc={logo} />
       </LogoWrapper>
       {isMenuEnabled && hamburgerMenuItems.length > 0 && (
         <Fragment>
-          <HamburgerLogoWrapper role="button" tabIndex={0} on="tap:sidebar.open" align={align}>
-            <HamburgerLogo width="40" height="40" />
-          </HamburgerLogoWrapper>
+          <HamburgerWrapper role="button" tabIndex={0} on="tap:sidebar.open" align={align}>
+            <Hamburger width="40" height="40" />
+          </HamburgerWrapper>
           <HamburgerMenu align={align} textDirection={textDirection} items={hamburgerMenuItems}>
             <StyledListItem>
               <StyledCloseIcon role="button" tabIndex={0} on="tap:sidebar.close">

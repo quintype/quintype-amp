@@ -1,4 +1,4 @@
-import HamburgerLogo from "./hamburger-logo";
-import Close from "./close";
+import { Hamburger } from "./hamburger";
+import { Close } from "./close";
 
-export { HamburgerLogo, Close };
+export { Hamburger, Close };

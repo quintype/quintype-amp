@@ -6,6 +6,7 @@ export interface Config {
 export interface PublisherConfig {
   "cdn-name": string;
   "text-direction": "ltr" | "rtl";
+  "publisher-name": string;
 }
 
 interface Colors {
@@ -18,7 +19,6 @@ interface Colors {
 }
 
 export interface AMPConfig {
-  text_direction?: string;
   menu: {
     enabled: boolean;
     items: MenuItemTypes[];
