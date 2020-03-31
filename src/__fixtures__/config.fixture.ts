@@ -1,7 +1,7 @@
 import { Config, PublisherConfig, AMPConfig } from "../types/config";
 
 export const publisherConfig: PublisherConfig = {
-  cdn_image: "//thumbor-stg.assettype.com",
+  "cdn-name": "https://thumbor-stg.assettype.com/",
   "text-direction": "ltr"
 };
 

@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Navbar should render 1`] = `
+<Component
+  config={Object {}}
+/>
+`;
+
 exports[`PublisherLogoHeader should render 1`] = `
 <Component
   config={Object {}}
