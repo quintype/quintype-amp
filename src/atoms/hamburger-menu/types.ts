@@ -2,7 +2,7 @@ import { ReactElement } from "react";
 
 export interface HamburgerMenuTypes {
   align: "left" | "right";
-  textDirection: string;
+  textDirection: "ltr" | "rtl";
   items: MenuItem[];
   children?: JSX.Element[] | JSX.Element | ReactElement | HTMLElement;
 }

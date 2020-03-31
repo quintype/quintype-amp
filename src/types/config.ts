@@ -5,6 +5,7 @@ export interface Config {
 
 export interface PublisherConfig {
   cdn_image: string;
+  "text-direction": "ltr" | "rtl";
 }
 
 interface Colors {
@@ -20,6 +21,7 @@ export interface AMPConfig {
   text_direction?: string;
   menu: {
     enabled: boolean;
+    items: MenuItemTypes[];
   };
   fonts: {
     primary: {
@@ -53,4 +55,9 @@ export interface AMPConfig {
   "google-client-id-api": boolean;
   "invalid-elements-strategy": string;
   "google-analytics-tracking-id": string;
+}
+
+interface MenuItemTypes {
+  title: string;
+  url: string;
 }

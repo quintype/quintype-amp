@@ -6,7 +6,7 @@ import { Layout } from "../../atoms";
 import cloneDeep from "lodash.clonedeep";
 
 const modifiedConfig1 = cloneDeep(config);
-modifiedConfig1.ampConfig.text_direction = "rtl";
+modifiedConfig1.publisherConfig["text-direction"] = "rtl";
 
 const modifiedConfig2 = cloneDeep(config);
 modifiedConfig2.ampConfig.menu.enabled = false;

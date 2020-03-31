@@ -1,3 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PublisherLogoHeader should render 1`] = `ShallowWrapper {}`;
+exports[`PublisherLogoHeader should render 1`] = `
+<a
+  href="/"
+>
+  <amp-img
+    alt="Publisher Logo"
+    height="50px"
+    src="https://unsplash.com/photos/ffODvgBivdw"
+    width="200px"
+  />
+</a>
+`;

@@ -1,10 +1,11 @@
-export const publisherConfig = {
-  asset_host: "https://fea.assettype.com",
-  cdn_image: "//thumbor-stg.assettype.com"
+import { Config, PublisherConfig, AMPConfig } from "../types/config";
+
+export const publisherConfig: PublisherConfig = {
+  cdn_image: "//thumbor-stg.assettype.com",
+  "text-direction": "ltr"
 };
 
-export const ampConfig = {
-  text_direction: "ltr",
+export const ampConfig: AMPConfig = {
   menu: {
     enabled: true,
     items: [
@@ -83,7 +84,7 @@ export const ampConfig = {
   "google-analytics-tracking-id": "UA-ABCDEFG"
 };
 
-export const config = {
+export const config: Config = {
   publisherConfig,
   ampConfig
 };

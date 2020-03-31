@@ -45,7 +45,7 @@ export const NavbarBase = ({ logoSrc = "", align = "left", config }: NavbarTypes
   const isLeft = align === "left";
   const isMenuEnabled = get(config, ["ampConfig", "menu", "enabled"], false);
   const hamburgerMenuItems = get(config, ["ampConfig", "menu", "items"], []);
-  const textDirection = get(config, ["ampConfig", "text_direction"], "ltr");
+  const textDirection = get(config, ["publisherConfig", "text-direction"], "ltr");
   const logo = logoSrc || get(config, ["ampConfig", "logo-url"], "");
   return (
     <StyledNavbar>
