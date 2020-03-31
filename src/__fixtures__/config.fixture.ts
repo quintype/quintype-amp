@@ -1,9 +1,11 @@
-export const publisherConfig = {
+import { PublisherConfig, AMPConfig } from "../types/config";
+
+export const publisherConfig: PublisherConfig = {
   asset_host: "https://fea.assettype.com",
-  cdn_image: "//thumbor-stg.assettype.com"
+  "cdn-name": "//thumbor-stg.assettype.com"
 };
 
-export const ampConfig = {
+export const ampConfig: AMPConfig = {
   menu: {
     enabled: false
   },
