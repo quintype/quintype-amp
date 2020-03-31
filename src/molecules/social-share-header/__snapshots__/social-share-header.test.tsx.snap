@@ -5,8 +5,8 @@ exports[`SocialShareHeader should render 1`] = `
   <Component
     styles={
       Object {
-        "background-size": "75%",
-        "border-radius": "50%",
+        "backgroundSize": "75%",
+        "borderRadius": "50%",
       }
     }
     type="twitter"
@@ -15,8 +15,8 @@ exports[`SocialShareHeader should render 1`] = `
   <Component
     styles={
       Object {
-        "background-size": "75%",
-        "border-radius": "50%",
+        "backgroundSize": "75%",
+        "borderRadius": "50%",
       }
     }
     type="facebook"
@@ -25,8 +25,8 @@ exports[`SocialShareHeader should render 1`] = `
   <Component
     styles={
       Object {
-        "background-size": "75%",
-        "border-radius": "50%",
+        "backgroundSize": "75%",
+        "borderRadius": "50%",
       }
     }
     type="whatsapp"
