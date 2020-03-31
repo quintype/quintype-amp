@@ -1,4 +1,4 @@
-import { Text, BlockQuote, Pending } from "../../atoms/story-elements";
+import { Text, BlockQuote, Pending, ImageElement } from "../../atoms/story-elements";
 
 const anyType = "any";
 const none = "none";
@@ -15,7 +15,7 @@ const StoryElementsTable = [
   ["external-file", "vod-video", Pending],
   ["external-file", anyType, Pending],
   ["file", "attachment", Pending],
-  ["image", none, Pending],
+  ["image", none, ImageElement],
   ["jsembed", "avmm-vidible-video", Pending],
   ["jsembed", "dailymotion-video", Pending],
   ["jsembed", "dilmot-q-and-a", Pending],
