@@ -1,8 +1,7 @@
-import { PublisherConfig, AMPConfig } from "../types/config";
+import { AMPConfig, PublisherConfig, Config } from "../types/config";
 
 export const publisherConfig: PublisherConfig = {
-  asset_host: "https://fea.assettype.com",
-  "cdn-name": "//thumbor-stg.assettype.com"
+  "cdn-name": "thumbor-stg.assettype.com"
 };
 
 export const ampConfig: AMPConfig = {
@@ -50,7 +49,7 @@ export const ampConfig: AMPConfig = {
   "google-analytics-tracking-id": "UA-ABCDEFG"
 };
 
-export const config = {
+export const config: Config = {
   publisherConfig,
   ampConfig
 };

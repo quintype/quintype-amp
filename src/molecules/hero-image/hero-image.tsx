@@ -43,6 +43,7 @@ export const HeroImageBase = ({ story, attribution, slug, metadata, caption }: H
     imageProps.attribution = attribution;
     figcaptionText = getFigcaptionText(caption, attribution);
   } else {
+    if (heroImageAbsent(story)) return null;
     const {
       "hero-image-attribution": ATTRIBUTION,
       "hero-image-s3-key": SLUG,
@@ -61,6 +62,10 @@ export const HeroImageBase = ({ story, attribution, slug, metadata, caption }: H
     </div>
   );
 };
+
+function heroImageAbsent(story) {
+  return story["hero-image-s3-key"] === null;
+}
 
 export const HeroImage = withStoryAndConfig(HeroImageBase);
 

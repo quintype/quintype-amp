@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SocialShareHeader should render 1`] = `
+<styled.div>
+  <Component
+    styles={
+      Object {
+        "backgroundSize": "75%",
+        "borderRadius": "50%",
+      }
+    }
+    type="twitter"
+  />
+  <styled.div />
+  <Component
+    styles={
+      Object {
+        "backgroundSize": "75%",
+        "borderRadius": "50%",
+      }
+    }
+    type="facebook"
+  />
+  <styled.div />
+  <Component
+    styles={
+      Object {
+        "backgroundSize": "75%",
+        "borderRadius": "50%",
+      }
+    }
+    type="whatsapp"
+  />
+</styled.div>
+`;

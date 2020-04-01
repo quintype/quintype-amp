@@ -4,7 +4,6 @@ export interface Config {
 }
 
 export interface PublisherConfig {
-  asset_host?: string;
   "cdn-name": string;
 }
 
