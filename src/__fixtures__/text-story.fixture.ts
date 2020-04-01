@@ -315,6 +315,27 @@ export const textStory: Story = {
         },
         {
           description: "",
+          "image-metadata": {
+            width: 700,
+            height: 350,
+            "mime-type": "image/jpeg",
+            "file-size": 112943,
+            "file-name": "R Banumathi, AS Bopanna and Hrishikesh Roy.jpg"
+          },
+          "page-url": "/story/062f7847-5029-4062-9456-e3797d28f6c3/element/e7b80c61-3745-48ac-9fdf-f5c3af5e24f3",
+          type: "image",
+          "family-id": "ae0091ce-07f0-4b59-8367-07c08dde7582",
+          "image-attribution": "",
+          title:
+            "The judgment was delivered by a three-judge Bench of Justices R Banumathi, AS Bopanna and Hrishikesh Roy",
+          id: "e7b80c61-3745-48ac-9fdf-f5c3af5e24f3",
+          "image-s3-key":
+            "barandbench/2020-03/4565d24e-e4ac-413b-a462-8d698ab4b742/R_Banumathi__AS_Bopanna_and_Hrishikesh_Roy.jpg",
+          metadata: {},
+          subtype: null
+        },
+        {
+          description: "",
           "page-url": "/story/7f3d5bdb-ec52-4047-ac0d-df4036ec974b/element/f03d3680-423f-4b5b-b2e1-3ca931b60350",
           type: "text",
           "family-id": "d6ac182d-d65d-436b-8d3d-277bbee7fcba",
@@ -324,6 +345,21 @@ export const textStory: Story = {
           subtype: null,
           text:
             "<p>LSAC has been helping law schools in various countries evaluate the critical thinking skills of their applicants for more than 70 years. The LSAT was developed in the 1940s in response to a proposal from a law school admissions director seeking a test with a high predictive value for success in law schools. In India, this spring will mark the 12th anniversary of the Law School Admission Council offering the LSAT—India, a standardized test that measures skills that are considered essential for success in law school. The test has grown in size and reputation since its introduction and over the years, there has been an increasing recognition of the unique value it brings to law college admissions in India.</p>"
+        },
+        {
+          description: "",
+          "page-url": "/story/05066b94-784b-4913-971b-c01a1bcfb43d/element/19d96101-04b2-400a-ab95-e7362280d8a1",
+          type: "text",
+          "family-id": "5f761f27-4721-459f-8ecd-733021d8d2ea",
+          title: "",
+          id: "19d96101-04b2-400a-ab95-e7362280d8a1",
+          metadata: {
+            content:
+              "In general—and this is a good P.S.A. reminder for everyone—if you are symptomatic, you are supposed to stay home for seven days, or three days past whenever your symptoms resolve, whichever one of those is longest."
+          },
+          subtype: "blurb",
+          text:
+            "<blockquote>In general—and this is a good P.S.A. reminder for everyone—if you are symptomatic, you are supposed to stay home for seven days, or three days past whenever your symptoms resolve, whichever one of those is longest.</blockquote>"
         },
         {
           description: "",
