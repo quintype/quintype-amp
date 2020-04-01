@@ -32,22 +32,12 @@ export interface AMPConfig {
   };
   colors: Colors;
   "logo-url": string;
-  doubleclick: {
-    "top-ad": {
-      width: number;
-      height: number;
-      "unit-path": string;
-    };
-    "body-ad": {
-      width: number;
-      height: number;
-      "unit-path": string;
-    };
-    "bottom-ad": {
-      width: number;
-      height: number;
-      "unit-path": string;
-    };
+  ads: {
+    "top-ad": object;
+    "story-ad": object;
+    "bottom-ad": object;
+    "bottom-sticky-ad": object;
+    [key: string]: object;
   };
   "google-client-id-api": boolean;
   "invalid-elements-strategy": string;

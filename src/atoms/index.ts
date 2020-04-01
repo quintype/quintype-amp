@@ -11,6 +11,7 @@ import { DateTime } from "./date-time";
 import { StoryElement } from "./story-elements/story-element";
 import { StoryElements } from "./story-elements";
 import { SocialShareIcon } from "./social-share-icon";
+import { Ad } from "./ad";
 
 export {
   Carousel,
@@ -25,5 +26,6 @@ export {
   DateTime,
   StoryElement,
   StoryElements,
-  SocialShareIcon
+  SocialShareIcon,
+  Ad
 };
