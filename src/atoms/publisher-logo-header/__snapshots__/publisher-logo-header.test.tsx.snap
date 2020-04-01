@@ -5,7 +5,7 @@ exports[`PublisherLogoHeader should render 1`] = `
   href="/"
 >
   <amp-img
-    alt="Publisher Logo"
+    alt="foo"
     height="50px"
     src="https://unsplash.com/photos/ffODvgBivdw"
     width="200px"

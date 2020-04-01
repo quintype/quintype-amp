@@ -26,7 +26,7 @@ const StyledCloseIcon = styled.div`
 const StyledListItem = styled.li`
   padding: 20px 0 0;
 `;
-const HamburgerWrapper = styled.div<{ align: "left" | "right" }>`
+export const HamburgerWrapper = styled.div<{ align: "left" | "right" }>`
   position: absolute;
   top: 50%;
   cursor: pointer;

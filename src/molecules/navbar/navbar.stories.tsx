@@ -5,11 +5,14 @@ import { config, textStory } from "../../__fixtures__";
 import { Layout } from "../../atoms";
 import cloneDeep from "lodash.clonedeep";
 
-const modifiedConfig1 = cloneDeep(config);
-modifiedConfig1.publisherConfig["text-direction"] = "rtl";
+export const configWithTextDirRtl = cloneDeep(config);
+configWithTextDirRtl.publisherConfig["text-direction"] = "rtl";
 
-const modifiedConfig2 = cloneDeep(config);
-modifiedConfig2.ampConfig.menu.enabled = false;
+export const configWithMenuDisabled = cloneDeep(config);
+configWithMenuDisabled.ampConfig.menu.enabled = false;
+
+export const configWithNoHamburgerMenuItems = cloneDeep(config);
+configWithNoHamburgerMenuItems.ampConfig.menu.items = [];
 
 storiesOf("Navbar", module)
   .addDecorator((story) => (
@@ -23,7 +26,7 @@ storiesOf("Navbar", module)
 
 storiesOf("Navbar for RTL publisher", module)
   .addDecorator((story) => (
-    <Layout story={textStory} config={modifiedConfig1}>
+    <Layout story={textStory} config={configWithTextDirRtl}>
       {story()}
     </Layout>
   ))
@@ -33,7 +36,7 @@ storiesOf("Navbar for RTL publisher", module)
 
 storiesOf("Navbar for publisher with disabled hamburger menu", module)
   .addDecorator((story) => (
-    <Layout story={textStory} config={modifiedConfig2}>
+    <Layout story={textStory} config={configWithMenuDisabled}>
       {story()}
     </Layout>
   ))

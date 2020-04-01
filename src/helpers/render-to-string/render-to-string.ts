@@ -9,7 +9,7 @@ export function renderToString(component) {
   try {
     // const check = checkLayout()
     // if (check instanceof Error) throw check
-    const { title, script, customStyles } = getHeadTags();
+    const { title, script, customStyles } = getHeadTags(component);
     const { htmlStr, defaultStyles } = getHtmlAndDefaultStyles(component);
 
     str += headStart;
@@ -26,10 +26,11 @@ export function renderToString(component) {
 
 const removeEmptyStyleTag = (str: string) => str.replace(/<style amp-custom><\/style>/, "");
 
-const getHeadTags = () => {
+const getHeadTags = (component) => {
   // returns all the stuff that react-helmet generates to be put in the head.
   // custom styles will come here as helmet collects them
 
+  ReactDOMServer.renderToStaticMarkup(component);
   const helmet = Helmet.renderStatic();
   const title = helmet.title.toString();
   const script = helmet.script.toString();
