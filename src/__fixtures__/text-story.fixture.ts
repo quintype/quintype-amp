@@ -348,6 +348,21 @@ export const textStory: Story = {
         },
         {
           description: "",
+          "page-url": "/story/05066b94-784b-4913-971b-c01a1bcfb43d/element/19d96101-04b2-400a-ab95-e7362280d8a1",
+          type: "text",
+          "family-id": "5f761f27-4721-459f-8ecd-733021d8d2ea",
+          title: "",
+          id: "19d96101-04b2-400a-ab95-e7362280d8a1",
+          metadata: {
+            content:
+              "In general—and this is a good P.S.A. reminder for everyone—if you are symptomatic, you are supposed to stay home for seven days, or three days past whenever your symptoms resolve, whichever one of those is longest."
+          },
+          subtype: "blurb",
+          text:
+            "<blockquote>In general—and this is a good P.S.A. reminder for everyone—if you are symptomatic, you are supposed to stay home for seven days, or three days past whenever your symptoms resolve, whichever one of those is longest.</blockquote>"
+        },
+        {
+          description: "",
           "page-url": "/story/7f3d5bdb-ec52-4047-ac0d-df4036ec974b/element/5da487aa-a176-4f43-a130-c247555c314b",
           type: "text",
           "family-id": "a1132e61-d313-41d3-8528-acd5651f3b54",

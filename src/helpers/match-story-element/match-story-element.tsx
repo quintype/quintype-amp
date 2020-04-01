@@ -1,4 +1,4 @@
-import { Text, BlockQuote, Pending, ImageElement } from "../../atoms/story-elements";
+import { Text, BlockQuote, Pending, ImageElement, Blurb } from "../../atoms/story-elements";
 
 const anyType = "any";
 const none = "none";
@@ -32,7 +32,7 @@ const StoryElementsTable = [
   ["text", "answer", Pending],
   ["text", "bigfact", Text],
   ["text", "blockquote", BlockQuote],
-  ["text", "blurb", Text],
+  ["text", "blurb", Blurb],
   ["text", "q-and-a", Text],
   ["text", "question", Pending],
   ["text", "quote", BlockQuote],
