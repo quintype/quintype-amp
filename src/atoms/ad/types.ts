@@ -5,6 +5,5 @@ export interface AdTypes {
   width: string | number;
   height: string | number;
   children?: JSX.Element[] | JSX.Element | ReactElement | HTMLElement;
-  adProps?: any;
   [key: string]: any;
 }
