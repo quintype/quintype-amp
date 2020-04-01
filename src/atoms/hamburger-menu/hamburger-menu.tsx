@@ -21,7 +21,7 @@ const StyledListItem = styled.li`
   color: ${(props) => props.theme.color.secondaryColor};
 `;
 
-const StyledAnchor = styled.a`
+export const StyledAnchor = styled.a`
   text-decoration: none;
   color: ${(props) => props.theme.color.secondaryColor};
 `;
