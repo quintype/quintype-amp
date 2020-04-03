@@ -1,5 +1,5 @@
 import React from "react";
-import { IconTypes } from "../IconTypes";
+import { IconTypes } from "../icon-types";
 
 export const Close = ({ color = "currentColor", width = "16px", height = "16px" }: IconTypes) => {
   return (

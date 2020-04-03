@@ -1,5 +1,5 @@
 import React from "react";
-import { IconTypes } from "../IconTypes";
+import { IconTypes } from "../icon-types";
 
 export const Hamburger = ({ width = "54px", height = "54px", color = "currentColor" }: IconTypes) => {
   return (
