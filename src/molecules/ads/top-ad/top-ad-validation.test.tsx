@@ -43,7 +43,7 @@ test("TopAd with valid custom ad attributes should pass ampValidation", async ()
   );
   expect(await output(dummyLayout)).toBe(true);
 });
-test("TopAd with invalid custom ad attributes should pass ampValidation", async () => {
+test("TopAd with invalid custom ad attributes should fail ampValidation", async () => {
   const dummyLayout = (
     <Layout story={textStory} config={config}>
       <TopAd {...invalidMockAd} />
