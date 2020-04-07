@@ -2,7 +2,7 @@ import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { Ad } from "./ad";
 import { config, textStory } from "../../__fixtures__";
-import Layout from "../layout";
+import { Layout } from "../layout";
 
 const genericAd = {
   type: "industrybrains",

@@ -2,7 +2,7 @@ import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { Footer, BaseFooter } from "./footer";
 import { config, textStory } from "../../__fixtures__";
-import Layout from "../layout";
+import { Layout } from "../layout";
 
 storiesOf("Footer", module)
   .addDecorator((story) => (

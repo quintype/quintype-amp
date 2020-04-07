@@ -5,6 +5,8 @@ export interface Config {
 
 export interface PublisherConfig {
   "cdn-name": string;
+  "text-direction": "ltr" | "rtl";
+  "publisher-name": string;
 }
 
 interface Colors {
@@ -19,6 +21,7 @@ interface Colors {
 export interface AMPConfig {
   menu: {
     enabled: boolean;
+    items: MenuItemTypes[];
   };
   fonts: {
     primary: {
@@ -44,4 +47,9 @@ interface DoubleClickAdTypes {
   width: number;
   height: number;
   "unit-path": string;
+}
+
+interface MenuItemTypes {
+  title: string;
+  url: string;
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import Twitter from "./index";
+import { Twitter } from "./index";
 
 describe("Twitter", () => {
   it("should render tweet", () => {
