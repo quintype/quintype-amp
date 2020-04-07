@@ -12,7 +12,7 @@ export const BaseImage = ({
   aspectRatio,
   alt,
   layout = "responsive",
-  opts,
+  opts = {},
   config,
   ...rest
 }: ImageTypes & { config: Config }) => {

@@ -14,7 +14,8 @@ export const Carousel = (props: CarouselTypes) => {
         <script
           async={undefined}
           custom-element="amp-carousel"
-          src="https://cdn.ampproject.org/v0/amp-carousel-0.2.js"></script>
+          src="https://cdn.ampproject.org/v0/amp-carousel-0.2.js"
+        />
       </Helmet>
       <StyledCarousel>
         <amp-carousel {...props}>{props.children}</amp-carousel>

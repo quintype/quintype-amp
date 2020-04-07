@@ -10,6 +10,7 @@ declare global {
       "amp-facebook": FacebookTypes;
       "amp-twitter": TwitterTypes;
       "amp-sidebar";
+      "amp-social-share";
     }
   }
 }

@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image Element should not render fig caption when there is no caption 1`] = `
+<Component
+  aspectRatio={
+    Array [
+      16,
+      9,
+    ]
+  }
+  metadata={
+    Object {
+      "height": 787,
+      "original-url": "https://media.npr.org/assets/img/2020/03/20/handwashing-8_wide-eb1f71948877c7a15d27a82cd7d90b324b956a89.jpg?s=1400",
+      "width": 1400,
+    }
+  }
+  slug="ace/2020-03/ad503d63-4d05-41e6-9722-fdfe3acb2405/handwashing_8_wide_eb1f71948877c7a15d27a82cd7d90b324b956a89.jpg"
+/>
+`;
+
+exports[`Image Element should render amp image 1`] = `
+<Component
+  aspectRatio={
+    Array [
+      16,
+      9,
+    ]
+  }
+  metadata={
+    Object {
+      "height": 787,
+      "original-url": "https://media.npr.org/assets/img/2020/03/20/handwashing-8_wide-eb1f71948877c7a15d27a82cd7d90b324b956a89.jpg?s=1400",
+      "width": 1400,
+    }
+  }
+  slug="ace/2020-03/ad503d63-4d05-41e6-9722-fdfe3acb2405/handwashing_8_wide_eb1f71948877c7a15d27a82cd7d90b324b956a89.jpg"
+>
+  <styled.figcaption>
+    Wash your hands
+  </styled.figcaption>
+</Component>
+`;

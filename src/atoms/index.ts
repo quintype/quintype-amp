@@ -13,6 +13,7 @@ import { StoryElements } from "./story-elements";
 import { PublisherLogoHeader } from "./publisher-logo-header";
 import { HamburgerMenu } from "./hamburger-menu";
 import * as icons from "./icons";
+import { SocialShareIcon } from "./social-share-icon";
 
 export {
   Carousel,
@@ -29,5 +30,6 @@ export {
   StoryElements,
   PublisherLogoHeader,
   HamburgerMenu,
-  icons
+  icons,
+  SocialShareIcon
 };

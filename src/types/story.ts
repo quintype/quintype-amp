@@ -127,6 +127,9 @@ export interface StoryElement {
   "embed-js"?: string;
   "page-url"?: string;
   url?: string;
+  "image-metadata"?: object;
+  "image-attribution"?: string;
+  "image-s3-key"?: string;
   "embed-url"?: string;
   type: string;
   "family-id"?: string;
