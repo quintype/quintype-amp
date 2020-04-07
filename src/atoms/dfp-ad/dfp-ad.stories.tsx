@@ -1,22 +1,18 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
-import { Ad } from "./ad";
+import { DfpAd } from "./dfp-ad";
 import { config, textStory } from "../../__fixtures__";
 import { Layout } from "../layout";
 
 const genericAd = {
-  type: "industrybrains",
   width: 300,
   height: 250,
-  "data-width": "300",
-  "data-height": "250",
-  "data-cid": "19626-3798936394"
+  "data-slot": "/35096353/amptesting/formats/sticky"
 };
 
 const invalidAd = {
-  width: "300",
-  height: "250",
-  type: "doubleclick",
+  width: 300,
+  height: 250,
   "data-slot": "/4119129/doesnt-exist"
 };
 
@@ -26,14 +22,14 @@ storiesOf("Ad", module)
       {story()}
     </Layout>
   ))
-  .add("Simple Ad", () => <Ad {...genericAd} />)
+  .add("Simple Ad", () => <DfpAd {...genericAd} />)
   .add("Ad with Placeholder", () => (
-    <Ad {...genericAd}>
+    <DfpAd {...genericAd}>
       <div placeholder="true">Loading ...</div>
-    </Ad>
+    </DfpAd>
   ))
   .add("Ad with fallback", () => (
-    <Ad {...invalidAd}>
+    <DfpAd {...invalidAd}>
       <div fallback="true">Ad failed to load</div>
-    </Ad>
+    </DfpAd>
   ));

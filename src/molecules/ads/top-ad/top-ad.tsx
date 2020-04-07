@@ -1,25 +1,15 @@
 import React from "react";
 import { withConfig } from "../../../context";
-import { Ad } from "../../../atoms";
-import { AdTypes } from "../../../atoms/ad/types";
-import { getAdPropsFromConfig, isEmpty, getDataSlotFromUnitPath } from "../helpers";
-import { Config } from "../../../types/config";
-import styled from "styled-components";
+import { DfpAd } from "../../../atoms";
+import { getPropsForDfpAd } from "../shared/helpers";
+import { CommonDfpAdTypes } from "../shared/types";
+import { AdWrapper } from "../shared/components";
 
-const AdWrapper = styled.div`
-  text-align: center;
-`;
-
-const TopAdBase = ({ children, config, ...overridingProps }: AdTypes & Config) => {
-  const propsForTopAd = isEmpty(overridingProps)
-    ? getDataSlotFromUnitPath(getAdPropsFromConfig({ config, adName: "top-ad" }))
-    : overridingProps;
-
+const TopAdBase = ({ children, config, ...overridingProps }: CommonDfpAdTypes) => {
+  const propsForTopAd = getPropsForDfpAd({ overridingProps, config, adName: "top-ad" });
   return (
     <AdWrapper>
-      <Ad type="doubleclick" {...propsForTopAd}>
-        {children}
-      </Ad>
+      <DfpAd {...propsForTopAd}>{children}</DfpAd>
     </AdWrapper>
   );
 };

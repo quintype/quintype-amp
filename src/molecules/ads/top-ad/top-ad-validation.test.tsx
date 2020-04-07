@@ -17,19 +17,17 @@ const output = async (layout) => {
 };
 
 const mockAd = {
-  type: "a9",
-  width: "300",
-  height: "250",
-  "data-amzn_assoc_ad_mode": "auto",
-  "data-divid": "amzn-assoc-ad-fe746097-f142-4f8d-8dfb-45ec747632e5",
-  "data-recomtype": "async",
-  "data-adinstanceid": "fe746097-f142-4f8d-8dfb-45ec747632e5",
-  "data-aax_size": "300x250",
-  "data-aax_pubname": "test123",
-  "data-aax_src": "302"
+  width: 720,
+  height: 50,
+  "data-slot": "/lorem/ipsum/dolor/sit"
+};
+const invalidMockAd = {
+  width: 720,
+  height: 50,
+  "this-is-an-invalid-key-for-doubleclick-ads": "/lorem/ipsum/dolor/sit"
 };
 
-test("Default TopAd without placeholder & fallback should pass ampValidation", async () => {
+test("Default TopAd should pass ampValidation", async () => {
   const dummyLayout = (
     <Layout story={textStory} config={config}>
       <TopAd />
@@ -37,13 +35,23 @@ test("Default TopAd without placeholder & fallback should pass ampValidation", a
   );
   expect(await output(dummyLayout)).toBe(true);
 });
-test("TopAd with custom ad attributes and without placeholder & fallback should pass ampValidation", async () => {
+test("TopAd with valid custom ad attributes should pass ampValidation", async () => {
   const dummyLayout = (
     <Layout story={textStory} config={config}>
       <TopAd {...mockAd} />
     </Layout>
   );
   expect(await output(dummyLayout)).toBe(true);
+});
+test("TopAd with invalid custom ad attributes should pass ampValidation", async () => {
+  const dummyLayout = (
+    <Layout story={textStory} config={config}>
+      <TopAd {...invalidMockAd} />
+    </Layout>
+  );
+  expect(await output(dummyLayout)).toContain(
+    "The attribute 'this-is-an-invalid-key-for-doubleclick-ads' may not appear in tag 'amp-ad'"
+  );
 });
 test("TopAd with placeholder & fallback are expected to fail ampValidation", async () => {
   const dummyLayout = (

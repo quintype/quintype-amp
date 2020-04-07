@@ -1,8 +1,8 @@
 import { ReactElement } from "react";
 
-export interface AdTypes {
-  width: string | number;
-  height: string | number;
+export interface DfpAdTypes {
+  width: number;
+  height: number;
+  "data-slot": string;
   children?: JSX.Element[] | JSX.Element | ReactElement | HTMLElement;
-  [key: string]: any;
 }

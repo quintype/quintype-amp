@@ -63,7 +63,6 @@
     "fork-ts-checker-webpack-plugin": "^4.0.5",
     "husky": "^4.2.3",
     "jest": "^25.1.0",
-    "lodash.clonedeep": "^4.5.0",
     "jest-styled-components": "^7.0.0",
     "prettier": "^1.19.1",
     "react-amphtml": "^2.2.2",
@@ -80,8 +79,9 @@
     "typescript": "^3.7.5"
   },
   "dependencies": {
-    "lodash.get": "^4.4.2",
     "date-fns": "^2.11.0",
+    "lodash.clonedeep": "^4.5.0",
+    "lodash.get": "^4.4.2",
     "lodash.merge": "^4.6.2",
     "quintype-js": "^1.2.0",
     "react-helmet": "^5.2.1",
