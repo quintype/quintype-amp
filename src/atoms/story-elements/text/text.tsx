@@ -4,7 +4,7 @@ import { StoryElementProps } from "../types";
 
 export type TextProps = StoryElementProps & { externalLink?: boolean };
 
-const Text = ({ element, externalLink }: TextProps) => {
+const Text = ({ element, externalLink, style }: TextProps) => {
   let text = element.text || "";
   if (externalLink) {
     text = text.replace(/<a/g, '<a target="_blank"');
@@ -12,7 +12,8 @@ const Text = ({ element, externalLink }: TextProps) => {
 
   const StyledText = styled.div`
     ${baseStyles}
-    ${element.subtype === "summary" && summaryStyles}
+		${element.subtype === "summary" && (style && style["summary"] ? style["summary"] : baseSummaryStyles)}
+		${element.subtype === "answer" && (style && style["answer"] ? style["answer"] : baseAnswerStyles)}
   `;
 
   return <StyledText dangerouslySetInnerHTML={{ __html: text }} />;
@@ -55,8 +56,15 @@ const baseStyles = css`
     font-family: ${(props) => props.theme.font.family.primary};
     margin: 0 0 ${(props) => props.theme.spacing.s} 0;
   }
+  .answer {
+    color: ${(props) => props.theme.color.mono5};
+  }
 `;
-const summaryStyles = css`
+const baseAnswerStyles = css`
+  color: ${(props) => props.theme.color.mono5};
+`;
+
+const baseSummaryStyles = css`
   font-style: italic;
   color: ${(props) => props.theme.color.mono5};
 `;

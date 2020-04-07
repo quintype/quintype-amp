@@ -431,6 +431,17 @@ export const textStory: Story = {
         },
         {
           description: "",
+          "page-url": "/story/05066b94-784b-4913-971b-c01a1bcfb43d/element/40f27611-f0d0-4e4d-853a-f36c595ee21f",
+          type: "text",
+          "family-id": "0668dc6d-ffea-45a6-8531-5403fdf0a8e8",
+          title: "",
+          id: "40f27611-f0d0-4e4d-853a-f36c595ee21f",
+          metadata: {},
+          subtype: "question",
+          text: "<p><strong>You have a patient on Rikers who is older than ninety?</strong></p>"
+        },
+        {
+          description: "",
           "page-url": "/story/7f3d5bdb-ec52-4047-ac0d-df4036ec974b/element/4154e5bb-3261-42a5-9835-d9313c3bc61b",
           type: "text",
           "family-id": "d1607fc9-b490-4a9d-94f7-19fe476a614e",
