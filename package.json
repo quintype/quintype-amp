@@ -8,7 +8,7 @@
     "dist"
   ],
   "scripts": {
-    "storybook": "start-storybook -p 9001",
+    "storybook": "start-storybook -s ./storybook-assets -p 9001",
     "clean": "rimraf dist",
     "build": "npm run clean && rollup -c",
     "pack": "npm run build && npm pack",
@@ -63,8 +63,8 @@
     "enzyme-to-json": "^3.4.4",
     "husky": "^4.2.3",
     "jest": "^25.1.0",
+    "lodash.clonedeep": "^4.5.0",
     "jest-styled-components": "^7.0.0",
-    "lodash.get": "^4.4.2",
     "prettier": "^1.19.1",
     "react-amphtml": "^2.2.2",
     "rimraf": "^3.0.2",
@@ -80,6 +80,7 @@
     "typescript": "^3.7.5"
   },
   "dependencies": {
+    "lodash.get": "^4.4.2",
     "date-fns": "^2.11.0",
     "lodash.merge": "^4.6.2",
     "quintype-js": "^1.2.0",

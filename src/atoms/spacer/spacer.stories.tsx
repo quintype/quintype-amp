@@ -2,7 +2,7 @@ import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { Spacer } from "./spacer";
 import { config, textStory } from "../../__fixtures__";
-import Layout from "../layout";
+import { Layout } from "../layout";
 
 storiesOf("Spacer", module)
   .addDecorator((story) => (

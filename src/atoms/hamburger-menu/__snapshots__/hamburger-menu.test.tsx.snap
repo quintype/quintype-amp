@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HamburgerMenu should render 1`] = `
+<Fragment>
+  <HelmetWrapper
+    defer={true}
+    encodeSpecialCharacters={true}
+  >
+    <script
+      custom-element="amp-sidebar"
+      src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"
+    />
+  </HelmetWrapper>
+  <amp-sidebar
+    id="sidebar"
+    layout="nodisplay"
+    side="left"
+  >
+    <styled.ul
+      dir="ltr"
+    />
+  </amp-sidebar>
+</Fragment>
+`;

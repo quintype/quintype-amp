@@ -11,7 +11,10 @@ exports[`SocialShareHeader should render 1`] = `
     }
     type="twitter"
   />
-  <styled.div />
+  <Spacer
+    align="horizontal"
+    token="m"
+  />
   <Component
     styles={
       Object {
@@ -21,7 +24,10 @@ exports[`SocialShareHeader should render 1`] = `
     }
     type="facebook"
   />
-  <styled.div />
+  <Spacer
+    align="horizontal"
+    token="m"
+  />
   <Component
     styles={
       Object {

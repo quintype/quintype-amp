@@ -1,6 +1,6 @@
 import React from "react";
 import { Layout, StoryElement, Spacer } from "../../atoms";
-import { HeaderCard } from "../../molecules";
+import { HeaderCard, Navbar } from "../../molecules";
 import styled from "styled-components";
 
 const StoryContainer = styled.div`
@@ -9,6 +9,7 @@ const StoryContainer = styled.div`
 const TextStory = ({ story, config }) => {
   return (
     <Layout story={story} config={config}>
+      <Navbar />
       <HeaderCard />
       <Spacer token="s" />
       <StoryContainer>

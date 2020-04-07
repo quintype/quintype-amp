@@ -2,7 +2,7 @@ import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { Image } from "./image";
 import { textStory, config } from "../../__fixtures__";
-import Layout from "../layout";
+import { Layout } from "../layout";
 import get from "lodash.get";
 
 const metadata = get(textStory, "hero-image-metadata");

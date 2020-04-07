@@ -1,12 +1,48 @@
-import { AMPConfig, PublisherConfig, Config } from "../types/config";
+import { Config, PublisherConfig, AMPConfig } from "../types/config";
 
 export const publisherConfig: PublisherConfig = {
-  "cdn-name": "thumbor-stg.assettype.com"
+  "cdn-name": "https://thumbor-stg.assettype.com/",
+  "text-direction": "ltr",
+  "publisher-name": "newslaundry"
 };
 
 export const ampConfig: AMPConfig = {
   menu: {
-    enabled: false
+    enabled: true,
+    items: [
+      {
+        title: "Home",
+        url: "https://barandbench.com"
+      },
+      {
+        title: "News",
+        url: "https://www.barandbench.com/news"
+      },
+      {
+        title: "Dealstreet",
+        url: "https://www.barandbench.com/dealstreet"
+      },
+      {
+        title: "Conferences & Paper presentations",
+        url: "https://www.barandbench.com/apprentice-lawyer/call-for-papers"
+      },
+      {
+        title: "Recruitment Tracker",
+        url: "https://www.barandbench.com/apprentice-lawyer/recruitment-tracker"
+      },
+      {
+        title: "Apprentice Lawyer",
+        url: "https://www.barandbench.com/apprentice-lawyer"
+      },
+      {
+        title: "Viewpoint",
+        url: "https://www.barandbench.com/view-point"
+      },
+      {
+        title: "Legal Jobs",
+        url: "https://www.barandbench.com/legal-jobs"
+      }
+    ]
   },
   fonts: {
     primary: {
