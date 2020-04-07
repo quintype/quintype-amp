@@ -6,13 +6,10 @@ import { textStory, config } from "../../../__fixtures__";
 import cloneDeep from "lodash.clonedeep";
 
 const dummyConfig = cloneDeep(config);
-dummyConfig.ampConfig.ads["top-ad"] = {
-  type: "mgid",
+dummyConfig.ampConfig.doubleclick["top-ad"] = {
   width: 300,
   height: 250,
-  "data-width": "300",
-  "data-height": "250",
-  "data-cid": "1111-22223333"
+  "unit-path": "/4444/lorem/ipsum/sticky"
 };
 const LayoutWithTopAd = () => (
   <Layout story={textStory} config={dummyConfig}>
@@ -27,12 +24,10 @@ describe("TopAd", () => {
   });
   it("should render TopAd taking ad props from config", () => {
     const wrapper = mount(<LayoutWithTopAd />);
-    expect(wrapper.find("amp-ad").prop("type")).toBe("mgid");
+    expect(wrapper.find("amp-ad").prop("type")).toBe("doubleclick");
     expect(wrapper.find("amp-ad").prop("width")).toBe(300);
     expect(wrapper.find("amp-ad").prop("height")).toBe(250);
-    expect(wrapper.find("amp-ad").prop("data-width")).toBe("300");
-    expect(wrapper.find("amp-ad").prop("data-height")).toBe("250");
-    expect(wrapper.find("amp-ad").prop("data-cid")).toBe("1111-22223333");
+    expect(wrapper.find("amp-ad").prop("data-slot")).toBe("/4444/lorem/ipsum/sticky");
   });
   it("should apply overriding props", () => {
     const customPropsForAd = {

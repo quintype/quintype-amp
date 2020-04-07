@@ -32,14 +32,16 @@ export interface AMPConfig {
   };
   colors: Colors;
   "logo-url": string;
-  ads: {
-    "top-ad": object;
-    "story-ad": object;
-    "bottom-ad": object;
-    "bottom-sticky-ad": object;
-    [key: string]: object;
+  doubleclick: {
+    [key: string]: DoubleClickAdTypes;
   };
   "google-client-id-api": boolean;
   "invalid-elements-strategy": string;
   "google-analytics-tracking-id": string;
+}
+
+interface DoubleClickAdTypes {
+  width: number;
+  height: number;
+  "unit-path": string;
 }

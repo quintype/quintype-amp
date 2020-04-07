@@ -4,20 +4,21 @@ const dummyConfig = {
   publisherConfig: {},
   ampConfig: {
     menu: { enabled: false },
-    ads: {
-      "bottom-sticky-ad": {
-        width: "320",
-        height: "50",
-        type: "doubleclick",
-        "data-slot": "/35096353/amptesting/formats/sticky"
-      },
+    doubleclick: {
       "top-ad": {
-        type: "industrybrains",
         width: 300,
         height: 250,
-        "data-width": "300",
-        "data-height": "250",
-        "data-cid": "19626-3798936394"
+        "unit-path": "/60988533/AMP_Top"
+      },
+      "body-ad": {
+        width: 300,
+        height: 250,
+        "unit-path": "/60988533/AMP_Body"
+      },
+      "bottom-ad": {
+        width: 300,
+        height: 250,
+        "unit-path": "/60988533/AMP_Bottom"
       }
     },
     "google-client-id-api": false
@@ -25,14 +26,11 @@ const dummyConfig = {
 };
 
 test("getAdPropsFromConfig should return correct props for a given ad from config", () => {
-  const value = getAdPropsFromConfig({ config: dummyConfig, adName: "top-ad" });
+  const value = getAdPropsFromConfig({ config: dummyConfig, adName: "body-ad" });
   const expectedValue = {
-    type: "industrybrains",
     width: 300,
     height: 250,
-    "data-width": "300",
-    "data-height": "250",
-    "data-cid": "19626-3798936394"
+    "unit-path": "/60988533/AMP_Body"
   };
   expect(value).toEqual(expectedValue);
 });

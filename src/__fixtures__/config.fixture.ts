@@ -27,42 +27,21 @@ export const ampConfig: AMPConfig = {
     "section-text-color": "#f4e842"
   },
   "logo-url": "https://thumbor-stg.assettype.com/ace/2018-02/f0ba1430-8c21-49a3-a5cf-50c88ce9ec74/martian3.jpg",
-  ads: {
+  doubleclick: {
     "top-ad": {
-      type: "industrybrains",
       width: 300,
       height: 250,
-      "data-width": "300",
-      "data-height": "250",
-      "data-cid": "19626-3798936394"
+      "unit-path": "/35096353/amptesting/formats/sticky"
     },
-    "story-ad": {
-      type: "a9",
-      width: "300",
-      height: "250",
-      "data-amzn_assoc_ad_mode": "auto",
-      "data-divid": "amzn-assoc-ad-fe746097-f142-4f8d-8dfb-45ec747632e5",
-      "data-recomtype": "async",
-      "data-adinstanceid": "fe746097-f142-4f8d-8dfb-45ec747632e5",
-      "data-aax_size": "300x250",
-      "data-aax_pubname": "test123",
-      "data-aax_src": "302"
+    "body-ad": {
+      width: 300,
+      height: 250,
+      "unit-path": "/60988533/AMP_Body"
     },
     "bottom-ad": {
-      type: "taboola",
-      width: "400",
-      height: "300",
-      layout: "responsive",
-      "data-publisher": "amp-demo",
-      "data-mode": "thumbnails-a",
-      "data-placement": "Ads Example",
-      "data-article": "auto"
-    },
-    "bottom-sticky-ad": {
-      width: "320",
-      height: "50",
-      type: "doubleclick",
-      "data-slot": "/35096353/amptesting/formats/sticky"
+      width: 300,
+      height: 250,
+      "unit-path": "/35096353/amptesting/formats/sticky"
     }
   },
   "google-client-id-api": false,
