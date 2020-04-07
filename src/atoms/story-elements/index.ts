@@ -4,6 +4,7 @@ import { BlockQuote } from "./blockquote";
 import { ImageElement } from "./image-element";
 import { Blurb } from "./blurb";
 import { AlsoRead } from "./also-read";
+import { YouTube } from "./youtube";
 
 const StoryElements = {
   Text,
@@ -11,7 +12,8 @@ const StoryElements = {
   Pending,
   ImageElement,
   Blurb,
-  AlsoRead
+  AlsoRead,
+  YouTube
 };
-export { Text, Pending, BlockQuote, ImageElement, Blurb, AlsoRead };
+export { Text, Pending, BlockQuote, ImageElement, Blurb, AlsoRead, YouTube };
 export { StoryElements };
