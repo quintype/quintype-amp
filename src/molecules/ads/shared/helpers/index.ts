@@ -11,7 +11,7 @@ export const getPropsForDfpAd = ({ overridingProps, config, adName }) => {
 
     if (!adPropsFromConfig) throw new Error(`No props defined for ${adName} in config`);
     if (!unitPath) throw new Error(`unit-path not defined for ad ${adName} in config`);
-    adPropsFromConfig["data-slot"] = unitPath;
+    adPropsFromConfig["data-slot"] = unitPath; // renames unit-path to data-slot
     delete adPropsFromConfig["unit-path"];
     return adPropsFromConfig;
   } else return overridingProps;

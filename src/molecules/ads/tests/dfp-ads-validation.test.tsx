@@ -4,7 +4,9 @@
 
 import React from "react";
 import { Layout } from "../../../atoms";
-import { TopAd } from "../index";
+import { TopAd } from "../top-ad";
+import { BodyAd } from "../body-ad";
+import { BottomAd } from "../bottom-ad";
 import { textStory, config } from "../../../__fixtures__";
 import { renderToString } from "../../../helpers";
 import { isValidAmpHtml } from "../../../utils/validate-amp";
@@ -27,26 +29,32 @@ const invalidMockAd = {
   "this-is-an-invalid-key-for-doubleclick-ads": "/lorem/ipsum/dolor/sit"
 };
 
-test("Default TopAd should pass ampValidation", async () => {
+test("Default ads should pass ampValidation", async () => {
   const dummyLayout = (
     <Layout story={textStory} config={config}>
       <TopAd />
+      <BodyAd />
+      <BottomAd />
     </Layout>
   );
   expect(await output(dummyLayout)).toBe(true);
 });
-test("TopAd with valid custom ad attributes should pass ampValidation", async () => {
+test("Ads with valid custom ad attributes should pass ampValidation", async () => {
   const dummyLayout = (
     <Layout story={textStory} config={config}>
       <TopAd {...mockAd} />
+      <BodyAd {...mockAd} />
+      <BottomAd {...mockAd} />
     </Layout>
   );
   expect(await output(dummyLayout)).toBe(true);
 });
-test("TopAd with invalid custom ad attributes should fail ampValidation", async () => {
+test("Ads with invalid custom ad attributes should fail ampValidation", async () => {
   const dummyLayout = (
     <Layout story={textStory} config={config}>
       <TopAd {...invalidMockAd} />
+      <BodyAd {...invalidMockAd} />
+      <BottomAd {...invalidMockAd} />
     </Layout>
   );
   expect(await output(dummyLayout)).toContain(

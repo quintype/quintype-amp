@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TopAd snapshot test bodyAd 1`] = `
+<BodyAdBase
+  config={Object {}}
+/>
+`;
+
+exports[`TopAd snapshot test bottomAd 1`] = `
+<BottomAdBase
+  config={Object {}}
+/>
+`;
+
+exports[`TopAd snapshot test topAd 1`] = `
+<TopAdBase
+  config={Object {}}
+/>
+`;
