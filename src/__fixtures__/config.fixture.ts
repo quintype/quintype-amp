@@ -67,17 +67,17 @@ export const ampConfig: AMPConfig = {
     "top-ad": {
       width: 300,
       height: 250,
-      "unit-path": "/5463099287/AMP_Top"
+      "unit-path": "/35096353/amptesting/formats/sticky"
     },
     "body-ad": {
       width: 300,
       height: 250,
-      "unit-path": "/5463099287/AMP_Body"
+      "unit-path": "/60988533/AMP_Body"
     },
     "bottom-ad": {
       width: 300,
       height: 250,
-      "unit-path": "/5463099287/AMP_Bottom"
+      "unit-path": "/35096353/amptesting/formats/sticky"
     }
   },
   "google-client-id-api": false,
