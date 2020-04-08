@@ -65,7 +65,6 @@ export interface SlotType {
 interface SlotsTypes {
   story?: {
     "top-slot"?: SlotType;
-    "body-slot"?: SlotType;
     "bottom-slot"?: SlotType;
   };
 }
