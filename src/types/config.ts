@@ -57,9 +57,9 @@ interface MenuItemTypes {
   url: string;
 }
 
-interface SlotType {
+export interface SlotType {
   ampHtml: string;
-  script?: string;
+  script?: SlotScriptTypes | SlotScriptTypes[];
   styles?: string;
 }
 interface SlotsTypes {
@@ -73,4 +73,17 @@ interface SlotsTypes {
 export interface OptsTypes {
   templates?: object;
   slots?: SlotsTypes;
+}
+
+type SlotScriptTypes = SlotScriptWithElement | SlotScriptWithTemplate;
+
+interface SlotScriptBase {
+  src: string;
+}
+
+interface SlotScriptWithElement extends SlotScriptBase {
+  customElement?: string;
+}
+interface SlotScriptWithTemplate extends SlotScriptBase {
+  customTemplate?: string;
 }

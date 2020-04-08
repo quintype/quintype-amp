@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const { TopAd, BodyAd, BottomAd } = AmpAds;
 const { StoryPageSlots } = Slots;
-const { TopSlot } = StoryPageSlots;
+const { TopSlot, BottomSlot } = StoryPageSlots;
 const StoryContainer = styled.div`
   padding: 0 ${(props) => props.theme.spacing.s};
 `;
@@ -33,6 +33,7 @@ const TextStory = ({ story, config }) => {
           );
         })}
       </StoryContainer>
+      <BottomSlot />
       <BottomAd />
     </Layout>
   );

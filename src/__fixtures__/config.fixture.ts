@@ -89,9 +89,31 @@ export const opts: OptsTypes = {
   slots: {
     story: {
       "top-slot": {
-        script: `console.log("*********** This is from inside Slot!! ***********")`,
-        ampHtml: `<hr/><div class="storyTopSlot1">This Stuff Is Coming From Slot... <a href="google.com">Link To Google</a></div><hr/>`,
+        script: {
+          customElement: "amp-dailymotion",
+          src: "https://cdn.ampproject.org/v0/amp-dailymotion-0.1.js"
+        },
+        ampHtml: `<amp-dailymotion data-videoid="x3rdtfy"
+          layout="responsive"
+          data-ui-highlight="FF4081"
+          width="480"
+          class="storyTopSlot1"
+          height="270">
+        </amp-dailymotion>`,
         styles: `.storyTopSlot1{background-color: green}`
+      },
+      "bottom-slot": {
+        script: [
+          { customElement: "amp-date-countdown", src: "https://cdn.ampproject.org/v0/amp-date-countdown-0.1.js" },
+          { customTemplate: "amp-mustache", src: "https://cdn.ampproject.org/v0/amp-mustache-0.2.js" }
+        ],
+        ampHtml: `<amp-date-countdown timestamp-seconds="2147483648"
+        layout="fixed-height"
+        height="100">
+        <template type="amp-mustache">
+          {{d}} days, {{h}} hours, {{m}} minutes and {{s}} seconds until <a href="https://en.wikipedia.org/wiki/Year_2038_problem">Y2K38</a>.
+        </template>
+      </amp-date-countdown>`
       }
     }
   }

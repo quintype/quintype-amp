@@ -4,13 +4,13 @@ import { withConfig } from "../../../../context";
 import { getSlotFromConfig } from "../../helpers";
 import { SlotType } from "../../../../types/config";
 
-const TopSlotBase = ({ config }) => {
+const BottomSlotBase = ({ config }) => {
   const { ampHtml, script, styles }: SlotType = getSlotFromConfig({
     config,
     slotType: "story",
-    slotName: "top-slot"
+    slotName: "bottom-slot"
   });
   return <Slot ampHtml={ampHtml} script={script} styles={styles} />;
 };
 
-export const TopSlot = withConfig(TopSlotBase);
+export const BottomSlot = withConfig(BottomSlotBase);
