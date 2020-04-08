@@ -1,6 +1,7 @@
 export interface Config {
   publisherConfig: PublisherConfig;
   ampConfig: AMPConfig;
+  opts?: OptsTypes;
 }
 
 export interface PublisherConfig {
@@ -60,4 +61,22 @@ export interface AMPConfig {
 interface MenuItemTypes {
   title: string;
   url: string;
+}
+
+interface SlotType {
+  ampHtml: string;
+  script?: string;
+  styles?: string;
+}
+interface SlotsTypes {
+  story?: {
+    "top-slot"?: SlotType;
+    "body-slot"?: SlotType;
+    "bottom-slot"?: SlotType;
+  };
+}
+
+export interface OptsTypes {
+  templates?: object;
+  slots?: SlotsTypes;
 }
