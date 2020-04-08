@@ -36,7 +36,9 @@ export interface AMPConfig {
   colors: Colors;
   "logo-url": string;
   doubleclick: {
-    [key: string]: DoubleClickAdTypes;
+    "top-ad": DoubleClickAdTypes;
+    "body-ad": DoubleClickAdTypes;
+    "bottom-ad": DoubleClickAdTypes;
   };
   "google-client-id-api": boolean;
   "invalid-elements-strategy": string;
