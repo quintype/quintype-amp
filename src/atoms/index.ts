@@ -15,6 +15,7 @@ import { HamburgerMenu } from "./hamburger-menu";
 import * as icons from "./icons";
 import { SocialShareIcon } from "./social-share-icon";
 import { Slot } from "./slot";
+import { DfpAd } from "./dfp-ad";
 
 export {
   Carousel,
@@ -29,6 +30,7 @@ export {
   DateTime,
   StoryElement,
   StoryElements,
+  DfpAd,
   PublisherLogoHeader,
   HamburgerMenu,
   icons,
