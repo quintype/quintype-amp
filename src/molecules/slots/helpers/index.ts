@@ -9,5 +9,5 @@ interface GetSlotFromConfigPropsTypes {
 
 export const getSlotFromConfig = ({ config, slotType, slotName }: GetSlotFromConfigPropsTypes) => {
   const slot = get(config, ["opts", "slots", slotType, slotName], null);
-  return { ampHtml: get(slot, "ampHtml", null), script: get(slot, "script", null), styles: get(slot, "slot", null) };
+  return { ampHtml: get(slot, "ampHtml", null), script: get(slot, "script", null), styles: get(slot, "styles", null) };
 };

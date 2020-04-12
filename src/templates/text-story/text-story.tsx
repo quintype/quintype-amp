@@ -24,12 +24,12 @@ const TextStory = ({ story, config }) => {
             <StoryElement key={element.id} element={element} />
           ));
           return canDisplayBodyAd(cardIdx, story.cards) ? (
-            <Fragment>
+            <Fragment key={card.id}>
               <BodyAd />
               {storyCard}
             </Fragment>
           ) : (
-            storyCard
+            <Fragment key={card.id}>{storyCard}</Fragment>
           );
         })}
       </StoryContainer>
