@@ -9,13 +9,12 @@ export function renderToString(component) {
   try {
     // const check = checkLayout()
     // if (check instanceof Error) throw check
-    const { title, script, customStyles } = getHeadTags(component);
-    const { htmlStr, styles } = getHtmlAndStyles(component);
-
+    const { title, script, customStyles } = getHeadTagsFromHelmet(component);
+    const { htmlStr, styles } = getHtmlAndStyledComponentsStyles(component);
     str += `${headStart}\n`;
     str += `${title}\n`;
     str += `${script}\n`;
-    str += `${customStyles || styles}\n`;
+    str += `<style amp-custom>\n${customStyles}\n${styles}\n</style>`;
     str += `${headEndBodyStart}\n`;
     str += `${htmlStr}\n`;
     str += `${bodyEnd}`;
@@ -25,28 +24,23 @@ export function renderToString(component) {
   }
 }
 
-const removeEmptyStyleTag = (str: string) => str.replace(/<style amp-custom><\/style>/, "");
+const stripStyleTag = (str: string) => str.replace(/<style[^>]*>|<\/style>/g, "");
 
-const getHeadTags = (component) => {
-  // returns all the stuff that react-helmet generates to be put in the head.
-  // custom styles will come here as helmet collects them
+const getHeadTagsFromHelmet = (component) => {
   ReactDOMServer.renderToStaticMarkup(component); // without this, helmet.script returns empty
   const helmet = Helmet.renderStatic();
   const title = helmet.title.toString();
   const script = helmet.script.toString();
-  // customStyles will give styles added directly inside <Helmet>. This Will be removed soon as all styles are now applied using styled components. Keeping it here for historic reasons
-  let customStyles = helmet.style.toString().replace(/^<style[^>]*>/, `<style amp-custom>`);
-  customStyles = removeEmptyStyleTag(customStyles);
+  let customStyles = helmet.style.toString();
+  customStyles = stripStyleTag(customStyles);
   return { title, script, customStyles };
 };
 
-const getHtmlAndStyles = (component: ReactElement) => {
+const getHtmlAndStyledComponentsStyles = (component: ReactElement) => {
   const sheet = new ServerStyleSheet();
   const htmlStr = ReactDOMServer.renderToStaticMarkup(sheet.collectStyles(component));
   let styles = sheet.getStyleTags();
-  styles = styles.replace(/^<style[^>]*/, `<style amp-custom`);
-  styles = styles.replace(/data-styled[^}]*}/g, "");
-  styles = removeEmptyStyleTag(styles);
+  styles = stripStyleTag(styles);
   sheet.seal();
   return { htmlStr, styles };
 };

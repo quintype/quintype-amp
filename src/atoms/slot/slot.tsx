@@ -8,16 +8,12 @@ export const Slot = ({ ampHtml, script, styles }: SlotType) => {
     <Fragment>
       <Helmet>
         {headScript}
-        <style>{styles}</style>
+        {styles && <style>{styles}</style>}
       </Helmet>
-      <div dangerouslySetInnerHTML={createMarkup(ampHtml)} />
+      <div dangerouslySetInnerHTML={{ __html: ampHtml }} />
     </Fragment>
   );
 };
-
-function createMarkup(ampHtml) {
-  return { __html: ampHtml };
-}
 
 function getHeadScript(script) {
   // script can either be null, a single object or an array of type SlotScriptTypes

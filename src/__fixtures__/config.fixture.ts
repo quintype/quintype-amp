@@ -89,6 +89,33 @@ export const opts: OptsTypes = {
   slots: {
     story: {
       "top-slot": {
+        script: [
+          { customElement: "amp-date-countdown", src: "https://cdn.ampproject.org/v0/amp-date-countdown-0.1.js" },
+          { customTemplate: "amp-mustache", src: "https://cdn.ampproject.org/v0/amp-mustache-0.2.js" }
+        ],
+        ampHtml: `<amp-date-countdown height="100" class="ts_wrapper" timestamp-seconds="2147483648"
+        layout="fixed-height">
+        <template type="amp-mustache">
+          <div>This is the top slot</div>
+          <div>
+            {{d}} days, {{h}} hours, {{m}} minutes and {{s}} seconds until <a class="ts_a" href="https://en.wikipedia.org/wiki/Year_2038_problem">Y2K38</a>.
+          </div>
+        </template>
+      </amp-date-countdown>`,
+        styles: `.ts_wrapper {
+          background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+          filter: brightness(0.9);
+          margin: 15px 0;
+          line-height: 50px;
+          text-align: center;
+          display: block;
+          color: white;
+        }
+        .ts_a {
+          color: inherit;
+        }`
+      },
+      "bottom-slot": {
         script: {
           customElement: "amp-dailymotion",
           src: "https://cdn.ampproject.org/v0/amp-dailymotion-0.1.js"
@@ -99,21 +126,7 @@ export const opts: OptsTypes = {
           width="480"
           class="storyTopSlot1"
           height="270">
-        </amp-dailymotion>`,
-        styles: `.storyTopSlot1{background-color: green}`
-      },
-      "bottom-slot": {
-        script: [
-          { customElement: "amp-date-countdown", src: "https://cdn.ampproject.org/v0/amp-date-countdown-0.1.js" },
-          { customTemplate: "amp-mustache", src: "https://cdn.ampproject.org/v0/amp-mustache-0.2.js" }
-        ],
-        ampHtml: `<amp-date-countdown timestamp-seconds="2147483648"
-        layout="fixed-height"
-        height="100">
-        <template type="amp-mustache">
-          {{d}} days, {{h}} hours, {{m}} minutes and {{s}} seconds until <a href="https://en.wikipedia.org/wiki/Year_2038_problem">Y2K38</a>.
-        </template>
-      </amp-date-countdown>`
+        </amp-dailymotion>`
       }
     }
   }
