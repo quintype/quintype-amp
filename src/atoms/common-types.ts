@@ -12,6 +12,7 @@ declare global {
       "amp-sidebar";
       "amp-social-share";
       "amp-ad";
+      "amp-mathml";
     }
   }
 }

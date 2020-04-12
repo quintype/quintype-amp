@@ -16,6 +16,7 @@ import * as icons from "./icons";
 import { SocialShareIcon } from "./social-share-icon";
 import { Slot } from "./slot";
 import { DfpAd } from "./dfp-ad";
+import { Head } from "./head";
 
 export {
   Carousel,
@@ -35,5 +36,6 @@ export {
   HamburgerMenu,
   icons,
   SocialShareIcon,
-  Slot
+  Slot,
+  Head
 };
