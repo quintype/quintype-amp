@@ -4,16 +4,10 @@
 
 import { ampifyStory } from "./ampify-story";
 import { isValidAmpHtml } from "../../utils/validate-amp";
-import { storyWithManyJsEmbeds, publisherConfig, ampConfig } from "../../__fixtures__";
+import { storyWithManyJsEmbeds, publisherConfig, ampConfig, opts as opts2 } from "../../__fixtures__";
 import { sampleTextStory } from "./sampleTextStory";
 
-describe("Ampify Story", () => {
-  it("ampifyStory function should return valid amp-html", async () => {
-    const ampHtml = ampifyStory({ story: storyWithManyJsEmbeds, publisherConfig, ampConfig });
-    if (ampHtml instanceof Error) throw ampHtml;
-    const ampValidatorOutput = await isValidAmpHtml(ampHtml);
-    expect(ampValidatorOutput).toBe(true);
-  });
+describe("Ampify Story with custom opts", () => {
   it("should render publisher template for text", async () => {
     const opts = {
       templates: {
@@ -24,17 +18,9 @@ describe("Ampify Story", () => {
     if (ampHtml instanceof Error) throw ampHtml;
     expect(ampHtml.includes("Sample Text Story")).toBe(true);
   });
-  it("should correctly render slots for text story", async () => {
-    const opts = {
-      slots: {
-        story: {
-          "top-slot": {
-            ampHtml: `<hr/><div>This Stuff Is Coming From Slot... <a href="google.com">Link To Google</a></div><hr/>`
-          }
-        }
-      }
-    };
-    const ampHtml = ampifyStory({ story: storyWithManyJsEmbeds, publisherConfig, ampConfig, opts });
+
+  it("ampifyStory function should return valid amp-html", async () => {
+    const ampHtml = ampifyStory({ story: storyWithManyJsEmbeds, publisherConfig, ampConfig, opts: opts2 });
     if (ampHtml instanceof Error) throw ampHtml;
     const ampValidatorOutput = await isValidAmpHtml(ampHtml);
     expect(ampValidatorOutput).toBe(true);
