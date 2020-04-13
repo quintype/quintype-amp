@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Also Read should render default 1`] = `
+<styled.div>
+  <Spacer
+    align="horizontal"
+    token="m"
+  />
+  <span>
+    Also read: 
+  </span>
+  <Spacer
+    align="horizontal"
+    token="s"
+  />
+  <a
+    href="https://www.barandbench.com/news/lsac-launches-new-initiatives-to-support-law-school-enrollment-efforts-in-india"
+  >
+    LSAC Launches New Initiatives to Support Law School Enrollment Efforts in India
+  </a>
+  <Spacer
+    align="horizontal"
+    token="m"
+  />
+</styled.div>
+`;

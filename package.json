@@ -79,6 +79,7 @@
     "typescript": "^3.7.5"
   },
   "dependencies": {
+    "@rvgpl/get-youtube-id": "^1.0.0",
     "date-fns": "^2.11.0",
     "lodash.clonedeep": "^4.5.0",
     "lodash.get": "^4.4.2",

@@ -11,6 +11,7 @@ declare global {
       "amp-twitter": TwitterTypes;
       "amp-sidebar";
       "amp-social-share";
+      "amp-youtube";
       "amp-ad";
     }
   }
