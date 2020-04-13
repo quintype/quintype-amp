@@ -4,7 +4,7 @@
 
 import { ampifyStory } from "./ampify-story";
 import { isValidAmpHtml } from "../../utils/validate-amp";
-import { storyWithManyJsEmbeds, publisherConfig, ampConfig, opts as opts2 } from "../../__fixtures__";
+import { storyWithManyJsEmbeds, publisherConfig, ampConfig, configOpts } from "../../__fixtures__";
 import { sampleTextStory } from "./sampleTextStory";
 
 describe("Ampify Story with custom opts", () => {
@@ -20,7 +20,7 @@ describe("Ampify Story with custom opts", () => {
   });
 
   it("ampifyStory function should return valid amp-html", async () => {
-    const ampHtml = ampifyStory({ story: storyWithManyJsEmbeds, publisherConfig, ampConfig, opts: opts2 });
+    const ampHtml = ampifyStory({ story: storyWithManyJsEmbeds, publisherConfig, ampConfig, opts: configOpts });
     if (ampHtml instanceof Error) throw ampHtml;
     const ampValidatorOutput = await isValidAmpHtml(ampHtml);
     expect(ampValidatorOutput).toBe(true);

@@ -1,7 +1,7 @@
 export interface Config {
   publisherConfig: PublisherConfig;
   ampConfig: AMPConfig;
-  opts?: OptsTypes;
+  opts?: ConfigOpts;
 }
 
 export interface PublisherConfig {
@@ -69,7 +69,7 @@ interface SlotsTypes {
   };
 }
 
-export interface OptsTypes {
+export interface ConfigOpts {
   templates?: object;
   slots?: SlotsTypes;
 }

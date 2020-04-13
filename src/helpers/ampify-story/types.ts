@@ -1,9 +1,9 @@
 import { Story } from "../../types/story";
-import { AMPConfig, PublisherConfig, OptsTypes } from "../../types/config";
+import { AMPConfig, PublisherConfig, ConfigOpts } from "../../types/config";
 
 export interface AmpifyStoryTypes {
   story: Story;
   ampConfig: AMPConfig;
   publisherConfig: PublisherConfig;
-  opts?: OptsTypes;
+  opts?: ConfigOpts;
 }

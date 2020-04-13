@@ -1,4 +1,4 @@
-import { Config, PublisherConfig, AMPConfig, OptsTypes } from "../types/config";
+import { Config, PublisherConfig, AMPConfig, ConfigOpts } from "../types/config";
 
 export const publisherConfig: PublisherConfig = {
   "cdn-name": "https://thumbor-stg.assettype.com/",
@@ -85,7 +85,7 @@ export const ampConfig: AMPConfig = {
   "google-analytics-tracking-id": "UA-ABCDEFG"
 };
 
-export const opts: OptsTypes = {
+export const configOpts: ConfigOpts = {
   slots: {
     story: {
       "top-slot": {
@@ -132,5 +132,5 @@ export const opts: OptsTypes = {
 export const config: Config = {
   publisherConfig,
   ampConfig,
-  opts
+  opts: configOpts
 };
