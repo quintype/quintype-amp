@@ -1,4 +1,5 @@
 import { Config, PublisherConfig, AMPConfig } from "../types/config";
+import { relatedStories } from "./related-stories";
 
 export const publisherConfig: PublisherConfig = {
   "cdn-name": "https://thumbor-stg.assettype.com/",
@@ -82,7 +83,8 @@ export const ampConfig: AMPConfig = {
   },
   "google-client-id-api": false,
   "invalid-elements-strategy": "redirect-to-web-version",
-  "google-analytics-tracking-id": "UA-ABCDEFG"
+  "google-analytics-tracking-id": "UA-ABCDEFG",
+  "related-stories": relatedStories
 };
 
 export const config: Config = {

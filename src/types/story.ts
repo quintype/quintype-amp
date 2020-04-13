@@ -1,4 +1,5 @@
 export interface Story {
+  "last-correction-published-at"?: number;
   "updated-at": number;
   seo: SEO;
   "assignee-id": number;
@@ -25,23 +26,22 @@ export interface Story {
   "word-count": number;
   entities: any;
   "published-at": number;
-  "is-live-blog": boolean;
+  "is-live-blog"?: boolean;
   "breaking-news-linked-story-id": any | null;
   "storyline-title": any | null;
   summary: any | null;
   "push-notification-title": any | null;
   "external-id": any | null;
   "canonical-url": any | null;
-  "is-amp-supported": boolean;
   autotags: any[];
-  "linked-entities": any[];
+  "linked-entities"?: any[];
   status: string;
   "hero-image-attribution": string | null;
   "bullet-type": string;
   id: string;
   "hero-image-s3-key": string | null;
   contributors: any[] | null;
-  "associated-series-collection-ids": any[];
+  "associated-series-collection-ids"?: any[];
   cards: Card[];
   url: string;
   "story-version-id": string;
@@ -136,6 +136,9 @@ export interface StoryElement {
   title?: string;
   id: string;
   metadata?: StoryElementMetadata;
+  "file-name"?: string;
+  "s3-key"?: string;
+  "content-type"?: string;
   subtype: null | string;
   text?: string;
 }
@@ -152,6 +155,7 @@ export interface StoryElementMetadata {
   "instagram-id"?: string | null;
   content?: string;
   attribution?: string;
+  "file-size"?: number;
 }
 
 export interface LinkedStory {
