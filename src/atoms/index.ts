@@ -15,6 +15,7 @@ import { HamburgerMenu } from "./hamburger-menu";
 import * as icons from "./icons";
 import { SocialShareIcon } from "./social-share-icon";
 import { DfpAd } from "./dfp-ad";
+import { Iframe } from "./iframe";
 
 export {
   Carousel,
@@ -23,6 +24,7 @@ export {
   Facebook,
   Twitter,
   Footer,
+  Iframe,
   Section,
   Spacer,
   Author,
