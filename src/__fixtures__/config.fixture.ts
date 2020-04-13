@@ -89,10 +89,10 @@ export const opts: OptsTypes = {
   slots: {
     story: {
       "top-slot": {
-        script: [
-          { customElement: "amp-date-countdown", src: "https://cdn.ampproject.org/v0/amp-date-countdown-0.1.js" },
-          { customTemplate: "amp-mustache", src: "https://cdn.ampproject.org/v0/amp-mustache-0.2.js" }
-        ],
+        script: `
+          <script async custom-element="amp-date-countdown" src="https://cdn.ampproject.org/v0/amp-date-countdown-0.1.js"></script>
+          <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+        `,
         ampHtml: `<amp-date-countdown height="100" class="ts_wrapper" timestamp-seconds="2147483648"
         layout="fixed-height">
         <template type="amp-mustache">
@@ -116,10 +116,7 @@ export const opts: OptsTypes = {
         }`
       },
       "bottom-slot": {
-        script: {
-          customElement: "amp-dailymotion",
-          src: "https://cdn.ampproject.org/v0/amp-dailymotion-0.1.js"
-        },
+        script: `<script async custom-element="amp-dailymotion" src="https://cdn.ampproject.org/v0/amp-dailymotion-0.1.js"></script>`,
         ampHtml: `<amp-dailymotion data-videoid="x3rdtfy"
           layout="responsive"
           data-ui-highlight="FF4081"
