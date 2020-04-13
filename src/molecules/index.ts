@@ -1,4 +1,6 @@
 import { HeaderCard } from "./header-card";
-import HeroImage from "./hero-image";
+import * as AmpAds from "./ads";
+import { HeroImage } from "./hero-image";
+import { Navbar } from "./navbar";
 
-export { HeaderCard, HeroImage };
+export { HeaderCard, HeroImage, Navbar, AmpAds };

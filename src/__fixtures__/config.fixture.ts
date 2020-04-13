@@ -1,12 +1,48 @@
-import { AMPConfig, PublisherConfig, Config } from "../types/config";
+import { Config, PublisherConfig, AMPConfig } from "../types/config";
 
 export const publisherConfig: PublisherConfig = {
-  "cdn-name": "thumbor-stg.assettype.com"
+  "cdn-name": "https://thumbor-stg.assettype.com/",
+  "text-direction": "ltr",
+  "publisher-name": "newslaundry"
 };
 
 export const ampConfig: AMPConfig = {
   menu: {
-    enabled: false
+    enabled: true,
+    items: [
+      {
+        title: "Home",
+        url: "https://barandbench.com"
+      },
+      {
+        title: "News",
+        url: "https://www.barandbench.com/news"
+      },
+      {
+        title: "Dealstreet",
+        url: "https://www.barandbench.com/dealstreet"
+      },
+      {
+        title: "Conferences & Paper presentations",
+        url: "https://www.barandbench.com/apprentice-lawyer/call-for-papers"
+      },
+      {
+        title: "Recruitment Tracker",
+        url: "https://www.barandbench.com/apprentice-lawyer/recruitment-tracker"
+      },
+      {
+        title: "Apprentice Lawyer",
+        url: "https://www.barandbench.com/apprentice-lawyer"
+      },
+      {
+        title: "Viewpoint",
+        url: "https://www.barandbench.com/view-point"
+      },
+      {
+        title: "Legal Jobs",
+        url: "https://www.barandbench.com/legal-jobs"
+      }
+    ]
   },
   fonts: {
     primary: {
@@ -31,17 +67,17 @@ export const ampConfig: AMPConfig = {
     "top-ad": {
       width: 300,
       height: 250,
-      "unit-path": "/5463099287/AMP_Top"
+      "unit-path": "/35096353/amptesting/formats/sticky"
     },
     "body-ad": {
       width: 300,
       height: 250,
-      "unit-path": "/5463099287/AMP_Body"
+      "unit-path": "/60988533/AMP_Body"
     },
     "bottom-ad": {
       width: 300,
       height: 250,
-      "unit-path": "/5463099287/AMP_Bottom"
+      "unit-path": "/35096353/amptesting/formats/sticky"
     }
   },
   "google-client-id-api": false,

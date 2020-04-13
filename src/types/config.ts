@@ -5,6 +5,8 @@ export interface Config {
 
 export interface PublisherConfig {
   "cdn-name": string;
+  "text-direction": "ltr" | "rtl";
+  "publisher-name": string;
 }
 
 interface Colors {
@@ -19,6 +21,7 @@ interface Colors {
 export interface AMPConfig {
   menu: {
     enabled: boolean;
+    items: MenuItemTypes[];
   };
   fonts: {
     primary: {
@@ -33,23 +36,22 @@ export interface AMPConfig {
   colors: Colors;
   "logo-url": string;
   doubleclick: {
-    "top-ad": {
-      width: number;
-      height: number;
-      "unit-path": string;
-    };
-    "body-ad": {
-      width: number;
-      height: number;
-      "unit-path": string;
-    };
-    "bottom-ad": {
-      width: number;
-      height: number;
-      "unit-path": string;
-    };
+    "top-ad": DoubleClickAdTypes;
+    "body-ad": DoubleClickAdTypes;
+    "bottom-ad": DoubleClickAdTypes;
   };
   "google-client-id-api": boolean;
   "invalid-elements-strategy": string;
   "google-analytics-tracking-id": string;
+}
+
+interface DoubleClickAdTypes {
+  width: number;
+  height: number;
+  "unit-path": string;
+}
+
+interface MenuItemTypes {
+  title: string;
+  url: string;
 }

@@ -2,7 +2,7 @@ import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { HeroImage } from "./hero-image";
 import { textStory, config } from "../../__fixtures__";
-import Layout from "../../atoms/layout";
+import { Layout } from "../../atoms/layout";
 
 const customMetadata = {
   width: 2560,

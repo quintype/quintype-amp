@@ -1,2 +1,2 @@
 import { Twitter } from "./twitter";
-export default Twitter;
+export { Twitter };
