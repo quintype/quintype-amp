@@ -5,6 +5,7 @@ import { ImageElement } from "./image-element";
 import { Blurb } from "./blurb";
 import { AlsoRead } from "./also-read";
 import { YouTube } from "./youtube";
+import { Embed } from "./embed";
 
 const StoryElements = {
   Text,
@@ -13,7 +14,8 @@ const StoryElements = {
   ImageElement,
   Blurb,
   AlsoRead,
-  YouTube
+  YouTube,
+  Embed
 };
-export { Text, Pending, BlockQuote, ImageElement, Blurb, AlsoRead, YouTube };
+export { Text, Pending, BlockQuote, ImageElement, Blurb, AlsoRead, YouTube, Embed };
 export { StoryElements };

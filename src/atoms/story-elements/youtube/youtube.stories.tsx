@@ -2,7 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { YouTube } from "./youtube";
 import { textStory, config } from "../../../__fixtures__";
-import Layout from "../../layout";
+import { Layout } from "../../layout";
 
 const sampleYouTubeElement = {
   description: "",

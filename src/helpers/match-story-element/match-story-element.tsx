@@ -1,4 +1,4 @@
-import { Text, BlockQuote, Pending, ImageElement, Blurb, AlsoRead, YouTube } from "../../atoms/story-elements";
+import { Text, BlockQuote, Pending, ImageElement, Blurb, AlsoRead, YouTube, Embed } from "../../atoms/story-elements";
 
 const anyType = "any";
 const none = "none";
@@ -25,7 +25,7 @@ const StoryElementsTable = [
   ["jsembed", "social-media", Pending],
   ["jsembed", "tweet", Pending],
   ["jsembed", "vidible-video", Pending],
-  ["jsembed", anyType, Pending],
+  ["jsembed", anyType, Embed],
   ["polltype", "opinion-poll", Pending],
   ["soundcloud-audio", none, Pending],
   ["text", "also-read", AlsoRead],
