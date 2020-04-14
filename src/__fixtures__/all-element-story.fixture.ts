@@ -393,6 +393,22 @@ const allElementsStory = {
         },
         {
           description: "",
+          "embed-js":
+            "PGlmcmFtZSBmcmFtZWJvcmRlcj0iMCIgd2lkdGg9IjY0MCIgaGVpZ2h0PSIzNjAiIHNyYz0iaHR0cHM6Ly93d3cuZGFpbHltb3Rpb24uY29tL2VtYmVkL3ZpZGVvL3g3dDluMTMiIGFsbG93ZnVsbHNjcmVlbiBhbGxvdz0iYXV0b3BsYXkiPjwvaWZyYW1lPg==",
+          "page-url": "/story/05066b94-784b-4913-971b-c01a1bcfb43d/element/89d43010-36f3-427b-a344-ef1630dc9745",
+          type: "jsembed",
+          "family-id": "0c2c5683-37c5-4cbf-b51f-0fe43f408a23",
+          title: "",
+          id: "89d43010-36f3-427b-a344-ef1630dc9745",
+          metadata: {
+            "dailymotion-url": "https://www.dailymotion.com/video/x7t9n13",
+            provider: "dailymotion-video",
+            "video-id": "x7t9n13"
+          },
+          subtype: "dailymotion-video"
+        },
+        {
+          description: "",
           "page-url": "/story/05066b94-784b-4913-971b-c01a1bcfb43d/element/31e2c51b-cd56-405f-8882-0c348a59fb7d",
           type: "text",
           "family-id": "3d6fba96-a6d9-430a-b781-f6bd5a7d7e50",

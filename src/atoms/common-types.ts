@@ -14,6 +14,7 @@ declare global {
       "amp-youtube";
       "amp-ad";
       "amp-iframe";
+      "amp-dailymotion";
     }
   }
 }
