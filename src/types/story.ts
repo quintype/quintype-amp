@@ -1,6 +1,4 @@
 export interface Story {
-  "last-correction-published-at"?: number;
-  "updated-at": number;
   seo: SEO;
   "assignee-id": number;
   "author-name": string;
@@ -63,6 +61,9 @@ export interface Story {
   "publish-at": number | null;
   "assignee-name": string;
   alternative: {};
+  "last-correction-published-at"?: number;
+  "updated-at": number;
+  "is-amp-supported"?: boolean;
 }
 
 export interface Author {

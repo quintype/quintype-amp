@@ -1003,6 +1003,26 @@ export const relatedStories: RelatedStories = {
           "twitter-handle": null,
           bio: null,
           "contributor-role": null
+        },
+        {
+          name: "Alfred Pennyworth",
+          id: 2,
+          slug: "/pennyworth",
+          "avatar-url": "",
+          "avatar-s3-key": null,
+          "twitter-handle": null,
+          bio: null,
+          "contributor-role": null
+        },
+        {
+          name: "Selena Kyle",
+          id: 3,
+          slug: "/kyle",
+          "avatar-url": "",
+          "avatar-s3-key": null,
+          "twitter-handle": null,
+          bio: null,
+          "contributor-role": null
         }
       ],
       metadata: {
