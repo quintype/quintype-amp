@@ -11,8 +11,10 @@ export function renderToString(component) {
     // if (check instanceof Error) throw check
     const { title, script, customStyles, metaTags } = getHeadTags(component);
     const { htmlStr, styles } = getHtmlAndStyles(component);
+    const relevantMetaTags = stripIrrevelantMetaTags(metaTags);
 
     str += `${headStart}\n`;
+    str += `${relevantMetaTags}\n`;
     str += `${title}\n`;
     str += `${script}\n`;
     str += `${customStyles || styles}\n`;
@@ -53,6 +55,9 @@ const getHtmlAndStyles = (component: ReactElement) => {
 
 const invalidStoryElementsPresent = (metaTags) => {
   return /name="invalid-elements-present"/.test(metaTags);
+};
+const stripIrrevelantMetaTags = (metaTags) => {
+  return metaTags.replace(/<meta[^\/]*name="invalid-elements-present"[^\/]*\/>/, "");
 };
 
 const headStart = `<!doctype html>
