@@ -2,6 +2,7 @@ import { AmpifyStoryTypes } from "./types";
 import renderToString from "../render-to-string";
 import { TextStory } from "../../templates/text-story/text-story";
 import get from "lodash.get";
+import React from "react";
 
 export function ampifyStory({ story, publisherConfig, ampConfig, opts }: AmpifyStoryTypes) {
   // returns ready-to-render amp html. Intended to be used by publishers who donot need customizations
@@ -16,9 +17,11 @@ const getTemplate = ({ story, config, opts }) => {
 
   switch (storyTemplate) {
     case "text":
-      return "text" in publisherTemplates
-        ? publisherTemplates["text"]({ story, config })
-        : TextStory({ story, config });
+      return "text" in publisherTemplates ? (
+        publisherTemplates.text({ story, config })
+      ) : (
+        <TextStory story={story} config={config} />
+      );
     default:
       throw new Error("Couldn't resolve story template");
   }

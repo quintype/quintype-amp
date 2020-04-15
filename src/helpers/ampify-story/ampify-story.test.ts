@@ -9,7 +9,7 @@ import { sampleTextStory } from "./sampleTextStory";
 
 describe("Ampify Story", () => {
   it("ampifyStory function should return valid amp-html", async () => {
-    const ampHtml = ampifyStory({ story: storyWithManyJsEmbeds, publisherConfig, ampConfig });
+    const { ampHtml } = ampifyStory({ story: storyWithManyJsEmbeds, publisherConfig, ampConfig });
     if (ampHtml instanceof Error) throw ampHtml;
     const ampValidatorOutput = await isValidAmpHtml(ampHtml);
     expect(ampValidatorOutput).toBe(true);
@@ -21,7 +21,7 @@ describe("Ampify Story", () => {
         text: sampleTextStory
       }
     };
-    const ampHtml = ampifyStory({ story: storyWithManyJsEmbeds, publisherConfig, ampConfig, opts });
+    const { ampHtml } = ampifyStory({ story: storyWithManyJsEmbeds, publisherConfig, ampConfig, opts });
     if (ampHtml instanceof Error) throw ampHtml;
     expect(ampHtml.includes("Sample Text Story")).toBe(true);
   });

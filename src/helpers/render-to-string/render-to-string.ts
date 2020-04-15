@@ -9,7 +9,7 @@ export function renderToString(component) {
   try {
     // const check = checkLayout()
     // if (check instanceof Error) throw check
-    const { title, script, customStyles } = getHeadTags(component);
+    const { title, script, customStyles, metaTags } = getHeadTags(component);
     const { htmlStr, styles } = getHtmlAndStyles(component);
 
     str += `${headStart}\n`;
@@ -19,7 +19,7 @@ export function renderToString(component) {
     str += `${headEndBodyStart}\n`;
     str += `${htmlStr}\n`;
     str += `${bodyEnd}`;
-    return str;
+    return { ampHtml: str, invalidElementsPresent: invalidStoryElementsPresent(metaTags) };
   } catch (e) {
     return e;
   }
@@ -34,10 +34,10 @@ const getHeadTags = (component) => {
   const helmet = Helmet.renderStatic();
   const title = helmet.title.toString();
   const script = helmet.script.toString();
-  // customStyles will give styles added directly inside <Helmet>. This Will be removed soon as all styles are now applied using styled components. Keeping it here for historic reasons
+  const metaTags = helmet.meta.toString();
   let customStyles = helmet.style.toString().replace(/^<style[^>]*>/, `<style amp-custom>`);
   customStyles = removeEmptyStyleTag(customStyles);
-  return { title, script, customStyles };
+  return { title, script, customStyles, metaTags };
 };
 
 const getHtmlAndStyles = (component: ReactElement) => {
@@ -49,6 +49,10 @@ const getHtmlAndStyles = (component: ReactElement) => {
   styles = removeEmptyStyleTag(styles);
   sheet.seal();
   return { htmlStr, styles };
+};
+
+const invalidStoryElementsPresent = (metaTags) => {
+  return /name="invalid-elements-present"/.test(metaTags);
 };
 
 const headStart = `<!doctype html>
