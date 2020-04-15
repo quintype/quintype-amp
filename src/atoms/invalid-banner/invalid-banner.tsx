@@ -12,7 +12,7 @@ const StyledBanner = styled.div`
 `;
 
 const InvalidBannerBase = ({ story }) => {
-  const storyUrl = story.url || "/";
+  const storyUrl = story.url;
   return (
     <StyledBanner>
       Some of the elements in this story are not compatible with AMP. To view the complete story, please{" "}
