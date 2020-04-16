@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RelatedStoryCard should render default 1`] = `
+<styled.a
+  href="https://www.barandbench.com/news/governor-must-bear-in-mind-that-purpose-of-ordering-trust-vote-is-not-to-displace-governments-sc-on-madhya-pradesh-political-crisis"
+>
+  <Component
+    alt="image"
+    aspectRatio={
+      Array [
+        16,
+        9,
+      ]
+    }
+    metadata={
+      Object {
+        "file-name": "SC Leaders.jpg",
+        "file-size": 1105549,
+        "focus-point": Array [
+          1411,
+          1242,
+        ],
+        "height": 1934,
+        "mime-type": "image/jpeg",
+        "width": 2560,
+      }
+    }
+    slug="barandbench/2020-03/980fbb13-7d99-46bf-b9d1-8fcbe0aa17c1/SC_Leaders.jpg"
+  />
+  <styled.h1>
+    Governor must bear in mind that purpose of ordering trust vote is not to displace governments: SC on Madhya Pradesh Political Crisis
+  </styled.h1>
+  <Author
+    authors={
+      Array [
+        Object {
+          "avatar-s3-key": null,
+          "avatar-url": null,
+          "bio": null,
+          "contributor-role": null,
+          "id": 708281,
+          "name": "Aditya AK",
+          "slug": "aditya-ak",
+          "twitter-handle": null,
+        },
+        Object {
+          "avatar-s3-key": null,
+          "avatar-url": "",
+          "bio": null,
+          "contributor-role": null,
+          "id": 2,
+          "name": "Alfred Pennyworth",
+          "slug": "/pennyworth",
+          "twitter-handle": null,
+        },
+        Object {
+          "avatar-s3-key": null,
+          "avatar-url": "",
+          "bio": null,
+          "contributor-role": null,
+          "id": 3,
+          "name": "Selena Kyle",
+          "slug": "/kyle",
+          "twitter-handle": null,
+        },
+      ]
+    }
+  />
+</styled.a>
+`;
