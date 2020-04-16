@@ -7,7 +7,7 @@ import {
   AlsoRead,
   YouTube,
   Embed,
-  DailyMotion
+  DailyMotionElement
 } from "../../atoms/story-elements";
 
 const anyType = "any";
@@ -27,7 +27,7 @@ const StoryElementsTable = [
   ["file", "attachment", Pending],
   ["image", none, ImageElement],
   ["jsembed", "avmm-vidible-video", Pending],
-  ["jsembed", "dailymotion-video", DailyMotion],
+  ["jsembed", "dailymotion-video", DailyMotionElement],
   ["jsembed", "dilmot-q-and-a", Pending],
   ["jsembed", "facebook-post", Pending],
   ["jsembed", "facebook-video", Pending],

@@ -1,6 +1,6 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import { DailyMotion } from "./daily-motion";
+import { DailyMotionElement } from "./daily-motion-element";
 import { config, textStory } from "../../../__fixtures__";
 import { Layout } from "../../layout";
 
@@ -23,14 +23,14 @@ const sampleDailyMotionElement = {
 
 const { metadata, ...sampleDailyMotionElementWithoutMetadata } = sampleDailyMotionElement;
 
-storiesOf("Daily Motion", module)
+storiesOf("Daily Motion Element", module)
   .addDecorator((story) => (
     <Layout story={textStory} config={config}>
       {story()}
     </Layout>
   ))
-  .add("Default", () => <DailyMotion element={sampleDailyMotionElement} />)
+  .add("Default", () => <DailyMotionElement element={sampleDailyMotionElement} />)
   .add("With a square different layout", () => (
-    <DailyMotion element={sampleDailyMotionElement} layout="fixed" width="400" height="400" />
+    <DailyMotionElement element={sampleDailyMotionElement} layout="fixed" width="400" height="400" />
   ))
-  .add("DailyMotion without metadata", () => <DailyMotion element={sampleDailyMotionElementWithoutMetadata} />);
+  .add("DailyMotion without metadata", () => <DailyMotionElement element={sampleDailyMotionElementWithoutMetadata} />);

@@ -16,6 +16,7 @@ import * as icons from "./icons";
 import { SocialShareIcon } from "./social-share-icon";
 import { DfpAd } from "./dfp-ad";
 import { Iframe } from "./iframe";
+import { DailyMotion } from "./daily-motion";
 
 export {
   Carousel,
@@ -35,5 +36,6 @@ export {
   PublisherLogoHeader,
   HamburgerMenu,
   icons,
-  SocialShareIcon
+  SocialShareIcon,
+  DailyMotion
 };
