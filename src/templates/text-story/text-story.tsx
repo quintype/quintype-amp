@@ -5,13 +5,11 @@ import styled from "styled-components";
 
 const { TopAd, BodyAd, BottomAd } = AmpAds;
 const StoryContainer = styled.div`
+  max-width: 700px;
+  margin: 0 auto;
   padding: 0 ${(props) => props.theme.spacing.s};
 `;
 const canDisplayBodyAd = (cardIdx, cardsArr) => cardIdx === 2 && cardsArr.length > 2;
-const StoryContentWrapper = styled.div`
-  max-width: 700px;
-  margin: 0 auto;
-`;
 const TextStory = ({ story, config }) => {
   const [showInvalidBanner, setStatusInvalidBanner] = useState(false);
   const handleSetInvalid = () => {
@@ -24,25 +22,23 @@ const TextStory = ({ story, config }) => {
       <Navbar />
       <TopAd />
       {invalidBanner}
-      <StoryContentWrapper>
+      <StoryContainer>
         <HeaderCard />
         <Spacer token="s" />
-        <StoryContainer>
-          {story.cards.map((card, cardIdx) => {
-            const storyCard = card["story-elements"].map((element) => (
-              <StoryElement setInvalidBanner={handleSetInvalid} key={element.id} element={element} />
-            ));
-            return canDisplayBodyAd(cardIdx, story.cards) ? (
-              <Fragment>
-                <BodyAd />
-                {storyCard}
-              </Fragment>
-            ) : (
-              storyCard
-            );
-          })}
-        </StoryContainer>
-      </StoryContentWrapper>
+        {story.cards.map((card, cardIdx) => {
+          const storyCard = card["story-elements"].map((element) => (
+            <StoryElement setInvalidBanner={handleSetInvalid} key={element.id} element={element} />
+          ));
+          return canDisplayBodyAd(cardIdx, story.cards) ? (
+            <Fragment>
+              <BodyAd />
+              {storyCard}
+            </Fragment>
+          ) : (
+            storyCard
+          );
+        })}
+      </StoryContainer>
       <BottomAd />
     </Layout>
   );
