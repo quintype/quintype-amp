@@ -3,7 +3,7 @@ import { Common } from "../common-types";
 export interface IframeTypes extends Common {
   src?: string;
   sandbox?: string;
-  IframePlaceholder?: JSX.Element | JSX.Element[];
+  children?: JSX.Element | JSX.Element[] | React.ReactChildren;
   srcdoc?: string;
   frameborder?: string;
   allowfullscreen?: string;
