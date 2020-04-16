@@ -5,7 +5,7 @@ import { storyWithManyJsEmbeds, config, textStory, relatedStories } from "../../
 import { allElementsStory } from "../../__fixtures__/all-element-story.fixture";
 
 storiesOf("Text Story", module)
-  .addDecorator((story) => <div style={{ padding: "0 12px", maxWidth: "700px", margin: "0 auto" }}>{story()}</div>)
+  .addDecorator((story) => <div>{story()}</div>)
   .add("Story with JS Embeds", () => (
     <TextStory relatedStories={relatedStories} story={storyWithManyJsEmbeds} config={config} />
   ))

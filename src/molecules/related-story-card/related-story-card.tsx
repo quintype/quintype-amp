@@ -1,10 +1,12 @@
-import React, { Fragment } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Image } from "../../atoms";
 import { Author } from "../../atoms";
 
 const CardWrapper = styled.a`
   text-decoration: none;
+  flex: 1 1 0;
+  margin: 10px;
 `;
 const Headline = styled.h1`
   font-family: ${(props) => props.theme.font.family.primary};
@@ -26,13 +28,11 @@ export const RelatedStoryCard = ({ story }) => {
     <Image metadata={imgMetadata} slug={imgS3Key} aspectRatio={[16, 9]} alt={imgAlt || "image"} />
   ) : null;
   return (
-    <Fragment>
-      <CardWrapper href={url}>
-        {image}
-        <Headline>{headline}</Headline>
-        <Author authors={authors} />
-      </CardWrapper>
-    </Fragment>
+    <CardWrapper href={url}>
+      {image}
+      <Headline>{headline}</Headline>
+      <Author authors={authors} />
+    </CardWrapper>
   );
 };
 
