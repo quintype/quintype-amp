@@ -19,7 +19,7 @@ export const Heading = styled.h2`
 `;
 
 export const RelatedStories = ({ stories }: RelatedStoriesTypes) => {
-  return storiesPresent(stories) ? (
+  return (
     <Fragment>
       <Heading>Related Stories</Heading>
       <RelatedStoryCards>
@@ -28,7 +28,5 @@ export const RelatedStories = ({ stories }: RelatedStoriesTypes) => {
         ))}
       </RelatedStoryCards>
     </Fragment>
-  ) : null;
+  );
 };
-
-const storiesPresent = (stories) => Array.isArray(stories) && stories.length;

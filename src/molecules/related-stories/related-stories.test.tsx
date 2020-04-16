@@ -19,10 +19,6 @@ describe("RelatedStories", () => {
     const wrapper = shallow(<RelatedStories stories={relatedStories} />);
     expect(wrapper.find(Heading).length).toBe(1);
   });
-  it("should not render if no stories are passed", () => {
-    const wrapper = shallow(<RelatedStories stories={[]} />);
-    expect(wrapper.find(Heading).length).toBe(0);
-  });
   it("Should return valid amp-html", async () => {
     const component = (
       <Layout story={textStory} config={config}>
