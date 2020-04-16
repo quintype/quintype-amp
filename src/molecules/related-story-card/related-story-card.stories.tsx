@@ -5,7 +5,7 @@ import { Layout } from "../../atoms";
 import { relatedStories } from "../../__fixtures__/related-stories";
 import { config, textStory } from "../../__fixtures__";
 
-const sampleRelatedStory = relatedStories["related-stories"][0];
+const sampleRelatedStory = relatedStories[0];
 
 storiesOf("Related Story Card", module)
   .addDecorator((story) => (

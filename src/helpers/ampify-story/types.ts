@@ -3,6 +3,7 @@ import { AMPConfig, PublisherConfig } from "../../types/config";
 
 export interface AmpifyStoryTypes {
   story: Story;
+  relatedStories: Story[];
   ampConfig: AMPConfig;
   publisherConfig: PublisherConfig;
   opts?: {
