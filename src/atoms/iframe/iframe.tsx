@@ -9,7 +9,7 @@ const Iframe = ({
   frameborder = "0",
   width = "16",
   height = "9",
-  IframePlaceholder,
+  children,
   ...restProps
 }: IframeTypes) => {
   return (
@@ -25,7 +25,7 @@ const Iframe = ({
         frameborder={frameborder}
         src={src}
         {...restProps}>
-        {IframePlaceholder && IframePlaceholder}
+        {children && children}
       </amp-iframe>
     </Fragment>
   );
