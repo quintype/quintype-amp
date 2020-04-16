@@ -1,43 +1,36 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Layout, StoryElement, Spacer, InvalidBanner } from "../../atoms";
 import { HeaderCard, Navbar, AmpAds } from "../../molecules";
 import styled from "styled-components";
-import { Config } from "../../types/config";
-import { Story } from "../../types/story";
 
 const { TopAd, BodyAd, BottomAd } = AmpAds;
 const StoryContainer = styled.div`
   padding: 0 ${(props) => props.theme.spacing.s};
 `;
 const canDisplayBodyAd = (cardIdx, cardsArr) => cardIdx === 2 && cardsArr.length > 2;
-class TextStory extends React.Component<MyProps, MyState> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showInvalidBanner: false
-    };
-    this.setInvalidBanner = this.setInvalidBanner.bind(this);
-  }
-  setInvalidBanner() {
-    if (!this.state.showInvalidBanner) {
-      this.setState({ showInvalidBanner: true });
-    }
-  }
-  render() {
-    const { story, config } = this.props;
-    let invalidBanner;
-    invalidBanner = this.state.showInvalidBanner ? <InvalidBanner /> : null;
-    return (
-      <Layout story={story} config={config}>
-        <Navbar />
-        <TopAd />
-        {invalidBanner}
+const StoryContentWrapper = styled.div`
+  max-width: 700px;
+  margin: 0 auto;
+`;
+const TextStory = ({ story, config }) => {
+  const [showInvalidBanner, setStatusInvalidBanner] = useState(false);
+  const handleSetInvalid = () => {
+    if (!showInvalidBanner) setStatusInvalidBanner(true);
+  };
+  let invalidBanner;
+  invalidBanner = showInvalidBanner ? <InvalidBanner /> : null;
+  return (
+    <Layout story={story} config={config}>
+      <Navbar />
+      <TopAd />
+      {invalidBanner}
+      <StoryContentWrapper>
         <HeaderCard />
         <Spacer token="s" />
         <StoryContainer>
           {story.cards.map((card, cardIdx) => {
             const storyCard = card["story-elements"].map((element) => (
-              <StoryElement setInvalidBanner={this.setInvalidBanner} key={element.id} element={element} />
+              <StoryElement setInvalidBanner={handleSetInvalid} key={element.id} element={element} />
             ));
             return canDisplayBodyAd(cardIdx, story.cards) ? (
               <Fragment>
@@ -49,19 +42,10 @@ class TextStory extends React.Component<MyProps, MyState> {
             );
           })}
         </StoryContainer>
-        <BottomAd />
-      </Layout>
-    );
-  }
-}
-
-interface MyProps {
-  story: Story;
-  config: Config;
-}
-
-interface MyState {
-  showInvalidBanner: boolean;
-}
+      </StoryContentWrapper>
+      <BottomAd />
+    </Layout>
+  );
+};
 
 export { TextStory };
