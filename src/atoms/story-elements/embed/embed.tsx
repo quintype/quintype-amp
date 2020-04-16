@@ -5,11 +5,8 @@ import atob from "atob";
 
 const Embed = ({ element }: StoryElementProps) => {
   const embedData = element["embed-js"] ? atob(element["embed-js"]) : "";
-  if (getIframeSourceURL(embedData)) {
-    const src = getIframeSourceURL(embedData);
-    return src ? <Iframe src={src} /> : null;
-  }
-  return null;
+  const src = getIframeSourceURL(embedData);
+  return src ? <Iframe src={src} /> : null;
 };
 
 export const getIframeSourceURL = (str: string): string | null => {
