@@ -3,6 +3,9 @@ import { storiesOf } from "@storybook/react";
 import { RelatedStories } from "./related-stories";
 import { config, textStory, relatedStories } from "../../__fixtures__";
 import { Layout } from "../../atoms";
+import get from "lodash.get";
+
+const relatedStoriesArr = get(relatedStories, "related-stories", []);
 
 storiesOf("Related Stories", module)
   .addDecorator((story) => (
@@ -10,4 +13,4 @@ storiesOf("Related Stories", module)
       {story()}
     </Layout>
   ))
-  .add("Default", () => <RelatedStories stories={relatedStories} />);
+  .add("Default", () => <RelatedStories stories={relatedStoriesArr} />);

@@ -1,4 +1,3 @@
-import { Story } from "./story";
 export interface Config {
   publisherConfig: PublisherConfig;
   ampConfig: AMPConfig;
@@ -44,7 +43,6 @@ export interface AMPConfig {
   "google-client-id-api": boolean;
   "invalid-elements-strategy": string;
   "google-analytics-tracking-id": string;
-  "related-stories": Story[];
 }
 
 interface DoubleClickAdTypes {
