@@ -9,13 +9,12 @@ export function renderToString(component) {
   try {
     // const check = checkLayout()
     // if (check instanceof Error) throw check
-    const { title, script, customStyles } = getHeadTags(component);
-    const { htmlStr, styles } = getHtmlAndStyles(component);
-
+    const { title, script, customStyles } = getHeadTagsFromHelmet(component);
+    const { htmlStr, styles } = getHtmlAndStyledComponentsStyles(component);
     str += `${headStart}\n`;
     str += `${title}\n`;
     str += `${script}\n`;
-    str += `${customStyles || styles}\n`;
+    str += `<style amp-custom>\n${customStyles}\n${styles}\n</style>`;
     str += `${headEndBodyStart}\n`;
     str += `${htmlStr}\n`;
     str += `${bodyEnd}`;
@@ -25,28 +24,23 @@ export function renderToString(component) {
   }
 }
 
-const removeEmptyStyleTag = (str: string) => str.replace(/<style amp-custom><\/style>/, "");
+const stripStyleTag = (str: string) => str.replace(/<style[^>]*>|<\/style>/g, "");
 
-const getHeadTags = (component) => {
-  // returns all the stuff that react-helmet generates to be put in the head.
-  // custom styles will come here as helmet collects them
+const getHeadTagsFromHelmet = (component) => {
   ReactDOMServer.renderToStaticMarkup(component); // without this, helmet.script returns empty
   const helmet = Helmet.renderStatic();
   const title = helmet.title.toString();
   const script = helmet.script.toString();
-  // customStyles will give styles added directly inside <Helmet>. This Will be removed soon as all styles are now applied using styled components. Keeping it here for historic reasons
-  let customStyles = helmet.style.toString().replace(/^<style[^>]*>/, `<style amp-custom>`);
-  customStyles = removeEmptyStyleTag(customStyles);
+  let customStyles = helmet.style.toString();
+  customStyles = stripStyleTag(customStyles);
   return { title, script, customStyles };
 };
 
-const getHtmlAndStyles = (component: ReactElement) => {
+const getHtmlAndStyledComponentsStyles = (component: ReactElement) => {
   const sheet = new ServerStyleSheet();
   const htmlStr = ReactDOMServer.renderToStaticMarkup(sheet.collectStyles(component));
   let styles = sheet.getStyleTags();
-  styles = styles.replace(/^<style[^>]*/, `<style amp-custom`);
-  styles = styles.replace(/data-styled[^}]*}/g, "");
-  styles = removeEmptyStyleTag(styles);
+  styles = stripStyleTag(styles);
   sheet.seal();
   return { htmlStr, styles };
 };
@@ -54,12 +48,12 @@ const getHtmlAndStyles = (component: ReactElement) => {
 const headStart = `<!doctype html>
 <html ⚡ lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-    <meta name="description" content="This is the AMP Boilerplate.">
-    <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">
-    <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
-    <link rel="canonical" href=".">`;
+    <meta charset="utf-8">\n
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">\n
+    <meta name="description" content="This is the AMP Boilerplate.">\n
+    <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">\n
+    <script async src="https://cdn.ampproject.org/v0.js"></script>\n
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>\n
+    <link rel="canonical" href=".">\n`;
 const headEndBodyStart = `</head>\n<body>`;
 const bodyEnd = `</body>\n</html>`;
