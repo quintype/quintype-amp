@@ -1,9 +1,11 @@
 import React, { Fragment } from "react";
 import { Layout, StoryElement, Spacer } from "../../atoms";
-import { HeaderCard, Navbar, AmpAds } from "../../molecules";
+import { HeaderCard, Navbar, Slots, AmpAds } from "../../molecules";
 import styled from "styled-components";
 
 const { TopAd, BodyAd, BottomAd } = AmpAds;
+const { StoryPageSlots } = Slots;
+const { TopSlot, BottomSlot } = StoryPageSlots;
 const StoryContainer = styled.div`
   padding: 0 ${(props) => props.theme.spacing.s};
 `;
@@ -13,6 +15,7 @@ const TextStory = ({ story, config }) => {
     <Layout story={story} config={config}>
       <Navbar />
       <TopAd />
+      <TopSlot />
       <HeaderCard />
       <Spacer token="s" />
       <StoryContainer>
@@ -21,15 +24,16 @@ const TextStory = ({ story, config }) => {
             <StoryElement key={element.id} element={element} />
           ));
           return canDisplayBodyAd(cardIdx, story.cards) ? (
-            <Fragment>
+            <Fragment key={card.id}>
               <BodyAd />
               {storyCard}
             </Fragment>
           ) : (
-            storyCard
+            <Fragment key={card.id}>{storyCard}</Fragment>
           );
         })}
       </StoryContainer>
+      <BottomSlot />
       <BottomAd />
     </Layout>
   );

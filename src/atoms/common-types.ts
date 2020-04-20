@@ -15,6 +15,7 @@ declare global {
       "amp-ad";
       "amp-iframe";
       "amp-dailymotion";
+      "amp-mathml";
     }
   }
 }
