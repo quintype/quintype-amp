@@ -1392,7 +1392,7 @@ exports[`RelatedStories should render default 1`] = `
           "entities": Object {},
           "external-id": null,
           "first-published-at": 1586779427147,
-          "headline": "Homage to Ashok Desai!",
+          "headline": "The above image might either be blank or contain a fallback",
           "hero-image-attribution": "Jaipur Lit Fest",
           "hero-image-caption": "Ashok Desai",
           "hero-image-metadata": null,

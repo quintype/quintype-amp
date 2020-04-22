@@ -6,6 +6,13 @@ exports[`RelatedStoryCard should render default 1`] = `
 >
   <ImageForStory
     altText="image"
+    aspectRatio={
+      Array [
+        16,
+        9,
+      ]
+    }
+    fallbackSrc="#"
     metadata={
       Object {
         "file-name": "SC Leaders.jpg",

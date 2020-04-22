@@ -4,7 +4,7 @@
 
 import { ampifyStory } from "./ampify-story";
 import { isValidAmpHtml } from "../../utils/validate-amp";
-import { storyWithManyJsEmbeds, publisherConfig, ampConfig, relatedStories, configOpts } from "../../__fixtures__";
+import { storyWithManyJsEmbeds, publisherConfig, ampConfig, relatedStoriesObj, configOpts } from "../../__fixtures__";
 import { sampleTextStory } from "./sampleTextStory";
 
 describe("Ampify Story with custom opts", () => {
@@ -14,7 +14,13 @@ describe("Ampify Story with custom opts", () => {
         text: sampleTextStory
       }
     };
-    const ampHtml = ampifyStory({ story: storyWithManyJsEmbeds, relatedStories, publisherConfig, ampConfig, opts });
+    const ampHtml = ampifyStory({
+      story: storyWithManyJsEmbeds,
+      relatedStories: relatedStoriesObj,
+      publisherConfig,
+      ampConfig,
+      opts
+    });
     if (ampHtml instanceof Error) throw ampHtml;
     expect(ampHtml.includes("Sample Text Story")).toBe(true);
   });
@@ -22,7 +28,7 @@ describe("Ampify Story with custom opts", () => {
   it("ampifyStory function should return valid amp-html", async () => {
     const ampHtml = ampifyStory({
       story: storyWithManyJsEmbeds,
-      relatedStories,
+      relatedStories: relatedStoriesObj,
       publisherConfig,
       ampConfig,
       opts: configOpts

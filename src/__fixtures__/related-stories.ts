@@ -1,4 +1,4 @@
-export const relatedStories = {
+export const relatedStoriesObj = {
   "related-stories": [
     {
       "updated-at": 1586779626444,

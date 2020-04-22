@@ -14,7 +14,7 @@ const RelatedStoryCards = styled.div`
 `;
 export const Heading = styled.h2`
   font-size: ${(props) => props.theme.font.size.m};
-  border-bottom: 1px solid ${(props) => `${props.theme.color.black}60`};
+  border-bottom: 1px solid ${(props) => props.theme.color.mono4};
   padding-bottom: 3px;
 `;
 

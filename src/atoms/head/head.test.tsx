@@ -5,7 +5,7 @@
 import React from "react";
 import { Layout, Head } from "../../atoms";
 import { HeroImage } from "../../molecules";
-import { textStory, publisherConfig, ampConfig, relatedStories } from "../../__fixtures__";
+import { textStory, publisherConfig, ampConfig, relatedStoriesObj } from "../../__fixtures__";
 import { ampifyStory } from "../../helpers";
 import { isValidAmpHtml } from "../../utils/validate-amp";
 
@@ -16,7 +16,13 @@ describe("Test for head component", () => {
         text: sampleTextStory
       }
     };
-    const ampHtml = ampifyStory({ story: textStory, publisherConfig, ampConfig, opts, relatedStories });
+    const ampHtml = ampifyStory({
+      story: textStory,
+      publisherConfig,
+      ampConfig,
+      opts,
+      relatedStories: relatedStoriesObj
+    });
     if (ampHtml instanceof Error) throw ampHtml;
     const ampValidatorOutput = await isValidAmpHtml(ampHtml);
     expect(ampValidatorOutput).toBe(true);

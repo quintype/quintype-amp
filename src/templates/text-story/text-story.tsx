@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   padding: 0 ${(props) => props.theme.spacing.s};
 `;
 const canDisplayBodyAd = (cardIdx, cardsArr) => cardIdx === 2 && cardsArr.length > 2;
-const TextStory = ({ story, config, relatedStoriesArr }) => {
+const TextStory = ({ story, config, relatedStories }) => {
   return (
     <Layout story={story} config={config}>
       <Navbar logoSrc="/header-logo.png" />
@@ -40,7 +40,7 @@ const TextStory = ({ story, config, relatedStoriesArr }) => {
         </StoryContainer>
         <Spacer token="m" />
         <BottomSlot />
-        <RelatedStories stories={relatedStoriesArr} />
+        <RelatedStories stories={relatedStories} />
         <BottomAd />
       </Wrapper>
     </Layout>
