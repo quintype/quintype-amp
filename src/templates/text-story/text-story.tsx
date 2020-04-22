@@ -1,7 +1,8 @@
 import React, { Fragment } from "react";
-import { Layout, StoryElement, Spacer } from "../../atoms";
+import { Layout, StoryElement, Spacer, Link } from "../../atoms";
 import { HeaderCard, Navbar, Slots, AmpAds } from "../../molecules";
 import styled from "styled-components";
+import get from "lodash.get";
 
 const { TopAd, BodyAd, BottomAd } = AmpAds;
 const { StoryPageSlots } = Slots;
@@ -13,6 +14,7 @@ const canDisplayBodyAd = (cardIdx, cardsArr) => cardIdx === 2 && cardsArr.length
 const TextStory = ({ story, config }) => {
   return (
     <Layout story={story} config={config}>
+      <Link rel="canonical" href={get(story, "url", ".")} />
       <Navbar />
       <TopAd />
       <TopSlot />

@@ -19,7 +19,7 @@ import { DfpAd } from "./dfp-ad";
 import { Iframe } from "./iframe";
 import { DailyMotion } from "./daily-motion";
 import { Head } from "./head";
-
+import { Link } from "./link";
 
 export {
   Carousel,
@@ -42,5 +42,6 @@ export {
   SocialShareIcon,
   DailyMotion,
   Slot,
-  Head
+  Head,
+  Link
 };

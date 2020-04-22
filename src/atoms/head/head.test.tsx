@@ -35,6 +35,7 @@ const sampleTextStory = ({ story, config }) => {
       <Head>
         <script async={undefined} custom-element="amp-mathml" src="https://cdn.ampproject.org/v0/amp-mathml-0.1.js" />
         <title>🐈 My Page 🐈</title>
+        <link rel="canonical" href="." />
       </Head>
       <HeroImage />
       <div>Math Stuff below</div>
