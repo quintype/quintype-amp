@@ -2,7 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { AlsoRead } from "./also-read";
 import { textStory, config } from "../../../__fixtures__";
-import Layout from "../../layout";
+import { Layout } from "../../layout";
 
 const sampleAlsoReadElement = {
   description: "",
@@ -31,4 +31,4 @@ storiesOf("AlsoRead", module)
       {story()}
     </Layout>
   ))
-  .add("Default", () => <AlsoRead element={sampleAlsoReadElement} story={textStory} />);
+  .add("Default", () => <AlsoRead element={sampleAlsoReadElement} />);
