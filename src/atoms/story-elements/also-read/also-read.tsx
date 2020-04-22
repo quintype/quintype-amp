@@ -41,4 +41,3 @@ export const BaseAlsoRead = ({ element, story }: StoryElementProps) => {
 };
 
 export const AlsoRead = withStoryAndConfig(BaseAlsoRead);
-export default AlsoRead;

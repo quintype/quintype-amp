@@ -152,6 +152,8 @@ export interface StoryElementMetadata {
   "instagram-id"?: string | null;
   content?: string;
   attribution?: string;
+  "dailymotion-url"?: string;
+  "video-id"?: string;
 }
 
 export interface LinkedStory {

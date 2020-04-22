@@ -1,6 +1,7 @@
 export interface Config {
   publisherConfig: PublisherConfig;
   ampConfig: AMPConfig;
+  opts?: ConfigOpts;
 }
 
 export interface PublisherConfig {
@@ -54,4 +55,21 @@ interface DoubleClickAdTypes {
 interface MenuItemTypes {
   title: string;
   url: string;
+}
+
+export interface SlotType {
+  ampHtml: string;
+  script?: string;
+  styles?: string;
+}
+interface SlotsTypes {
+  story?: {
+    "top-slot"?: SlotType;
+    "bottom-slot"?: SlotType;
+  };
+}
+
+export interface ConfigOpts {
+  templates?: object;
+  slots?: SlotsTypes;
 }

@@ -4,15 +4,15 @@ import { TextStory } from "../../templates/text-story/text-story";
 import get from "lodash.get";
 import React from "react";
 
-export function ampifyStory({ story, publisherConfig, ampConfig, opts }: AmpifyStoryTypes) {
-  // returns ready-to-render amp html. Intended to be used by publishers who donot need customizations
-  const config = { publisherConfig, ampConfig };
-  const template = getTemplate({ story, config, opts });
+export function ampifyStory({ story, publisherConfig, ampConfig, opts = {} }: AmpifyStoryTypes) {
+  const config = { publisherConfig, ampConfig, opts };
+  const template = getTemplate({ story, config });
   return renderToString(template);
 }
 
-const getTemplate = ({ story, config, opts }) => {
+const getTemplate = ({ story, config }) => {
   const storyTemplate = get(story, "story-template");
+  const opts = get(config, "opts", null);
   const publisherTemplates = opts && opts.templates ? opts.templates : {};
 
   switch (storyTemplate) {

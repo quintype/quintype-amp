@@ -5,6 +5,8 @@ import { ImageElement } from "./image-element";
 import { Blurb } from "./blurb";
 import { AlsoRead } from "./also-read";
 import { YouTube } from "./youtube";
+import { Embed } from "./embed";
+import { DailyMotionElement } from "./daily-motion-element";
 
 const StoryElements = {
   Text,
@@ -13,7 +15,9 @@ const StoryElements = {
   ImageElement,
   Blurb,
   AlsoRead,
-  YouTube
+  YouTube,
+  Embed,
+  DailyMotionElement
 };
-export { Text, Pending, BlockQuote, ImageElement, Blurb, AlsoRead, YouTube };
+export { Text, Pending, BlockQuote, ImageElement, Blurb, AlsoRead, YouTube, Embed, DailyMotionElement };
 export { StoryElements };

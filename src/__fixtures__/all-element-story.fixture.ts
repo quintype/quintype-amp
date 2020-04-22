@@ -153,6 +153,18 @@ const allElementsStory = {
         },
         {
           description: "",
+          "embed-js":
+            "PGlmcmFtZSBoZWlnaHQ9IjI2NSIgc3R5bGU9IndpZHRoOiAxMDAlOyIgc2Nyb2xsaW5nPSJubyIgdGl0bGU9ImxpZ2h0IGJ1bGIiIHNyYz0iaHR0cHM6Ly9jb2RlcGVuLmlvL3ZsYWRpc3NsYXd3dy9lbWJlZC9wb2p2enFaP2hlaWdodD0yNjUmdGhlbWUtaWQ9ZGFyayZkZWZhdWx0LXRhYj1odG1sLHJlc3VsdCIgZnJhbWVib3JkZXI9Im5vIiBhbGxvd3RyYW5zcGFyZW5jeT0idHJ1ZSIgYWxsb3dmdWxsc2NyZWVuPSJ0cnVlIiBsb2FkaW5nPSJsYXp5Ij4KICBTZWUgdGhlIFBlbiA8YSBocmVmPSdodHRwczovL2NvZGVwZW4uaW8vdmxhZGlzc2xhd3d3L3Blbi9wb2p2enFaJz5saWdodCBidWxiPC9hPiBieSB2bGFkaXNzbGF3dwogICg8YSBocmVmPSdodHRwczovL2NvZGVwZW4uaW8vdmxhZGlzc2xhd3d3Jz5AdmxhZGlzc2xhd3d3PC9hPikgb24gPGEgaHJlZj0naHR0cHM6Ly9jb2RlcGVuLmlvJz5Db2RlUGVuPC9hPi4KPC9pZnJhbWU+",
+          "page-url": "/story/05066b94-784b-4913-971b-c01a1bcfb43d/element/5bf7ba6d-9a51-41f2-b919-47539c4a5acd",
+          type: "jsembed",
+          "family-id": "f564d440-c969-4c35-9c5e-ddb032e22b05",
+          title: "",
+          id: "5bf7ba6d-9a51-41f2-b919-47539c4a5acd",
+          metadata: {},
+          subtype: null
+        },
+        {
+          description: "",
           "page-url": "/story/05066b94-784b-4913-971b-c01a1bcfb43d/element/28ae64b8-cb6d-4410-bc4e-6021fac5427f",
           type: "text",
           "family-id": "07ba0b67-1359-40ae-b566-bbca9188692a",
@@ -378,6 +390,22 @@ const allElementsStory = {
           subtype: null,
           text:
             "<p>Whenever you transport a guy in custody to the hospital, he goes with not just E.M.S. but with officers at his side who are theoretically supposed to be cuffing him to transport him. It puts those officers at risk. We contribute to an overburdened health-care crisis at our affiliated hospital. And we see patients die in custody.</p><p>It has been my prime concern over the last three years to prevent in-detention mortality whenever we can see it coming. And we do that through compassionate-release work, and we’ve been relatively successful. I’ve been involved in requests to expedite release for over a hundred patients. We know that at least sixty or seventy of those have gone out to the community. At least fifteen or twenty people died within weeks of release, suggesting that they would have otherwise died while in custody.</p><p>The mortality statistics at Rikers have gone down dramatically in the last couple of years. We only had three deaths in the system last year. And that’s not just the result of the fact that the population is decreased. It really reflects urgent and difficult work trying to get sick people released. We’re not going to be able to do that on a case-by-case basis if the virus spreads the way we anticipate it spreading.</p>"
+        },
+        {
+          description: "",
+          "embed-js":
+            "PGlmcmFtZSBmcmFtZWJvcmRlcj0iMCIgd2lkdGg9IjY0MCIgaGVpZ2h0PSIzNjAiIHNyYz0iaHR0cHM6Ly93d3cuZGFpbHltb3Rpb24uY29tL2VtYmVkL3ZpZGVvL3g3dDluMTMiIGFsbG93ZnVsbHNjcmVlbiBhbGxvdz0iYXV0b3BsYXkiPjwvaWZyYW1lPg==",
+          "page-url": "/story/05066b94-784b-4913-971b-c01a1bcfb43d/element/89d43010-36f3-427b-a344-ef1630dc9745",
+          type: "jsembed",
+          "family-id": "0c2c5683-37c5-4cbf-b51f-0fe43f408a23",
+          title: "",
+          id: "89d43010-36f3-427b-a344-ef1630dc9745",
+          metadata: {
+            "dailymotion-url": "https://www.dailymotion.com/video/x7t9n13",
+            provider: "dailymotion-video",
+            "video-id": "x7t9n13"
+          },
+          subtype: "dailymotion-video"
         },
         {
           description: "",
