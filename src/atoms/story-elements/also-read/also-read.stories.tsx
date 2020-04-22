@@ -31,4 +31,4 @@ storiesOf("AlsoRead", module)
       {story()}
     </Layout>
   ))
-  .add("Default", () => <AlsoRead element={sampleAlsoReadElement} story={textStory} />);
+  .add("Default", () => <AlsoRead element={sampleAlsoReadElement} />);

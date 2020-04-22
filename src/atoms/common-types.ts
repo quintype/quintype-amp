@@ -13,6 +13,8 @@ declare global {
       "amp-social-share";
       "amp-youtube";
       "amp-ad";
+      "amp-iframe";
+      "amp-dailymotion";
       "amp-mathml";
     }
   }

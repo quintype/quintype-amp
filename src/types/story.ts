@@ -157,6 +157,8 @@ export interface StoryElementMetadata {
   content?: string;
   attribution?: string;
   "file-size"?: number;
+  "dailymotion-url"?: string;
+  "video-id"?: string;
 }
 
 export interface LinkedStory {

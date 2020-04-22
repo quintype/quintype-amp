@@ -3,6 +3,9 @@
 ### To Start Storybook:
 ```npm run storybook```
 
+### Publishing
+To publish the package, bump the version using sematic versioning in `package.json` and `package-lock.json`. Merge it to master branch. Switch to `master` branch which has the latest unpublished version. Make sure you are logged in to npm cli. Publish the package to npm by running `npm run dist`, once it is published you need to create a new release of the package by going to the [releases page on Github](https://github.com/quintype/quintype-amp/releases)
+
 ### API Reference
 - #### Adding custom styles:
     - if you pass custom styles, all the default styles (to all components) are ignored
