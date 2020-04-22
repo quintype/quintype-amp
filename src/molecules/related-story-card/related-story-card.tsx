@@ -1,7 +1,6 @@
-import React from "react";
+import React, { Fragment } from "react";
 import styled from "styled-components";
-import { Image } from "../../atoms";
-import { Author } from "../../atoms";
+import { Image, Author } from "../../atoms";
 import { RelatedStoryCardTypes } from "./types";
 
 const CardWrapper = styled.a`
@@ -16,7 +15,7 @@ const Headline = styled.h1`
   font-weight: bold;
 `;
 
-export const RelatedStoryCard = ({ story }: RelatedStoryCardTypes) => {
+export const RelatedStoryCard = ({ story, aspectRatio, fallbackSrc }: RelatedStoryCardTypes) => {
   const {
     authors,
     headline,
@@ -26,18 +25,37 @@ export const RelatedStoryCard = ({ story }: RelatedStoryCardTypes) => {
     "hero-image-attribution": imgAttr,
     "hero-image-caption": imgCaption
   } = story;
-  const image = imagePresent({ imgMetadata, imgS3Key }) ? (
-    <Image metadata={imgMetadata} slug={imgS3Key} aspectRatio={[16, 9]} alt={imgCaption || imgAttr || "image"} />
-  ) : null;
   return (
     <CardWrapper href={url}>
-      {image}
+      <ImageForStory
+        metadata={imgMetadata}
+        s3Key={imgS3Key}
+        aspectRatio={aspectRatio}
+        altText={imgCaption || imgAttr || "image"}
+        fallbackSrc={fallbackSrc}
+      />
       <Headline>{headline}</Headline>
       <Author authors={authors} />
     </CardWrapper>
   );
 };
 
-const imagePresent = ({ imgMetadata, imgS3Key }) => {
-  return !!(imgMetadata && Object.keys(imgMetadata).length && imgS3Key);
+const imagePresent = ({ metadata, s3Key }) => {
+  return !!(metadata && Object.keys(metadata).length && s3Key);
 };
+
+const ImageForStory = ({ metadata, s3Key, aspectRatio, altText, fallbackSrc }) => (
+  <Fragment>
+    {imagePresent({ metadata, s3Key }) ? (
+      <Image metadata={metadata} slug={s3Key} aspectRatio={aspectRatio} alt={altText} />
+    ) : (
+      <amp-img
+        alt={altText || "fallback image"}
+        width={aspectRatio[0]}
+        height={aspectRatio[1]}
+        layout="responsive"
+        src={fallbackSrc}
+      />
+    )}
+  </Fragment>
+);

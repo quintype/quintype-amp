@@ -7,6 +7,13 @@ exports[`RelatedStories should render default 1`] = `
   </styled.h2>
   <styled.div>
     <Component
+      aspectRatio={
+        Array [
+          16,
+          9,
+        ]
+      }
+      fallbackSrc="#"
       key="ecfc249c-a760-49b5-bfd6-485773ab14c6"
       story={
         Object {
@@ -1014,6 +1021,13 @@ exports[`RelatedStories should render default 1`] = `
       }
     />
     <Component
+      aspectRatio={
+        Array [
+          16,
+          9,
+        ]
+      }
+      fallbackSrc="#"
       key="b554a23c-3a48-41bd-9e0a-4ab7aacb6f80"
       story={
         Object {
@@ -1381,14 +1395,8 @@ exports[`RelatedStories should render default 1`] = `
           "headline": "Homage to Ashok Desai!",
           "hero-image-attribution": "Jaipur Lit Fest",
           "hero-image-caption": "Ashok Desai",
-          "hero-image-metadata": Object {
-            "file-name": "ashok desai.jpg",
-            "file-size": 459367,
-            "height": 960,
-            "mime-type": "image/jpeg",
-            "width": 2560,
-          },
-          "hero-image-s3-key": "barandbench/2020-04/a5c5ef4b-8843-4453-89bd-3953e2c7412f/ashok_desai.jpg",
+          "hero-image-metadata": null,
+          "hero-image-s3-key": null,
           "id": "b554a23c-3a48-41bd-9e0a-4ab7aacb6f80",
           "last-published-at": 1586779427147,
           "linked-entities": Array [],
@@ -1470,6 +1478,13 @@ exports[`RelatedStories should render default 1`] = `
       }
     />
     <Component
+      aspectRatio={
+        Array [
+          16,
+          9,
+        ]
+      }
+      fallbackSrc="#"
       key="e46ad145-c0e2-472a-abe0-5fa0fd2e85e6"
       story={
         Object {
@@ -2076,6 +2091,13 @@ exports[`RelatedStories should render default 1`] = `
       }
     />
     <Component
+      aspectRatio={
+        Array [
+          16,
+          9,
+        ]
+      }
+      fallbackSrc="#"
       key="1ddb7538-5ac3-4939-947d-bbda4912152d"
       story={
         Object {

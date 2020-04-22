@@ -1061,7 +1061,7 @@ export const relatedStories = {
           "tag-type": "Tag"
         }
       ],
-      headline: "Homage to Ashok Desai!",
+      headline: "The above image might either be blank or contain a fallback",
       "storyline-id": null,
       votes: {},
       "story-content-id": "b554a23c-3a48-41bd-9e0a-4ab7aacb6f80",
@@ -1093,13 +1093,7 @@ export const relatedStories = {
       "custom-slug": "Homage to Ashok Desai!",
       "push-notification": null,
       "publisher-id": 829,
-      "hero-image-metadata": {
-        width: 2560,
-        height: 960,
-        "mime-type": "image/jpeg",
-        "file-size": 459367,
-        "file-name": "ashok desai.jpg"
-      },
+      "hero-image-metadata": null,
       comments: null,
       "word-count": 501,
       entities: {},
@@ -1116,7 +1110,7 @@ export const relatedStories = {
       "hero-image-attribution": "Jaipur Lit Fest",
       "bullet-type": "123",
       id: "b554a23c-3a48-41bd-9e0a-4ab7aacb6f80",
-      "hero-image-s3-key": "barandbench/2020-04/a5c5ef4b-8843-4453-89bd-3953e2c7412f/ashok_desai.jpg",
+      "hero-image-s3-key": null,
       contributors: [],
       cards: [
         {

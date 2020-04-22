@@ -18,13 +18,13 @@ export const Heading = styled.h2`
   padding-bottom: 3px;
 `;
 
-export const RelatedStories = ({ stories }: RelatedStoriesTypes) => {
+export const RelatedStories = ({ stories, heading, fallbackSrc, aspectRatio = [16, 9] }: RelatedStoriesTypes) => {
   return (
     <Fragment>
-      <Heading>Related Stories</Heading>
+      <Heading>{heading || "Related Stories"}</Heading>
       <RelatedStoryCards>
         {stories.map((story) => (
-          <RelatedStoryCard key={story.id} story={story} />
+          <RelatedStoryCard key={story.id} story={story} fallbackSrc={fallbackSrc || "#"} aspectRatio={aspectRatio} />
         ))}
       </RelatedStoryCards>
     </Fragment>

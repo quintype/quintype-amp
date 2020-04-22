@@ -4,14 +4,8 @@ exports[`RelatedStoryCard should render default 1`] = `
 <styled.a
   href="https://www.barandbench.com/news/governor-must-bear-in-mind-that-purpose-of-ordering-trust-vote-is-not-to-displace-governments-sc-on-madhya-pradesh-political-crisis"
 >
-  <Component
-    alt="image"
-    aspectRatio={
-      Array [
-        16,
-        9,
-      ]
-    }
+  <ImageForStory
+    altText="image"
     metadata={
       Object {
         "file-name": "SC Leaders.jpg",
@@ -25,7 +19,7 @@ exports[`RelatedStoryCard should render default 1`] = `
         "width": 2560,
       }
     }
-    slug="barandbench/2020-03/980fbb13-7d99-46bf-b9d1-8fcbe0aa17c1/SC_Leaders.jpg"
+    s3Key="barandbench/2020-03/980fbb13-7d99-46bf-b9d1-8fcbe0aa17c1/SC_Leaders.jpg"
   />
   <styled.h1>
     Governor must bear in mind that purpose of ordering trust vote is not to displace governments: SC on Madhya Pradesh Political Crisis
