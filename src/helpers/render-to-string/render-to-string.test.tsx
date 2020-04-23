@@ -18,7 +18,7 @@ test("renderToString function should return valid amp-html", async () => {
       <HeroImage />
     </Layout>
   );
-  const ampHtml = renderToString(dummyLayout);
+  const { ampHtml } = renderToString(dummyLayout);
   if (ampHtml instanceof Error) throw ampHtml;
   const ampValidatorOutput = await isValidAmpHtml(ampHtml);
   expect(ampValidatorOutput).toBe(true);

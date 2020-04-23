@@ -16,7 +16,7 @@ describe("Test for head component", () => {
         text: sampleTextStory
       }
     };
-    const ampHtml = ampifyStory({ story: textStory, publisherConfig, ampConfig, opts });
+    const { ampHtml } = ampifyStory({ story: textStory, publisherConfig, ampConfig, opts });
     if (ampHtml instanceof Error) throw ampHtml;
     const ampValidatorOutput = await isValidAmpHtml(ampHtml);
     expect(ampValidatorOutput).toBe(true);

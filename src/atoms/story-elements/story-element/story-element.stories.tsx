@@ -10,4 +10,7 @@ storiesOf("Story Element", module)
       {story()}
     </Layout>
   ))
-  .add("Text Element", () => <StoryElement element={textStory.cards[1]["story-elements"][0]} />);
+  .add("Text Element", () => (
+    // tslint:disable-next-line:jsx-no-lambda
+    <StoryElement setInvalidBanner={() => null} element={textStory.cards[1]["story-elements"][0]} />
+  ));

@@ -9,9 +9,11 @@ export function renderToString(component) {
   try {
     // const check = checkLayout()
     // if (check instanceof Error) throw check
-    const { title, script, customStyles, link } = getHeadTagsFromHelmet(component);
+    const { title, script, customStyles, link, metaTags } = getHeadTagsFromHelmet(component);
     const { htmlStr, styles } = getHtmlAndStyledComponentsStyles(component);
+    const relevantMetaTags = stripIrrevelantMetaTags(metaTags);
     str += `${headStart}\n`;
+    str += `${relevantMetaTags}\n`;
     str += `${title}\n`;
     str += `${link}\n`;
     str += `${script}\n`;
@@ -19,7 +21,7 @@ export function renderToString(component) {
     str += `${headEndBodyStart}\n`;
     str += `${htmlStr}\n`;
     str += `${bodyEnd}`;
-    return str;
+    return { ampHtml: str, invalidElementsPresent: invalidStoryElementsPresent(metaTags) };
   } catch (e) {
     return e;
   }
@@ -32,10 +34,11 @@ const getHeadTagsFromHelmet = (component) => {
   const helmet = Helmet.renderStatic();
   const title = helmet.title.toString();
   const script = helmet.script.toString();
+  const metaTags = helmet.meta.toString();
   const link = helmet.link.toString();
   let customStyles = helmet.style.toString();
   customStyles = stripStyleTag(customStyles);
-  return { title, script, customStyles, link };
+  return { title, script, customStyles, metaTags, link };
 };
 
 const getHtmlAndStyledComponentsStyles = (component: ReactElement) => {
@@ -45,6 +48,13 @@ const getHtmlAndStyledComponentsStyles = (component: ReactElement) => {
   styles = stripStyleTag(styles);
   sheet.seal();
   return { htmlStr, styles };
+};
+
+const invalidStoryElementsPresent = (metaTags) => {
+  return /name="invalid-elements-present"/.test(metaTags);
+};
+const stripIrrevelantMetaTags = (metaTags) => {
+  return metaTags.replace(/<meta[^\/]*name="invalid-elements-present"[^\/]*\/>/, "");
 };
 
 const headStart = `<!doctype html>
