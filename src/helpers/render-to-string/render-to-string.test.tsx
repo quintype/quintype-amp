@@ -3,7 +3,7 @@
  */
 
 import React from "react";
-import { Layout } from "../../atoms";
+import { Layout, Link } from "../../atoms";
 import { HeroImage } from "../../molecules";
 import { storyWithManyJsEmbeds, config } from "../../__fixtures__";
 import { renderToString } from "./render-to-string";
@@ -13,6 +13,8 @@ test("renderToString function should return valid amp-html", async () => {
   const dummyLayout = (
     <Layout story={storyWithManyJsEmbeds} config={config}>
       <div>Dummy Amp Story</div>
+      <Link rel="canonical" href="https://www.reddit.com/" />
+      <Link rel="icon" type="image/png" sizes="16x16" href="abc" />
       <HeroImage />
     </Layout>
   );
@@ -20,4 +22,10 @@ test("renderToString function should return valid amp-html", async () => {
   if (ampHtml instanceof Error) throw ampHtml;
   const ampValidatorOutput = await isValidAmpHtml(ampHtml);
   expect(ampValidatorOutput).toBe(true);
+  expect(ampHtml.includes(`<link data-react-helmet="true" rel="canonical" href="https://www.reddit.com/"/>`)).toBe(
+    true
+  );
+  expect(
+    ampHtml.includes(`<link data-react-helmet="true" rel="icon" type="image/png" sizes="16x16" href="abc"/>`)
+  ).toBe(true);
 });

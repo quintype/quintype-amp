@@ -20,6 +20,7 @@ import { InvalidBanner } from "./invalid-banner";
 import { Iframe } from "./iframe";
 import { DailyMotion } from "./daily-motion";
 import { Head } from "./head";
+import { Link } from "./link";
 
 export {
   Carousel,
@@ -43,5 +44,6 @@ export {
   InvalidBanner,
   DailyMotion,
   Slot,
-  Head
+  Head,
+  Link
 };

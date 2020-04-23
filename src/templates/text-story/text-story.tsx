@@ -1,7 +1,8 @@
 import React, { Fragment, useState } from "react";
-import { Layout, StoryElement, Spacer, InvalidBanner } from "../../atoms";
+import { Layout, StoryElement, Spacer, InvalidBanner, Link } from "../../atoms";
 import { HeaderCard, Navbar, AmpAds, Slots } from "../../molecules";
 import styled from "styled-components";
+import get from "lodash.get";
 
 const { TopAd, BodyAd, BottomAd } = AmpAds;
 const { StoryPageSlots } = Slots;
@@ -21,6 +22,7 @@ const TextStory = ({ story, config }) => {
   invalidBanner = showInvalidBanner ? <InvalidBanner /> : null;
   return (
     <Layout story={story} config={config}>
+      <Link rel="canonical" href={get(story, "url")} />
       <Navbar />
       <TopAd />
       {invalidBanner}
