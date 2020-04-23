@@ -14,7 +14,7 @@ const canDisplayBodyAd = (cardIdx, cardsArr) => cardIdx === 2 && cardsArr.length
 const TextStory = ({ story, config }) => {
   return (
     <Layout story={story} config={config}>
-      <Link rel="canonical" href={get(story, "url", ".")} />
+      <Link rel="canonical" href={get(story, "url")} />
       <Navbar />
       <TopAd />
       <TopSlot />
