@@ -52,4 +52,32 @@ storiesOf("Author", module)
   .add("With prepend text", () => <Author authors={multipleAuthors} prepend="By" />)
   .add("With prepend image/icon", () => (
     <Author authors={multipleAuthors} prepend={<img src="https://placehold.it/32x32" />} />
-  ));
+  ))
+  .add("With custom style", () => {
+    const customStyles: any = {};
+    customStyles.author = (theme) => ({
+      "font-weight": "normal",
+      color: `${theme.color.primaryColor}`,
+      "background-color": `${theme.color.mono4}`
+    });
+    return <Author authors={twoAuthors} style={customStyles} />;
+  })
+  .add("With custom theme and custom style", () => {
+    const customStyles: any = {};
+    customStyles.author = (theme) => ({
+      color: `${theme.color.primaryColor}`,
+      "background-color": `${theme.color.mono4}`
+    });
+    return (
+      <Author
+        authors={twoAuthors}
+        style={customStyles}
+        theme={{
+          color: {
+            primaryColor: "yellow",
+            mono4: "purple"
+          }
+        }}
+      />
+    );
+  });

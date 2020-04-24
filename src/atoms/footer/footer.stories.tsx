@@ -21,11 +21,17 @@ storiesOf("Footer", module)
     </Footer>
   ))
   .add("With custom style", () => {
-    const customStyles = (props) => ({
-      backgroundColor: "blue",
-      color: `${props.theme.color.primaryColor}`
+    const customStyles: any = {};
+    customStyles.footer = (theme) => ({
+      backgroundColor: `${theme.color.primaryColor}`
     });
-
+    return <Footer text="I'm a footer" style={customStyles} />;
+  })
+  .add("With custom style and custom theme", () => {
+    const customStyles: any = {};
+    customStyles.footer = (theme) => ({
+      backgroundColor: `${theme.color.primaryColor}`
+    });
     return (
       <BaseFooter
         text="I'm a footer"

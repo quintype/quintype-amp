@@ -1,8 +1,9 @@
 import React, { Fragment } from "react";
-import styled, { css, DefaultTheme } from "styled-components";
+import styled, { css } from "styled-components";
 import { FooterTypes } from "./types";
 import { genStyles } from "../../helpers/gen-styles";
 import { withTheme } from "styled-components";
+import get from "lodash.get";
 
 const baseStyles = css`
   display: flex;
@@ -21,10 +22,10 @@ const PoweredBy = styled.a`
   font-size: ${(props) => props.theme.font.size.xxs};
 `;
 
-const BaseFooter = (props: FooterTypes & { theme?: DefaultTheme }) => {
-  const { text, children, style } = props;
+const BaseFooter = ({ text, children, style, theme }: FooterTypes) => {
+  const footerStyles = get(style, "footer", null);
   const StyledFooter = styled.footer`
-    ${genStyles(baseStyles, style, props)}
+    ${genStyles(baseStyles, footerStyles, theme)}
   `;
 
   return (
