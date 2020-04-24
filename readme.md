@@ -26,17 +26,17 @@ To publish the package, bump the version using sematic versioning in `package.js
   - The `style` prop is an object, from which the component takes CSS for the different sub-components
   - Refer the info below to know what keys can be present in the style prop for a given component
 
-    | Component Name | takes style/theme prop? | `key` name |     applies styles to     |
-    | :------------: | :---------------------: | :--------: | :-----------------------: |
-    |     Author     |           Yes           |   author   | the outermost wrapper div |
-    |    Carousel    |           Yes           |  carousel  | the outermost wrapper div |
-    |  DailyMotion   |           No            |   - NA -   |          - NA -           |
-    |    DateTime    |           Yes           |  wrapper   | the outermost wrapper div |
-    |                |                         |            |                           |
-    |                |                         |            |                           |
-    |                |                         |            |                           |
-    |                |                         |            |                           |
-    |                |                         |            |                           |
-    |                |                         |            |                           |
-    |                |                         |            |                           |
-    |                |                         |            |                           |
+    | Component Name | takes style/theme prop? |   `key` name   |      applies styles to       |
+    | :------------: | :---------------------: | :------------: | :--------------------------: |
+    |     Author     |           Yes           |     author     |  the outermost wrapper div   |
+    |    Carousel    |           Yes           |    carousel    |  the outermost wrapper div   |
+    |  DailyMotion   |           No            |     - NA -     |            - NA -            |
+    |    DateTime    |           Yes           |    wrapper     | the outermost wrapper `time` |
+    |     DfpAd      |           No            |     - NA -     |            - NA -            |
+    |    Facebook    |           No            |     - NA -     |            - NA -            |
+    |     Footer     |           Yes           |     footer     |  outermost wrapper `footer`  |
+    | HamburgerMenu  |           Yes           |      list      |    outermost`ul` element     |
+    |       ↳        |                         |    listItem    |  `li` elements inside `ul`   |
+    |       ↳        |                         | listItemAnchor |     `a` tags inside `li`     |
+    |                |                         |                |                              |
+    |                |                         |                |                              |

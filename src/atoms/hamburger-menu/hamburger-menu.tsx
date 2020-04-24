@@ -1,9 +1,11 @@
 import React, { Fragment } from "react";
 import { Helmet } from "react-helmet";
 import { HamburgerMenuTypes } from "./types";
-import styled from "styled-components";
+import styled, { css, withTheme } from "styled-components";
+import { genStyles } from "../../helpers/gen-styles";
+import get from "lodash.get";
 
-const StyledList = styled.ul`
+const styledListBase = css`
   list-style: none;
   margin: 0;
   padding: 0 15px;
@@ -16,17 +18,28 @@ const StyledList = styled.ul`
   }};
 `;
 
-const StyledListItem = styled.li`
+const StyledListItemBase = css`
   margin: 15px 0;
   color: ${(props) => props.theme.color.secondaryColor};
 `;
 
-export const StyledAnchor = styled.a`
+export const StyledAnchorBase = css`
   text-decoration: none;
   color: ${(props) => props.theme.color.secondaryColor};
 `;
-
-export const HamburgerMenu = ({ align, children, items, textDirection }: HamburgerMenuTypes) => {
+const HamburgerMenuBase = ({ align, children, items, textDirection, style, theme }: HamburgerMenuTypes) => {
+  const listStyle = get(style, "list", null);
+  const listItemStyle = get(style, "listItem", null);
+  const listItemAnchorStyle = get(style, "listItemAnchor", null);
+  const StyledList = styled.ul`
+    ${genStyles(styledListBase, listStyle, theme)}
+  `;
+  const StyledListItem = styled.li`
+    ${genStyles(StyledListItemBase, listItemStyle, theme)}
+  `;
+  const StyledAnchor = styled.a`
+    ${genStyles(StyledAnchorBase, listItemAnchorStyle, theme)}
+  `;
   return (
     <Fragment>
       <Helmet>
@@ -45,3 +58,5 @@ export const HamburgerMenu = ({ align, children, items, textDirection }: Hamburg
     </Fragment>
   );
 };
+
+export const HamburgerMenu = withTheme(HamburgerMenuBase);
