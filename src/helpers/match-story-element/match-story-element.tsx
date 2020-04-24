@@ -8,7 +8,8 @@ import {
   YouTube,
   Embed,
   DailyMotionElement,
-  TwitterElement
+  TwitterElement,
+  FacebookElement
 } from "../../atoms/story-elements";
 
 const anyType = "any";
@@ -30,8 +31,8 @@ const StoryElementsTable = [
   ["jsembed", "avmm-vidible-video", Pending],
   ["jsembed", "dailymotion-video", DailyMotionElement],
   ["jsembed", "dilmot-q-and-a", Pending],
-  ["jsembed", "facebook-post", Pending],
-  ["jsembed", "facebook-video", Pending],
+  ["jsembed", "facebook-post", FacebookElement],
+  ["jsembed", "facebook-video", FacebookElement],
   ["jsembed", "instagram", Pending],
   ["jsembed", "social-media", Pending],
   ["jsembed", "tweet", TwitterElement],
