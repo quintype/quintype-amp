@@ -16,6 +16,7 @@ To publish the package, bump the version using sematic versioning in `package.js
 
 - ### Notes:
 
+  - Please maintain the `Custom Styling` table below, if there are any changes in the component, update it here as well
   - You can't directly copy and paste scripts for amp components in the library. Because `<script async custom-element="amp-access" src="https://cdn.ampproject.org/v0/amp-access-0.1.js"></script>` has boolean attribute `async`. React changes `async` (any boolean attr) to `async="true"`, which fails amp validation (see issue https://github.com/facebook/react/issues/9230). The workaround is to give `async=""` for JS and `async={undefined}` for TS
   - you might get warning `Warning: componentWillMount has been renamed, and is not recommended for use.`. This is an issue with react-helmet (See issue https://github.com/nfl/react-helmet/issues/499)
 
@@ -26,30 +27,30 @@ To publish the package, bump the version using sematic versioning in `package.js
   - The `style` prop is an object, from which the component takes CSS for the different sub-components
   - Refer the info below to know what keys can be present in the style prop for a given component
 
-    | Component Name | takes style/theme prop? |   `key` name   |      applies styles to       |
-    | :------------: | :---------------------: | :------------: | :--------------------------: |
-    |   **Atoms**:   |                         |                |                              |
-    |     Author     |           Yes           |     author     |  the outermost wrapper div   |
-    |    Carousel    |           Yes           |    carousel    |  the outermost wrapper div   |
-    |  DailyMotion   |           No            |     - NA -     |            - NA -            |
-    |    DateTime    |           Yes           |    wrapper     | the outermost wrapper `time` |
-    |     DfpAd      |           No            |     - NA -     |            - NA -            |
-    |    Facebook    |           No            |     - NA -     |            - NA -            |
-    |     Footer     |           Yes           |     footer     |  outermost wrapper `footer`  |
-    | HamburgerMenu  |           Yes           |      list      |    outermost`ul` element     |
-    |       ↳        |                         |    listItem    |  `li` elements inside `ul`   |
-    |       ↳        |                         | listItemAnchor |     `a` tags inside `li`     |
-    |      Head      |           No            |     - NA -     |            - NA -            |
-    |    any icon    |           No            |     - NA -     |            - NA -            |
-    |     Iframe     |           No            |     - NA -     |            - NA -            |
-    |     Image      |           No            |     - NA -     |            - NA -            |
-    | InvalidBanner  |           Yes           |    wrapper     |    outermost wrapper div     |
-    |       ↳        |                         |     banner     |   `div` inside wrapper div   |
-    |                |                         |                |                              |
-    |                |                         |                |                              |
-    |                |                         |                |                              |
-    |                |                         |                |                              |
-    |                |                         |                |                              |
-    |                |                         |                |                              |
-    |                |                         |                |                              |
-    |                |                         |                |                              |
+    |   Component Name    | takes style/theme prop? |   `key` name   |      applies styles to       |
+    | :-----------------: | :---------------------: | :------------: | :--------------------------: |
+    |     **Atoms**:      |                         |                |                              |
+    |       Author        |           Yes           |     author     |  the outermost wrapper div   |
+    |      Carousel       |           Yes           |    carousel    |  the outermost wrapper div   |
+    |     DailyMotion     |           No            |     - NA -     |            - NA -            |
+    |      DateTime       |           Yes           |    wrapper     | the outermost wrapper `time` |
+    |        DfpAd        |           No            |     - NA -     |            - NA -            |
+    |      Facebook       |           No            |     - NA -     |            - NA -            |
+    |       Footer        |           Yes           |     footer     |  outermost wrapper `footer`  |
+    |    HamburgerMenu    |           Yes           |      list      |    outermost`ul` element     |
+    |          ↳          |                         |    listItem    |  `li` elements inside `ul`   |
+    |          ↳          |                         | listItemAnchor |     `a` tags inside `li`     |
+    |        Head         |           No            |     - NA -     |            - NA -            |
+    |      any icon       |           No            |     - NA -     |            - NA -            |
+    |       Iframe        |           No            |     - NA -     |            - NA -            |
+    |        Image        |           No            |     - NA -     |            - NA -            |
+    |    InvalidBanner    |           Yes           |    wrapper     |    outermost wrapper div     |
+    |          ↳          |                         |     banner     |   `div` inside wrapper div   |
+    |       Layout        |           No            |     - NA -     |            - NA -            |
+    |        Link         |           No            |     - NA -     |            - NA -            |
+    | PublisherLogoHeader |           No            |     - NA -     |            - NA -            |
+    |       Section       |           Yes           |    wrapper     |    outermost wrapper `h5`    |
+    |                     |                         |                |                              |
+    |                     |                         |                |                              |
+    |                     |                         |                |                              |
+    |                     |                         |                |                              |

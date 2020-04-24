@@ -30,4 +30,26 @@ storiesOf("Section", module)
   ))
   .add("Default section", () => <Section section={section} />)
   .add("With display name", () => <Section section={section} />)
-  .add("Without display name", () => <Section section={sectionWithoutDisplayName} />);
+  .add("Without display name", () => <Section section={sectionWithoutDisplayName} />)
+  .add("Section with custom styles", () => {
+    const customStyles: any = {};
+    customStyles.wrapper = (theme) => ({
+      "background-color": `${theme.color.mono4}`,
+      "font-size": `${theme.font.size.jumbo}`
+    });
+    return <Section section={section} style={customStyles} />;
+  })
+  .add("Section with custom styles and theme", () => {
+    const customStyles: any = {};
+    customStyles.wrapper = (theme) => ({
+      "background-color": `${theme.color.mono4}`,
+      "font-size": `${theme.font.size.jumbo}`
+    });
+    return (
+      <Section
+        section={section}
+        style={customStyles}
+        theme={{ color: { mono4: "green" }, font: { size: { jumbo: "100px" } } }}
+      />
+    );
+  });
