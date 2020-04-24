@@ -7,7 +7,8 @@ import {
   AlsoRead,
   YouTube,
   Embed,
-  DailyMotionElement
+  DailyMotionElement,
+  TwitterElement
 } from "../../atoms/story-elements";
 
 const anyType = "any";
@@ -33,7 +34,7 @@ const StoryElementsTable = [
   ["jsembed", "facebook-video", Pending],
   ["jsembed", "instagram", Pending],
   ["jsembed", "social-media", Pending],
-  ["jsembed", "tweet", Pending],
+  ["jsembed", "tweet", TwitterElement],
   ["jsembed", "vidible-video", Pending],
   ["jsembed", anyType, Embed],
   ["polltype", "opinion-poll", Pending],

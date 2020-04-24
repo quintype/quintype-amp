@@ -7,7 +7,7 @@ import { AlsoRead } from "./also-read";
 import { YouTube } from "./youtube";
 import { Embed } from "./embed";
 import { DailyMotionElement } from "./daily-motion-element";
-
+import { TwitterElement } from "./twitter-element";
 const StoryElements = {
   Text,
   BlockQuote,
@@ -17,7 +17,8 @@ const StoryElements = {
   AlsoRead,
   YouTube,
   Embed,
-  DailyMotionElement
+  DailyMotionElement,
+  TwitterElement
 };
-export { Text, Pending, BlockQuote, ImageElement, Blurb, AlsoRead, YouTube, Embed, DailyMotionElement };
+export { Text, Pending, BlockQuote, ImageElement, Blurb, AlsoRead, YouTube, Embed, DailyMotionElement, TwitterElement };
 export { StoryElements };
