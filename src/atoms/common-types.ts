@@ -1,14 +1,10 @@
-import { CarouselTypes } from "./carousel/types";
-import { FacebookTypes } from "./facebook/types";
-import { TwitterTypes } from "./twitter/types";
-
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      "amp-img": any;
-      "amp-carousel": CarouselTypes;
-      "amp-facebook": FacebookTypes;
-      "amp-twitter": TwitterTypes;
+      "amp-img";
+      "amp-carousel";
+      "amp-facebook";
+      "amp-twitter";
       "amp-sidebar";
       "amp-social-share";
       "amp-youtube";

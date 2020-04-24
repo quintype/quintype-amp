@@ -1,13 +1,19 @@
 import React, { Fragment } from "react";
 import { Helmet } from "react-helmet";
 import { CarouselTypes } from "./types";
-import styled from "styled-components";
+import styled, { css, withTheme } from "styled-components";
+import get from "lodash.get";
+import { genStyles } from "../../helpers/gen-styles";
 
-const StyledCarousel = styled.div`
-  background-color: purple;
+const baseCarousel = css`
+  background-color: ${(props) => props.theme.color.mono4};
 `;
 
-export const Carousel = (props: CarouselTypes) => {
+const CarouselBase = ({ style, theme, ...props }: CarouselTypes) => {
+  const carouselStyles = get(style, "carousel", null);
+  const StyledCarousel = styled.div`
+    ${genStyles(baseCarousel, carouselStyles, theme)}
+  `;
   return (
     <Fragment>
       <Helmet>
@@ -23,3 +29,5 @@ export const Carousel = (props: CarouselTypes) => {
     </Fragment>
   );
 };
+
+export const Carousel = withTheme(CarouselBase);

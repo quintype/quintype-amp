@@ -1,5 +1,6 @@
 import { ReactElement } from "react";
 import { Common } from "../common-types";
+import { DefaultTheme, CSSObject } from "styled-components";
 
 export interface CarouselTypes extends Common {
   type: "slides" | "carousel";
@@ -13,4 +14,10 @@ export interface CarouselTypes extends Common {
   loop?: boolean;
   slide?: string;
   children?: JSX.Element[] | JSX.Element | ReactElement;
+  style?: CustomStyles;
+  theme?: DefaultTheme;
+}
+
+interface CustomStyles {
+  carousel?: (theme) => CSSObject;
 }
