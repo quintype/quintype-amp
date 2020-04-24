@@ -28,6 +28,7 @@ To publish the package, bump the version using sematic versioning in `package.js
 
     | Component Name | takes style/theme prop? |   `key` name   |      applies styles to       |
     | :------------: | :---------------------: | :------------: | :--------------------------: |
+    |   **Atoms**:   |                         |                |                              |
     |     Author     |           Yes           |     author     |  the outermost wrapper div   |
     |    Carousel    |           Yes           |    carousel    |  the outermost wrapper div   |
     |  DailyMotion   |           No            |     - NA -     |            - NA -            |
@@ -38,5 +39,17 @@ To publish the package, bump the version using sematic versioning in `package.js
     | HamburgerMenu  |           Yes           |      list      |    outermost`ul` element     |
     |       ↳        |                         |    listItem    |  `li` elements inside `ul`   |
     |       ↳        |                         | listItemAnchor |     `a` tags inside `li`     |
+    |      Head      |           No            |     - NA -     |            - NA -            |
+    |    any icon    |           No            |     - NA -     |            - NA -            |
+    |     Iframe     |           No            |     - NA -     |            - NA -            |
+    |     Image      |           No            |     - NA -     |            - NA -            |
+    | InvalidBanner  |           Yes           |    wrapper     |    outermost wrapper div     |
+    |       ↳        |                         |     banner     |   `div` inside wrapper div   |
+    |                |                         |                |                              |
+    |                |                         |                |                              |
+    |                |                         |                |                              |
+    |                |                         |                |                              |
+    |                |                         |                |                              |
+    |                |                         |                |                              |
     |                |                         |                |                              |
     |                |                         |                |                              |

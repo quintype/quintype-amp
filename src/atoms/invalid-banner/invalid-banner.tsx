@@ -1,8 +1,11 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css, withTheme } from "styled-components";
 import { withStory } from "../../context";
+import { InvalidBannerTypes } from "./types";
+import { genStyles } from "../../helpers/gen-styles";
+import get from "lodash.get";
 
-const BannerWrapper = styled.div`
+const bannerWrapperBase = css`
   position: absolute;
   top: 60px;
   background-color: ${(props) => props.theme.color.mono4};
@@ -10,11 +13,18 @@ const BannerWrapper = styled.div`
   text-align: center;
   line-height: ${(props) => props.theme.font.lineHeight.level5};
 `;
-const StyledBanner = styled.div`
+const styledBannerBase = css`
   margin: 15px 10px;
 `;
-
-const InvalidBannerBase = ({ story }) => {
+const InvalidBannerBase = ({ story, style, theme }: InvalidBannerTypes) => {
+  const wrapperStyles = get(style, "wrapper", null);
+  const bannerStyles = get(style, "banner", null);
+  const BannerWrapper = styled.div`
+    ${genStyles(bannerWrapperBase, wrapperStyles, theme)}
+  `;
+  const StyledBanner = styled.div`
+    ${genStyles(styledBannerBase, bannerStyles, theme)}
+  `;
   const storyUrl = story.url;
   return (
     <BannerWrapper>
@@ -26,4 +36,4 @@ const InvalidBannerBase = ({ story }) => {
   );
 };
 
-export const InvalidBanner = withStory(InvalidBannerBase);
+export const InvalidBanner = withTheme(withStory(InvalidBannerBase));
