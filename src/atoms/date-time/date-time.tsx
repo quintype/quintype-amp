@@ -1,9 +1,11 @@
 import React from "react";
 import { format } from "date-fns/fp";
 import { DateTimeProps } from "./types";
-import styled from "styled-components";
+import styled, { css, withTheme } from "styled-components";
+import { genStyles } from "../../helpers/gen-styles";
+import get from "lodash.get";
 
-const StyledTime = styled.time`
+const wrapperBaseStyles = css`
   color: ${(props) => props.theme.color.mono5};
   font-family: ${(props) => props.theme.font.family.secondary};
   font-size: ${(props) => props.theme.font.size.xxs};
@@ -15,7 +17,11 @@ const dateTimeFormats = {
   dateWithTime: "do MMM, yyyy 'at' p"
 };
 
-const DateTime = ({ dateTime, formatString, showTime }: DateTimeProps) => {
+const DateTimeBase = ({ dateTime, formatString, showTime, style, theme }: DateTimeProps) => {
+  const wrapperStyles = get(style, "wrapper", null);
+  const StyledTime = styled.time`
+    ${genStyles(wrapperBaseStyles, wrapperStyles, theme)}
+  `;
   if (!dateTime) {
     return null;
   }
@@ -29,4 +35,4 @@ const DateTime = ({ dateTime, formatString, showTime }: DateTimeProps) => {
   return <StyledTime dateTime={humanizedDate}>{humanizedDate}</StyledTime>;
 };
 
-export { DateTime };
+export const DateTime = withTheme(DateTimeBase);
