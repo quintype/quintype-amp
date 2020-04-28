@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { RelatedStoryCard } from "../related-story-card";
 import { media } from "../../utils/media";
 import { RelatedStoriesTypes } from "./types";
+import { withConfig } from "../../context";
+import get from "lodash.get";
 
 const RelatedStoryCards = styled.div`
   display: flex;
@@ -18,15 +20,22 @@ export const Heading = styled.h2`
   padding-bottom: 3px;
 `;
 
-export const RelatedStories = ({ stories, heading, fallbackSrc, aspectRatio = [16, 9] }: RelatedStoriesTypes) => {
+const RelatedStoriesBase = ({ stories, config, heading, aspectRatio = [16, 9] }: RelatedStoriesTypes) => {
   return stories && stories.length ? (
     <Fragment>
       <Heading>{heading || "Related Stories"}</Heading>
       <RelatedStoryCards>
         {stories.map((story) => (
-          <RelatedStoryCard key={story.id} story={story} fallbackSrc={fallbackSrc || "#"} aspectRatio={aspectRatio} />
+          <RelatedStoryCard
+            key={story.id}
+            story={story}
+            fallbackSrc={get(config, ["ampConfig", "fallback-image-url"]) || "#"}
+            aspectRatio={aspectRatio}
+          />
         ))}
       </RelatedStoryCards>
     </Fragment>
   ) : null;
 };
+
+export const RelatedStories = withConfig(RelatedStoriesBase);
