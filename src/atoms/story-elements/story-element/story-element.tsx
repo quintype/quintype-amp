@@ -7,7 +7,6 @@ export const StoryElement = ({ setInvalidBanner, element, ...props }) => {
   const Component = matchStoryElement(element);
   if (!Component) {
     setInvalidBanner();
-    console.log(`Warning: element ${element.type} is invalid`);
     return (
       <Fragment>
         <Helmet>

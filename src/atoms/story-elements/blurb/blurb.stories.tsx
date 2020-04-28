@@ -29,4 +29,60 @@ storiesOf("Blurb", module)
     </Layout>
   ))
   .add("Default blurb", () => <Blurb element={sampleBlurbElement} />)
-  .add("Blurb without metadata", () => <Blurb element={sampleBlurbElementWithoutMetadata} />);
+  .add("Blurb without metadata", () => <Blurb element={sampleBlurbElementWithoutMetadata} />)
+  .add("Blurb with children", () => {
+    return (
+      <Blurb element={sampleBlurbElement}>
+        <div>
+          <h1>Lorem Ipsum</h1>
+        </div>
+        <div>Hello World</div>
+      </Blurb>
+    );
+  })
+  .add("Blurb with custom styles", () => {
+    const customStyles: any = {};
+    customStyles.blurb = (theme) => ({
+      color: `${theme.color.accent1}`,
+      "font-size": `${theme.font.size.m}`
+    });
+    return <Blurb element={sampleBlurbElement} style={customStyles} />;
+  })
+  .add("Blurb with custom styles and children", () => {
+    const customStyles: any = {};
+    customStyles.blurb = (theme) => ({
+      color: `${theme.color.accent1}`,
+      "font-size": `${theme.font.size.m}`
+    });
+    return (
+      <Blurb element={sampleBlurbElement} style={customStyles}>
+        <div>
+          <h1>Lorem Ipsum</h1>
+        </div>
+        <div>Hello World</div>
+      </Blurb>
+    );
+  })
+  .add("Blurb with custom styles and custom theme", () => {
+    const customStyles: any = {};
+    customStyles.blurb = (theme) => ({
+      color: `${theme.color.accent1}`,
+      "font-size": `${theme.font.size.m}`
+    });
+    return (
+      <Blurb
+        element={sampleBlurbElement}
+        style={customStyles}
+        theme={{
+          color: {
+            accent1: "orange"
+          },
+          font: {
+            size: {
+              m: "32px"
+            }
+          }
+        }}
+      />
+    );
+  });

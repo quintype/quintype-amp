@@ -1,12 +1,10 @@
 import React, { Fragment, useState } from "react";
 import { Layout, StoryElement, Spacer, InvalidBanner, Link } from "../../atoms";
-import { HeaderCard, Navbar, AmpAds, Slots } from "../../molecules";
+import { HeaderCard, Navbar, AmpAds } from "../../molecules";
 import styled from "styled-components";
 import get from "lodash.get";
 
 const { TopAd, BodyAd, BottomAd } = AmpAds;
-const { StoryPageSlots } = Slots;
-const { TopSlot, BottomSlot } = StoryPageSlots;
 const StoryContainer = styled.div`
   max-width: 700px;
   margin: 0 auto;
@@ -26,8 +24,6 @@ const TextStory = ({ story, config }) => {
       <Navbar />
       <TopAd />
       {invalidBanner}
-      <TopSlot />
-      <HeaderCard />
       <Spacer token="s" />
       <StoryContainer>
         <HeaderCard />
@@ -46,7 +42,6 @@ const TextStory = ({ story, config }) => {
           );
         })}
       </StoryContainer>
-      <BottomSlot />
       <BottomAd />
     </Layout>
   );

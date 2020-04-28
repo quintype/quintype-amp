@@ -11,10 +11,10 @@ export function renderToString(component) {
     // if (check instanceof Error) throw check
     const { title, script, customStyles, link, metaTags } = getHeadTagsFromHelmet(component);
     const { htmlStr, styles } = getHtmlAndStyledComponentsStyles(component);
-    let relevantMetaTags = stripIrrevelantMetaTags(metaTags);
-    relevantMetaTags += addCssInfoAsMetaTag(relevantMetaTags, customStyles, styles);
+    const relevantMetaTags = stripIrrevelantMetaTags(metaTags);
+    const cssInfoMetaTag = genCssInfoMetaTag(customStyles, styles);
     str += `${headStart}\n`;
-    str += `${relevantMetaTags}\n`;
+    str += `${relevantMetaTags}\n${cssInfoMetaTag}\n`;
     str += `${title}\n`;
     str += `${link}\n`;
     str += `${script}\n`;
@@ -51,14 +51,12 @@ const getHtmlAndStyledComponentsStyles = (component: ReactElement) => {
   return { htmlStr, styles };
 };
 
-const invalidStoryElementsPresent = (metaTags) => {
-  return /name="invalid-elements-present"/.test(metaTags);
-};
-const stripIrrevelantMetaTags = (metaTags) => {
-  return metaTags.replace(/<meta[^\/]*name="invalid-elements-present"[^\/]*\/>/, "");
-};
-const addCssInfoAsMetaTag = (metaTags, css1, css2) =>
-  `${metaTags}\n<meta name="length of CSS" content="${(css1 + css2).length}">`;
+const invalidStoryElementsPresent = (metaTags) => /name="invalid-elements-present"/.test(metaTags);
+const stripIrrevelantMetaTags = (metaTags) =>
+  metaTags.replace(/<meta[^\/]*name="invalid-elements-present"[^\/]*\/>/, "");
+
+const genCssInfoMetaTag = (css1 = "", css2 = "") =>
+  `<meta name="length of CSS (limit: 50,000)" content="${(css1 + css2).length}">`;
 
 const headStart = `<!doctype html>
 <html ⚡ lang="en">
