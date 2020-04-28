@@ -12,6 +12,4 @@ storiesOf("Related Stories", module)
   ))
   .add("Default", () => <RelatedStories stories={relatedStories} />)
   .add("With custom heading", () => <RelatedStories stories={relatedStories} heading="You might also like" />)
-  .add("With fallback image src and aspect ratio", () => (
-    <RelatedStories stories={relatedStories} aspectRatio={[4, 3]} />
-  ));
+  .add("With aspect ratio", () => <RelatedStories stories={relatedStories} aspectRatio={[4, 3]} />);
