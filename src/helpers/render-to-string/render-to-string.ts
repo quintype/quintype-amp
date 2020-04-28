@@ -11,13 +11,14 @@ export function renderToString(component) {
     // if (check instanceof Error) throw check
     const { title, script, customStyles, link, metaTags } = getHeadTagsFromHelmet(component);
     const { htmlStr, styles } = getHtmlAndStyledComponentsStyles(component);
-    const relevantMetaTags = stripIrrevelantMetaTags(metaTags);
+    let relevantMetaTags = stripIrrevelantMetaTags(metaTags);
+    relevantMetaTags += addCssInfoAsMetaTag(relevantMetaTags, customStyles, styles);
     str += `${headStart}\n`;
     str += `${relevantMetaTags}\n`;
     str += `${title}\n`;
     str += `${link}\n`;
     str += `${script}\n`;
-    str += `<style amp-custom>\n${customStyles}\n${styles}\n</style>`;
+    str += `<style amp-custom>${customStyles}${styles}\n</style>`;
     str += `${headEndBodyStart}\n`;
     str += `${htmlStr}\n`;
     str += `${bodyEnd}`;
@@ -56,6 +57,8 @@ const invalidStoryElementsPresent = (metaTags) => {
 const stripIrrevelantMetaTags = (metaTags) => {
   return metaTags.replace(/<meta[^\/]*name="invalid-elements-present"[^\/]*\/>/, "");
 };
+const addCssInfoAsMetaTag = (metaTags, css1, css2) =>
+  `${metaTags}\n<meta name="length of CSS" content="${(css1 + css2).length}">`;
 
 const headStart = `<!doctype html>
 <html ⚡ lang="en">
