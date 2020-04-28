@@ -16,10 +16,11 @@ import * as icons from "./icons";
 import { SocialShareIcon } from "./social-share-icon";
 import { Slot } from "./slot";
 import { DfpAd } from "./dfp-ad";
+import { InvalidBanner } from "./invalid-banner";
 import { Iframe } from "./iframe";
 import { DailyMotion } from "./daily-motion";
 import { Head } from "./head";
-
+import { Link } from "./link";
 
 export {
   Carousel,
@@ -40,7 +41,9 @@ export {
   HamburgerMenu,
   icons,
   SocialShareIcon,
+  InvalidBanner,
   DailyMotion,
   Slot,
-  Head
+  Head,
+  Link
 };

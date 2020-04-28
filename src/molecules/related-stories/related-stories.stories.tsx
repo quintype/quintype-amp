@@ -1,11 +1,9 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { RelatedStories } from "./related-stories";
-import { config, textStory, relatedStoriesObj } from "../../__fixtures__";
+import { config, textStory, relatedStories } from "../../__fixtures__";
 import { Layout } from "../../atoms";
 import get from "lodash.get";
-
-const relatedStories = get(relatedStoriesObj, "related-stories", []);
 
 storiesOf("Related Stories", module)
   .addDecorator((story) => (

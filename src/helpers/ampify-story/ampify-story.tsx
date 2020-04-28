@@ -2,16 +2,10 @@ import { AmpifyStoryTypes } from "./types";
 import renderToString from "../render-to-string";
 import { TextStory } from "../../templates/text-story/text-story";
 import get from "lodash.get";
+import React from "react";
 
-export function ampifyStory({
-  story,
-  publisherConfig,
-  ampConfig,
-  relatedStories: relatedStoriesObj,
-  opts = {}
-}: AmpifyStoryTypes) {
+export function ampifyStory({ story, publisherConfig, ampConfig, relatedStories, opts = {} }: AmpifyStoryTypes) {
   const config = { publisherConfig, ampConfig, opts };
-  const relatedStories = get(relatedStoriesObj, "related-stories", []);
   const template = getTemplate({ story, config, relatedStories });
   return renderToString(template);
 }
@@ -23,9 +17,11 @@ const getTemplate = ({ story, config, relatedStories }) => {
 
   switch (storyTemplate) {
     case "text":
-      return "text" in publisherTemplates
-        ? publisherTemplates.text({ story, config, relatedStories })
-        : TextStory({ story, config, relatedStories });
+      return "text" in publisherTemplates ? (
+        publisherTemplates.text({ story, config, relatedStories })
+      ) : (
+        <TextStory story={story} config={config} relatedStories={relatedStories} />
+      );
     default:
       throw new Error("Couldn't resolve story template");
   }

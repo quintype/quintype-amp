@@ -2,11 +2,11 @@ import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { RelatedStoryCard } from "./related-story-card";
 import { Layout } from "../../atoms";
-import { relatedStoriesObj } from "../../__fixtures__/related-stories";
+import { relatedStories } from "../../__fixtures__/related-stories";
 import { config, textStory } from "../../__fixtures__";
 
-const sampleRelatedStory = relatedStoriesObj["related-stories"][0];
-const relatedStoryEithoutHeroImage = relatedStoriesObj["related-stories"][1];
+const sampleRelatedStory = relatedStories[0];
+const relatedStoryEithoutHeroImage = relatedStories[1];
 
 storiesOf("Related Story Card", module)
   .addDecorator((story) => (

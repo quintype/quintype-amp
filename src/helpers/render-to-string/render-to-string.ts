@@ -9,16 +9,19 @@ export function renderToString(component) {
   try {
     // const check = checkLayout()
     // if (check instanceof Error) throw check
-    const { title, script, customStyles } = getHeadTagsFromHelmet(component);
+    const { title, script, customStyles, link, metaTags } = getHeadTagsFromHelmet(component);
     const { htmlStr, styles } = getHtmlAndStyledComponentsStyles(component);
+    const relevantMetaTags = stripIrrevelantMetaTags(metaTags);
     str += `${headStart}\n`;
+    str += `${relevantMetaTags}\n`;
     str += `${title}\n`;
+    str += `${link}\n`;
     str += `${script}\n`;
     str += `<style amp-custom>\n${customStyles}\n${styles}\n</style>`;
     str += `${headEndBodyStart}\n`;
     str += `${htmlStr}\n`;
     str += `${bodyEnd}`;
-    return str;
+    return { ampHtml: str, invalidElementsPresent: invalidStoryElementsPresent(metaTags) };
   } catch (e) {
     return e;
   }
@@ -31,9 +34,11 @@ const getHeadTagsFromHelmet = (component) => {
   const helmet = Helmet.renderStatic();
   const title = helmet.title.toString();
   const script = helmet.script.toString();
+  const metaTags = helmet.meta.toString();
+  const link = helmet.link.toString();
   let customStyles = helmet.style.toString();
   customStyles = stripStyleTag(customStyles);
-  return { title, script, customStyles };
+  return { title, script, customStyles, metaTags, link };
 };
 
 const getHtmlAndStyledComponentsStyles = (component: ReactElement) => {
@@ -45,15 +50,20 @@ const getHtmlAndStyledComponentsStyles = (component: ReactElement) => {
   return { htmlStr, styles };
 };
 
+const invalidStoryElementsPresent = (metaTags) => {
+  return /name="invalid-elements-present"/.test(metaTags);
+};
+const stripIrrevelantMetaTags = (metaTags) => {
+  return metaTags.replace(/<meta[^\/]*name="invalid-elements-present"[^\/]*\/>/, "");
+};
+
 const headStart = `<!doctype html>
 <html ⚡ lang="en">
   <head>
     <meta charset="utf-8">\n
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">\n
-    <meta name="description" content="This is the AMP Boilerplate.">\n
     <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">\n
     <script async src="https://cdn.ampproject.org/v0.js"></script>\n
-    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>\n
-    <link rel="canonical" href=".">\n`;
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>\n`;
 const headEndBodyStart = `</head>\n<body>`;
 const bodyEnd = `</body>\n</html>`;

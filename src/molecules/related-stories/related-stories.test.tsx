@@ -6,12 +6,9 @@ import React from "react";
 import { RelatedStories, Heading } from "./related-stories";
 import { shallow } from "enzyme";
 import { renderToString } from "../../helpers";
-import { Layout } from "../../atoms";
+import { Layout, Link } from "../../atoms";
 import { isValidAmpHtml } from "../../utils/validate-amp";
-import { config, relatedStoriesObj, textStory } from "../../__fixtures__";
-import get from "lodash.get";
-
-const relatedStories = get(relatedStoriesObj, "related-stories", []);
+import { config, relatedStories, textStory } from "../../__fixtures__";
 
 describe("RelatedStories", () => {
   it("should render default", () => {
@@ -25,11 +22,11 @@ describe("RelatedStories", () => {
   it("Should return valid amp-html", async () => {
     const component = (
       <Layout story={textStory} config={config}>
+        <Link rel="canonical" href="." />
         <RelatedStories stories={relatedStories} />
       </Layout>
     );
-    const ampHtml = renderToString(component);
-    if (ampHtml instanceof Error) throw ampHtml;
+    const { ampHtml } = renderToString(component);
     const ampValidatorOutput = await isValidAmpHtml(ampHtml);
     expect(ampValidatorOutput).toBe(true);
   });

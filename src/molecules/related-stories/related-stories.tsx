@@ -19,7 +19,7 @@ export const Heading = styled.h2`
 `;
 
 export const RelatedStories = ({ stories, heading, fallbackSrc, aspectRatio = [16, 9] }: RelatedStoriesTypes) => {
-  return (
+  return stories && stories.length ? (
     <Fragment>
       <Heading>{heading || "Related Stories"}</Heading>
       <RelatedStoryCards>
@@ -28,5 +28,5 @@ export const RelatedStories = ({ stories, heading, fallbackSrc, aspectRatio = [1
         ))}
       </RelatedStoryCards>
     </Fragment>
-  );
+  ) : null;
 };

@@ -3,7 +3,7 @@
  */
 
 import React from "react";
-import { Layout } from "../../../atoms";
+import { Layout, Link } from "../../../atoms";
 import { TopAd } from "../top-ad";
 import { BodyAd } from "../body-ad";
 import { BottomAd } from "../bottom-ad";
@@ -12,8 +12,7 @@ import { renderToString } from "../../../helpers";
 import { isValidAmpHtml } from "../../../utils/validate-amp";
 
 const output = async (layout) => {
-  const ampHtml = renderToString(layout);
-  if (ampHtml instanceof Error) throw ampHtml;
+  const { ampHtml } = renderToString(layout);
   const ampValidatorOutput = await isValidAmpHtml(ampHtml);
   return ampValidatorOutput;
 };
@@ -32,6 +31,7 @@ const invalidMockAd = {
 test("Default ads should pass ampValidation", async () => {
   const dummyLayout = (
     <Layout story={textStory} config={config}>
+      <Link rel="canonical" href="." />
       <TopAd />
       <BodyAd />
       <BottomAd />
@@ -42,6 +42,7 @@ test("Default ads should pass ampValidation", async () => {
 test("Ads with valid custom ad attributes should pass ampValidation", async () => {
   const dummyLayout = (
     <Layout story={textStory} config={config}>
+      <Link rel="canonical" href="." />
       <TopAd {...mockAd} />
       <BodyAd {...mockAd} />
       <BottomAd {...mockAd} />
@@ -52,6 +53,7 @@ test("Ads with valid custom ad attributes should pass ampValidation", async () =
 test("Ads with invalid custom ad attributes should fail ampValidation", async () => {
   const dummyLayout = (
     <Layout story={textStory} config={config}>
+      <Link rel="canonical" href="." />
       <TopAd {...invalidMockAd} />
       <BodyAd {...invalidMockAd} />
       <BottomAd {...invalidMockAd} />
@@ -64,6 +66,7 @@ test("Ads with invalid custom ad attributes should fail ampValidation", async ()
 test("TopAd with placeholder & fallback are expected to fail ampValidation", async () => {
   const dummyLayout = (
     <Layout story={textStory} config={config}>
+      <Link rel="canonical" href="." />
       <TopAd>
         <div placeholder="true">Loading ...</div>
         <div fallback="true">Ad failed to load</div>

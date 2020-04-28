@@ -1,9 +1,9 @@
 import React from "react";
 import { RelatedStoryCard } from "./related-story-card";
 import { shallow } from "enzyme";
-import { relatedStoriesObj } from "../../__fixtures__";
+import { relatedStories } from "../../__fixtures__";
 
-const sampleRelatedStory = relatedStoriesObj["related-stories"][0];
+const sampleRelatedStory = relatedStories[0];
 
 describe("RelatedStoryCard", () => {
   it("should render default", () => {

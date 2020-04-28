@@ -1,11 +1,10 @@
-import React, { Fragment } from "react";
-import { Layout, StoryElement, Spacer } from "../../atoms";
-import { HeaderCard, Navbar, RelatedStories, Slots, AmpAds } from "../../molecules";
+import React, { Fragment, useState } from "react";
+import { Layout, StoryElement, Spacer, InvalidBanner, Link, Footer } from "../../atoms";
+import { HeaderCard, Navbar, RelatedStories, AmpAds } from "../../molecules";
 import styled from "styled-components";
+import get from "lodash.get";
 
 const { TopAd, BodyAd, BottomAd } = AmpAds;
-const { StoryPageSlots } = Slots;
-const { TopSlot, BottomSlot } = StoryPageSlots;
 const StoryContainer = styled.div`
   max-width: 700px;
   margin: 0 auto;
@@ -15,18 +14,25 @@ const Wrapper = styled.div`
 `;
 const canDisplayBodyAd = (cardIdx, cardsArr) => cardIdx === 2 && cardsArr.length > 2;
 const TextStory = ({ story, config, relatedStories }) => {
+  const [showInvalidBanner, setStatusInvalidBanner] = useState(false);
+  const handleSetInvalid = () => {
+    if (!showInvalidBanner) setStatusInvalidBanner(true);
+  };
+  let invalidBanner;
+  invalidBanner = showInvalidBanner ? <InvalidBanner /> : null;
   return (
     <Layout story={story} config={config}>
+      <Link rel="canonical" href={get(story, "url")} />
       <Navbar logoSrc="/header-logo.png" />
       <Wrapper>
         <TopAd />
-        <TopSlot />
+        {invalidBanner}
         <StoryContainer>
           <HeaderCard />
           <Spacer token="s" />
           {story.cards.map((card, cardIdx) => {
             const storyCard = card["story-elements"].map((element) => (
-              <StoryElement key={element.id} element={element} />
+              <StoryElement key={element.id} setInvalidBanner={handleSetInvalid} element={element} />
             ));
             return canDisplayBodyAd(cardIdx, story.cards) ? (
               <Fragment key={card.id}>
@@ -39,10 +45,10 @@ const TextStory = ({ story, config, relatedStories }) => {
           })}
         </StoryContainer>
         <Spacer token="m" />
-        <BottomSlot />
         <RelatedStories stories={relatedStories} />
         <BottomAd />
       </Wrapper>
+      <Footer />
     </Layout>
   );
 };

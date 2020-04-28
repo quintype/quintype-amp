@@ -1,11 +1,8 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { TextStory } from "./text-story";
-import { storyWithManyJsEmbeds, config, textStory, relatedStoriesObj } from "../../__fixtures__";
+import { storyWithManyJsEmbeds, config, textStory, relatedStories } from "../../__fixtures__";
 import { allElementsStory } from "../../__fixtures__/all-element-story.fixture";
-import get from "lodash.get";
-
-const relatedStories = get(relatedStoriesObj, "related-stories", []);
 
 storiesOf("Text Story", module)
   .addDecorator((story) => <div>{story()}</div>)
