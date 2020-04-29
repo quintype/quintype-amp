@@ -17,7 +17,6 @@ const TextStory = ({ story, config }) => (
     <Navbar />
     <TopAd />
     <IncompatibleBanner />
-    <HeaderCard />
     <Spacer token="s" />
     <StoryContainer>
       <HeaderCard />
