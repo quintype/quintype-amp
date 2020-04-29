@@ -4,6 +4,7 @@ import { RelatedStoryCard } from "../related-story-card";
 import { media } from "../../utils/media";
 import { RelatedStoriesTypes } from "./types";
 import { withConfig } from "../../context";
+import { base64FallbackImage } from "../../helpers/image-helpers";
 import get from "lodash.get";
 
 const RelatedStoryCards = styled.div`
@@ -29,7 +30,7 @@ const RelatedStoriesBase = ({ stories, config, heading, aspectRatio = [16, 9] }:
           <RelatedStoryCard
             key={story.id}
             story={story}
-            fallbackSrc={get(config, ["ampConfig", "fallback-image-url"]) || "#"}
+            fallbackSrc={get(config, ["ampConfig", "fallback-image-url"], base64FallbackImage)}
             aspectRatio={aspectRatio}
           />
         ))}

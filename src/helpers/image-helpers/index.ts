@@ -1,2 +1,4 @@
 import { focusedImagePath, calculateImgHeight } from "./image-helpers";
-export { focusedImagePath, calculateImgHeight };
+import { base64FallbackImage } from "./fallback-image";
+
+export { focusedImagePath, calculateImgHeight, base64FallbackImage };
