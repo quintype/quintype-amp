@@ -32,6 +32,7 @@ storiesOf("Blurb", module)
   .add("Blurb without metadata", () => <Blurb element={sampleBlurbElementWithoutMetadata} />)
   .add("Blurb with children", () => {
     return (
+      // <Blurb>
       <Blurb element={sampleBlurbElement}>
         <div>
           <h1>Lorem Ipsum</h1>

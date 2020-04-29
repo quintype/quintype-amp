@@ -29,6 +29,10 @@ To publish the package, bump the version using sematic versioning in `package.js
 
     |   Component Name    | takes style/theme prop? |   `key` name   |      applies styles to       |
     | :-----------------: | :---------------------: | :------------: | :--------------------------: |
+    | **Story Elements**: |                         |                |                              |
+    |     blurb (WIP)     |           Yes           |     blurb      | wrapper `blockquote` element |
+    |                     |                         |                |                              |
+    |                     |                         |                |                              |
     |     **Atoms**:      |                         |                |                              |
     |       Author        |           Yes           |     author     |  the outermost wrapper div   |
     |      Carousel       |           Yes           |    carousel    |  the outermost wrapper div   |
@@ -50,7 +54,3 @@ To publish the package, bump the version using sematic versioning in `package.js
     |        Link         |           No            |     - NA -     |            - NA -            |
     | PublisherLogoHeader |           No            |     - NA -     |            - NA -            |
     |       Section       |           Yes           |    wrapper     |    outermost wrapper `h5`    |
-    |                     |                         |                |                              |
-    |                     |                         |                |                              |
-    |                     |                         |                |                              |
-    |                     |                         |                |                              |

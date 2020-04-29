@@ -19,6 +19,8 @@ const baseBlurbStyles = css`
 `;
 
 const BlurbBase = ({ element, children, style, theme }: StoryElementProps) => {
+  // const metadataContent = get(element, ["metadata", "content"], null);
+  // const elementText = get(element, "text", "");
   const blurbStyles = get(style, "blurb", null);
   const StyledBlurb = styled.blockquote`
     ${genStyles(baseBlurbStyles, blurbStyles, theme)}
@@ -28,6 +30,11 @@ const BlurbBase = ({ element, children, style, theme }: StoryElementProps) => {
     return <StyledBlurb>{element.metadata.content}</StyledBlurb>;
   }
   return <StyledBlurb as="div" dangerouslySetInnerHTML={{ __html: element.text || "" }} />;
+  // return metadataContent ? (
+  //   <StyledBlurb>{metadataContent}</StyledBlurb>
+  // ) : (
+  //   <StyledBlurb as="div" dangerouslySetInnerHTML={{ __html: elementText }} />
+  // );
 };
 
 export const Blurb = withTheme(BlurbBase);
