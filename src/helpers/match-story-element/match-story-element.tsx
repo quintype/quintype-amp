@@ -9,16 +9,20 @@ import {
   Embed,
   DailyMotionElement,
   TwitterElement,
-  FacebookElement
+  FacebookElement,
+  InstagramElement,
+  VidibleElement
 } from "../../atoms/story-elements";
 
 const anyType = "any";
 const none = "none";
 
+const noop = () => null;
+
 const StoryElementsTable = [
   ["composite", "image-gallery", Pending],
-  ["composite", "ingredients", Pending],
-  ["composite", "playlist", Pending],
+  ["composite", "ingredients", noop],
+  ["composite", "playlist", noop],
   ["composite", "references", Pending],
   ["data", "table", Pending],
   ["external-file", "bitgravity-video", Pending],
@@ -33,13 +37,13 @@ const StoryElementsTable = [
   ["jsembed", "dilmot-q-and-a", Pending],
   ["jsembed", "facebook-post", FacebookElement],
   ["jsembed", "facebook-video", FacebookElement],
-  ["jsembed", "instagram", Pending],
+  ["jsembed", "instagram", InstagramElement],
   ["jsembed", "social-media", Pending],
   ["jsembed", "tweet", TwitterElement],
-  ["jsembed", "vidible-video", Pending],
+  ["jsembed", "vidible-video", VidibleElement],
   ["jsembed", anyType, Embed],
   ["polltype", "opinion-poll", Pending],
-  ["soundcloud-audio", none, Pending],
+  ["soundcloud-audio", none, noop],
   ["text", "also-read", AlsoRead],
   ["text", "answer", Text],
   ["text", "bigfact", Text],

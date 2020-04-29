@@ -9,6 +9,8 @@ import { Embed } from "./embed";
 import { DailyMotionElement } from "./daily-motion-element";
 import { TwitterElement } from "./twitter-element";
 import { FacebookElement } from "./facebook-element";
+import { InstagramElement } from "./instagram-element";
+import { VidibleElement } from "./vidible-element";
 
 const StoryElements = {
   Text,
@@ -21,7 +23,9 @@ const StoryElements = {
   Embed,
   DailyMotionElement,
   TwitterElement,
-  FacebookElement
+  FacebookElement,
+  InstagramElement,
+  VidibleElement
 };
 export {
   Text,
@@ -34,6 +38,8 @@ export {
   Embed,
   DailyMotionElement,
   TwitterElement,
-  FacebookElement
+  FacebookElement,
+  InstagramElement,
+  VidibleElement
 };
 export { StoryElements };
