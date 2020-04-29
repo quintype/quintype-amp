@@ -21,7 +21,7 @@ export const Heading = styled.h2`
   padding-bottom: 3px;
 `;
 
-const RelatedStoriesBase = ({ stories, config, heading, aspectRatio = [16, 9] }: RelatedStoriesTypes) => {
+export const RelatedStoriesBase = ({ stories, config, heading, aspectRatio = [16, 9] }: RelatedStoriesTypes) => {
   return stories && stories.length ? (
     <Fragment>
       <Heading>{heading || "Related Stories"}</Heading>

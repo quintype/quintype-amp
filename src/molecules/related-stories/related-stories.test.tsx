@@ -3,7 +3,7 @@
  */
 
 import React from "react";
-import { RelatedStories, Heading } from "./related-stories";
+import { RelatedStories, RelatedStoriesBase, Heading } from "./related-stories";
 import { shallow } from "enzyme";
 import { renderToString } from "../../helpers";
 import { Layout, Link } from "../../atoms";
@@ -16,8 +16,12 @@ describe("RelatedStories", () => {
     expect(wrapper).toMatchSnapshot();
   });
   it("should render if valid stories are passed", () => {
-    const wrapper = shallow(<RelatedStories stories={relatedStories} />);
-    expect(wrapper.find(Heading).length).toBe(1);
+    const wrapper = shallow(<RelatedStoriesBase config={config} stories={relatedStories} />);
+    expect(wrapper.find(Heading).text()).toBe("Related Stories");
+  });
+  it("should not render if no stories are passed", () => {
+    const wrapper = shallow(<RelatedStoriesBase config={config} stories={[]} />);
+    expect(wrapper.find(Heading).exists()).toBeFalsy();
   });
   it("Should return valid amp-html", async () => {
     const component = (
