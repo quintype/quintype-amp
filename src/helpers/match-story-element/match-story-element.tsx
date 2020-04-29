@@ -49,7 +49,8 @@ const StoryElementsTable = [
   ["text", "summary", Text],
   ["text", anyType, Text],
   ["title", none, Text],
-  ["youtube-video", none, YouTube]
+  ["youtube-video", none, YouTube],
+  [anyType, anyType, Pending]
 ];
 
 function matchStoryElement(element, table = StoryElementsTable) {
