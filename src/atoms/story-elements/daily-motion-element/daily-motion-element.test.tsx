@@ -18,15 +18,9 @@ const sampleDailyMotionElement = {
   subtype: "dailymotion-video"
 };
 
-const { metadata, ...sampleDailyMotionElementWithoutMetadata } = sampleDailyMotionElement;
-
 describe("DailyMotion Element", () => {
   it("should render daily motion video", () => {
     const wrapper = mount(<DailyMotionElement element={sampleDailyMotionElement} />);
     expect(wrapper.find("amp-dailymotion").length).toBe(1);
-  });
-  it("should not render if metadata is missing", () => {
-    const wrapper = mount(<DailyMotionElement element={sampleDailyMotionElementWithoutMetadata} />);
-    expect(wrapper).toBe(null);
   });
 });
