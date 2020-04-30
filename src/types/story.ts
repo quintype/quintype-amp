@@ -154,6 +154,10 @@ export interface StoryElementMetadata {
   attribution?: string;
   "dailymotion-url"?: string;
   "video-id"?: string;
+  "vidible-video-id"?: string;
+  "duration-millis"?: number;
+  "player-url"?: string;
+  "include-in-video-sitemap"?: boolean;
 }
 
 export interface LinkedStory {

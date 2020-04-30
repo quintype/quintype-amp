@@ -14,9 +14,16 @@ const Container = styled.main`
 
 const Layout = ({ style, children, story, config }: Layout) => {
   const tokens = getTokensFromAMPConfig(config.ampConfig);
+  const embedCustomFonts = config.ampConfig.fonts;
   return (
     <Fragment>
       <Helmet>
+        {embedCustomFonts.primary.url && (
+          <link href={`https://fonts.googleapis.com/css?family=${embedCustomFonts.primary.url}`} rel="stylesheet" />
+        )}
+        {embedCustomFonts.secondary.url && (
+          <link href={`https://fonts.googleapis.com/css?family=${embedCustomFonts.secondary.url}`} rel="stylesheet" />
+        )}
         <style>{style}</style>
       </Helmet>
       <ConfigProvider value={config}>
