@@ -12,7 +12,7 @@ export const getTokensFromAMPConfig = (config: AMPConfig) => {
       ...(!isEmpty(colors["header-background"]) && { headerBackground: colors["header-background"] }),
       ...(!isEmpty(colors["footer-background"]) && { footerBackground: colors["footer-background"] }),
       ...(!isEmpty(colors["footer-text-color"]) && { footerTextColor: colors["footer-text-color"] }),
-      ...(!isEmpty(colors["section-text-color"]) && { sectionBackground: colors["section-text-color"] })
+      ...(!isEmpty(colors["section-text-color"]) && { sectionTextColor: colors["section-text-color"] })
     }
   };
 };
