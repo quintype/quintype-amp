@@ -19,7 +19,6 @@ test("renderToString function should return valid amp-html", async () => {
     </Layout>
   );
   const { ampHtml } = renderToString(dummyLayout);
-  if (ampHtml instanceof Error) throw ampHtml;
   const ampValidatorOutput = await isValidAmpHtml(ampHtml);
   expect(ampValidatorOutput).toBe(true);
   expect(ampHtml.includes(`<link data-react-helmet="true" rel="canonical" href="https://www.reddit.com/"/>`)).toBe(

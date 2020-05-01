@@ -13,7 +13,6 @@ import { isValidAmpHtml } from "../../../utils/validate-amp";
 
 const output = async (layout) => {
   const { ampHtml } = renderToString(layout);
-  if (ampHtml instanceof Error) throw ampHtml;
   const ampValidatorOutput = await isValidAmpHtml(ampHtml);
   return ampValidatorOutput;
 };
