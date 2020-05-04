@@ -1,6 +1,7 @@
 import { CarouselTypes } from "./carousel/types";
 import { FacebookTypes } from "./facebook/types";
 import { TwitterTypes } from "./twitter/types";
+import { InstagramTypes } from "./instagram/types";
 
 declare global {
   namespace JSX {
@@ -16,6 +17,7 @@ declare global {
       "amp-iframe";
       "amp-dailymotion";
       "amp-mathml";
+      "amp-instagram": InstagramTypes;
     }
   }
 }

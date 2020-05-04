@@ -8,6 +8,7 @@ const StyledSection = styled.h5`
   letter-spacing: 1px;
   margin: 0;
   font-weight: bold;
+  color: ${(props) => props.theme.color.sectionTextColor};
 `;
 
 const Section = ({ section }: SectionProps) => {

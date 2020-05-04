@@ -21,6 +21,8 @@ import { Iframe } from "./iframe";
 import { DailyMotion } from "./daily-motion";
 import { Head } from "./head";
 import { Link } from "./link";
+import { Instagram } from "./instagram";
+import { O2Player } from "./o2-player";
 
 export {
   Carousel,
@@ -45,5 +47,7 @@ export {
   DailyMotion,
   Slot,
   Head,
-  Link
+  Link,
+  Instagram,
+  O2Player
 };

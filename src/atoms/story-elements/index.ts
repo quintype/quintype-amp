@@ -7,6 +7,10 @@ import { AlsoRead } from "./also-read";
 import { YouTube } from "./youtube";
 import { Embed } from "./embed";
 import { DailyMotionElement } from "./daily-motion-element";
+import { TwitterElement } from "./twitter-element";
+import { FacebookElement } from "./facebook-element";
+import { InstagramElement } from "./instagram-element";
+import { VidibleElement } from "./vidible-element";
 
 const StoryElements = {
   Text,
@@ -17,7 +21,25 @@ const StoryElements = {
   AlsoRead,
   YouTube,
   Embed,
-  DailyMotionElement
+  DailyMotionElement,
+  TwitterElement,
+  FacebookElement,
+  InstagramElement,
+  VidibleElement
 };
-export { Text, Pending, BlockQuote, ImageElement, Blurb, AlsoRead, YouTube, Embed, DailyMotionElement };
+export {
+  Text,
+  Pending,
+  BlockQuote,
+  ImageElement,
+  Blurb,
+  AlsoRead,
+  YouTube,
+  Embed,
+  DailyMotionElement,
+  TwitterElement,
+  FacebookElement,
+  InstagramElement,
+  VidibleElement
+};
 export { StoryElements };

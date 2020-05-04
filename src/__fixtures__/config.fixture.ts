@@ -51,7 +51,7 @@ export const ampConfig: AMPConfig = {
     },
     secondary: {
       url: "PT+Serif:400,400italic,700,700italic",
-      family: "sans-serif"
+      family: "'PT Serif', sans-serif"
     }
   },
   colors: {
@@ -82,7 +82,9 @@ export const ampConfig: AMPConfig = {
   },
   "google-client-id-api": false,
   "invalid-elements-strategy": "redirect-to-web-version",
-  "google-analytics-tracking-id": "UA-ABCDEFG"
+  "google-analytics-tracking-id": "UA-ABCDEFG",
+  "fallback-image-url":
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/300px-Wikipedia-logo-v2.svg.png"
 };
 
 export const configOpts: ConfigOpts = {
