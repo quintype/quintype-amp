@@ -17,9 +17,9 @@ const TextStory = ({ story, config, relatedStories }) => (
   <Layout story={story} config={config}>
     <Link rel="canonical" href={get(story, "url")} />
     <Navbar />
+    <IncompatibleBanner />
     <Wrapper>
       <TopAd />
-      <IncompatibleBanner />
       <Spacer token="s" />
       <StoryContainer>
         <HeaderCard />

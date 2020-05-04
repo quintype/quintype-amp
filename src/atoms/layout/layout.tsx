@@ -10,6 +10,7 @@ import styled from "styled-components";
 
 const Container = styled.main`
   font-family: ${(props) => props.theme.font.family.primary};
+  position: relative;
 `;
 
 const Layout = ({ style, children, story, config }: Layout) => {
