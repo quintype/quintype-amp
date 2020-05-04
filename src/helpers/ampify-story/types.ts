@@ -6,5 +6,6 @@ export interface AmpifyStoryTypes {
   relatedStories: Story[];
   ampConfig: AMPConfig;
   publisherConfig: PublisherConfig;
+  seoTags: any;
   opts?: ConfigOpts;
 }

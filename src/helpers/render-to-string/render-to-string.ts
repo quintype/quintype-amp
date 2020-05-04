@@ -3,25 +3,25 @@ import { ReactElement } from "react";
 import { ServerStyleSheet } from "styled-components";
 import ReactDOMServer from "react-dom/server";
 
-export function renderToString(component) {
+export function renderToString(component, seoTags = "") {
   // check if layout can be rendered (i.e. if title and stuff is present), else throw error
   let str = "";
   try {
     // const check = checkLayout()
     // if (check instanceof Error) throw check
-    const { title, script, customStyles, link, metaTags } = getHeadTagsFromHelmet(component);
+    const { script, customStyles, link, metaTags } = getHeadTagsFromHelmet(component);
     const { htmlStr, styles } = getHtmlAndStyledComponentsStyles(component);
     const relevantMetaTags = stripIrrevelantMetaTags(metaTags);
     str += `${headStart}\n`;
+    str += `${seoTags}\n`;
     str += `${relevantMetaTags}\n`;
-    str += `${title}\n`;
     str += `${link}\n`;
     str += `${script}\n`;
     str += `<style amp-custom>\n${customStyles}\n${styles}\n</style>`;
     str += `${headEndBodyStart}\n`;
     str += `${htmlStr}\n`;
     str += `${bodyEnd}`;
-    return { ampHtml: str, invalidElementsPresent: invalidStoryElementsPresent(metaTags) };
+    return str;
   } catch (e) {
     return e;
   }
@@ -32,13 +32,12 @@ const stripStyleTag = (str: string) => str.replace(/<style[^>]*>|<\/style>/g, ""
 const getHeadTagsFromHelmet = (component) => {
   ReactDOMServer.renderToStaticMarkup(component); // without this, helmet.script returns empty
   const helmet = Helmet.renderStatic();
-  const title = helmet.title.toString();
   const script = helmet.script.toString();
   const metaTags = helmet.meta.toString();
   const link = helmet.link.toString();
   let customStyles = helmet.style.toString();
   customStyles = stripStyleTag(customStyles);
-  return { title, script, customStyles, metaTags, link };
+  return { script, customStyles, metaTags, link };
 };
 
 const getHtmlAndStyledComponentsStyles = (component: ReactElement) => {
@@ -50,9 +49,6 @@ const getHtmlAndStyledComponentsStyles = (component: ReactElement) => {
   return { htmlStr, styles };
 };
 
-const invalidStoryElementsPresent = (metaTags) => {
-  return /name="invalid-elements-present"/.test(metaTags);
-};
 const stripIrrevelantMetaTags = (metaTags) => {
   return metaTags.replace(/<meta[^\/]*name="invalid-elements-present"[^\/]*\/>/, "");
 };

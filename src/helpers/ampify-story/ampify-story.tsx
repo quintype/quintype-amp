@@ -4,10 +4,17 @@ import { TextStory } from "../../templates/text-story/text-story";
 import get from "lodash.get";
 import React from "react";
 
-export function ampifyStory({ story, publisherConfig, ampConfig, relatedStories, opts = {} }: AmpifyStoryTypes) {
+export function ampifyStory({
+  story,
+  publisherConfig,
+  ampConfig,
+  relatedStories,
+  opts = {},
+  seoTags
+}: AmpifyStoryTypes) {
   const config = { publisherConfig, ampConfig, opts };
   const template = getTemplate({ story, config, relatedStories });
-  return renderToString(template);
+  return renderToString(template, seoTags.toString());
 }
 
 const getTemplate = ({ story, config, relatedStories }) => {
