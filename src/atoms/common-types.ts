@@ -17,6 +17,7 @@ declare global {
       "amp-iframe";
       "amp-dailymotion";
       "amp-mathml";
+      "amp-o2-player";
       "amp-instagram": InstagramTypes;
     }
   }
