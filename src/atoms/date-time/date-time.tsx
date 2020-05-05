@@ -12,7 +12,7 @@ const StyledTime = styled.time`
 
 const dateTimeFormats = {
   onlyDate: "do MMM, yyyy",
-  dateWithTime: "do MMM, yyyy 'at' hh:mm a"
+  dateWithTime: "do MMM, yyyy 'at' p"
 };
 
 const DateTime = ({ dateTime, formatString, showTime }: DateTimeProps) => {
@@ -20,7 +20,8 @@ const DateTime = ({ dateTime, formatString, showTime }: DateTimeProps) => {
     return null;
   }
 
-  const timeZonedTime = utcToZonedTime(dateTime, "Asia/Kolkata");
+  const timeZone = "Asia/Kolkata";
+  const timeZonedTime = utcToZonedTime(dateTime, timeZone);
 
   let formatDateTime;
   if (formatString) {
@@ -29,7 +30,7 @@ const DateTime = ({ dateTime, formatString, showTime }: DateTimeProps) => {
     formatDateTime = showTime ? dateTimeFormats.dateWithTime : dateTimeFormats.onlyDate;
   }
 
-  const humanizedDate = format(timeZonedTime, formatDateTime, { timeZone: 'Asia/Kolkata' })
+  const humanizedDate = format(timeZonedTime, formatDateTime, { timeZone })
   return <StyledTime dateTime={humanizedDate}>{humanizedDate}</StyledTime>;
 };
 
