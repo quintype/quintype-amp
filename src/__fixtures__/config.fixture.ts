@@ -58,7 +58,7 @@ export const ampConfig: AMPConfig = {
     primary: "#294f32",
     secondary: "#763194",
     "footer-background": "#FDBD10",
-    "footer-text-color": "#FDBD10",
+    "footer-text-color": "#FFF",
     "header-background": "#dd0b4d",
     "section-text-color": "#f4e842"
   },

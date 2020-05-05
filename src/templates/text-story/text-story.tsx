@@ -48,7 +48,7 @@ const TextStory = ({ story, config, relatedStories }) => {
         <RelatedStories stories={relatedStories} />
         <BottomAd />
       </Wrapper>
-      <Footer />
+      <Footer text={get(config.publisherConfig, ["publisher-name"])} />
     </Layout>
   );
 };
