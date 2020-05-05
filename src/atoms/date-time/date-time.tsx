@@ -1,5 +1,5 @@
 import React from "react";
-import { format } from "date-fns/fp";
+import { format, utcToZonedTime } from "date-fns-tz";
 import { DateTimeProps } from "./types";
 import styled from "styled-components";
 
@@ -12,20 +12,24 @@ const StyledTime = styled.time`
 
 const dateTimeFormats = {
   onlyDate: "do MMM, yyyy",
-  dateWithTime: "do MMM, yyyy 'at' p"
+  dateWithTime: "do MMM, yyyy 'at' hh:mm a"
 };
 
 const DateTime = ({ dateTime, formatString, showTime }: DateTimeProps) => {
   if (!dateTime) {
     return null;
   }
+
+  const timeZonedTime = utcToZonedTime(dateTime, "Asia/Kolkata");
+
   let formatDateTime;
   if (formatString) {
     formatDateTime = formatString;
   } else {
     formatDateTime = showTime ? dateTimeFormats.dateWithTime : dateTimeFormats.onlyDate;
   }
-  const humanizedDate = format(formatDateTime, dateTime);
+
+  const humanizedDate = format(timeZonedTime, formatDateTime, { timeZone: 'Asia/Kolkata' })
   return <StyledTime dateTime={humanizedDate}>{humanizedDate}</StyledTime>;
 };
 
