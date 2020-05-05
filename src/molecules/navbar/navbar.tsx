@@ -4,6 +4,7 @@ import { PublisherLogoHeader, icons, HamburgerMenu } from "../../atoms";
 import { NavbarTypes } from "./types";
 import { withConfig } from "../../context";
 import get from "lodash.get";
+import { withTheme } from "styled-components";
 
 const { Hamburger, Close } = icons;
 
@@ -41,13 +42,13 @@ export const HamburgerWrapper = styled.div<{ align: "left" | "right" }>`
   `}
 `;
 
-export const NavbarBase = ({ logoSrc, align = "left", config }: NavbarTypes) => {
+export const NavbarBase = ({ logoSrc, align = "left", config, theme }: NavbarTypes) => {
   const isMenuEnabled = get(config, ["ampConfig", "menu", "enabled"], false);
   const hamburgerMenuItems = get(config, ["ampConfig", "menu", "items"], []);
   const textDirection = get(config, ["publisherConfig", "text-direction"], "ltr");
   const logo = logoSrc || get(config, ["ampConfig", "logo-url"], null);
   const publisherName = get(config, ["publisherConfig", "publisher-name"], "");
-  const hamburgerColor = get(config, ["ampConfig", "colors", "secondary"]);
+  const hamburgerColor = get(theme, ["color", "secondaryColor"], "currentColor");
   if (!logo) return null;
   return (
     <StyledNavbar>
@@ -72,4 +73,4 @@ export const NavbarBase = ({ logoSrc, align = "left", config }: NavbarTypes) => 
   );
 };
 
-export const Navbar = withConfig(NavbarBase);
+export const Navbar = withTheme(withConfig(NavbarBase));
