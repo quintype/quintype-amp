@@ -23,6 +23,7 @@ import { Head } from "./head";
 import { Link } from "./link";
 import { Instagram } from "./instagram";
 import { O2Player } from "./o2-player";
+import { WebPush } from "./web-push";
 
 export {
   Carousel,
@@ -49,5 +50,6 @@ export {
   Head,
   Link,
   Instagram,
-  O2Player
+  O2Player,
+  WebPush
 };
