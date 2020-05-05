@@ -14,7 +14,8 @@ export function ampifyStory({
 }: AmpifyStoryTypes) {
   const config = { publisherConfig, ampConfig, opts };
   const template = getTemplate({ story, config, relatedStories });
-  return renderToString(template, seoTags.toString());
+  const seo = seoTags ? seoTags.toString() : "";
+  return renderToString(template, seo);
 }
 
 const getTemplate = ({ story, config, relatedStories }) => {
