@@ -47,6 +47,7 @@ export const NavbarBase = ({ logoSrc, align = "left", config }: NavbarTypes) => 
   const textDirection = get(config, ["publisherConfig", "text-direction"], "ltr");
   const logo = logoSrc || get(config, ["ampConfig", "logo-url"], null);
   const publisherName = get(config, ["publisherConfig", "publisher-name"], "");
+  const hamburgerColor = get(config, ["colors", "secondary"]);
   if (!logo) return null;
   return (
     <StyledNavbar>
@@ -56,7 +57,7 @@ export const NavbarBase = ({ logoSrc, align = "left", config }: NavbarTypes) => 
       {isMenuEnabled && hamburgerMenuItems.length > 0 && (
         <Fragment>
           <HamburgerWrapper role="button" tabIndex={0} on="tap:sidebar.open" align={align}>
-            <Hamburger width="40" height="40" />
+            <Hamburger width="40" height="40" color={hamburgerColor} />
           </HamburgerWrapper>
           <HamburgerMenu align={align} textDirection={textDirection} items={hamburgerMenuItems}>
             <StyledListItem>
