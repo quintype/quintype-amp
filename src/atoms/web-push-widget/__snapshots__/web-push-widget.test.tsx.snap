@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WebPushWidget should render 1`] = `
+<amp-web-push-widget
+  visibility="unsubscribed"
+>
+  <button>
+    Click me
+  </button>
+  <div>
+    I am WebPushWidget's child
+  </div>
+</amp-web-push-widget>
+`;

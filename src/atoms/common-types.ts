@@ -20,6 +20,7 @@ declare global {
       "amp-o2-player";
       "amp-instagram": InstagramTypes;
       "amp-web-push";
+      "amp-web-push-widget";
     }
   }
 }

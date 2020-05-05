@@ -24,6 +24,7 @@ import { Link } from "./link";
 import { Instagram } from "./instagram";
 import { O2Player } from "./o2-player";
 import { WebPush } from "./web-push";
+import { WebPushWidget } from "./web-push-widget";
 
 export {
   Carousel,
@@ -51,5 +52,6 @@ export {
   Link,
   Instagram,
   O2Player,
-  WebPush
+  WebPush,
+  WebPushWidget
 };
