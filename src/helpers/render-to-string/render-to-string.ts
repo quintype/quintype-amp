@@ -11,9 +11,8 @@ export function renderToString(component) {
     // if (check instanceof Error) throw check
     const { title, script, customStyles, link, metaTags } = getHeadTagsFromHelmet(component);
     const { htmlStr, styles } = getHtmlAndStyledComponentsStyles(component);
-    const relevantMetaTags = stripIrrevelantMetaTags(metaTags);
     str += `${headStart}\n`;
-    str += `${relevantMetaTags}\n`;
+    str += `${metaTags}\n`;
     str += `${title}\n`;
     str += `${link}\n`;
     str += `${script}\n`;
@@ -21,7 +20,7 @@ export function renderToString(component) {
     str += `${headEndBodyStart}\n`;
     str += `${htmlStr}\n`;
     str += `${bodyEnd}`;
-    return { ampHtml: str, invalidElementsPresent: invalidStoryElementsPresent(metaTags) };
+    return str;
   } catch (e) {
     return e;
   }
@@ -48,13 +47,6 @@ const getHtmlAndStyledComponentsStyles = (component: ReactElement) => {
   styles = stripStyleTag(styles);
   sheet.seal();
   return { htmlStr, styles };
-};
-
-const invalidStoryElementsPresent = (metaTags) => {
-  return /name="invalid-elements-present"/.test(metaTags);
-};
-const stripIrrevelantMetaTags = (metaTags) => {
-  return metaTags.replace(/<meta[^\/]*name="invalid-elements-present"[^\/]*\/>/, "");
 };
 
 const headStart = `<!doctype html>

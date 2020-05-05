@@ -16,7 +16,7 @@ import * as icons from "./icons";
 import { SocialShareIcon } from "./social-share-icon";
 import { Slot } from "./slot";
 import { DfpAd } from "./dfp-ad";
-import { InvalidBanner } from "./invalid-banner";
+import { IncompatibleBanner } from "./incompatible-banner";
 import { Iframe } from "./iframe";
 import { DailyMotion } from "./daily-motion";
 import { Head } from "./head";
@@ -43,7 +43,7 @@ export {
   HamburgerMenu,
   icons,
   SocialShareIcon,
-  InvalidBanner,
+  IncompatibleBanner,
   DailyMotion,
   Slot,
   Head,
