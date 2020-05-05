@@ -24,13 +24,13 @@ describe("RelatedStories", () => {
     expect(wrapper.find(Heading).exists()).toBeFalsy();
   });
   it("Should return valid amp-html", async () => {
-    const component = (
+    const Component = () => (
       <Layout story={textStory} config={config}>
         <Link rel="canonical" href="." />
         <RelatedStories stories={relatedStories} />
       </Layout>
     );
-    const { ampHtml } = renderToString(component);
+    const ampHtml = renderToString(<Component />);
     const ampValidatorOutput = await isValidAmpHtml(ampHtml);
     expect(ampValidatorOutput).toBe(true);
   });

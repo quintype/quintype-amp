@@ -1,6 +1,6 @@
-import React, { Fragment, useState } from "react";
-import { Layout, StoryElement, Spacer, InvalidBanner, Link, Footer } from "../../atoms";
-import { HeaderCard, Navbar, RelatedStories, AmpAds } from "../../molecules";
+import React, { Fragment } from "react";
+import { Layout, StoryElement, Spacer, IncompatibleBanner, Link, Footer } from "../../atoms";
+import { HeaderCard, Navbar, AmpAds, RelatedStories } from "../../molecules";
 import styled from "styled-components";
 import get from "lodash.get";
 
@@ -13,44 +13,37 @@ const Wrapper = styled.div`
   padding: 0 ${(props) => props.theme.spacing.s};
 `;
 const canDisplayBodyAd = (cardIdx, cardsArr) => cardIdx === 2 && cardsArr.length > 2;
-const TextStory = ({ story, config, relatedStories }) => {
-  const [showInvalidBanner, setStatusInvalidBanner] = useState(false);
-  const handleSetInvalid = () => {
-    if (!showInvalidBanner) setStatusInvalidBanner(true);
-  };
-  let invalidBanner;
-  invalidBanner = showInvalidBanner ? <InvalidBanner /> : null;
-  return (
-    <Layout story={story} config={config}>
-      <Link rel="canonical" href={get(story, "url")} />
-      <Navbar logoSrc="/header-logo.png" />
-      <Wrapper>
-        <TopAd />
-        {invalidBanner}
-        <StoryContainer>
-          <HeaderCard />
-          <Spacer token="s" />
-          {story.cards.map((card, cardIdx) => {
-            const storyCard = card["story-elements"].map((element) => (
-              <StoryElement key={element.id} setInvalidBanner={handleSetInvalid} element={element} />
-            ));
-            return canDisplayBodyAd(cardIdx, story.cards) ? (
-              <Fragment key={card.id}>
-                <BodyAd />
-                {storyCard}
-              </Fragment>
-            ) : (
-              <Fragment key={card.id}>{storyCard}</Fragment>
-            );
-          })}
-        </StoryContainer>
-        <Spacer token="m" />
-        <RelatedStories stories={relatedStories} />
-        <BottomAd />
-      </Wrapper>
-      <Footer />
-    </Layout>
-  );
-};
+const TextStory = ({ story, config, relatedStories }) => (
+  <Layout story={story} config={config}>
+    <Link rel="canonical" href={get(story, "url")} />
+    <Navbar />
+    <IncompatibleBanner />
+    <Wrapper>
+      <TopAd />
+      <Spacer token="s" />
+      <StoryContainer>
+        <HeaderCard />
+        <Spacer token="s" />
+        {story.cards.map((card, cardIdx) => {
+          const storyCard = card["story-elements"].map((element) => (
+            <StoryElement key={element.id} element={element} />
+          ));
+          return canDisplayBodyAd(cardIdx, story.cards) ? (
+            <Fragment key={card.id}>
+              <BodyAd />
+              {storyCard}
+            </Fragment>
+          ) : (
+            <Fragment key={card.id}>{storyCard}</Fragment>
+          );
+        })}
+      </StoryContainer>
+      <Spacer token="m" />
+      <RelatedStories stories={relatedStories} />
+      <BottomAd />
+    </Wrapper>
+    <Footer />
+  </Layout>
+);
 
 export { TextStory };

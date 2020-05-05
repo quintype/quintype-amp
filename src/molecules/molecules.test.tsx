@@ -24,12 +24,12 @@ const LayoutForHeaderCard = () => (
 
 describe("Molecules", () => {
   it("Navbar should render valid AMP Html", async () => {
-    const { ampHtml } = renderToString(<LayoutForNavbar />);
+    const ampHtml = renderToString(<LayoutForNavbar />);
     const ampValidatorOutput = await isValidAmpHtml(ampHtml);
     expect(ampValidatorOutput).toBe(true);
   });
   it("HeaderCard should render valid AMP Html", async () => {
-    const { ampHtml } = renderToString(<LayoutForHeaderCard />);
+    const ampHtml = renderToString(<LayoutForHeaderCard />);
     const ampValidatorOutput = await isValidAmpHtml(ampHtml);
     expect(ampValidatorOutput).toBe(true);
   });
