@@ -12,7 +12,7 @@ export const WebPush = (props: WebPushTypes) => {
           src="https://cdn.ampproject.org/v0/amp-web-push-0.1.js"
         />
       </Helmet>
-      <amp-web-push {...props} />
+      <amp-web-push layout="nodisplay" {...props} />
     </Fragment>
   );
 };

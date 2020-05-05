@@ -1,5 +1,4 @@
 export interface WebPushTypes {
-  layout: "nodisplay";
   "helper-iframe-url": string;
   "permission-dialog-url": string;
   "service-worker-url": string;
