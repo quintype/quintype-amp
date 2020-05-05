@@ -47,7 +47,7 @@ export const NavbarBase = ({ logoSrc, align = "left", config }: NavbarTypes) => 
   const textDirection = get(config, ["publisherConfig", "text-direction"], "ltr");
   const logo = logoSrc || get(config, ["ampConfig", "logo-url"], null);
   const publisherName = get(config, ["publisherConfig", "publisher-name"], "");
-  const hamburgerColor = get(config, ["colors", "secondary"]);
+  const hamburgerColor = get(config, ["ampConfig", "colors", "secondary"]);
   if (!logo) return null;
   return (
     <StyledNavbar>
