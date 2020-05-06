@@ -1,5 +1,5 @@
 import React from "react";
-import { format } from "date-fns/fp";
+import { format, utcToZonedTime } from "date-fns-tz";
 import { DateTimeProps } from "./types";
 import styled from "styled-components";
 
@@ -19,13 +19,18 @@ const DateTime = ({ dateTime, formatString, showTime }: DateTimeProps) => {
   if (!dateTime) {
     return null;
   }
+
+  const timeZone = "Asia/Kolkata";
+  const timeZonedTime = utcToZonedTime(dateTime, timeZone);
+
   let formatDateTime;
   if (formatString) {
     formatDateTime = formatString;
   } else {
     formatDateTime = showTime ? dateTimeFormats.dateWithTime : dateTimeFormats.onlyDate;
   }
-  const humanizedDate = format(formatDateTime, dateTime);
+
+  const humanizedDate = format(timeZonedTime, formatDateTime, { timeZone })
   return <StyledTime dateTime={humanizedDate}>{humanizedDate}</StyledTime>;
 };
 

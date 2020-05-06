@@ -81,6 +81,7 @@
     "@rvgpl/get-youtube-id": "^1.0.0",
     "atob": "^2.1.2",
     "date-fns": "^2.11.0",
+    "date-fns-tz": "^1.0.10",
     "lodash.clonedeep": "^4.5.0",
     "lodash.get": "^4.4.2",
     "lodash.merge": "^4.6.2",
