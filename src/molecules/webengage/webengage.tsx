@@ -3,7 +3,7 @@ import { withConfig } from "../../context";
 import { WebPush, WebPushWidget, Head, WebengageSubscribeButton } from "../../atoms";
 import get from "lodash.get";
 
-const WebEngageBase = ({ config }) => {
+export const WebEngageBase = ({ config }) => {
   const enabled = get(config, ["ampConfig", "webengage"], null);
   if (!enabled) return null;
 
