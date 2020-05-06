@@ -41,6 +41,11 @@ export interface AMPConfig {
     "body-ad": DoubleClickAdTypes;
     "bottom-ad": DoubleClickAdTypes;
   };
+  webengage?: {
+    "license-code": string;
+    "website-url": string;
+    "tracking-code": string;
+  };
   "google-client-id-api": boolean;
   "invalid-elements-strategy": string;
   "google-analytics-tracking-id": string;

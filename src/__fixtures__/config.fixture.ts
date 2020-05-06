@@ -80,6 +80,12 @@ export const ampConfig: AMPConfig = {
       "unit-path": "/35096353/amptesting/formats/sticky"
     }
   },
+  webengage: {
+    "license-code": "~134105365",
+    "website-url": "https://www.vikatan.com",
+    "tracking-code":
+      '{"vars":{"licenseCode":"~134105365","region":"us"},"requests":{"custom-attributes":{"baseUrl":"${base}&eventName=Amp Article View&ArticleTitle=எடப்பாடி ஆட்சி, ரஜினி - கமல் அரசியல்... ஆந்திராவிலிருந்து ரோஜா ஸ்பெஷல் பேட்டி!&ArticleId=739ac241-69a1-4d2a-b136-37bd45c42e8a&Category=government and politics&SubCategory=politics&Author=ஆர்.பி.&ArticleType=&tags=Edappadi Palanisamy,y. s. jaganmohan reddy,actress roja,politics,ysr congress&event=pageview"}},"triggers":{"custom-attributesTrigger":{"on":"visible","request":"custom-attributes"}}}'
+  },
   "google-client-id-api": false,
   "invalid-elements-strategy": "redirect-to-web-version",
   "google-analytics-tracking-id": "UA-ABCDEFG",

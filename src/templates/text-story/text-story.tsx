@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { Layout, StoryElement, Spacer, IncompatibleBanner, Link, Footer } from "../../atoms";
-import { HeaderCard, Navbar, AmpAds, RelatedStories } from "../../molecules";
+import { HeaderCard, Navbar, AmpAds, RelatedStories, WebEngage } from "../../molecules";
 import styled from "styled-components";
 import get from "lodash.get";
 
@@ -23,7 +23,9 @@ const TextStory = ({ story, config, relatedStories }) => (
       <Spacer token="s" />
       <StoryContainer>
         <HeaderCard />
-        <Spacer token="s" />
+        <Spacer token="m" />
+        <WebEngage />
+        <Spacer token="m" />
         {story.cards.map((card, cardIdx) => {
           const storyCard = card["story-elements"].map((element) => (
             <StoryElement key={element.id} element={element} />

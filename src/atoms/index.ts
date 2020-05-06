@@ -25,6 +25,7 @@ import { Instagram } from "./instagram";
 import { O2Player } from "./o2-player";
 import { WebPush } from "./web-push";
 import { WebPushWidget } from "./web-push-widget";
+import { WebengageSubscribeButton } from "./webengage-subscribe-button";
 
 export {
   Carousel,
@@ -53,5 +54,6 @@ export {
   Instagram,
   O2Player,
   WebPush,
-  WebPushWidget
+  WebPushWidget,
+  WebengageSubscribeButton
 };

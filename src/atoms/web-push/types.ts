@@ -3,4 +3,5 @@ export interface WebPushTypes {
   "permission-dialog-url": string;
   "service-worker-url": string;
   "service-worker-scope"?: string;
+  id?: string;
 }

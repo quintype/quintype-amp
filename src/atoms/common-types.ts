@@ -21,6 +21,7 @@ declare global {
       "amp-instagram": InstagramTypes;
       "amp-web-push";
       "amp-web-push-widget";
+      "amp-analytics";
     }
   }
 }
