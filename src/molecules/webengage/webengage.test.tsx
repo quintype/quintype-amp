@@ -3,7 +3,7 @@ import { WebEngageBase } from "./webengage";
 import { shallow } from "enzyme";
 import { config } from "../../__fixtures__";
 import cloneDeep from "lodash.clonedeep";
-import { WebPush, WebPushWidget } from "../../atoms";
+import { WebPush, WebPushWidget, WebengageSubscribeButton } from "../../atoms";
 
 const configWithoutWebEngage = cloneDeep(config);
 delete configWithoutWebEngage.ampConfig.webengage;
@@ -31,5 +31,9 @@ describe("Webengage", () => {
     const wrapper = shallow(<WebEngageBase config={configWithoutWebEngage} />);
     expect(wrapper.find(WebPush).exists()).toBeFalsy();
     expect(wrapper.find(WebPushWidget).exists()).toBeFalsy();
+  });
+  it("should pass custom text down to button", () => {
+    const wrapper = shallow(<WebEngageBase config={config} buttonText="lorem ipsum" />);
+    expect(wrapper.find(WebengageSubscribeButton).prop("text")).toBe("lorem ipsum");
   });
 });

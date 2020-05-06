@@ -29,7 +29,7 @@ exports[`Webengage should match snapshot 1`] = `
     visibility="unsubscribed"
     width="350px"
   >
-    <WithTheme(WebengageSubscribeButtonBase)
+    <WithTheme(Component)
       on="tap:amp-web-push.subscribe"
     />
   </Component>

@@ -2,6 +2,7 @@
 
 exports[`WebPushWidget should render 1`] = `
 <amp-web-push-widget
+  layout="fixed"
   visibility="unsubscribed"
 >
   <button>

@@ -15,7 +15,7 @@ const StyledButton = styled.button`
   align-items: center;
   padding: ${(props) => `${props.theme.spacing.m} 0`};
 `;
-const SubscribeMessage = styled.span`
+export const SubscribeMessage = styled.span`
   color: ${(props) => props.theme.color.white};
   font: ${(props) => {
     const fontFamily = props.theme.font.family.primary;
@@ -25,7 +25,7 @@ const SubscribeMessage = styled.span`
   }};
 `;
 
-const WebengageSubscribeButtonBase = ({ theme, on, text }: ButtonTypes) => {
+export const WebengageSubscribeButtonBase = ({ theme, on, text }: ButtonTypes) => {
   const bellIconColor = get(theme, ["color", "white"], "currentColor");
   return (
     <StyledButton on={on}>
