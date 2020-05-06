@@ -19,7 +19,6 @@ declare global {
       "amp-mathml";
       "amp-o2-player";
       "amp-instagram": InstagramTypes;
-      "amp-o2-player";
     }
   }
 }
