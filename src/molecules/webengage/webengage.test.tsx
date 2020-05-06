@@ -8,6 +8,9 @@ import { WebPush, WebPushWidget, WebengageSubscribeButton } from "../../atoms";
 const configWithoutWebEngage = cloneDeep(config);
 delete configWithoutWebEngage.ampConfig.webengage;
 
+const buggyConfig = cloneDeep(config);
+buggyConfig.ampConfig.webengage["tracking-code"] = undefined;
+
 describe("Webengage", () => {
   it("should match snapshot", () => {
     const wrapper = shallow(<WebEngageBase config={config} />);
@@ -35,5 +38,14 @@ describe("Webengage", () => {
   it("should pass custom text down to button", () => {
     const wrapper = shallow(<WebEngageBase config={config} buttonText="lorem ipsum" />);
     expect(wrapper.find(WebengageSubscribeButton).prop("text")).toBe("lorem ipsum");
+  });
+  it("should throw error if buggy config provided", () => {
+    expect(() => {
+      shallow(<WebEngageBase config={buggyConfig} />);
+    }).toThrowError(
+      new Error(
+        "WebEngage is enabled but required params are missing. Please provide license-code, tracking-code and website-url in config"
+      )
+    );
   });
 });
