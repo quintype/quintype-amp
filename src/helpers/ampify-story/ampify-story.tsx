@@ -23,6 +23,6 @@ const getTemplate = ({ story, config, relatedStories }) => {
         <TextStory story={story} config={config} relatedStories={relatedStories} />
       );
     default:
-      throw new Error("Couldn't resolve story template");
+      return <TextStory story={story} config={config} relatedStories={relatedStories} />;
   }
 };
