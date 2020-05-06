@@ -4,7 +4,7 @@ import { WebPush, WebPushWidget, Head, WebengageSubscribeButton } from "../../at
 import get from "lodash.get";
 import { WebEngageTypes } from "./types";
 
-export const WebEngageBase = ({ config, buttonText }: WebEngageTypes) => {
+export const WebEngageBase = ({ config, buttonText, width, height, visibility }: WebEngageTypes) => {
   const enabled = get(config, ["ampConfig", "webengage"], null);
   if (!enabled) return null;
 
@@ -36,7 +36,7 @@ export const WebEngageBase = ({ config, buttonText }: WebEngageTypes) => {
         permission-dialog-url={`${websiteUrl}/api/amp-permission-dialog-web-engage.html?version=1`}
         service-worker-url={`${websiteUrl}/api/amp-service-worker-web-engage.js?licensecode=${licenseCode}&version=1`}
       />
-      <WebPushWidget visibility="unsubscribed" width="350px" height="60px">
+      <WebPushWidget visibility={visibility || "unsubscribed"} width={width || "350px"} height={height || "60px"}>
         <WebengageSubscribeButton on="tap:amp-web-push.subscribe" text={buttonText} />
       </WebPushWidget>
     </Fragment>

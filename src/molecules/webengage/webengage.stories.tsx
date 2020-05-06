@@ -11,4 +11,5 @@ storiesOf("Webengage", module)
     </Layout>
   ))
   .add("Default", () => <WebEngage />)
-  .add("With custom text", () => <WebEngage buttonText="Subscribe!" />);
+  .add("With custom text", () => <WebEngage buttonText="Subscribe!" />)
+  .add("With custom attributes", () => <WebEngage buttonText="Subscribe!" width="500px" height="100px" />);

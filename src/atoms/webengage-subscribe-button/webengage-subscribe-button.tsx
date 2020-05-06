@@ -10,6 +10,7 @@ const StyledButton = styled.button`
   border-radius: 5px;
   background-color: ${(props) => props.theme.color.primaryColor};
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
