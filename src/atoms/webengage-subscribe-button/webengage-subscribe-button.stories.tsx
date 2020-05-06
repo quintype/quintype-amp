@@ -10,4 +10,5 @@ storiesOf("WebengageSubscribeButton", module)
       {story()}
     </Layout>
   ))
-  .add("Default", () => <WebengageSubscribeButton />);
+  .add("Default", () => <WebengageSubscribeButton />)
+  .add("With custom text", () => <WebengageSubscribeButton text="Enable push notifications" />);

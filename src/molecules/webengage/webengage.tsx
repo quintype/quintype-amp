@@ -2,8 +2,9 @@ import React, { Fragment } from "react";
 import { withConfig } from "../../context";
 import { WebPush, WebPushWidget, Head, WebengageSubscribeButton } from "../../atoms";
 import get from "lodash.get";
+import { WebEngageTypes } from "./types";
 
-export const WebEngageBase = ({ config }) => {
+export const WebEngageBase = ({ config, buttonText }: WebEngageTypes) => {
   const enabled = get(config, ["ampConfig", "webengage"], null);
   if (!enabled) return null;
 
@@ -36,7 +37,7 @@ export const WebEngageBase = ({ config }) => {
         service-worker-url={`${websiteUrl}/api/amp-service-worker-web-engage.js?licensecode=${licenseCode}&version=1`}
       />
       <WebPushWidget visibility="unsubscribed" width="350px" height="60px">
-        <WebengageSubscribeButton on="tap:amp-web-push.subscribe" />
+        <WebengageSubscribeButton on="tap:amp-web-push.subscribe" text={buttonText} />
       </WebPushWidget>
     </Fragment>
   );

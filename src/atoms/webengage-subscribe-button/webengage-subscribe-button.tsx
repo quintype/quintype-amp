@@ -25,13 +25,13 @@ const SubscribeMessage = styled.span`
   }};
 `;
 
-const WebengageSubscribeButtonBase = ({ theme, on }: ButtonTypes) => {
+const WebengageSubscribeButtonBase = ({ theme, on, text }: ButtonTypes) => {
   const bellIconColor = get(theme, ["color", "white"], "currentColor");
   return (
     <StyledButton on={on}>
       <Bell color={bellIconColor} />
       <Spacer align="horizontal" token="m" />
-      <SubscribeMessage>Subscribe to instant updates</SubscribeMessage>
+      <SubscribeMessage>{text || "Subscribe to instant updates"}</SubscribeMessage>
     </StyledButton>
   );
 };
