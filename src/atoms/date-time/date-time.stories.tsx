@@ -10,6 +10,6 @@ storiesOf("DateTime", module)
       {story()}
     </Layout>
   ))
-  .add("With date", () => <DateTime dateTime={1579162728583} />)
-  .add("With date and time", () => <DateTime dateTime={1579162728583} showTime={true} />)
-  .add("With custom date format", () => <DateTime dateTime={1579162728583} formatString="dd MMMM yyyy" />);
+  .add("With date", () => <DateTime dateTime={1588652952180} />)
+  .add("With date and time", () => <DateTime dateTime={1588652952180} showTime={true} />)
+  .add("With custom date format", () => <DateTime dateTime={1588652952180} formatString="dd MMMM yyyy" />);
