@@ -29,7 +29,7 @@ const baseStyles = css`
     margin: 0 0 ${(props) => props.theme.spacing.xs} 0;
   }
   a {
-    color: ${(props) => props.theme.color.primaryColor};
+    color: ${(props) => props.theme.color.mono6};
   }
   ul {
     list-style: disc;
