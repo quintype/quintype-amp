@@ -21,7 +21,7 @@ const Text = ({ element, externalLink, style }: TextProps) => {
 
 const baseStyles = css`
   color: ${(props) => props.theme.color.mono6};
-  font-size: ${(props) => props.theme.font.size.m};
+  font-size: ${(props) => props.theme.font.size.xs};
   font-family: ${(props) => props.theme.font.family.primary};
   line-height: ${(props) => props.theme.font.lineHeight.level3};
 
