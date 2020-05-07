@@ -3,18 +3,14 @@ import { ReactElement } from "react";
 import { ServerStyleSheet } from "styled-components";
 import ReactDOMServer from "react-dom/server";
 
-export function renderToString(component) {
-  // check if layout can be rendered (i.e. if title and stuff is present), else throw error
+export function renderToString(component, seo = "") {
   let str = "";
   try {
-    // const check = checkLayout()
-    // if (check instanceof Error) throw check
     const { title, script, customStyles, link, metaTags } = getHeadTagsFromHelmet(component);
     const { htmlStr, styles } = getHtmlAndStyledComponentsStyles(component);
+    const seoStr = seo || `${title}\n${link}\n${metaTags}`;
     str += `${headStart}\n`;
-    str += `${metaTags}\n`;
-    str += `${title}\n`;
-    str += `${link}\n`;
+    str += `${seoStr}\n`;
     str += `${script}\n`;
     str += `<style amp-custom>\n${customStyles}\n${styles}\n</style>`;
     str += `${headEndBodyStart}\n`;
