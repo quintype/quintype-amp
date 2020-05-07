@@ -18,7 +18,7 @@ describe("Webengage", () => {
   });
   it("should render webengage component if valid config for it is provided", () => {
     const wrapper = shallow(<WebEngageBase config={config} />);
-    expect(wrapper.find("amp-analytics[type='webengage'] script").children()).toHaveLength(1);
+    expect(wrapper.find("amp-analytics[type='webengage'] script").exists()).toBeTruthy();
     expect(wrapper.find(WebPush).prop("helper-iframe-url")).toBe(
       "https://www.vikatan.com/api/amp-web-push-helper-frame.html?version=1"
     );
