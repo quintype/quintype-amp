@@ -3,7 +3,8 @@ import { Config, PublisherConfig, AMPConfig, ConfigOpts } from "../types/config"
 export const publisherConfig: PublisherConfig = {
   "cdn-name": "https://thumbor-stg.assettype.com/",
   "text-direction": "ltr",
-  "publisher-name": "newslaundry"
+  "publisher-name": "newslaundry",
+  "publisher-id": 1
 };
 
 export const ampConfig: AMPConfig = {
@@ -80,6 +81,11 @@ export const ampConfig: AMPConfig = {
       "unit-path": "/35096353/amptesting/formats/sticky"
     }
   },
+  "comscore-tracking-vars": {
+    c1: 123,
+    c2: 456
+  },
+  "gtm-id": "GTM-XXXXXX",
   "google-client-id-api": false,
   "invalid-elements-strategy": "redirect-to-web-version",
   "google-analytics-tracking-id": "UA-ABCDEFG",

@@ -28,6 +28,7 @@ const font = {
   },
 
   size: {
+    tiny: "12px",
     xxs: "14px",
     xs: "16px",
     s: "18px",
