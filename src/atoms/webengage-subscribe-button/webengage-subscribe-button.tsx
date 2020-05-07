@@ -14,7 +14,6 @@ const StyledButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: ${(props) => `${props.theme.spacing.m} 0`};
 `;
 export const SubscribeMessage = styled.span`
   color: ${(props) => props.theme.color.white};
