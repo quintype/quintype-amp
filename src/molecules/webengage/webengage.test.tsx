@@ -3,7 +3,7 @@ import { WebEngageBase } from "./webengage";
 import { shallow } from "enzyme";
 import { config } from "../../__fixtures__";
 import cloneDeep from "lodash.clonedeep";
-import { WebPush, WebPushWidget, WebengageSubscribeButton } from "../../atoms";
+import { WebPush, WebPushWidget, WebengageSubscribeButton, Analytics } from "../../atoms";
 
 const configWithoutWebEngage = cloneDeep(config);
 delete configWithoutWebEngage.ampConfig.webengage;
@@ -18,7 +18,7 @@ describe("Webengage", () => {
   });
   it("should render webengage component if valid config for it is provided", () => {
     const wrapper = shallow(<WebEngageBase config={config} />);
-    expect(wrapper.find("amp-analytics[type='webengage'] script").exists()).toBeTruthy();
+    expect(wrapper.find(Analytics).exists()).toBeTruthy();
     expect(wrapper.find(WebPush).prop("helper-iframe-url")).toBe(
       "https://www.vikatan.com/api/amp-web-push-helper-frame.html?version=1"
     );

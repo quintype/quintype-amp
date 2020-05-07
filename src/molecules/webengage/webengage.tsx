@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { withConfig } from "../../context";
-import { WebPush, WebPushWidget, Head, WebengageSubscribeButton, Spacer } from "../../atoms";
+import { WebPush, WebPushWidget, WebengageSubscribeButton, Spacer, Analytics } from "../../atoms";
 import get from "lodash.get";
 import { WebEngageTypes } from "./types";
 
@@ -16,21 +16,10 @@ export const WebEngageBase = ({ config, buttonText, width, height, visibility }:
       "WebEngage is enabled but required params are missing. Please provide license-code, tracking-code and website-url in config"
     );
 
-  // TO DO: Once analytics component is available, use that instead of manually adding amp-analytics
   return (
     <Fragment>
       <Spacer token="m" />
-      <Head>
-        <script
-          async={undefined}
-          custom-element="amp-analytics"
-          src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"
-        />
-      </Head>
-
-      <amp-analytics id="webengage" type="webengage">
-        <script type="application/json">{trackingCode}</script>
-      </amp-analytics>
+      <Analytics type="webengage" targets={JSON.parse(trackingCode)} />
       <WebPush
         id="amp-web-push"
         helper-iframe-url={`${websiteUrl}/api/amp-web-push-helper-frame.html?version=1`}
