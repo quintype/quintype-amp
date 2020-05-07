@@ -23,6 +23,11 @@ import { Head } from "./head";
 import { Link } from "./link";
 import { Instagram } from "./instagram";
 import { O2Player } from "./o2-player";
+import { Analytics } from "./analytics";
+import { GoogleTagManager } from "./google-tag-manager";
+import { GoogleAnalytics } from "./google-analytics";
+import { ComScore } from "./comscore";
+import { QuintypeAnalytics } from "./quintype-analytics";
 
 export {
   Carousel,
@@ -49,5 +54,10 @@ export {
   Head,
   Link,
   Instagram,
-  O2Player
+  O2Player,
+  Analytics,
+  GoogleAnalytics,
+  GoogleTagManager,
+  ComScore,
+  QuintypeAnalytics
 };
