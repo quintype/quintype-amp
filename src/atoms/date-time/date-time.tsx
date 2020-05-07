@@ -6,7 +6,7 @@ import styled from "styled-components";
 const StyledTime = styled.time`
   color: ${(props) => props.theme.color.mono5};
   font-family: ${(props) => props.theme.font.family.secondary};
-  font-size: ${(props) => props.theme.font.size.xxs};
+  font-size: ${(props) => props.theme.font.size.tiny};
   margin: 0;
 `;
 

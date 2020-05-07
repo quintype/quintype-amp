@@ -17,10 +17,10 @@ declare global {
       "amp-iframe";
       "amp-dailymotion";
       "amp-mathml";
-      "amp-o2-player";
       "amp-instagram": InstagramTypes;
       "amp-web-push";
       "amp-web-push-widget";
+      "amp-o2-player";
       "amp-analytics";
     }
   }

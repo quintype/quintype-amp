@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { withConfig } from "../../context";
-import { WebPush, WebPushWidget, Head, WebengageSubscribeButton } from "../../atoms";
+import { WebPush, WebPushWidget, Head, WebengageSubscribeButton, Spacer } from "../../atoms";
 import get from "lodash.get";
 import { WebEngageTypes } from "./types";
 
@@ -19,6 +19,7 @@ export const WebEngageBase = ({ config, buttonText, width, height, visibility }:
   // TO DO: Once analytics component is available, use that instead of manually adding amp-analytics
   return (
     <Fragment>
+      <Spacer token="m" />
       <Head>
         <script
           async={undefined}

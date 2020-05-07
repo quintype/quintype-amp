@@ -3,7 +3,8 @@ import { Config, PublisherConfig, AMPConfig, ConfigOpts } from "../types/config"
 export const publisherConfig: PublisherConfig = {
   "cdn-name": "https://thumbor-stg.assettype.com/",
   "text-direction": "ltr",
-  "publisher-name": "newslaundry"
+  "publisher-name": "newslaundry",
+  "publisher-id": 1
 };
 
 export const ampConfig: AMPConfig = {
@@ -86,6 +87,11 @@ export const ampConfig: AMPConfig = {
     "tracking-code":
       '{"vars":{"licenseCode":"~134105365","region":"us"},"requests":{"custom-attributes":{"baseUrl":"${base}&eventName=Amp Article View&ArticleTitle=எடப்பாடி ஆட்சி, ரஜினி - கமல் அரசியல்... ஆந்திராவிலிருந்து ரோஜா ஸ்பெஷல் பேட்டி!&ArticleId=739ac241-69a1-4d2a-b136-37bd45c42e8a&Category=government and politics&SubCategory=politics&Author=ஆர்.பி.&ArticleType=&tags=Edappadi Palanisamy,y. s. jaganmohan reddy,actress roja,politics,ysr congress&event=pageview"}},"triggers":{"custom-attributesTrigger":{"on":"visible","request":"custom-attributes"}}}'
   },
+  "comscore-tracking-vars": {
+    c1: 123,
+    c2: 456
+  },
+  "gtm-id": "GTM-XXXXXX",
   "google-client-id-api": false,
   "invalid-elements-strategy": "redirect-to-web-version",
   "google-analytics-tracking-id": "UA-ABCDEFG",

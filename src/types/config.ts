@@ -8,6 +8,7 @@ export interface PublisherConfig {
   "cdn-name": string;
   "text-direction": "ltr" | "rtl";
   "publisher-name": string;
+  "publisher-id": number;
 }
 
 interface Colors {
@@ -46,6 +47,11 @@ export interface AMPConfig {
     "website-url": string;
     "tracking-code": string;
   };
+  "comscore-tracking-vars"?: {
+    c1?: number;
+    c2?: number;
+  };
+  "gtm-id"?: string;
   "google-client-id-api": boolean;
   "invalid-elements-strategy": string;
   "google-analytics-tracking-id": string;

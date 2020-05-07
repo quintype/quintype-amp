@@ -26,6 +26,11 @@ import { O2Player } from "./o2-player";
 import { WebPush } from "./web-push";
 import { WebPushWidget } from "./web-push-widget";
 import { WebengageSubscribeButton } from "./webengage-subscribe-button";
+import { Analytics } from "./analytics";
+import { GoogleTagManager } from "./google-tag-manager";
+import { GoogleAnalytics } from "./google-analytics";
+import { ComScore } from "./comscore";
+import { QuintypeAnalytics } from "./quintype-analytics";
 
 export {
   Carousel,
@@ -55,5 +60,10 @@ export {
   O2Player,
   WebPush,
   WebPushWidget,
-  WebengageSubscribeButton
+  WebengageSubscribeButton,
+  Analytics,
+  GoogleAnalytics,
+  GoogleTagManager,
+  ComScore,
+  QuintypeAnalytics
 };

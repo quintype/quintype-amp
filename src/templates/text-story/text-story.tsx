@@ -1,6 +1,17 @@
 import React, { Fragment } from "react";
-import { Layout, StoryElement, Spacer, IncompatibleBanner, Link, Footer } from "../../atoms";
 import { HeaderCard, Navbar, AmpAds, RelatedStories, WebEngage } from "../../molecules";
+import {
+  Layout,
+  StoryElement,
+  Spacer,
+  IncompatibleBanner,
+  Link,
+  Footer,
+  GoogleTagManager,
+  GoogleAnalytics,
+  QuintypeAnalytics,
+  ComScore
+} from "../../atoms";
 import styled from "styled-components";
 import get from "lodash.get";
 
@@ -18,12 +29,12 @@ const TextStory = ({ story, config, relatedStories }) => (
     <Link rel="canonical" href={get(story, "url")} />
     <Navbar />
     <IncompatibleBanner />
+    <GoogleTagManager />
     <Wrapper>
       <TopAd />
       <Spacer token="s" />
       <StoryContainer>
         <HeaderCard />
-        <Spacer token="m" />
         <WebEngage />
         <Spacer token="m" />
         {story.cards.map((card, cardIdx) => {
@@ -45,6 +56,9 @@ const TextStory = ({ story, config, relatedStories }) => (
       <BottomAd />
     </Wrapper>
     <Footer />
+    <GoogleAnalytics />
+    <QuintypeAnalytics />
+    <ComScore />
   </Layout>
 );
 
