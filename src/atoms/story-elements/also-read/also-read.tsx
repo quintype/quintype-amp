@@ -8,7 +8,7 @@ import { withStoryAndConfig } from "../../../context";
 const StyledAlsoRead = styled.div`
   display: flex;
   align-items: center;
-  font-size: ${(props) => props.theme.font.size.m};
+  font-size: ${(props) => props.theme.font.size.xs};
   span {
     font-weight: bold;
   }

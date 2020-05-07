@@ -5,7 +5,7 @@ import { AuthorProps } from "./types";
 
 const StyledAuthor = styled.div`
   font-family: ${(props) => props.theme.font.family.secondary};
-  font-size: ${(props) => props.theme.font.size.xxs};
+  font-size: ${(props) => props.theme.font.size.tiny};
   font-weight: bold;
   display: flex;
   align-items: center;

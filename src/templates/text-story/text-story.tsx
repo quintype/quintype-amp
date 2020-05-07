@@ -1,5 +1,15 @@
 import React, { Fragment } from "react";
-import { Layout, StoryElement, Spacer, IncompatibleBanner, Footer } from "../../atoms";
+import {
+  Layout,
+  StoryElement,
+  Spacer,
+  IncompatibleBanner,
+  Footer,
+  GoogleTagManager,
+  GoogleAnalytics,
+  QuintypeAnalytics,
+  ComScore
+} from "../../atoms";
 import { HeaderCard, Navbar, AmpAds, RelatedStories } from "../../molecules";
 import styled from "styled-components";
 
@@ -16,6 +26,7 @@ const TextStory = ({ story, config, relatedStories }) => (
   <Layout story={story} config={config}>
     <Navbar />
     <IncompatibleBanner />
+    <GoogleTagManager />
     <Wrapper>
       <TopAd />
       <Spacer token="s" />
@@ -41,6 +52,9 @@ const TextStory = ({ story, config, relatedStories }) => (
       <BottomAd />
     </Wrapper>
     <Footer />
+    <GoogleAnalytics />
+    <QuintypeAnalytics />
+    <ComScore />
   </Layout>
 );
 
