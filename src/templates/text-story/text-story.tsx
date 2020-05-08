@@ -54,7 +54,7 @@ const TextStory = ({ story, config, relatedStories }) => (
       <RelatedStories stories={relatedStories} />
       <BottomAd />
     </Wrapper>
-    <Footer />
+    <Footer text={config.publisherConfig["publisher-name"]}/>
     <GoogleAnalytics />
     <QuintypeAnalytics />
     <ComScore />
