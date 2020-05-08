@@ -49,9 +49,8 @@ const TextStory = ({ story, config, relatedStories }) => (
             <Fragment key={card.id}>{storyCard}</Fragment>
           );
         })}
+        <RelatedStories stories={relatedStories} />
       </StoryContainer>
-      <Spacer token="m" />
-      <RelatedStories stories={relatedStories} />
       <BottomAd />
     </Wrapper>
     <Footer />

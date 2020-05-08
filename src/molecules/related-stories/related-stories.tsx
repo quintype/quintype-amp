@@ -1,19 +1,14 @@
 import React, { Fragment } from "react";
 import styled from "styled-components";
 import { RelatedStoryCard } from "../related-story-card";
-import { media } from "../../utils/media";
 import { RelatedStoriesTypes } from "./types";
 import { withConfig } from "../../context";
 import { base64FallbackImage } from "../../helpers/image-helpers";
+import { Spacer } from "../../atoms";
 import get from "lodash.get";
 
 const RelatedStoryCards = styled.div`
   display: flex;
-  flex-direction: column;
-
-  ${media.laptop`
-    flex-direction: row;
-	`}
 `;
 export const Heading = styled.h2`
   font-size: ${(props) => props.theme.font.size.m};
@@ -24,6 +19,7 @@ export const Heading = styled.h2`
 export const RelatedStoriesBase = ({ stories, config, heading, aspectRatio = [16, 9] }: RelatedStoriesTypes) => {
   return stories && stories.length ? (
     <Fragment>
+      <Spacer token="m" />
       <Heading>{heading || "Related Stories"}</Heading>
       <RelatedStoryCards>
         {stories.map((story) => (
