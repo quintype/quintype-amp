@@ -77,8 +77,8 @@ interface MenuItemTypes {
   "collection-slug": string | null,
   "section-name": string | null,
   data?: {
-    color?: string | null,
-    link?: string | null
+    color: string,
+    link?: string
   }
 }
 
