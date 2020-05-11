@@ -142,6 +142,7 @@ export interface StoryElement {
   "content-type"?: string;
   subtype: null | string;
   text?: string;
+  "story-elements"?: StoryElement[];
 }
 
 export interface StoryElementMetadata {
@@ -163,6 +164,7 @@ export interface StoryElementMetadata {
   "duration-millis"?: number;
   "player-url"?: string;
   "include-in-video-sitemap"?: boolean;
+  type?: string;
 }
 
 export interface LinkedStory {
