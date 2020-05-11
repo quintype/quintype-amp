@@ -9,7 +9,7 @@ export interface PublisherConfig {
   "text-direction": "ltr" | "rtl";
   "publisher-name": string;
   "publisher-id": number;
-  "publisher-settings": object;
+  "publisher-settings"?: object;
 }
 
 interface Colors {
