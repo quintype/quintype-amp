@@ -53,7 +53,7 @@ const TextStory = ({ story, config, relatedStories }) => (
       </StoryContainer>
       <BottomAd />
     </Wrapper>
-    <Footer text={config.publisherConfig["publisher-name"]}/>
+    <Footer text={config.publisherConfig["publisher-settings"]["copyright"]} />
     <GoogleAnalytics />
     <QuintypeAnalytics />
     <ComScore />
