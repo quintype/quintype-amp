@@ -17,7 +17,7 @@ storiesOf("Image", module)
     </Layout>
   ))
   .add("layout responsive", () => {
-    return <Image metadata={metadata} slug={s3key} aspectRatio={aspectRatio} alt={caption} />;
+    return <Image metadata={metadata} slug={s3key} alt={caption} />;
   })
   .add("layout fixed-height", () => (
     <Image

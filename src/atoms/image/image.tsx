@@ -18,7 +18,8 @@ export const BaseImage = ({
 }: ImageTypes & { config: Config }) => {
   const cdnName = config.publisherConfig["cdn-name"];
   if (!slug || !cdnName) throw new Error("Required attributes missing, cant render image");
-  const path = focusedImagePath({ opts, slug, metadata, aspectRatio, cdnName });
+  const imgAspectRatio = aspectRatio || [metadata.width, metadata.height];
+  const path = focusedImagePath({ opts, slug, metadata, imgAspectRatio, cdnName });
   const value: AmpImgPropTypes = {
     src: path,
     alt,
@@ -39,7 +40,7 @@ export const BaseImage = ({
       value.width = "";
     case "responsive":
       value.width = metadata.width.toString();
-      value.height = calculateImgHeight(aspectRatio, metadata.width);
+      value.height = calculateImgHeight(imgAspectRatio, metadata.width);
   }
 
   return <amp-img {...value} />;
