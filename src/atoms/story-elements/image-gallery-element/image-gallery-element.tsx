@@ -1,18 +1,33 @@
 import React from "react";
-import get from "lodash/get";
 import { StoryElementProps } from "../types";
+import { Common } from "../../common-types";
 import { Carousel } from "../../carousel";
 import { Image } from "../../image";
 
-const ImageGalleryElement = ({ element, config, ...props }: StoryElementProps) => {
-  const metadata = get(element, ["story-elements"]).map((ele) => ele["image-metadata"]);
-  const s3key = get(element, ["story-elements"]).map((ele) => ele["image-s3-key"]);
+type ImageGalleryElementProps = StoryElementProps & Common;
+const ImageGalleryElement = ({
+  element,
+  height = "300",
+  width = "500",
+  layout = "responsive",
+  type,
+  ...props
+}: ImageGalleryElementProps) => {
   const aspectRatio = [16, 9];
-  const caption = get(element, ["story-elements"]).map((ele) => ele.title);
+  const images =
+    element["story-elements"] &&
+    element["story-elements"].map((image) => (
+      <Image
+        metadata={image["image-metadata"]}
+        slug={image["image-s3-key"]}
+        aspectRatio={aspectRatio}
+        alt={image.title}
+      />
+    ));
   return (
     <>
-      <Carousel height="300" width="500" layout="responsive" type="gallery" {...props}>
-        <Image metadata={metadata} slug={s3key} aspectRatio={aspectRatio} alt={caption} />
+      <Carousel height={height} width={width} layout={layout} type="gallery" {...props}>
+        {images}
       </Carousel>
       <p>Image gallery</p>
     </>

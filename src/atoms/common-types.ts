@@ -37,4 +37,5 @@ export interface Common {
   sizes?: string;
   width?: string;
   height?: string;
+  type?: string;
 }
