@@ -258,13 +258,14 @@ export const textStory: Story = {
             {
               description: "",
               "image-metadata": {
-                "original-url":
-                  "https://media.voltron.voanews.com/Drupal/01live-166/2020-05/reuters_spain_la_liga_06Dec19.JPG"
+                width: 1240,
+                height: 698,
+                "focus-point": [620, 349]
               },
               type: "image",
               "family-id": "95db8c7b-0658-418a-b003-348d31882df8",
-              "image-attribution": "",
-              title: "",
+              "image-attribution": "a man saying out",
+              title: "out !!!!!!",
               id: "e6b487d3-2114-4dac-81e8-678bd847c55e",
               "image-s3-key": "ace/2020-05/7270e0ef-2e16-4848-8be4-4de481d20bfb/reuters_spain_la_liga_06Dec19.JPG",
               metadata: {},
@@ -273,13 +274,14 @@ export const textStory: Story = {
             {
               description: "",
               "image-metadata": {
-                "original-url":
-                  "https://s.rfi.fr/media/display/74188812-16db-11ea-bdd6-005056a99247/w:1240/p:16x9/LEWANDOW059746243_LR2EB9M1I218R_RTRMADP_3_GERMNY-SOCCER(1).JPG"
+                width: 3037,
+                height: 1920,
+                "focus-point": [1519, 960]
               },
               type: "image",
               "family-id": "adaf9d7c-ce22-4a99-929f-e86438ccbefc",
-              "image-attribution": "",
-              title: "",
+              "image-attribution": "football",
+              title: "football",
               id: "bbc046b4-bb82-42cc-83a0-c7ecccdd8d9b",
               "image-s3-key":
                 "ace/2020-05/a9d04bce-56a1-4dea-8694-6e291db7a529/LEWANDOW059746243_LR2EB9M1I218R_RTRMADP_3_GERMNY_SOCCER_1_.JPG",
@@ -289,13 +291,14 @@ export const textStory: Story = {
             {
               description: "",
               "image-metadata": {
-                "original-url":
-                  "https://a57.foxnews.com/static.foxbusiness.com/foxbusiness.com/content/uploads/2020/05/0/0/Durham-Austin-iStock.jpg?ve=1&tl=1"
+                width: 1280,
+                height: 720,
+                "focus-point": [640, 360]
               },
               type: "image",
               "family-id": "fbc7e8a8-7271-42b7-9fe4-782b08b972bd",
-              "image-attribution": "",
-              title: "",
+              "image-attribution": "Buildings",
+              title: "Huge Buildings",
               id: "6ee8af2b-cb2d-4579-9022-3cc8a7045a5d",
               "image-s3-key": "ace/2020-05/097d3bf3-693e-43af-901f-d8458aae1343/Durham_Austin_iStock.jpg",
               metadata: {},
@@ -304,13 +307,14 @@ export const textStory: Story = {
             {
               description: "",
               "image-metadata": {
-                "original-url":
-                  "https://www.washingtonpost.com/resizer/5RMyCb6mAqNRX-ctMFeEvFoUmos=/1484x0/arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/JGYSQ7JERZBZVIBL7RHVOXSKQI.png"
+                width: 1484,
+                height: 835,
+                "focus-point": [742, 418]
               },
               type: "image",
               "family-id": "f0d9b52c-94b9-445a-b882-e35c0790fa85",
               "image-attribution": "",
-              title: "",
+              title: "Wallpaper",
               id: "bfdf590b-3097-481f-81c6-e5288b8429a7",
               "image-s3-key": "ace/2020-05/35544a89-4eea-4040-973b-450b7194f1bc/JGYSQ7JERZBZVIBL7RHVOXSKQI.png",
               metadata: {},
@@ -319,13 +323,14 @@ export const textStory: Story = {
             {
               description: "",
               "image-metadata": {
-                "original-url":
-                  "https://media.kgw.com/assets/KGW/images/14a3c7aa-791a-4ccf-bf0d-a1532c508c46/14a3c7aa-791a-4ccf-bf0d-a1532c508c46_1140x641.jpg"
+                width: 1140,
+                height: 641,
+                "focus-point": [570, 321]
               },
               type: "image",
               "family-id": "ca763477-e17b-4360-ae05-4dd6123e9586",
               "image-attribution": "",
-              title: "",
+              title: "Flag",
               id: "0acd7945-3440-48a2-b47c-2b22830bd7b4",
               "image-s3-key":
                 "ace/2020-05/c03eeadb-54f8-418a-ad34-6c3e8bee0004/14a3c7aa_791a_4ccf_bf0d_a1532c508c46_1140x641.jpg",
@@ -335,8 +340,9 @@ export const textStory: Story = {
             {
               description: "",
               "image-metadata": {
-                "original-url":
-                  "https://media.voltron.voanews.com/Drupal/01live-166/2020-05/2020-05-10T220259Z_1240337357_RC2ULG9IPO5H_RTRMADP_3_HEALTH-CORONAVIRUS-BRITAIN-JOHNSON.JPG"
+                width: 5200,
+                height: 3472,
+                "focus-point": [2652, 1487]
               },
               type: "image",
               "family-id": "57e1a187-e5f2-4674-8038-bd3ae85b2d77",
@@ -351,8 +357,9 @@ export const textStory: Story = {
             {
               description: "",
               "image-metadata": {
-                "original-url":
-                  "https://www.washingtonpost.com/resizer/9HcJLrARuLBeNKta7hkdfXMyHpk=/1440x0/smart/arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/BJCEPXUQVII6VKOAOO4TIIWWSE.jpg"
+                width: 1440,
+                height: 960,
+                "focus-point": [720, 480]
               },
               type: "image",
               "family-id": "92dc70ed-a851-404e-9232-98d86e4cc923",
@@ -366,8 +373,9 @@ export const textStory: Story = {
             {
               description: "",
               "image-metadata": {
-                "original-url":
-                  "https://media.king5.com/assets/KING/images/7e2b0e40-50b4-4d54-b550-7a7662b0842f/7e2b0e40-50b4-4d54-b550-7a7662b0842f_1140x641.jpg"
+                width: 1140,
+                height: 641,
+                "focus-point": [570, 321]
               },
               type: "image",
               "family-id": "76c46e73-2fd2-44fb-b8da-9af41c7cb129",
@@ -382,8 +390,9 @@ export const textStory: Story = {
             {
               description: "",
               "image-metadata": {
-                "original-url":
-                  "https://media.npr.org/assets/img/2020/05/09/gettyimages-1211277548_wide-7def4a4c352e1ec820cd8a0384526a847797b67d.jpg?s=1400"
+                width: 1400,
+                height: 787,
+                "focus-point": [700, 394]
               },
               type: "image",
               "family-id": "997f9133-d6a4-4f67-bea6-f3da11072737",
