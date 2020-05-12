@@ -2,7 +2,7 @@ import { ReactElement } from "react";
 import { Common } from "../common-types";
 
 export interface CarouselTypes extends Common {
-  type: "slides" | "carousel" | "gallery";
+  type: "slides" | "carousel";
   id?: string;
   controls?: boolean;
   "data-next-button-aria-label"?: string;

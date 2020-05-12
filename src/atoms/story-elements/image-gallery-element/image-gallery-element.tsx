@@ -7,13 +7,13 @@ import { Image } from "../../image";
 type ImageGalleryElementProps = StoryElementProps & Common;
 const ImageGalleryElement = ({
   element,
-  height = "300",
-  width = "500",
+  height = "750",
+  width = "1200",
   layout = "responsive",
+  aspectRatio = [16, 9],
   type,
   ...props
 }: ImageGalleryElementProps) => {
-  const aspectRatio = [16, 9];
   const images =
     element["story-elements"] &&
     element["story-elements"].map((image) => (
@@ -24,12 +24,14 @@ const ImageGalleryElement = ({
         alt={image.title}
       />
     ));
+  const storyElements = element["story-elements"] && element["story-elements"].length >= 1;
   return (
     <>
-      <Carousel height={height} width={width} layout={layout} type="gallery" {...props}>
-        {images}
-      </Carousel>
-      <p>Image gallery</p>
+      {storyElements && (
+        <Carousel height={height} width={width} layout={layout} type="slides" {...props}>
+          {images}
+        </Carousel>
+      )}
     </>
   );
 };

@@ -38,4 +38,5 @@ export interface Common {
   width?: string;
   height?: string;
   type?: string;
+  aspectRatio?: Array<number>;
 }

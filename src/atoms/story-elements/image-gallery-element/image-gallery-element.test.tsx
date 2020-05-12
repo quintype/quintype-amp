@@ -11,22 +11,6 @@ const sampleImageGalleryElement = {
     {
       description: "",
       "image-metadata": {
-        width: 1240,
-        height: 698,
-        "focus-point": [620, 349]
-      },
-      type: "image",
-      "family-id": "95db8c7b-0658-418a-b003-348d31882df8",
-      "image-attribution": "a man saying out",
-      title: "out !!!!!!",
-      id: "e6b487d3-2114-4dac-81e8-678bd847c55e",
-      "image-s3-key": "ace/2020-05/7270e0ef-2e16-4848-8be4-4de481d20bfb/reuters_spain_la_liga_06Dec19.JPG",
-      metadata: {},
-      subtype: null
-    },
-    {
-      description: "",
-      "image-metadata": {
         width: 3037,
         height: 1920,
         "focus-point": [1519, 960]
@@ -166,10 +150,10 @@ const sampleImageGalleryElement = {
   subtype: "image-gallery"
 };
 
-const sampleImageGalleryElementWithTypeSlideshow = {
-  ...sampleImageGalleryElement,
-  metadata: { ...sampleImageGalleryElement.metadata, type: "slideshow" }
-};
+const {
+  "story-elements": [],
+  ...sampleImageGalleryElementWithoutStoryelements
+} = sampleImageGalleryElement;
 
 describe("Image Gallery Element", () => {
   it("should render Image Gallery", () => {
@@ -177,19 +161,12 @@ describe("Image Gallery Element", () => {
     expect(wrapper.find("amp-carousel").length).toBe(1);
   });
   it("should render Image Gallery with width and height", () => {
-    const wrapper = mount(<ImageGalleryElement element={sampleImageGalleryElement} width="500" height="300" />);
-    expect(wrapper.find("amp-carousel").prop("width")).toBe("500");
-    expect(wrapper.find("amp-carousel").prop("height")).toBe("300");
+    const wrapper = mount(<ImageGalleryElement element={sampleImageGalleryElement} width="1200" height="750" />);
+    expect(wrapper.find("amp-carousel").prop("width")).toBe("1200");
+    expect(wrapper.find("amp-carousel").prop("height")).toBe("750");
   });
-  it("should render Image Slideshow", () => {
-    const wrapper = mount(<ImageGalleryElement element={sampleImageGalleryElementWithTypeSlideshow} />);
-    expect(wrapper.find("amp-carousel").length).toBe(1);
-  });
-  it("should render Image Slideshow with width and height", () => {
-    const wrapper = mount(
-      <ImageGalleryElement element={sampleImageGalleryElementWithTypeSlideshow} width="500" height="300" />
-    );
-    expect(wrapper.find("amp-carousel").prop("width")).toBe("500");
-    expect(wrapper.find("amp-carousel").prop("height")).toBe("300");
+  it("shouldn't render Image Gallery", () => {
+    const wrapper = mount(<ImageGalleryElement element={sampleImageGalleryElementWithoutStoryelements} />);
+    expect(wrapper.find("amp-carousel").length).toBe(0);
   });
 });
