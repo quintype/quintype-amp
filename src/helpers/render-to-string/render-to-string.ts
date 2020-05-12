@@ -23,11 +23,13 @@ export function renderToString(component, seo = "") {
 }
 
 const stripStyleTag = (str: string) => str.replace(/<style[^>]*>|<\/style>/g, "");
+const discardEmptyTitle = (str: string) => str.replace(/<title data-react-helmet="true"><\/title>/, "");
 
 const getHeadTagsFromHelmet = (component) => {
   ReactDOMServer.renderToStaticMarkup(component); // without this, helmet.script returns empty
   const helmet = Helmet.renderStatic();
-  const title = helmet.title.toString();
+  const titleRaw = helmet.title.toString();
+  const title = discardEmptyTitle(titleRaw);
   const script = helmet.script.toString();
   const metaTags = helmet.meta.toString();
   const link = helmet.link.toString();
