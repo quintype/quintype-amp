@@ -8,7 +8,7 @@ export function renderToString(component, seo = "") {
   try {
     const { title, script, customStyles, link, metaTags } = getHeadTagsFromHelmet(component);
     const { htmlStr, styles } = getHtmlAndStyledComponentsStyles(component);
-    const seoStr = seo || `${title}\n${link}\n${metaTags}`;
+    const seoStr = `${title}\n${link}\n${metaTags}\n${seo}\n`;
     str += `${headStart}\n`;
     str += `${seoStr}\n`;
     str += `${script}\n`;
