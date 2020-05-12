@@ -5,7 +5,6 @@ import { Theme } from "../../context/theme";
 import { StoryProvider } from "../../context/story/story-context";
 import { ConfigProvider } from "../../context/config/config-context";
 import { getTokensFromAMPConfig } from "../../utils/theme";
-import { LightboxGallery } from "../lightbox-gallery";
 
 import styled from "styled-components";
 
@@ -35,7 +34,6 @@ const Layout = ({ style, children, story, config }: Layout) => {
           </Theme>
         </StoryProvider>
       </ConfigProvider>
-      <LightboxGallery />
     </Fragment>
   );
 };

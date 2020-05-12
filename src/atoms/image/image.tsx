@@ -1,8 +1,9 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { ImageTypes, AmpImgPropTypes } from "./types";
 import { Config } from "../../types/config";
 import { focusedImagePath, calculateImgHeight } from "../../helpers/image-helpers";
 import { withConfig } from "../../context";
+import { LightboxGallery } from "../lightbox-gallery";
 
 export const BaseImage = ({
   metadata,
@@ -43,7 +44,12 @@ export const BaseImage = ({
       value.height = calculateImgHeight(imgAspectRatio, metadata.width);
   }
 
-  return <amp-img {...value} lightbox={true} />;
+  return (
+    <Fragment>
+      <LightboxGallery />
+      <amp-img {...value} lightbox={true} />
+    </Fragment>
+  );
 };
 
 export const Image = withConfig(BaseImage);
