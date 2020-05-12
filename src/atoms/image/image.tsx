@@ -43,7 +43,7 @@ export const BaseImage = ({
       value.height = calculateImgHeight(imgAspectRatio, metadata.width);
   }
 
-  return <amp-img {...value} />;
+  return <amp-img {...value} lightbox={true} />;
 };
 
 export const Image = withConfig(BaseImage);
