@@ -53,7 +53,8 @@ const font = {
     level2: 1.2,
     level3: 1.3,
     level4: 1.4,
-    level5: 1.5
+    level5: 1.5,
+    level6: 2
   }
 };
 
