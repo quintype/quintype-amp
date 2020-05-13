@@ -1,8 +1,9 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { ImageTypes, AmpImgPropTypes } from "./types";
 import { Config } from "../../types/config";
 import { focusedImagePath, calculateImgHeight } from "../../helpers/image-helpers";
 import { withConfig } from "../../context";
+import { LightboxGallery } from "../lightbox-gallery";
 
 export const BaseImage = ({
   metadata,
@@ -14,6 +15,7 @@ export const BaseImage = ({
   layout = "responsive",
   opts = {},
   config,
+  lightbox = true,
   ...rest
 }: ImageTypes & { config: Config }) => {
   const cdnName = config.publisherConfig["cdn-name"];
@@ -43,7 +45,14 @@ export const BaseImage = ({
       value.height = calculateImgHeight(imgAspectRatio, metadata.width);
   }
 
-  return <amp-img {...value} />;
+  return lightbox ? (
+    <Fragment>
+      <LightboxGallery />
+      <amp-img {...value} lightbox={lightbox} />
+    </Fragment>
+  ) : (
+    <amp-img {...value} />
+  );
 };
 
 export const Image = withConfig(BaseImage);

@@ -80,4 +80,10 @@ storiesOf("Image", module)
         <Image layout={"fill"} metadata={metadata} slug={s3key} aspectRatio={aspectRatio} alt={caption} />
       </div>
     );
+  })
+  .add("Without lightbox", () => {
+    return <Image metadata={metadata} slug={s3key} alt={caption} lightbox={false} />;
+  })
+  .add("Lightbox with value 'hero'", () => {
+    return <Image metadata={metadata} slug={s3key} alt={caption} lightbox="hero" />;
   });
