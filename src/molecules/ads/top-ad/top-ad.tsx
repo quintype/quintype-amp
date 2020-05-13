@@ -8,9 +8,11 @@ import { AdWrapper } from "../shared/components";
 const TopAdBase = ({ children, config, ...overridingProps }: CommonDfpAdTypes) => {
   const propsForTopAd = getPropsForDfpAd({ overridingProps, config, adName: "top-ad" });
   return (
-    <AdWrapper>
-      <DfpAd {...propsForTopAd}>{children}</DfpAd>
-    </AdWrapper>
+    propsForTopAd && (
+      <AdWrapper>
+        <DfpAd {...propsForTopAd}>{children}</DfpAd>
+      </AdWrapper>
+    )
   );
 };
 

@@ -11,11 +11,13 @@ import {
   QuintypeAnalytics,
   ComScore
 } from "../../atoms";
-import { HeaderCard, Navbar, AmpAds, RelatedStories } from "../../molecules";
+import { HeaderCard, Navbar, AmpAds, RelatedStories, Slots } from "../../molecules";
 import styled from "styled-components";
 import get from "lodash.get";
 
 const { TopAd, BodyAd, BottomAd } = AmpAds;
+const { StoryPageSlots } = Slots;
+const { TopSlot, BottomSlot } = StoryPageSlots;
 const StoryContainer = styled.div`
   max-width: 700px;
   margin: 0 auto;
@@ -32,6 +34,7 @@ const TextStory = ({ story, config, relatedStories }) => (
     <GoogleTagManager />
     <Wrapper>
       <TopAd />
+      <TopSlot />
       <Spacer token="s" />
       <StoryContainer>
         <HeaderCard />
@@ -51,6 +54,7 @@ const TextStory = ({ story, config, relatedStories }) => (
         })}
         <RelatedStories stories={relatedStories} />
       </StoryContainer>
+      <BottomSlot />
       <BottomAd />
     </Wrapper>
     <Footer
