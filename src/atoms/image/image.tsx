@@ -15,6 +15,7 @@ export const BaseImage = ({
   layout = "responsive",
   opts = {},
   config,
+  showLightbox = true,
   ...rest
 }: ImageTypes & { config: Config }) => {
   const cdnName = config.publisherConfig["cdn-name"];
@@ -47,7 +48,7 @@ export const BaseImage = ({
   return (
     <Fragment>
       <LightboxGallery />
-      <amp-img {...value} lightbox={true} />
+      {showLightbox ? <amp-img {...value} lightbox={true} /> : <amp-img {...value} />}
     </Fragment>
   );
 };

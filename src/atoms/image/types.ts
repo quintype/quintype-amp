@@ -9,6 +9,7 @@ export interface ImageTypes extends Common {
   height?: string;
   opts?: object;
   attribution?: string;
+  showLightbox?: boolean;
 }
 
 interface ImageMetadata {
