@@ -82,5 +82,8 @@ storiesOf("Image", module)
     );
   })
   .add("Without lightbox", () => {
-    return <Image metadata={metadata} slug={s3key} alt={caption} showLightbox={false} />;
+    return <Image metadata={metadata} slug={s3key} alt={caption} lightbox={false} />;
+  })
+  .add("Lightbox with value 'hero'", () => {
+    return <Image metadata={metadata} slug={s3key} alt={caption} lightbox="hero" />;
   });

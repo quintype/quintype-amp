@@ -2,12 +2,6 @@
 
 exports[`Image Element should not render fig caption when there is no caption 1`] = `
 <Component
-  aspectRatio={
-    Array [
-      16,
-      9,
-    ]
-  }
   metadata={
     Object {
       "height": 787,
@@ -21,12 +15,6 @@ exports[`Image Element should not render fig caption when there is no caption 1`
 
 exports[`Image Element should render amp image 1`] = `
 <Component
-  aspectRatio={
-    Array [
-      16,
-      9,
-    ]
-  }
   metadata={
     Object {
       "height": 787,

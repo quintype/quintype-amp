@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`InvalidBanner should render 1`] = `
-<InvalidBannerBase
-  story={Object {}}
-/>
-`;
