@@ -28,9 +28,7 @@ const StyledFigcaption = styled.figcaption`
 export const HeroImageBase = ({ story, attribution, slug, metadata, caption }: HeroImageBaseTypes) => {
   let overRideStory = false;
   let figcaptionText: string | undefined | boolean;
-  const imageProps: any = {
-    aspectRatio: [1200, 750]
-  };
+  const imageProps: any = {};
 
   if (attribution || slug || metadata || caption) {
     overRideStory = true;
