@@ -24,7 +24,14 @@ interface Colors {
 export interface AMPConfig {
   menu: {
     enabled: boolean;
-    items: MenuItemTypes[];
+  };
+  "menu-groups"?: {
+    default?: {
+      id: number;
+      slug: string;
+      name: string;
+      items: MenuItemTypes[];
+    };
   };
   fonts: {
     primary: {
