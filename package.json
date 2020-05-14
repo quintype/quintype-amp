@@ -29,7 +29,7 @@
     "url": "https://github.com/quintype/quintype-amp/issues"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,css,scss}": [
+    "*": [
       "npm run format"
     ]
   },
