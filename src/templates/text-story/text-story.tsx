@@ -19,7 +19,7 @@ const { TopAd, BodyAd, BottomAd } = AmpAds;
 const { StoryPageSlots } = Slots;
 const { TopSlot, BottomSlot } = StoryPageSlots;
 const StoryContainer = styled.div`
-  max-width: 700px;
+  max-width: 600px;
   margin: 0 auto;
 `;
 const Wrapper = styled.div`
