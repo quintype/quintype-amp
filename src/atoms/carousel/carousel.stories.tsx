@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/react";
 import { Carousel } from "./carousel";
 
 storiesOf("Carousel", module).add("with images", () => (
-  <Carousel height="300" width="500" layout="responsive" type="slides">
+  <Carousel height="300" width="500" layout="responsive" type="slides" lightbox={true}>
     <amp-img
       src="https://images.unsplash.com/photo-1558980395-be8a5fcb4251?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
       width="400"

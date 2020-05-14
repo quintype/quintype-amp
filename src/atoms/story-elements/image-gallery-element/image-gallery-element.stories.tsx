@@ -157,6 +157,16 @@ const {
   ...sampleImageGalleryElementWithoutStoryelements
 } = sampleImageGalleryElement;
 
+const sampleImageGalleryElementWithSlideshow = {
+  ...sampleImageGalleryElement,
+  metadata: { ...sampleImageGalleryElement.metadata, type: "slideshow" }
+};
+
+const {
+  "story-elements": [],
+  ...sampleImageSlideshowWithoutStoryelements
+} = sampleImageGalleryElementWithSlideshow;
+
 storiesOf("Image Gallery Element", module)
   .addDecorator((story) => (
     <Layout story={textStory} config={config}>
@@ -169,4 +179,11 @@ storiesOf("Image Gallery Element", module)
   ))
   .add("Image gallery without story elements", () => (
     <ImageGalleryElement element={sampleImageGalleryElementWithoutStoryelements} />
+  ))
+  .add("Image slideshow", () => <ImageGalleryElement element={sampleImageGalleryElementWithSlideshow} />)
+  .add("Image slideshow with width and height", () => (
+    <ImageGalleryElement element={sampleImageGalleryElementWithSlideshow} width="1200" height="750" />
+  ))
+  .add("Image slideshow without story elements", () => (
+    <ImageGalleryElement element={sampleImageSlideshowWithoutStoryelements} />
   ));

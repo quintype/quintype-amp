@@ -13,4 +13,5 @@ export interface CarouselTypes extends Common {
   loop?: boolean;
   slide?: string;
   children?: JSX.Element[] | JSX.Element | ReactElement;
+  lightbox?: string | boolean;
 }
