@@ -17,7 +17,10 @@ storiesOf("Image", module)
     </Layout>
   ))
   .add("layout responsive", () => {
-    return <Image metadata={metadata} slug={s3key} aspectRatio={aspectRatio} alt={caption} />;
+    return <Image metadata={metadata} slug={s3key} alt={caption} />;
+  })
+  .add("layout responsive with aspect ratio specified", () => {
+    return <Image metadata={metadata} slug={s3key} alt={caption} aspectRatio={aspectRatio} />;
   })
   .add("layout fixed-height", () => (
     <Image
@@ -77,4 +80,10 @@ storiesOf("Image", module)
         <Image layout={"fill"} metadata={metadata} slug={s3key} aspectRatio={aspectRatio} alt={caption} />
       </div>
     );
+  })
+  .add("Without lightbox", () => {
+    return <Image metadata={metadata} slug={s3key} alt={caption} lightbox={false} />;
+  })
+  .add("Lightbox with value 'hero'", () => {
+    return <Image metadata={metadata} slug={s3key} alt={caption} lightbox="hero" />;
   });
