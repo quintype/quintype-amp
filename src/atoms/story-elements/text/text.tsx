@@ -27,6 +27,7 @@ const baseStyles = css`
 
   p {
     margin: 0 0 ${(props) => props.theme.spacing.xs} 0;
+    line-height: ${(props) => props.theme.font.lineHeight.level6};
   }
   a {
     color: ${(props) => props.theme.color.mono6};
