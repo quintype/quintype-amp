@@ -25,7 +25,7 @@ const StoryContainer = styled.div`
 const Wrapper = styled.div`
   padding: 0 ${(props) => props.theme.spacing.s};
 `;
-const canDisplayBodyAd = (cardIdx, cardsArr) => cardIdx === 2 && cardsArr.length > 2;
+const canDisplayBodyAd = (cardIdx, cardsArr) => cardIdx === 0 && cardsArr.length > 1;
 const TextStory = ({ story, config, relatedStories }) => (
   <Layout story={story} config={config}>
     <Link rel="canonical" href={get(story, "url")} />
@@ -45,8 +45,8 @@ const TextStory = ({ story, config, relatedStories }) => (
           ));
           return canDisplayBodyAd(cardIdx, story.cards) ? (
             <Fragment key={card.id}>
-              <BodyAd />
               {storyCard}
+              <BodyAd />
             </Fragment>
           ) : (
             <Fragment key={card.id}>{storyCard}</Fragment>
