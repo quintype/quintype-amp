@@ -11,7 +11,8 @@ import {
   TwitterElement,
   FacebookElement,
   InstagramElement,
-  VidibleElement
+  VidibleElement,
+  Title
 } from "../../atoms/story-elements";
 
 const anyType = "any";
@@ -54,7 +55,7 @@ const StoryElementsTable = [
   ["text", "quote", BlockQuote],
   ["text", "summary", Text],
   ["text", anyType, Text],
-  ["title", none, Text],
+  ["title", none, Title],
   ["youtube-video", none, YouTube],
   [anyType, anyType, Pending]
 ];
