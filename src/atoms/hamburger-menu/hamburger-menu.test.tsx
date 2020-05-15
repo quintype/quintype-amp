@@ -1,5 +1,6 @@
 import React from "react";
-import { HamburgerMenu, StyledAnchor } from "./hamburger-menu";
+import { HamburgerMenu } from "./hamburger-menu";
+import { StyledAnchor } from "./components";
 import { shallow } from "enzyme";
 
 describe("HamburgerMenu", () => {
