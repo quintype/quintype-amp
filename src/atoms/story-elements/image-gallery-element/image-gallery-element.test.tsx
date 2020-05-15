@@ -1,6 +1,7 @@
 import React from "react";
-import { mount } from "enzyme";
+import { shallow } from "enzyme";
 import { ImageGalleryElement } from "./image-gallery-element";
+import { Carousel } from "../../carousel";
 
 const sampleImageGalleryElement = {
   description: "",
@@ -166,31 +167,31 @@ const {
 
 describe("Image Gallery Element", () => {
   it("should render Image Gallery", () => {
-    const wrapper = mount(<ImageGalleryElement element={sampleImageGalleryElement} />);
+    const wrapper = shallow(<ImageGalleryElement element={sampleImageGalleryElement} />);
     expect(wrapper.find("div").length).toBe(1);
   });
   it("should render Image Gallery with width and height", () => {
-    const wrapper = mount(<ImageGalleryElement element={sampleImageGalleryElement} width="1200" height="750" />);
+    const wrapper = shallow(<ImageGalleryElement element={sampleImageGalleryElement} width="1200" height="750" />);
     expect(wrapper.find("div").prop("width")).toBe("1200");
     expect(wrapper.find("div").prop("height")).toBe("750");
   });
   it("shouldn't render Image Gallery", () => {
-    const wrapper = mount(<ImageGalleryElement element={sampleImageGalleryElementWithoutStoryelements} />);
+    const wrapper = shallow(<ImageGalleryElement element={sampleImageGalleryElementWithoutStoryelements} />);
     expect(wrapper.find("div").length).toBe(0);
   });
   it("should render Image Slideshow", () => {
-    const wrapper = mount(<ImageGalleryElement element={sampleImageGalleryElementWithSlideshow} />);
-    expect(wrapper.find("amp-carousel").length).toBe(1);
+    const wrapper = shallow(<ImageGalleryElement element={sampleImageGalleryElementWithSlideshow} />);
+    expect(wrapper.find(Carousel).length).toBe(1);
   });
   it("should render Image Slideshow with width and height", () => {
-    const wrapper = mount(
+    const wrapper = shallow(
       <ImageGalleryElement element={sampleImageGalleryElementWithSlideshow} width="1200" height="750" />
     );
-    expect(wrapper.find("amp-carousel").prop("width")).toBe("1200");
-    expect(wrapper.find("amp-carousel").prop("height")).toBe("750");
+    expect(wrapper.find(Carousel).prop("width")).toBe("1200");
+    expect(wrapper.find(Carousel).prop("height")).toBe("750");
   });
   it("shouldn't render Image Slideshow", () => {
-    const wrapper = mount(<ImageGalleryElement element={sampleImageSlideshowWithoutStoryelements} />);
-    expect(wrapper.find("amp-carousel").length).toBe(0);
+    const wrapper = shallow(<ImageGalleryElement element={sampleImageSlideshowWithoutStoryelements} />);
+    expect(wrapper.find(Carousel).length).toBe(0);
   });
 });

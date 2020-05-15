@@ -30,7 +30,7 @@ const ImageGalleryElement = ({
         slug={image["image-s3-key"]}
         aspectRatio={aspectRatio}
         alt={image.title}
-        lightbox={imageGallery ? "hero" : false}
+        lightbox={imageGallery ? "imageGallery" : false}
       />
     ));
   const storyElements = element["story-elements"] && element["story-elements"].length >= 1;
