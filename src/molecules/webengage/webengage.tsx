@@ -4,13 +4,14 @@ import { WebPush, WebPushWidget, WebengageSubscribeButton, Spacer, Analytics } f
 import get from "lodash.get";
 import { WebEngageTypes } from "./types";
 
+// webengage config should come from ampconfig. this is temperory
 export const WebEngageBase = ({ config, buttonText, width, height, visibility }: WebEngageTypes) => {
-  const enabled = get(config, ["ampConfig", "webengage"], null);
+  const enabled = get(config, ["publisherConfig", "webengage"], null);
   if (!enabled) return null;
 
-  const licenseCode = get(config, ["ampConfig", "webengage", "license-code"], null);
-  const trackingCode = get(config, ["ampConfig", "webengage", "tracking-code"], null);
-  const websiteUrl = get(config, ["ampConfig", "webengage", "website-url"], null);
+  const licenseCode = get(config, ["publisherConfig", "webengage", "license-code"], null);
+  const trackingCode = get(config, ["publisherConfig", "webengage", "tracking-code"], null);
+  const websiteUrl = get(config, ["publisherConfig", "webengage", "website-url"], null);
   if (!licenseCode || !trackingCode || !websiteUrl)
     throw new Error(
       "WebEngage is enabled but required params are missing. Please provide license-code, tracking-code and website-url in config"

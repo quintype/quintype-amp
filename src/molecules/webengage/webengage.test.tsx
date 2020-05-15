@@ -5,11 +5,18 @@ import { config } from "../../__fixtures__";
 import cloneDeep from "lodash.clonedeep";
 import { WebPush, WebPushWidget, WebengageSubscribeButton, Analytics } from "../../atoms";
 
+// const configWithoutWebEngage = cloneDeep(config);
+// delete configWithoutWebEngage.ampConfig.webengage;
+
+// const buggyConfig = cloneDeep(config);
+// buggyConfig.ampConfig.webengage["tracking-code"] = undefined;
+
+// temporary change, remove ASAP
 const configWithoutWebEngage = cloneDeep(config);
-delete configWithoutWebEngage.ampConfig.webengage;
+delete configWithoutWebEngage.publisherConfig.webengage;
 
 const buggyConfig = cloneDeep(config);
-buggyConfig.ampConfig.webengage["tracking-code"] = undefined;
+buggyConfig.publisherConfig.webengage["tracking-code"] = undefined;
 
 describe("Webengage", () => {
   it("should match snapshot", () => {

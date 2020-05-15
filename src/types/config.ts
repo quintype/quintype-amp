@@ -10,6 +10,12 @@ export interface PublisherConfig {
   "publisher-name": string;
   "publisher-id": number;
   "publisher-settings"?: object;
+  webengage?: {
+    // temporary. webengage should not come from here. remove ASAP
+    "license-code": string;
+    "website-url": string;
+    "tracking-code": string;
+  };
 }
 
 interface Colors {
