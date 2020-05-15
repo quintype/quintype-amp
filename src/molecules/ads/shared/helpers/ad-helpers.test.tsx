@@ -42,15 +42,11 @@ test("getPropsForDfpAd should return overriding props if they exist", () => {
   const expectedValue = { foo: "bar", lorem: "ipsum" };
   expect(value).toMatchObject(expectedValue);
 });
-test("getPropsForDfpAd should throw error if unit-path is undefined for an ad in config", () => {
-  expect(() => {
-    getPropsForDfpAd({ overridingProps: {}, config: dummyConfig, adName: "top-ad" });
-  }).toThrowError(new Error("unit-path not defined for ad top-ad in config"));
+test("getPropsForDfpAd should return null if unit-path is undefined for an ad in config", () => {
+  expect(getPropsForDfpAd({ overridingProps: {}, config: dummyConfig, adName: "top-ad" })).toBeNull();
 });
-test("getPropsForDfpAd should throw error if overriding are not passed and ad props are not defined in config", () => {
-  expect(() => {
-    getPropsForDfpAd({ overridingProps: {}, config: dummyConfig, adName: "non-existant-ad" });
-  }).toThrowError(new Error("No props defined for non-existant-ad in config"));
+test("getPropsForDfpAd should return null if overriding are not passed and ad props are not defined in config", () => {
+  expect(getPropsForDfpAd({ overridingProps: {}, config: dummyConfig, adName: "non-existant-ad" })).toBeNull();
 });
 test("getPropsForDfpAd gives priority to overriding props over the props defined in config", () => {
   const value = getPropsForDfpAd({

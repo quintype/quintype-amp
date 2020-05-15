@@ -30,7 +30,7 @@ const DateTime = ({ dateTime, formatString, showTime }: DateTimeProps) => {
     formatDateTime = showTime ? dateTimeFormats.dateWithTime : dateTimeFormats.onlyDate;
   }
 
-  const humanizedDate = format(timeZonedTime, formatDateTime, { timeZone })
+  const humanizedDate = format(timeZonedTime, formatDateTime, { timeZone });
   return <StyledTime dateTime={humanizedDate}>{humanizedDate}</StyledTime>;
 };
 
