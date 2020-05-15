@@ -12,6 +12,7 @@ import {
   FacebookElement,
   InstagramElement,
   VidibleElement,
+  Title,
   ImageGalleryElement
 } from "../../atoms/story-elements";
 

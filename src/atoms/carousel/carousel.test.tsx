@@ -53,8 +53,8 @@ describe("Carousel", () => {
     expect(wrapper.find("amp-carousel").prop("layout")).toBe("responsive");
     expect(wrapper.find("amp-carousel").prop("lightbox")).toBe(true);
   });
-  it("shouldn't render images in carousel", () => {
+  it("shouldn't render images", () => {
     const wrapper = mount(<Carousel height="300" width="500" layout="responsive" type="slides"></Carousel>);
-    expect(wrapper.find("amp-carousel").length).toBe(0);
+    expect(wrapper.find("amp-img").length).toBe(0);
   });
 });
