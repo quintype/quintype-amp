@@ -4,7 +4,6 @@ import {
   StoryElement,
   Spacer,
   IncompatibleBanner,
-  Link,
   Footer,
   GoogleTagManager,
   GoogleAnalytics,
@@ -13,7 +12,6 @@ import {
 } from "../../atoms";
 import { HeaderCard, Navbar, AmpAds, RelatedStories, Slots } from "../../molecules";
 import styled from "styled-components";
-import get from "lodash.get";
 
 const { TopAd, BodyAd, BottomAd } = AmpAds;
 const { StoryPageSlots } = Slots;
@@ -28,7 +26,6 @@ const Wrapper = styled.div`
 const canDisplayBodyAd = (cardIdx, cardsArr) => cardIdx === 0 && cardsArr.length > 1;
 const TextStory = ({ story, config, relatedStories }) => (
   <Layout story={story} config={config}>
-    <Link rel="canonical" href={get(story, "url")} />
     <Navbar />
     <IncompatibleBanner />
     <GoogleTagManager />
