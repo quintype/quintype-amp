@@ -13,7 +13,8 @@
     "build": "npm run clean && rollup -c",
     "pack": "npm run build && npm pack",
     "dist": "npm run build && npm publish --access public",
-    "test": "jest --env=jsdom",
+    "test": "jest --env=jsdom --watch",
+    "jest": "jest --env=jsdom",
     "test:cover": "jest --env=jsdom --coverage --watchAll; open coverage/index.html",
     "test:ci": "jest --env=jsdom --coverage --maxWorkers=2",
     "format": "npx prettier '**/*.{js,jsx,ts,tsx,css,scss}' --write",
@@ -35,7 +36,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && npm test"
+      "pre-commit": "lint-staged && npm run jest"
     }
   },
   "homepage": "https://github.com/quintype/quintype-amp#readme",
