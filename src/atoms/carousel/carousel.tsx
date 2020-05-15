@@ -1,11 +1,7 @@
 import React, { Fragment } from "react";
 import { Helmet } from "react-helmet";
 import { CarouselTypes } from "./types";
-import styled from "styled-components";
-
-const StyledCarousel = styled.div`
-  background-color: purple;
-`;
+import { LightboxGallery } from "../lightbox-gallery";
 
 export const Carousel = (props: CarouselTypes) => {
   return (
@@ -17,9 +13,8 @@ export const Carousel = (props: CarouselTypes) => {
           src="https://cdn.ampproject.org/v0/amp-carousel-0.2.js"
         />
       </Helmet>
-      <StyledCarousel>
-        <amp-carousel {...props}>{props.children}</amp-carousel>
-      </StyledCarousel>
+      {props.lightbox && <LightboxGallery />}
+      <amp-carousel {...props}>{props.children}</amp-carousel>
     </Fragment>
   );
 };

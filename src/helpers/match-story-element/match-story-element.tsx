@@ -12,7 +12,8 @@ import {
   FacebookElement,
   InstagramElement,
   VidibleElement,
-  Title
+  Title,
+  ImageGalleryElement
 } from "../../atoms/story-elements";
 
 const anyType = "any";
@@ -21,7 +22,7 @@ const none = "none";
 const noop = () => null;
 
 const StoryElementsTable = [
-  ["composite", "image-gallery", Pending],
+  ["composite", "image-gallery", ImageGalleryElement],
   ["composite", "ingredients", noop],
   ["composite", "playlist", noop],
   ["composite", "references", Pending],
