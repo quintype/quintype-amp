@@ -10,11 +10,7 @@ const TopSlotBase = ({ config }) => {
     slotType: "story",
     slotName: "top-slot"
   });
-  if (!ampHtml)
-    throw new Error(
-      `Problem encountered in TopSlot - couldn't find slot html. You probably included the TopSlot component but didn't provide it with required data`
-    );
-  return <Slot ampHtml={ampHtml} script={script} styles={styles} />;
+  return ampHtml ? <Slot ampHtml={ampHtml} script={script} styles={styles} /> : null;
 };
 
 export const TopSlot = withConfig(TopSlotBase);

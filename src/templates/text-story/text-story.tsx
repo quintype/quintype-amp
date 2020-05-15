@@ -10,18 +10,20 @@ import {
   QuintypeAnalytics,
   ComScore
 } from "../../atoms";
-import { HeaderCard, Navbar, AmpAds, RelatedStories } from "../../molecules";
+import { HeaderCard, Navbar, AmpAds, RelatedStories, Slots } from "../../molecules";
 import styled from "styled-components";
 
 const { TopAd, BodyAd, BottomAd } = AmpAds;
+const { StoryPageSlots } = Slots;
+const { TopSlot, BottomSlot } = StoryPageSlots;
 const StoryContainer = styled.div`
-  max-width: 700px;
+  max-width: 600px;
   margin: 0 auto;
 `;
 const Wrapper = styled.div`
   padding: 0 ${(props) => props.theme.spacing.s};
 `;
-const canDisplayBodyAd = (cardIdx, cardsArr) => cardIdx === 2 && cardsArr.length > 2;
+const canDisplayBodyAd = (cardIdx, cardsArr) => cardIdx === 0 && cardsArr.length > 1;
 const TextStory = ({ story, config, relatedStories }) => (
   <Layout story={story} config={config}>
     <Navbar />
@@ -29,6 +31,7 @@ const TextStory = ({ story, config, relatedStories }) => (
     <GoogleTagManager />
     <Wrapper>
       <TopAd />
+      <TopSlot />
       <Spacer token="s" />
       <StoryContainer>
         <HeaderCard />
@@ -39,19 +42,21 @@ const TextStory = ({ story, config, relatedStories }) => (
           ));
           return canDisplayBodyAd(cardIdx, story.cards) ? (
             <Fragment key={card.id}>
-              <BodyAd />
               {storyCard}
+              <BodyAd />
             </Fragment>
           ) : (
             <Fragment key={card.id}>{storyCard}</Fragment>
           );
         })}
+        <RelatedStories stories={relatedStories} />
       </StoryContainer>
-      <Spacer token="m" />
-      <RelatedStories stories={relatedStories} />
+      <BottomSlot />
       <BottomAd />
     </Wrapper>
-    <Footer />
+    <Footer
+      text={config.publisherConfig["publisher-settings"] && config.publisherConfig["publisher-settings"]["copyright"]}
+    />
     <GoogleAnalytics />
     <QuintypeAnalytics />
     <ComScore />

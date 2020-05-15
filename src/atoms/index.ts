@@ -28,6 +28,7 @@ import { GoogleTagManager } from "./google-tag-manager";
 import { GoogleAnalytics } from "./google-analytics";
 import { ComScore } from "./comscore";
 import { QuintypeAnalytics } from "./quintype-analytics";
+import { LightboxGallery } from "./lightbox-gallery";
 
 export {
   Carousel,
@@ -59,5 +60,6 @@ export {
   GoogleAnalytics,
   GoogleTagManager,
   ComScore,
-  QuintypeAnalytics
+  QuintypeAnalytics,
+  LightboxGallery
 };

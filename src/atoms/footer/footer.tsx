@@ -13,6 +13,7 @@ const baseStyles = css`
   min-height: 50px;
   font-family: ${(props) => props.theme.font.family.secondary};
   background-color: ${(props) => props.theme.color.footerBackground};
+  color: ${(props) => props.theme.color.footerTextColor};
 `;
 
 const PoweredBy = styled.a`

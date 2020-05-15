@@ -6,11 +6,13 @@ import { CommonDfpAdTypes } from "../shared/types";
 import { AdWrapper } from "../shared/components";
 
 const BodyAdBase = ({ children, config, ...overridingProps }: CommonDfpAdTypes) => {
-  const propsForTopAd = getPropsForDfpAd({ overridingProps, config, adName: "body-ad" });
+  const propsForBodyAd = getPropsForDfpAd({ overridingProps, config, adName: "body-ad" });
   return (
-    <AdWrapper>
-      <DfpAd {...propsForTopAd}>{children}</DfpAd>
-    </AdWrapper>
+    propsForBodyAd && (
+      <AdWrapper>
+        <DfpAd {...propsForBodyAd}>{children}</DfpAd>
+      </AdWrapper>
+    )
   );
 };
 

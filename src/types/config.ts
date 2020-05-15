@@ -9,6 +9,7 @@ export interface PublisherConfig {
   "text-direction": "ltr" | "rtl";
   "publisher-name": string;
   "publisher-id": number;
+  "publisher-settings"?: object;
 }
 
 interface Colors {
@@ -23,7 +24,14 @@ interface Colors {
 export interface AMPConfig {
   menu: {
     enabled: boolean;
-    items: MenuItemTypes[];
+  };
+  "menu-groups"?: {
+    default?: {
+      id: number;
+      slug: string;
+      name: string;
+      items: MenuItemTypes[];
+    };
   };
   fonts: {
     primary: {
@@ -60,8 +68,26 @@ interface DoubleClickAdTypes {
 }
 
 interface MenuItemTypes {
+  "tag-name": string | null;
+  "entity-properties": string | null;
+  "collection-id": number | null;
+  "entity-slug": string | null;
+  "item-id": number | null;
+  rank: number;
   title: string;
+  "item-type": string | null;
+  "section-slug": string | null;
+  "tag-slug": string | null;
+  id: number;
+  "parent-id": number | null;
   url: string;
+  "entity-name": string | null;
+  "collection-slug": string | null;
+  "section-name": string | null;
+  data?: {
+    color: string;
+    link?: string;
+  };
 }
 
 export interface SlotType {
