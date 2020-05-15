@@ -17,7 +17,7 @@ describe("RelatedStories", () => {
   });
   it("should render if valid stories are passed", () => {
     const wrapper = shallow(<RelatedStoriesBase config={config} stories={relatedStories} />);
-    expect(wrapper.find(Heading).text()).toBe("Related Stories");
+    expect(wrapper.find(Heading).text()).toBe("Also Read");
   });
   it("should not render if no stories are passed", () => {
     const wrapper = shallow(<RelatedStoriesBase config={config} stories={[]} />);

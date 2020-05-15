@@ -26,7 +26,7 @@ const StyledFigCaption = styled.figcaption`
 `;
 
 const ImageElement = ({ element }: StoryElementProps) => (
-  <Image slug={element["image-s3-key"]} metadata={element["image-metadata"]} aspectRatio={[16, 9]}>
+  <Image slug={element["image-s3-key"]} metadata={element["image-metadata"]}>
     {element.title && element.title.length > 1 && <StyledFigCaption>{element.title}</StyledFigCaption>}
   </Image>
 );

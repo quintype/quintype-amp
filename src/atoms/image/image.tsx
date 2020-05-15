@@ -1,8 +1,9 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { ImageTypes, AmpImgPropTypes } from "./types";
 import { Config } from "../../types/config";
 import { focusedImagePath, calculateImgHeight } from "../../helpers/image-helpers";
 import { withConfig } from "../../context";
+import { LightboxGallery } from "../lightbox-gallery";
 
 export const BaseImage = ({
   metadata,
@@ -14,11 +15,13 @@ export const BaseImage = ({
   layout = "responsive",
   opts = {},
   config,
+  lightbox = true,
   ...rest
 }: ImageTypes & { config: Config }) => {
   const cdnName = config.publisherConfig["cdn-name"];
   if (!slug || !cdnName) throw new Error("Required attributes missing, cant render image");
-  const path = focusedImagePath({ opts, slug, metadata, aspectRatio, cdnName });
+  const imgAspectRatio = aspectRatio || [metadata.width, metadata.height];
+  const path = focusedImagePath({ opts, slug, metadata, imgAspectRatio, cdnName });
   const value: AmpImgPropTypes = {
     src: path,
     alt,
@@ -39,10 +42,17 @@ export const BaseImage = ({
       value.width = "";
     case "responsive":
       value.width = metadata.width.toString();
-      value.height = calculateImgHeight(aspectRatio, metadata.width);
+      value.height = calculateImgHeight(imgAspectRatio, metadata.width);
   }
 
-  return <amp-img {...value} />;
+  return lightbox ? (
+    <Fragment>
+      <LightboxGallery />
+      <amp-img {...value} lightbox={lightbox} />
+    </Fragment>
+  ) : (
+    <amp-img {...value} />
+  );
 };
 
 export const Image = withConfig(BaseImage);

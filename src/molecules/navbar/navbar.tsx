@@ -44,7 +44,7 @@ export const HamburgerWrapper = styled.div<{ align: "left" | "right" }>`
 
 export const NavbarBase = ({ logoSrc, align = "left", config, theme }: NavbarTypes) => {
   const isMenuEnabled = get(config, ["ampConfig", "menu", "enabled"], false);
-  const hamburgerMenuItems = get(config, ["ampConfig", "menu", "items"], []);
+  const hamburgerMenuItems = get(config, ["ampConfig", "menu-groups", "default", "items"], []);
   const textDirection = get(config, ["publisherConfig", "text-direction"], "ltr");
   const logo = logoSrc || get(config, ["ampConfig", "logo-url"], null);
   const publisherName = get(config, ["publisherConfig", "publisher-name"], "");

@@ -1,12 +1,14 @@
 import React, { Fragment } from "react";
 import styled from "styled-components";
-import { Image, Author } from "../../atoms";
+import { Image, DateTime, Spacer } from "../../atoms";
 import { RelatedStoryCardTypes } from "./types";
 
-const CardWrapper = styled.a`
+const Wrapper = styled.div`
+  margin: ${(props) => `0 0 ${props.theme.spacing.l} 0`};
+  border-bottom: ${(props) => `2px solid ${props.theme.color.mono1}`};
+`;
+const StyledAnchor = styled.a`
   text-decoration: none;
-  flex: 1 1 0;
-  margin: 10px;
 `;
 const Headline = styled.h1`
   font-family: ${(props) => props.theme.font.family.primary};
@@ -17,26 +19,29 @@ const Headline = styled.h1`
 
 export const RelatedStoryCard = ({ story, aspectRatio, fallbackSrc }: RelatedStoryCardTypes) => {
   const {
-    authors,
     headline,
     url,
     "hero-image-metadata": imgMetadata,
     "hero-image-s3-key": imgS3Key,
     "hero-image-attribution": imgAttr,
-    "hero-image-caption": imgCaption
+    "hero-image-caption": imgCaption,
+    "last-published-at": lastPublishedAt
   } = story;
   return (
-    <CardWrapper href={url}>
-      <ImageForStory
-        metadata={imgMetadata}
-        s3Key={imgS3Key}
-        aspectRatio={aspectRatio}
-        altText={imgCaption || imgAttr || "image"}
-        fallbackSrc={fallbackSrc}
-      />
-      <Headline>{headline}</Headline>
-      <Author authors={authors} />
-    </CardWrapper>
+    <Wrapper>
+      <StyledAnchor href={url}>
+        <ImageForStory
+          metadata={imgMetadata}
+          s3Key={imgS3Key}
+          aspectRatio={aspectRatio}
+          altText={imgCaption || imgAttr || "image"}
+          fallbackSrc={fallbackSrc}
+        />
+        <Headline>{headline}</Headline>
+        <DateTime dateTime={lastPublishedAt} showTime={true} />
+        <Spacer token="s" />
+      </StyledAnchor>
+    </Wrapper>
   );
 };
 
