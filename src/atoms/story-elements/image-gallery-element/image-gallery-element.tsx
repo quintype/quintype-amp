@@ -26,6 +26,7 @@ const ImageGalleryElement = ({
     element["story-elements"] &&
     element["story-elements"].map((image) => (
       <Image
+        key={image["id"]}
         metadata={image["image-metadata"]}
         slug={image["image-s3-key"]}
         aspectRatio={aspectRatio}
