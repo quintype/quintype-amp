@@ -151,11 +151,6 @@ const sampleImageGalleryElement = {
   subtype: "image-gallery"
 };
 
-const {
-  "story-elements": [],
-  ...sampleImageGalleryElementWithoutStoryelements
-} = sampleImageGalleryElement;
-
 const sampleImageGalleryElementWithSlideshow = {
   ...sampleImageGalleryElement,
   metadata: { ...sampleImageGalleryElement.metadata, type: "slideshow" }
@@ -168,16 +163,7 @@ const {
 describe("Image Gallery Element", () => {
   it("should render Image Gallery", () => {
     const wrapper = shallow(<ImageGalleryElement element={sampleImageGalleryElement} />);
-    expect(wrapper.find("div").length).toBe(1);
-  });
-  it("should render Image Gallery with width and height", () => {
-    const wrapper = shallow(<ImageGalleryElement element={sampleImageGalleryElement} width="1200" height="750" />);
-    expect(wrapper.find("div").prop("width")).toBe("1200");
-    expect(wrapper.find("div").prop("height")).toBe("750");
-  });
-  it("shouldn't render Image Gallery", () => {
-    const wrapper = shallow(<ImageGalleryElement element={sampleImageGalleryElementWithoutStoryelements} />);
-    expect(wrapper.find("div").length).toBe(0);
+    expect(wrapper.find(Carousel).length).toBe(0);
   });
   it("should render Image Slideshow", () => {
     const wrapper = shallow(<ImageGalleryElement element={sampleImageGalleryElementWithSlideshow} />);
