@@ -67,7 +67,7 @@ interface DoubleClickAdTypes {
   "unit-path": string;
 }
 
-interface MenuItemTypes {
+export interface MenuItemTypes {
   "tag-name": string | null;
   "entity-properties": string | null;
   "collection-id": number | null;

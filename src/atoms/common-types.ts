@@ -20,6 +20,7 @@ declare global {
       "amp-instagram": InstagramTypes;
       "amp-o2-player";
       "amp-analytics";
+      "amp-nested-menu";
     }
   }
 }
