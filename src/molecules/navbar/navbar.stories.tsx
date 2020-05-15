@@ -12,7 +12,7 @@ export const configWithMenuDisabled = cloneDeep(config);
 configWithMenuDisabled.ampConfig.menu.enabled = false;
 
 export const configWithNoHamburgerMenuItems = cloneDeep(config);
-configWithNoHamburgerMenuItems.ampConfig.menu.items = [];
+configWithNoHamburgerMenuItems.ampConfig["menu-groups"].default.items = [];
 
 storiesOf("Navbar", module)
   .addDecorator((story) => (
