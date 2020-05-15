@@ -1,19 +1,17 @@
 import React, { Fragment } from "react";
+import { HeaderCard, Navbar, AmpAds, RelatedStories, WebEngage, Slots } from "../../molecules";
 import {
   Layout,
   StoryElement,
   Spacer,
   IncompatibleBanner,
-  Link,
   Footer,
   GoogleTagManager,
   GoogleAnalytics,
   QuintypeAnalytics,
   ComScore
 } from "../../atoms";
-import { HeaderCard, Navbar, AmpAds, RelatedStories, Slots } from "../../molecules";
 import styled from "styled-components";
-import get from "lodash.get";
 
 const { TopAd, BodyAd, BottomAd } = AmpAds;
 const { StoryPageSlots } = Slots;
@@ -25,10 +23,9 @@ const StoryContainer = styled.div`
 const Wrapper = styled.div`
   padding: 0 ${(props) => props.theme.spacing.s};
 `;
-const canDisplayBodyAd = (cardIdx, cardsArr) => cardIdx === 2 && cardsArr.length > 2;
+const canDisplayBodyAd = (cardIdx, cardsArr) => cardIdx === 0 && cardsArr.length > 1;
 const TextStory = ({ story, config, relatedStories }) => (
   <Layout story={story} config={config}>
-    <Link rel="canonical" href={get(story, "url")} />
     <Navbar />
     <IncompatibleBanner />
     <GoogleTagManager />
@@ -38,15 +35,16 @@ const TextStory = ({ story, config, relatedStories }) => (
       <Spacer token="s" />
       <StoryContainer>
         <HeaderCard />
-        <Spacer token="s" />
+        <WebEngage />
+        <Spacer token="m" />
         {story.cards.map((card, cardIdx) => {
           const storyCard = card["story-elements"].map((element) => (
             <StoryElement key={element.id} element={element} />
           ));
           return canDisplayBodyAd(cardIdx, story.cards) ? (
             <Fragment key={card.id}>
-              <BodyAd />
               {storyCard}
+              <BodyAd />
             </Fragment>
           ) : (
             <Fragment key={card.id}>{storyCard}</Fragment>

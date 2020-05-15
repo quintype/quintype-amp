@@ -4,7 +4,7 @@
 
 import { ampifyStory } from "./ampify-story";
 import { isValidAmpHtml } from "../../utils/validate-amp";
-import { storyWithManyJsEmbeds, publisherConfig, ampConfig, relatedStories, configOpts } from "../../__fixtures__";
+import { storyWithManyJsEmbeds, publisherConfig, ampConfig, relatedStories, configOpts, seo } from "../../__fixtures__";
 import { sampleTextStory } from "./sampleTextStory";
 
 describe("Ampify Story with custom opts", () => {
@@ -14,7 +14,14 @@ describe("Ampify Story with custom opts", () => {
         text: sampleTextStory
       }
     };
-    const ampHtml = ampifyStory({ story: storyWithManyJsEmbeds, publisherConfig, ampConfig, opts, relatedStories });
+    const ampHtml = ampifyStory({
+      story: storyWithManyJsEmbeds,
+      publisherConfig,
+      ampConfig,
+      opts,
+      relatedStories,
+      seo
+    });
     expect(ampHtml.includes("Sample Text Story")).toBe(true);
   });
 
@@ -24,7 +31,8 @@ describe("Ampify Story with custom opts", () => {
       publisherConfig,
       ampConfig,
       opts: configOpts,
-      relatedStories
+      relatedStories,
+      seo
     });
     const ampValidatorOutput = await isValidAmpHtml(ampHtml);
     expect(ampValidatorOutput).toBe(true);
