@@ -18,6 +18,8 @@ declare global {
       "amp-dailymotion";
       "amp-mathml";
       "amp-instagram": InstagramTypes;
+      "amp-web-push";
+      "amp-web-push-widget";
       "amp-o2-player";
       "amp-analytics";
     }

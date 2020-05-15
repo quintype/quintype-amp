@@ -11,6 +11,13 @@ export const publisherConfig: PublisherConfig = {
       "We have finally migrated our website to better architecture! While the fancy new website will be up in a few months, we have fixed issues related to payment and login in the meantime. You will need to log in anew. If you have forgotten your password, you can generate one by clicking on the forgot password link (it works!). Send any questions or feedback to contact@newslaundry.com.",
     "publisher-logo": null,
     copyright: "Copyright © 2020 Newslaundry Media Private Limited.  All Rights Reserved "
+  },
+  webengage: {
+    // temporary, for vikatan. remove ASAP
+    "license-code": "~134105365",
+    "website-url": "https://www.vikatan.com",
+    "tracking-code":
+      '{"vars":{"licenseCode":"~134105365","region":"us"},"requests":{"custom-attributes":{"baseUrl":"${base}&eventName=Amp Article View&ArticleTitle=எடப்பாடி ஆட்சி, ரஜினி - கமல் அரசியல்... ஆந்திராவிலிருந்து ரோஜா ஸ்பெஷல் பேட்டி!&ArticleId=739ac241-69a1-4d2a-b136-37bd45c42e8a&Category=government and politics&SubCategory=politics&Author=ஆர்.பி.&ArticleType=&tags=Edappadi Palanisamy,y. s. jaganmohan reddy,actress roja,politics,ysr congress&event=pageview"}},"triggers":{"custom-attributesTrigger":{"on":"visible","request":"custom-attributes"}}}'
   }
 };
 
@@ -588,6 +595,12 @@ export const ampConfig: AMPConfig = {
       height: 250,
       "unit-path": "/35096353/amptesting/formats/sticky"
     }
+  },
+  webengage: {
+    "license-code": "~134105365",
+    "website-url": "https://www.vikatan.com",
+    "tracking-code":
+      '{"vars":{"licenseCode":"~134105365","region":"us"},"requests":{"custom-attributes":{"baseUrl":"${base}&eventName=Amp Article View&ArticleTitle=எடப்பாடி ஆட்சி, ரஜினி - கமல் அரசியல்... ஆந்திராவிலிருந்து ரோஜா ஸ்பெஷல் பேட்டி!&ArticleId=739ac241-69a1-4d2a-b136-37bd45c42e8a&Category=government and politics&SubCategory=politics&Author=ஆர்.பி.&ArticleType=&tags=Edappadi Palanisamy,y. s. jaganmohan reddy,actress roja,politics,ysr congress&event=pageview"}},"triggers":{"custom-attributesTrigger":{"on":"visible","request":"custom-attributes"}}}'
   },
   "comscore-tracking-vars": {
     c1: 123,
