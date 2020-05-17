@@ -64,6 +64,7 @@ export interface Story {
   "last-correction-published-at"?: number;
   "updated-at": number;
   "is-amp-supported"?: boolean;
+  "task-id"?: string;
 }
 
 export interface Author {
@@ -200,6 +201,7 @@ export interface Collection {
 export interface StoryMetadata {
   "sponsored-by"?: string;
   "card-share": CardShare;
+  "story-attributes"?: any;
 }
 
 export interface CardShare {
@@ -209,10 +211,13 @@ export interface CardShare {
 export interface Tag {
   id: number;
   name: string;
-  "meta-description": string | null;
-  "meta-title": string | null;
+  "meta-description"?: string | null;
+  "meta-title"?: string | null;
   slug: string;
   "tag-type": string;
+  type?: string;
+  "entity-type-id"?: number;
+  properties?: any;
 }
 
 export interface SEO {

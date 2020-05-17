@@ -5,17 +5,12 @@ export interface Config {
 }
 
 export interface PublisherConfig {
+  "sketches-host": string;
   "cdn-name": string;
   "text-direction": "ltr" | "rtl";
   "publisher-name": string;
   "publisher-id": number;
   "publisher-settings"?: object;
-  webengage?: {
-    // temporary. webengage should not come from here. remove ASAP
-    "license-code": string;
-    "website-url": string;
-    "tracking-code": string;
-  };
 }
 
 interface Colors {
@@ -58,8 +53,7 @@ export interface AMPConfig {
   };
   webengage?: {
     "license-code": string;
-    "website-url": string;
-    "tracking-code": string;
+    "india-data-center": boolean;
   };
   "comscore-tracking-vars"?: {
     c1?: number;

@@ -1,26 +1,18 @@
 import React, { Fragment } from "react";
-import { withConfig } from "../../context";
+import { withStoryAndConfig } from "../../context";
 import { WebPush, WebPushWidget, WebengageSubscribeButton, Spacer, Analytics } from "../../atoms";
-import get from "lodash.get";
 import { WebEngageTypes } from "./types";
+import { getWebengageConfig } from "./helpers";
 
-// webengage config should come from ampconfig. this is temperory
-export const WebEngageBase = ({ config, buttonText, width, height, visibility }: WebEngageTypes) => {
-  const enabled = get(config, ["publisherConfig", "webengage"], null);
-  if (!enabled) return null;
-
-  const licenseCode = get(config, ["publisherConfig", "webengage", "license-code"], null);
-  const trackingCode = get(config, ["publisherConfig", "webengage", "tracking-code"], null);
-  const websiteUrl = get(config, ["publisherConfig", "webengage", "website-url"], null);
-  if (!licenseCode || !trackingCode || !websiteUrl)
-    throw new Error(
-      "WebEngage is enabled but required params are missing. Please provide license-code, tracking-code and website-url in config"
-    );
+export const WebEngageBase = ({ story, config, buttonText, width, height, visibility }: WebEngageTypes) => {
+  const webengageConfig = getWebengageConfig({ story, config });
+  if (!webengageConfig) return null;
+  const { trackingCode, websiteUrl, licenseCode } = webengageConfig;
 
   return (
     <Fragment>
       <Spacer token="m" />
-      <Analytics type="webengage" targets={JSON.parse(trackingCode)} />
+      <Analytics type="webengage" targets={trackingCode} />
       <WebPush
         id="amp-web-push"
         helper-iframe-url={`${websiteUrl}/api/amp-web-push-helper-frame.html?version=1`}
@@ -34,4 +26,4 @@ export const WebEngageBase = ({ config, buttonText, width, height, visibility }:
   );
 };
 
-export const WebEngage = withConfig(WebEngageBase);
+export const WebEngage = withStoryAndConfig(WebEngageBase);
