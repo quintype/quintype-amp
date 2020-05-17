@@ -6,7 +6,7 @@ import cloneDeep from "lodash.clonedeep";
 import { WebPush, WebPushWidget, WebengageSubscribeButton, Analytics } from "../../atoms";
 import { story as vikatanStory } from "../../__fixtures__/vikatan/textStory";
 import { storyWithManyJsEmbeds } from "../../__fixtures__/";
-import { getWebengageConfig } from "./helpers";
+import { getWebengageConfig, getCategory } from "./helpers";
 
 const vikatanConfig = cloneDeep(config);
 vikatanConfig.publisherConfig["sketches-host"] = "https://www.vikatan.com";
@@ -62,5 +62,49 @@ describe("getWebengageConfig helper function", () => {
     expect(trackingCodeJson).toBe(expectedTrackingCode);
     expect(websiteUrl).toBe("https://www.vikatan.com");
     expect(licenseCode).toBe("~134105365");
+  });
+});
+
+describe("getCategory helper function", () => {
+  it("should return correct category", () => {
+    const mockConfig = {
+      ampConfig: {
+        "menu-groups": {
+          default: {
+            items: [
+              { "item-id": 111, "section-name": "aaa" },
+              { "item-id": 222, "section-name": "bbb" }
+            ]
+          },
+          footer: {
+            items: [
+              { "item-id": 333, "section-name": "ccc" },
+              { "item-id": 444, "section-name": "ddd" }
+            ]
+          },
+          navbar: {
+            items: [
+              { "item-id": 555, "section-name": "eee" },
+              { "item-id": 666, "section-name": "fff" }
+            ]
+          }
+        }
+      }
+    };
+    const sectionWithParentId1 = {
+      "parent-id": 555,
+      name: "Finance"
+    };
+    const sectionWithParentId2 = {
+      "parent-id": 84302,
+      name: "Finance"
+    };
+    const sectionWithoutParentId = {
+      "parent-id": null,
+      name: ""
+    };
+    expect(getCategory(sectionWithParentId1, mockConfig)).toBe("eee");
+    expect(getCategory(sectionWithParentId2, mockConfig)).toBe("Finance");
+    expect(getCategory(sectionWithoutParentId, mockConfig)).toBe("");
   });
 });

@@ -46,7 +46,7 @@ const getAttributes = ({ story, config }) => {
   return `ArticleTitle=${headline}&ArticleId=${storyContentId}&Category=${category}&SubCategory=${subCategory}&Author=${author}&ArticleType=${articleType}&tags=${tagsStr}&event=${event}`;
 };
 
-const getCategory = (firstSection, config) => {
+export const getCategory = (firstSection, config) => {
   const category = "";
   const parentId = firstSection["parent-id"];
   if (parentId) {
