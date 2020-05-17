@@ -101,7 +101,7 @@ describe("getCategory helper function", () => {
     };
     const sectionWithoutParentId = {
       "parent-id": null,
-      name: ""
+      name: "abcd"
     };
     expect(getCategory(sectionWithParentId1, mockConfig)).toBe("eee");
     expect(getCategory(sectionWithParentId2, mockConfig)).toBe("Finance");
