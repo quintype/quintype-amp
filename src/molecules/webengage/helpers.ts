@@ -32,13 +32,13 @@ export const getWebengageConfig = ({ story, config }) => {
 };
 
 const getAttributes = ({ story, config }) => {
-  const headline = get(story, "headline", "");
-  const storyContentId = get(story, "story-content-id", "");
+  const headline = story.headline || "";
+  const storyContentId = story["story-content-id"] || "";
   const firstSection = get(story, ["sections", "0"], null);
   const category = firstSection ? getCategory(firstSection, config) : "";
   const subCategory = firstSection ? getSubCategory(firstSection) : "";
-  const author = get(story, "author-name", "");
-  const articleType = get(story, "access", "");
+  const author = story["author-name"] || "";
+  const articleType = story.access || "";
   const tagsArr = get(story, "tags", []);
   const tagsStr = tagsArr.length ? tagsArr.map((tag) => tag.name).join(",") : "";
   const event = "pageview";
@@ -51,13 +51,9 @@ export const getCategory = (firstSection, config) => {
   const parentId = firstSection["parent-id"];
   if (parentId) {
     // returns name of parent section or name of firstSection
-    let accumulator = [];
-    const keys = Object.keys(config.ampConfig["menu-groups"]);
-    keys.forEach((menuGroup) => {
-      accumulator = accumulator.concat(config.ampConfig["menu-groups"][menuGroup].items);
-    });
-    const parentSection = accumulator.find((item) => item["item-id"] === parentId);
-    return parentSection ? parentSection["section-name"] : getSubCategory(firstSection);
+    const sections = config.publisherConfig.sections;
+    const parentSection = sections.find((section) => section.id === parentId);
+    return parentSection ? parentSection.name : firstSection.name;
   }
   return category;
 };

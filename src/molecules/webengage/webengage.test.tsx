@@ -10,6 +10,53 @@ import { getWebengageConfig, getCategory } from "./helpers";
 
 const vikatanConfig = cloneDeep(config);
 vikatanConfig.publisherConfig["sketches-host"] = "https://www.vikatan.com";
+vikatanConfig.publisherConfig.sections = [
+  {
+    "domain-slug": "sports",
+    slug: "sports",
+    name: "sports",
+    "section-url": "https://sports.vikatan.com/",
+    id: 8967,
+    "parent-id": null,
+    "display-name": "sports",
+    collection: {
+      slug: "sports",
+      name: "விளையாட்டு ",
+      id: 16494
+    },
+    data: null
+  },
+  {
+    "domain-slug": null,
+    slug: "technology",
+    name: "technology",
+    "section-url": "https://www.vikatan.com/technology",
+    id: 8968,
+    "parent-id": null,
+    "display-name": "technology",
+    collection: {
+      slug: "technology",
+      name: "டெக்னாலஜி ",
+      id: 16495
+    },
+    data: null
+  },
+  {
+    "domain-slug": null,
+    slug: "anniversaries",
+    name: "anniversaries",
+    "section-url": "https://www.vikatan.com/anniversaries",
+    id: 8969,
+    "parent-id": null,
+    "display-name": "anniversaries",
+    collection: {
+      slug: "anniversaries",
+      name: "anniversaries",
+      id: 16496
+    },
+    data: null
+  }
+];
 
 const configWithoutWebEngage = cloneDeep(config);
 delete configWithoutWebEngage.ampConfig.webengage;
@@ -53,12 +100,12 @@ describe("getWebengageConfig helper function", () => {
     expect(webengageConfig).toBeNull();
   });
   it("should return correct values", () => {
-    const webengageConfig = getWebengageConfig({ story: vikatanStory, config });
+    const webengageConfig = getWebengageConfig({ story: vikatanStory, config: vikatanConfig });
     if (!webengageConfig) throw new Error("Unexpected condition in webengage test");
     const { trackingCode, websiteUrl, licenseCode } = webengageConfig;
     const trackingCodeJson = JSON.stringify(trackingCode);
     const expectedTrackingCode =
-      '{"vars":{"licenseCode":"~134105365","region":"us"},"requests":{"custom-attributes":{"baseUrl":"${base}&eventName=Amp Article View&ArticleTitle=ஆடைகளை ஊடுருவி படம் எடுக்கிறதா ஒன்ப்ளஸ் 8 ப்ரோ கேமரா... உண்மை என்ன? #VikatanAnalysis&ArticleId=ffa539a0-46f4-4309-8a13-dd1d6dfd8b6e&Category=gadgets&SubCategory=gadgets&Author=ம.காசி விஸ்வநாதன்&ArticleType=null&tags=one plus,apple,technology,smart phones,gadgets,Spy Camera&event=pageview"}},"triggers":{"custom-attributesTrigger":{"on":"visible","request":"custom-attributes"}}}';
+      '{"vars":{"licenseCode":"~134105365","region":"us"},"requests":{"custom-attributes":{"baseUrl":"${base}&eventName=Amp Article View&ArticleTitle=ஆடைகளை ஊடுருவி படம் எடுக்கிறதா ஒன்ப்ளஸ் 8 ப்ரோ கேமரா... உண்மை என்ன? #VikatanAnalysis&ArticleId=ffa539a0-46f4-4309-8a13-dd1d6dfd8b6e&Category=technology&SubCategory=gadgets&Author=ம.காசி விஸ்வநாதன்&ArticleType=&tags=one plus,apple,technology,smart phones,gadgets,Spy Camera&event=pageview"}},"triggers":{"custom-attributesTrigger":{"on":"visible","request":"custom-attributes"}}}';
     expect(trackingCodeJson).toBe(expectedTrackingCode);
     expect(websiteUrl).toBe("https://www.vikatan.com");
     expect(licenseCode).toBe("~134105365");
@@ -68,27 +115,14 @@ describe("getWebengageConfig helper function", () => {
 describe("getCategory helper function", () => {
   it("should return correct category", () => {
     const mockConfig = {
-      ampConfig: {
-        "menu-groups": {
-          default: {
-            items: [
-              { "item-id": 111, "section-name": "aaa" },
-              { "item-id": 222, "section-name": "bbb" }
-            ]
-          },
-          footer: {
-            items: [
-              { "item-id": 333, "section-name": "ccc" },
-              { "item-id": 444, "section-name": "ddd" }
-            ]
-          },
-          navbar: {
-            items: [
-              { "item-id": 555, "section-name": "eee" },
-              { "item-id": 666, "section-name": "fff" }
-            ]
-          }
-        }
+      publisherConfig: {
+        sections: [
+          { name: "aaa", id: 111, "parent-id": null },
+          { name: "bbb", id: 222, "parent-id": null },
+          { name: "ccc", id: 333, "parent-id": null },
+          { name: "ddd", id: 444, "parent-id": null },
+          { name: "eee", id: 555, "parent-id": null }
+        ]
       }
     };
     const sectionWithParentId1 = {

@@ -10,7 +10,7 @@ exports[`Webengage should match snapshot 1`] = `
       Object {
         "requests": Object {
           "custom-attributes": Object {
-            "baseUrl": "\${base}&eventName=Amp Article View&ArticleTitle=ஆடைகளை ஊடுருவி படம் எடுக்கிறதா ஒன்ப்ளஸ் 8 ப்ரோ கேமரா... உண்மை என்ன? #VikatanAnalysis&ArticleId=ffa539a0-46f4-4309-8a13-dd1d6dfd8b6e&Category=gadgets&SubCategory=gadgets&Author=ம.காசி விஸ்வநாதன்&ArticleType=null&tags=one plus,apple,technology,smart phones,gadgets,Spy Camera&event=pageview",
+            "baseUrl": "\${base}&eventName=Amp Article View&ArticleTitle=ஆடைகளை ஊடுருவி படம் எடுக்கிறதா ஒன்ப்ளஸ் 8 ப்ரோ கேமரா... உண்மை என்ன? #VikatanAnalysis&ArticleId=ffa539a0-46f4-4309-8a13-dd1d6dfd8b6e&Category=technology&SubCategory=gadgets&Author=ம.காசி விஸ்வநாதன்&ArticleType=&tags=one plus,apple,technology,smart phones,gadgets,Spy Camera&event=pageview",
           },
         },
         "triggers": Object {
