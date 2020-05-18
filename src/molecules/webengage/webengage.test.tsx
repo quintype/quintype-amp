@@ -6,7 +6,7 @@ import cloneDeep from "lodash.clonedeep";
 import { WebPush, WebPushWidget, WebengageSubscribeButton, Analytics } from "../../atoms";
 import { story as vikatanStory } from "../../__fixtures__/vikatan/textStory";
 import { storyWithManyJsEmbeds } from "../../__fixtures__/";
-import { getWebengageConfig, getCategory } from "./helpers";
+import { getWebengageConfig, getCatergoryFromSection } from "./helpers";
 
 const vikatanConfig = cloneDeep(config);
 vikatanConfig.publisherConfig["sketches-host"] = "https://www.vikatan.com";
@@ -112,7 +112,7 @@ describe("getWebengageConfig helper function", () => {
   });
 });
 
-describe("getCategory helper function", () => {
+describe("getCatergoryFromSection helper function", () => {
   it("should return correct category", () => {
     const mockConfig = {
       publisherConfig: {
@@ -137,8 +137,8 @@ describe("getCategory helper function", () => {
       "parent-id": null,
       name: "abcd"
     };
-    expect(getCategory(sectionWithParentId1, mockConfig)).toBe("eee");
-    expect(getCategory(sectionWithParentId2, mockConfig)).toBe("Finance");
-    expect(getCategory(sectionWithoutParentId, mockConfig)).toBe("");
+    expect(getCatergoryFromSection(sectionWithParentId1, mockConfig)).toBe("eee");
+    expect(getCatergoryFromSection(sectionWithParentId2, mockConfig)).toBe("Finance");
+    expect(getCatergoryFromSection(sectionWithoutParentId, mockConfig)).toBe("");
   });
 });

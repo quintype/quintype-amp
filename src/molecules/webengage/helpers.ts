@@ -35,8 +35,8 @@ const getAttributes = ({ story, config }) => {
   const headline = story.headline || "";
   const storyContentId = story["story-content-id"] || "";
   const firstSection = get(story, ["sections", "0"], null);
-  const category = firstSection ? getCategory(firstSection, config) : "";
-  const subCategory = firstSection ? getSubCategory(firstSection) : "";
+  const category = firstSection ? getCatergoryFromSection(firstSection, config) : "";
+  const subCategory = firstSection ? getSubCategoryFromSection(firstSection) : "";
   const author = story["author-name"] || "";
   const articleType = story.access || "";
   const tagsArr = get(story, "tags", []);
@@ -46,15 +46,15 @@ const getAttributes = ({ story, config }) => {
   return `ArticleTitle=${headline}&ArticleId=${storyContentId}&Category=${category}&SubCategory=${subCategory}&Author=${author}&ArticleType=${articleType}&tags=${tagsStr}&event=${event}`;
 };
 
-export const getCategory = (firstSection, config) => {
+export const getCatergoryFromSection = (section, config) => {
   const category = "";
-  const parentId = firstSection["parent-id"];
+  const parentId = section["parent-id"];
   if (parentId) {
-    // returns name of parent section or name of firstSection
+    // returns name of parent section or name of section
     const sections = config.publisherConfig.sections;
-    const parentSection = sections.find((section) => section.id === parentId);
-    return parentSection ? parentSection.name : firstSection.name;
+    const parentSection = sections.find((sec) => sec.id === parentId);
+    return parentSection ? parentSection.name : section.name;
   }
   return category;
 };
-const getSubCategory = (firstSection) => (firstSection["parent-id"] ? firstSection.name : "");
+const getSubCategoryFromSection = (section) => (section["parent-id"] ? section.name : "");
