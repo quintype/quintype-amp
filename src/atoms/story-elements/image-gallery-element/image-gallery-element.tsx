@@ -21,7 +21,8 @@ const ImageGalleryElement = ({
   lightbox,
   ...props
 }: ImageGalleryElementProps) => {
-  const imageGallery = element.metadata && element.metadata.type === "gallery";
+  // forcing imageGallery to false for now for vikatan.
+  const imageGallery = element.metadata && element.metadata.type === "gallery" && false;
   const images =
     element["story-elements"] &&
     element["story-elements"].map((image) => (
