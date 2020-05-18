@@ -159,11 +159,10 @@ const {
   "story-elements": [],
   ...sampleImageSlideshowWithoutStoryelements
 } = sampleImageGalleryElementWithSlideshow;
-
 describe("Image Gallery Element", () => {
-  it("should render Image Gallery", () => {
+  it("should render Image Slideshow even for Gallery", () => {
     const wrapper = shallow(<ImageGalleryElement element={sampleImageGalleryElement} />);
-    expect(wrapper.find(Carousel).length).toBe(0);
+    expect(wrapper.find(Carousel).length).toBe(1);
   });
   it("should render Image Slideshow", () => {
     const wrapper = shallow(<ImageGalleryElement element={sampleImageGalleryElementWithSlideshow} />);
