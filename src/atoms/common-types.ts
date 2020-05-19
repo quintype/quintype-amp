@@ -18,6 +18,8 @@ declare global {
       "amp-dailymotion";
       "amp-mathml";
       "amp-instagram": InstagramTypes;
+      "amp-web-push";
+      "amp-web-push-widget";
       "amp-o2-player";
       "amp-analytics";
       "amp-nested-menu";
@@ -38,4 +40,6 @@ export interface Common {
   sizes?: string;
   width?: string;
   height?: string;
+  type?: string;
+  aspectRatio?: Array<number>;
 }

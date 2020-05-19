@@ -2,6 +2,7 @@ import { Config, PublisherConfig, AMPConfig, ConfigOpts } from "../types/config"
 
 export const publisherConfig: PublisherConfig = {
   "cdn-name": "https://thumbor-stg.assettype.com/",
+  "sketches-host": "https://www.vikatan.com",
   "text-direction": "ltr",
   "publisher-name": "vikatan",
   "publisher-id": 1,
@@ -588,6 +589,10 @@ export const ampConfig: AMPConfig = {
       height: 250,
       "unit-path": "/35096353/amptesting/formats/sticky"
     }
+  },
+  webengage: {
+    "license-code": "~134105365",
+    "india-data-center": false
   },
   "comscore-tracking-vars": {
     c1: 123,

@@ -11,7 +11,8 @@ import { TwitterElement } from "./twitter-element";
 import { FacebookElement } from "./facebook-element";
 import { InstagramElement } from "./instagram-element";
 import { VidibleElement } from "./vidible-element";
-
+import { Title } from "./title";
+import { ImageGalleryElement } from "./image-gallery-element";
 const StoryElements = {
   Text,
   BlockQuote,
@@ -25,7 +26,9 @@ const StoryElements = {
   TwitterElement,
   FacebookElement,
   InstagramElement,
-  VidibleElement
+  VidibleElement,
+  Title,
+  ImageGalleryElement
 };
 export {
   Text,
@@ -40,6 +43,8 @@ export {
   TwitterElement,
   FacebookElement,
   InstagramElement,
-  VidibleElement
+  VidibleElement,
+  Title,
+  ImageGalleryElement
 };
 export { StoryElements };

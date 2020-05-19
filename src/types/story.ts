@@ -64,6 +64,7 @@ export interface Story {
   "last-correction-published-at"?: number;
   "updated-at": number;
   "is-amp-supported"?: boolean;
+  "task-id"?: string;
 }
 
 export interface Author {
@@ -142,6 +143,7 @@ export interface StoryElement {
   "content-type"?: string;
   subtype: null | string;
   text?: string;
+  "story-elements"?: StoryElement[];
 }
 
 export interface StoryElementMetadata {
@@ -163,6 +165,7 @@ export interface StoryElementMetadata {
   "duration-millis"?: number;
   "player-url"?: string;
   "include-in-video-sitemap"?: boolean;
+  type?: string;
 }
 
 export interface LinkedStory {
@@ -198,6 +201,7 @@ export interface Collection {
 export interface StoryMetadata {
   "sponsored-by"?: string;
   "card-share": CardShare;
+  "story-attributes"?: any;
 }
 
 export interface CardShare {
@@ -207,10 +211,13 @@ export interface CardShare {
 export interface Tag {
   id: number;
   name: string;
-  "meta-description": string | null;
-  "meta-title": string | null;
+  "meta-description"?: string | null;
+  "meta-title"?: string | null;
   slug: string;
   "tag-type": string;
+  type?: string;
+  "entity-type-id"?: number;
+  properties?: any;
 }
 
 export interface SEO {

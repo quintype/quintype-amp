@@ -11,7 +11,9 @@ import {
   TwitterElement,
   FacebookElement,
   InstagramElement,
-  VidibleElement
+  VidibleElement,
+  Title,
+  ImageGalleryElement
 } from "../../atoms/story-elements";
 
 const anyType = "any";
@@ -20,7 +22,7 @@ const none = "none";
 const noop = () => null;
 
 const StoryElementsTable = [
-  ["composite", "image-gallery", Pending],
+  ["composite", "image-gallery", ImageGalleryElement],
   ["composite", "ingredients", noop],
   ["composite", "playlist", noop],
   ["composite", "references", Pending],
@@ -54,7 +56,7 @@ const StoryElementsTable = [
   ["text", "quote", BlockQuote],
   ["text", "summary", Text],
   ["text", anyType, Text],
-  ["title", none, Text],
+  ["title", none, Title],
   ["youtube-video", none, YouTube],
   [anyType, anyType, Pending]
 ];

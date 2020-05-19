@@ -5,6 +5,7 @@ export interface Config {
 }
 
 export interface PublisherConfig {
+  "sketches-host": string;
   "cdn-name": string;
   "text-direction": "ltr" | "rtl";
   "publisher-name": string;
@@ -49,6 +50,10 @@ export interface AMPConfig {
     "top-ad": DoubleClickAdTypes;
     "body-ad": DoubleClickAdTypes;
     "bottom-ad": DoubleClickAdTypes;
+  };
+  webengage?: {
+    "license-code": string;
+    "india-data-center": boolean;
   };
   "comscore-tracking-vars"?: {
     c1?: number;
