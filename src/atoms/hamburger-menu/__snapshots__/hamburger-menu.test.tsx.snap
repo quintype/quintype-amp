@@ -16,9 +16,15 @@ exports[`HamburgerMenu should render 1`] = `
     layout="nodisplay"
     side="left"
   >
-    <styled.ul
-      dir="ltr"
-    />
+    <amp-nested-menu
+      layout="fill"
+    >
+      <styled.ul
+        dir="ltr"
+      >
+        <Component />
+      </styled.ul>
+    </amp-nested-menu>
   </amp-sidebar>
 </Fragment>
 `;

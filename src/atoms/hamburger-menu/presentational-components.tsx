@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Close } from "../icons";
 
 export const StyledList = styled.ul`
   list-style: none;
@@ -13,9 +12,14 @@ export const StyledList = styled.ul`
     return `${fontWeight} ${fontSize} ${fontFamily}`;
   }};
 `;
-export const StyledListItem = styled.li`
+export const StyledListItem = styled.div`
   margin: 15px 0;
   color: ${(props) => props.theme.color.secondaryColor};
+`;
+export const ListItemWithSubmenu = styled(StyledListItem)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 export const StyledCloseIcon = styled.div`
   cursor: pointer;
@@ -26,10 +30,3 @@ export const StyledAnchor = styled.a`
   text-decoration: none;
   color: ${(props) => props.theme.color.secondaryColor};
 `;
-export const CloseButton = () => (
-  <StyledListItem>
-    <StyledCloseIcon role="button" tabIndex={0} on="tap:sidebar.close">
-      <Close />
-    </StyledCloseIcon>
-  </StyledListItem>
-);
