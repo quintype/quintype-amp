@@ -1,5 +1,6 @@
+import { HamburgerMenuItem } from "../atoms/hamburger-menu/types";
 export class FlatToTree {
-  flatArr: any;
+  flatArr: HamburgerMenuItem[];
   hashMap: object;
   constructor(arr) {
     this.flatArr = arr;
@@ -15,8 +16,10 @@ export class FlatToTree {
     this.flatArr.forEach((item) => {
       if (item["parent-id"] !== null) {
         const parentNode = newArr.find((e) => e.id === item["parent-id"]);
-        if (!parentNode["child-items"]) parentNode["child-items"] = [];
-        parentNode["child-items"].push(item);
+        if (parentNode) {
+          if (!parentNode["child-items"]) parentNode["child-items"] = [];
+          parentNode["child-items"].push(item);
+        }
       }
     });
     this.flatArr = [...newArr];

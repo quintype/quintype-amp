@@ -12,8 +12,8 @@ export const HamburgerMenu = ({ align, items, textDirection }: HamburgerMenuType
       <Helmet>
         <script async={undefined} custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js" />
       </Helmet>
-      <amp-sidebar id="sidebar" layout="nodisplay" side={align}>
-        <amp-nested-menu layout="fill">
+      <amp-sidebar id="sidebar" layout="nodisplay" side={align} on="sidebarClose:nested-menu.reset">
+        <amp-nested-menu layout="fill" id="nested-menu">
           <StyledList dir={textDirection}>
             <CloseButton />
             {itemsTree.map((item) => (

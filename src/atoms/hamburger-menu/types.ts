@@ -1,16 +1,11 @@
 export interface HamburgerMenuTypes {
   align: "left" | "right";
   textDirection: "ltr" | "rtl";
-  items: MenuItemType[];
+  items: HamburgerMenuItem[];
 }
 
-export type MenuItemType = MenuItemPlaceholder | MenuItemLink | MenuItemDefault;
-
-// export interface MenuItemTypes {
-//   item: MenuItem[];
-// }
-
-interface MenuItemBase {
+export interface HamburgerMenuItem {
+  "item-type": string;
   "tag-name": string | null;
   "entity-properties": string | null;
   "collection-id": number | null;
@@ -18,6 +13,7 @@ interface MenuItemBase {
   "item-id": number | null;
   rank: number;
   title: string;
+  url: string | null;
   "section-slug": string | null;
   "tag-slug": string | null;
   id: number;
@@ -25,28 +21,16 @@ interface MenuItemBase {
   "entity-name": string | null;
   "collection-slug": string | null;
   "section-name": string | null;
-  "child-items"?: MenuItemType[];
+  "child-items"?: HamburgerMenuItem[];
+  data: {
+    color: string;
+    link?: string;
+  };
 }
 
-export interface MenuItemPlaceholder extends MenuItemBase {
-  url: null;
-  "item-type": "placeholder";
-  data: {
-    color: string;
-  };
+export interface MenuItemComponentTypes {
+  item: HamburgerMenuItem;
 }
-export interface MenuItemLink extends MenuItemBase {
-  "item-type": "link";
-  url: string;
-  data: {
-    color: string;
-    link: string;
-  };
-}
-export interface MenuItemDefault extends MenuItemBase {
-  "item-type": string;
-  url: string;
-  data: {
-    color: string;
-  };
+export interface TreeNodeComponentTypes {
+  item: HamburgerMenuItem;
 }
