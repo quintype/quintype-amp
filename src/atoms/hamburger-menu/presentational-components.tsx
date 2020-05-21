@@ -1,7 +1,6 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-// this was ul
-export const StyledList = styled.div`
+export const StyledList = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0 15px;
@@ -13,12 +12,15 @@ export const StyledList = styled.div`
     return `${fontWeight} ${fontSize} ${fontFamily}`;
   }};
 `;
-// this was li
-export const StyledListItem = styled.h2`
+const baseListItemStyles = css`
   margin: 15px 0;
   color: ${(props) => props.theme.color.secondaryColor};
 `;
-export const SubmenuWrapper = styled.div`
+export const StyledListItem = styled.li`
+  ${baseListItemStyles}
+`;
+export const SubmenuWrapper = styled.li`
+  ${baseListItemStyles}
   display: flex;
   justify-content: space-between;
   align-items: center;
