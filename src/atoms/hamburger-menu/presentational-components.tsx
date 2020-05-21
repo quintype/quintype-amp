@@ -7,13 +7,13 @@ export const StyledList = styled.ul`
   min-width: 220px;
   font: ${(props) => {
     const fontFamily = props.theme.font.family.primary;
-    const fontWeight = props.theme.font.weight.bold;
+    const fontWeight = props.theme.font.weight.normal;
     const fontSize = props.theme.font.size.s;
     return `${fontWeight} ${fontSize} ${fontFamily}`;
   }};
 `;
 const baseListItemStyles = css`
-  margin: 15px 0;
+  margin: 20px 0;
   color: ${(props) => props.theme.color.secondaryColor};
 `;
 export const StyledListItem = styled.li`
