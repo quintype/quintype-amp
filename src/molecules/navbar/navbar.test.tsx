@@ -40,12 +40,9 @@ describe("Navbar", () => {
   it("should render", () => {
     const wrapper = mount(<DefaultLayoutWithNavbar />);
     expect(wrapper.find(Navbar).exists()).toBeTruthy();
-    expect(
-      wrapper
-        .find("ul")
-        .first()
-        .prop("dir")
-    ).toBe("ltr");
+    wrapper.find("ul").forEach((node) => {
+      expect(node.prop("dir")).toBe("ltr");
+    });
   });
   it("Navbar with hamburger menu disabled", () => {
     const wrapper = mount(<LayoutWithMenuDisabled />);
@@ -63,11 +60,8 @@ describe("Navbar", () => {
   });
   it("Navbar with text direction RTL", () => {
     const wrapper = mount(<LayoutWithRTL />);
-    expect(
-      wrapper
-        .find("ul")
-        .first()
-        .prop("dir")
-    ).toBe("rtl");
+    wrapper.find("ul").forEach((node) => {
+      expect(node.prop("dir")).toBe("rtl");
+    });
   });
 });

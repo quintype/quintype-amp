@@ -30,7 +30,7 @@ export const HamburgerMenu = ({ align, items, textDirection }: HamburgerMenuType
           <StyledList dir={textDirection}>
             <CloseButton />
             {itemsTree.map((item) => (
-              <TreeNode item={item} key={item.id} />
+              <TreeNode item={item} key={item.id} textDirection={textDirection} />
             ))}
           </StyledList>
         </amp-nested-menu>

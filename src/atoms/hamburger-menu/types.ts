@@ -33,8 +33,10 @@ export interface MenuItemComponentTypes {
 }
 export interface TreeNodeComponentTypes {
   item: HamburgerMenuItem;
+  textDirection: "ltr" | "rtl";
 }
 
 export interface SubMenuTypes {
   childItems: HamburgerMenuItem[];
+  textDirection: "ltr" | "rtl";
 }
