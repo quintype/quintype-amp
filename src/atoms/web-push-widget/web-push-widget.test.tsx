@@ -3,7 +3,7 @@ import { WebPushWidget } from "./web-push-widget";
 import { shallow } from "enzyme";
 
 const wrapper = shallow(
-  <WebPushWidget visibility="unsubscribed">
+  <WebPushWidget visibility="unsubscribed" width="350px" height="60px">
     <button>Click me</button>
     <div>I am WebPushWidget's child</div>
   </WebPushWidget>
