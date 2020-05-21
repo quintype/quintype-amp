@@ -24,8 +24,8 @@ export const CloseButton = () => (
   </StyledListItem>
 );
 
-const SubmenuOpen = () => <span amp-nested-submenu-open="true">{" 〉"}</span>;
-const SubmenuClose = () => <span amp-nested-submenu-close="true">{"〈 "}</span>;
+const SubmenuOpen = () => <span amp-nested-submenu-open="true">{" > "}</span>;
+const SubmenuClose = () => <span amp-nested-submenu-close="true">{" < "}</span>;
 
 export const MenuItem = ({ item }: MenuItemComponentTypes) =>
   item["item-type"] === "placeholder" ? <Placeholder item={item} /> : <DefaultItem item={item} />;
