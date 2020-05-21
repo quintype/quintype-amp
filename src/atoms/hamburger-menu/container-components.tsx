@@ -1,38 +1,30 @@
 import React from "react";
-import { MenuItemComponentTypes, TreeNodeComponentTypes } from "./types";
-import { StyledListItem, StyledAnchor, StyledCloseIcon, ListItemWithSubmenu } from "./presentational-components";
+import { MenuItemComponentTypes, TreeNodeComponentTypes, SubMenuTypes } from "./types";
+import { StyledListItem, StyledAnchor, StyledCloseIcon, StyledList, SubmenuWrapper } from "./presentational-components";
 // import { Close } from "../icons";
 
 export const TreeNode = ({ item }: TreeNodeComponentTypes) => {
   return item["child-items"] && item["child-items"].length ? (
-    <ListItemWithSubmenu>
+    <SubmenuWrapper data-message="This should wrap submenu">
       <MenuItem item={item} />
       <SubmenuOpen />
-      <div amp-nested-submenu="true">
-        this is the Submenu
-        {item["child-items"].map((childItem) => (
-          <TreeNode key={childItem.id} item={childItem} />
-        ))}
-        <SubmenuClose />
-      </div>
-    </ListItemWithSubmenu>
+      <SubMenu childItems={item["child-items"]} />
+    </SubmenuWrapper>
   ) : (
-    <StyledListItem>
-      <MenuItem item={item} />
-    </StyledListItem>
+    <MenuItem item={item} />
   );
 };
 
 export const CloseButton = () => (
   <StyledListItem>
     <StyledCloseIcon role="button" tabIndex={0} on="tap:sidebar.close">
-      {/* <Close /> */}X
+      X
     </StyledCloseIcon>
   </StyledListItem>
 );
 
-const SubmenuOpen = () => <StyledListItem amp-nested-submenu-open="true">{" > "}</StyledListItem>;
-const SubmenuClose = () => <StyledListItem amp-nested-submenu-close="true">{" < "}</StyledListItem>;
+const SubmenuOpen = () => <h3 amp-nested-submenu-open="true">{" > "}</h3>;
+const SubmenuClose = () => <span amp-nested-submenu-close="true">{" < "}</span>;
 
 export const MenuItem = ({ item }: MenuItemComponentTypes) =>
   item["item-type"] === "placeholder" ? (
@@ -48,4 +40,16 @@ export const MenuItem = ({ item }: MenuItemComponentTypes) =>
 const Placeholder = ({ item }: MenuItemComponentTypes) => <span>{item.title}</span>;
 const DefaultItem = ({ item }: MenuItemComponentTypes) => (
   <StyledAnchor href={item.url || item.data.link}>{item.title}</StyledAnchor>
+);
+
+const SubMenu = ({ childItems }: SubMenuTypes) => (
+  <div amp-nested-submenu="true">
+    <StyledList>
+      this is the Submenu.
+      {childItems.map((childItem) => (
+        <TreeNode key={childItem.id} item={childItem} />
+      ))}
+      <SubmenuClose />
+    </StyledList>
+  </div>
 );

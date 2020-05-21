@@ -34,3 +34,7 @@ export interface MenuItemComponentTypes {
 export interface TreeNodeComponentTypes {
   item: HamburgerMenuItem;
 }
+
+export interface SubMenuTypes {
+  childItems: HamburgerMenuItem[];
+}
