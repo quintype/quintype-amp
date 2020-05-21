@@ -5,7 +5,7 @@ export interface HamburgerMenuTypes {
 }
 
 export interface HamburgerMenuItem {
-  "item-type": string;
+  "item-type": string | null;
   "tag-name": string | null;
   "entity-properties": string | null;
   "collection-id": number | null;
