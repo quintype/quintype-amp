@@ -1,7 +1,6 @@
 import React from "react";
 import { MenuItemComponentTypes, TreeNodeComponentTypes, SubMenuTypes } from "./types";
 import { StyledListItem, StyledAnchor, StyledCloseIcon, StyledList, SubmenuWrapper } from "./presentational-components";
-// import { Close } from "../icons";
 
 export const TreeNode = ({ item }: TreeNodeComponentTypes) => {
   return item["child-items"] && item["child-items"].length ? (
@@ -31,8 +30,8 @@ const SubmenuClose = () => <span amp-nested-submenu-close="true">{" < "}</span>;
 export const MenuItem = ({ item }: MenuItemComponentTypes) =>
   item["item-type"] === "placeholder" ? <Placeholder item={item} /> : <DefaultItem item={item} />;
 
-const Placeholder = ({ item }: MenuItemComponentTypes) => <span>{item.title}</span>;
-const DefaultItem = ({ item }: MenuItemComponentTypes) => (
+export const Placeholder = ({ item }: MenuItemComponentTypes) => <span>{item.title}</span>;
+export const DefaultItem = ({ item }: MenuItemComponentTypes) => (
   <StyledAnchor href={item.url || item.data.link}>{item.title}</StyledAnchor>
 );
 

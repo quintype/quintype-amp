@@ -12,7 +12,7 @@ export const HamburgerMenu = ({ align, items, textDirection }: HamburgerMenuType
     childrenField: "child-items"
   });
   const sidebarStyles = {
-    // "minWidth": "300px !important"
+    width: "250px"
   };
 
   return (

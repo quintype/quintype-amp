@@ -28,7 +28,7 @@ export const SubmenuWrapper = styled.li`
 export const StyledCloseIcon = styled.div`
   cursor: pointer;
   width: 1rem;
-  margin: 0 10px 0 auto;
+  margin: 0 0 0 auto;
 `;
 export const StyledAnchor = styled.a`
   text-decoration: none;

@@ -1,7 +1,9 @@
 import React from "react";
 import { HamburgerMenu } from "./hamburger-menu";
-import { StyledAnchor } from "./components";
-import { shallow } from "enzyme";
+import { StyledAnchor } from "./presentational-components";
+import { mount, shallow } from "enzyme";
+import { Layout } from "../layout";
+import { textStory, config } from "../../__fixtures__";
 
 describe("HamburgerMenu", () => {
   it("should render", () => {
@@ -30,10 +32,46 @@ describe("HamburgerMenu", () => {
         data: {
           color: "#FFFFFF"
         }
+      },
+      {
+        "tag-name": null,
+        "entity-properties": null,
+        "collection-id": 96306,
+        "entity-slug": null,
+        "item-id": 43290,
+        rank: 9183,
+        title: "Podcasts",
+        "item-type": "section",
+        "section-slug": "podcast-new",
+        "tag-slug": null,
+        id: 9183,
+        "parent-id": null,
+        url: "https://newslaundry-web.qtstage.io/podcast-new",
+        "entity-name": null,
+        "collection-slug": "podcast-new",
+        "section-name": "podcast new",
+        data: {
+          color: "#d8a86b"
+        }
       }
     ];
-    const wrapper = shallow(<HamburgerMenu textDirection="ltr" align="left" items={dummyMenuItems} />);
-    expect(wrapper.find(StyledAnchor).prop("href")).toBe("bar");
-    expect(wrapper.find(StyledAnchor).text()).toBe("foo");
+    const Component = () => (
+      <Layout story={textStory} config={config}>
+        <HamburgerMenu textDirection="ltr" align="left" items={dummyMenuItems} />
+      </Layout>
+    );
+    const wrapper = mount(<Component />);
+    wrapper.find(StyledAnchor).forEach((node, idx) => {
+      switch (idx) {
+        case 0:
+          expect(node.prop("href")).toBe("bar");
+          expect(node.text()).toBe("foo");
+          break;
+        case 1:
+          expect(node.prop("href")).toBe("https://newslaundry-web.qtstage.io/podcast-new");
+          expect(node.text()).toBe("Podcasts");
+          break;
+      }
+    });
   });
 });
