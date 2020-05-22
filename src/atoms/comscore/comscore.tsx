@@ -12,7 +12,7 @@ const ComScoreBase = ({ config }) => {
       comscorekw: "amp"
     }
   };
-  return <Analytics targets={targets} />;
+  return <Analytics type="comscore" targets={targets} />;
 };
 
 const ComScore = withConfig(ComScoreBase);
