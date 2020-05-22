@@ -2,8 +2,18 @@
  * @jest-environment node
  */
 
+// FYI mount wont work here as this runs in node env
 import { getTargetingInfo } from "./helpers";
+import { shallow } from "enzyme";
+import { DfpAd } from "./dfp-ad";
+import React from "react";
 
+describe("dfp-ad component", () => {
+  it("Should match snapshot", () => {
+    const wrapper = shallow(<DfpAd />);
+    expect(wrapper).toMatchSnapshot();
+  });
+});
 test("getTargetingInfo helper", async () => {
   const dummyStory = {
     sections: [{ slug: "news" }, { slug: "politics" }]

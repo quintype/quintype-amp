@@ -35,7 +35,6 @@ describe("DFP Ads", () => {
         <BottomAd />
       </Layout>
     );
-    expect(wrapper).toMatchSnapshot();
     expect(wrapper.find("amp-ad").length).toBe(3);
     wrapper.find("amp-ad").forEach((node, index) => {
       switch (index) {
