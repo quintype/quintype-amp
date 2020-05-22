@@ -44,7 +44,9 @@ const TextStory = ({ story, config, relatedStories }) => (
           return canDisplayBodyAd(cardIdx) ? (
             <Fragment key={card.id}>
               {storyCard}
+              <Spacer token="l" />
               <BodyAd />
+              <Spacer token="l" />
             </Fragment>
           ) : (
             <Fragment key={card.id}>{storyCard}</Fragment>

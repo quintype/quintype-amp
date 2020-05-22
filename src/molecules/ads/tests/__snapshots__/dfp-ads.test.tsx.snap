@@ -8,6 +8,7 @@ exports[`DFP Ads should render TopAd, BodyAd, BottomAd correctly 1`] = `
 
 .c1 {
   text-align: center;
+  background-color: #f9f9f9;
 }
 
 <Layout
