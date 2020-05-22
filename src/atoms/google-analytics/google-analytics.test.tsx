@@ -11,12 +11,12 @@ describe("Google Analytics", () => {
     const wrapper = shallow(<GoogleAnalyticsBase config={config} />);
     expect(wrapper.find(Analytics).prop("targets")).toEqual({
       vars: {
-        account: "UX-656565",
-        triggers: {
-          trackPageview: {
-            on: "visible",
-            request: "pageview"
-          }
+        account: "UX-656565"
+      },
+      triggers: {
+        trackPageview: {
+          on: "visible",
+          request: "pageview"
         }
       }
     });
