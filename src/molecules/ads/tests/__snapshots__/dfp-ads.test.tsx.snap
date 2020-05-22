@@ -11,6 +11,10 @@ exports[`DFP Ads should render TopAd, BodyAd, BottomAd correctly 1`] = `
   background-color: #f9f9f9;
 }
 
+.c2 {
+  text-align: center;
+}
+
 <Layout
   config={
     Object {
@@ -2420,7 +2424,9 @@ exports[`DFP Ads should render TopAd, BodyAd, BottomAd correctly 1`] = `
                 }
               }
             >
-              <styled.div>
+              <styled.div
+                darkBackground={true}
+              >
                 <div
                   className="c1"
                 >
@@ -4730,7 +4736,7 @@ exports[`DFP Ads should render TopAd, BodyAd, BottomAd correctly 1`] = `
             >
               <styled.div>
                 <div
-                  className="c1"
+                  className="c2"
                 >
                   <Component
                     data-slot="/3333/lorem/ipsum/sticky"
@@ -7036,7 +7042,9 @@ exports[`DFP Ads should render TopAd, BodyAd, BottomAd correctly 1`] = `
                 }
               }
             >
-              <styled.div>
+              <styled.div
+                darkBackground={true}
+              >
                 <div
                   className="c1"
                 >
