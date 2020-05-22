@@ -52,7 +52,7 @@ export const getCatergoryFromSection = (section, config) => {
   if (parentId) {
     // returns name of parent section or name of section
     const sections = config.publisherConfig.sections;
-    const parentSection = sections.find((sec) => sec.id === parentId);
+    const parentSection = sections && sections.find((sec) => sec.id === parentId);
     return parentSection ? parentSection.name : section.name;
   }
   return category;

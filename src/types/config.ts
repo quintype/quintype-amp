@@ -60,6 +60,13 @@ export interface AMPConfig {
     c1?: number;
     c2?: number;
   };
+  chartbeat?: {
+    uid?: string;
+    domain?: string;
+    useCanonical?: boolean;
+    sections?: string;
+    authors?: string;
+  };
   "gtm-id"?: string;
   "google-client-id-api": boolean;
   "invalid-elements-strategy": string;

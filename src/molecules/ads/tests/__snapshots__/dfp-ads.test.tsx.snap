@@ -14,6 +14,13 @@ exports[`DFP Ads should render TopAd, BodyAd, BottomAd correctly 1`] = `
   config={
     Object {
       "ampConfig": Object {
+        "chartbeat": Object {
+          "authors": "விகடன் வாசகர்",
+          "domain": "vikatan.com",
+          "sections": "miscellaneous",
+          "uid": "61123",
+          "useCanonical": true,
+        },
         "colors": Object {
           "footer-background": "#FDBD10",
           "footer-text-color": "#FFF",
@@ -1771,6 +1778,13 @@ exports[`DFP Ads should render TopAd, BodyAd, BottomAd correctly 1`] = `
               config={
                 Object {
                   "ampConfig": Object {
+                    "chartbeat": Object {
+                      "authors": "விகடன் வாசகர்",
+                      "domain": "vikatan.com",
+                      "sections": "miscellaneous",
+                      "uid": "61123",
+                      "useCanonical": true,
+                    },
                     "colors": Object {
                       "footer-background": "#FDBD10",
                       "footer-text-color": "#FFF",
@@ -2432,6 +2446,13 @@ exports[`DFP Ads should render TopAd, BodyAd, BottomAd correctly 1`] = `
                       config={
                         Object {
                           "ampConfig": Object {
+                            "chartbeat": Object {
+                              "authors": "விகடன் வாசகர்",
+                              "domain": "vikatan.com",
+                              "sections": "miscellaneous",
+                              "uid": "61123",
+                              "useCanonical": true,
+                            },
                             "colors": Object {
                               "footer-background": "#FDBD10",
                               "footer-text-color": "#FFF",
@@ -4079,6 +4100,13 @@ exports[`DFP Ads should render TopAd, BodyAd, BottomAd correctly 1`] = `
               config={
                 Object {
                   "ampConfig": Object {
+                    "chartbeat": Object {
+                      "authors": "விகடன் வாசகர்",
+                      "domain": "vikatan.com",
+                      "sections": "miscellaneous",
+                      "uid": "61123",
+                      "useCanonical": true,
+                    },
                     "colors": Object {
                       "footer-background": "#FDBD10",
                       "footer-text-color": "#FFF",
@@ -4740,6 +4768,13 @@ exports[`DFP Ads should render TopAd, BodyAd, BottomAd correctly 1`] = `
                       config={
                         Object {
                           "ampConfig": Object {
+                            "chartbeat": Object {
+                              "authors": "விகடன் வாசகர்",
+                              "domain": "vikatan.com",
+                              "sections": "miscellaneous",
+                              "uid": "61123",
+                              "useCanonical": true,
+                            },
                             "colors": Object {
                               "footer-background": "#FDBD10",
                               "footer-text-color": "#FFF",
@@ -6387,6 +6422,13 @@ exports[`DFP Ads should render TopAd, BodyAd, BottomAd correctly 1`] = `
               config={
                 Object {
                   "ampConfig": Object {
+                    "chartbeat": Object {
+                      "authors": "விகடன் வாசகர்",
+                      "domain": "vikatan.com",
+                      "sections": "miscellaneous",
+                      "uid": "61123",
+                      "useCanonical": true,
+                    },
                     "colors": Object {
                       "footer-background": "#FDBD10",
                       "footer-text-color": "#FFF",
@@ -7048,6 +7090,13 @@ exports[`DFP Ads should render TopAd, BodyAd, BottomAd correctly 1`] = `
                       config={
                         Object {
                           "ampConfig": Object {
+                            "chartbeat": Object {
+                              "authors": "விகடன் வாசகர்",
+                              "domain": "vikatan.com",
+                              "sections": "miscellaneous",
+                              "uid": "61123",
+                              "useCanonical": true,
+                            },
                             "colors": Object {
                               "footer-background": "#FDBD10",
                               "footer-text-color": "#FFF",
