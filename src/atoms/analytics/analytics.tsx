@@ -2,9 +2,10 @@ import React, { Fragment } from "react";
 import { AnalyticsProps } from "./types";
 import Helmet from "react-helmet";
 
-const Analytics = ({ type, targets, config, "data-credentials": dataCredentials }: AnalyticsProps) => {
+const Analytics = ({ type, targets, config, "data-credentials": dataCredentials, id }: AnalyticsProps) => {
   const ampAnalyticsProps = {
     ...(type && { type }),
+    ...(id && { id }),
     ...(dataCredentials && { "data-credentials": dataCredentials }),
     ...(config && { config })
   };

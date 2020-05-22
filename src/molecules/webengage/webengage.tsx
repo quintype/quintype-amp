@@ -12,7 +12,7 @@ export const WebEngageBase = ({ story, config, buttonText, width, height, visibi
   return (
     <Fragment>
       <Spacer token="m" />
-      <Analytics type="webengage" targets={trackingCode} />
+      <Analytics id="webengage" type="webengage" targets={trackingCode} />
       <WebPush
         id="amp-web-push"
         helper-iframe-url={`${websiteUrl}/api/amp-web-push-helper-frame.html?version=1`}

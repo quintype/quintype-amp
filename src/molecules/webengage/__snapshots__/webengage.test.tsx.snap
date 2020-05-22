@@ -6,6 +6,7 @@ exports[`Webengage should match snapshot 1`] = `
     token="m"
   />
   <Analytics
+    id="webengage"
     targets={
       Object {
         "requests": Object {
