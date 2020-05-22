@@ -5,6 +5,7 @@ export const publisherConfig: PublisherConfig = {
   "sketches-host": "https://www.vikatan.com",
   "text-direction": "ltr",
   "publisher-name": "vikatan",
+  env: "production",
   "publisher-id": 1,
   "publisher-settings": {
     title: "Newslaundry",

@@ -2,8 +2,10 @@
 
 exports[`WebPushWidget should render 1`] = `
 <amp-web-push-widget
+  height="60px"
   layout="fixed"
   visibility="unsubscribed"
+  width="350px"
 >
   <button>
     Click me

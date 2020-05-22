@@ -9,6 +9,7 @@ export interface PublisherConfig {
   "cdn-name": string;
   "text-direction": "ltr" | "rtl";
   "publisher-name": string;
+  env: string;
   "publisher-id": number;
   "publisher-settings"?: object;
 }
