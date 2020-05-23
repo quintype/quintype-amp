@@ -28,10 +28,10 @@ const StyledBlockQuote = styled.blockquote`
 `;
 
 const StyledAttribution = styled.span`
-  text-align: right;
   color: ${(props) => props.theme.color.mono6};
   font-size: ${(props) => props.theme.font.size.m};
   font-weight: bold;
+  padding: 0 0 0 38px;
   &:before {
     content: "-";
     margin-right: 5px;

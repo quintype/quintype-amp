@@ -9,7 +9,8 @@ import {
   GoogleTagManager,
   GoogleAnalytics,
   QuintypeAnalytics,
-  ComScore
+  ComScore,
+  ChartBeat
 } from "../../atoms";
 import styled from "styled-components";
 
@@ -63,6 +64,7 @@ const TextStory = ({ story, config, relatedStories }) => (
     <GoogleAnalytics />
     <QuintypeAnalytics />
     <ComScore />
+    <ChartBeat />
   </Layout>
 );
 

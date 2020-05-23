@@ -599,6 +599,13 @@ export const ampConfig: AMPConfig = {
     c1: 123,
     c2: 456
   },
+  chartbeat: {
+    uid: "61123",
+    domain: "vikatan.com",
+    useCanonical: true,
+    sections: "News",
+    authors: "Ravi Kanth"
+  },
   "gtm-id": "GTM-XXXXXX",
   "google-client-id-api": false,
   "invalid-elements-strategy": "redirect-to-web-version",

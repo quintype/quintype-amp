@@ -24,4 +24,8 @@ describe("ComScore", () => {
       }
     });
   });
+  it("should render with type prop", () => {
+    const wrapper = shallow(<ComScoreBase config={config} />);
+    expect(wrapper.find(Analytics).prop("type")).toEqual("comscore");
+  });
 });
