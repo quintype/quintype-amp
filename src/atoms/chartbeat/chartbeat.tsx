@@ -6,14 +6,13 @@ const ChartBeatBase = ({ story, config }) => {
   if (!config.ampConfig["chartbeat"]) {
     return null;
   }
-  const sections = story && story.sections[0]["name"];
-  const authors = story && story["author-name"];
-  const enableCanonical = story && story["canonical-url"] === null ? false : true;
+  const sections = story.sections.map((section) => section.name);
+  const authors = story["author-name"];
   const targets = {
     vars: {
       uid: config.ampConfig.chartbeat["uid"],
       domain: config.ampConfig.chartbeat["domain"],
-      useCanonical: enableCanonical,
+      useCanonical: true,
       sections: sections,
       authors: authors
     }

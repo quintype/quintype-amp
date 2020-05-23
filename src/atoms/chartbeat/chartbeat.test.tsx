@@ -18,7 +18,7 @@ describe("ChartBeat", () => {
       vars: {
         uid: "61123",
         domain: "vikatan.com",
-        useCanonical: false,
+        useCanonical: true,
         sections: "News",
         authors: "Ravi Kanth"
       }
