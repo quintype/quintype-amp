@@ -4,7 +4,7 @@ import Helmet from "react-helmet";
 
 const Iframe = ({
   src,
-  sandbox = "allow-scripts",
+  sandbox = "allow-scripts allow-same-origin",
   layout = "responsive",
   frameborder = "0",
   width = "16",

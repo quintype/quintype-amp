@@ -23,7 +23,7 @@ const StoryContainer = styled.div`
 const Wrapper = styled.div`
   padding: 0 ${(props) => props.theme.spacing.s};
 `;
-const canDisplayBodyAd = (cardIdx, cardsArr) => cardIdx === 0 && cardsArr.length > 1;
+const canDisplayBodyAd = (cardIdx) => cardIdx === 0;
 const TextStory = ({ story, config, relatedStories }) => (
   <Layout story={story} config={config}>
     <Navbar />
@@ -41,10 +41,12 @@ const TextStory = ({ story, config, relatedStories }) => (
           const storyCard = card["story-elements"].map((element) => (
             <StoryElement key={element.id} element={element} />
           ));
-          return canDisplayBodyAd(cardIdx, story.cards) ? (
+          return canDisplayBodyAd(cardIdx) ? (
             <Fragment key={card.id}>
               {storyCard}
+              <Spacer token="l" />
               <BodyAd />
+              <Spacer token="l" />
             </Fragment>
           ) : (
             <Fragment key={card.id}>{storyCard}</Fragment>

@@ -9,4 +9,5 @@ export interface AnalyticsProps {
   extraUrlParams?: object;
   triggers?: object;
   transport?: object;
+  id?: string;
 }
