@@ -6,7 +6,7 @@ const ChartBeatBase = ({ story, config }) => {
   if (!config.ampConfig["chartbeat"]) {
     return null;
   }
-  const sections = story.sections.map((section) => section.name);
+  const sections = story.sections.map((section) => section.name).join(",");
   const authors = story["author-name"];
   const targets = {
     vars: {
