@@ -15,7 +15,7 @@ const dateTimeFormats = {
   dateWithTime: "do MMM, yyyy 'at' p"
 };
 
-const DateTime = ({ dateTime, formatString, showTime }: DateTimeProps) => {
+export const DateTime = ({ dateTime, formatString, showTime, prepend }: DateTimeProps) => {
   if (!dateTime) {
     return null;
   }
@@ -31,7 +31,10 @@ const DateTime = ({ dateTime, formatString, showTime }: DateTimeProps) => {
   }
 
   const humanizedDate = format(timeZonedTime, formatDateTime, { timeZone });
-  return <StyledTime dateTime={humanizedDate}>{humanizedDate}</StyledTime>;
+  return (
+    <StyledTime dateTime={humanizedDate}>
+      {prepend && prepend}
+      {humanizedDate}
+    </StyledTime>
+  );
 };
-
-export { DateTime };
