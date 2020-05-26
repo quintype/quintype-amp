@@ -4,7 +4,7 @@ import { SocialShareIcon } from "./social-share-icon";
 
 describe("Social Share Icon", () => {
   it("should render SocialShareIcon for facebook", () => {
-    const wrapper = shallow(<SocialShareIcon type="facebook" appId="1" />);
+    const wrapper = shallow(<SocialShareIcon type="facebook" fbAppId="1" />);
     expect(wrapper.find("amp-social-share[data-param-app_id='1']").length).toBe(1);
   });
 

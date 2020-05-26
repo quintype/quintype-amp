@@ -7,7 +7,7 @@ const Wrapper = styled.div`
 `;
 
 interface SocialShareHeaderProps {
-  fbAppId: string;
+  fbAppId?: string;
 }
 
 const SocialShareHeader = ({ fbAppId }: SocialShareHeaderProps) => {
@@ -16,7 +16,7 @@ const SocialShareHeader = ({ fbAppId }: SocialShareHeaderProps) => {
     <Wrapper>
       <SocialShareIcon type="twitter" styles={styles} />
       <Spacer align="horizontal" token="m" />
-      <SocialShareIcon type="facebook" styles={styles} appId={fbAppId} />
+      <SocialShareIcon type="facebook" styles={styles} fbAppId={fbAppId} />
       <Spacer align="horizontal" token="m" />
       <SocialShareIcon type="whatsapp" styles={styles} />
     </Wrapper>
