@@ -6,12 +6,17 @@ export interface Config {
 
 export interface PublisherConfig {
   "sketches-host": string;
+  facebook: FBConfig;
   "cdn-name": string;
   "text-direction": "ltr" | "rtl";
   "publisher-name": string;
   env: string;
   "publisher-id": number;
   "publisher-settings"?: object;
+}
+
+interface FBConfig {
+  appId: string;
 }
 
 interface Colors {
