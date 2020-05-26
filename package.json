@@ -1,6 +1,6 @@
 {
   "name": "@quintype/amp",
-  "version": "1.0.19-vikatan-pre-prod.2",
+  "version": "1.0.23",
   "description": "Quintype's AMP component library for publisher apps to create amp layouts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
