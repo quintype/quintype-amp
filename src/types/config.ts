@@ -16,7 +16,7 @@ export interface PublisherConfig {
 }
 
 interface FBConfig {
-  appId: string;
+  "app-id": string;
 }
 
 interface Colors {

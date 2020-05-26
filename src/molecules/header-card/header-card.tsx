@@ -33,7 +33,7 @@ const HeaderCardBase = ({ story, config }: HeaderCardTypes) => {
         <Spacer token="xxs" />
         <DateTime dateTime={story["last-published-at"]} showTime={true} />
         <Spacer token="m" />
-        <SocialShareHeader fbAppId={publisherConfig.facebook && publisherConfig.facebook.appId} />
+        <SocialShareHeader fbAppId={publisherConfig.facebook && publisherConfig.facebook["app-id"]} />
         <Spacer token="s" />
       </HeaderCardContainer>
     </div>
