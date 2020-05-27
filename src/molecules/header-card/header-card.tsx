@@ -1,11 +1,11 @@
 import React from "react";
+import { Author, Section, Spacer } from "../../atoms";
 import { withStoryAndConfig } from "../../context";
-import { HeaderCardTypes } from "./types";
 import { HeroImage } from "../hero-image";
-import { Spacer, Section, Author } from "../../atoms";
 import { SocialShareHeader } from "../social-share-header";
 import styled from "styled-components";
 import { DateLastPublished } from "../date";
+import { HeaderCardTypes } from "./types";
 
 const Headline = styled.h1`
   font-family: ${(props) => props.theme.font.family.primary};
@@ -19,7 +19,8 @@ const HeaderCardContainer = styled.div`
   padding: 0 ${(props) => props.theme.spacing.s};
   border-bottom: ${(props) => `1px solid ${props.theme.color.black}`};
 `;
-const HeaderCardBase = ({ story }: HeaderCardTypes) => {
+const HeaderCardBase = ({ story, config }: HeaderCardTypes) => {
+  const { publisherConfig } = config;
   return (
     <div>
       <HeroImage />
@@ -33,7 +34,7 @@ const HeaderCardBase = ({ story }: HeaderCardTypes) => {
         <Spacer token="xxs" />
         <DateLastPublished />
         <Spacer token="m" />
-        <SocialShareHeader />
+        <SocialShareHeader fbAppId={publisherConfig.facebook && publisherConfig.facebook["app-id"]} />
         <Spacer token="s" />
       </HeaderCardContainer>
     </div>

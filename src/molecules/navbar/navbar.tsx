@@ -6,7 +6,7 @@ import { withConfig } from "../../context";
 import get from "lodash.get";
 import { withTheme } from "styled-components";
 
-const { Hamburger, Close } = icons;
+const { Hamburger } = icons;
 
 const StyledNavbar = styled.header`
   width: 100%;
@@ -18,14 +18,6 @@ const LogoWrapper = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-`;
-const StyledCloseIcon = styled.div`
-  cursor: pointer;
-  width: 1rem;
-  margin: 0 10px 0 auto;
-`;
-const StyledListItem = styled.li`
-  padding: 20px 0 0;
 `;
 export const HamburgerWrapper = styled.div<{ align: "left" | "right" }>`
   position: absolute;
@@ -60,13 +52,7 @@ export const NavbarBase = ({ logoSrc, align = "left", config, theme }: NavbarTyp
           <HamburgerWrapper role="button" tabIndex={0} on="tap:sidebar.open" align={align}>
             <Hamburger width="40" height="40" color={hamburgerColor} />
           </HamburgerWrapper>
-          <HamburgerMenu align={align} textDirection={textDirection} items={hamburgerMenuItems}>
-            <StyledListItem>
-              <StyledCloseIcon role="button" tabIndex={0} on="tap:sidebar.close">
-                <Close />
-              </StyledCloseIcon>
-            </StyledListItem>
-          </HamburgerMenu>
+          <HamburgerMenu align={align} textDirection={textDirection} items={hamburgerMenuItems} />
         </Fragment>
       )}
     </StyledNavbar>

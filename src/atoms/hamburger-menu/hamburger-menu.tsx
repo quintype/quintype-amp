@@ -1,46 +1,39 @@
 import React, { Fragment } from "react";
 import { Helmet } from "react-helmet";
 import { HamburgerMenuTypes } from "./types";
-import styled from "styled-components";
+import { CloseButton, TreeNode } from "./container-components";
+import { StyledList } from "./presentational-components";
+import { arrayToTree } from "performant-array-to-tree";
 
-const StyledList = styled.ul`
-  list-style: none;
-  margin: 0;
-  padding: 0 15px;
-  min-width: 220px;
-  font: ${(props) => {
-    const fontFamily = props.theme.font.family.primary;
-    const fontWeight = props.theme.font.weight.bold;
-    const fontSize = props.theme.font.size.s;
-    return `${fontWeight} ${fontSize} ${fontFamily}`;
-  }};
-`;
+export const HamburgerMenu = ({ align, items, textDirection }: HamburgerMenuTypes) => {
+  const itemsTree: any = arrayToTree(items, {
+    dataField: null,
+    parentId: "parent-id",
+    childrenField: "child-items"
+  });
+  const sidebarStyles = {
+    width: "250px"
+  };
 
-const StyledListItem = styled.li`
-  margin: 15px 0;
-  color: ${(props) => props.theme.color.secondaryColor};
-`;
-
-export const StyledAnchor = styled.a`
-  text-decoration: none;
-  color: ${(props) => props.theme.color.secondaryColor};
-`;
-
-export const HamburgerMenu = ({ align, children, items, textDirection }: HamburgerMenuTypes) => {
   return (
     <Fragment>
       <Helmet>
         <script async={undefined} custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js" />
       </Helmet>
-      <amp-sidebar id="sidebar" layout="nodisplay" side={align}>
-        <StyledList dir={textDirection}>
-          {children}
-          {items.map((item, i) => (
-            <StyledListItem key={i}>
-              <StyledAnchor href={item.url}>{item.title}</StyledAnchor>
-            </StyledListItem>
-          ))}
-        </StyledList>
+      <amp-sidebar
+        id="sidebar"
+        layout="nodisplay"
+        side={align}
+        on="sidebarClose:nested-menu.reset"
+        style={sidebarStyles}>
+        <amp-nested-menu layout="fill" id="nested-menu">
+          <StyledList dir={textDirection}>
+            <CloseButton />
+            {itemsTree.map((item) => (
+              <TreeNode item={item} key={item.id} textDirection={textDirection} />
+            ))}
+          </StyledList>
+        </amp-nested-menu>
       </amp-sidebar>
     </Fragment>
   );
