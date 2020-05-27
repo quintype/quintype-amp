@@ -2,9 +2,10 @@ import React from "react";
 import { withStoryAndConfig } from "../../context";
 import { HeaderCardTypes } from "./types";
 import { HeroImage } from "../hero-image";
-import { Spacer, Section, Author, DateTime } from "../../atoms";
+import { Spacer, Section, Author } from "../../atoms";
 import { SocialShareHeader } from "../social-share-header";
 import styled from "styled-components";
+import { DateLastPublished } from "../date";
 
 const Headline = styled.h1`
   font-family: ${(props) => props.theme.font.family.primary};
@@ -21,7 +22,7 @@ const HeaderCardContainer = styled.div`
 const HeaderCardBase = ({ story }: HeaderCardTypes) => {
   return (
     <div>
-      <HeroImage story={story} />
+      <HeroImage />
       <Spacer token="xs" />
       <HeaderCardContainer>
         <Section section={story.sections[0]} />
@@ -30,7 +31,7 @@ const HeaderCardBase = ({ story }: HeaderCardTypes) => {
         <Spacer token="s" />
         <Author authors={story.authors} prepend="By " />
         <Spacer token="xxs" />
-        <DateTime dateTime={story["last-published-at"]} showTime={true} />
+        <DateLastPublished />
         <Spacer token="m" />
         <SocialShareHeader />
         <Spacer token="s" />

@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import styled from "styled-components";
 import { Image, DateTime, Spacer } from "../../atoms";
 import { RelatedStoryCardTypes } from "./types";
+import { getHumanizedDateTime } from "../../utils/date-time";
 
 const Wrapper = styled.div`
   margin: ${(props) => `0 0 ${props.theme.spacing.l} 0`};
@@ -27,6 +28,11 @@ export const RelatedStoryCard = ({ story, aspectRatio, fallbackSrc }: RelatedSto
     "hero-image-caption": imgCaption,
     "last-published-at": lastPublishedAt
   } = story;
+  const humanizedDate = getHumanizedDateTime({
+    dateFormat: "do MMM, yyyy 'at' p",
+    timeZone: "Asia/Kolkata",
+    timeStamp: lastPublishedAt
+  });
   return (
     <Wrapper>
       <StyledAnchor href={url}>
@@ -38,7 +44,7 @@ export const RelatedStoryCard = ({ story, aspectRatio, fallbackSrc }: RelatedSto
           fallbackSrc={fallbackSrc}
         />
         <Headline>{headline}</Headline>
-        <DateTime dateTime={lastPublishedAt} showTime={true} />
+        <DateTime formattedDate={humanizedDate} />
         <Spacer token="s" />
       </StyledAnchor>
     </Wrapper>

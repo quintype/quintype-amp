@@ -32,9 +32,8 @@ exports[`RelatedStoryCard should render default 1`] = `
     <styled.h1>
       Governor must bear in mind that purpose of ordering trust vote is not to displace governments: SC on Madhya Pradesh Political Crisis
     </styled.h1>
-    <DateTime
-      dateTime={1586779628383}
-      showTime={true}
+    <Component
+      formattedDate="13th Apr, 2020 at 5:37 PM"
     />
     <Spacer
       token="s"

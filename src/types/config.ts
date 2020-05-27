@@ -114,8 +114,17 @@ interface SlotsTypes {
     "bottom-slot"?: SlotType;
   };
 }
+interface HeaderCardConfigTypes {
+  dateConfig?: DateConfigTypes;
+}
+interface DateConfigTypes {
+  showPublishDate?: boolean;
+  publishDateFormat?: string;
+  publishDatePrepend?: string;
+}
 
 export interface ConfigOpts {
   templates?: object;
   slots?: SlotsTypes;
+  headerCardConfig?: HeaderCardConfigTypes;
 }
