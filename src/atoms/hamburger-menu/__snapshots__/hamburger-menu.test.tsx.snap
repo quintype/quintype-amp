@@ -14,11 +14,24 @@ exports[`HamburgerMenu should render 1`] = `
   <amp-sidebar
     id="sidebar"
     layout="nodisplay"
+    on="sidebarClose:nested-menu.reset"
     side="left"
+    style={
+      Object {
+        "width": "250px",
+      }
+    }
   >
-    <styled.ul
-      dir="ltr"
-    />
+    <amp-nested-menu
+      id="nested-menu"
+      layout="fill"
+    >
+      <styled.ul
+        dir="ltr"
+      >
+        <Component />
+      </styled.ul>
+    </amp-nested-menu>
   </amp-sidebar>
 </Fragment>
 `;

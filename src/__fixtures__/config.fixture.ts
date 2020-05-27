@@ -4,6 +4,7 @@ export const publisherConfig: PublisherConfig = {
   "cdn-name": "https://thumbor-stg.assettype.com/",
   "sketches-host": "https://www.vikatan.com",
   "text-direction": "ltr",
+  facebook: { "app-id": "1234" },
   "publisher-name": "vikatan",
   env: "production",
   "publisher-id": 1,

@@ -22,6 +22,7 @@ declare global {
       "amp-web-push-widget";
       "amp-o2-player";
       "amp-analytics";
+      "amp-nested-menu";
     }
   }
 }

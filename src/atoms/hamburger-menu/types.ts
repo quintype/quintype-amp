@@ -1,13 +1,11 @@
-import { ReactElement } from "react";
-
 export interface HamburgerMenuTypes {
   align: "left" | "right";
   textDirection: "ltr" | "rtl";
-  items: MenuItem[];
-  children?: JSX.Element[] | JSX.Element | ReactElement | HTMLElement;
+  items: HamburgerMenuItem[];
 }
 
-interface MenuItem {
+export interface HamburgerMenuItem {
+  "item-type": string | null;
   "tag-name": string | null;
   "entity-properties": string | null;
   "collection-id": number | null;
@@ -15,17 +13,30 @@ interface MenuItem {
   "item-id": number | null;
   rank: number;
   title: string;
-  "item-type": string | null;
+  url: string | null;
   "section-slug": string | null;
   "tag-slug": string | null;
   id: number;
   "parent-id": number | null;
-  url: string;
   "entity-name": string | null;
   "collection-slug": string | null;
   "section-name": string | null;
-  data?: {
+  "child-items"?: HamburgerMenuItem[];
+  data: {
     color: string;
     link?: string;
   };
+}
+
+export interface MenuItemComponentTypes {
+  item: HamburgerMenuItem;
+}
+export interface TreeNodeComponentTypes {
+  item: HamburgerMenuItem;
+  textDirection: "ltr" | "rtl";
+}
+
+export interface SubMenuTypes {
+  childItems: HamburgerMenuItem[];
+  textDirection: "ltr" | "rtl";
 }
