@@ -126,6 +126,8 @@ interface DateConfigTypes {
   showPublishDate?: boolean;
   publishDateFormat?: string;
   publishDatePrepend?: string;
+  showUpdateDate?: boolean;
+  updateDatePrepend?: string;
 }
 
 export interface ConfigOpts {
