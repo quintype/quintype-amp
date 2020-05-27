@@ -9,7 +9,7 @@ const TopAdBase = ({ children, config, ...overridingProps }: CommonDfpAdTypes) =
   const propsForTopAd = getPropsForDfpAd({ overridingProps, config, adName: "top-ad" });
   return (
     propsForTopAd && (
-      <AdWrapper>
+      <AdWrapper darkBackground={true}>
         <DfpAd {...propsForTopAd}>{children}</DfpAd>
       </AdWrapper>
     )

@@ -7,7 +7,7 @@ const StyledBlurb = styled.blockquote`
   color: ${(props) => props.theme.color.mono7};
   margin: 0 ${(props) => props.theme.spacing.s};
   line-height: ${(props) => props.theme.font.lineHeight.level3};
-  border-left: 5px solid ${(props) => props.theme.color.mono7};
+  border-left: 3px solid ${(props) => props.theme.color.mono7};
   padding: 0 ${(props) => props.theme.spacing.m};
 
   // Applies when rendering direct html, fallback case

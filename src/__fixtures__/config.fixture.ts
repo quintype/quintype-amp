@@ -4,7 +4,9 @@ export const publisherConfig: PublisherConfig = {
   "cdn-name": "https://thumbor-stg.assettype.com/",
   "sketches-host": "https://www.vikatan.com",
   "text-direction": "ltr",
+  facebook: { "app-id": "1234" },
   "publisher-name": "vikatan",
+  env: "production",
   "publisher-id": 1,
   "publisher-settings": {
     title: "Newslaundry",
@@ -597,6 +599,13 @@ export const ampConfig: AMPConfig = {
   "comscore-tracking-vars": {
     c1: 123,
     c2: 456
+  },
+  chartbeat: {
+    uid: "61123",
+    domain: "vikatan.com",
+    useCanonical: true,
+    sections: "News",
+    authors: "Ravi Kanth"
   },
   "gtm-id": "GTM-XXXXXX",
   "google-client-id-api": false,

@@ -26,6 +26,7 @@ To publish the package, bump the version using sematic versioning in `package.js
       	- ComScore
       	- Google Analytics
       	- Quintype Analytics
+        - ChartBeat
 
 ### Tech Notes:
 

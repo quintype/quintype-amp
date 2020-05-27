@@ -7,12 +7,12 @@ const GoogleAnalyticsBase = ({ config }) => {
 
   const gaConfig = {
     vars: {
-      account: googleAnalyticsTrackingId,
-      triggers: {
-        trackPageview: {
-          on: "visible",
-          request: "pageview"
-        }
+      account: googleAnalyticsTrackingId
+    },
+    triggers: {
+      trackPageview: {
+        on: "visible",
+        request: "pageview"
       }
     }
   };

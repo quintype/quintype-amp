@@ -9,7 +9,7 @@ const BottomAdBase = ({ children, config, ...overridingProps }: CommonDfpAdTypes
   const propsForBottomAd = getPropsForDfpAd({ overridingProps, config, adName: "bottom-ad" });
   return (
     propsForBottomAd && (
-      <AdWrapper>
+      <AdWrapper darkBackground={true}>
         <DfpAd {...propsForBottomAd}>{children}</DfpAd>
       </AdWrapper>
     )
