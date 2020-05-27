@@ -7,6 +7,9 @@ export const publisherConfig: PublisherConfig = {
   facebook: { "app-id": "1234" },
   "publisher-name": "vikatan",
   env: "production",
+  facebook: {
+    "app-id": "FB-APP-ID"
+  },
   "publisher-id": 1,
   "publisher-settings": {
     title: "Newslaundry",

@@ -19,7 +19,9 @@ To publish the package, bump the version using sematic versioning in `package.js
     - `AmpBlockQuote` has classname `amp-se-blockquote`
 
 - #### Core Functions: renderToString
+
   - Pass this function your `<Layout>` component and it will either return a string containing the amp HTML, or an error object
+
 - #### RenderLessComponents
       	- Analytics(amp-analytics)
       	- GoogleTagManager
@@ -27,6 +29,10 @@ To publish the package, bump the version using sematic versioning in `package.js
       	- Google Analytics
       	- Quintype Analytics
         - ChartBeat
+
+#### Opts
+
+- relatedStoriesRender - Render props to replace html generated from AMP Templates with whatever is passed by the user. A React render function which accepts stories as a parameter.
 
 ### Tech Notes:
 

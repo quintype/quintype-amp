@@ -53,7 +53,12 @@ const TextStory = ({ story, config, relatedStories }) => (
             <Fragment key={card.id}>{storyCard}</Fragment>
           );
         })}
-        <RelatedStories stories={relatedStories} />
+
+        {config.opts.relatedStoriesRender ? (
+          config.opts.relatedStoriesRender(relatedStories)
+        ) : (
+          <RelatedStories stories={relatedStories} />
+        )}
       </StoryContainer>
       <BottomSlot />
       <BottomAd />
