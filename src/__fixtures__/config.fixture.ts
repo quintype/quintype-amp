@@ -6,6 +6,9 @@ export const publisherConfig: PublisherConfig = {
   "text-direction": "ltr",
   "publisher-name": "vikatan",
   env: "production",
+  facebook: {
+    "app-id": "FB-APP-ID"
+  },
   "publisher-id": 1,
   "publisher-settings": {
     title: "Newslaundry",
