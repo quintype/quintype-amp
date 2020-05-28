@@ -55,7 +55,7 @@ const TextStory = ({ story, config, relatedStories }) => (
         })}
 
         {config.opts.relatedStoriesRender ? (
-          config.opts.relatedStoriesRender(relatedStories)
+          config.opts.relatedStoriesRender(relatedStories, config)
         ) : (
           <RelatedStories stories={relatedStories} />
         )}
