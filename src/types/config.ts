@@ -120,14 +120,12 @@ interface SlotsTypes {
   };
 }
 interface HeaderCardConfigTypes {
-  dateConfig?: DateConfigTypes;
+  components: HeaderCardComponentTypes[];
 }
-interface DateConfigTypes {
-  showPublishDate?: boolean;
-  publishDateFormat?: string;
-  publishDatePrepend?: string;
-  showUpdateDate?: boolean;
-  updateDatePrepend?: string;
+
+interface HeaderCardComponentTypes {
+  name: string;
+  config?: object;
 }
 
 export interface ConfigOpts {
