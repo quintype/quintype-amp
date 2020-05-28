@@ -5,6 +5,10 @@ exports[`DateTime should match snapshot 1`] = `
   dateTime="14 June 2017"
 >
   Published: 
+  <Spacer
+    align="horizontal"
+    token="xs"
+  />
   14 June 2017
 </styled.time>
 `;

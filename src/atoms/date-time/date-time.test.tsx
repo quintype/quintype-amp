@@ -13,6 +13,6 @@ describe("DateTime", () => {
   });
   it("should prepend text", () => {
     const wrapper = shallow(<DateTime formattedDate="14 June 2017" prepend="Published: " />);
-    expect(wrapper.text()).toBe("Published: 14 June 2017");
+    expect(wrapper.text()).toMatch(/^Published:/);
   });
 });

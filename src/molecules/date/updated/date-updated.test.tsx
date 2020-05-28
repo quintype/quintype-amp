@@ -1,65 +1,27 @@
 import React from "react";
-import { DateUpdated } from "./date-updated";
-import { mount } from "enzyme";
-import { config } from "../../../__fixtures__";
-import cloneDeep from "lodash.clonedeep";
-import { Layout, DateTime } from "../../../atoms";
-import { StyledTime } from "../../../atoms/date-time/date-time";
+import { DateUpdatedBase } from "./date-updated";
+import { shallow } from "enzyme";
 import { utcToZonedTime } from "date-fns-tz";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
+import { DateTime } from "../../../atoms";
 
 describe("DateUpdated", () => {
-  it("should show correct story update date", () => {
+  it("should match snapshot", () => {
+    const wrapper = shallow(<DateUpdatedBase story={getDummyStory()} prepend={"Story Updated:"} />);
+    expect(wrapper).toMatchSnapshot();
+  });
+  it("should pass correct date to <DateTime />", () => {
     const story = getDummyStory();
-    const wrapper = mount(
-      <Layout story={story} config={getModifiedConfig(0)}>
-        <DateUpdated />
-      </Layout>
-    );
+    const wrapper = shallow(<DateUpdatedBase story={story} />);
     const timeZonedTime = utcToZonedTime(story["updated-at"], "Asia/Kolkata");
     const humanizedString = formatDistanceToNow(timeZonedTime, { addSuffix: true });
-    expect(wrapper.find(StyledTime).text()).toMatch(humanizedString);
+    expect(wrapper.find(DateTime).prop("formattedDate")).toBe(humanizedString);
   });
-  it("should not render if disabled in opts", () => {
-    const wrapper = mount(
-      <Layout story={getDummyStory()} config={getModifiedConfig(1)}>
-        <DateUpdated />
-      </Layout>
-    );
-    expect(wrapper.find(DateTime).exists()).toBeFalsy();
-  });
-  it("should prepend text", () => {
-    const wrapper = mount(
-      <Layout story={getDummyStory()} config={getModifiedConfig(0)}>
-        <DateUpdated />
-      </Layout>
-    );
-    expect(wrapper.find(StyledTime).text()).toMatch(/^Story Updated:/);
+  it("should pass prepend to <DateTime />", () => {
+    const wrapper = shallow(<DateUpdatedBase story={getDummyStory()} prepend={"Story Updated:"} />);
+    expect(wrapper.find(DateTime).prop("prepend")).toBe("Story Updated:");
   });
 });
-
-const getModifiedConfig = (optsIdx) => {
-  const clone = cloneDeep(config);
-  const dummyOpts = [
-    {
-      headerCardConfig: {
-        dateConfig: {
-          showUpdateDate: true,
-          updateDatePrepend: "Story Updated: "
-        }
-      }
-    },
-    {
-      headerCardConfig: {
-        dateConfig: {
-          showUpdateDate: false
-        }
-      }
-    }
-  ];
-  clone.opts = dummyOpts[optsIdx];
-  return clone;
-};
 
 const getDummyStory = () => {
   return {

@@ -1,4 +1,4 @@
 export interface DateTimeProps {
   formattedDate: string;
-  prepend?: string;
+  prepend?: string | JSX.Element[] | JSX.Element;
 }

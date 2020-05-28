@@ -1,70 +1,26 @@
 import React from "react";
-import { DateLastPublished } from "./date-last-published";
-import { mount } from "enzyme";
-import { config } from "../../../__fixtures__";
-import cloneDeep from "lodash.clonedeep";
-import { Layout, DateTime } from "../../../atoms";
-import { StyledTime } from "../../../atoms/date-time/date-time";
+import { DateLastPublishedBase } from "./date-last-published";
+import { shallow } from "enzyme";
+import { DateTime } from "../../../atoms";
 
 describe("DateLastPublished", () => {
-  it("should render based on opts passed", () => {
-    const wrapper = mount(
-      <Layout story={getDummyStory()} config={getModifiedConfig(0)}>
-        <DateLastPublished />
-      </Layout>
-    );
-    expect(wrapper.find(StyledTime).text()).toBe("Published: 27 May 2020");
+  it("should match snapshot", () => {
+    const wrapper = shallow(<DateLastPublishedBase story={getDummyStory()} />);
+    expect(wrapper).toMatchSnapshot();
   });
-  it("publishDateFormat not passed in opts - should fallback to default format", () => {
-    const wrapper = mount(
-      <Layout story={getDummyStory()} config={getModifiedConfig(1)}>
-        <DateLastPublished />
-      </Layout>
-    );
-    expect(wrapper.find(StyledTime).text()).toBe("Published On: 27th May, 2020 at 6:01 AM");
+  it("should pass date in default format to <DateTime />", () => {
+    const wrapper = shallow(<DateLastPublishedBase story={getDummyStory()} />);
+    expect(wrapper.find(DateTime).prop("formattedDate")).toBe("27th May, 2020 at 6:01 AM");
   });
-  it("showPublishDate set to false in opts - should not render", () => {
-    const wrapper = mount(
-      <Layout story={getDummyStory()} config={getModifiedConfig(2)}>
-        <DateLastPublished />
-      </Layout>
-    );
-    expect(wrapper.find(DateTime).exists()).toBeFalsy();
+  it("should pass date in custom format to <DateTime />", () => {
+    const wrapper = shallow(<DateLastPublishedBase story={getDummyStory()} format="dd MM yyyy" />);
+    expect(wrapper.find(DateTime).prop("formattedDate")).toBe("27 05 2020");
+  });
+  it("should pass prepend to <DateTime />", () => {
+    const wrapper = shallow(<DateLastPublishedBase story={getDummyStory()} prepend="lorem ipsum" />);
+    expect(wrapper.find(DateTime).prop("prepend")).toBe("lorem ipsum");
   });
 });
-
-const getModifiedConfig = (optsIdx) => {
-  const clone = cloneDeep(config);
-  const dummyOpts = [
-    {
-      headerCardConfig: {
-        dateConfig: {
-          showPublishDate: true,
-          publishDateFormat: "dd MMMM yyyy",
-          publishDatePrepend: "Published: "
-        }
-      }
-    },
-    {
-      headerCardConfig: {
-        dateConfig: {
-          showPublishDate: true,
-          publishDatePrepend: "Published On: "
-        }
-      }
-    },
-    {
-      headerCardConfig: {
-        dateConfig: {
-          showPublishDate: false,
-          publishDatePrepend: "Published On: "
-        }
-      }
-    }
-  ];
-  clone.opts = dummyOpts[optsIdx];
-  return clone;
-};
 
 const getDummyStory = () => {
   return {

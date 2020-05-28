@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Author } from "../../types/story";
 import { AuthorProps } from "./types";
+import { Spacer } from "../spacer";
 
 const StyledAuthor = styled.div`
   font-family: ${(props) => props.theme.font.family.secondary};
@@ -29,6 +30,7 @@ const Author = ({ authors, prepend }: AuthorProps) => {
   return (
     <StyledAuthor>
       {prepend && prepend}
+      {prepend && <Spacer token="m" align="horizontal" />}
       {getAuthorNames(authors)}
     </StyledAuthor>
   );

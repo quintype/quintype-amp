@@ -2,10 +2,17 @@ import React from "react";
 import { SpacerProps, SpaceDirection } from "./types";
 import styled from "styled-components";
 
-const StyledSpacer = styled.div<SpacerProps>`
+const StyledSpacerVertical = styled.div<SpacerProps>`
   :before {
     content: "";
     display: block;
+    padding: ${({ token, align, theme }) => makeSpace(theme.spacing[token], align)};
+  }
+`;
+const StyledSpacerHorizontal = styled.span<SpacerProps>`
+  :before {
+    content: "";
+    display: inline-block;
     padding: ${({ token, align, theme }) => makeSpace(theme.spacing[token], align)};
   }
 `;
@@ -21,8 +28,11 @@ const makeSpace = (token: string, align?: SpaceDirection) => {
   }
 };
 
-const Spacer = ({ token, align }: SpacerProps) => {
-  return <StyledSpacer token={token} align={align} />;
-};
+const Spacer = ({ token, align }: SpacerProps) =>
+  align === "horizontal" ? (
+    <StyledSpacerHorizontal token={token} align={align} />
+  ) : (
+    <StyledSpacerVertical token={token} align={align} />
+  );
 
 export { Spacer, makeSpace };

@@ -5,3 +5,7 @@ export interface HeaderCardTypes {
   story: Story;
   config: Config;
 }
+export interface GetHeaderComponentHelperTypes {
+  componentName: string;
+  config: Config;
+}
