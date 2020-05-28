@@ -96,10 +96,10 @@ const DateUpdatedForHeader = ({ config }) => {
   return <DateUpdated prepend={prepend} />;
 };
 const SectionForHeader = ({ story, config }) => {
-  const { style } = getHeaderComponentConfig({ componentName: "section", config });
+  const { styles } = getHeaderComponentConfig({ componentName: "section", config });
   return (
     <div>
-      <Section section={story.sections[0]} style={style} />
+      <Section section={story.sections[0]} stylesFromConfig={styles} />
     </div>
   );
 };

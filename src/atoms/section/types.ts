@@ -2,5 +2,9 @@ import { Section } from "../../types/story";
 
 export interface SectionProps {
   section: Section;
-  style?: object;
+  stylesFromConfig?: object;
+}
+
+export interface StyledSectionTypes {
+  stylesFromConfig: object;
 }
