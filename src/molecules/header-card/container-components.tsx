@@ -30,18 +30,6 @@ export const DefaultHeaderCard = ({ story, config }: HeaderCardTypes) => {
   );
 };
 
-export const CustomHeaderCard = ({ story, config }: HeaderCardTypes) => {
-  const configHeaderComponents = get(config, ["opts", "headerCardConfig", "components"]);
-  return (
-    <div>
-      {configHeaderComponents.map((comp, idx) => {
-        const Component = PickHeaderComponent(comp.name);
-        return <Component key={idx} story={story} config={config} />;
-      })}
-    </div>
-  );
-};
-
 export const PickHeaderComponent = (componentName: string) => {
   const name = componentName.toLowerCase();
 

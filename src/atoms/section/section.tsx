@@ -2,7 +2,7 @@ import React from "react";
 import { SectionProps, StyledSectionTypes } from "./types";
 import styled from "styled-components";
 
-const StyledSection = styled.span.attrs(({ stylesFromConfig }: StyledSectionTypes) => {
+const StyledSection = styled.h5.attrs(({ stylesFromConfig }: StyledSectionTypes) => {
   return { style: stylesFromConfig };
 })<StyledSectionTypes>`
   ${(props) =>
