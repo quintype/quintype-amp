@@ -95,7 +95,14 @@ const DateUpdatedForHeader = ({ config }) => {
   const { prepend } = getHeaderComponentConfig({ componentName: "dateupdated", config });
   return <DateUpdated prepend={prepend} />;
 };
-const SectionForHeader = ({ story }) => <Section section={story.sections[0]} />;
+const SectionForHeader = ({ story, config }) => {
+  const { style } = getHeaderComponentConfig({ componentName: "section", config });
+  return (
+    <div>
+      <Section section={story.sections[0]} style={style} />
+    </div>
+  );
+};
 const SocialShareForHeader = ({ config }) => {
   const fbAppId = get(config, ["publisherConfig", "facebook", "app-id"], null);
   return <SocialShareHeader fbAppId={fbAppId} />;
