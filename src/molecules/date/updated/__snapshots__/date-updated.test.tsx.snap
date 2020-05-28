@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DateUpdated should match snapshot 1`] = `
+<Component
+  formattedDate="4 months ago"
+  prepend="Story Updated:"
+/>
+`;

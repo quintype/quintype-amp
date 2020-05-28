@@ -119,8 +119,17 @@ interface SlotsTypes {
     "bottom-slot"?: SlotType;
   };
 }
+interface HeaderCardConfigTypes {
+  components: HeaderCardComponentTypes[];
+}
+
+interface HeaderCardComponentTypes {
+  name: string;
+  config?: object;
+}
 
 export interface ConfigOpts {
   templates?: object;
   slots?: SlotsTypes;
+  headerCardConfig?: HeaderCardConfigTypes;
 }

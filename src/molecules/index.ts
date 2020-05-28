@@ -6,5 +6,6 @@ import { RelatedStories } from "./related-stories";
 import { WebEngage } from "./webengage";
 import * as AmpAds from "./ads";
 import * as Slots from "./slots";
+import { DateLastPublished } from "./date";
 
-export { HeaderCard, HeroImage, Navbar, AmpAds, RelatedStoryCard, RelatedStories, Slots, WebEngage };
+export { HeaderCard, HeroImage, Navbar, AmpAds, RelatedStoryCard, RelatedStories, Slots, WebEngage, DateLastPublished };

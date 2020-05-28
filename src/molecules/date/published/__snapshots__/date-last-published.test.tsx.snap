@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DateLastPublished should match snapshot 1`] = `
+<Component
+  formattedDate="27th May, 2020 at 6:01 AM"
+/>
+`;
