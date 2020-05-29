@@ -647,7 +647,7 @@ exports[`TextStory Template should render 1`] = `
         "cdn-name": "https://thumbor-stg.assettype.com/",
         "env": "production",
         "facebook": Object {
-          "app-id": "FB-APP-ID",
+          "app-id": "1234",
         },
         "publisher-id": 1,
         "publisher-name": "vikatan",
@@ -657,6 +657,7 @@ exports[`TextStory Template should render 1`] = `
           "publisher-logo": null,
           "title": "Newslaundry",
         },
+        "sections": Array [],
         "sketches-host": "https://www.vikatan.com",
         "text-direction": "ltr",
       },
