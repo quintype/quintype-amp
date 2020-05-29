@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Title should render default 1`] = `
-<styled.h3>
-  This is a title
-</styled.h3>
-`;
