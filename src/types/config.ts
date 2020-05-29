@@ -13,6 +13,7 @@ export interface PublisherConfig {
   env: string;
   "publisher-id": number;
   "publisher-settings"?: object;
+  sections?: [];
 }
 
 interface FBConfig {
