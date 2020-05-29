@@ -9,18 +9,11 @@ const Text = ({ element, externalLink, style }: TextProps) => {
   if (externalLink) {
     text = text.replace(/<a/g, '<a target="_blank"');
   }
-  const StyledText = styled.div`
-    ${baseStyles}
-		${element.subtype === "summary" && (style && style["summary"] ? style["summary"] : baseSummaryStyles)}
-		${element.subtype === "answer" && (style && style["answer"] ? style["answer"] : baseAnswerStyles)}
-    ${element.subtype === "bigfact" && (style && style["bigfact"] ? style["bigfact"] : baseBigfactStyles)}
-		${element.subtype === "question" && (style && style["question"] ? style["question"] : baseQuestionStyles)}
-  `;
 
-  return <StyledText dangerouslySetInnerHTML={{ __html: text }} />;
+  return <StyledText element={element} style={style} dangerouslySetInnerHTML={{ __html: text }} />;
 };
 
-const baseStyles = css`
+const StyledText = styled.div<StoryElementProps>`
   color: ${(props) => props.theme.color.mono6};
   font-size: ${(props) => props.theme.font.size.xs};
   font-family: ${(props) => props.theme.font.family.primary};
@@ -67,12 +60,23 @@ const baseStyles = css`
     line-height: ${(props) => props.theme.font.lineHeight.level5};
     font-size: ${(props) => props.theme.font.size.xs};
     margin-top: 10px;
-  }
+	}
+	${(props) =>
+    props.element.subtype === "summary" &&
+    (props.style && props.style.summary ? props.style.summary : baseSummaryStyles)}
+	${(props) =>
+    props.element.subtype === "answer" && (props.style && props.style.answer ? props.style.answer : baseAnswerStyles)}
+	${(props) =>
+    props.element.subtype === "bigfact" &&
+    (props.style && props.style.bigfact ? props.style.bigfact : baseBigfactStyles)}
+	${(props) =>
+    props.element.subtype === "question" &&
+    (props.style && props.style.question ? props.style.question : baseQuestionStyles)}
 `;
 const baseQuestionStyles = css`
-  color: ${(props) => props.theme.color.mono7};
-  line-height: ${(props) => props.theme.font.lineHeight.level2};
-  font-weight: ${(props) => props.theme.font.weight.bold};
+color: ${(props) => props.theme.color.mono7};
+line-height: ${(props) => props.theme.font.lineHeight.level2};
+font-weight: ${(props) => props.theme.font.weight.bold};
 }`;
 const baseAnswerStyles = css`
   color: ${(props) => props.theme.color.mono5};
@@ -88,4 +92,5 @@ const baseBigfactStyles = css`
   line-height: ${(props) => props.theme.font.lineHeight.level3};
   font-size: ${(props) => props.theme.font.size.l};
 `;
+
 export { Text };

@@ -7,9 +7,6 @@ export const publisherConfig: PublisherConfig = {
   facebook: { "app-id": "1234" },
   "publisher-name": "vikatan",
   env: "production",
-  facebook: {
-    "app-id": "FB-APP-ID"
-  },
   "publisher-id": 1,
   "publisher-settings": {
     title: "Newslaundry",
@@ -17,7 +14,8 @@ export const publisherConfig: PublisherConfig = {
       "We have finally migrated our website to better architecture! While the fancy new website will be up in a few months, we have fixed issues related to payment and login in the meantime. You will need to log in anew. If you have forgotten your password, you can generate one by clicking on the forgot password link (it works!). Send any questions or feedback to contact@newslaundry.com.",
     "publisher-logo": null,
     copyright: "Copyright © 2020 Newslaundry Media Private Limited.  All Rights Reserved "
-  }
+  },
+  sections: []
 };
 
 export const ampConfig: AMPConfig = {

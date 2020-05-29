@@ -22,14 +22,15 @@ const PoweredBy = styled.a`
   font-size: ${(props) => props.theme.font.size.xxs};
 `;
 
+const StyledFooter = styled("footer")<FooterTypes>`
+  ${(props) => genStyles(baseStyles, props.style, props)}
+`;
+
 const BaseFooter = (props: FooterTypes & { theme?: DefaultTheme }) => {
   const { text, children, style } = props;
-  const StyledFooter = styled.footer`
-    ${genStyles(baseStyles, style, props)}
-  `;
 
   return (
-    <StyledFooter>
+    <StyledFooter style={style}>
       {children ? (
         children
       ) : (

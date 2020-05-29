@@ -49,7 +49,7 @@ export interface Story {
   "owner-id": number;
   "linked-story-ids": string[];
   access: string | null;
-  "asana-project-id": any | null;
+  "asana-project-id"?: any | null;
   "first-published-at": number;
   "hero-image-caption": string | null;
   version: number;
@@ -98,13 +98,14 @@ export interface Card {
 export interface CardMetadata {
   "social-share": SocialShare;
   attributes?: any;
+  "external-id"?: string;
 }
 
 export interface SocialShare {
   shareable: boolean;
   title: string;
   message: string | null;
-  image: Image;
+  image: Image | null;
 }
 
 export interface Image {
@@ -137,7 +138,7 @@ export interface StoryElement {
   "family-id"?: string;
   title?: string;
   id: string;
-  metadata?: StoryElementMetadata;
+  metadata?: StoryElementMetadata | null;
   "file-name"?: string;
   "s3-key"?: string;
   "content-type"?: string;
