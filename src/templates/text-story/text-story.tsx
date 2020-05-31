@@ -13,6 +13,7 @@ import {
   ChartBeat
 } from "../../atoms";
 import styled from "styled-components";
+import { TextStoryTypes } from "./types";
 
 const { TopAd, BodyAd, BottomAd } = AmpAds;
 const { StoryPageSlots } = Slots;
@@ -25,7 +26,7 @@ const Wrapper = styled.div`
   padding: 0 ${(props) => props.theme.spacing.s};
 `;
 const canDisplayBodyAd = (cardIdx) => cardIdx === 0;
-const TextStory = ({ story, config, relatedStories }) => (
+const TextStory = ({ story, config, relatedStories }: TextStoryTypes) => (
   <Layout story={story} config={config}>
     <Navbar />
     <IncompatibleBanner />
@@ -54,8 +55,8 @@ const TextStory = ({ story, config, relatedStories }) => (
           );
         })}
 
-        {config.opts.relatedStoriesRender ? (
-          config.opts.relatedStoriesRender(relatedStories, config)
+        {config.opts && config.opts.relatedStoriesRender ? (
+          config.opts.relatedStoriesRender({ relatedStories, config })
         ) : (
           <RelatedStories stories={relatedStories} />
         )}
