@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { ImageTypes, AmpImgPropTypes } from "./types";
 import { Config } from "../../types/config";
-import { focusedImagePath, calculateImgHeight } from "../../helpers/image-helpers";
+import { focusedImagePath } from "../../helpers/image-helpers";
 import { withConfig } from "../../context";
 import { LightboxGallery } from "../lightbox-gallery";
 
@@ -20,7 +20,8 @@ export const BaseImage = ({
 }: ImageTypes & { config: Config }) => {
   const cdnName = config.publisherConfig["cdn-name"];
   if (!slug || !cdnName) throw new Error("Required attributes missing, cant render image");
-  const imgAspectRatio = aspectRatio || [metadata.width, metadata.height];
+  let imgAspectRatio = aspectRatio || [16, 9];
+  if (metadata && metadata.width && metadata.height) imgAspectRatio = [metadata.width, metadata.height];
   const path = focusedImagePath({ opts, slug, metadata, imgAspectRatio, cdnName });
   const value: AmpImgPropTypes = {
     src: path,
@@ -41,8 +42,8 @@ export const BaseImage = ({
       value.height = "";
       value.width = "";
     case "responsive":
-      value.width = metadata.width.toString();
-      value.height = calculateImgHeight(imgAspectRatio, metadata.width);
+      value.width = imgAspectRatio[0].toString();
+      value.height = imgAspectRatio[1].toString();
   }
 
   return lightbox ? (
