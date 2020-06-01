@@ -1,3 +1,5 @@
+import { Story } from "./story";
+
 export interface Config {
   publisherConfig: PublisherConfig;
   ampConfig: AMPConfig;
@@ -120,17 +122,20 @@ interface SlotsTypes {
     "bottom-slot"?: SlotType;
   };
 }
-interface HeaderCardConfigTypes {
-  components: HeaderCardComponentTypes[];
-}
-
-interface HeaderCardComponentTypes {
-  name: string;
-  config?: object;
-}
 
 export interface ConfigOpts {
   templates?: object;
   slots?: SlotsTypes;
-  headerCardConfig?: HeaderCardConfigTypes;
+  headerCardRender?: (props: HeaderCardRenderPropTypes) => any;
+  relatedStoriesRender?: (props: RelatedStoriesRenderPropTypes) => any;
+}
+
+interface HeaderCardRenderPropTypes {
+  story: Story;
+  config: Config;
+}
+interface RelatedStoriesRenderPropTypes {
+  relatedStories: Story[];
+  config: Config;
+  story: Story;
 }
