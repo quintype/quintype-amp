@@ -137,4 +137,5 @@ interface HeaderCardRenderPropTypes {
 interface RelatedStoriesRenderPropTypes {
   relatedStories: Story[];
   config: Config;
+  story: Story;
 }
