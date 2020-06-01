@@ -113,7 +113,7 @@ export interface Image {
   url: string | null;
   attribution: string | null;
   caption: string | null;
-  metadata: HeroImageMetadata;
+  metadata: HeroImageMetadata | null;
 }
 
 export interface HeroImageMetadata {
@@ -130,7 +130,7 @@ export interface StoryElement {
   "embed-js"?: string;
   "page-url"?: string;
   url?: string;
-  "image-metadata"?: object;
+  "image-metadata"?: object | null;
   "image-attribution"?: string;
   "image-s3-key"?: string;
   "embed-url"?: string;
@@ -167,6 +167,7 @@ export interface StoryElementMetadata {
   "player-url"?: string;
   "include-in-video-sitemap"?: boolean;
   type?: string;
+  "original-url"?: string;
 }
 
 export interface LinkedStory {
@@ -202,6 +203,9 @@ export interface Collection {
 export interface StoryMetadata {
   "sponsored-by"?: string;
   "card-share": CardShare;
+  "module-id"?: string;
+  theme?: string;
+  "imported-card-id"?: string;
   "story-attributes"?: any;
 }
 

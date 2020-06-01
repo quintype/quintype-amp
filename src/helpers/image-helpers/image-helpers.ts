@@ -8,8 +8,3 @@ export const focusedImagePath = ({ opts, slug, metadata, imgAspectRatio, cdnName
   const path = new quintypeJs.FocusedImage(slug, metadata).path(imgAspectRatio, opts);
   return `${cdnName}/${path}`;
 };
-
-export const calculateImgHeight = (aspectRatio, width) => {
-  const ar = aspectRatio[0] / aspectRatio[1];
-  return Math.round(width / ar).toString();
-};
