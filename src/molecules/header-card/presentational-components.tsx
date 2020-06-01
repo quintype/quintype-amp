@@ -12,9 +12,9 @@ export const HeaderCardContainer = styled.div`
   padding: 0 ${(props) => props.theme.spacing.s};
   border-bottom: ${(props) => `1px solid ${props.theme.color.black}`};
 `;
-export const StyledDividingLine = styled.div`
-  :before {
-    content: "";
-  }
-  border-bottom: ${(props) => `1px solid ${props.theme.color.black}`};
-`;
+// export const StyledDividingLine = styled.div`
+//   :before {
+//     content: "";
+//   }
+//   border-bottom: ${(props) => `1px solid ${props.theme.color.black}`};
+// `;

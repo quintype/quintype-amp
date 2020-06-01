@@ -7,6 +7,7 @@ import { WebEngage } from "./webengage";
 import * as AmpAds from "./ads";
 import * as Slots from "./slots";
 import { DateLastPublished, DateUpdated } from "./date";
+import { SocialShareHeader } from "./social-share-header";
 
 export {
   HeaderCard,
@@ -18,5 +19,6 @@ export {
   Slots,
   WebEngage,
   DateLastPublished,
-  DateUpdated
+  DateUpdated,
+  SocialShareHeader
 };

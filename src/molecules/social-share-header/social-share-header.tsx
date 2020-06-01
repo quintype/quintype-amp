@@ -1,14 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { SocialShareIcon, Spacer } from "../../atoms";
+import { SocialShareHeaderProps } from "./types";
 
 const Wrapper = styled.div`
   display: flex;
 `;
-
-interface SocialShareHeaderProps {
-  fbAppId?: string;
-}
 
 const SocialShareHeader = ({ fbAppId }: SocialShareHeaderProps) => {
   const styles = { borderRadius: "50%", backgroundSize: "75%" };

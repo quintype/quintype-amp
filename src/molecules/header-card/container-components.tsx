@@ -2,11 +2,13 @@ import React from "react";
 import { Author, Section, Spacer } from "../../atoms";
 import { HeroImage } from "../hero-image";
 import { SocialShareHeader } from "../social-share-header";
-import { DateLastPublished, DateUpdated } from "../date";
+import { DateLastPublished } from "../date";
 import { HeaderCardTypes } from "./types";
-import { Headline, HeaderCardContainer, StyledDividingLine } from "./presentational-components";
-import { getHeaderComponentConfig } from "./helpers";
-import get from "lodash.get";
+import { Headline, HeaderCardContainer } from "./presentational-components";
+// import { DateLastPublished, DateUpdated } from "../date";
+// import { Headline, HeaderCardContainer, StyledDividingLine } from "./presentational-components";
+// import { getHeaderComponentConfig } from "./helpers";
+// import get from "lodash.get";
 
 export const DefaultHeaderCard = ({ story, config }: HeaderCardTypes) => {
   const { publisherConfig } = config;
@@ -30,69 +32,69 @@ export const DefaultHeaderCard = ({ story, config }: HeaderCardTypes) => {
   );
 };
 
-export const PickHeaderComponent = (componentName: string) => {
-  const name = componentName.toLowerCase();
+// export const PickHeaderComponent = (componentName: string) => {
+//   const name = componentName.toLowerCase();
 
-  switch (name) {
-    case "heroimage":
-      return HeroImage;
-    case "verticalspacer":
-      return VerticalSpacer;
-    case "horizontalspacer":
-      return HorizontalSpacer;
-    case "headline":
-      return HeadlineForHeader;
-    case "author":
-      return AuthorForHeader;
-    case "datelastpublished":
-      return DateLastPublishedForHeader;
-    case "dateupdated":
-      return DateUpdatedForHeader;
-    case "section":
-      return SectionForHeader;
-    case "socialshareheader":
-      return SocialShareForHeader;
-    case "dividingline":
-      return DividingLine;
-    default:
-      throw new Error(`"${componentName}" is not a valid header component, but it is defined in the config`);
-  }
-};
+//   switch (name) {
+//     case "heroimage":
+//       return HeroImage;
+//     case "verticalspacer":
+//       return VerticalSpacer;
+//     case "horizontalspacer":
+//       return HorizontalSpacer;
+//     case "headline":
+//       return HeadlineForHeader;
+//     case "author":
+//       return AuthorForHeader;
+//     case "datelastpublished":
+//       return DateLastPublishedForHeader;
+//     case "dateupdated":
+//       return DateUpdatedForHeader;
+//     case "section":
+//       return SectionForHeader;
+//     case "socialshareheader":
+//       return SocialShareForHeader;
+//     case "dividingline":
+//       return DividingLine;
+//     default:
+//       throw new Error(`"${componentName}" is not a valid header component, but it is defined in the config`);
+//   }
+// };
 
-// wrappers components. These take story, config as input and provide required props for the component they're wrapping
-const HorizontalSpacer = ({ config }: HeaderCardTypes) => {
-  const { size } = getHeaderComponentConfig({ componentName: "horizontalspacer", config });
-  if (!size) throw new Error("size not specfied for horizontalspacer in headerCardConfig");
-  return <Spacer token={size} align={"horizontal"} />;
-};
-const VerticalSpacer = ({ config }: HeaderCardTypes) => {
-  const { size } = getHeaderComponentConfig({ componentName: "verticalspacer", config });
-  if (!size) throw new Error("size not specfied for verticalspacer in headerCardConfig");
-  return <Spacer token={size} align={"vertical"} />;
-};
-const HeadlineForHeader = ({ story }: HeaderCardTypes) => <Headline>{story.headline}</Headline>;
-const AuthorForHeader = ({ story, config }: HeaderCardTypes) => {
-  const { prepend } = getHeaderComponentConfig({ componentName: "author", config });
-  return <Author authors={story.authors} prepend={prepend} />;
-};
-const DateLastPublishedForHeader = ({ config }: HeaderCardTypes) => {
-  const { format, prepend } = getHeaderComponentConfig({ componentName: "datelastpublished", config });
-  return <DateLastPublished format={format} prepend={prepend} />;
-};
-const DateUpdatedForHeader = ({ config }) => {
-  const { prepend } = getHeaderComponentConfig({ componentName: "dateupdated", config });
-  return <DateUpdated prepend={prepend} />;
-};
-const SectionForHeader = ({ story, config }) => {
-  const { styles } = getHeaderComponentConfig({ componentName: "section", config });
-  return (
-    <div>
-      <Section section={story.sections[0]} stylesFromConfig={styles} />
-    </div>
-  );
-};
-const SocialShareForHeader = ({ config }) => {
-  const fbAppId = get(config, ["publisherConfig", "facebook", "app-id"], null);
-  return <SocialShareHeader fbAppId={fbAppId} />;
-};
-const DividingLine = () => <StyledDividingLine />;
+// // wrappers components. These take story, config as input and provide required props for the component they're wrapping
+// const HorizontalSpacer = ({ config }: HeaderCardTypes) => {
+//   const { size } = getHeaderComponentConfig({ componentName: "horizontalspacer", config });
+//   if (!size) throw new Error("size not specfied for horizontalspacer in headerCardConfig");
+//   return <Spacer token={size} align={"horizontal"} />;
+// };
+// const VerticalSpacer = ({ config }: HeaderCardTypes) => {
+//   const { size } = getHeaderComponentConfig({ componentName: "verticalspacer", config });
+//   if (!size) throw new Error("size not specfied for verticalspacer in headerCardConfig");
+//   return <Spacer token={size} align={"vertical"} />;
+// };
+// const HeadlineForHeader = ({ story }: HeaderCardTypes) => <Headline>{story.headline}</Headline>;
+// const AuthorForHeader = ({ story, config }: HeaderCardTypes) => {
+//   const { prepend } = getHeaderComponentConfig({ componentName: "author", config });
+//   return <Author authors={story.authors} prepend={prepend} />;
+// };
+// const DateLastPublishedForHeader = ({ config }: HeaderCardTypes) => {
+//   const { format, prepend } = getHeaderComponentConfig({ componentName: "datelastpublished", config });
+//   return <DateLastPublished format={format} prepend={prepend} />;
+// };
+// const DateUpdatedForHeader = ({ config }) => {
+//   const { prepend } = getHeaderComponentConfig({ componentName: "dateupdated", config });
+//   return <DateUpdated prepend={prepend} />;
+// };
+// const SectionForHeader = ({ story, config }) => {
+//   const { styles } = getHeaderComponentConfig({ componentName: "section", config });
+//   return (
+//     <div>
+//       <Section section={story.sections[0]} stylesFromConfig={styles} />
+//     </div>
+//   );
+// };
+// const SocialShareForHeader = ({ config }) => {
+//   const fbAppId = get(config, ["publisherConfig", "facebook", "app-id"], null);
+//   return <SocialShareHeader fbAppId={fbAppId} />;
+// };
+// const DividingLine = () => <StyledDividingLine />;
