@@ -74,10 +74,10 @@ const StyledText = styled.div<StoryElementProps>`
     (props.style && props.style.question ? props.style.question : baseQuestionStyles)}
 `;
 const baseQuestionStyles = css`
-color: ${(props) => props.theme.color.mono7};
-line-height: ${(props) => props.theme.font.lineHeight.level2};
-font-weight: ${(props) => props.theme.font.weight.bold};
-}`;
+  color: ${(props) => props.theme.color.mono7};
+  line-height: ${(props) => props.theme.font.lineHeight.level2};
+  font-weight: ${(props) => props.theme.font.weight.bold};
+`;
 const baseAnswerStyles = css`
   color: ${(props) => props.theme.color.mono5};
 `;
