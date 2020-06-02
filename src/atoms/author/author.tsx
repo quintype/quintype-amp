@@ -4,13 +4,19 @@ import { Author } from "../../types/story";
 import { AuthorProps } from "./types";
 import { Spacer } from "../spacer";
 
-const StyledAuthor = styled.div`
+const StyledAuthor = styled.div.attrs(({ inlineStyles }: StyledAuthorTypes) => ({ style: inlineStyles }))<
+  StyledAuthorTypes
+>`
   font-family: ${(props) => props.theme.font.family.secondary};
   font-size: ${(props) => props.theme.font.size.tiny};
   font-weight: bold;
   display: flex;
   align-items: center;
 `;
+
+export interface StyledAuthorTypes {
+  inlineStyles?: object;
+}
 
 const getAuthorNames = (authors: Author[]) =>
   authors.reduce((acc, author, index) => {
@@ -26,9 +32,9 @@ const getAuthorNames = (authors: Author[]) =>
     return "";
   }, "");
 
-const Author = ({ authors, prepend }: AuthorProps) => {
+const Author = ({ authors, prepend, inlineStyles }: AuthorProps) => {
   return (
-    <StyledAuthor>
+    <StyledAuthor inlineStyles={inlineStyles}>
       {prepend && prepend}
       {prepend && <Spacer token="m" align="horizontal" />}
       {getAuthorNames(authors)}
