@@ -8,6 +8,10 @@
 
 To publish the package, bump the version using sematic versioning in `package.json` and `package-lock.json`. Merge it to master branch. Switch to `master` branch which has the latest unpublished version. Make sure you are logged in to npm cli. Publish the package to npm by running `npm run dist`, once it is published you need to create a new release of the package by going to the [releases page on Github](https://github.com/quintype/quintype-amp/releases)
 
+### Note about writing commit messages
+
+It's important to follow [these guidelines](https://www.conventionalcommits.org/en/v1.0.0/), as versions (major/minor/patch) are released based on commit messages
+
 ### API Reference
 
 - #### Adding custom styles:

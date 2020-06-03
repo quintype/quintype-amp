@@ -3,6 +3,15 @@ import { ReactElement } from "react";
 import { ServerStyleSheet } from "styled-components";
 import ReactDOMServer from "react-dom/server";
 
+/**
+ * The renderToString function generates AMP Html string from react component.
+ * Styles created using styled components and those added using react-helmet are merged. script, meta, link tags, seo too is added to the head
+ *
+ * @category Helper Functions
+ * @function renderToString
+ * @param {class} component React component, ideally the containing the page layout
+ * @param {string} seo the SEO string that is to be added in the head
+ */
 export function renderToString(component, seo = "") {
   let str = "";
   try {
