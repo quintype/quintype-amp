@@ -16,6 +16,13 @@ const StyledBlurb = styled.blockquote`
   }
 `;
 
+/**
+ * Blurb story element
+ *
+ * @category StoryElements
+ * @module Blurb
+ * @component
+ */
 const Blurb = ({ element }: StoryElementProps) => {
   if (element.metadata && element.metadata.content) {
     return <StyledBlurb>{element.metadata.content}</StyledBlurb>;

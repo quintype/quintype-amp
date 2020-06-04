@@ -6,7 +6,8 @@
     "include": [
       "./src"
     ],
-    "includePattern": "\\.(ts|tsx)$"
+    "includePattern": "\\.tsx?$",
+    "excludePattern": "(node_modules/|docs|\\.stories\\.|\\.test\\.|fixture)"
   },
   "plugins": [
     "better-docs/component",
@@ -27,12 +28,13 @@
   "templates": {
     "cleverLinks": false,
     "monospaceLinks": false,
+    "search": true,
     "default": {
       "includeDate": false
     },
     "better-docs": {
-      "name": "@quintype/amp",
       "logo": "https://images.assettype.com/quintype-website/2018-10/013e8cbe-92b4-435f-bbbb-3e101efbc99a/quintype_logo.png?w=180",
+      "title": "AMP Lib",
       "trackingCode": "<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66074042-1', 'auto');ga('send', 'pageview');</script>",
       "navigation": [
         {

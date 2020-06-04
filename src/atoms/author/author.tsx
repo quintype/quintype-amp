@@ -26,6 +26,16 @@ const getAuthorNames = (authors: Author[]) =>
     return "";
   }, "");
 
+/**
+ * Author Component - displays all authors passed as array
+ *
+ * @category Atoms
+ * @module Author
+ * @component
+ * @param {AuthorProps} props
+ * @param {Author[]} props.authors Array containing details about all authors of the story. Comes from Story API
+ * @param {(string | React.Component)} props.prepend Optional. Used to prepend either some string or a component containing some icon to authors.
+ */
 const Author = ({ authors, prepend }: AuthorProps) => {
   return (
     <StyledAuthor>

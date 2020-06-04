@@ -10,8 +10,8 @@
   "scripts": {
     "storybook": "start-storybook -s ./storybook-assets -p 9001",
     "build": "rimraf dist && rollup -c",
-    "docs": "rimraf docs && jsdoc -c jsdoc.json",
-    "docs-serve": "http-server ./docs -p 8080 --silent -o",
+    "docs:build": "rimraf docs && jsdoc -c jsdoc.json",
+    "docs:serve": "npm run docs:build && http-server docs -p 3001 --silent -o",
     "pack": "npm run build && npm pack",
     "dist": "npm run build && npm publish --access public",
     "test": "jest --env=jsdom --watch",
