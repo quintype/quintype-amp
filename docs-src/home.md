@@ -15,4 +15,4 @@ Until now, AMP pages were handled by platform. The frontend app would route amp 
 
 #### Set up process
 
-Setting up your app to consume the amp library is Easy. Follow the integration guide
+Setting up your app to consume the amp library is Easy. Follow the [integration guide](https://developers.quintype.com/malibu/tutorial/amp-library-integration.html)
