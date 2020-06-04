@@ -1,8 +1,16 @@
 import React, { Fragment } from "react";
 import { Helmet } from "react-helmet";
 import { O2PlayerTypes } from "./types";
+import styled from "styled-components";
 
-export const O2Player = (props: O2PlayerTypes) => {
+const StyledO2Player = styled("amp-o2-player").attrs(({ inlineStyles }: StyledO2PlayerTypes) => ({
+  style: inlineStyles
+}))<StyledO2PlayerTypes>``;
+
+export interface StyledO2PlayerTypes {
+  inlineStyles?: object;
+}
+export const O2Player = (props, { inlineStyles }: O2PlayerTypes) => {
   if (!(props["data-pid"] || props["data-bcid"] || props["data-vid"])) {
     return null;
   }
@@ -25,7 +33,7 @@ export const O2Player = (props: O2PlayerTypes) => {
           src="https://cdn.ampproject.org/v0/amp-o2-player-0.1.js"
         />
       </Helmet>
-      <amp-o2-player {...componentProps} />
+      <StyledO2Player {...componentProps} inlineStyles={inlineStyles} />
     </Fragment>
   );
 };

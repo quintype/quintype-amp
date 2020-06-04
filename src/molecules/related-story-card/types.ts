@@ -4,4 +4,5 @@ export interface RelatedStoryCardTypes {
   story: Story;
   fallbackSrc: string;
   aspectRatio: number[];
+  inlineStyles?: object;
 }

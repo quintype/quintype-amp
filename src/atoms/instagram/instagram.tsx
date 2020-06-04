@@ -1,8 +1,17 @@
 import React, { Fragment } from "react";
 import { InstagramTypes } from "./types";
 import { Helmet } from "react-helmet";
+import styled from "styled-components";
 
-export const Instagram = (props: InstagramTypes) => {
+const StyledInstagram = styled("amp-instagram").attrs(({ inlineStyles }: StyledInstagramTypes) => ({
+  style: inlineStyles
+}))<StyledInstagramTypes>``;
+
+export interface StyledInstagramTypes {
+  inlineStyles?: object;
+}
+
+export const Instagram = (props, { inlineStyles }: InstagramTypes) => {
   const { width, height, layout } = props;
   const setDefaultLayout = !width || !height || !layout;
   const componentProps: InstagramTypes = setDefaultLayout
@@ -22,7 +31,7 @@ export const Instagram = (props: InstagramTypes) => {
           src="https://cdn.ampproject.org/v0/amp-instagram-0.1.js"
         />
       </Helmet>
-      <amp-instagram {...componentProps} />
+      <StyledInstagram {...componentProps} inlineStyles={inlineStyles} />
     </Fragment>
   );
 };

@@ -6,4 +6,5 @@ export interface O2PlayerTypes extends Common {
   "data-vid": string;
   "data-bid"?: string;
   "data-macros"?: string;
+  inlineStyles?: object;
 }

@@ -2,8 +2,16 @@ import React, { Fragment } from "react";
 import { Helmet } from "react-helmet";
 import { SlotType } from "../../types/config";
 import { parse } from "node-html-parser";
+import styled from "styled-components";
 
-export const Slot = ({ ampHtml, script, styles }: SlotType) => {
+const StyledSlot = styled.div.attrs(({ inlineStyles }: StyledSlotTypes) => ({
+  style: inlineStyles
+}))<StyledSlotTypes>``;
+
+export interface StyledSlotTypes {
+  inlineStyles?: object;
+}
+export const Slot = ({ ampHtml, script, styles, inlineStyles }: SlotType) => {
   const headScript = getHeadScript(script);
   return (
     <Fragment>
@@ -11,7 +19,7 @@ export const Slot = ({ ampHtml, script, styles }: SlotType) => {
         {headScript}
         {styles && <style>{styles}</style>}
       </Helmet>
-      <div dangerouslySetInnerHTML={{ __html: ampHtml }} />
+      <StyledSlot inlineStyles={inlineStyles} dangerouslySetInnerHTML={{ __html: ampHtml }} />
     </Fragment>
   );
 };

@@ -115,6 +115,7 @@ export interface SlotType {
   ampHtml: string;
   script?: string;
   styles?: string;
+  inlineStyles?: object;
 }
 interface SlotsTypes {
   story?: {
