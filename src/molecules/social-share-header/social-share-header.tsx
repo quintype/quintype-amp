@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { SocialShareIcon, Spacer } from "../../atoms";
 import { SocialShareHeaderProps } from "./types";
 
-export const Wrapper = styled.div.attrs(({ inlineStyles }: WrapperTypes) => ({ style: inlineStyles }))<WrapperTypes>`
+const Wrapper = styled.div.attrs(({ inlineStyles }: WrapperTypes) => ({ style: inlineStyles }))<WrapperTypes>`
   display: flex;
 `;
 export interface WrapperTypes {

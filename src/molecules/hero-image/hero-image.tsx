@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { media } from "../../utils/media";
 import { withStoryAndConfig } from "../../context";
 
-export const StyledFigcaption = styled.figcaption.attrs(({ inlineStyles }: StyledFigcaptionTypes) => ({
+const StyledFigcaption = styled.figcaption.attrs(({ inlineStyles }: StyledFigcaptionTypes) => ({
   style: inlineStyles
 }))<StyledFigcaptionTypes>`
   text-align: left;
