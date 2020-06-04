@@ -5,7 +5,9 @@ import styled from "styled-components";
 import { media } from "../../utils/media";
 import { withStoryAndConfig } from "../../context";
 
-const StyledFigcaption = styled.figcaption`
+export const StyledFigcaption = styled.figcaption.attrs(({ inlineStyles }: StyledFigcaptionTypes) => ({
+  style: inlineStyles
+}))<StyledFigcaptionTypes>`
   text-align: left;
   position: absolute;
   bottom: 0;
@@ -24,8 +26,10 @@ const StyledFigcaption = styled.figcaption`
 		overflow-y: scroll;
 	`}
 `;
-
-export const HeroImageBase = ({ story, attribution, slug, metadata, caption }: HeroImageBaseTypes) => {
+export interface StyledFigcaptionTypes {
+  inlineStyles?: object;
+}
+export const HeroImageBase = ({ story, attribution, slug, metadata, caption, inlineStyles }: HeroImageBaseTypes) => {
   let overRideStory = false;
   let figcaptionText: string | undefined | boolean;
   const imageProps: any = {};
@@ -56,7 +60,9 @@ export const HeroImageBase = ({ story, attribution, slug, metadata, caption }: H
   }
   return (
     <div>
-      <Image {...imageProps}>{figcaptionText && <StyledFigcaption>{figcaptionText}</StyledFigcaption>}</Image>
+      <Image {...imageProps}>
+        {figcaptionText && <StyledFigcaption inlineStyles={inlineStyles}>{figcaptionText}</StyledFigcaption>}
+      </Image>
     </div>
   );
 };

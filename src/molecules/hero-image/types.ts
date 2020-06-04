@@ -13,4 +13,5 @@ export interface HeroImageBaseTypes {
   slug?: string;
   caption?: string | null;
   metadata?: HeroImageMetadata;
+  inlineStyles?: object;
 }

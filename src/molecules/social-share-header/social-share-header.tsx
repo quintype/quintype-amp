@@ -3,14 +3,16 @@ import styled from "styled-components";
 import { SocialShareIcon, Spacer } from "../../atoms";
 import { SocialShareHeaderProps } from "./types";
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div.attrs(({ inlineStyles }: WrapperTypes) => ({ style: inlineStyles }))<WrapperTypes>`
   display: flex;
 `;
-
-const SocialShareHeader = ({ fbAppId }: SocialShareHeaderProps) => {
+export interface WrapperTypes {
+  inlineStyles?: object;
+}
+const SocialShareHeader = ({ fbAppId, inlineStyles }: SocialShareHeaderProps) => {
   const styles = { borderRadius: "50%", backgroundSize: "75%" };
   return (
-    <Wrapper>
+    <Wrapper inlineStyles={inlineStyles}>
       <SocialShareIcon type="twitter" styles={styles} />
       <Spacer align="horizontal" token="m" />
       <SocialShareIcon type="facebook" styles={styles} fbAppId={fbAppId} />
