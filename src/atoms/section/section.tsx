@@ -2,7 +2,9 @@ import React from "react";
 import { SectionProps } from "./types";
 import styled from "styled-components";
 
-const StyledSection = styled.h5`
+const StyledSection = styled.h5.attrs(({ inlineStyles }: StyledSectionTypes) => ({ style: inlineStyles }))<
+  StyledSectionTypes
+>`
   color: ${(props) => props.theme.color.sectionTextColor};
   margin: 0;
   letter-spacing: 1px;
@@ -11,11 +13,15 @@ const StyledSection = styled.h5`
   font-size: ${(props) => props.theme.font.size.xs};
 `;
 
-const Section = ({ section }: SectionProps) => {
+export interface StyledSectionTypes {
+  inlineStyles?: object;
+}
+
+const Section = ({ section, inlineStyles }: SectionProps) => {
   const sectionName =
     section["display-name"] && section["display-name"].length > 1 ? section["display-name"] : section.name;
 
-  return <StyledSection>{sectionName}</StyledSection>;
+  return <StyledSection inlineStyles={inlineStyles}>{sectionName}</StyledSection>;
 };
 
 export { Section };
