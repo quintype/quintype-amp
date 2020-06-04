@@ -55,17 +55,41 @@ const imagePresent = ({ metadata, s3Key }) => {
   return !!(metadata && Object.keys(metadata).length && s3Key);
 };
 
-const ImageForStory = ({ metadata, s3Key, aspectRatio, altText, fallbackSrc }) => (
+const StyledImageForStory = styled("amp-img").attrs(({ inlineStyles }: StyledImageForStoryTypes) => ({
+  style: inlineStyles
+}))<StyledImageForStoryTypes>``;
+
+export interface StyledImageForStoryTypes {
+  inlineStyles?: object;
+  metadata: ImageMetadata | null;
+  s3Key: string | null;
+  aspectRatio: number[];
+  altText: string;
+  fallbackSrc: string;
+}
+interface ImageMetadata {
+  width: number;
+  height: number;
+}
+const ImageForStory = ({
+  metadata,
+  s3Key,
+  aspectRatio,
+  altText,
+  fallbackSrc,
+  inlineStyles
+}: StyledImageForStoryTypes) => (
   <Fragment>
     {imagePresent({ metadata, s3Key }) ? (
       <Image metadata={metadata} slug={s3Key} aspectRatio={aspectRatio} alt={altText} />
     ) : (
-      <amp-img
+      <StyledImageForStory
         alt={altText || "fallback image"}
         width={aspectRatio[0]}
         height={aspectRatio[1]}
         layout="responsive"
         src={fallbackSrc}
+        inlineStyles={inlineStyles}
       />
     )}
   </Fragment>

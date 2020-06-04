@@ -7,15 +7,25 @@ import { base64FallbackImage } from "../../helpers/image-helpers";
 import { Spacer } from "../../atoms";
 import get from "lodash.get";
 
-export const Heading = styled.h2`
+export const Heading = styled.h2.attrs(({ inlineStyles }: HeadingTypes) => ({
+  style: inlineStyles
+}))<HeadingTypes>`
   font-size: ${(props) => props.theme.font.size.l};
 `;
-
-export const RelatedStoriesBase = ({ stories, config, heading, aspectRatio = [16, 9] }: RelatedStoriesTypes) => {
+export interface HeadingTypes {
+  inlineStyles?: object;
+}
+export const RelatedStoriesBase = ({
+  stories,
+  config,
+  heading,
+  aspectRatio = [16, 9],
+  inlineStyles
+}: RelatedStoriesTypes) => {
   return stories && stories.length ? (
     <Fragment>
       <Spacer token="m" />
-      <Heading>{heading || "Also Read"}</Heading>
+      <Heading inlineStyles={inlineStyles}>{heading || "Also Read"}</Heading>
       <div>
         {stories.map((story) => (
           <RelatedStoryCard
