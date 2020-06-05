@@ -1,8 +1,8 @@
 #!/bin/bash -e
 
+npm install
 npm run jest
 npm run build
-npm install
 git diff --quiet
 # npm run docs
 
