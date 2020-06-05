@@ -8,7 +8,7 @@
     "dist"
   ],
   "scripts": {
-    "prepublishOnly": "npm run jest && ./bin-dev-scripts/standard-version-release.sh",
+    "prepublishOnly": "./bin-dev-scripts/standard-version-release.sh",
     "storybook": "start-storybook -s ./storybook-assets -p 9001",
     "build": "rimraf dist && webpack",
     "pack": "npm run build && npm pack",
