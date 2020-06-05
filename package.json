@@ -12,8 +12,6 @@
     "storybook": "start-storybook -s ./storybook-assets -p 9001",
     "build": "rimraf dist && webpack",
     "pack": "npm run build && npm pack",
-    "dist": "npm run build && npm publish --access public",
-    "beta": "npm run build && npm publish --tag beta --access public",
     "test": "jest --env=jsdom --watch",
     "jest": "jest --env=jsdom",
     "test:cover": "jest --env=jsdom --coverage --watchAll; open coverage/index.html",
