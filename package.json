@@ -1,6 +1,6 @@
 {
   "name": "@quintype/amp",
-  "version": "1.0.29",
+  "version": "1.0.30",
   "description": "Quintype's AMP component library for publisher apps to create amp layouts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,6 +8,7 @@
     "dist"
   ],
   "scripts": {
+    "prepublishOnly": "npm run jest && ./bin-dev-scripts/standard-version-release.sh",
     "storybook": "start-storybook -s ./storybook-assets -p 9001",
     "build": "rimraf dist && webpack",
     "pack": "npm run build && npm pack",
@@ -71,6 +72,7 @@
     "lint-staged": "^10.2.2",
     "prettier": "^1.19.1",
     "rimraf": "^3.0.2",
+    "standard-version": "^8.0.0",
     "ts-jest": "^25.2.0",
     "tslint": "^6.1.0",
     "tslint-config-prettier": "^1.18.0",
