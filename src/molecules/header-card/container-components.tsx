@@ -3,10 +3,10 @@ import { Author, Section, Spacer } from "../../atoms";
 import { HeroImage } from "../hero-image";
 import { SocialShareHeader } from "../social-share-header";
 import { DateLastPublished } from "../date";
-import { HeaderCardTypes } from "./types";
+import { CommonRenderPropTypes } from "../../types/config";
 import { Headline, HeaderCardContainer } from "./presentational-components";
 
-export const DefaultHeaderCard = ({ story, config }: HeaderCardTypes) => {
+export const DefaultHeaderCard = ({ story, config }: CommonRenderPropTypes) => {
   const { publisherConfig } = config;
   return (
     <div>
