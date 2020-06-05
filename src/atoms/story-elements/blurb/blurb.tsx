@@ -2,7 +2,9 @@ import React from "react";
 import { StoryElementProps } from "../types";
 import styled from "styled-components";
 
-const StyledBlurb = styled.blockquote`
+const StyledBlurb = styled.blockquote.attrs(({ inlineStyles }: StyledBlurbTypes) => ({
+  style: inlineStyles
+}))<StyledBlurbTypes>`
   font-size: ${(props) => props.theme.font.size.m};
   color: ${(props) => props.theme.color.mono7};
   margin: 0 ${(props) => props.theme.spacing.s};
@@ -15,12 +17,14 @@ const StyledBlurb = styled.blockquote`
     margin: 0 ${(props) => props.theme.spacing.s};
   }
 `;
-
-const Blurb = ({ element }: StoryElementProps) => {
+export interface StyledBlurbTypes {
+  inlineStyles?: object;
+}
+const Blurb = ({ element, inlineStyles }: StoryElementProps) => {
   if (element.metadata && element.metadata.content) {
-    return <StyledBlurb>{element.metadata.content}</StyledBlurb>;
+    return <StyledBlurb inlineStyles={inlineStyles}>{element.metadata.content}</StyledBlurb>;
   }
-  return <StyledBlurb as="div" dangerouslySetInnerHTML={{ __html: element.text || "" }} />;
+  return <StyledBlurb inlineStyles={inlineStyles} as="div" dangerouslySetInnerHTML={{ __html: element.text || "" }} />;
 };
 
 export { Blurb };

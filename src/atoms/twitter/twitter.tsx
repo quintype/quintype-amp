@@ -3,7 +3,7 @@ import { TwitterTypes } from "./types";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
 
-const StyledTwitter = styled("amp-twitter").attrs(({ inlineStyles }: StyledTwitterTypes) => ({
+const StyledTwitter = styled.div.attrs(({ inlineStyles }: StyledTwitterTypes) => ({
   style: inlineStyles
 }))<StyledTwitterTypes>``;
 export interface StyledTwitterTypes {
@@ -25,7 +25,9 @@ export const Twitter = (props, { inlineStyles }: TwitterTypes) => {
       <Helmet>
         <script async={undefined} custom-element="amp-twitter" src="https://cdn.ampproject.org/v0/amp-twitter-0.1.js" />
       </Helmet>
-      <StyledTwitter {...componentProps} inlineStyles={inlineStyles} />
+      <StyledTwitter inlineStyles={inlineStyles}>
+        <amp-twitter {...componentProps} />
+      </StyledTwitter>
     </Fragment>
   );
 };

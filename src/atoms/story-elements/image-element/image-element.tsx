@@ -5,7 +5,9 @@ import { media } from "../../../utils/media";
 import { StoryElementProps } from "../types";
 import styled from "styled-components";
 
-const StyledFigCaption = styled.figcaption`
+const StyledFigCaption = styled.figcaption.attrs(({ inlineStyles }: StyledFigCaptionTypes) => ({
+  style: inlineStyles
+}))<StyledFigCaptionTypes>`
   text-align: left;
   position: absolute;
   bottom: 0;
@@ -25,9 +27,15 @@ const StyledFigCaption = styled.figcaption`
 	`}
 `;
 
-const ImageElement = ({ element }: StoryElementProps) => (
+export interface StyledFigCaptionTypes {
+  inlineStyles?: object;
+}
+
+const ImageElement = ({ element, inlineStyles }: StoryElementProps) => (
   <Image slug={element["image-s3-key"]} metadata={element["image-metadata"]}>
-    {element.title && element.title.length > 1 && <StyledFigCaption>{element.title}</StyledFigCaption>}
+    {element.title && element.title.length > 1 && (
+      <StyledFigCaption inlineStyles={inlineStyles}>{element.title}</StyledFigCaption>
+    )}
   </Image>
 );
 

@@ -6,10 +6,10 @@ import { withConfig } from "../../context";
 import { LightboxGallery } from "../lightbox-gallery";
 import styled from "styled-components";
 
-const StyledBaseImage = styled("amp-img").attrs(({ inlineStyles }: StyledBaseImageTypes) => ({
+const StyledImage = styled.div.attrs(({ inlineStyles }: StyledImageTypes) => ({
   style: inlineStyles
-}))<StyledBaseImageTypes>``;
-export interface StyledBaseImageTypes {
+}))<StyledImageTypes>``;
+export interface StyledImageTypes {
   inlineStyles?: object;
 }
 export const BaseImage = ({
@@ -57,10 +57,14 @@ export const BaseImage = ({
   return lightbox ? (
     <Fragment>
       <LightboxGallery />
-      <StyledBaseImage {...value} lightbox={lightbox} inlineStyles={inlineStyles} />
+      <StyledImage inlineStyles={inlineStyles}>
+        <amp-img {...value} lightbox={lightbox} />
+      </StyledImage>
     </Fragment>
   ) : (
-    <StyledBaseImage {...value} inlineStyles={inlineStyles} />
+    <StyledImage inlineStyles={inlineStyles}>
+      <amp-img {...value} />
+    </StyledImage>
   );
 };
 

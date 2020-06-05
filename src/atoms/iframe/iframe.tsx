@@ -3,7 +3,7 @@ import { IframeTypes } from "./types";
 import Helmet from "react-helmet";
 import styled from "styled-components";
 
-const StyledIframe = styled("amp-iframe").attrs(({ inlineStyles }: StyledIframeTypes) => ({
+const StyledIframe = styled.div.attrs(({ inlineStyles }: StyledIframeTypes) => ({
   style: inlineStyles
 }))<StyledIframeTypes>``;
 
@@ -27,16 +27,17 @@ const Iframe = ({
       <Helmet>
         <script async={undefined} custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js" />
       </Helmet>
-      <StyledIframe
-        inlineStyles={inlineStyles}
-        width={width}
-        height={height}
-        sandbox={sandbox}
-        layout={layout}
-        frameborder={frameborder}
-        src={src}
-        {...restProps}>
-        {children && children}
+      <StyledIframe inlineStyles={inlineStyles}>
+        <amp-iframe
+          width={width}
+          height={height}
+          sandbox={sandbox}
+          layout={layout}
+          frameborder={frameborder}
+          src={src}
+          {...restProps}>
+          {children && children}
+        </amp-iframe>
       </StyledIframe>
     </Fragment>
   );

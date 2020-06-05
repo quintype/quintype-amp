@@ -6,3 +6,16 @@ export interface RelatedStoryCardTypes {
   aspectRatio: number[];
   inlineStyles?: object;
 }
+
+export interface ImageForStoryTypes {
+  metadata: ImageMetadata | null;
+  s3Key: string | null;
+  aspectRatio: number[];
+  altText: string | null;
+  fallbackSrc: string | null;
+}
+
+interface ImageMetadata {
+  width: number;
+  height: number;
+}

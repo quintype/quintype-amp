@@ -18,16 +18,21 @@ const Wrapper = styled.div`
     top: 4px;
   }
 `;
-
-const StyledBlockQuote = styled.blockquote`
+const StyledBlockQuote = styled.blockquote.attrs(({ inlineStyles }: StyledBlockQuoteTypes) => ({
+  style: inlineStyles
+}))<StyledBlockQuoteTypes>`
   padding: 0 0 0 50px;
   margin: 0;
   font-size: ${(props) => props.theme.font.size.l};
   color: ${(props) => props.theme.color.mono6};
   line-height: ${(props) => props.theme.font.lineHeight.level5};
 `;
-
-const StyledAttribution = styled.span`
+export interface StyledBlockQuoteTypes {
+  inlineStyles?: object;
+}
+const StyledAttribution = styled.span.attrs(({ inlineStyles }: StyledBlockQuoteTypes) => ({
+  style: inlineStyles
+}))<StyledBlockQuoteTypes>`
   color: ${(props) => props.theme.color.mono6};
   font-size: ${(props) => props.theme.font.size.m};
   font-weight: bold;
@@ -37,8 +42,9 @@ const StyledAttribution = styled.span`
     margin-right: 5px;
   }
 `;
-
-const FallbackBlockQuote = styled.div`
+const FallbackBlockQuote = styled.div.attrs(({ inlineStyles }: StyledBlockQuoteTypes) => ({
+  style: inlineStyles
+}))<StyledBlockQuoteTypes>`
   div {
     display: flex;
     flex-direction: column;
@@ -75,23 +81,23 @@ const FallbackBlockQuote = styled.div`
   }
 `;
 
-const BlockQuote = ({ element }: StoryElementProps) => {
+const BlockQuote = ({ element, inlineStyles }: StoryElementProps) => {
   if (element.metadata) {
     const { content, attribution } = element.metadata;
     return (
       <Wrapper>
-        <StyledBlockQuote>{content}</StyledBlockQuote>
+        <StyledBlockQuote inlineStyles={inlineStyles}>{content}</StyledBlockQuote>
         {attribution && attribution.length && (
           <React.Fragment>
             <Spacer token="s" />
-            <StyledAttribution>{attribution}</StyledAttribution>
+            <StyledAttribution inlineStyles={inlineStyles}>{attribution}</StyledAttribution>
           </React.Fragment>
         )}
       </Wrapper>
     );
   }
 
-  return <FallbackBlockQuote dangerouslySetInnerHTML={{ __html: element.text || "" }} />;
+  return <FallbackBlockQuote inlineStyles={inlineStyles} dangerouslySetInnerHTML={{ __html: element.text || "" }} />;
 };
 
 export { BlockQuote };

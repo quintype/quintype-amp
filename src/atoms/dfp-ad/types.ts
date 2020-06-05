@@ -9,4 +9,5 @@ export interface DfpAdTypes {
   story: Story;
   config: Config;
   children?: JSX.Element[] | JSX.Element | ReactElement | HTMLElement;
+  inlineStyles?: object;
 }

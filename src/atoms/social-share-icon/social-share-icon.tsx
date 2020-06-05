@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { SocialShareTypes } from "./types";
 import styled from "styled-components";
 
-const StyledSocialShare = styled("amp-social-share").attrs(({ inlineStyles }: StyledSocialShareTypes) => ({
+const StyledSocialShare = styled.div.attrs(({ inlineStyles }: StyledSocialShareTypes) => ({
   style: inlineStyles
 }))<StyledSocialShareTypes>``;
 export interface StyledSocialShareTypes {
@@ -27,17 +27,14 @@ export const SocialShareIcon = ({
         />
       </Helmet>
       {type === "facebook" && (
-        <StyledSocialShare
-          style={styles}
-          type={type}
-          width={width}
-          height={height}
-          data-param-app_id={fbAppId}
-          inlineStyles={inlineStyles}
-        />
+        <StyledSocialShare inlineStyles={inlineStyles}>
+          <amp-social-share style={styles} type={type} width={width} height={height} data-param-app_id={fbAppId} />
+        </StyledSocialShare>
       )}
       {type !== "facebook" && (
-        <StyledSocialShare style={styles} type={type} width={width} height={height} inlineStyles={inlineStyles} />
+        <StyledSocialShare inlineStyles={inlineStyles}>
+          <amp-social-share style={styles} type={type} width={width} height={height} inlineStyles={inlineStyles} />
+        </StyledSocialShare>
       )}
     </Fragment>
   );

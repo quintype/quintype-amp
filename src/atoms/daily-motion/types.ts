@@ -11,4 +11,5 @@ export interface DailyMotionTypes extends Common {
   "data-info"?: string;
   dock?: boolean;
   autoplay?: boolean;
+  inlineStyles?: object;
 }

@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import styled from "styled-components";
 import { Image, DateTime, Spacer } from "../../atoms";
-import { RelatedStoryCardTypes } from "./types";
+import { RelatedStoryCardTypes, ImageForStoryTypes } from "./types";
 import { getHumanizedDateTime } from "../../utils/date-time";
 
 const Wrapper = styled.div`
@@ -55,21 +55,12 @@ const imagePresent = ({ metadata, s3Key }) => {
   return !!(metadata && Object.keys(metadata).length && s3Key);
 };
 
-const StyledImageForStory = styled("amp-img").attrs(({ inlineStyles }: StyledImageForStoryTypes) => ({
+const StyledImageForStory = styled.div.attrs(({ inlineStyles }: StyledImageForStoryTypes) => ({
   style: inlineStyles
 }))<StyledImageForStoryTypes>``;
 
 export interface StyledImageForStoryTypes {
   inlineStyles?: object;
-  metadata: ImageMetadata | null;
-  s3Key: string | null;
-  aspectRatio: number[];
-  altText: string;
-  fallbackSrc: string;
-}
-interface ImageMetadata {
-  width: number;
-  height: number;
 }
 const ImageForStory = ({
   metadata,
@@ -78,19 +69,20 @@ const ImageForStory = ({
   altText,
   fallbackSrc,
   inlineStyles
-}: StyledImageForStoryTypes) => (
+}: ImageForStoryTypes & StyledImageForStoryTypes) => (
   <Fragment>
     {imagePresent({ metadata, s3Key }) ? (
       <Image metadata={metadata} slug={s3Key} aspectRatio={aspectRatio} alt={altText} />
     ) : (
-      <StyledImageForStory
-        alt={altText || "fallback image"}
-        width={aspectRatio[0]}
-        height={aspectRatio[1]}
-        layout="responsive"
-        src={fallbackSrc}
-        inlineStyles={inlineStyles}
-      />
+      <StyledImageForStory inlineStyles={inlineStyles}>
+        <amp-img
+          alt={altText || "fallback image"}
+          width={aspectRatio[0]}
+          height={aspectRatio[1]}
+          layout="responsive"
+          src={fallbackSrc}
+        />
+      </StyledImageForStory>
     )}
   </Fragment>
 );

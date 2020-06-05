@@ -4,16 +4,24 @@ import { StoryElementProps } from "../types";
 
 export type TextProps = StoryElementProps & { externalLink?: boolean };
 
-const Text = ({ element, externalLink, style }: TextProps) => {
+const Text = ({ element, externalLink, style, inlineStyles }: TextProps) => {
   let text = element.text || "";
   if (externalLink) {
     text = text.replace(/<a/g, '<a target="_blank"');
   }
 
-  return <StyledText element={element} style={style} dangerouslySetInnerHTML={{ __html: text }} />;
+  return (
+    <StyledText
+      element={element}
+      style={style}
+      dangerouslySetInnerHTML={{ __html: text }}
+      inlineStyles={inlineStyles}
+    />
+  );
 };
-
-const StyledText = styled.div<StoryElementProps>`
+const StyledText = styled.div.attrs(({ inlineStyles }: StoryElementProps) => ({
+  style: inlineStyles
+}))<StoryElementProps>`
   color: ${(props) => props.theme.color.mono6};
   font-size: ${(props) => props.theme.font.size.xs};
   font-family: ${(props) => props.theme.font.family.primary};

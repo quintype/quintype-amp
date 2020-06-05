@@ -3,7 +3,7 @@ import { InstagramTypes } from "./types";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
 
-const StyledInstagram = styled("amp-instagram").attrs(({ inlineStyles }: StyledInstagramTypes) => ({
+const StyledInstagram = styled.div.attrs(({ inlineStyles }: StyledInstagramTypes) => ({
   style: inlineStyles
 }))<StyledInstagramTypes>``;
 
@@ -31,7 +31,9 @@ export const Instagram = (props, { inlineStyles }: InstagramTypes) => {
           src="https://cdn.ampproject.org/v0/amp-instagram-0.1.js"
         />
       </Helmet>
-      <StyledInstagram {...componentProps} inlineStyles={inlineStyles} />
+      <StyledInstagram inlineStyles={inlineStyles}>
+        <amp-instagram {...componentProps} />
+      </StyledInstagram>
     </Fragment>
   );
 };

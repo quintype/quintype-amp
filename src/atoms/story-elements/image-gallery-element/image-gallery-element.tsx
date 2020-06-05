@@ -6,12 +6,20 @@ import { Image } from "../../image";
 import styled from "styled-components";
 import { media } from "../../../utils/media";
 
-const StyledGallery = styled.div`
+const StyledGallery = styled.div.attrs(({ inlineStyles }: StyledGalleryTypes) => ({
+  style: inlineStyles
+}))<StyledGalleryTypes>`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 `;
 
-const StyledFigcaption = styled.figcaption`
+export interface StyledGalleryTypes {
+  inlineStyles?: object;
+}
+
+const StyledFigcaption = styled.figcaption.attrs(({ inlineStyles }: StyledGalleryTypes) => ({
+  style: inlineStyles
+}))<StyledGalleryTypes>`
   text-align: left;
   position: absolute;
   bottom: 0;
@@ -39,6 +47,7 @@ const ImageGalleryElement = ({
   aspectRatio = [16, 9],
   type,
   lightbox,
+  inlineStyles,
   ...props
 }: ImageGalleryElementProps) => {
   // forcing imageGallery to false for now for vikatan.
@@ -54,7 +63,9 @@ const ImageGalleryElement = ({
         alt={image.title}
         lightbox={imageGallery ? "imageGallery" : false}>
         {getFigcaptionText(image.title, image["image-attribution"]) && (
-          <StyledFigcaption>{getFigcaptionText(image.title, image["image-attribution"])}</StyledFigcaption>
+          <StyledFigcaption inlineStyles={inlineStyles}>
+            {getFigcaptionText(image.title, image["image-attribution"])}
+          </StyledFigcaption>
         )}
       </Image>
     ));
@@ -63,7 +74,7 @@ const ImageGalleryElement = ({
     <>
       {storyElements &&
         (imageGallery ? (
-          <StyledGallery>{images}</StyledGallery>
+          <StyledGallery inlineStyles={inlineStyles}>{images}</StyledGallery>
         ) : (
           <Carousel height={height} width={width} layout={layout} type="slides" {...props}>
             {images}

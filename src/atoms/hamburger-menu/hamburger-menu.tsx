@@ -6,7 +6,7 @@ import { StyledList } from "./presentational-components";
 import { arrayToTree } from "performant-array-to-tree";
 import styled from "styled-components";
 
-const StyledSidebar = styled("amp-sidebar").attrs(({ inlineStyles }: StyledSidebarTypes) => ({
+const StyledSidebar = styled.div.attrs(({ inlineStyles }: StyledSidebarTypes) => ({
   style: inlineStyles
 }))<StyledSidebarTypes>``;
 
@@ -14,7 +14,7 @@ export interface StyledSidebarTypes {
   inlineStyles?: object;
 }
 
-const StyledNestedMenu = styled("amp-nested-menu").attrs(({ inlineStyles }: StyledNestedMenuTypes) => ({
+const StyledNestedMenu = styled.div.attrs(({ inlineStyles }: StyledNestedMenuTypes) => ({
   style: inlineStyles
 }))<StyledNestedMenuTypes>``;
 
@@ -36,21 +36,24 @@ export const HamburgerMenu = ({ align, items, textDirection, inlineStyles }: Ham
       <Helmet>
         <script async={undefined} custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js" />
       </Helmet>
-      <StyledSidebar
-        id="sidebar"
-        layout="nodisplay"
-        side={align}
-        on="sidebarClose:nested-menu.reset"
-        style={sidebarStyles}
-        inlineStyles={inlineStyles}>
-        <StyledNestedMenu layout="fill" id="nested-menu">
-          <StyledList dir={textDirection}>
-            <CloseButton />
-            {itemsTree.map((item) => (
-              <TreeNode item={item} key={item.id} textDirection={textDirection} />
-            ))}
-          </StyledList>
-        </StyledNestedMenu>
+      <StyledSidebar inlineStyles={inlineStyles}>
+        <amp-sidebar
+          id="sidebar"
+          layout="nodisplay"
+          side={align}
+          on="sidebarClose:nested-menu.reset"
+          style={sidebarStyles}>
+          <StyledNestedMenu inlineStyles={inlineStyles}>
+            <amp-nested-menu layout="fill" id="nested-menu">
+              <StyledList dir={textDirection}>
+                <CloseButton />
+                {itemsTree.map((item) => (
+                  <TreeNode item={item} key={item.id} textDirection={textDirection} />
+                ))}
+              </StyledList>
+            </amp-nested-menu>
+          </StyledNestedMenu>
+        </amp-sidebar>
       </StyledSidebar>
     </Fragment>
   );

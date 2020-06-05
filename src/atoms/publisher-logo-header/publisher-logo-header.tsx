@@ -2,7 +2,7 @@ import React from "react";
 import { PublisherLogoHeaderTypes } from "./types";
 import styled from "styled-components";
 
-const StyledPublisherLogoHeader = styled("amp-img").attrs(({ inlineStyles }: StyledPublisherLogoHeaderTypes) => ({
+const StyledPublisherLogoHeader = styled.a.attrs(({ inlineStyles }: StyledPublisherLogoHeaderTypes) => ({
   style: inlineStyles
 }))<StyledPublisherLogoHeaderTypes>``;
 
@@ -17,14 +17,8 @@ export const PublisherLogoHeader = ({
   inlineStyles
 }: PublisherLogoHeaderTypes) => {
   return (
-    <a href="/">
-      <StyledPublisherLogoHeader
-        alt={publisherName}
-        src={logoSrc}
-        width={width}
-        height={height}
-        inlineStyles={inlineStyles}
-      />
-    </a>
+    <StyledPublisherLogoHeader href="/" inlineStyles={inlineStyles}>
+      <amp-img alt={publisherName} src={logoSrc} width={width} height={height} />
+    </StyledPublisherLogoHeader>
   );
 };
