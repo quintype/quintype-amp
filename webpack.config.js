@@ -2,7 +2,8 @@ const path = require("path");
 
 module.exports = {
   entry: "./src/index.ts",
-  // mode: "development",
+  mode: "development",
+  target: "node",
   module: {
     rules: [
       {
@@ -16,8 +17,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "index.js",
-    globalObject: "this"
-    // libraryTarget: "commonjs2"
+    libraryTarget: "commonjs2",
+    library: "amp"
   },
   plugins: []
 };
