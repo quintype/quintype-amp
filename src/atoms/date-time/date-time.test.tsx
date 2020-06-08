@@ -1,5 +1,5 @@
 import React from "react";
-import { DateTime } from "./date-time";
+import { StyledTimeWrapper, DateTime } from "./date-time";
 import { shallow } from "enzyme";
 
 describe("DateTime", () => {
@@ -14,5 +14,9 @@ describe("DateTime", () => {
   it("should prepend text", () => {
     const wrapper = shallow(<DateTime formattedDate="14 June 2017" prepend="Published: " />);
     expect(wrapper.text()).toMatch(/^Published:/);
+  });
+  it("should render with custom styles", () => {
+    const wrapper = shallow(<StyledTimeWrapper inlineStyles={{ "background-color": "blue" }}></StyledTimeWrapper>);
+    expect(wrapper.find("div").prop("style")).toStrictEqual({ "background-color": "blue" });
   });
 });

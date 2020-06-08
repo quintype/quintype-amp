@@ -1,6 +1,6 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
-import { Facebook } from "./facebook";
+import { StyledFacebook, Facebook } from "./facebook";
 
 const postSrc = "https://www.facebook.com/ParksCanada/posts/1712989015384373";
 
@@ -17,4 +17,9 @@ storiesOf("Facebook", module)
       data-embed-type="comment"
       data-href="https://www.facebook.com/zuck/posts/10102735452532991?comment_id=1070233703036185"
     />
+  ))
+  .add("with custom styles", () => (
+    <StyledFacebook inlineStyles={{ border: "2px solid black" }}>
+      <Facebook data-href={postSrc} inlineStyles={{ border: "2px solid black" }} />
+    </StyledFacebook>
   ));

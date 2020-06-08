@@ -1,5 +1,5 @@
 import React from "react";
-import { Section } from "./section";
+import { StyledSection, Section } from "./section";
 import { shallow } from "enzyme";
 
 const section = {
@@ -31,5 +31,9 @@ describe("Section", () => {
   it("should render name when no display name ", () => {
     const wrapper = shallow(<Section section={sectionWithoutDisplayName} />);
     expect(wrapper.text()).toBe(section.name);
+  });
+  it("should render with custom styles", () => {
+    const wrapper = shallow(<StyledSection inlineStyles={{ "background-color": "blue" }} />);
+    expect(wrapper.find("div").prop("style")).toStrictEqual({ "background-color": "blue" });
   });
 });

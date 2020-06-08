@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { BaseImage } from "./image";
+import { StyledImage, BaseImage } from "./image";
 import get from "lodash.get";
 import { textStory, config } from "../../__fixtures__";
 import { LightboxGallery } from "../lightbox-gallery";
@@ -85,5 +85,9 @@ describe("Image", () => {
     );
     expect(wrapper.find(`amp-img`).prop("lightbox")).toBeFalsy();
     expect(wrapper.find(LightboxGallery).exists()).toBeFalsy();
+  });
+  it("should render with custom styles", () => {
+    const wrapper = shallow(<StyledImage inlineStyles={{ border: "5px solid red" }}></StyledImage>);
+    expect(wrapper.find("div").prop("style")).toStrictEqual({ border: "5px solid red" });
   });
 });

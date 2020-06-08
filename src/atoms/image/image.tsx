@@ -4,7 +4,14 @@ import { Config } from "../../types/config";
 import { focusedImagePath } from "../../helpers/image-helpers";
 import { withConfig } from "../../context";
 import { LightboxGallery } from "../lightbox-gallery";
+import styled from "styled-components";
 
+export const StyledImage = styled.div.attrs(({ inlineStyles }: StyledImageTypes) => ({
+  style: inlineStyles
+}))<StyledImageTypes>``;
+export interface StyledImageTypes {
+  inlineStyles?: object;
+}
 export const BaseImage = ({
   metadata,
   width,
@@ -16,6 +23,7 @@ export const BaseImage = ({
   opts = {},
   config,
   lightbox = true,
+  inlineStyles,
   ...rest
 }: ImageTypes & { config: Config }) => {
   const cdnName = config.publisherConfig["cdn-name"];
@@ -49,10 +57,14 @@ export const BaseImage = ({
   return lightbox ? (
     <Fragment>
       <LightboxGallery />
-      <amp-img {...value} lightbox={lightbox} />
+      <StyledImage inlineStyles={inlineStyles}>
+        <amp-img {...value} lightbox={lightbox} />
+      </StyledImage>
     </Fragment>
   ) : (
-    <amp-img {...value} />
+    <StyledImage inlineStyles={inlineStyles}>
+      <amp-img {...value} />
+    </StyledImage>
   );
 };
 

@@ -5,15 +5,20 @@ import { Theme } from "../../context/theme";
 import { StoryProvider } from "../../context/story/story-context";
 import { ConfigProvider } from "../../context/config/config-context";
 import { getTokensFromAMPConfig } from "../../utils/theme";
-
 import styled from "styled-components";
 
-const Container = styled.main`
+const Container = styled.main.attrs(({ inlineStyles }: ContainerTypes) => ({
+  style: inlineStyles
+}))<ContainerTypes>`
   font-family: ${(props) => props.theme.font.family.primary};
   position: relative;
 `;
 
-const Layout = ({ style, children, story, config }: Layout) => {
+export interface ContainerTypes {
+  inlineStyles?: object;
+}
+
+const Layout = ({ style, children, story, config, inlineStyles }: Layout) => {
   const tokens = getTokensFromAMPConfig(config.ampConfig);
   const embedCustomFonts = config.ampConfig.fonts;
   return (
@@ -30,7 +35,7 @@ const Layout = ({ style, children, story, config }: Layout) => {
       <ConfigProvider value={config}>
         <StoryProvider value={story}>
           <Theme tokens={tokens}>
-            <Container>{children}</Container>
+            <Container inlineStyles={inlineStyles}>{children}</Container>
           </Theme>
         </StoryProvider>
       </ConfigProvider>

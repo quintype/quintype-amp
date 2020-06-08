@@ -1,6 +1,6 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
-import { DfpAd } from "./dfp-ad";
+import { StyledDfpAd, DfpAd } from "./dfp-ad";
 import { config, textStory } from "../../__fixtures__";
 import { Layout } from "../layout";
 
@@ -32,4 +32,9 @@ storiesOf("Ad", module)
     <DfpAd {...invalidAd}>
       <div fallback="true">Ad failed to load</div>
     </DfpAd>
+  ))
+  .add("Ad with custom styles", () => (
+    <StyledDfpAd inlineStyles={{ border: "2px solid red" }}>
+      <DfpAd {...genericAd} />
+    </StyledDfpAd>
   ));

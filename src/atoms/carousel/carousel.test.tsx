@@ -1,5 +1,5 @@
 import React from "react";
-import { mount } from "enzyme";
+import { shallow, mount } from "enzyme";
 import { StyledCarousel, Carousel } from "./carousel";
 
 const sampleImages = (
@@ -53,7 +53,7 @@ describe("Carousel", () => {
     expect(wrapper.find("amp-carousel").prop("lightbox")).toBe(true);
   });
   it("should render carousel with custom styles", () => {
-    const wrapper = mount(<StyledCarousel inlineStyles={{ border: "2px solid black" }}></StyledCarousel>);
+    const wrapper = shallow(<StyledCarousel inlineStyles={{ border: "2px solid black" }}></StyledCarousel>);
     expect(wrapper.find("div").prop("style")).toStrictEqual({ border: "2px solid black" });
   });
   it("shouldn't render images", () => {

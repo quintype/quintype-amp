@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { O2Player } from "./o2-player";
+import { StyledO2Player, O2Player } from "./o2-player";
 
 const o2PlayerIds = {
   "data-pid": "59bf5a3485eb426ac28cd4e6",
@@ -23,5 +23,9 @@ describe("O2Player", () => {
     const wrapper = shallow(<O2Player {...o2PlayerIds} width="250" height="250" layout="fixed" />);
     expect(wrapper.find("amp-o2-player").prop("width")).toBe("250");
     expect(wrapper.find("amp-o2-player").prop("layout")).toBe("fixed");
+  });
+  it("should render custom styles", () => {
+    const wrapper = shallow(<StyledO2Player inlineStyles={{ border: "5px solid red" }} />);
+    expect(wrapper.find("div").prop("style")).toStrictEqual({ border: "5px solid red" });
   });
 });

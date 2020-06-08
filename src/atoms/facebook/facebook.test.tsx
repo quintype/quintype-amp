@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { Facebook } from "./facebook";
+import { StyledFacebook, Facebook } from "./facebook";
 
 describe("Facebook", () => {
   it("should render facebook element", () => {
@@ -39,5 +39,9 @@ describe("Facebook", () => {
       />
     );
     expect(wrapper.find("amp-facebook").prop("data-embed-type")).toBe("comment");
+  });
+  it("should render facebook with custom styles", () => {
+    const wrapper = shallow(<StyledFacebook inlineStyles={{ border: "2px solid black" }}></StyledFacebook>);
+    expect(wrapper.find("div").prop("style")).toStrictEqual({ border: "2px solid black" });
   });
 });

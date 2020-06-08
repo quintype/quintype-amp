@@ -1,5 +1,5 @@
 import React from "react";
-import { DailyMotion } from "./daily-motion";
+import { DailyMotion, StyledDailyMotion } from "./daily-motion";
 import { shallow } from "enzyme";
 
 const videoID = "x7t9n13";
@@ -23,5 +23,9 @@ describe("Daily Motion", () => {
   it("should render dailymotion video auto play", () => {
     const wrapper = shallow(<DailyMotion data-videoid={videoID} autoplay={true} />);
     expect(wrapper.find("amp-dailymotion").prop("autoplay")).toBe(true);
+  });
+  it("should render dailymotion element with custom styles", () => {
+    const wrapper = shallow(<StyledDailyMotion inlineStyles={{ "border-radius": "50%" }}></StyledDailyMotion>);
+    expect(wrapper.find("div").prop("style")).toStrictEqual({ "border-radius": "50%" });
   });
 });
