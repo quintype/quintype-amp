@@ -2,8 +2,15 @@ import React, { Fragment } from "react";
 import { Helmet } from "react-helmet";
 import { CarouselTypes } from "./types";
 import { LightboxGallery } from "../lightbox-gallery";
+import styled from "styled-components";
 
-export const Carousel = (props: CarouselTypes) => {
+export const StyledCarousel = styled.div.attrs(({ inlineStyles }: StyledCarouselTypes) => ({
+  style: inlineStyles
+}))<StyledCarouselTypes>``;
+export interface StyledCarouselTypes {
+  inlineStyles?: object;
+}
+export const Carousel = (props, { inlineStyles }: CarouselTypes) => {
   return (
     <Fragment>
       <Helmet>
@@ -14,7 +21,9 @@ export const Carousel = (props: CarouselTypes) => {
         />
       </Helmet>
       {props.lightbox && <LightboxGallery />}
-      <amp-carousel {...props}>{props.children}</amp-carousel>
+      <StyledCarousel inlineStyles={inlineStyles}>
+        <amp-carousel {...props}>{props.children}</amp-carousel>
+      </StyledCarousel>
     </Fragment>
   );
 };
