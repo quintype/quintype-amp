@@ -6,12 +6,18 @@ import { Image } from "../../image";
 import styled from "styled-components";
 import { media } from "../../../utils/media";
 
-const StyledGallery = styled.div`
+type ImageGalleryElementProps = StoryElementProps &
+  ImageGalleryTypes & { galleryInlineStyles?: object; figcaptionInlineStyles?: object };
+
+const StyledGallery = styled.div.attrs(({ style }: { style?: object }) => ({
+  style: style
+}))`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 `;
-
-const StyledFigcaption = styled.figcaption`
+const StyledFigcaption = styled.figcaption.attrs(({ style }: ImageGalleryElementProps & { style?: object }) => ({
+  style: style
+}))`
   text-align: left;
   position: absolute;
   bottom: 0;
@@ -30,7 +36,7 @@ const StyledFigcaption = styled.figcaption`
 		overflow-y: scroll;
 	`}
 `;
-type ImageGalleryElementProps = StoryElementProps & ImageGalleryTypes;
+
 const ImageGalleryElement = ({
   element,
   height = "750",
@@ -39,6 +45,8 @@ const ImageGalleryElement = ({
   aspectRatio = [16, 9],
   type,
   lightbox,
+  galleryInlineStyles,
+  figcaptionInlineStyles,
   ...props
 }: ImageGalleryElementProps) => {
   // forcing imageGallery to false for now for vikatan.
@@ -54,7 +62,9 @@ const ImageGalleryElement = ({
         alt={image.title}
         lightbox={imageGallery ? "imageGallery" : false}>
         {getFigcaptionText(image.title, image["image-attribution"]) && (
-          <StyledFigcaption>{getFigcaptionText(image.title, image["image-attribution"])}</StyledFigcaption>
+          <StyledFigcaption style={figcaptionInlineStyles}>
+            {getFigcaptionText(image.title, image["image-attribution"])}
+          </StyledFigcaption>
         )}
       </Image>
     ));
@@ -63,7 +73,7 @@ const ImageGalleryElement = ({
     <>
       {storyElements &&
         (imageGallery ? (
-          <StyledGallery>{images}</StyledGallery>
+          <StyledGallery style={galleryInlineStyles}>{images}</StyledGallery>
         ) : (
           <Carousel height={height} width={width} layout={layout} type="slides" {...props}>
             {images}
