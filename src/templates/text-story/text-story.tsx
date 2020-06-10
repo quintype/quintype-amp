@@ -10,7 +10,8 @@ import {
   GoogleAnalytics,
   QuintypeAnalytics,
   ComScore,
-  ChartBeat
+  ChartBeat,
+  InfiniteScroll
 } from "../../atoms";
 import styled from "styled-components";
 import { TextStoryTypes } from "./types";
@@ -64,6 +65,7 @@ const TextStory = ({ story, config, relatedStories }: TextStoryTypes) => (
       <BottomSlot />
       <BottomAd />
     </Wrapper>
+    <InfiniteScroll />
     <Footer
       text={config.publisherConfig["publisher-settings"] && config.publisherConfig["publisher-settings"]["copyright"]}
     />
