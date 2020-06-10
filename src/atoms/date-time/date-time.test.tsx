@@ -1,6 +1,6 @@
 import React from "react";
-import { StyledTimeWrapper, DateTime } from "./date-time";
-import { shallow } from "enzyme";
+import { DateTime } from "./date-time";
+import { mount, shallow } from "enzyme";
 
 describe("DateTime", () => {
   it("should match snapshot", () => {
@@ -16,7 +16,9 @@ describe("DateTime", () => {
     expect(wrapper.text()).toMatch(/^Published:/);
   });
   it("should render with custom styles", () => {
-    const wrapper = shallow(<StyledTimeWrapper inlineStyles={{ "background-color": "blue" }}></StyledTimeWrapper>);
-    expect(wrapper.find("div").prop("style")).toStrictEqual({ "background-color": "blue" });
+    const wrapper = mount(
+      <DateTime formattedDate="14 June 2017" inlineStyles={{ backgroundColor: "blue" }}></DateTime>
+    );
+    expect(wrapper.find("time").prop("style")).toStrictEqual({ backgroundColor: "blue" });
   });
 });

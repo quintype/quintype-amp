@@ -1,6 +1,6 @@
 import React from "react";
-import { shallow } from "enzyme";
-import { StyledTwitter, Twitter } from "./twitter";
+import { shallow, mount } from "enzyme";
+import { Twitter } from "./twitter";
 
 describe("Twitter", () => {
   it("should render tweet", () => {
@@ -19,8 +19,9 @@ describe("Twitter", () => {
     expect(wrapper.find("amp-twitter").prop("layout")).toBe("fixed");
   });
   it("should render tweet with custom styles", () => {
-    const wrapper = shallow(
-      <StyledTwitter
+    const wrapper = mount(
+      <Twitter
+        data-tweetid="885634330868850689"
         inlineStyles={{
           border: "2px solid red"
         }}

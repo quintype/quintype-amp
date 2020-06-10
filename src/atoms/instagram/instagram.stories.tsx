@@ -1,6 +1,6 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
-import { StyledInstagram, Instagram } from "./instagram";
+import { Instagram } from "./instagram";
 
 const instagramPostID = "B_DfYSRJiAf";
 
@@ -11,4 +11,6 @@ storiesOf("Instagram", module)
   ))
   .add("With caption", () => <Instagram data-shortcode={instagramPostID} data-captioned={true} />)
   .add("Post with 16:9 responsive (default) layout", () => <Instagram data-shortcode={instagramPostID} />)
-  .add("Post with custom styles", () => <StyledInstagram inlineStyles={{ border: "5px solid red" }} />);
+  .add("Post with custom styles", () => (
+    <Instagram data-shortcode={instagramPostID} inlineStyles={{ border: "5px solid red" }} />
+  ));

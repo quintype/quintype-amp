@@ -1,16 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DateTime should match snapshot 1`] = `
-<styled.time>
-  <styled.time
-    dateTime="14 June 2017"
-  >
-    Published: 
-    <Spacer
-      align="horizontal"
-      token="xs"
-    />
-    14 June 2017
-  </styled.time>
+<styled.time
+  dateTime="14 June 2017"
+>
+  Published: 
+  <Spacer
+    align="horizontal"
+    token="xs"
+  />
+  14 June 2017
 </styled.time>
 `;

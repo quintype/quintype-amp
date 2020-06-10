@@ -1,6 +1,6 @@
 import React from "react";
-import { StyledSection, Section } from "./section";
-import { shallow } from "enzyme";
+import { Section } from "./section";
+import { shallow, mount } from "enzyme";
 
 const section = {
   "domain-slug": null,
@@ -33,7 +33,7 @@ describe("Section", () => {
     expect(wrapper.text()).toBe(section.name);
   });
   it("should render with custom styles", () => {
-    const wrapper = shallow(<StyledSection inlineStyles={{ "background-color": "blue" }} />);
-    expect(wrapper.find("div").prop("style")).toStrictEqual({ "background-color": "blue" });
+    const wrapper = mount(<Section section={section} inlineStyles={{ backgroundColor: "blue" }} />);
+    expect(wrapper.find("h5").prop("style")).toStrictEqual({ backgroundColor: "blue" });
   });
 });

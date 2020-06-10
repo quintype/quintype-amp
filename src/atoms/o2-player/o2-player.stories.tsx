@@ -1,6 +1,6 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
-import { StyledO2Player, O2Player } from "./o2-player";
+import { O2Player } from "./o2-player";
 
 storiesOf("O2 Player", module)
   .add("Default ", () => (
@@ -29,13 +29,12 @@ storiesOf("O2 Player", module)
     />
   ))
   .add("Post with custom styles", () => (
-    <StyledO2Player inlineStyles={{ border: "5px solid red" }}>
-      <O2Player
-        data-pid="59bf5a3485eb426ac28cd4e6"
-        data-bcid="56d5f795e4b0cef03a6cce7c"
-        data-vid="5e42d6c18c3ae829401a9ea5"
-      />
-    </StyledO2Player>
+    <O2Player
+      data-pid="59bf5a3485eb426ac28cd4e6"
+      data-bcid="56d5f795e4b0cef03a6cce7c"
+      data-vid="5e42d6c18c3ae829401a9ea5"
+      inlineStyles={{ border: "5px solid red" }}
+    />
   ));
 
 // vidible-video-id": "5e42d6c18c3ae829401a9ea5",

@@ -1,6 +1,6 @@
 import React from "react";
-import { shallow } from "enzyme";
-import { StyledInstagram, Instagram } from "./instagram";
+import { shallow, mount } from "enzyme";
+import { Instagram } from "./instagram";
 
 const instagramPostID = "B_DfYSRJiAf";
 
@@ -25,7 +25,7 @@ describe("Instagram", () => {
     expect(wrapper.find("amp-instagram").prop("data-captioned")).toBe(true);
   });
   it("should render custom styles", () => {
-    const wrapper = shallow(<StyledInstagram inlineStyles={{ border: "5px solid red" }} />);
+    const wrapper = mount(<Instagram data-shortcode={instagramPostID} inlineStyles={{ border: "5px solid red" }} />);
     expect(wrapper.find("div").prop("style")).toStrictEqual({ border: "5px solid red" });
   });
 });

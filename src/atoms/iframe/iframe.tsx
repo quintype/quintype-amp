@@ -3,13 +3,9 @@ import { IframeTypes } from "./types";
 import Helmet from "react-helmet";
 import styled from "styled-components";
 
-export const StyledIframe = styled.div.attrs(({ inlineStyles }: StyledIframeTypes) => ({
-  style: inlineStyles
-}))<StyledIframeTypes>``;
-
-export interface StyledIframeTypes {
-  inlineStyles?: object;
-}
+export const StyledIframe = styled.div.attrs(({ style }: IframeTypes & { style?: object }) => ({
+  style: style
+}))<IframeTypes>``;
 
 const Iframe = ({
   src,
@@ -27,7 +23,7 @@ const Iframe = ({
       <Helmet>
         <script async={undefined} custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js" />
       </Helmet>
-      <StyledIframe inlineStyles={inlineStyles}>
+      <StyledIframe style={inlineStyles}>
         <amp-iframe
           width={width}
           height={height}

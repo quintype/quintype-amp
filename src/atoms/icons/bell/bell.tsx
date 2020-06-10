@@ -2,17 +2,14 @@ import React from "react";
 import { IconTypes } from "../icon-types";
 import styled from "styled-components";
 
-export const StyledBell = styled.svg.attrs(({ inlineStyles }: StyledBellTypes) => ({
-  style: inlineStyles
-}))<StyledBellTypes>``;
+export const StyledBell = styled.svg.attrs(({ style }: IconTypes & { style?: object }) => ({
+  style: style
+}))<IconTypes>``;
 
-export interface StyledBellTypes {
-  inlineStyles?: object;
-}
 export const Bell = ({ color = "currentColor", width = "19", height = "22", inlineStyles }: IconTypes) => {
   return (
     <StyledBell
-      inlineStyles={inlineStyles}
+      style={inlineStyles}
       xmlns="http://www.w3.org/2000/svg"
       width={width}
       height={height}

@@ -24,3 +24,6 @@ export interface AmpImgPropTypes extends Common {
   attribution?: string;
   srcset?: string;
 }
+export interface StyledImageTypes {
+  style?: object;
+}

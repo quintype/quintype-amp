@@ -8,3 +8,7 @@ export interface O2PlayerTypes extends Common {
   "data-macros"?: string;
   inlineStyles?: object;
 }
+
+export interface StyledO2PlayerTypes {
+  style?: object;
+}

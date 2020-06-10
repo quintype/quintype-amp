@@ -1,6 +1,6 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import { StyledDailyMotion, DailyMotion } from "./daily-motion";
+import { DailyMotion } from "./daily-motion";
 
 const videoID = "x7t9n13";
 storiesOf("Daily Motion", module)
@@ -10,7 +10,5 @@ storiesOf("Daily Motion", module)
   ))
   .add("With autoplay", () => <DailyMotion data-videoid={videoID} autoplay={true} />)
   .add("With custom styles", () => (
-    <StyledDailyMotion inlineStyles={{ "border-radius": "50%" }}>
-      <DailyMotion data-videoid={videoID} autoplay={true} inlineStyles={{ "border-radius": "50%" }} />
-    </StyledDailyMotion>
+    <DailyMotion data-videoid={videoID} autoplay={true} inlineStyles={{ border: "2px solid red" }} />
   ));

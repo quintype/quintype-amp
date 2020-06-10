@@ -1,6 +1,6 @@
 import React from "react";
-import { StyledPublisherLogoHeader, PublisherLogoHeader } from "./publisher-logo-header";
-import { shallow } from "enzyme";
+import { PublisherLogoHeader } from "./publisher-logo-header";
+import { shallow, mount } from "enzyme";
 
 describe("PublisherLogoHeader", () => {
   it("should render", () => {
@@ -10,7 +10,13 @@ describe("PublisherLogoHeader", () => {
     expect(wrapper).toMatchSnapshot();
   });
   it("should render with custom styles", () => {
-    const wrapper = shallow(<StyledPublisherLogoHeader inlineStyles={{ border: "5px solid red" }} />);
+    const wrapper = mount(
+      <PublisherLogoHeader
+        publisherName="foo"
+        logoSrc="https://unsplash.com/photos/ffODvgBivdw"
+        inlineStyles={{ border: "5px solid red" }}
+      />
+    );
     expect(wrapper.find("a").prop("style")).toStrictEqual({ border: "5px solid red" });
   });
 });

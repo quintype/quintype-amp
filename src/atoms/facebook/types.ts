@@ -7,3 +7,7 @@ export interface FacebookTypes extends Common {
   "data-align-center"?: boolean;
   inlineStyles?: object;
 }
+
+export interface StyledFacebookTypes {
+  style?: object;
+}

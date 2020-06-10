@@ -1,6 +1,6 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
-import { StyledSection, Section } from "./section";
+import { Section } from "./section";
 import { config, textStory } from "../../__fixtures__";
 import { Layout } from "../layout";
 
@@ -31,8 +31,4 @@ storiesOf("Section", module)
   .add("Default section", () => <Section section={section} />)
   .add("With display name", () => <Section section={section} />)
   .add("Without display name", () => <Section section={sectionWithoutDisplayName} />)
-  .add("With custom styles", () => (
-    <StyledSection inlineStyles={{ "background-color": "blue" }}>
-      <Section section={section} />
-    </StyledSection>
-  ));
+  .add("With custom styles", () => <Section section={section} inlineStyles={{ backgroundColor: "blue" }} />);

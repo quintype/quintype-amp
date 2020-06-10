@@ -4,3 +4,7 @@ export interface IncompatibleBannerTypes {
   story: Story;
   inlineStyles?: object;
 }
+
+export interface StyledBannerTypes {
+  inlineStyles?: object;
+}

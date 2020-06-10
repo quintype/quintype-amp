@@ -5,7 +5,7 @@
 // FYI mount wont work here as this runs in node env
 import { getTargetingInfo } from "./helpers";
 import { shallow } from "enzyme";
-import { StyledDfpAd, DfpAd } from "./dfp-ad";
+import { DfpAd } from "./dfp-ad";
 import React from "react";
 
 describe("dfp-ad component", () => {
@@ -13,10 +13,10 @@ describe("dfp-ad component", () => {
     const wrapper = shallow(<DfpAd />);
     expect(wrapper).toMatchSnapshot();
   });
-});
-it("should render dfp with custom styles", () => {
-  const wrapper = shallow(<StyledDfpAd inlineStyles={{ border: "2px solid red" }}></StyledDfpAd>);
-  expect(wrapper.find("div").prop("style")).toStrictEqual({ border: "2px solid red" });
+  it("should render dfp with custom styles", () => {
+    const wrapper = shallow(<DfpAd inlineStyles={{ border: "2px solid red" }} />);
+    expect(wrapper.find("div").prop("style")).toStrictEqual({ border: "2px solid red" });
+  });
 });
 test("getTargetingInfo helper", async () => {
   const dummyStory = {

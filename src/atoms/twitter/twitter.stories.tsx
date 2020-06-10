@@ -1,6 +1,6 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
-import { StyledTwitter, Twitter } from "./twitter";
+import { Twitter } from "./twitter";
 
 const tweetId = "885634330868850689";
 
@@ -21,7 +21,5 @@ storiesOf("Twitter", module)
     </Twitter>
   ))
   .add("Tweet with custom styles", () => (
-    <StyledTwitter inlineStyles={{ border: "2px solid red" }}>
-      <Twitter data-tweetid={tweetId} />
-    </StyledTwitter>
+    <Twitter data-tweetid={tweetId} inlineStyles={{ border: "2px solid red" }}></Twitter>
   ));

@@ -1,6 +1,6 @@
 import React from "react";
-import { shallow } from "enzyme";
-import { StyledIframe, Iframe } from "./Iframe";
+import { shallow, mount } from "enzyme";
+import { Iframe } from "./Iframe";
 
 const postSrc = "https://codepen.io/rvgpl/embed/qXGqKm?height=265&theme-id=dark&default-tab=css,result";
 
@@ -21,7 +21,7 @@ describe("Iframe", () => {
     expect(wrapper.find("amp-iframe").prop("layout")).toBe("fixed");
   });
   it("should render Iframe with custom styles", () => {
-    const wrapper = shallow(<StyledIframe inlineStyles={{ border: "5px solid red" }}></StyledIframe>);
+    const wrapper = mount(<Iframe inlineStyles={{ border: "5px solid red" }}></Iframe>);
     expect(wrapper.find("div").prop("style")).toStrictEqual({ border: "5px solid red" });
   });
 });

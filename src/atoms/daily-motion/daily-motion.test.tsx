@@ -1,6 +1,6 @@
 import React from "react";
-import { DailyMotion, StyledDailyMotion } from "./daily-motion";
-import { shallow } from "enzyme";
+import { DailyMotion } from "./daily-motion";
+import { shallow, mount } from "enzyme";
 
 const videoID = "x7t9n13";
 describe("Daily Motion", () => {
@@ -25,7 +25,9 @@ describe("Daily Motion", () => {
     expect(wrapper.find("amp-dailymotion").prop("autoplay")).toBe(true);
   });
   it("should render dailymotion element with custom styles", () => {
-    const wrapper = shallow(<StyledDailyMotion inlineStyles={{ "border-radius": "50%" }}></StyledDailyMotion>);
-    expect(wrapper.find("div").prop("style")).toStrictEqual({ "border-radius": "50%" });
+    const wrapper = mount(
+      <DailyMotion data-videoid={videoID} inlineStyles={{ border: "2px solid red" }}></DailyMotion>
+    );
+    expect(wrapper.find("div").prop("style")).toStrictEqual({ border: "2px solid red" });
   });
 });

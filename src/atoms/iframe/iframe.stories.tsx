@@ -1,6 +1,6 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
-import { StyledIframe, Iframe } from "./iframe";
+import { Iframe } from "./iframe";
 
 const postSrc = "https://codepen.io/rvgpl/embed/qXGqKm?height=265&theme-id=dark&default-tab=css,result";
 
@@ -15,8 +15,4 @@ storiesOf("Iframe", module)
   ))
   .add("Post with 16:9 responsive (default) layout", () => <Iframe src={postSrc} />)
   .add("Post with fixed (custom) layout", () => <Iframe width="400" height="400" layout="fixed" src={postSrc} />)
-  .add("Post with custom style", () => (
-    <StyledIframe inlineStyles={{ border: "5px solid red" }}>
-      <Iframe src={postSrc} />
-    </StyledIframe>
-  ));
+  .add("Post with custom style", () => <Iframe src={postSrc} inlineStyles={{ border: "5px solid red" }} />);

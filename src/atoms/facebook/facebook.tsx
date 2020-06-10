@@ -1,17 +1,13 @@
 import React, { Fragment } from "react";
-import { FacebookTypes } from "./types";
+import { StyledFacebookTypes, FacebookTypes } from "./types";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
 
-export const StyledFacebook = styled.div.attrs(({ inlineStyles }: StyledFacebookTypes) => ({
-  style: inlineStyles
+export const StyledFacebook = styled.div.attrs(({ style }: StyledFacebookTypes) => ({
+  style: style
 }))<StyledFacebookTypes>``;
 
-export interface StyledFacebookTypes {
-  inlineStyles?: object;
-}
-
-export const Facebook = (props, { inlineStyles }: FacebookTypes) => {
+export const Facebook = ({ inlineStyles, ...props }: FacebookTypes) => {
   const { width, height, layout } = props;
   const setDefaultLayout = !width || !height || !layout;
   const componentProps: FacebookTypes = setDefaultLayout
@@ -31,7 +27,7 @@ export const Facebook = (props, { inlineStyles }: FacebookTypes) => {
           src="https://cdn.ampproject.org/v0/amp-facebook-0.1.js"
         />
       </Helmet>
-      <StyledFacebook inlineStyles={inlineStyles}>
+      <StyledFacebook style={inlineStyles}>
         <amp-facebook {...componentProps} />
       </StyledFacebook>
     </Fragment>

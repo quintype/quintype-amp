@@ -3,15 +3,15 @@ import { InstagramTypes } from "./types";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
 
-export const StyledInstagram = styled.div.attrs(({ inlineStyles }: StyledInstagramTypes) => ({
-  style: inlineStyles
+export const StyledInstagram = styled.div.attrs(({ style }: StyledInstagramTypes) => ({
+  style: style
 }))<StyledInstagramTypes>``;
 
 export interface StyledInstagramTypes {
-  inlineStyles?: object;
+  style?: object;
 }
 
-export const Instagram = (props, { inlineStyles }: InstagramTypes) => {
+export const Instagram = ({ inlineStyles, ...props }: InstagramTypes) => {
   const { width, height, layout } = props;
   const setDefaultLayout = !width || !height || !layout;
   const componentProps: InstagramTypes = setDefaultLayout
@@ -31,7 +31,7 @@ export const Instagram = (props, { inlineStyles }: InstagramTypes) => {
           src="https://cdn.ampproject.org/v0/amp-instagram-0.1.js"
         />
       </Helmet>
-      <StyledInstagram inlineStyles={inlineStyles}>
+      <StyledInstagram style={inlineStyles}>
         <amp-instagram {...componentProps} />
       </StyledInstagram>
     </Fragment>

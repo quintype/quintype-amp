@@ -2,15 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { withStory } from "../../context";
 import get from "lodash.get";
-import { IncompatibleBannerTypes } from "./types";
+import { StyledBannerTypes, IncompatibleBannerTypes } from "./types";
 export const StyledBanner = styled.div.attrs(({ inlineStyles }: StyledBannerTypes) => ({
   style: inlineStyles
 }))<StyledBannerTypes>`
   margin: 15px 10px;
 `;
-export interface StyledBannerTypes {
-  inlineStyles?: object;
-}
 const BannerWrapper = styled.div`
   position: absolute;
   top: 60px;

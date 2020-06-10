@@ -5,3 +5,6 @@ export interface PublisherLogoHeaderTypes {
   height?: string;
   inlineStyles?: object;
 }
+export interface StyledPublisherLogoHeaderTypes {
+  style?: object;
+}

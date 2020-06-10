@@ -1,14 +1,11 @@
 import React from "react";
-import { PublisherLogoHeaderTypes } from "./types";
+import { StyledPublisherLogoHeaderTypes, PublisherLogoHeaderTypes } from "./types";
 import styled from "styled-components";
 
-export const StyledPublisherLogoHeader = styled.a.attrs(({ inlineStyles }: StyledPublisherLogoHeaderTypes) => ({
-  style: inlineStyles
+export const StyledPublisherLogoHeader = styled.a.attrs(({ style }: StyledPublisherLogoHeaderTypes) => ({
+  style: style
 }))<StyledPublisherLogoHeaderTypes>``;
 
-export interface StyledPublisherLogoHeaderTypes {
-  inlineStyles?: object;
-}
 export const PublisherLogoHeader = ({
   logoSrc,
   width = "200px",
@@ -17,7 +14,7 @@ export const PublisherLogoHeader = ({
   inlineStyles
 }: PublisherLogoHeaderTypes) => {
   return (
-    <StyledPublisherLogoHeader href="/" inlineStyles={inlineStyles}>
+    <StyledPublisherLogoHeader href="/" style={inlineStyles}>
       <amp-img alt={publisherName} src={logoSrc} width={width} height={height} />
     </StyledPublisherLogoHeader>
   );

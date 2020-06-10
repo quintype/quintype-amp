@@ -2,18 +2,14 @@ import React from "react";
 import { IconTypes } from "../icon-types";
 import styled from "styled-components";
 
-const StyledHamburger = styled.svg.attrs(({ inlineStyles }: StyledHamburgerTypes) => ({
-  style: inlineStyles
-}))<StyledHamburgerTypes>``;
-
-export interface StyledHamburgerTypes {
-  inlineStyles?: object;
-}
+const StyledHamburger = styled.svg.attrs(({ style }: IconTypes & { style?: object }) => ({
+  style: style
+}))<IconTypes>``;
 
 export const Hamburger = ({ width = "54px", height = "54px", color = "currentColor", inlineStyles }: IconTypes) => {
   return (
     <StyledHamburger
-      inlineStyles={inlineStyles}
+      style={inlineStyles}
       width={width}
       height={height}
       viewBox="0 -53 384 384"

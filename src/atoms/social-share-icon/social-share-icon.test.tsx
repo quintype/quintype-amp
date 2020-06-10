@@ -1,6 +1,6 @@
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 import React from "react";
-import { StyledSocialShare, SocialShareIcon } from "./social-share-icon";
+import { SocialShareIcon } from "./social-share-icon";
 
 describe("Social Share Icon", () => {
   it("should render SocialShareIcon for facebook", () => {
@@ -14,8 +14,9 @@ describe("Social Share Icon", () => {
     expect(wrapper.find("amp-social-share").length).toBe(1);
   });
   it("should render SocialShareIcon with custom styles", () => {
-    const wrapper = shallow(
-      <StyledSocialShare
+    const wrapper = mount(
+      <SocialShareIcon
+        type="twitter"
         inlineStyles={{
           border: "2px solid red"
         }}

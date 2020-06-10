@@ -13,3 +13,7 @@ export interface DailyMotionTypes extends Common {
   autoplay?: boolean;
   inlineStyles?: object;
 }
+
+export interface StyledDailyMotionTypes {
+  style?: object;
+}

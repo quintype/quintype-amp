@@ -1,6 +1,6 @@
 import React from "react";
-import { StyledBell, Bell } from "./bell";
-import { shallow } from "enzyme";
+import { Bell } from "./bell";
+import { mount, shallow } from "enzyme";
 
 describe("Bell Icon", () => {
   it("should render", () => {
@@ -8,7 +8,7 @@ describe("Bell Icon", () => {
     expect(wrapper).toMatchSnapshot();
   });
   it("should render with custom styles", () => {
-    const wrapper = shallow(<StyledBell inlineStyles={{ border: "2px solid black" }} />);
+    const wrapper = mount(<Bell inlineStyles={{ border: "2px solid black" }} />);
     expect(wrapper.find("svg").prop("style")).toStrictEqual({ border: "2px solid black" });
   });
 });
