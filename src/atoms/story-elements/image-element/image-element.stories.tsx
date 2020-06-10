@@ -33,4 +33,7 @@ storiesOf("Image Element", module)
     </Layout>
   ))
   .add("Default Image Element", () => <ImageElement element={sampleImageElement} />)
-  .add("Image Element without caption", () => <ImageElement element={sampleImageElementWithNoCaption} />);
+  .add("Image Element without caption", () => <ImageElement element={sampleImageElementWithNoCaption} />)
+  .add("Image Element with custom styles", () => (
+    <ImageElement element={sampleImageElement} inlineStyles={{ border: "2px solid red" }} />
+  ));

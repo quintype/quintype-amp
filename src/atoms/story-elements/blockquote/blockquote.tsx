@@ -2,8 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import { StoryElementProps } from "../types";
 import { Spacer } from "../../spacer";
+import { blockquoteTypes } from "./types";
 
-const Wrapper = styled.div`
+const Wrapper = styled.div.attrs(({ style }: StoryElementProps & { style?: object }) => ({
+  style: style
+}))`
   display: flex;
   flex-direction: column;
   position: relative;
@@ -18,16 +21,18 @@ const Wrapper = styled.div`
     top: 4px;
   }
 `;
-
-const StyledBlockQuote = styled.blockquote`
+const StyledBlockQuote = styled.blockquote.attrs(({ style }: StoryElementProps & { style?: object }) => ({
+  style: style
+}))`
   padding: 0 0 0 50px;
   margin: 0;
   font-size: ${(props) => props.theme.font.size.l};
   color: ${(props) => props.theme.color.mono6};
   line-height: ${(props) => props.theme.font.lineHeight.level5};
 `;
-
-const StyledAttribution = styled.span`
+const StyledAttribution = styled.span.attrs(({ style }: StoryElementProps & { style?: object }) => ({
+  style: style
+}))`
   color: ${(props) => props.theme.color.mono6};
   font-size: ${(props) => props.theme.font.size.m};
   font-weight: bold;
@@ -37,8 +42,9 @@ const StyledAttribution = styled.span`
     margin-right: 5px;
   }
 `;
-
-const FallbackBlockQuote = styled.div`
+const FallbackBlockQuote = styled.div.attrs(({ style }: StoryElementProps & { style?: object }) => ({
+  style: style
+}))`
   div {
     display: flex;
     flex-direction: column;
@@ -75,23 +81,29 @@ const FallbackBlockQuote = styled.div`
   }
 `;
 
-const BlockQuote = ({ element }: StoryElementProps) => {
+const BlockQuote = ({
+  element,
+  wrapperInlineStyles,
+  blockquoteInlineStyles,
+  attributionInlineStyles,
+  fallbackInlineStyles
+}: StoryElementProps & blockquoteTypes) => {
   if (element.metadata) {
     const { content, attribution } = element.metadata;
     return (
-      <Wrapper>
-        <StyledBlockQuote>{content}</StyledBlockQuote>
+      <Wrapper style={wrapperInlineStyles}>
+        <StyledBlockQuote style={blockquoteInlineStyles}>{content}</StyledBlockQuote>
         {attribution && attribution.length && (
           <React.Fragment>
             <Spacer token="s" />
-            <StyledAttribution>{attribution}</StyledAttribution>
+            <StyledAttribution style={attributionInlineStyles}>{attribution}</StyledAttribution>
           </React.Fragment>
         )}
       </Wrapper>
     );
   }
 
-  return <FallbackBlockQuote dangerouslySetInnerHTML={{ __html: element.text || "" }} />;
+  return <FallbackBlockQuote style={fallbackInlineStyles} dangerouslySetInnerHTML={{ __html: element.text || "" }} />;
 };
 
 export { BlockQuote };

@@ -1,6 +1,6 @@
 import React from "react";
 import { BaseAlsoRead } from "./also-read";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 import { textStory } from "../../../__fixtures__";
 
 const sampleAlsoReadElement = {
@@ -28,5 +28,11 @@ describe("Also Read", () => {
   it("should render default", () => {
     const wrapper = shallow(<BaseAlsoRead element={sampleAlsoReadElement} story={textStory} />);
     expect(wrapper).toMatchSnapshot();
+  });
+  it("should render with custom styles", () => {
+    const wrapper = mount(
+      <BaseAlsoRead element={sampleAlsoReadElement} story={textStory} inlineStyles={{ color: "red" }} />
+    );
+    expect(wrapper.find("div").prop("style")).toStrictEqual({ color: "red" });
   });
 });

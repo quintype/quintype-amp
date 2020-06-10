@@ -31,4 +31,5 @@ storiesOf("AlsoRead", module)
       {story()}
     </Layout>
   ))
-  .add("Default", () => <AlsoRead element={sampleAlsoReadElement} />);
+  .add("Default", () => <AlsoRead element={sampleAlsoReadElement} />)
+  .add("With custom styles", () => <AlsoRead element={sampleAlsoReadElement} inlineStyles={{ color: "red" }} />);

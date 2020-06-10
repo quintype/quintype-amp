@@ -1,6 +1,6 @@
 import React from "react";
 import { Blurb } from "./blurb";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 
 const sampleBlurbElement = {
   description: "",
@@ -28,5 +28,9 @@ describe("Blurb", () => {
   it("should render without metadata", () => {
     const wrapper = shallow(<Blurb element={sampleBlurbElementWithoutMetadata} />);
     expect(wrapper).toMatchSnapshot();
+  });
+  it("should render default with custom styles", () => {
+    const wrapper = mount(<Blurb element={sampleBlurbElement} inlineStyles={{ color: "red" }} />);
+    expect(wrapper.find("blockquote").prop("style")).toStrictEqual({ color: "red" });
   });
 });
