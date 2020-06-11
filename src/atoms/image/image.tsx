@@ -18,11 +18,11 @@ export const BaseImage = ({
   lightbox = true,
   ...rest
 }: ImageTypes & { config: Config }) => {
-  const cdnName = config.publisherConfig["cdn-name"];
-  if (!slug || !cdnName) throw new Error("Required attributes missing, cant render image");
+  const cdnImage = config.publisherConfig["cdn-image"];
+  if (!slug || !cdnImage) throw new Error("Required attributes missing, cant render image");
   let imgAspectRatio = aspectRatio || [16, 9];
   if (metadata && metadata.width && metadata.height) imgAspectRatio = [metadata.width, metadata.height];
-  const path = focusedImagePath({ opts, slug, metadata, imgAspectRatio, cdnName });
+  const path = focusedImagePath({ opts, slug, metadata, imgAspectRatio, cdnImage });
   const value: AmpImgPropTypes = {
     src: path,
     alt,

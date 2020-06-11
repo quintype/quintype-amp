@@ -4,6 +4,7 @@ import React from "react";
 
 export const publisherConfig: PublisherConfig = {
   "cdn-name": "https://thumbor-stg.assettype.com/",
+  "cdn-image": "gumlet.assettype.com",
   "sketches-host": "https://www.vikatan.com",
   "text-direction": "ltr",
   facebook: { "app-id": "1234" },
