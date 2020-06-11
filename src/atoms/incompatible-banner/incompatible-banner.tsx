@@ -10,6 +10,7 @@ const BannerWrapper = styled.div`
   width: 100%;
   text-align: center;
   line-height: ${(props) => props.theme.font.lineHeight.level5};
+  z-index: ${(props) => props.theme.zIndex.z1};
 `;
 const StyledBanner = styled.div`
   margin: 15px 10px;
