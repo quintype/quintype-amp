@@ -4,41 +4,50 @@
 
 `npm run storybook`
 
-### Publishing
+### Note about writing commit messages
 
-To publish the package, bump the version using sematic versioning in `package.json` and `package-lock.json`. Merge it to master branch. Switch to `master` branch which has the latest unpublished version. Make sure you are logged in to npm cli. Publish the package to npm by running `npm run dist`, once it is published you need to create a new release of the package by going to the [releases page on Github](https://github.com/quintype/quintype-amp/releases)
+It's important to follow [these guidelines](https://www.conventionalcommits.org/en/v1.0.0/), as versions (major/minor/patch) are released based on commit messages
+
+**cheat sheet:**
+
+- `<type>[optional scope]: <description>`
+- commit of the type `fix` patches a bug in your codebase (this correlates with `PATCH` in semantic versioning)
+- commit of the type `feat` introduces a new feature to the codebase (this correlates with `MINOR` in semver
+- commit of type `BREAKING CHANGE:`, or appends a `!` after the type/scope, introduces a breaking API change (correlating with `MAJOR` in semantic versioning)
+- Other types: `build:`, `chore:`, `ci:`, `docs:`, `style:`, `refactor:`, `perf:`, `test:`
+
+### Workflow / Publishing
+
+- This repo uses [standard-version](https://www.npmjs.com/package/standard-version) that takes care of updating changelog, bumping version as per semver, creating tags
+- Doing prod publish will also update the [documentation](https://developers.quintype.com/quintype-amp)
+
+To work on a feature
+
+1. Pull latest master, create a feature branch
+2. Make your changes. If you need to publish a beta version for testing, run npm publish --tag beta
+3. Once done, open a PR. Get changes reviewed & approved.
+4. Once approved, run npm publish on feature branch and do a prod release
+5. Push changes to remote
+6. Squash and merge to Master
 
 ### API Reference
-
-- #### Adding custom styles:
-
-  - if you pass custom styles, all the default styles (to all components) are ignored
-  - the `<Layout>` component accepts prop `customStyles`. Pass all your custom styles to this prop as a string. You may do so by writing all styles in a file, reading them serverside using `fs.readFileSync`and passing them as a prop to the layout component.
-  - The library components themselves have been given classnames. You can apply styles by targeting these classes in your css
-    - Component `AmpBlurb` has class name `amp-se-blurb`
-    - `AmpBlockQuote` has classname `amp-se-blockquote`
 
 - #### Core Functions: renderToString
 
   - Pass this function your `<Layout>` component and it will either return a string containing the amp HTML, or an error object
 
 - #### RenderLessComponents
-      	- Analytics(amp-analytics)
-      	- GoogleTagManager
-      	- ComScore
-      	- Google Analytics
-      	- Quintype Analytics
-        - ChartBeat
+
+  - Analytics(amp-analytics)
+  - GoogleTagManager
+  - ComScore
+  - Google Analytics
+  - Quintype Analytics
+  - ChartBeat
 
 #### Opts
 
 - relatedStoriesRender - Render props to replace html generated from AMP Templates with whatever is passed by the user. A React render function which accepts stories as a parameter.
-
-### Tech Notes:
-
-- The `<Layout>` component, which is the parent of all components, takes a props `customStyles`
-- It passes down boolean `ignoreDefaultStyles` as context.
-- Each component checks the context. If `ignoreDefaultStyles: true`, it renders html component with some class. Else it renders a styled component with default styles
 
 ### NOTES:
 
