@@ -2,6 +2,7 @@ import React from "react";
 import { BaseAlsoRead } from "./also-read";
 import { shallow, mount } from "enzyme";
 import { textStory } from "../../../__fixtures__";
+import { Theme } from "../../../context/theme";
 
 const sampleAlsoReadElement = {
   description: "",
@@ -31,8 +32,15 @@ describe("Also Read", () => {
   });
   it("should render with custom styles", () => {
     const wrapper = mount(
-      <BaseAlsoRead element={sampleAlsoReadElement} story={textStory} inlineStyles={{ color: "red" }} />
+      <Theme>
+        <BaseAlsoRead element={sampleAlsoReadElement} story={textStory} inlineStyles={{ color: "red" }} />
+      </Theme>
     );
-    expect(wrapper.find("div").prop("style")).toStrictEqual({ color: "red" });
+    expect(
+      wrapper
+        .find("div")
+        .at(0)
+        .prop("style")
+    ).toStrictEqual({ color: "red" });
   });
 });

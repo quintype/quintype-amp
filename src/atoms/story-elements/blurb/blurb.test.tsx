@@ -1,6 +1,7 @@
 import React from "react";
 import { Blurb } from "./blurb";
 import { shallow, mount } from "enzyme";
+import { Theme } from "../../../context/theme";
 
 const sampleBlurbElement = {
   description: "",
@@ -30,7 +31,11 @@ describe("Blurb", () => {
     expect(wrapper).toMatchSnapshot();
   });
   it("should render default with custom styles", () => {
-    const wrapper = mount(<Blurb element={sampleBlurbElement} inlineStyles={{ color: "red" }} />);
+    const wrapper = mount(
+      <Theme>
+        <Blurb element={sampleBlurbElement} inlineStyles={{ color: "red" }} />
+      </Theme>
+    );
     expect(wrapper.find("blockquote").prop("style")).toStrictEqual({ color: "red" });
   });
 });

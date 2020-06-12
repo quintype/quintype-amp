@@ -6,4 +6,6 @@ export interface StoryElementProps {
   story?: Story;
   config?: Config;
   inlineStyles?: object;
+  style?: object;
+  theme?: object;
 }

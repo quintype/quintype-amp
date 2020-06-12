@@ -4,7 +4,7 @@ import { StoryElementProps } from "../types";
 import { Spacer } from "../../spacer";
 import { blockquoteTypes } from "./types";
 
-const Wrapper = styled.div.attrs(({ style }: StoryElementProps & { style?: object }) => ({
+const Wrapper = styled.div.attrs(({ style }: StoryElementProps) => ({
   style: style
 }))`
   display: flex;
@@ -21,7 +21,7 @@ const Wrapper = styled.div.attrs(({ style }: StoryElementProps & { style?: objec
     top: 4px;
   }
 `;
-const StyledBlockQuote = styled.blockquote.attrs(({ style }: StoryElementProps & { style?: object }) => ({
+const StyledBlockQuote = styled.blockquote.attrs(({ style }: StoryElementProps) => ({
   style: style
 }))`
   padding: 0 0 0 50px;
@@ -30,7 +30,7 @@ const StyledBlockQuote = styled.blockquote.attrs(({ style }: StoryElementProps &
   color: ${(props) => props.theme.color.mono6};
   line-height: ${(props) => props.theme.font.lineHeight.level5};
 `;
-const StyledAttribution = styled.span.attrs(({ style }: StoryElementProps & { style?: object }) => ({
+const StyledAttribution = styled.span.attrs(({ style }: StoryElementProps) => ({
   style: style
 }))`
   color: ${(props) => props.theme.color.mono6};
@@ -42,7 +42,7 @@ const StyledAttribution = styled.span.attrs(({ style }: StoryElementProps & { st
     margin-right: 5px;
   }
 `;
-const FallbackBlockQuote = styled.div.attrs(({ style }: StoryElementProps & { style?: object }) => ({
+const FallbackBlockQuote = styled.div.attrs(({ style }: StoryElementProps) => ({
   style: style
 }))`
   div {
