@@ -1,6 +1,7 @@
 import React from "react";
 import { DateTime } from "./date-time";
 import { mount, shallow } from "enzyme";
+import { Theme } from "../../context/theme";
 
 describe("DateTime", () => {
   it("should match snapshot", () => {
@@ -17,7 +18,9 @@ describe("DateTime", () => {
   });
   it("should render with custom styles", () => {
     const wrapper = mount(
-      <DateTime formattedDate="14 June 2017" inlineStyles={{ backgroundColor: "blue" }}></DateTime>
+      <Theme>
+        <DateTime formattedDate="14 June 2017" inlineStyles={{ backgroundColor: "blue" }}></DateTime>
+      </Theme>
     );
     expect(wrapper.find("time").prop("style")).toStrictEqual({ backgroundColor: "blue" });
   });

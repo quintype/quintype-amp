@@ -1,6 +1,7 @@
 import React from "react";
 import { Section } from "./section";
 import { shallow, mount } from "enzyme";
+import { Theme } from "../../context/theme";
 
 const section = {
   "domain-slug": null,
@@ -33,7 +34,11 @@ describe("Section", () => {
     expect(wrapper.text()).toBe(section.name);
   });
   it("should render with custom styles", () => {
-    const wrapper = mount(<Section section={section} inlineStyles={{ backgroundColor: "blue" }} />);
+    const wrapper = mount(
+      <Theme>
+        <Section section={section} inlineStyles={{ backgroundColor: "blue" }} />
+      </Theme>
+    );
     expect(wrapper.find("h5").prop("style")).toStrictEqual({ backgroundColor: "blue" });
   });
 });

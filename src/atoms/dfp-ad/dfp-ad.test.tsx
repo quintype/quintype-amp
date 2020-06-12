@@ -7,6 +7,7 @@ import { getTargetingInfo } from "./helpers";
 import { shallow } from "enzyme";
 import { DfpAd } from "./dfp-ad";
 import React from "react";
+import { Theme } from "../../context/theme";
 
 describe("dfp-ad component", () => {
   it("Should match snapshot", () => {
@@ -14,8 +15,17 @@ describe("dfp-ad component", () => {
     expect(wrapper).toMatchSnapshot();
   });
   it("should render dfp with custom styles", () => {
-    const wrapper = shallow(<DfpAd inlineStyles={{ border: "2px solid red" }} />);
-    expect(wrapper.find("div").prop("style")).toStrictEqual({ border: "2px solid red" });
+    const wrapper = shallow(
+      <Theme>
+        <DfpAd inlineStyles={{ border: "2px solid red" }} />
+      </Theme>
+    );
+    expect(
+      wrapper
+        .find("div")
+        .at(0)
+        .prop("style")
+    ).toStrictEqual({ border: "2px solid red" });
   });
 });
 test("getTargetingInfo helper", async () => {
