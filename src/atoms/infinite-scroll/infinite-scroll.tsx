@@ -2,12 +2,10 @@ import React, { Fragment } from "react";
 import { Helmet } from "react-helmet";
 import { withStoryAndConfig } from "../../context";
 
-const InfiniteScrollBase = ({ story }) => {
+const InfiniteScrollBase = ({ story, config }) => {
   const { "story-content-id": storyId } = story;
-  // const { "sketches-host": host } = config.publisherConfig;
-  // host has to be https and on the same origin
-  // const jsonConfigUrl = `${host}/amp/api/v1/amp-infinite-scroll?story-id=${storyId}`;
-  const jsonConfigUrl = `https://qt-amp.herokuapp.com/amp/api/v1/amp-infinite-scroll?story-id=${storyId}`; // TEMPORARILY HARDCODING HOST
+  const { "sketches-host": host } = config.publisherConfig;
+  const jsonConfigUrl = `${host}/amp/api/v1/amp-infinite-scroll?story-id=${storyId}`;
   return (
     <Fragment>
       <Helmet>
