@@ -1,7 +1,7 @@
 import React from "react";
 
 import { ImageElement } from "./image-element";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 
 const sampleImageElement = {
   description: "",
@@ -33,5 +33,9 @@ describe("Image Element", () => {
     const sampleImageElementWithNoCaption = { ...sampleImageElement, title: "" };
     const wrapper = shallow(<ImageElement element={sampleImageElementWithNoCaption} />);
     expect(wrapper).toMatchSnapshot();
+  });
+  it("should render custom styles", () => {
+    const wrapper = mount(<ImageElement element={sampleImageElement} inlineStyles={{ border: "2px solid red" }} />);
+    expect(wrapper.find("figcaption").prop("style")).toStrictEqual({ border: "2px solid red" });
   });
 });

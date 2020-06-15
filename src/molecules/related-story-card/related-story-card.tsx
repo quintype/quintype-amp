@@ -1,24 +1,37 @@
 import React, { Fragment } from "react";
 import styled from "styled-components";
 import { Image, DateTime, Spacer } from "../../atoms";
-import { RelatedStoryCardTypes } from "./types";
+import { RelatedStoryCardTypes, ImageForStoryTypes } from "./types";
 import { getHumanizedDateTime } from "../../utils/date-time";
 
-const Wrapper = styled.div`
+const Wrapper = styled.div.attrs(({ style }: { style?: object }) => ({
+  style: style
+}))`
   margin: ${(props) => `0 0 ${props.theme.spacing.l} 0`};
   border-bottom: ${(props) => `2px solid ${props.theme.color.mono1}`};
 `;
-const StyledAnchor = styled.a`
+const StyledAnchor = styled.a.attrs(({ style }: { style?: object }) => ({
+  style: style
+}))`
   text-decoration: none;
 `;
-const Headline = styled.h1`
+const Headline = styled.h1.attrs(({ style }: { style?: object }) => ({
+  style: style
+}))`
   font-family: ${(props) => props.theme.font.family.primary};
   font-size: ${(props) => props.theme.font.size.l};
   color: ${(props) => props.theme.color.black};
   font-weight: bold;
 `;
 
-export const RelatedStoryCard = ({ story, aspectRatio, fallbackSrc }: RelatedStoryCardTypes) => {
+export const RelatedStoryCard = ({
+  story,
+  aspectRatio,
+  fallbackSrc,
+  anchorInlineStyles,
+  headlineInlineStyles,
+  wrapperInlineStyles
+}: RelatedStoryCardTypes) => {
   const {
     headline,
     url,
@@ -34,8 +47,8 @@ export const RelatedStoryCard = ({ story, aspectRatio, fallbackSrc }: RelatedSto
     timeStamp: lastPublishedAt
   });
   return (
-    <Wrapper>
-      <StyledAnchor href={url}>
+    <Wrapper style={wrapperInlineStyles}>
+      <StyledAnchor href={url} style={anchorInlineStyles}>
         <ImageForStory
           metadata={imgMetadata}
           s3Key={imgS3Key}
@@ -43,7 +56,7 @@ export const RelatedStoryCard = ({ story, aspectRatio, fallbackSrc }: RelatedSto
           altText={imgCaption || imgAttr || "image"}
           fallbackSrc={fallbackSrc}
         />
-        <Headline>{headline}</Headline>
+        <Headline style={headlineInlineStyles}>{headline}</Headline>
         <DateTime formattedDate={humanizedDate} />
         <Spacer token="s" />
       </StyledAnchor>
@@ -55,18 +68,24 @@ const imagePresent = ({ metadata, s3Key }) => {
   return !!(metadata && Object.keys(metadata).length && s3Key);
 };
 
-const ImageForStory = ({ metadata, s3Key, aspectRatio, altText, fallbackSrc }) => (
+const StyledImageForStory = styled.div.attrs(({ style }: { style?: object }) => ({
+  style: style
+}))``;
+
+const ImageForStory = ({ metadata, s3Key, aspectRatio, altText, fallbackSrc, inlineStyles }: ImageForStoryTypes) => (
   <Fragment>
     {imagePresent({ metadata, s3Key }) ? (
       <Image metadata={metadata} slug={s3Key} aspectRatio={aspectRatio} alt={altText} />
     ) : (
-      <amp-img
-        alt={altText || "fallback image"}
-        width={aspectRatio[0]}
-        height={aspectRatio[1]}
-        layout="responsive"
-        src={fallbackSrc}
-      />
+      <StyledImageForStory style={inlineStyles}>
+        <amp-img
+          alt={altText || "fallback image"}
+          width={aspectRatio[0]}
+          height={aspectRatio[1]}
+          layout="responsive"
+          src={fallbackSrc}
+        />
+      </StyledImageForStory>
     )}
   </Fragment>
 );

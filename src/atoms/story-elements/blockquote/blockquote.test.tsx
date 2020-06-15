@@ -1,7 +1,7 @@
 import React from "react";
 import { BlockQuote } from "./blockquote";
-import { shallow } from "enzyme";
-
+import { shallow, mount } from "enzyme";
+import { Theme } from "../../../context/theme";
 const sampleBlockQuoteElement = {
   id: "1",
   type: "text",
@@ -24,5 +24,26 @@ describe("BlockQuote", () => {
   it("should render without metadata", () => {
     const wrapper = shallow(<BlockQuote element={sampleBlockQuoteElementWithoutMetadata} />);
     expect(wrapper).toMatchSnapshot();
+  });
+  it("should render default with custom styles", () => {
+    const wrapper = mount(
+      <Theme>
+        <BlockQuote
+          element={sampleBlockQuoteElement}
+          wrapperInlineStyles={{ backgroundColor: "ccf" }}
+          blockquoteInlineStyles={{ color: "red" }}
+          attributionInlineStyles={{ fontStyle: "italic" }}
+          fallbackInlineStyles={{ color: "blue" }}
+        />
+      </Theme>
+    );
+    expect(
+      wrapper
+        .find("div")
+        .at(0)
+        .prop("style")
+    ).toStrictEqual({ backgroundColor: "ccf" });
+    expect(wrapper.find("blockquote").prop("style")).toStrictEqual({ color: "red" });
+    expect(wrapper.find("span").prop("style")).toStrictEqual({ fontStyle: "italic" });
   });
 });

@@ -23,4 +23,12 @@ storiesOf("Youtube", module)
       {story()}
     </Layout>
   ))
-  .add("Default", () => <YouTube element={sampleYouTubeElement} />);
+  .add("Default", () => <YouTube element={sampleYouTubeElement} />)
+  .add("with custom styles", () => (
+    <YouTube
+      element={sampleYouTubeElement}
+      inlineStyles={{
+        border: "2px solid red"
+      }}
+    />
+  ));
