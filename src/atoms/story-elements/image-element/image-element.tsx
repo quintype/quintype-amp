@@ -4,6 +4,8 @@ import { Image } from "../../image";
 import { media } from "../../../utils/media";
 import { StoryElementProps } from "../types";
 import styled from "styled-components";
+import { CommonRenderPropTypes } from "../../../types/config";
+import { withStoryAndConfig } from "../../../context";
 
 const StyledFigCaption = styled.figcaption`
   text-align: left;
@@ -25,10 +27,14 @@ const StyledFigCaption = styled.figcaption`
 	`}
 `;
 
-const ImageElement = ({ element }: StoryElementProps) => (
-  <Image slug={element["image-s3-key"]} metadata={element["image-metadata"]}>
-    {element.title && element.title.length > 1 && <StyledFigCaption>{element.title}</StyledFigCaption>}
-  </Image>
-);
+export const ImageElementBase = ({ element, story, config }: StoryElementProps & CommonRenderPropTypes) => {
+  return config.opts && config.opts.storyElementRender ? (
+    config.opts.storyElementRender({ story, config })
+  ) : (
+    <Image slug={element["image-s3-key"]} metadata={element["image-metadata"]}>
+      {element.title && element.title.length > 1 && <StyledFigCaption>{element.title}</StyledFigCaption>}
+    </Image>
+  );
+};
 
-export { ImageElement };
+export const ImageElement = withStoryAndConfig(ImageElementBase);

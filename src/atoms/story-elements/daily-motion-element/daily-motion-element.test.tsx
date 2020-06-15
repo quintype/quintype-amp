@@ -1,6 +1,8 @@
 import React from "react";
-import { mount } from "enzyme";
-import { DailyMotionElement } from "./daily-motion-element";
+import { mount, shallow } from "enzyme";
+import { DailyMotionElement, DailyMotionElementBase } from "./daily-motion-element";
+import { textStory, config } from "../../../__fixtures__";
+import { DailyMotion } from "../../daily-motion";
 const sampleDailyMotionElement = {
   description: "",
   "embed-js":
@@ -22,5 +24,14 @@ describe("DailyMotion Element", () => {
   it("should render daily motion video", () => {
     const wrapper = mount(<DailyMotionElement element={sampleDailyMotionElement} />);
     expect(wrapper.find("amp-dailymotion").length).toBe(1);
+  });
+  it("should call storyElementRender prop when passed to opts", () => {
+    const storyElementRender = jest.fn();
+    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender } };
+    const wrapper = shallow(
+      <DailyMotionElementBase element={sampleDailyMotionElement} story={textStory} config={modifiedConfig} />
+    );
+    expect(storyElementRender.mock.calls.length).toBe(1);
+    expect(wrapper.find(DailyMotion).length).toBe(0);
   });
 });

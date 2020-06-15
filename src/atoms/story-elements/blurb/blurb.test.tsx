@@ -1,7 +1,8 @@
 import React from "react";
-import { Blurb } from "./blurb";
+import { BlurbBase, DefaultBlurb } from "./blurb";
 import { shallow, mount } from "enzyme";
 import { Theme } from "../../../context/theme";
+import { config, textStory } from "../../../__fixtures__";
 
 const sampleBlurbElement = {
   description: "",
@@ -23,19 +24,26 @@ const { metadata, ...sampleBlurbElementWithoutMetadata } = sampleBlurbElement;
 
 describe("Blurb", () => {
   it("should render default", () => {
-    const wrapper = shallow(<Blurb element={sampleBlurbElement} />);
+    const wrapper = shallow(<DefaultBlurb element={sampleBlurbElement} />);
     expect(wrapper).toMatchSnapshot();
   });
   it("should render without metadata", () => {
-    const wrapper = shallow(<Blurb element={sampleBlurbElementWithoutMetadata} />);
+    const wrapper = shallow(<DefaultBlurb element={sampleBlurbElementWithoutMetadata} />);
     expect(wrapper).toMatchSnapshot();
   });
   it("should render default with custom styles", () => {
     const wrapper = mount(
       <Theme>
-        <Blurb element={sampleBlurbElement} inlineStyles={{ color: "red" }} />
+        <DefaultBlurb element={sampleBlurbElement} inlineStyles={{ color: "red" }} />
       </Theme>
     );
     expect(wrapper.find("blockquote").prop("style")).toStrictEqual({ color: "red" });
+  });
+  it("should call storyElementRender prop when passed to opts", () => {
+    const storyElementRender = jest.fn();
+    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender } };
+    const wrapper = shallow(<BlurbBase element={sampleBlurbElement} story={textStory} config={modifiedConfig} />);
+    expect(storyElementRender.mock.calls.length).toBe(1);
+    expect(wrapper.find(DefaultBlurb).length).toBe(0);
   });
 });

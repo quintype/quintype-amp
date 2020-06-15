@@ -1,7 +1,8 @@
 import React from "react";
-import { Title } from "./title";
+import { Title, StyledTitle, TitleBase } from "./title";
 import { shallow, mount } from "enzyme";
 import { Theme } from "../../../context/theme";
+import { config, textStory } from "../../../__fixtures__";
 
 const sampleTitleElement = {
   description: "",
@@ -27,5 +28,12 @@ describe("Title", () => {
       </Theme>
     );
     expect(wrapper.find("h3").prop("style")).toStrictEqual({ fontStyle: "italic" });
+  });
+  it("should call storyElementRender prop when passed to opts", () => {
+    const storyElementRender = jest.fn();
+    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender } };
+    const wrapper = shallow(<TitleBase element={sampleTitleElement} story={textStory} config={modifiedConfig} />);
+    expect(storyElementRender.mock.calls.length).toBe(1);
+    expect(wrapper.find(StyledTitle).length).toBe(0);
   });
 });

@@ -1,7 +1,8 @@
 import React from "react";
 
-import { ImageElement } from "./image-element";
+import { ImageElement, ImageElementBase } from "./image-element";
 import { shallow, mount } from "enzyme";
+import { config, textStory } from "../../../__fixtures__";
 
 const sampleImageElement = {
   description: "",
@@ -37,5 +38,14 @@ describe("Image Element", () => {
   it("should render custom styles", () => {
     const wrapper = mount(<ImageElement element={sampleImageElement} inlineStyles={{ border: "2px solid red" }} />);
     expect(wrapper.find("figcaption").prop("style")).toStrictEqual({ border: "2px solid red" });
+  });
+  it("should call storyElementRender prop when passed to opts", () => {
+    const storyElementRender = jest.fn();
+    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender } };
+    const wrapper = shallow(
+      <ImageElementBase element={sampleImageElement} story={textStory} config={modifiedConfig} />
+    );
+    expect(storyElementRender.mock.calls.length).toBe(1);
+    expect(wrapper.find(Image).length).toBe(0);
   });
 });

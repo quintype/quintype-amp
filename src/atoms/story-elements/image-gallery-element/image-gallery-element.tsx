@@ -5,6 +5,8 @@ import { Carousel } from "../../carousel";
 import { Image } from "../../image";
 import styled from "styled-components";
 import { media } from "../../../utils/media";
+import { withStoryAndConfig } from "../../../context";
+import { CommonRenderPropTypes } from "../../../types/config";
 
 type ImageGalleryElementProps = StoryElementProps &
   ImageGalleryTypes & { galleryInlineStyles?: object; figcaptionInlineStyles?: object };
@@ -37,7 +39,7 @@ const StyledFigcaption = styled.figcaption.attrs(({ style }: ImageGalleryElement
 	`}
 `;
 
-const ImageGalleryElement = ({
+export const DefaultImageGalleryElement = ({
   element,
   height = "750",
   width = "1200",
@@ -83,10 +85,17 @@ const ImageGalleryElement = ({
   );
 };
 
-export { ImageGalleryElement };
-
 export function getFigcaptionText(caption, attribution) {
   if (caption && attribution) return `${caption}`;
   else if (caption || attribution) return `${caption || attribution}`;
   else return false;
 }
+
+export const ImageGalleryElementBase = ({ element, story, config }: StoryElementProps & CommonRenderPropTypes) => {
+  return config.opts && config.opts.storyElementRender ? (
+    config.opts.storyElementRender({ story, config })
+  ) : (
+    <DefaultImageGalleryElement element={element} story={story} config={config} />
+  );
+};
+export const ImageGalleryElement = withStoryAndConfig(ImageGalleryElementBase);

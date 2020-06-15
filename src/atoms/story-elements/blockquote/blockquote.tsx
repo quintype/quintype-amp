@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { StoryElementProps } from "../types";
 import { Spacer } from "../../spacer";
 import { blockquoteTypes } from "./types";
+import { CommonRenderPropTypes } from "../../../types/config";
+import { withStoryAndConfig } from "../../../context";
 
 const Wrapper = styled.div.attrs(({ style }: StoryElementProps) => ({
   style: style
@@ -81,7 +83,7 @@ const FallbackBlockQuote = styled.div.attrs(({ style }: StoryElementProps) => ({
   }
 `;
 
-const BlockQuote = ({
+export const DefaultBlockQuote = ({
   element,
   wrapperInlineStyles,
   blockquoteInlineStyles,
@@ -106,4 +108,11 @@ const BlockQuote = ({
   return <FallbackBlockQuote style={fallbackInlineStyles} dangerouslySetInnerHTML={{ __html: element.text || "" }} />;
 };
 
-export { BlockQuote };
+export const BlockQuoteBase = ({ element, story, config }: StoryElementProps & CommonRenderPropTypes) => {
+  return config.opts && config.opts.storyElementRender ? (
+    config.opts.storyElementRender({ story, config })
+  ) : (
+    <DefaultBlockQuote element={element} story={story} config={config} />
+  );
+};
+export const BlockQuote = withStoryAndConfig(BlockQuoteBase);

@@ -2,8 +2,10 @@ import React from "react";
 import { StoryElementProps } from "../types";
 import { Iframe } from "../../iframe";
 import atob from "atob";
+import { withStoryAndConfig } from "../../../context";
+import { CommonRenderPropTypes } from "../../../types/config";
 
-const Embed = ({ element }: StoryElementProps) => {
+export const DefaultEmbed = ({ element }: StoryElementProps) => {
   const embedData = element["embed-js"] ? atob(element["embed-js"]) : "";
   const src = getIframeSourceURL(embedData);
   return src ? <Iframe src={src} /> : null;
@@ -17,4 +19,11 @@ export const getIframeSourceURL = (str: string): string | null => {
   return null;
 };
 
-export { Embed };
+export const EmbedBase = ({ element, story, config }: StoryElementProps & CommonRenderPropTypes) => {
+  return config.opts && config.opts.storyElementRender ? (
+    config.opts.storyElementRender({ story, config })
+  ) : (
+    <DefaultEmbed element={element} story={story} config={config} />
+  );
+};
+export const Embed = withStoryAndConfig(EmbedBase);

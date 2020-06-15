@@ -122,6 +122,7 @@ interface SlotsTypes {
 export interface ConfigOpts {
   templates?: object;
   slots?: SlotsTypes;
+  storyElementRender?: (props: CommonRenderPropTypes) => any;
   headerCardRender?: (props: CommonRenderPropTypes) => any;
   relatedStoriesRender?: (props: RelatedStoriesRenderPropTypes) => any;
 }

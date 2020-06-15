@@ -1,6 +1,7 @@
 import React from "react";
-import { Text } from "./text";
+import { Text, DefaultText, TextBase } from "./text";
 import { shallow } from "enzyme";
+import { config, textStory } from "../../../__fixtures__";
 
 const sampleTextElement = {
   id: "1",
@@ -26,5 +27,19 @@ describe("Text", () => {
   it("should render summary element", () => {
     const wrapper = shallow(<Text element={sampleSummaryElement} />);
     expect(wrapper).toMatchSnapshot();
+  });
+  it("should render text and call storyElementRender prop when passed to opts", () => {
+    const storyElementRender = jest.fn();
+    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender } };
+    const wrapper = shallow(<TextBase element={sampleTextElement} story={textStory} config={modifiedConfig} />);
+    expect(storyElementRender.mock.calls.length).toBe(1);
+    expect(wrapper.find(DefaultText).length).toBe(0);
+  });
+  it("should render summary and call storyElementRender prop when passed to opts", () => {
+    const storyElementRender = jest.fn();
+    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender } };
+    const wrapper = shallow(<TextBase element={sampleSummaryElement} story={textStory} config={modifiedConfig} />);
+    expect(storyElementRender.mock.calls.length).toBe(1);
+    expect(wrapper.find(DefaultText).length).toBe(0);
   });
 });

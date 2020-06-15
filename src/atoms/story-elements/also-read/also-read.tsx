@@ -4,8 +4,9 @@ import get from "lodash.get";
 import styled from "styled-components";
 import { Spacer } from "../../spacer";
 import { withStoryAndConfig } from "../../../context";
+import { CommonRenderPropTypes } from "../../../types/config";
 
-const StyledAlsoRead = styled.div.attrs(({ style }: StoryElementProps & { style?: object }) => ({
+export const StyledAlsoRead = styled.div.attrs(({ style }: StoryElementProps & { style?: object }) => ({
   style: style
 }))`
   display: flex;
@@ -23,7 +24,7 @@ const StyledAlsoRead = styled.div.attrs(({ style }: StoryElementProps & { style?
   }
 `;
 
-export const BaseAlsoRead = ({ element, story, inlineStyles }: StoryElementProps) => {
+export const AlsoReadBase = ({ element, story, config, inlineStyles }: StoryElementProps & CommonRenderPropTypes) => {
   const linkedStoryId = get(element, ["metadata", "linked-story-id"]);
   const linkedStory = get(story, ["linked-stories", linkedStoryId]);
 
@@ -31,7 +32,9 @@ export const BaseAlsoRead = ({ element, story, inlineStyles }: StoryElementProps
     return null;
   }
 
-  return (
+  return config.opts && config.opts.storyElementRender ? (
+    config.opts.storyElementRender({ story, config })
+  ) : (
     <StyledAlsoRead style={inlineStyles}>
       <Spacer token="m" align="horizontal" />
       <span>Also read: </span>
@@ -42,4 +45,4 @@ export const BaseAlsoRead = ({ element, story, inlineStyles }: StoryElementProps
   );
 };
 
-export const AlsoRead = withStoryAndConfig(BaseAlsoRead);
+export const AlsoRead = withStoryAndConfig(AlsoReadBase);

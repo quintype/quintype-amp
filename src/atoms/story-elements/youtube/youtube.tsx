@@ -4,13 +4,21 @@ import getYouTubeID from "@rvgpl/get-youtube-id";
 import { Common } from "../../common-types";
 import Helmet from "react-helmet";
 import styled from "styled-components";
+import { withStoryAndConfig } from "../../../context";
+import { CommonRenderPropTypes } from "../../../types/config";
 
 const StyledYoutube = styled.div.attrs(({ style }: { style?: object }) => ({
   style: style
 }))``;
 type YouTubeProps = StoryElementProps & Common & { inlineStyles?: object };
 
-const YouTube = ({ element, layout = "responsive", width = "480", height = "270", inlineStyles }: YouTubeProps) => {
+export const DefaultYouTube = ({
+  element,
+  layout = "responsive",
+  width = "480",
+  height = "270",
+  inlineStyles
+}: YouTubeProps) => {
   const youtubeID = element.url && getYouTubeID(element.url);
 
   if (!youtubeID) {
@@ -29,5 +37,11 @@ const YouTube = ({ element, layout = "responsive", width = "480", height = "270"
   );
   // return
 };
-
-export { YouTube };
+export const YouTubeBase = ({ element, story, config }: YouTubeProps & CommonRenderPropTypes) => {
+  return config.opts && config.opts.storyElementRender ? (
+    config.opts.storyElementRender({ story, config })
+  ) : (
+    <DefaultYouTube element={element} story={story} config={config} />
+  );
+};
+export const YouTube = withStoryAndConfig(YouTubeBase);

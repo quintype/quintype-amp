@@ -1,10 +1,11 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import { StoryElementProps } from "../types";
+import { withStoryAndConfig } from "../../../context";
+import { CommonRenderPropTypes } from "../../../types/config";
+import { TextProps } from "./types";
 
-export type TextProps = StoryElementProps & { externalLink?: boolean };
-
-const Text = ({ element, externalLink, style }: TextProps) => {
+export const DefaultText = ({ element, externalLink, style }: StoryElementProps & TextProps) => {
   let text = element.text || "";
   if (externalLink) {
     text = text.replace(/<a/g, '<a target="_blank"');
@@ -13,7 +14,7 @@ const Text = ({ element, externalLink, style }: TextProps) => {
   return <StyledText element={element} style={style} dangerouslySetInnerHTML={{ __html: text }} />;
 };
 
-const StyledText = styled.div<StoryElementProps>`
+const StyledText = styled.div<StoryElementProps & TextProps>`
   color: ${(props) => props.theme.color.mono6};
   font-size: ${(props) => props.theme.font.size.xs};
   font-family: ${(props) => props.theme.font.family.primary};
@@ -93,4 +94,11 @@ const baseBigfactStyles = css`
   font-size: ${(props) => props.theme.font.size.l};
 `;
 
-export { Text };
+export const TextBase = ({ element, story, config }: StoryElementProps & CommonRenderPropTypes) => {
+  return config.opts && config.opts.storyElementRender ? (
+    config.opts.storyElementRender({ story, config })
+  ) : (
+    <DefaultText element={element} story={story} config={config} />
+  );
+};
+export const Text = withStoryAndConfig(TextBase);

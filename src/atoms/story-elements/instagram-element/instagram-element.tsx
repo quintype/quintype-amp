@@ -2,6 +2,8 @@ import React from "react";
 import { StoryElementProps } from "../types";
 import { InstagramTypes } from "../../instagram/types";
 import { Instagram } from "../../instagram";
+import { withStoryAndConfig } from "../../../context";
+import { CommonRenderPropTypes } from "../../../types/config";
 
 type InstagramElementProps = StoryElementProps & Omit<InstagramTypes, "data-shortcode">;
 
@@ -10,7 +12,7 @@ const getInstagramID = (url: string) => {
   return exec ? exec[1] : null;
 };
 
-const InstagramElement = ({
+export const DefaultInstagramElement = ({
   element,
   layout = "responsive",
   width = "16",
@@ -30,4 +32,11 @@ const InstagramElement = ({
   ) : null;
 };
 
-export { InstagramElement };
+export const InstagramElementBase = ({ element, story, config }: StoryElementProps & CommonRenderPropTypes) => {
+  return config.opts && config.opts.storyElementRender ? (
+    config.opts.storyElementRender({ story, config })
+  ) : (
+    <DefaultInstagramElement element={element} story={story} config={config} />
+  );
+};
+export const InstagramElement = withStoryAndConfig(InstagramElementBase);

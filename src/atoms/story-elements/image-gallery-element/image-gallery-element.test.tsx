@@ -1,7 +1,8 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { ImageGalleryElement } from "./image-gallery-element";
+import { ImageGalleryElementBase, DefaultImageGalleryElement, ImageGalleryElement } from "./image-gallery-element";
 import { Carousel } from "../../carousel";
+import { config, textStory } from "../../../__fixtures__";
 
 const sampleImageGalleryElement = {
   description: "",
@@ -178,5 +179,14 @@ describe("Image Gallery Element", () => {
   it("shouldn't render Image Slideshow", () => {
     const wrapper = shallow(<ImageGalleryElement element={sampleImageSlideshowWithoutStoryelements} />);
     expect(wrapper.find(Carousel).length).toBe(0);
+  });
+  it("should call storyElementRender prop when passed to opts", () => {
+    const storyElementRender = jest.fn();
+    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender } };
+    const wrapper = shallow(
+      <ImageGalleryElementBase element={sampleImageGalleryElement} story={textStory} config={modifiedConfig} />
+    );
+    expect(storyElementRender.mock.calls.length).toBe(1);
+    expect(wrapper.find(DefaultImageGalleryElement).length).toBe(0);
   });
 });

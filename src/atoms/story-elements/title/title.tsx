@@ -1,8 +1,10 @@
 import React from "react";
 import { StoryElementProps } from "../types";
 import styled from "styled-components";
+import { CommonRenderPropTypes } from "../../../types/config";
+import { withStoryAndConfig } from "../../../context";
 
-const StyledTitle = styled.h3.attrs(({ style }: StoryElementProps & { style?: object }) => ({
+export const StyledTitle = styled.h3.attrs(({ style }: StoryElementProps) => ({
   style: style
 }))`
   font-size: ${(props) => props.theme.font.size.l};
@@ -12,6 +14,11 @@ const StyledTitle = styled.h3.attrs(({ style }: StoryElementProps & { style?: ob
   text-transform: uppercase;
 `;
 
-export const Title = ({ element, inlineStyles }: StoryElementProps) => (
-  <StyledTitle style={inlineStyles}>{element.text}</StyledTitle>
-);
+export const TitleBase = ({ element, inlineStyles, story, config }: StoryElementProps & CommonRenderPropTypes) => {
+  return config.opts && config.opts.storyElementRender ? (
+    config.opts.storyElementRender({ story, config })
+  ) : (
+    <StyledTitle style={inlineStyles}>{element.text}</StyledTitle>
+  );
+};
+export const Title = withStoryAndConfig(TitleBase);

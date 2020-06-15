@@ -1,6 +1,8 @@
 import React from "react";
 import { StoryElementProps } from "../types";
 import styled from "styled-components";
+import { CommonRenderPropTypes } from "../../../types/config";
+import { withStoryAndConfig } from "../../../context";
 
 const StyledBlurb = styled.blockquote.attrs(({ style }: StoryElementProps & { style?: object }) => ({
   style: style
@@ -18,11 +20,19 @@ const StyledBlurb = styled.blockquote.attrs(({ style }: StoryElementProps & { st
   }
 `;
 
-const Blurb = ({ element, inlineStyles }: StoryElementProps) => {
+export const DefaultBlurb = ({ element, inlineStyles }: StoryElementProps) => {
   if (element.metadata && element.metadata.content) {
     return <StyledBlurb style={inlineStyles}>{element.metadata.content}</StyledBlurb>;
   }
   return <StyledBlurb style={inlineStyles} as="div" dangerouslySetInnerHTML={{ __html: element.text || "" }} />;
 };
 
-export { Blurb };
+export const BlurbBase = ({ element, story, config }: StoryElementProps & CommonRenderPropTypes) => {
+  return config.opts && config.opts.storyElementRender ? (
+    config.opts.storyElementRender({ story, config })
+  ) : (
+    <DefaultBlurb element={element} story={story} config={config} />
+  );
+};
+
+export const Blurb = withStoryAndConfig(BlurbBase);

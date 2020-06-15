@@ -1,6 +1,7 @@
 import React from "react";
-import { YouTube } from "./youtube";
+import { DefaultYouTube, YouTubeBase } from "./youtube";
 import { shallow, mount } from "enzyme";
+import { textStory, config } from "../../../__fixtures__";
 
 const sampleYouTubeElement = {
   description: "",
@@ -17,12 +18,12 @@ const sampleYouTubeElement = {
 
 describe("Youtube", () => {
   it("should render default", () => {
-    const wrapper = shallow(<YouTube element={sampleYouTubeElement} />);
+    const wrapper = shallow(<DefaultYouTube element={sampleYouTubeElement} />);
     expect(wrapper).toMatchSnapshot();
   });
   it("should render default", () => {
     const wrapper = mount(
-      <YouTube
+      <DefaultYouTube
         element={sampleYouTubeElement}
         inlineStyles={{
           border: "2px solid red"
@@ -32,5 +33,12 @@ describe("Youtube", () => {
     expect(wrapper.find("div").prop("style")).toStrictEqual({
       border: "2px solid red"
     });
+  });
+  it("should call storyElementRender prop when passed to opts", () => {
+    const storyElementRender = jest.fn();
+    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender } };
+    const wrapper = shallow(<YouTubeBase element={sampleYouTubeElement} story={textStory} config={modifiedConfig} />);
+    expect(storyElementRender.mock.calls.length).toBe(1);
+    expect(wrapper.find(DefaultYouTube).length).toBe(0);
   });
 });
