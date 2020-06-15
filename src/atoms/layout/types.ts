@@ -7,4 +7,5 @@ export interface Layout {
   style?: { [key: string]: string };
   story: Story;
   config: Config;
+  inlineStyles?: object;
 }

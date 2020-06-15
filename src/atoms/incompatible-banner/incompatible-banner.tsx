@@ -2,7 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { withStory } from "../../context";
 import get from "lodash.get";
-
+import { StyledBannerTypes, IncompatibleBannerTypes } from "./types";
+export const StyledBanner = styled.div.attrs(({ inlineStyles }: StyledBannerTypes) => ({
+  style: inlineStyles
+}))<StyledBannerTypes>`
+  margin: 15px 10px;
+`;
 const BannerWrapper = styled.div`
   position: absolute;
   top: 60px;
@@ -12,16 +17,13 @@ const BannerWrapper = styled.div`
   line-height: ${(props) => props.theme.font.lineHeight.level5};
   z-index: ${(props) => props.theme.zIndex.z1};
 `;
-const StyledBanner = styled.div`
-  margin: 15px 10px;
-`;
 
-const IncompatibleBannerBase = ({ story }) => {
+const IncompatibleBannerBase = ({ story, inlineStyles }: IncompatibleBannerTypes) => {
   const isAmpSupported = get(story, "is-amp-supported", null);
   return (
     !isAmpSupported && (
       <BannerWrapper>
-        <StyledBanner>
+        <StyledBanner inlineStyles={inlineStyles}>
           Some of the elements in this story are not compatible with AMP. To view the complete story, please{" "}
           <a href={story.url}>click here</a>
         </StyledBanner>

@@ -14,4 +14,5 @@ storiesOf("Iframe", module)
     </div>
   ))
   .add("Post with 16:9 responsive (default) layout", () => <Iframe src={postSrc} />)
-  .add("Post with fixed (custom) layout", () => <Iframe width="400" height="400" layout="fixed" src={postSrc} />);
+  .add("Post with fixed (custom) layout", () => <Iframe width="400" height="400" layout="fixed" src={postSrc} />)
+  .add("Post with custom style", () => <Iframe src={postSrc} inlineStyles={{ border: "5px solid red" }} />);

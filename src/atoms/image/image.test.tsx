@@ -1,5 +1,5 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 import { BaseImage } from "./image";
 import get from "lodash.get";
 import { textStory, config } from "../../__fixtures__";
@@ -85,5 +85,17 @@ describe("Image", () => {
     );
     expect(wrapper.find(`amp-img`).prop("lightbox")).toBeFalsy();
     expect(wrapper.find(LightboxGallery).exists()).toBeFalsy();
+  });
+  it("should render with custom styles", () => {
+    const wrapper = mount(
+      <BaseImage
+        alt="Sample Image"
+        metadata={metadata}
+        slug={s3key}
+        aspectRatio={aspectRatio}
+        config={config}
+        inlineStyles={{ border: "5px solid red" }}></BaseImage>
+    );
+    expect(wrapper.find("div").prop("style")).toStrictEqual({ border: "5px solid red" });
   });
 });

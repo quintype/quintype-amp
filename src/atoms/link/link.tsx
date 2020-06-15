@@ -1,10 +1,18 @@
 import React, { Fragment } from "react";
 import { Helmet } from "react-helmet";
+import styled from "styled-components";
 
-export const Link = (props) => (
+const StyledLink = styled.link.attrs(({ style }: StyledLinkTypes & { style?: object }) => ({
+  style: style
+}))<StyledLinkTypes>``;
+
+export interface StyledLinkTypes {
+  inlineStyles?: object;
+}
+export const Link = ({ inlineStyles, ...props }: StyledLinkTypes) => (
   <Fragment>
     <Helmet>
-      <link {...props} />
+      <StyledLink {...props} style={inlineStyles} />
     </Helmet>
   </Fragment>
 );

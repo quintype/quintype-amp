@@ -1,9 +1,14 @@
 import React, { Fragment } from "react";
-import { ImageTypes, AmpImgPropTypes } from "./types";
+import { StyledImageTypes, ImageTypes, AmpImgPropTypes } from "./types";
 import { Config } from "../../types/config";
 import { focusedImagePath } from "../../helpers/image-helpers";
 import { withConfig } from "../../context";
 import { LightboxGallery } from "../lightbox-gallery";
+import styled from "styled-components";
+
+export const StyledImage = styled.div.attrs(({ style }: StyledImageTypes) => ({
+  style: style
+}))<StyledImageTypes>``;
 
 export const BaseImage = ({
   metadata,
@@ -16,6 +21,7 @@ export const BaseImage = ({
   opts = {},
   config,
   lightbox = true,
+  inlineStyles,
   ...rest
 }: ImageTypes & { config: Config }) => {
   const cdnImage = config.publisherConfig["cdn-image"];
@@ -49,10 +55,14 @@ export const BaseImage = ({
   return lightbox ? (
     <Fragment>
       <LightboxGallery />
-      <amp-img {...value} lightbox={lightbox} />
+      <StyledImage style={inlineStyles}>
+        <amp-img {...value} lightbox={lightbox} />
+      </StyledImage>
     </Fragment>
   ) : (
-    <amp-img {...value} />
+    <StyledImage style={inlineStyles}>
+      <amp-img {...value} />
+    </StyledImage>
   );
 };
 
