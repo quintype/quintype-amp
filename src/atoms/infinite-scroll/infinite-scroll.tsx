@@ -7,7 +7,7 @@ const InfiniteScrollBase = ({ story }) => {
   // const { "sketches-host": host } = config.publisherConfig;
   // host has to be https and on the same origin
   // const jsonConfigUrl = `${host}/amp/api/v1/amp-infinite-scroll?story-id=${storyId}`;
-  const jsonConfigUrl = `https://vikatan-gamma.quintype.io/amp/api/v1/amp-infinite-scroll?story-id=${storyId}`; // TEMPORARILY HARDCODING HOST
+  const jsonConfigUrl = `https://vikatan-gamma.quintype.io/amp/api/v1/amp-infinite-scroll?story-id=${storyId}?__amp_source_origin=https://vikatan-gamma.quintype.io`; // TEMPORARILY HARDCODING HOST
   return (
     <Fragment>
       <Helmet>
