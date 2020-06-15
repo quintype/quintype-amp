@@ -2,7 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { StoryElementProps } from "../types";
 
-export type TextProps = StoryElementProps & { externalLink?: boolean };
+export type TextProps = StoryElementProps & { externalLink?: boolean; style?: { [key: string]: string } };
 
 const Text = ({ element, externalLink, style }: TextProps) => {
   let text = element.text || "";
@@ -13,7 +13,7 @@ const Text = ({ element, externalLink, style }: TextProps) => {
   return <StyledText element={element} style={style} dangerouslySetInnerHTML={{ __html: text }} />;
 };
 
-const StyledText = styled.div<StoryElementProps>`
+const StyledText = styled.div<StoryElementProps & { style?: { [key: string]: string } }>`
   color: ${(props) => props.theme.color.mono6};
   font-size: ${(props) => props.theme.font.size.xs};
   font-family: ${(props) => props.theme.font.family.primary};

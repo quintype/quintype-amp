@@ -53,7 +53,7 @@ describe("Carousel", () => {
     expect(wrapper.find("amp-carousel").prop("lightbox")).toBe(true);
   });
   it("should render carousel with custom styles", () => {
-    const wrapper = mount(<Carousel inlineStyles={{ border: "2px solid black" }}></Carousel>);
+    const wrapper = mount(<Carousel inlineStyles={{ border: "2px solid black" }} type="slides"></Carousel>);
     expect(wrapper.find("div").prop("style")).toStrictEqual({ border: "2px solid black" });
   });
   it("shouldn't render images", () => {
