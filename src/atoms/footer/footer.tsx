@@ -30,7 +30,7 @@ const BaseFooter = (props: FooterTypes & { theme?: DefaultTheme }) => {
   const { text, children, style } = props;
 
   return (
-    <div next-page-hide="true">
+    <div next-page-hide="true" footer="true">
       <StyledFooter style={style}>
         {children ? (
           children

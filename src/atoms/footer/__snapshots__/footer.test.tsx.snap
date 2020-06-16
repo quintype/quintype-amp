@@ -2,6 +2,7 @@
 
 exports[`Footer should render 1`] = `
 <div
+  footer="true"
   next-page-hide="true"
 >
   <styled.footer>

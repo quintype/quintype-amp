@@ -15,6 +15,7 @@ import {
 } from "../../atoms";
 import styled from "styled-components";
 import { TextStoryTypes } from "./types";
+import get from "lodash.get";
 
 const { TopAd, BodyAd, BottomAd } = AmpAds;
 const { StoryPageSlots } = Slots;
@@ -27,53 +28,56 @@ const Wrapper = styled.div`
   padding: 0 ${(props) => props.theme.spacing.s};
 `;
 const canDisplayBodyAd = (cardIdx) => cardIdx === 0;
-const TextStory = ({ story, config, relatedStories }: TextStoryTypes) => (
-  <Layout story={story} config={config}>
-    <Navbar />
-    <IncompatibleBanner />
-    <GoogleTagManager />
-    <Wrapper>
-      <TopAd />
-      <TopSlot />
-      <Spacer token="s" />
-      <StoryContainer>
-        <HeaderCard />
-        <WebEngage />
-        <Spacer token="m" />
-        {story.cards.map((card, cardIdx) => {
-          const storyCard = card["story-elements"].map((element) => (
-            <StoryElement key={element.id} element={element} />
-          ));
-          return canDisplayBodyAd(cardIdx) ? (
-            <Fragment key={card.id}>
-              {storyCard}
-              <Spacer token="l" />
-              <BodyAd />
-              <Spacer token="l" />
-            </Fragment>
-          ) : (
-            <Fragment key={card.id}>{storyCard}</Fragment>
-          );
-        })}
+const TextStory = ({ story, config, relatedStories }: TextStoryTypes) => {
+  const footerText = get(config, ["publisherConfig", "publisher-settings", "copyright"], null);
+  return (
+    <Layout story={story} config={config}>
+      <Navbar />
+      <IncompatibleBanner />
+      <GoogleTagManager />
+      <Wrapper>
+        <TopAd />
+        <TopSlot />
+        <Spacer token="s" />
+        <StoryContainer>
+          <HeaderCard />
+          <WebEngage />
+          <Spacer token="m" />
+          {story.cards.map((card, cardIdx) => {
+            const storyCard = card["story-elements"].map((element) => (
+              <StoryElement key={element.id} element={element} />
+            ));
+            return canDisplayBodyAd(cardIdx) ? (
+              <Fragment key={card.id}>
+                {storyCard}
+                <Spacer token="l" />
+                <BodyAd />
+                <Spacer token="l" />
+              </Fragment>
+            ) : (
+              <Fragment key={card.id}>{storyCard}</Fragment>
+            );
+          })}
 
-        {config.opts && config.opts.relatedStoriesRender ? (
-          config.opts.relatedStoriesRender({ relatedStories, config, story })
-        ) : (
-          <RelatedStories stories={relatedStories} />
-        )}
-      </StoryContainer>
-      <BottomSlot />
-      <BottomAd />
-    </Wrapper>
-    <GoogleAnalytics />
-    <QuintypeAnalytics />
-    <ComScore />
-    <ChartBeat />
-    <InfiniteScroll />
-    <Footer
-      text={config.publisherConfig["publisher-settings"] && config.publisherConfig["publisher-settings"]["copyright"]}
-    />
-  </Layout>
-);
+          {config.opts && config.opts.relatedStoriesRender ? (
+            config.opts.relatedStoriesRender({ relatedStories, config, story })
+          ) : (
+            <RelatedStories stories={relatedStories} />
+          )}
+        </StoryContainer>
+        <BottomSlot />
+        <BottomAd />
+      </Wrapper>
+      <GoogleAnalytics />
+      <QuintypeAnalytics />
+      <ComScore />
+      <ChartBeat />
+      <InfiniteScroll max-pages={5}>
+        {/* Infinite scroll has to be the last element */}
+        <Footer text={footerText} />
+      </InfiniteScroll>
+    </Layout>
+  );
+};
 
 export { TextStory };
