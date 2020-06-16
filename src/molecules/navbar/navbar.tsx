@@ -43,7 +43,6 @@ export const NavbarBase = ({ logoSrc, align = "left", config, theme }: NavbarTyp
   const hamburgerColor = get(theme, ["color", "secondaryColor"], "currentColor");
   if (!logo) return null;
   return (
-    // find better way to add next-page-hide
     <div next-page-hide="true">
       <StyledNavbar>
         <LogoWrapper>
