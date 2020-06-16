@@ -65,14 +65,14 @@ const TextStory = ({ story, config, relatedStories }: TextStoryTypes) => (
       <BottomSlot />
       <BottomAd />
     </Wrapper>
-    <InfiniteScroll />
-    <Footer
-      text={config.publisherConfig["publisher-settings"] && config.publisherConfig["publisher-settings"]["copyright"]}
-    />
     <GoogleAnalytics />
     <QuintypeAnalytics />
     <ComScore />
     <ChartBeat />
+    <InfiniteScroll />
+    <Footer
+      text={config.publisherConfig["publisher-settings"] && config.publisherConfig["publisher-settings"]["copyright"]}
+    />
   </Layout>
 );
 

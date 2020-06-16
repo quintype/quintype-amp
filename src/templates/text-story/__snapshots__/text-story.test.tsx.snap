@@ -4734,12 +4734,12 @@ exports[`TextStory Template should render 1`] = `
     <Component />
   </styled.div>
   <Component />
+  <Component />
+  <Component />
+  <Component />
+  <Component />
   <WithTheme(BaseFooter)
     text="Copyright © 2020 Newslaundry Media Private Limited.  All Rights Reserved "
   />
-  <Component />
-  <Component />
-  <Component />
-  <Component />
 </Layout>
 `;

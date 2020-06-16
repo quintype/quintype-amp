@@ -30,18 +30,20 @@ const BaseFooter = (props: FooterTypes & { theme?: DefaultTheme }) => {
   const { text, children, style } = props;
 
   return (
-    <StyledFooter style={style}>
-      {children ? (
-        children
-      ) : (
-        <Fragment>
-          {text && <p>{text}</p>}
-          <PoweredBy href="https://www.quintype.com/" rel="noreferrer noopener" target="_blank">
-            Powered by Quintype
-          </PoweredBy>
-        </Fragment>
-      )}
-    </StyledFooter>
+    <div next-page-hide="true">
+      <StyledFooter style={style}>
+        {children ? (
+          children
+        ) : (
+          <Fragment>
+            {text && <p>{text}</p>}
+            <PoweredBy href="https://www.quintype.com/" rel="noreferrer noopener" target="_blank">
+              Powered by Quintype
+            </PoweredBy>
+          </Fragment>
+        )}
+      </StyledFooter>
+    </div>
   );
 };
 

@@ -43,19 +43,22 @@ export const NavbarBase = ({ logoSrc, align = "left", config, theme }: NavbarTyp
   const hamburgerColor = get(theme, ["color", "secondaryColor"], "currentColor");
   if (!logo) return null;
   return (
-    <StyledNavbar>
-      <LogoWrapper>
-        <PublisherLogoHeader publisherName={publisherName} logoSrc={logo} />
-      </LogoWrapper>
-      {isMenuEnabled && hamburgerMenuItems.length > 0 && (
-        <Fragment>
-          <HamburgerWrapper role="button" tabIndex={0} on="tap:sidebar.open" align={align}>
-            <Hamburger width="40" height="40" color={hamburgerColor} />
-          </HamburgerWrapper>
-          <HamburgerMenu align={align} textDirection={textDirection} items={hamburgerMenuItems} />
-        </Fragment>
-      )}
-    </StyledNavbar>
+    // find better way to add next-page-hide
+    <div next-page-hide="true">
+      <StyledNavbar>
+        <LogoWrapper>
+          <PublisherLogoHeader publisherName={publisherName} logoSrc={logo} />
+        </LogoWrapper>
+        {isMenuEnabled && hamburgerMenuItems.length > 0 && (
+          <Fragment>
+            <HamburgerWrapper role="button" tabIndex={0} on="tap:sidebar.open" align={align}>
+              <Hamburger width="40" height="40" color={hamburgerColor} />
+            </HamburgerWrapper>
+            <HamburgerMenu align={align} textDirection={textDirection} items={hamburgerMenuItems} />
+          </Fragment>
+        )}
+      </StyledNavbar>
+    </div>
   );
 };
 
