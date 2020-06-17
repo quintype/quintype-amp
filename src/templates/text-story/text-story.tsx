@@ -30,9 +30,12 @@ const Wrapper = styled.div`
 const canDisplayBodyAd = (cardIdx) => cardIdx === 0;
 const TextStory = ({ story, config, relatedStories }: TextStoryTypes) => {
   const footerText = get(config, ["publisherConfig", "publisher-settings", "copyright"], null);
+  const infiniteScrollExists = get(config, ["ampConfig", "related-collection-id"], null); // !!!! change to infinite-scroll-collection-id later
   return (
     <Layout story={story} config={config}>
-      <Navbar />
+      <div next-page-hide={infiniteScrollExists}>
+        <Navbar />
+      </div>
       <IncompatibleBanner />
       <GoogleTagManager />
       <Wrapper>
@@ -72,10 +75,16 @@ const TextStory = ({ story, config, relatedStories }: TextStoryTypes) => {
       <QuintypeAnalytics />
       <ComScore />
       <ChartBeat />
-      <InfiniteScroll max-pages={5}>
-        {/* Infinite scroll has to be the last element */}
+      {infiniteScrollExists ? (
+        <InfiniteScroll>
+          {/* Infinite scroll has to be the last element */}
+          <div next-page-hide="true" footer="true">
+            <Footer text={footerText} />
+          </div>
+        </InfiniteScroll>
+      ) : (
         <Footer text={footerText} />
-      </InfiniteScroll>
+      )}
     </Layout>
   );
 };

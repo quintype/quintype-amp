@@ -1574,7 +1574,11 @@ exports[`TextStory Template should render 1`] = `
     }
   }
 >
-  <WithTheme(Component) />
+  <div
+    next-page-hide={null}
+  >
+    <WithTheme(Component) />
+  </div>
   <Component />
   <Component />
   <styled.div>
@@ -4737,12 +4741,8 @@ exports[`TextStory Template should render 1`] = `
   <Component />
   <Component />
   <Component />
-  <Component
-    max-pages={5}
-  >
-    <WithTheme(BaseFooter)
-      text="Copyright © 2020 Newslaundry Media Private Limited.  All Rights Reserved "
-    />
-  </Component>
+  <WithTheme(BaseFooter)
+    text="Copyright © 2020 Newslaundry Media Private Limited.  All Rights Reserved "
+  />
 </Layout>
 `;
