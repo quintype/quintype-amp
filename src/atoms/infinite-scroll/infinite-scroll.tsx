@@ -6,7 +6,7 @@ import { InfiniteScrollTypes } from "./types";
 const InfiniteScrollBase = ({ story, config, children, ...props }: InfiniteScrollTypes) => {
   const { "story-content-id": storyId } = story;
   const { "sketches-host": host } = config.publisherConfig;
-  const jsonConfigUrl = `${host}/amp/api/v1/amp-infinite-scroll?story-id=${storyId}`;
+  const jsonConfigUrl = `${host}/amp/api/v1/amp-infinite-scroll?story-id=${storyId}&first-take-count=3&next-host=${host}`;
   return (
     <Fragment>
       <Helmet>
