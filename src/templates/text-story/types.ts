@@ -5,4 +5,5 @@ export interface TextStoryTypes {
   story: Story;
   config: Config;
   relatedStories: Story[];
+  infiniteScrollInlineConfig?: string;
 }

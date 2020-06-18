@@ -5,4 +5,5 @@ export interface InfiniteScrollTypes {
   story: Story;
   config: Config;
   children?: JSX.Element[] | JSX.Element;
+  inlineConfig?: string;
 }

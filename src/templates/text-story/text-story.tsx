@@ -28,7 +28,7 @@ const Wrapper = styled.div`
   padding: 0 ${(props) => props.theme.spacing.s};
 `;
 const canDisplayBodyAd = (cardIdx) => cardIdx === 0;
-const TextStory = ({ story, config, relatedStories }: TextStoryTypes) => {
+const TextStory = ({ story, config, relatedStories, infiniteScrollInlineConfig }: TextStoryTypes) => {
   const footerText = get(config, ["publisherConfig", "publisher-settings", "copyright"], null);
   const infiniteScrollExists = get(config, ["ampConfig", "related-collection-id"], null); // !!!! change to infinite-scroll-collection-id later
   return (
@@ -76,7 +76,7 @@ const TextStory = ({ story, config, relatedStories }: TextStoryTypes) => {
       <ComScore />
       <ChartBeat />
       {infiniteScrollExists ? (
-        <InfiniteScroll>
+        <InfiniteScroll inlineConfig={infiniteScrollInlineConfig}>
           {/* Infinite scroll has to be the last element */}
           <div next-page-hide="true" footer="true">
             <Footer text={footerText} />

@@ -3,10 +3,10 @@ import { Helmet } from "react-helmet";
 import { withStoryAndConfig } from "../../context";
 import { InfiniteScrollTypes } from "./types";
 
-const InfiniteScrollBase = ({ story, config, children, ...props }: InfiniteScrollTypes) => {
+const InfiniteScrollBase = ({ story, config, children, inlineConfig, ...props }: InfiniteScrollTypes) => {
   const { "story-content-id": storyId } = story;
   const { "sketches-host": host } = config.publisherConfig;
-  const jsonConfigUrl = `${host}/amp/api/v1/amp-infinite-scroll?story-id=${storyId}&first-take-count=3&next-host=${host}`;
+  const jsonConfigUrl = `${host}/amp/api/v1/amp-infinite-scroll?story-id=${storyId}`;
   return (
     <Fragment>
       <Helmet>
@@ -17,6 +17,7 @@ const InfiniteScrollBase = ({ story, config, children, ...props }: InfiniteScrol
         />
       </Helmet>
       <amp-next-page {...props} src={jsonConfigUrl}>
+        {inlineConfig ? <script type="application/json" dangerouslySetInnerHTML={{ __html: inlineConfig }} /> : null}
         {children}
       </amp-next-page>
     </Fragment>

@@ -10,14 +10,15 @@ export function ampifyStory({
   ampConfig,
   relatedStories,
   seo = "",
-  opts = {}
+  opts = {},
+  infiniteScrollInlineConfig
 }: AmpifyStoryTypes) {
   const config = { publisherConfig, ampConfig, opts };
-  const template = getTemplate({ story, config, relatedStories });
+  const template = getTemplate({ story, config, relatedStories, infiniteScrollInlineConfig });
   return renderToString(template, seo);
 }
 
-const getTemplate = ({ story, config, relatedStories }) => {
+const getTemplate = ({ story, config, relatedStories, infiniteScrollInlineConfig }) => {
   const storyTemplate = get(story, "story-template");
   const opts = get(config, "opts", null);
   const publisherTemplates = opts && opts.templates ? opts.templates : {};
@@ -27,9 +28,21 @@ const getTemplate = ({ story, config, relatedStories }) => {
       return "text" in publisherTemplates ? (
         publisherTemplates.text({ story, config, relatedStories })
       ) : (
-        <TextStory story={story} config={config} relatedStories={relatedStories} />
+        <TextStory
+          story={story}
+          config={config}
+          relatedStories={relatedStories}
+          infiniteScrollInlineConfig={infiniteScrollInlineConfig}
+        />
       );
     default:
-      return <TextStory story={story} config={config} relatedStories={relatedStories} />;
+      return (
+        <TextStory
+          story={story}
+          config={config}
+          relatedStories={relatedStories}
+          infiniteScrollInlineConfig={infiniteScrollInlineConfig}
+        />
+      );
   }
 };

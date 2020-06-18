@@ -8,4 +8,5 @@ export interface AmpifyStoryTypes {
   publisherConfig: PublisherConfig;
   seo?: string;
   opts?: ConfigOpts;
+  infiniteScrollInlineConfig?: string;
 }
