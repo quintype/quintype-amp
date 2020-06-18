@@ -17,7 +17,7 @@ const InfiniteScrollBase = ({ story, config, children, inlineConfig, ...props }:
         />
       </Helmet>
       <amp-next-page {...props} src={jsonConfigUrl}>
-        {inlineConfig ? <script type="application/json" dangerouslySetInnerHTML={{ __html: inlineConfig }} /> : null}
+        <script type="application/json" dangerouslySetInnerHTML={{ __html: inlineConfig }} />
         {children}
       </amp-next-page>
     </Fragment>

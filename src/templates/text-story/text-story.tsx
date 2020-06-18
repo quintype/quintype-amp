@@ -28,9 +28,24 @@ const Wrapper = styled.div`
   padding: 0 ${(props) => props.theme.spacing.s};
 `;
 const canDisplayBodyAd = (cardIdx) => cardIdx === 0;
-const TextStory = ({ story, config, relatedStories, infiniteScrollInlineConfig }: TextStoryTypes) => {
+const TextStory = ({ story, config, relatedStories, infiniteScrollInlineConfig = "" }: TextStoryTypes) => {
   const footerText = get(config, ["publisherConfig", "publisher-settings", "copyright"], null);
-  const infiniteScrollExists = get(config, ["ampConfig", "related-collection-id"], null); // !!!! change to infinite-scroll-collection-id later
+  const infiniteScrollExists =
+    get(config, ["ampConfig", "related-collection-id"], null) && infiniteScrollInlineConfig.length; // !!!! change to infinite-scroll-collection-id later
+  let lastComponent = <Footer text={footerText} />;
+  if (infiniteScrollExists) {
+    if (config.opts && config.opts.infiniteScrollRender) {
+      lastComponent = config.opts.infiniteScrollRender({ story, config, inlineConfig: infiniteScrollInlineConfig });
+    } else {
+      lastComponent = (
+        <InfiniteScroll inlineConfig={infiniteScrollInlineConfig}>
+          <div next-page-hide="true" footer="true">
+            <Footer text={footerText} />
+          </div>
+        </InfiniteScroll>
+      );
+    }
+  }
   return (
     <Layout story={story} config={config}>
       <div next-page-hide={infiniteScrollExists}>
@@ -75,16 +90,7 @@ const TextStory = ({ story, config, relatedStories, infiniteScrollInlineConfig }
       <QuintypeAnalytics />
       <ComScore />
       <ChartBeat />
-      {infiniteScrollExists ? (
-        <InfiniteScroll inlineConfig={infiniteScrollInlineConfig}>
-          {/* Infinite scroll has to be the last element */}
-          <div next-page-hide="true" footer="true">
-            <Footer text={footerText} />
-          </div>
-        </InfiniteScroll>
-      ) : (
-        <Footer text={footerText} />
-      )}
+      {lastComponent}
     </Layout>
   );
 };

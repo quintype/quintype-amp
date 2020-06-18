@@ -35,6 +35,8 @@ export interface AMPConfig {
   menu: {
     enabled: boolean;
   };
+  "related-collection-id": number;
+  "infinite-scroll-collection-id": number;
   "menu-groups"?: {
     default?: {
       id: number;
@@ -123,6 +125,7 @@ export interface ConfigOpts {
   slots?: SlotsTypes;
   headerCardRender?: (props: CommonRenderPropTypes) => any;
   relatedStoriesRender?: (props: RelatedStoriesRenderPropTypes) => any;
+  infiniteScrollRender?: (props: InfiniteScrollRenderPropTypes) => any;
 }
 
 export interface CommonRenderPropTypes {
@@ -133,4 +136,10 @@ interface RelatedStoriesRenderPropTypes {
   relatedStories: Story[];
   config: Config;
   story: Story;
+}
+
+interface InfiniteScrollRenderPropTypes {
+  story: Story;
+  config: Config;
+  inlineConfig: string;
 }

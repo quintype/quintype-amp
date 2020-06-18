@@ -48,6 +48,10 @@ To work on a feature
 #### Opts
 
 - relatedStoriesRender - Render props to replace html generated from AMP Templates with whatever is passed by the user. A React render function which accepts stories as a parameter.
+- infiniteScrollRender
+  - params accepted: object containing keys - story, config, inlineConfig
+  - inlineConfig contains JSON config to be given inline to script tag (using dangerouslySetInnerHTML). It contains 1st five stories from the amp infinite scroll collection
+  - remaining stories come from remote endpoint given as `src` to `</amp-next-page>`. The endpoint to be called is `<https host>/amp/api/v1/amp-infinite-scroll?story-id=<story id>`. It needs story Id to remove current story if it exists from showing in infinite scroll
 
 ### NOTES:
 

@@ -55,6 +55,7 @@ exports[`TextStory Template should render 1`] = `
         "google-analytics-tracking-id": "UA-ABCDEFG",
         "google-client-id-api": false,
         "gtm-id": "GTM-XXXXXX",
+        "infinite-scroll-collection-id": 5678,
         "invalid-elements-strategy": "redirect-to-web-version",
         "logo-url": "https://thumbor-stg.assettype.com/ace/2018-02/f0ba1430-8c21-49a3-a5cf-50c88ce9ec74/martian3.jpg",
         "menu": Object {
@@ -595,6 +596,7 @@ exports[`TextStory Template should render 1`] = `
             "slug": "default",
           },
         },
+        "related-collection-id": 1234,
         "webengage": Object {
           "india-data-center": false,
           "license-code": "~134105365",
@@ -1575,7 +1577,7 @@ exports[`TextStory Template should render 1`] = `
   }
 >
   <div
-    next-page-hide={null}
+    next-page-hide={0}
   >
     <WithTheme(Component) />
   </div>
