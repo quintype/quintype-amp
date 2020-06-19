@@ -123,9 +123,11 @@ export interface ConfigOpts {
   templates?: object;
   slots?: SlotsTypes;
   storyElementRender?: {
+    bigfactElementRender?: (props: CommonRenderPropTypes) => any;
+    answerElementRender?: (props: CommonRenderPropTypes) => any;
+    questionElementRender?: (props: CommonRenderPropTypes) => any;
     summaryElementRender?: (props: CommonRenderPropTypes) => any;
     textElementRender?: (props: CommonRenderPropTypes) => any;
-
     youtubeElementRender?: (props: CommonRenderPropTypes) => any;
     vidibleElementRender?: (props: CommonRenderPropTypes) => any;
     twitterElementRender?: (props: CommonRenderPropTypes) => any;

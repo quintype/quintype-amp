@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { CommonRenderPropTypes } from "../../../types/config";
 import { withStoryAndConfig } from "../../../context";
 
-const StyledBlurb = styled.blockquote.attrs(({ style }: StoryElementProps & { style?: object }) => ({
+const StyledBlurb = styled.blockquote.attrs(({ style }: StoryElementProps) => ({
   style
 }))`
   font-size: ${(props) => props.theme.font.size.m};

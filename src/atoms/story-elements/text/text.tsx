@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { StoryElementProps } from "../types";
 import { withStoryAndConfig } from "../../../context";
 import { CommonRenderPropTypes } from "../../../types/config";
@@ -52,51 +52,11 @@ const StyledText = styled.div<StoryElementProps & TextProps>`
     font-family: ${(props) => props.theme.font.family.primary};
     margin: 0 0 ${(props) => props.theme.spacing.s} 0;
   }
-  .answer {
-    color: ${(props) => props.theme.color.mono5};
-  }
-
-  .bigfact-description {
-    color: ${(props) => props.theme.color.mono6};
-    line-height: ${(props) => props.theme.font.lineHeight.level5};
-    font-size: ${(props) => props.theme.font.size.xs};
-    margin-top: 10px;
-	}
-	${(props) =>
-    props.element.subtype === "summary" &&
-    (props.style && props.style.summary ? props.style.summary : baseSummaryStyles)}
-	${(props) =>
-    props.element.subtype === "answer" && (props.style && props.style.answer ? props.style.answer : baseAnswerStyles)}
-	${(props) =>
-    props.element.subtype === "bigfact" &&
-    (props.style && props.style.bigfact ? props.style.bigfact : baseBigfactStyles)}
-	${(props) =>
-    props.element.subtype === "question" &&
-    (props.style && props.style.question ? props.style.question : baseQuestionStyles)}
-`;
-const baseQuestionStyles = css`
-  color: ${(props) => props.theme.color.mono7};
-  line-height: ${(props) => props.theme.font.lineHeight.level2};
-  font-weight: ${(props) => props.theme.font.weight.bold};
-`;
-const baseAnswerStyles = css`
-  color: ${(props) => props.theme.color.mono5};
-`;
-
-const baseSummaryStyles = css`
-  font-style: italic;
-  color: ${(props) => props.theme.color.mono5};
-`;
-
-const baseBigfactStyles = css`
-  color: ${(props) => props.theme.color.mono6};
-  line-height: ${(props) => props.theme.font.lineHeight.level3};
-  font-size: ${(props) => props.theme.font.size.l};
 `;
 
 export const TextBase = ({ element, story, config }: StoryElementProps & CommonRenderPropTypes) => {
-  return config.opts && config.opts.storyElementRender ? (
-    config.opts.storyElementRender({ story, config })
+  return config.opts && config.opts.storyElementRender && config.opts.storyElementRender.textElementRender ? (
+    config.opts.storyElementRender.textElementRender({ story, config })
   ) : (
     <DefaultText element={element} story={story} config={config} />
   );

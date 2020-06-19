@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { DefaultImageGalleryElement, ImageGalleryElement } from "./image-gallery-element";
+import { ImageGalleryElement, ImageGalleryElementBase } from "./image-gallery-element";
 import { Carousel } from "../../carousel";
 import { config, textStory } from "../../../__fixtures__";
 
@@ -184,9 +184,9 @@ describe("Image Gallery Element", () => {
     const imageGalleryElementRender = jest.fn();
     const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { imageGalleryElementRender } } };
     const wrapper = shallow(
-      <ImageGalleryElement element={sampleImageGalleryElement} story={textStory} config={modifiedConfig} />
+      <ImageGalleryElementBase element={sampleImageGalleryElement} story={textStory} config={modifiedConfig} />
     );
     expect(imageGalleryElementRender.mock.calls.length).toBe(1);
-    expect(wrapper.find(DefaultImageGalleryElement).length).toBe(0);
+    expect(wrapper.find(Carousel).length).toBe(0);
   });
 });
