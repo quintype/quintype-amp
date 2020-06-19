@@ -48,11 +48,11 @@ describe("Also Read", () => {
         .prop("style")
     ).toStrictEqual({ color: "red" });
   });
-  it("should call storyElementRender prop when passed to opts", () => {
-    const storyElementRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender } };
+  it("should call alsoReadRender prop when passed to opts", () => {
+    const alsoReadRender = jest.fn();
+    const modifiedConfig = { ...config, opts: { ...config.opts, alsoReadRender } };
     const wrapper = shallow(<AlsoReadBase element={sampleAlsoReadElement} story={textStory} config={modifiedConfig} />);
-    expect(storyElementRender.mock.calls.length).toBe(1);
+    expect(alsoReadRender.mock.calls.length).toBe(1);
     expect(wrapper.find(StyledAlsoRead).length).toBe(0);
   });
 });

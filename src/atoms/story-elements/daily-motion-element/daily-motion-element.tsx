@@ -19,8 +19,8 @@ export const DailyMotionElementBase = ({
   const { metadata } = element;
   if (!(metadata && metadata["video-id"])) return null;
 
-  return config.opts && config.opts.storyElementRender ? (
-    config.opts.storyElementRender({ story, config })
+  return config.opts && config.opts.dailyMotionRender ? (
+    config.opts.dailyMotionRender({ story, config })
   ) : (
     <DailyMotion data-videoid={metadata["video-id"]} layout={layout} width={width} height={height} {...props} />
   );

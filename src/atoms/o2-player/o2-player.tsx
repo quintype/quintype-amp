@@ -4,7 +4,7 @@ import { StyledO2PlayerTypes, O2PlayerTypes } from "./types";
 import styled from "styled-components";
 
 export const StyledO2Player = styled.div.attrs(({ style }: StyledO2PlayerTypes) => ({
-  style: style
+  style
 }))<StyledO2PlayerTypes>``;
 
 export const O2Player = ({ inlineStyles, ...props }: O2PlayerTypes) => {

@@ -12,13 +12,13 @@ type ImageGalleryElementProps = StoryElementProps &
   ImageGalleryTypes & { galleryInlineStyles?: object; figcaptionInlineStyles?: object };
 
 const StyledGallery = styled.div.attrs(({ style }: { style?: object }) => ({
-  style: style
+  style
 }))`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 `;
 const StyledFigcaption = styled.figcaption.attrs(({ style }: ImageGalleryElementProps & { style?: object }) => ({
-  style: style
+  style
 }))`
   text-align: left;
   position: absolute;
@@ -57,7 +57,7 @@ export const DefaultImageGalleryElement = ({
     element["story-elements"] &&
     element["story-elements"].map((image) => (
       <Image
-        key={image["id"]}
+        key={image.id}
         metadata={image["image-metadata"]}
         slug={image["image-s3-key"]}
         aspectRatio={aspectRatio}
@@ -92,8 +92,8 @@ export function getFigcaptionText(caption, attribution) {
 }
 
 export const ImageGalleryElementBase = ({ element, story, config }: StoryElementProps & CommonRenderPropTypes) => {
-  return config.opts && config.opts.storyElementRender ? (
-    config.opts.storyElementRender({ story, config })
+  return config.opts && config.opts.imageGalleryElementRender ? (
+    config.opts.imageGalleryElementRender({ story, config })
   ) : (
     <DefaultImageGalleryElement element={element} story={story} config={config} />
   );

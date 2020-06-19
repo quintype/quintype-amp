@@ -123,6 +123,21 @@ export interface ConfigOpts {
   templates?: object;
   slots?: SlotsTypes;
   storyElementRender?: (props: CommonRenderPropTypes) => any;
+  // story element render props
+  youtubeElementRender?: (props: CommonRenderPropTypes) => any;
+  vidibleElementRender?: (props: CommonRenderPropTypes) => any;
+  twitterElementRender?: (props: CommonRenderPropTypes) => any;
+  titleElementRender?: (props: CommonRenderPropTypes) => any;
+  instagramElementRender?: (props: CommonRenderPropTypes) => any;
+  imageGalleryElementRender?: (props: CommonRenderPropTypes) => any;
+  imageElementRender?: (props: CommonRenderPropTypes) => any;
+  facebookElementRender?: (props: CommonRenderPropTypes) => any;
+  embedRender?: (props: CommonRenderPropTypes) => any;
+  dailyMotionRender?: (props: CommonRenderPropTypes) => any;
+  blockquoteRender?: (props: CommonRenderPropTypes) => any;
+  blurbRender?: (props: CommonRenderPropTypes) => any;
+  alsoReadRender?: (props: CommonRenderPropTypes) => any;
+
   headerCardRender?: (props: CommonRenderPropTypes) => any;
   relatedStoriesRender?: (props: RelatedStoriesRenderPropTypes) => any;
 }

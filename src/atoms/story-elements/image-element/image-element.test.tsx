@@ -39,13 +39,13 @@ describe("Image Element", () => {
     const wrapper = mount(<ImageElement element={sampleImageElement} inlineStyles={{ border: "2px solid red" }} />);
     expect(wrapper.find("figcaption").prop("style")).toStrictEqual({ border: "2px solid red" });
   });
-  it("should call storyElementRender prop when passed to opts", () => {
-    const storyElementRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender } };
+  it("should call imageElementRender prop when passed to opts", () => {
+    const imageElementRender = jest.fn();
+    const modifiedConfig = { ...config, opts: { ...config.opts, imageElementRender } };
     const wrapper = shallow(
       <ImageElementBase element={sampleImageElement} story={textStory} config={modifiedConfig} />
     );
-    expect(storyElementRender.mock.calls.length).toBe(1);
+    expect(imageElementRender.mock.calls.length).toBe(1);
     expect(wrapper.find(Image).length).toBe(0);
   });
 });

@@ -31,13 +31,13 @@ describe("Vidible Element", () => {
     const wrapper = mount(<DefaultVidibleElement element={sampleVidibleElement} data-macros="auto" />);
     expect(wrapper.find("amp-o2-player").prop("data-macros")).toBe("auto");
   });
-  it("should call storyElementRender prop when passed to opts", () => {
-    const storyElementRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender } };
+  it("should call vidibleElementRender prop when passed to opts", () => {
+    const vidibleElementRender = jest.fn();
+    const modifiedConfig = { ...config, opts: { ...config.opts, vidibleElementRender } };
     const wrapper = shallow(
       <VidibleElementBase element={sampleVidibleElement} story={textStory} config={modifiedConfig} />
     );
-    expect(storyElementRender.mock.calls.length).toBe(1);
+    expect(vidibleElementRender.mock.calls.length).toBe(1);
     expect(wrapper.find(DefaultVidibleElement).length).toBe(0);
   });
 });

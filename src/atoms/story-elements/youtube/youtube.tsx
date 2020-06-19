@@ -8,7 +8,7 @@ import { withStoryAndConfig } from "../../../context";
 import { CommonRenderPropTypes } from "../../../types/config";
 
 const StyledYoutube = styled.div.attrs(({ style }: { style?: object }) => ({
-  style: style
+  style
 }))``;
 type YouTubeProps = StoryElementProps & Common & { inlineStyles?: object };
 
@@ -38,8 +38,8 @@ export const DefaultYouTube = ({
   // return
 };
 export const YouTubeBase = ({ element, story, config }: YouTubeProps & CommonRenderPropTypes) => {
-  return config.opts && config.opts.storyElementRender ? (
-    config.opts.storyElementRender({ story, config })
+  return config.opts && config.opts.youtubeElementRender ? (
+    config.opts.youtubeElementRender({ story, config })
   ) : (
     <DefaultYouTube element={element} story={story} config={config} />
   );

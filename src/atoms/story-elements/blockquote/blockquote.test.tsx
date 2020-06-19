@@ -47,13 +47,13 @@ describe("BlockQuote", () => {
     expect(wrapper.find("blockquote").prop("style")).toStrictEqual({ color: "red" });
     expect(wrapper.find("span").prop("style")).toStrictEqual({ fontStyle: "italic" });
   });
-  it("should call storyElementRender prop when passed to opts", () => {
-    const storyElementRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender } };
+  it("should call blockquoteRender prop when passed to opts", () => {
+    const blockquoteRender = jest.fn();
+    const modifiedConfig = { ...config, opts: { ...config.opts, blockquoteRender } };
     const wrapper = shallow(
       <BlockQuoteBase element={sampleBlockQuoteElement} story={textStory} config={modifiedConfig} />
     );
-    expect(storyElementRender.mock.calls.length).toBe(1);
+    expect(blockquoteRender.mock.calls.length).toBe(1);
     expect(wrapper.find(DefaultBlockQuote).length).toBe(0);
   });
 });

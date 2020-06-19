@@ -3,7 +3,7 @@ import { DateTimeProps } from "./types";
 import styled from "styled-components";
 import { Spacer } from "../spacer";
 
-export const StyledTime = styled.time.attrs(({ style }: DateTimeProps & { style?: object }) => ({ style: style }))`
+export const StyledTime = styled.time.attrs(({ style }: DateTimeProps & { style?: object }) => ({ style }))`
   color: ${(props) => props.theme.color.mono5};
   font-family: ${(props) => props.theme.font.family.secondary};
   font-size: ${(props) => props.theme.font.size.tiny};

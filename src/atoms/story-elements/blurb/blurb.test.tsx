@@ -39,11 +39,11 @@ describe("Blurb", () => {
     );
     expect(wrapper.find("blockquote").prop("style")).toStrictEqual({ color: "red" });
   });
-  it("should call storyElementRender prop when passed to opts", () => {
-    const storyElementRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender } };
+  it("should call blurbRender prop when passed to opts", () => {
+    const blurbRender = jest.fn();
+    const modifiedConfig = { ...config, opts: { ...config.opts, blurbRender } };
     const wrapper = shallow(<BlurbBase element={sampleBlurbElement} story={textStory} config={modifiedConfig} />);
-    expect(storyElementRender.mock.calls.length).toBe(1);
+    expect(blurbRender.mock.calls.length).toBe(1);
     expect(wrapper.find(DefaultBlurb).length).toBe(0);
   });
 });

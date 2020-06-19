@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import styled from "styled-components";
 
 export const StyledTwitter = styled.div.attrs(({ style }: { style?: object }) => ({
-  style: style
+  style
 }))``;
 
 export const Twitter = ({ inlineStyles, ...props }: TwitterTypes) => {

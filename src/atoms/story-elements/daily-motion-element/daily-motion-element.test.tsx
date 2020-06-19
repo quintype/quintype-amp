@@ -25,13 +25,13 @@ describe("DailyMotion Element", () => {
     const wrapper = mount(<DailyMotionElement element={sampleDailyMotionElement} />);
     expect(wrapper.find("amp-dailymotion").length).toBe(1);
   });
-  it("should call storyElementRender prop when passed to opts", () => {
-    const storyElementRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender } };
+  it("should call dailyMotionRender prop when passed to opts", () => {
+    const dailyMotionRender = jest.fn();
+    const modifiedConfig = { ...config, opts: { ...config.opts, dailyMotionRender } };
     const wrapper = shallow(
       <DailyMotionElementBase element={sampleDailyMotionElement} story={textStory} config={modifiedConfig} />
     );
-    expect(storyElementRender.mock.calls.length).toBe(1);
+    expect(dailyMotionRender.mock.calls.length).toBe(1);
     expect(wrapper.find(DailyMotion).length).toBe(0);
   });
 });

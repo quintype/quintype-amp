@@ -4,7 +4,7 @@ import { SocialShareTypes } from "./types";
 import styled from "styled-components";
 
 export const StyledSocialShare = styled.div.attrs(({ style }: { style?: object }) => ({
-  style: style
+  style
 }))``;
 
 export const SocialShareIcon = ({

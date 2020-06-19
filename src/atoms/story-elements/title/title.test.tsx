@@ -29,11 +29,11 @@ describe("Title", () => {
     );
     expect(wrapper.find("h3").prop("style")).toStrictEqual({ fontStyle: "italic" });
   });
-  it("should call storyElementRender prop when passed to opts", () => {
-    const storyElementRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender } };
+  it("should call titleElementRender prop when passed to opts", () => {
+    const titleElementRender = jest.fn();
+    const modifiedConfig = { ...config, opts: { ...config.opts, titleElementRender } };
     const wrapper = shallow(<TitleBase element={sampleTitleElement} story={textStory} config={modifiedConfig} />);
-    expect(storyElementRender.mock.calls.length).toBe(1);
+    expect(titleElementRender.mock.calls.length).toBe(1);
     expect(wrapper.find(StyledTitle).length).toBe(0);
   });
 });

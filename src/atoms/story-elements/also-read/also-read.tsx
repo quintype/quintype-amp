@@ -7,7 +7,7 @@ import { withStoryAndConfig } from "../../../context";
 import { CommonRenderPropTypes } from "../../../types/config";
 
 export const StyledAlsoRead = styled.div.attrs(({ style }: StoryElementProps & { style?: object }) => ({
-  style: style
+  style
 }))`
   display: flex;
   align-items: center;
@@ -32,8 +32,8 @@ export const AlsoReadBase = ({ element, story, config, inlineStyles }: StoryElem
     return null;
   }
 
-  return config.opts && config.opts.storyElementRender ? (
-    config.opts.storyElementRender({ story, config })
+  return config.opts && config.opts.alsoReadRender ? (
+    config.opts.alsoReadRender({ story, config })
   ) : (
     <StyledAlsoRead style={inlineStyles}>
       <Spacer token="m" align="horizontal" />

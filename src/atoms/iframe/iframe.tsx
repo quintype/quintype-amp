@@ -4,7 +4,7 @@ import Helmet from "react-helmet";
 import styled from "styled-components";
 
 export const StyledIframe = styled.div.attrs(({ style }: IframeTypes & { style?: object }) => ({
-  style: style
+  style
 }))<IframeTypes>``;
 
 const Iframe = ({

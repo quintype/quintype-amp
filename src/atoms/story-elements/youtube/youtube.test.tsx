@@ -34,11 +34,11 @@ describe("Youtube", () => {
       border: "2px solid red"
     });
   });
-  it("should call storyElementRender prop when passed to opts", () => {
-    const storyElementRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender } };
+  it("should call youtubeElementRender prop when passed to opts", () => {
+    const youtubeElementRender = jest.fn();
+    const modifiedConfig = { ...config, opts: { ...config.opts, youtubeElementRender } };
     const wrapper = shallow(<YouTubeBase element={sampleYouTubeElement} story={textStory} config={modifiedConfig} />);
-    expect(storyElementRender.mock.calls.length).toBe(1);
+    expect(youtubeElementRender.mock.calls.length).toBe(1);
     expect(wrapper.find(DefaultYouTube).length).toBe(0);
   });
 });

@@ -21,8 +21,8 @@ export const FacebookElementBase = ({
   if (!(metadata && metadata.provider && metadata["facebook-url"])) {
     return null;
   }
-  return config.opts && config.opts.storyElementRender ? (
-    config.opts.storyElementRender({ story, config })
+  return config.opts && config.opts.facebookElementRender ? (
+    config.opts.facebookElementRender({ story, config })
   ) : (
     <Facebook data-href={metadata["facebook-url"]} data-embed-as={embedAs[metadata.provider]} {...props} />
   );

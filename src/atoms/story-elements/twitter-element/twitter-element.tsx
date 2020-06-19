@@ -16,8 +16,8 @@ export const TwitterElementBase = ({
   const { metadata } = element;
   if (!(metadata && metadata["tweet-id"])) return null;
 
-  return config.opts && config.opts.storyElementRender ? (
-    config.opts.storyElementRender({ story, config })
+  return config.opts && config.opts.twitterElementRender ? (
+    config.opts.twitterElementRender({ story, config })
   ) : (
     <Twitter data-tweetid={metadata["tweet-id"]} {...props} />
   );

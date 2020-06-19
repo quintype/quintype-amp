@@ -5,7 +5,7 @@ import { CommonRenderPropTypes } from "../../../types/config";
 import { withStoryAndConfig } from "../../../context";
 
 const StyledBlurb = styled.blockquote.attrs(({ style }: StoryElementProps & { style?: object }) => ({
-  style: style
+  style
 }))`
   font-size: ${(props) => props.theme.font.size.m};
   color: ${(props) => props.theme.color.mono7};
@@ -28,8 +28,8 @@ export const DefaultBlurb = ({ element, inlineStyles }: StoryElementProps) => {
 };
 
 export const BlurbBase = ({ element, story, config }: StoryElementProps & CommonRenderPropTypes) => {
-  return config.opts && config.opts.storyElementRender ? (
-    config.opts.storyElementRender({ story, config })
+  return config.opts && config.opts.blurbRender ? (
+    config.opts.blurbRender({ story, config })
   ) : (
     <DefaultBlurb element={element} story={story} config={config} />
   );

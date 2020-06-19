@@ -8,7 +8,7 @@ import { Spacer } from "../../atoms";
 import get from "lodash.get";
 
 export const Heading = styled.h2.attrs(({ style }: RelatedStoriesTypes & { style?: object }) => ({
-  style: style
+  style
 }))`
   font-size: ${(props) => props.theme.font.size.l};
 `;

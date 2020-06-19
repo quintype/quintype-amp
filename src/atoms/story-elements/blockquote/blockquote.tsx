@@ -7,7 +7,7 @@ import { CommonRenderPropTypes } from "../../../types/config";
 import { withStoryAndConfig } from "../../../context";
 
 const Wrapper = styled.div.attrs(({ style }: StoryElementProps) => ({
-  style: style
+  style
 }))`
   display: flex;
   flex-direction: column;
@@ -24,7 +24,7 @@ const Wrapper = styled.div.attrs(({ style }: StoryElementProps) => ({
   }
 `;
 const StyledBlockQuote = styled.blockquote.attrs(({ style }: StoryElementProps) => ({
-  style: style
+  style
 }))`
   padding: 0 0 0 50px;
   margin: 0;
@@ -33,7 +33,7 @@ const StyledBlockQuote = styled.blockquote.attrs(({ style }: StoryElementProps) 
   line-height: ${(props) => props.theme.font.lineHeight.level5};
 `;
 const StyledAttribution = styled.span.attrs(({ style }: StoryElementProps) => ({
-  style: style
+  style
 }))`
   color: ${(props) => props.theme.color.mono6};
   font-size: ${(props) => props.theme.font.size.m};
@@ -45,7 +45,7 @@ const StyledAttribution = styled.span.attrs(({ style }: StoryElementProps) => ({
   }
 `;
 const FallbackBlockQuote = styled.div.attrs(({ style }: StoryElementProps) => ({
-  style: style
+  style
 }))`
   div {
     display: flex;
@@ -109,8 +109,8 @@ export const DefaultBlockQuote = ({
 };
 
 export const BlockQuoteBase = ({ element, story, config }: StoryElementProps & CommonRenderPropTypes) => {
-  return config.opts && config.opts.storyElementRender ? (
-    config.opts.storyElementRender({ story, config })
+  return config.opts && config.opts.blockquoteRender ? (
+    config.opts.blockquoteRender({ story, config })
   ) : (
     <DefaultBlockQuote element={element} story={story} config={config} />
   );

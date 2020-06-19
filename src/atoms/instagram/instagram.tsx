@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import styled from "styled-components";
 
 export const StyledInstagram = styled.div.attrs(({ style }: StyledInstagramTypes) => ({
-  style: style
+  style
 }))<StyledInstagramTypes>``;
 
 export interface StyledInstagramTypes {

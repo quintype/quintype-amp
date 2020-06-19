@@ -39,11 +39,11 @@ describe("Embed", () => {
     const wrapper = shallow(<DefaultEmbed element={sampleJsEmbedElementWithoutIframe} />);
     expect(wrapper.find(Iframe).length).toBe(0);
   });
-  it("should call storyElementRender prop when passed to opts", () => {
-    const storyElementRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender } };
+  it("should call embedRender prop when passed to opts", () => {
+    const embedRender = jest.fn();
+    const modifiedConfig = { ...config, opts: { ...config.opts, embedRender } };
     const wrapper = shallow(<EmbedBase element={sampleJsEmbedElement} story={textStory} config={modifiedConfig} />);
-    expect(storyElementRender.mock.calls.length).toBe(1);
+    expect(embedRender.mock.calls.length).toBe(1);
     expect(wrapper.find(DefaultEmbed).length).toBe(0);
   });
 });

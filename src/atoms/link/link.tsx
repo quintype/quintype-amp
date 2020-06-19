@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import styled from "styled-components";
 
 const StyledLink = styled.link.attrs(({ style }: StyledLinkTypes & { style?: object }) => ({
-  style: style
+  style
 }))<StyledLinkTypes>``;
 
 export interface StyledLinkTypes {

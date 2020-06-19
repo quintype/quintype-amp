@@ -180,13 +180,13 @@ describe("Image Gallery Element", () => {
     const wrapper = shallow(<ImageGalleryElement element={sampleImageSlideshowWithoutStoryelements} />);
     expect(wrapper.find(Carousel).length).toBe(0);
   });
-  it("should call storyElementRender prop when passed to opts", () => {
-    const storyElementRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender } };
+  it("should call imageGalleryElementRender prop when passed to opts", () => {
+    const imageGalleryElementRender = jest.fn();
+    const modifiedConfig = { ...config, opts: { ...config.opts, imageGalleryElementRender } };
     const wrapper = shallow(
-      <ImageGalleryElementBase element={sampleImageGalleryElement} story={textStory} config={modifiedConfig} />
+      <ImageGalleryElement element={sampleImageGalleryElement} story={textStory} config={modifiedConfig} />
     );
-    expect(storyElementRender.mock.calls.length).toBe(1);
+    expect(imageGalleryElementRender.mock.calls.length).toBe(1);
     expect(wrapper.find(DefaultImageGalleryElement).length).toBe(0);
   });
 });

@@ -48,8 +48,8 @@ export const DefaultVidibleElement = ({
 };
 
 export const VidibleElementBase = ({ element, story, config }: StoryElementProps & CommonRenderPropTypes) => {
-  return config.opts && config.opts.storyElementRender ? (
-    config.opts.storyElementRender({ story, config })
+  return config.opts && config.opts.vidibleElementRender ? (
+    config.opts.vidibleElementRender({ story, config })
   ) : (
     <DefaultVidibleElement element={element} story={story} config={config} />
   );

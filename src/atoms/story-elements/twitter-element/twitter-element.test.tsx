@@ -25,13 +25,13 @@ describe("Twitter Element", () => {
     const wrapper = mount(<TwitterElement element={sampleTwitterElement} />);
     expect(wrapper.find("amp-twitter").length).toBe(1);
   });
-  it("should call storyElementRender prop when passed to opts", () => {
-    const storyElementRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender } };
+  it("should call twitterElementRender prop when passed to opts", () => {
+    const twitterElementRender = jest.fn();
+    const modifiedConfig = { ...config, opts: { ...config.opts, twitterElementRender } };
     const wrapper = shallow(
       <TwitterElementBase element={sampleTwitterElement} story={textStory} config={modifiedConfig} />
     );
-    expect(storyElementRender.mock.calls.length).toBe(1);
+    expect(twitterElementRender.mock.calls.length).toBe(1);
     expect(wrapper.find(Twitter).length).toBe(0);
   });
 });

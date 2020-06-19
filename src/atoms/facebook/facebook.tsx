@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import styled from "styled-components";
 
 export const StyledFacebook = styled.div.attrs(({ style }: StyledFacebookTypes) => ({
-  style: style
+  style
 }))<StyledFacebookTypes>``;
 
 export const Facebook = ({ inlineStyles, ...props }: FacebookTypes) => {
