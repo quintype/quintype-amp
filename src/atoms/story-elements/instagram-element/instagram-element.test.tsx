@@ -35,7 +35,7 @@ describe("Instagram Element", () => {
   });
   it("should call instagramElementRender prop when passed to opts", () => {
     const instagramElementRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, instagramElementRender } };
+    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { instagramElementRender } } };
     const wrapper = shallow(
       <InstagramElementBase element={sampleInstagramElement} story={textStory} config={modifiedConfig} />
     );

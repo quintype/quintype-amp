@@ -41,7 +41,7 @@ describe("Embed", () => {
   });
   it("should call embedRender prop when passed to opts", () => {
     const embedRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, embedRender } };
+    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { embedRender } } };
     const wrapper = shallow(<EmbedBase element={sampleJsEmbedElement} story={textStory} config={modifiedConfig} />);
     expect(embedRender.mock.calls.length).toBe(1);
     expect(wrapper.find(DefaultEmbed).length).toBe(0);

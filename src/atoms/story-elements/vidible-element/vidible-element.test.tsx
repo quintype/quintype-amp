@@ -33,7 +33,7 @@ describe("Vidible Element", () => {
   });
   it("should call vidibleElementRender prop when passed to opts", () => {
     const vidibleElementRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, vidibleElementRender } };
+    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { vidibleElementRender } } };
     const wrapper = shallow(
       <VidibleElementBase element={sampleVidibleElement} story={textStory} config={modifiedConfig} />
     );

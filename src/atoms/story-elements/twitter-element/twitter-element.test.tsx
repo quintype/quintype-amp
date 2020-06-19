@@ -27,7 +27,7 @@ describe("Twitter Element", () => {
   });
   it("should call twitterElementRender prop when passed to opts", () => {
     const twitterElementRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, twitterElementRender } };
+    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { twitterElementRender } } };
     const wrapper = shallow(
       <TwitterElementBase element={sampleTwitterElement} story={textStory} config={modifiedConfig} />
     );

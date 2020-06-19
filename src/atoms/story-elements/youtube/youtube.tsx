@@ -38,8 +38,8 @@ export const DefaultYouTube = ({
   // return
 };
 export const YouTubeBase = ({ element, story, config }: YouTubeProps & CommonRenderPropTypes) => {
-  return config.opts && config.opts.youtubeElementRender ? (
-    config.opts.youtubeElementRender({ story, config })
+  return config.opts && config.opts.storyElementRender && config.opts.storyElementRender.youtubeElementRender ? (
+    config.opts.storyElementRender.youtubeElementRender({ story, config })
   ) : (
     <DefaultYouTube element={element} story={story} config={config} />
   );

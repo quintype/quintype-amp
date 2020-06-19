@@ -32,8 +32,8 @@ export const AlsoReadBase = ({ element, story, config, inlineStyles }: StoryElem
     return null;
   }
 
-  return config.opts && config.opts.alsoReadRender ? (
-    config.opts.alsoReadRender({ story, config })
+  return config.opts && config.opts.storyElementRender && config.opts.storyElementRender.alsoReadRender ? (
+    config.opts.storyElementRender.alsoReadRender({ story, config })
   ) : (
     <StyledAlsoRead style={inlineStyles}>
       <Spacer token="m" align="horizontal" />

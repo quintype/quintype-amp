@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { ImageGalleryElementBase, DefaultImageGalleryElement, ImageGalleryElement } from "./image-gallery-element";
+import { DefaultImageGalleryElement, ImageGalleryElement } from "./image-gallery-element";
 import { Carousel } from "../../carousel";
 import { config, textStory } from "../../../__fixtures__";
 
@@ -182,7 +182,7 @@ describe("Image Gallery Element", () => {
   });
   it("should call imageGalleryElementRender prop when passed to opts", () => {
     const imageGalleryElementRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, imageGalleryElementRender } };
+    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { imageGalleryElementRender } } };
     const wrapper = shallow(
       <ImageGalleryElement element={sampleImageGalleryElement} story={textStory} config={modifiedConfig} />
     );

@@ -33,8 +33,8 @@ export const DefaultInstagramElement = ({
 };
 
 export const InstagramElementBase = ({ element, story, config }: StoryElementProps & CommonRenderPropTypes) => {
-  return config.opts && config.opts.instagramElementRender ? (
-    config.opts.instagramElementRender({ story, config })
+  return config.opts && config.opts.storyElementRender && config.opts.storyElementRender.instagramElementRender ? (
+    config.opts.storyElementRender.instagramElementRender({ story, config })
   ) : (
     <DefaultInstagramElement element={element} story={story} config={config} />
   );

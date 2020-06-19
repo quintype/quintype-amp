@@ -20,8 +20,8 @@ export const getIframeSourceURL = (str: string): string | null => {
 };
 
 export const EmbedBase = ({ element, story, config }: StoryElementProps & CommonRenderPropTypes) => {
-  return config.opts && config.opts.embedRender ? (
-    config.opts.embedRender({ story, config })
+  return config.opts && config.opts.storyElementRender && config.opts.storyElementRender.embedRender ? (
+    config.opts.storyElementRender.embedRender({ story, config })
   ) : (
     <DefaultEmbed element={element} story={story} config={config} />
   );

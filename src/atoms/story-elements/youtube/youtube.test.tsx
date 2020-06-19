@@ -36,7 +36,7 @@ describe("Youtube", () => {
   });
   it("should call youtubeElementRender prop when passed to opts", () => {
     const youtubeElementRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, youtubeElementRender } };
+    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { youtubeElementRender } } };
     const wrapper = shallow(<YouTubeBase element={sampleYouTubeElement} story={textStory} config={modifiedConfig} />);
     expect(youtubeElementRender.mock.calls.length).toBe(1);
     expect(wrapper.find(DefaultYouTube).length).toBe(0);

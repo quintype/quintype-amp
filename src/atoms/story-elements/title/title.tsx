@@ -15,8 +15,8 @@ export const StyledTitle = styled.h3.attrs(({ style }: StoryElementProps) => ({
 `;
 
 export const TitleBase = ({ element, inlineStyles, story, config }: StoryElementProps & CommonRenderPropTypes) => {
-  return config.opts && config.opts.titleElementRender ? (
-    config.opts.titleElementRender({ story, config })
+  return config.opts && config.opts.storyElementRender && config.opts.storyElementRender.titleElementRender ? (
+    config.opts.storyElementRender.titleElementRender({ story, config })
   ) : (
     <StyledTitle style={inlineStyles}>{element.text}</StyledTitle>
   );

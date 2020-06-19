@@ -49,7 +49,10 @@ describe("BlockQuote", () => {
   });
   it("should call blockquoteRender prop when passed to opts", () => {
     const blockquoteRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, blockquoteRender } };
+    const modifiedConfig = {
+      ...config,
+      opts: { ...config.opts, storyElementRender: { blockquoteRender } }
+    };
     const wrapper = shallow(
       <BlockQuoteBase element={sampleBlockQuoteElement} story={textStory} config={modifiedConfig} />
     );

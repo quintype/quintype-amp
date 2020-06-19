@@ -28,8 +28,8 @@ const StyledFigCaption = styled.figcaption`
 `;
 
 export const ImageElementBase = ({ element, story, config }: StoryElementProps & CommonRenderPropTypes) => {
-  return config.opts && config.opts.imageElementRender ? (
-    config.opts.imageElementRender({ story, config })
+  return config.opts && config.opts.storyElementRender && config.opts.storyElementRender.imageElementRender ? (
+    config.opts.storyElementRender.imageElementRender({ story, config })
   ) : (
     <Image slug={element["image-s3-key"]} metadata={element["image-metadata"]}>
       {element.title && element.title.length > 1 && <StyledFigCaption>{element.title}</StyledFigCaption>}

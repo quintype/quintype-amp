@@ -28,8 +28,8 @@ export const DefaultBlurb = ({ element, inlineStyles }: StoryElementProps) => {
 };
 
 export const BlurbBase = ({ element, story, config }: StoryElementProps & CommonRenderPropTypes) => {
-  return config.opts && config.opts.blurbRender ? (
-    config.opts.blurbRender({ story, config })
+  return config.opts && config.opts.storyElementRender && config.opts.storyElementRender.blurbRender ? (
+    config.opts.storyElementRender.blurbRender({ story, config })
   ) : (
     <DefaultBlurb element={element} story={story} config={config} />
   );
