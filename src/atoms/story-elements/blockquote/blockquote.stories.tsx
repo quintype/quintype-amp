@@ -25,13 +25,4 @@ storiesOf("BlockQuote", module)
     </Layout>
   ))
   .add("Default blockquote", () => <BlockQuote element={sampleBlockQuoteElement} />)
-  .add("Blockquote without metadata", () => <BlockQuote element={sampleBlockQuoteElementWithoutMetadata} />)
-  .add("With custom styles ", () => (
-    <BlockQuote
-      element={sampleBlockQuoteElement}
-      wrapperInlineStyles={{ backgroundColor: "ccf" }}
-      blockquoteInlineStyles={{ color: "red" }}
-      attributionInlineStyles={{ fontStyle: "italic" }}
-      fallbackInlineStyles={{ color: "blue" }}
-    />
-  ));
+  .add("Blockquote without metadata", () => <BlockQuote element={sampleBlockQuoteElementWithoutMetadata} />);

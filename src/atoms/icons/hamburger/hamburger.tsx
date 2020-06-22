@@ -3,7 +3,7 @@ import { IconTypes } from "../icon-types";
 import styled from "styled-components";
 
 const StyledHamburger = styled.svg.attrs(({ style }: IconTypes & { style?: object }) => ({
-  style: style
+  style
 }))<IconTypes>``;
 
 export const Hamburger = ({ width = "54px", height = "54px", color = "currentColor", inlineStyles }: IconTypes) => {

@@ -1,6 +1,7 @@
 import React from "react";
-import { BlockQuote } from "./blockquote";
+import { BlockQuoteBase, DefaultBlockQuote } from "./blockquote";
 import { shallow, mount } from "enzyme";
+import { textStory, config } from "../../../__fixtures__";
 import { Theme } from "../../../context/theme";
 const sampleBlockQuoteElement = {
   id: "1",
@@ -18,32 +19,23 @@ const { metadata, ...sampleBlockQuoteElementWithoutMetadata } = sampleBlockQuote
 
 describe("BlockQuote", () => {
   it("should render default", () => {
-    const wrapper = shallow(<BlockQuote element={sampleBlockQuoteElement} />);
+    const wrapper = shallow(<DefaultBlockQuote element={sampleBlockQuoteElement} />);
     expect(wrapper).toMatchSnapshot();
   });
   it("should render without metadata", () => {
-    const wrapper = shallow(<BlockQuote element={sampleBlockQuoteElementWithoutMetadata} />);
+    const wrapper = shallow(<DefaultBlockQuote element={sampleBlockQuoteElementWithoutMetadata} />);
     expect(wrapper).toMatchSnapshot();
   });
-  it("should render default with custom styles", () => {
-    const wrapper = mount(
-      <Theme>
-        <BlockQuote
-          element={sampleBlockQuoteElement}
-          wrapperInlineStyles={{ backgroundColor: "ccf" }}
-          blockquoteInlineStyles={{ color: "red" }}
-          attributionInlineStyles={{ fontStyle: "italic" }}
-          fallbackInlineStyles={{ color: "blue" }}
-        />
-      </Theme>
+  it("should call blockquoteRender prop when passed to opts", () => {
+    const blockquoteRender = jest.fn();
+    const modifiedConfig = {
+      ...config,
+      opts: { ...config.opts, storyElementRender: { blockquoteRender } }
+    };
+    const wrapper = shallow(
+      <BlockQuoteBase element={sampleBlockQuoteElement} story={textStory} config={modifiedConfig} />
     );
-    expect(
-      wrapper
-        .find("div")
-        .at(0)
-        .prop("style")
-    ).toStrictEqual({ backgroundColor: "ccf" });
-    expect(wrapper.find("blockquote").prop("style")).toStrictEqual({ color: "red" });
-    expect(wrapper.find("span").prop("style")).toStrictEqual({ fontStyle: "italic" });
+    expect(blockquoteRender.mock.calls.length).toBe(1);
+    expect(wrapper.find(DefaultBlockQuote).length).toBe(0);
   });
 });

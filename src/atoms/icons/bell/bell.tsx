@@ -3,7 +3,7 @@ import { IconTypes } from "../icon-types";
 import styled from "styled-components";
 
 export const StyledBell = styled.svg.attrs(({ style }: IconTypes & { style?: object }) => ({
-  style: style
+  style
 }))<IconTypes>``;
 
 export const Bell = ({ color = "currentColor", width = "19", height = "22", inlineStyles }: IconTypes) => {

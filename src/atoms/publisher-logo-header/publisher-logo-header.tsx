@@ -3,7 +3,7 @@ import { StyledPublisherLogoHeaderTypes, PublisherLogoHeaderTypes } from "./type
 import styled from "styled-components";
 
 export const StyledPublisherLogoHeader = styled.a.attrs(({ style }: StyledPublisherLogoHeaderTypes) => ({
-  style: style
+  style
 }))<StyledPublisherLogoHeaderTypes>``;
 
 export const PublisherLogoHeader = ({

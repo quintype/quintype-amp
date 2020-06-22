@@ -2,11 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { StoryElementProps } from "../types";
 import { Spacer } from "../../spacer";
-import { blockquoteTypes } from "./types";
+import { withStoryAndConfig } from "../../../context";
+import get from "lodash.get";
 
-const Wrapper = styled.div.attrs(({ style }: StoryElementProps) => ({
-  style: style
-}))`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
@@ -21,18 +20,14 @@ const Wrapper = styled.div.attrs(({ style }: StoryElementProps) => ({
     top: 4px;
   }
 `;
-const StyledBlockQuote = styled.blockquote.attrs(({ style }: StoryElementProps) => ({
-  style: style
-}))`
+const StyledBlockQuote = styled.blockquote`
   padding: 0 0 0 50px;
   margin: 0;
   font-size: ${(props) => props.theme.font.size.l};
   color: ${(props) => props.theme.color.mono6};
   line-height: ${(props) => props.theme.font.lineHeight.level5};
 `;
-const StyledAttribution = styled.span.attrs(({ style }: StoryElementProps) => ({
-  style: style
-}))`
+const StyledAttribution = styled.span`
   color: ${(props) => props.theme.color.mono6};
   font-size: ${(props) => props.theme.font.size.m};
   font-weight: bold;
@@ -42,9 +37,7 @@ const StyledAttribution = styled.span.attrs(({ style }: StoryElementProps) => ({
     margin-right: 5px;
   }
 `;
-const FallbackBlockQuote = styled.div.attrs(({ style }: StoryElementProps) => ({
-  style: style
-}))`
+const FallbackBlockQuote = styled.div`
   div {
     display: flex;
     flex-direction: column;
@@ -81,29 +74,32 @@ const FallbackBlockQuote = styled.div.attrs(({ style }: StoryElementProps) => ({
   }
 `;
 
-const BlockQuote = ({
-  element,
-  wrapperInlineStyles,
-  blockquoteInlineStyles,
-  attributionInlineStyles,
-  fallbackInlineStyles
-}: StoryElementProps & blockquoteTypes) => {
+export const DefaultBlockQuote = ({ element }: StoryElementProps) => {
   if (element.metadata) {
     const { content, attribution } = element.metadata;
     return (
-      <Wrapper style={wrapperInlineStyles}>
-        <StyledBlockQuote style={blockquoteInlineStyles}>{content}</StyledBlockQuote>
+      <Wrapper>
+        <StyledBlockQuote>{content}</StyledBlockQuote>
         {attribution && attribution.length && (
           <React.Fragment>
             <Spacer token="s" />
-            <StyledAttribution style={attributionInlineStyles}>{attribution}</StyledAttribution>
+            <StyledAttribution>{attribution}</StyledAttribution>
           </React.Fragment>
         )}
       </Wrapper>
     );
   }
 
-  return <FallbackBlockQuote style={fallbackInlineStyles} dangerouslySetInnerHTML={{ __html: element.text || "" }} />;
+  return <FallbackBlockQuote dangerouslySetInnerHTML={{ __html: element.text || "" }} />;
 };
 
-export { BlockQuote };
+export const BlockQuoteBase = ({ element, story, config }: StoryElementProps) => {
+  const blockquoteRender = get(config, ["opts", "storyElementRender", "blockquoteRender"], null);
+
+  return blockquoteRender ? (
+    blockquoteRender({ story, config })
+  ) : (
+    <DefaultBlockQuote element={element} story={story} config={config} />
+  );
+};
+export const BlockQuote = withStoryAndConfig(BlockQuoteBase);

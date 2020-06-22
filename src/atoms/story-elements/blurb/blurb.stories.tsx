@@ -29,5 +29,4 @@ storiesOf("Blurb", module)
     </Layout>
   ))
   .add("Default blurb", () => <Blurb element={sampleBlurbElement} />)
-  .add("Blurb without metadata", () => <Blurb element={sampleBlurbElementWithoutMetadata} />)
-  .add("blurb with custom styles", () => <Blurb element={sampleBlurbElement} inlineStyles={{ color: "red" }} />);
+  .add("Blurb without metadata", () => <Blurb element={sampleBlurbElementWithoutMetadata} />);

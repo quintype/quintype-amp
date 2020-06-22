@@ -1,6 +1,7 @@
 import React from "react";
-import { mount } from "enzyme";
-import { VidibleElement } from "./vidible-element";
+import { mount, shallow } from "enzyme";
+import { DefaultVidibleElement, VidibleElementBase } from "./vidible-element";
+import { config, textStory } from "../../../__fixtures__";
 
 const sampleVidibleElement = {
   description: "",
@@ -23,11 +24,20 @@ const sampleVidibleElement = {
 
 describe("Vidible Element", () => {
   it("should render vidible video", () => {
-    const wrapper = mount(<VidibleElement element={sampleVidibleElement} />);
+    const wrapper = mount(<DefaultVidibleElement element={sampleVidibleElement} />);
     expect(wrapper.find("amp-o2-player").length).toBe(1);
   });
   it("should auto play, disable macros", () => {
-    const wrapper = mount(<VidibleElement element={sampleVidibleElement} data-macros="auto" />);
+    const wrapper = mount(<DefaultVidibleElement element={sampleVidibleElement} data-macros="auto" />);
     expect(wrapper.find("amp-o2-player").prop("data-macros")).toBe("auto");
+  });
+  it("should call vidibleElementRender prop when passed to opts", () => {
+    const vidibleElementRender = jest.fn();
+    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { vidibleElementRender } } };
+    const wrapper = shallow(
+      <VidibleElementBase element={sampleVidibleElement} story={textStory} config={modifiedConfig} />
+    );
+    expect(vidibleElementRender.mock.calls.length).toBe(1);
+    expect(wrapper.find(DefaultVidibleElement).length).toBe(0);
   });
 });

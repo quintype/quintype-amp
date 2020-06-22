@@ -4,7 +4,7 @@ import { StyledDailyMotionTypes, DailyMotionTypes } from "./types";
 import styled from "styled-components";
 
 export const StyledDailyMotion = styled.div.attrs(({ style }: StyledDailyMotionTypes) => ({
-  style: style
+  style
 }))<StyledDailyMotionTypes>``;
 
 const DailyMotion = ({

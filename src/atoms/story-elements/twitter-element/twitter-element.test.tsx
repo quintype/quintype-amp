@@ -1,6 +1,8 @@
 import React from "react";
-import { mount } from "enzyme";
-import { TwitterElement } from "./twitter-element";
+import { mount, shallow } from "enzyme";
+import { TwitterElement, TwitterElementBase } from "./twitter-element";
+import { textStory, config } from "../../../__fixtures__";
+import { Twitter } from "../../twitter";
 const sampleTwitterElement = {
   description: "",
   "embed-js":
@@ -22,5 +24,14 @@ describe("Twitter Element", () => {
   it("should render twitter post", () => {
     const wrapper = mount(<TwitterElement element={sampleTwitterElement} />);
     expect(wrapper.find("amp-twitter").length).toBe(1);
+  });
+  it("should call twitterElementRender prop when passed to opts", () => {
+    const twitterElementRender = jest.fn();
+    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { twitterElementRender } } };
+    const wrapper = shallow(
+      <TwitterElementBase element={sampleTwitterElement} story={textStory} config={modifiedConfig} />
+    );
+    expect(twitterElementRender.mock.calls.length).toBe(1);
+    expect(wrapper.find(Twitter).length).toBe(0);
   });
 });

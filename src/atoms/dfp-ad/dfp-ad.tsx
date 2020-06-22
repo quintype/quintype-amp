@@ -6,7 +6,7 @@ import { getTargetingInfo } from "./helpers";
 import styled from "styled-components";
 
 export const StyledDfpAd = styled.div.attrs(({ style }: StyledDfpAdTypes) => ({
-  style: style
+  style
 }))<StyledDfpAdTypes>``;
 
 const DfpAdBase = ({ inlineStyles, story, config, children, ...rest }: DfpAdTypes) => {

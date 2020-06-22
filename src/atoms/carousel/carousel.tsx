@@ -5,7 +5,7 @@ import { LightboxGallery } from "../lightbox-gallery";
 import styled from "styled-components";
 
 export const StyledCarousel = styled.div.attrs(({ style }: CarouselTypes & { style?: object }) => ({
-  style: style
+  style
 }))``;
 
 export const Carousel = ({ inlineStyles, ...props }: CarouselTypes) => {

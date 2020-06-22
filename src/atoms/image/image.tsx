@@ -7,7 +7,7 @@ import { LightboxGallery } from "../lightbox-gallery";
 import styled from "styled-components";
 
 export const StyledImage = styled.div.attrs(({ style }: StyledImageTypes) => ({
-  style: style
+  style
 }))<StyledImageTypes>``;
 
 export const BaseImage = ({

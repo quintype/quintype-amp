@@ -1,7 +1,7 @@
 import React from "react";
-import { BaseAlsoRead } from "./also-read";
+import { AlsoReadBase, StyledAlsoRead } from "./also-read";
 import { shallow, mount } from "enzyme";
-import { textStory } from "../../../__fixtures__";
+import { textStory, config } from "../../../__fixtures__";
 import { Theme } from "../../../context/theme";
 
 const sampleAlsoReadElement = {
@@ -27,20 +27,14 @@ const sampleAlsoReadElement = {
 
 describe("Also Read", () => {
   it("should render default", () => {
-    const wrapper = shallow(<BaseAlsoRead element={sampleAlsoReadElement} story={textStory} />);
+    const wrapper = shallow(<AlsoReadBase element={sampleAlsoReadElement} story={textStory} config={config} />);
     expect(wrapper).toMatchSnapshot();
   });
-  it("should render with custom styles", () => {
-    const wrapper = mount(
-      <Theme>
-        <BaseAlsoRead element={sampleAlsoReadElement} story={textStory} inlineStyles={{ color: "red" }} />
-      </Theme>
-    );
-    expect(
-      wrapper
-        .find("div")
-        .at(0)
-        .prop("style")
-    ).toStrictEqual({ color: "red" });
+  it("should call alsoReadRender prop when passed to opts", () => {
+    const alsoReadRender = jest.fn();
+    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { alsoReadRender } } };
+    const wrapper = shallow(<AlsoReadBase element={sampleAlsoReadElement} story={textStory} config={modifiedConfig} />);
+    expect(alsoReadRender.mock.calls.length).toBe(1);
+    expect(wrapper.find(StyledAlsoRead).length).toBe(0);
   });
 });

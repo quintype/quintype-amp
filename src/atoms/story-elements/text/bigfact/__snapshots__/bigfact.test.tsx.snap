@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Bigfact should render Bigfact element 1`] = `
+<Component
+  config={Object {}}
+  element={
+    Object {
+      "description": "",
+      "family-id": "ff2ae3dc-b738-428a-9dff-880c1879b686",
+      "id": "0ee36b0b-fa30-4e84-9d1e-d3b26edb2524",
+      "metadata": Object {
+        "attribution": "Cases of Covid-19 worldwide",
+        "content": "124567",
+      },
+      "page-url": "/story/05066b94-784b-4913-971b-c01a1bcfb43d/element/0ee36b0b-fa30-4e84-9d1e-d3b26edb2524",
+      "subtype": "bigfact",
+      "text": "<div><div class=\\"bigfact-title\\">124567</div><div class=\\"bigfact-description\\">Cases of Covid-19 worldwide</div></div>",
+      "title": "",
+      "type": "text",
+    }
+  }
+  story={Object {}}
+/>
+`;
