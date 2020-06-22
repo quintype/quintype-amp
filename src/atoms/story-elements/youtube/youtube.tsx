@@ -24,7 +24,6 @@ export const DefaultYouTube = ({ element, layout = "responsive", width = "480", 
       <amp-youtube data-videoid={youtubeID} layout={layout} width={width} height={height} />
     </Fragment>
   );
-  // return
 };
 export const YouTubeBase = ({ element, story, config }: YouTubeProps & CommonRenderPropTypes) => {
   const youtubeElementRender = get(config, ["opts", "storyElementRender", "youtubeElementRender"], null);
