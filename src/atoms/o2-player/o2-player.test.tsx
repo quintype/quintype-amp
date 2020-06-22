@@ -1,5 +1,5 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 import { O2Player } from "./o2-player";
 
 const o2PlayerIds = {
@@ -23,5 +23,9 @@ describe("O2Player", () => {
     const wrapper = shallow(<O2Player {...o2PlayerIds} width="250" height="250" layout="fixed" />);
     expect(wrapper.find("amp-o2-player").prop("width")).toBe("250");
     expect(wrapper.find("amp-o2-player").prop("layout")).toBe("fixed");
+  });
+  it("should render custom styles", () => {
+    const wrapper = mount(<O2Player {...o2PlayerIds} inlineStyles={{ border: "5px solid red" }} />);
+    expect(wrapper.find("div").prop("style")).toStrictEqual({ border: "5px solid red" });
   });
 });

@@ -22,4 +22,5 @@ storiesOf("Title", module)
       {story()}
     </Layout>
   ))
-  .add("Default", () => <Title element={sampleTitleElement} />);
+  .add("Default", () => <Title element={sampleTitleElement} />)
+  .add("With custom styles", () => <Title element={sampleTitleElement} inlineStyles={{ fontStyle: "italic" }} />);

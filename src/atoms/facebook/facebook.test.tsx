@@ -1,5 +1,5 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 import { Facebook } from "./facebook";
 
 describe("Facebook", () => {
@@ -39,5 +39,13 @@ describe("Facebook", () => {
       />
     );
     expect(wrapper.find("amp-facebook").prop("data-embed-type")).toBe("comment");
+  });
+  it("should render facebook with custom styles", () => {
+    const wrapper = mount(
+      <Facebook
+        data-href="https://www.facebook.com/zuck/posts/10102735452532991?comment_id=1070233703036185"
+        inlineStyles={{ border: "2px solid black" }}></Facebook>
+    );
+    expect(wrapper.find("div").prop("style")).toStrictEqual({ border: "2px solid black" });
   });
 });

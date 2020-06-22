@@ -1,6 +1,6 @@
 import React from "react";
 import { YouTube } from "./youtube";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 
 const sampleYouTubeElement = {
   description: "",
@@ -19,5 +19,18 @@ describe("Youtube", () => {
   it("should render default", () => {
     const wrapper = shallow(<YouTube element={sampleYouTubeElement} />);
     expect(wrapper).toMatchSnapshot();
+  });
+  it("should render default", () => {
+    const wrapper = mount(
+      <YouTube
+        element={sampleYouTubeElement}
+        inlineStyles={{
+          border: "2px solid red"
+        }}
+      />
+    );
+    expect(wrapper.find("div").prop("style")).toStrictEqual({
+      border: "2px solid red"
+    });
   });
 });

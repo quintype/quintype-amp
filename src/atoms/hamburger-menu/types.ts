@@ -2,6 +2,7 @@ export interface HamburgerMenuTypes {
   align: "left" | "right";
   textDirection: "ltr" | "rtl";
   items: HamburgerMenuItem[];
+  inlineStyles?: object;
 }
 
 export interface HamburgerMenuItem {
@@ -30,6 +31,7 @@ export interface HamburgerMenuItem {
 
 export interface MenuItemComponentTypes {
   item: HamburgerMenuItem;
+  inlineStyles?: object;
 }
 export interface TreeNodeComponentTypes {
   item: HamburgerMenuItem;

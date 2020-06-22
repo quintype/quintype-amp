@@ -32,4 +32,5 @@ storiesOf("Ad", module)
     <DfpAd {...invalidAd}>
       <div fallback="true">Ad failed to load</div>
     </DfpAd>
-  ));
+  ))
+  .add("Ad with custom styles", () => <DfpAd {...genericAd} inlineStyles={{ border: "2px solid red" }} />);

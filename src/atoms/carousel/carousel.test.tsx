@@ -21,7 +21,6 @@ const sampleImages = (
       alt="another sample image"></amp-img>
   </>
 );
-
 describe("Carousel", () => {
   it("should render images in carousel", () => {
     const wrapper = mount(
@@ -52,6 +51,10 @@ describe("Carousel", () => {
     expect(wrapper.find("amp-carousel").prop("height")).toBe("300");
     expect(wrapper.find("amp-carousel").prop("layout")).toBe("responsive");
     expect(wrapper.find("amp-carousel").prop("lightbox")).toBe(true);
+  });
+  it("should render carousel with custom styles", () => {
+    const wrapper = mount(<Carousel inlineStyles={{ border: "2px solid black" }}></Carousel>);
+    expect(wrapper.find("div").prop("style")).toStrictEqual({ border: "2px solid black" });
   });
   it("shouldn't render images", () => {
     const wrapper = mount(<Carousel height="300" width="500" layout="responsive" type="slides"></Carousel>);

@@ -10,6 +10,7 @@ export interface ImageTypes extends Common {
   opts?: object;
   attribution?: string;
   lightbox?: string | boolean;
+  inlineStyles?: object;
 }
 
 interface ImageMetadata {
@@ -22,4 +23,7 @@ export interface AmpImgPropTypes extends Common {
   alt: string;
   attribution?: string;
   srcset?: string;
+}
+export interface StyledImageTypes {
+  style?: object;
 }

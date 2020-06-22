@@ -14,4 +14,5 @@ export interface CarouselTypes extends Common {
   slide?: string;
   children?: JSX.Element[] | JSX.Element | ReactElement;
   lightbox?: string | boolean;
+  inlineStyles?: object;
 }

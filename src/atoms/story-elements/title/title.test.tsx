@@ -1,6 +1,7 @@
 import React from "react";
 import { Title } from "./title";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
+import { Theme } from "../../../context/theme";
 
 const sampleTitleElement = {
   description: "",
@@ -18,5 +19,13 @@ describe("Title", () => {
   it("should render default", () => {
     const wrapper = shallow(<Title element={sampleTitleElement} />);
     expect(wrapper).toMatchSnapshot();
+  });
+  it("should render default", () => {
+    const wrapper = mount(
+      <Theme>
+        <Title element={sampleTitleElement} inlineStyles={{ fontStyle: "italic" }} />
+      </Theme>
+    );
+    expect(wrapper.find("h3").prop("style")).toStrictEqual({ fontStyle: "italic" });
   });
 });
