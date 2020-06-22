@@ -3,22 +3,13 @@ import { StoryElementProps } from "../types";
 import getYouTubeID from "@rvgpl/get-youtube-id";
 import { Common } from "../../common-types";
 import Helmet from "react-helmet";
-import styled from "styled-components";
 import { withStoryAndConfig } from "../../../context";
 import { CommonRenderPropTypes } from "../../../types/config";
+import get from "lodash.get";
 
-const StyledYoutube = styled.div.attrs(({ style }: { style?: object }) => ({
-  style
-}))``;
-type YouTubeProps = StoryElementProps & Common & { inlineStyles?: object };
+type YouTubeProps = StoryElementProps & Common;
 
-export const DefaultYouTube = ({
-  element,
-  layout = "responsive",
-  width = "480",
-  height = "270",
-  inlineStyles
-}: YouTubeProps) => {
+export const DefaultYouTube = ({ element, layout = "responsive", width = "480", height = "270" }: YouTubeProps) => {
   const youtubeID = element.url && getYouTubeID(element.url);
 
   if (!youtubeID) {
@@ -30,16 +21,16 @@ export const DefaultYouTube = ({
       <Helmet>
         <script async={undefined} custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js" />
       </Helmet>
-      <StyledYoutube style={inlineStyles}>
-        <amp-youtube data-videoid={youtubeID} layout={layout} width={width} height={height} />
-      </StyledYoutube>
+      <amp-youtube data-videoid={youtubeID} layout={layout} width={width} height={height} />
     </Fragment>
   );
   // return
 };
 export const YouTubeBase = ({ element, story, config }: YouTubeProps & CommonRenderPropTypes) => {
-  return config.opts && config.opts.storyElementRender && config.opts.storyElementRender.youtubeElementRender ? (
-    config.opts.storyElementRender.youtubeElementRender({ story, config })
+  const youtubeElementRender = get(config, ["opts", "storyElementRender", "youtubeElementRender"], null);
+
+  return youtubeElementRender ? (
+    youtubeElementRender({ story, config })
   ) : (
     <DefaultYouTube element={element} story={story} config={config} />
   );

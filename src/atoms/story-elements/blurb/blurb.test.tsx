@@ -31,14 +31,6 @@ describe("Blurb", () => {
     const wrapper = shallow(<DefaultBlurb element={sampleBlurbElementWithoutMetadata} />);
     expect(wrapper).toMatchSnapshot();
   });
-  it("should render default with custom styles", () => {
-    const wrapper = mount(
-      <Theme>
-        <DefaultBlurb element={sampleBlurbElement} inlineStyles={{ color: "red" }} />
-      </Theme>
-    );
-    expect(wrapper.find("blockquote").prop("style")).toStrictEqual({ color: "red" });
-  });
   it("should call blurbRender prop when passed to opts", () => {
     const blurbRender = jest.fn();
     const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { blurbRender } } };

@@ -3,21 +3,18 @@ import { StoryElementProps } from "../types";
 import { Twitter } from "../../twitter";
 import { TwitterTypes } from "../../twitter/types";
 import { withStoryAndConfig } from "../../../context";
-import { CommonRenderPropTypes } from "../../../types/config";
+import get from "lodash.get";
 
 type TwitterElementProps = StoryElementProps & Omit<TwitterTypes, "data-tweetid">;
 
-export const TwitterElementBase = ({
-  element,
-  story,
-  config,
-  ...props
-}: TwitterElementProps & CommonRenderPropTypes) => {
+export const TwitterElementBase = ({ element, story, config, ...props }: TwitterElementProps) => {
   const { metadata } = element;
+  const twitterElementRender = get(config, ["opts", "storyElementRender", "twitterElementRender"], null);
+
   if (!(metadata && metadata["tweet-id"])) return null;
 
-  return config.opts && config.opts.storyElementRender && config.opts.storyElementRender.twitterElementRender ? (
-    config.opts.storyElementRender.twitterElementRender({ story, config })
+  return twitterElementRender ? (
+    twitterElementRender({ story, config })
   ) : (
     <Twitter data-tweetid={metadata["tweet-id"]} {...props} />
   );

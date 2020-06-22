@@ -3,7 +3,7 @@ import { StoryElementProps } from "../types";
 import { Iframe } from "../../iframe";
 import atob from "atob";
 import { withStoryAndConfig } from "../../../context";
-import { CommonRenderPropTypes } from "../../../types/config";
+import get from "lodash.get";
 
 export const DefaultEmbed = ({ element }: StoryElementProps) => {
   const embedData = element["embed-js"] ? atob(element["embed-js"]) : "";
@@ -19,9 +19,10 @@ export const getIframeSourceURL = (str: string): string | null => {
   return null;
 };
 
-export const EmbedBase = ({ element, story, config }: StoryElementProps & CommonRenderPropTypes) => {
-  return config.opts && config.opts.storyElementRender && config.opts.storyElementRender.embedRender ? (
-    config.opts.storyElementRender.embedRender({ story, config })
+export const EmbedBase = ({ element, story, config }: StoryElementProps) => {
+  const embedRender = get(config, ["opts", "storyElementRender", "embedRender"], null);
+  return embedRender ? (
+    embedRender({ story, config })
   ) : (
     <DefaultEmbed element={element} story={story} config={config} />
   );

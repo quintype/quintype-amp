@@ -35,10 +35,6 @@ describe("Image Element", () => {
     const wrapper = shallow(<ImageElement element={sampleImageElementWithNoCaption} />);
     expect(wrapper).toMatchSnapshot();
   });
-  it("should render custom styles", () => {
-    const wrapper = mount(<ImageElement element={sampleImageElement} inlineStyles={{ border: "2px solid red" }} />);
-    expect(wrapper.find("figcaption").prop("style")).toStrictEqual({ border: "2px solid red" });
-  });
   it("should call imageElementRender prop when passed to opts", () => {
     const imageElementRender = jest.fn();
     const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { imageElementRender } } };

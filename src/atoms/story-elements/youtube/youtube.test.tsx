@@ -21,19 +21,6 @@ describe("Youtube", () => {
     const wrapper = shallow(<DefaultYouTube element={sampleYouTubeElement} />);
     expect(wrapper).toMatchSnapshot();
   });
-  it("should render default", () => {
-    const wrapper = mount(
-      <DefaultYouTube
-        element={sampleYouTubeElement}
-        inlineStyles={{
-          border: "2px solid red"
-        }}
-      />
-    );
-    expect(wrapper.find("div").prop("style")).toStrictEqual({
-      border: "2px solid red"
-    });
-  });
   it("should call youtubeElementRender prop when passed to opts", () => {
     const youtubeElementRender = jest.fn();
     const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { youtubeElementRender } } };

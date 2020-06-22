@@ -4,11 +4,8 @@ import get from "lodash.get";
 import styled from "styled-components";
 import { Spacer } from "../../spacer";
 import { withStoryAndConfig } from "../../../context";
-import { CommonRenderPropTypes } from "../../../types/config";
 
-export const StyledAlsoRead = styled.div.attrs(({ style }: StoryElementProps & { style?: object }) => ({
-  style
-}))`
+export const StyledAlsoRead = styled.div`
   display: flex;
   align-items: center;
   font-size: ${(props) => props.theme.font.size.xs};
@@ -24,18 +21,19 @@ export const StyledAlsoRead = styled.div.attrs(({ style }: StoryElementProps & {
   }
 `;
 
-export const AlsoReadBase = ({ element, story, config, inlineStyles }: StoryElementProps & CommonRenderPropTypes) => {
+export const AlsoReadBase = ({ element, story, config }: StoryElementProps) => {
   const linkedStoryId = get(element, ["metadata", "linked-story-id"]);
   const linkedStory = get(story, ["linked-stories", linkedStoryId]);
+  const alsoReadRender = get(config, ["opts", "storyElementRender", "alsoReadRender"], null);
 
   if (!linkedStory) {
     return null;
   }
 
-  return config.opts && config.opts.storyElementRender && config.opts.storyElementRender.alsoReadRender ? (
-    config.opts.storyElementRender.alsoReadRender({ story, config })
+  return alsoReadRender ? (
+    alsoReadRender({ story, config })
   ) : (
-    <StyledAlsoRead style={inlineStyles}>
+    <StyledAlsoRead>
       <Spacer token="m" align="horizontal" />
       <span>Also read: </span>
       <Spacer token="s" align="horizontal" />

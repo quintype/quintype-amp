@@ -1,12 +1,10 @@
 import React from "react";
 import { StoryElementProps } from "../types";
 import styled from "styled-components";
-import { CommonRenderPropTypes } from "../../../types/config";
 import { withStoryAndConfig } from "../../../context";
+import get from "lodash.get";
 
-const StyledBlurb = styled.blockquote.attrs(({ style }: StoryElementProps) => ({
-  style
-}))`
+const StyledBlurb = styled.blockquote`
   font-size: ${(props) => props.theme.font.size.m};
   color: ${(props) => props.theme.color.mono7};
   margin: 0 ${(props) => props.theme.spacing.s};
@@ -20,16 +18,18 @@ const StyledBlurb = styled.blockquote.attrs(({ style }: StoryElementProps) => ({
   }
 `;
 
-export const DefaultBlurb = ({ element, inlineStyles }: StoryElementProps) => {
+export const DefaultBlurb = ({ element }: StoryElementProps) => {
   if (element.metadata && element.metadata.content) {
-    return <StyledBlurb style={inlineStyles}>{element.metadata.content}</StyledBlurb>;
+    return <StyledBlurb>{element.metadata.content}</StyledBlurb>;
   }
-  return <StyledBlurb style={inlineStyles} as="div" dangerouslySetInnerHTML={{ __html: element.text || "" }} />;
+  return <StyledBlurb as="div" dangerouslySetInnerHTML={{ __html: element.text || "" }} />;
 };
 
-export const BlurbBase = ({ element, story, config }: StoryElementProps & CommonRenderPropTypes) => {
-  return config.opts && config.opts.storyElementRender && config.opts.storyElementRender.blurbRender ? (
-    config.opts.storyElementRender.blurbRender({ story, config })
+export const BlurbBase = ({ element, story, config }: StoryElementProps) => {
+  const blurbRender = get(config, ["opts", "storyElementRender", "blurbRender"], null);
+
+  return blurbRender ? (
+    blurbRender({ story, config })
   ) : (
     <DefaultBlurb element={element} story={story} config={config} />
   );

@@ -3,9 +3,8 @@ import React from "react";
 import { StoryElementProps } from "../types";
 import { O2PlayerTypes } from "../../o2-player/types";
 import { O2Player } from "../../o2-player";
-import { CommonRenderPropTypes } from "../../../types/config";
 import { withStoryAndConfig } from "../../../context";
-
+import get from "lodash.get";
 type VidibleElementProps = StoryElementProps & Omit<O2PlayerTypes, "data-pid" | "data-bcid" | "data-vid">;
 
 interface VidibleIds {
@@ -47,9 +46,11 @@ export const DefaultVidibleElement = ({
   ) : null;
 };
 
-export const VidibleElementBase = ({ element, story, config }: StoryElementProps & CommonRenderPropTypes) => {
-  return config.opts && config.opts.storyElementRender && config.opts.storyElementRender.vidibleElementRender ? (
-    config.opts.storyElementRender.vidibleElementRender({ story, config })
+export const VidibleElementBase = ({ element, story, config }: StoryElementProps) => {
+  const vidibleElementRender = get(config, ["opts", "storyElementRender", "vidibleElementRender"], null);
+
+  return vidibleElementRender ? (
+    vidibleElementRender({ story, config })
   ) : (
     <DefaultVidibleElement element={element} story={story} config={config} />
   );

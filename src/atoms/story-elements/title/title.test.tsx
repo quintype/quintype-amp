@@ -21,14 +21,6 @@ describe("Title", () => {
     const wrapper = shallow(<Title element={sampleTitleElement} />);
     expect(wrapper).toMatchSnapshot();
   });
-  it("should render default", () => {
-    const wrapper = mount(
-      <Theme>
-        <Title element={sampleTitleElement} inlineStyles={{ fontStyle: "italic" }} />
-      </Theme>
-    );
-    expect(wrapper.find("h3").prop("style")).toStrictEqual({ fontStyle: "italic" });
-  });
   it("should call titleElementRender prop when passed to opts", () => {
     const titleElementRender = jest.fn();
     const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { titleElementRender } } };

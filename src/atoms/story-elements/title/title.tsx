@@ -1,12 +1,9 @@
 import React from "react";
 import { StoryElementProps } from "../types";
 import styled from "styled-components";
-import { CommonRenderPropTypes } from "../../../types/config";
 import { withStoryAndConfig } from "../../../context";
-
-export const StyledTitle = styled.h3.attrs(({ style }: StoryElementProps) => ({
-  style
-}))`
+import get from "lodash.get";
+export const StyledTitle = styled.h3`
   font-size: ${(props) => props.theme.font.size.l};
   font-weight: ${(props) => props.theme.font.weight.bold};
   line-height: ${(props) => props.theme.font.lineHeight.level6};
@@ -14,11 +11,9 @@ export const StyledTitle = styled.h3.attrs(({ style }: StoryElementProps) => ({
   text-transform: uppercase;
 `;
 
-export const TitleBase = ({ element, inlineStyles, story, config }: StoryElementProps & CommonRenderPropTypes) => {
-  return config.opts && config.opts.storyElementRender && config.opts.storyElementRender.titleElementRender ? (
-    config.opts.storyElementRender.titleElementRender({ story, config })
-  ) : (
-    <StyledTitle style={inlineStyles}>{element.text}</StyledTitle>
-  );
+export const TitleBase = ({ element, story, config }: StoryElementProps) => {
+  const titleElementRender = get(config, ["opts", "storyElementRender", "titleElementRender"], null);
+
+  return titleElementRender ? titleElementRender({ story, config }) : <StyledTitle>{element.text}</StyledTitle>;
 };
 export const Title = withStoryAndConfig(TitleBase);

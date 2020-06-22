@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { ImageGalleryElement, ImageGalleryElementBase } from "./image-gallery-element";
+import { ImageGalleryElement, ImageGalleryElementBase, DefaultImageGalleryElement } from "./image-gallery-element";
 import { Carousel } from "../../carousel";
 import { config, textStory } from "../../../__fixtures__";
 
@@ -187,6 +187,6 @@ describe("Image Gallery Element", () => {
       <ImageGalleryElementBase element={sampleImageGalleryElement} story={textStory} config={modifiedConfig} />
     );
     expect(imageGalleryElementRender.mock.calls.length).toBe(1);
-    expect(wrapper.find(Carousel).length).toBe(0);
+    expect(wrapper.find(DefaultImageGalleryElement).length).toBe(0);
   });
 });

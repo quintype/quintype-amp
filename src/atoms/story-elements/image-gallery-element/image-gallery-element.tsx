@@ -6,20 +6,14 @@ import { Image } from "../../image";
 import styled from "styled-components";
 import { media } from "../../../utils/media";
 import { withStoryAndConfig } from "../../../context";
-import { CommonRenderPropTypes } from "../../../types/config";
+import get from "lodash.get";
+type ImageGalleryElementProps = StoryElementProps & ImageGalleryTypes;
 
-type ImageGalleryElementProps = StoryElementProps &
-  ImageGalleryTypes & { galleryInlineStyles?: object; figcaptionInlineStyles?: object };
-
-const StyledGallery = styled.div.attrs(({ style }: { style?: object }) => ({
-  style
-}))`
+const StyledGallery = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 `;
-const StyledFigcaption = styled.figcaption.attrs(({ style }: ImageGalleryElementProps & { style?: object }) => ({
-  style
-}))`
+const StyledFigcaption = styled.figcaption`
   text-align: left;
   position: absolute;
   bottom: 0;
@@ -47,8 +41,6 @@ export const DefaultImageGalleryElement = ({
   aspectRatio = [16, 9],
   type,
   lightbox,
-  galleryInlineStyles,
-  figcaptionInlineStyles,
   ...props
 }: ImageGalleryElementProps) => {
   // forcing imageGallery to false for now for vikatan.
@@ -64,9 +56,7 @@ export const DefaultImageGalleryElement = ({
         alt={image.title}
         lightbox={imageGallery ? "imageGallery" : false}>
         {getFigcaptionText(image.title, image["image-attribution"]) && (
-          <StyledFigcaption style={figcaptionInlineStyles}>
-            {getFigcaptionText(image.title, image["image-attribution"])}
-          </StyledFigcaption>
+          <StyledFigcaption>{getFigcaptionText(image.title, image["image-attribution"])}</StyledFigcaption>
         )}
       </Image>
     ));
@@ -75,7 +65,7 @@ export const DefaultImageGalleryElement = ({
     <>
       {storyElements &&
         (imageGallery ? (
-          <StyledGallery style={galleryInlineStyles}>{images}</StyledGallery>
+          <StyledGallery>{images}</StyledGallery>
         ) : (
           <Carousel height={height} width={width} layout={layout} type="slides" {...props}>
             {images}
@@ -91,9 +81,11 @@ export function getFigcaptionText(caption, attribution) {
   else return false;
 }
 
-export const ImageGalleryElementBase = ({ element, story, config }: StoryElementProps & CommonRenderPropTypes) => {
-  return config.opts && config.opts.storyElementRender && config.opts.storyElementRender.imageGalleryElementRender ? (
-    config.opts.storyElementRender.imageGalleryElementRender({ story, config })
+export const ImageGalleryElementBase = ({ element, story, config }: StoryElementProps) => {
+  const imageGalleryElementRender = get(config, ["opts", "storyElementRender", "imageGalleryElementRender"], null);
+
+  return imageGalleryElementRender ? (
+    imageGalleryElementRender({ story, config })
   ) : (
     <DefaultImageGalleryElement element={element} story={story} config={config} />
   );

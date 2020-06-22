@@ -30,24 +30,6 @@ describe("Also Read", () => {
     const wrapper = shallow(<AlsoReadBase element={sampleAlsoReadElement} story={textStory} config={config} />);
     expect(wrapper).toMatchSnapshot();
   });
-  it("should render with custom styles", () => {
-    const wrapper = mount(
-      <Theme>
-        <AlsoReadBase
-          element={sampleAlsoReadElement}
-          story={textStory}
-          config={config}
-          inlineStyles={{ color: "red" }}
-        />
-      </Theme>
-    );
-    expect(
-      wrapper
-        .find("div")
-        .at(0)
-        .prop("style")
-    ).toStrictEqual({ color: "red" });
-  });
   it("should call alsoReadRender prop when passed to opts", () => {
     const alsoReadRender = jest.fn();
     const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { alsoReadRender } } };

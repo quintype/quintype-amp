@@ -26,27 +26,6 @@ describe("BlockQuote", () => {
     const wrapper = shallow(<DefaultBlockQuote element={sampleBlockQuoteElementWithoutMetadata} />);
     expect(wrapper).toMatchSnapshot();
   });
-  it("should render default with custom styles", () => {
-    const wrapper = mount(
-      <Theme>
-        <DefaultBlockQuote
-          element={sampleBlockQuoteElement}
-          wrapperInlineStyles={{ backgroundColor: "ccf" }}
-          blockquoteInlineStyles={{ color: "red" }}
-          attributionInlineStyles={{ fontStyle: "italic" }}
-          fallbackInlineStyles={{ color: "blue" }}
-        />
-      </Theme>
-    );
-    expect(
-      wrapper
-        .find("div")
-        .at(0)
-        .prop("style")
-    ).toStrictEqual({ backgroundColor: "ccf" });
-    expect(wrapper.find("blockquote").prop("style")).toStrictEqual({ color: "red" });
-    expect(wrapper.find("span").prop("style")).toStrictEqual({ fontStyle: "italic" });
-  });
   it("should call blockquoteRender prop when passed to opts", () => {
     const blockquoteRender = jest.fn();
     const modifiedConfig = {

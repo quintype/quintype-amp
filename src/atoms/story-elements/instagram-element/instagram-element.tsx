@@ -3,8 +3,7 @@ import { StoryElementProps } from "../types";
 import { InstagramTypes } from "../../instagram/types";
 import { Instagram } from "../../instagram";
 import { withStoryAndConfig } from "../../../context";
-import { CommonRenderPropTypes } from "../../../types/config";
-
+import get from "lodash.get";
 type InstagramElementProps = StoryElementProps & Omit<InstagramTypes, "data-shortcode">;
 
 const getInstagramID = (url: string) => {
@@ -32,9 +31,10 @@ export const DefaultInstagramElement = ({
   ) : null;
 };
 
-export const InstagramElementBase = ({ element, story, config }: StoryElementProps & CommonRenderPropTypes) => {
-  return config.opts && config.opts.storyElementRender && config.opts.storyElementRender.instagramElementRender ? (
-    config.opts.storyElementRender.instagramElementRender({ story, config })
+export const InstagramElementBase = ({ element, story, config }: StoryElementProps) => {
+  const instagramElementRender = get(config, ["opts", "storyElementRender", "instagramElementRender"], null);
+  return instagramElementRender ? (
+    instagramElementRender({ story, config })
   ) : (
     <DefaultInstagramElement element={element} story={story} config={config} />
   );
