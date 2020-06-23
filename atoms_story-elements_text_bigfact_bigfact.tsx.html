@@ -121,7 +121,7 @@ export const BigfactBase = ({ element, story, config }: StoryElementProps) => {
   const bigfactElementRender = get(config, ["opts", "storyElementRender", "bigfactElementRender"], null);
 
   return bigfactElementRender ? (
-    bigfactElementRender({ story, config })
+    bigfactElementRender({ story, config, element })
   ) : (
     &lt;StyledBigfact
       element={element}
@@ -136,10 +136,15 @@ export const BigfactBase = ({ element, story, config }: StoryElementProps) => {
  * Bigfact is a story element.
  * The look of the Bigfact can be changed using the render prop bigfactElementRender. In case bigfactElementRender is passed in the config, it is rendered. Otherwise a default Bigfact is rendered.
  *
+ * @param {Object} params object containing parameters passed to the render prop
+ * @param {Object} params.story story object
+ * @param {Object} params.config config object
+ * @param {Object} params.element the story element. This is same as the story element found in the story API response
+ *
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    bigfactElementRender: ({ story, config }) => &lt;MyCustomBigfact story={story} config={config} />
+ *    bigfactElementRender: ({ story, config, element }) => &lt;MyCustomBigfact story={story} config={config} storyElement={element} />
  * })
  * ...
  * ```

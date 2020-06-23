@@ -134,7 +134,7 @@ export const BlurbBase = ({ element, story, config }: StoryElementProps) => {
   const blurbRender = get(config, ["opts", "storyElementRender", "blurbRender"], null);
 
   return blurbRender ? (
-    blurbRender({ story, config })
+    blurbRender({ story, config, element })
   ) : (
     &lt;DefaultBlurb element={element} story={story} config={config} />
   );
@@ -144,10 +144,15 @@ export const BlurbBase = ({ element, story, config }: StoryElementProps) => {
  * Blurb is a story element.
  * The look of the Blurb can be changed using the render prop blurbRender. In case blurbRender is passed in the config, it is rendered. Otherwise a default Blurb is rendered.
  *
+ * @param {Object} params object containing parameters passed to the render prop
+ * @param {Object} params.story story object
+ * @param {Object} params.config config object
+ * @param {Object} params.element the story element. This is same as the story element found in the story API response
+ *
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    blurbRender: ({ story, config }) => &lt;MyCustomBlurb story={story} config={config} />
+ *    blurbRender: ({ story, config, element }) => &lt;MyCustomBlurb story={story} config={config} storyElement={element} />
  * })
  * ...
  * ```

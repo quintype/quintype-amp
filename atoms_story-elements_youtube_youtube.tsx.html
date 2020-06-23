@@ -134,7 +134,7 @@ export const YouTubeBase = ({ element, story, config }: YouTubeProps &amp; Commo
   const youtubeElementRender = get(config, ["opts", "storyElementRender", "youtubeElementRender"], null);
 
   return youtubeElementRender ? (
-    youtubeElementRender({ story, config })
+    youtubeElementRender({ story, config, element })
   ) : (
     &lt;DefaultYouTube element={element} story={story} config={config} />
   );
@@ -143,10 +143,15 @@ export const YouTubeBase = ({ element, story, config }: YouTubeProps &amp; Commo
  * YouTube is a story element.
  * The look of the YouTube can be changed using the render prop youtubeElementRender. In case youtubeElementRender is passed in the config, it is rendered. Otherwise a default YouTube is rendered.
  *
+ * @param {Object} params object containing parameters passed to the render prop
+ * @param {Object} params.story story object
+ * @param {Object} params.config config object
+ * @param {Object} params.element the story element. This is same as the story element found in the story API response
+ *
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    youtubeElementRender: ({ story, config }) => &lt;MyCustomYouTube story={story} config={config} />
+ *    youtubeElementRender: ({ story, config, element }) => &lt;MyCustomYouTube story={story} config={config} storyElement={element} />
  * })
  * ...
  * ```
