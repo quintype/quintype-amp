@@ -30,8 +30,7 @@ const Wrapper = styled.div`
 const canDisplayBodyAd = (cardIdx) => cardIdx === 0;
 const TextStory = ({ story, config, relatedStories, infiniteScrollInlineConfig = "" }: TextStoryTypes) => {
   const footerText = get(config, ["publisherConfig", "publisher-settings", "copyright"], null);
-  const infiniteScrollExists =
-    get(config, ["ampConfig", "related-collection-id"], null) && infiniteScrollInlineConfig.length; // !!!! change to infinite-scroll-collection-id later
+  const infiniteScrollExists = infiniteScrollInlineConfig.length; // should also check if infinite scroll collection exists here
   let lastComponent = <Footer text={footerText} />;
   if (infiniteScrollExists) {
     if (config.opts && config.opts.infiniteScrollRender) {
