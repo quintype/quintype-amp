@@ -43,7 +43,7 @@ export const AlsoReadBase = ({ element, story, config }: StoryElementProps) => {
   );
 };
 /**
- * AlsoRead is a story element.
+ * AlsoRead is a story element
  * The look of the AlsoRead can be changed using the render prop alsoReadRender. In case alsoReadRender is passed in the config, it is rendered. Otherwise a default AlsoRead is rendered.
  *
  * ```javascript
