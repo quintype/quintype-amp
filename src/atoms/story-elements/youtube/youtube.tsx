@@ -34,4 +34,20 @@ export const YouTubeBase = ({ element, story, config }: YouTubeProps & CommonRen
     <DefaultYouTube element={element} story={story} config={config} />
   );
 };
+/**
+ * YouTube is a story element.
+ * The look of the YouTube can be changed using the render prop youtubeElementRender. In case youtubeElementRender is passed in the config, it is rendered. Otherwise a default YouTube is rendered.
+ *
+ * ```javascript
+ * ...
+ * ampRoutes(app, {
+ *    youtubeElementRender: ({ story, config }) => <MyCustomYouTube story={story} config={config} />
+ * })
+ * ...
+ * ```
+ *
+ * @category StoryElements
+ * @module YouTube
+ * @component
+ */
 export const YouTube = withStoryAndConfig(YouTubeBase);

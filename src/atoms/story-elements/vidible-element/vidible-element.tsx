@@ -55,4 +55,20 @@ export const VidibleElementBase = ({ element, story, config }: StoryElementProps
     <DefaultVidibleElement element={element} story={story} config={config} />
   );
 };
+/**
+ * VidibleElement is a story element.
+ * The look of the VidibleElement can be changed using the render prop vidibleElementRender. In case vidibleElementRender is passed in the config, it is rendered. Otherwise a default VidibleElement is rendered.
+ *
+ * ```javascript
+ * ...
+ * ampRoutes(app, {
+ *    vidibleElementRender: ({ story, config }) => <MyCustomVidibleElement story={story} config={config} />
+ * })
+ * ...
+ * ```
+ *
+ * @category StoryElements
+ * @module VidibleElement
+ * @component
+ */
 export const VidibleElement = withStoryAndConfig(VidibleElementBase);

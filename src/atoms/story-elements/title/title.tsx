@@ -16,4 +16,20 @@ export const TitleBase = ({ element, story, config }: StoryElementProps) => {
 
   return titleElementRender ? titleElementRender({ story, config }) : <StyledTitle>{element.text}</StyledTitle>;
 };
+/**
+ * Summary is a story element.
+ * The look of the Title can be changed using the render prop titleElementRender. In case titleElementRender is passed in the config, it is rendered. Otherwise a default Title is rendered.
+ *
+ * ```javascript
+ * ...
+ * ampRoutes(app, {
+ *    titleElementRender: ({ story, config }) => <MyCustomTitle story={story} config={config} />
+ * })
+ * ...
+ * ```
+ *
+ * @category StoryElements
+ * @module Title
+ * @component
+ */
 export const Title = withStoryAndConfig(TitleBase);

@@ -28,4 +28,20 @@ export const SummaryBase = ({ element, story, config }: StoryElementProps) => {
     />
   );
 };
+/**
+ * Summary is a story element.
+ * The look of the Summary can be changed using the render prop summaryElementRender. In case summaryElementRender is passed in the config, it is rendered. Otherwise a default Summary is rendered.
+ *
+ * ```javascript
+ * ...
+ * ampRoutes(app, {
+ *    summaryElementRender: ({ story, config }) => <MyCustomSummary story={story} config={config} />
+ * })
+ * ...
+ * ```
+ *
+ * @category StoryElements
+ * @module Summary
+ * @component
+ */
 export const Summary = withStoryAndConfig(SummaryBase);

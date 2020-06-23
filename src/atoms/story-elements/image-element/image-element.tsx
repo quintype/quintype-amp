@@ -39,4 +39,21 @@ export const ImageElementBase = ({ element, story, config }: StoryElementProps) 
   );
 };
 
+/**
+ * ImageElement is a story element.
+ * The look of the ImageElement can be changed using the render prop imageElementRender. In case imageElementRender is passed in the config, it is rendered. Otherwise a default ImageElement is rendered.
+ *
+ * ```javascript
+ * ...
+ * ampRoutes(app, {
+ *    imageElementRender: ({ story, config }) => <MyCustomImageElement story={story} config={config} />
+ * })
+ * ...
+ * ```
+ *
+ * @category StoryElements
+ * @module ImageElement
+ * @component
+ */
+
 export const ImageElement = withStoryAndConfig(ImageElementBase);

@@ -24,4 +24,20 @@ export const AnswerBase = ({ element, story, config }: StoryElementProps) => {
     />
   );
 };
+/**
+ * Answer is a story element.
+ * The look of the Answer can be changed using the render prop answerElementRender. In case answerElementRender is passed in the config, it is rendered. Otherwise a default Answer is rendered.
+ *
+ * ```javascript
+ * ...
+ * ampRoutes(app, {
+ *    answerElementRender: ({ story, config }) => <MyCustomAnswer story={story} config={config} />
+ * })
+ * ...
+ * ```
+ *
+ * @category StoryElements
+ * @module Answer
+ * @component
+ */
 export const Answer = withStoryAndConfig(AnswerBase);

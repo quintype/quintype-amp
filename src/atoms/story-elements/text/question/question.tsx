@@ -24,4 +24,20 @@ export const QuestionBase = ({ element, story, config }: StoryElementProps) => {
     />
   );
 };
+/**
+ * Question is a story element.
+ * The look of the Question can be changed using the render prop questionElementRender. In case questionElementRender is passed in the config, it is rendered. Otherwise a default Question is rendered.
+ *
+ * ```javascript
+ * ...
+ * ampRoutes(app, {
+ *    questionElementRender: ({ story, config }) => <MyCustomQuestion story={story} config={config} />
+ * })
+ * ...
+ * ```
+ *
+ * @category StoryElements
+ * @module Question
+ * @component
+ */
 export const Question = withStoryAndConfig(QuestionBase);

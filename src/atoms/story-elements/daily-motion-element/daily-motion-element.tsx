@@ -28,4 +28,21 @@ export const DailyMotionElementBase = ({
   );
 };
 
+/**
+ * DailyMotionElement is a story element.
+ * The look of the DailyMotionElement can be changed using the render prop dailyMotionRender. In case dailyMotionRender is passed in the config, it is rendered. Otherwise a default DailyMotionElement is rendered.
+ *
+ * ```javascript
+ * ...
+ * ampRoutes(app, {
+ *    dailyMotionRender: ({ story, config }) => <MyCustomDailyMotionElement story={story} config={config} />
+ * })
+ * ...
+ * ```
+ *
+ * @category StoryElements
+ * @module DailyMotionElement
+ * @component
+ */
+
 export const DailyMotionElement = withStoryAndConfig(DailyMotionElementBase);
