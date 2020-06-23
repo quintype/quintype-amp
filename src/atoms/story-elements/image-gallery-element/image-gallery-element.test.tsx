@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { ImageGalleryElement, ImageGalleryElementBase, DefaultImageGalleryElement } from "./image-gallery-element";
+import { ImageGalleryElementBase, DefaultImageGalleryElement } from "./image-gallery-element";
 import { Carousel } from "../../carousel";
 import { config, textStory } from "../../../__fixtures__";
 
@@ -162,22 +162,22 @@ const {
 } = sampleImageGalleryElementWithSlideshow;
 describe("Image Gallery Element", () => {
   it("should render Image Slideshow even for Gallery", () => {
-    const wrapper = shallow(<ImageGalleryElement element={sampleImageGalleryElement} />);
+    const wrapper = shallow(<DefaultImageGalleryElement element={sampleImageGalleryElement} />);
     expect(wrapper.find(Carousel).length).toBe(1);
   });
   it("should render Image Slideshow", () => {
-    const wrapper = shallow(<ImageGalleryElement element={sampleImageGalleryElementWithSlideshow} />);
+    const wrapper = shallow(<DefaultImageGalleryElement element={sampleImageGalleryElementWithSlideshow} />);
     expect(wrapper.find(Carousel).length).toBe(1);
   });
   it("should render Image Slideshow with width and height", () => {
     const wrapper = shallow(
-      <ImageGalleryElement element={sampleImageGalleryElementWithSlideshow} width="1200" height="750" />
+      <DefaultImageGalleryElement element={sampleImageGalleryElementWithSlideshow} width="1200" height="750" />
     );
     expect(wrapper.find(Carousel).prop("width")).toBe("1200");
     expect(wrapper.find(Carousel).prop("height")).toBe("750");
   });
   it("shouldn't render Image Slideshow", () => {
-    const wrapper = shallow(<ImageGalleryElement element={sampleImageSlideshowWithoutStoryelements} />);
+    const wrapper = shallow(<DefaultImageGalleryElement element={sampleImageSlideshowWithoutStoryelements} />);
     expect(wrapper.find(Carousel).length).toBe(0);
   });
   it("should call imageGalleryElementRender prop when passed to opts", () => {
