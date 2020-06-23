@@ -1,6 +1,7 @@
 import React from "react";
 import { Title, StyledTitle, TitleBase } from "./title";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
+import { Theme } from "../../../context/theme";
 import { config, textStory } from "../../../__fixtures__";
 
 const sampleTitleElement = {

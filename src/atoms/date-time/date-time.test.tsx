@@ -19,7 +19,7 @@ describe("DateTime", () => {
   it("should render with custom styles", () => {
     const wrapper = mount(
       <Theme>
-        <DateTime formattedDate="14 June 2017" inlineStyles={{ backgroundColor: "blue" }} />
+        <DateTime formattedDate="14 June 2017" inlineStyles={{ backgroundColor: "blue" }}></DateTime>
       </Theme>
     );
     expect(wrapper.find("time").prop("style")).toStrictEqual({ backgroundColor: "blue" });

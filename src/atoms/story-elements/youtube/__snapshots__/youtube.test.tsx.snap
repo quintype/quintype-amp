@@ -11,11 +11,13 @@ exports[`Youtube should render default 1`] = `
       src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"
     />
   </HelmetWrapper>
-  <amp-youtube
-    data-videoid="jlEbFvGwcUc"
-    height="270"
-    layout="responsive"
-    width="480"
-  />
+  <styled.div>
+    <amp-youtube
+      data-videoid="jlEbFvGwcUc"
+      height="270"
+      layout="responsive"
+      width="480"
+    />
+  </styled.div>
 </Fragment>
 `;

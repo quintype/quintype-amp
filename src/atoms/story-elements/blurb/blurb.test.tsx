@@ -1,6 +1,7 @@
 import React from "react";
 import { BlurbBase, DefaultBlurb } from "./blurb";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
+import { Theme } from "../../../context/theme";
 import { config, textStory } from "../../../__fixtures__";
 
 const sampleBlurbElement = {

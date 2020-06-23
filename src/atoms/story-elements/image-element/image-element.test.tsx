@@ -1,7 +1,7 @@
 import React from "react";
 
 import { ImageElement, ImageElementBase } from "./image-element";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 import { config, textStory } from "../../../__fixtures__";
 
 const sampleImageElement = {

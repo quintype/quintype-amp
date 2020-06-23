@@ -1,7 +1,8 @@
 import React from "react";
 import { AlsoReadBase, StyledAlsoRead } from "./also-read";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 import { textStory, config } from "../../../__fixtures__";
+import { Theme } from "../../../context/theme";
 
 const sampleAlsoReadElement = {
   description: "",

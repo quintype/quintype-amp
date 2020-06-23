@@ -1,6 +1,6 @@
 import React from "react";
 import { DefaultYouTube, YouTubeBase } from "./youtube";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 import { textStory, config } from "../../../__fixtures__";
 
 const sampleYouTubeElement = {
