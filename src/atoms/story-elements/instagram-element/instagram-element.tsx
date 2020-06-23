@@ -39,4 +39,20 @@ export const InstagramElementBase = ({ element, story, config }: StoryElementPro
     <DefaultInstagramElement element={element} />
   );
 };
+/**
+ * InstagramElement is a story element.
+ * The look of the InstagramElement can be changed using the render prop instagramElementRender. In case instagramElementRender is passed in the config, it is rendered. Otherwise a default InstagramElement is rendered.
+ *
+ * ```javascript
+ * ...
+ * ampRoutes(app, {
+ *    instagramElementRender: ({ story, config }) => <MyCustomInstagramElement story={story} config={config} />
+ * })
+ * ...
+ * ```
+ *
+ * @category StoryElements
+ * @module InstagramElement
+ * @component
+ */
 export const InstagramElement = withStoryAndConfig(InstagramElementBase);

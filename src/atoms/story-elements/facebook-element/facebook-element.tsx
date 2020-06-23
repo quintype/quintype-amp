@@ -26,4 +26,21 @@ export const FacebookElementBase = ({ element, story, config, ...props }: Facebo
   );
 };
 
+/**
+ * FacebookElement is a story element.
+ * The look of the FacebookElement can be changed using the render prop facebookElementRender. In case facebookElementRender is passed in the config, it is rendered. Otherwise a default FacebookElement is rendered.
+ *
+ * ```javascript
+ * ...
+ * ampRoutes(app, {
+ *    facebookElementRender: ({ story, config }) => <MyCustomFacebookElement story={story} config={config} />
+ * })
+ * ...
+ * ```
+ *
+ * @category StoryElements
+ * @module FacebookElement
+ * @component
+ */
+
 export const FacebookElement = withStoryAndConfig(FacebookElementBase);

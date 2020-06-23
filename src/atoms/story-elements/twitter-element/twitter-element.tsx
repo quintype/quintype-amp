@@ -19,5 +19,20 @@ export const TwitterElementBase = ({ element, story, config, ...props }: Twitter
     <Twitter data-tweetid={metadata["tweet-id"]} {...props} />
   );
 };
-
+/**
+ * TwitterElement is a story element.
+ * The look of the TwitterElement can be changed using the render prop twitterElementRender. In case twitterElementRender is passed in the config, it is rendered. Otherwise a default TwitterElement is rendered.
+ *
+ * ```javascript
+ * ...
+ * ampRoutes(app, {
+ *    twitterElementRender: ({ story, config }) => <MyCustomTwitterElement story={story} config={config} />
+ * })
+ * ...
+ * ```
+ *
+ * @category StoryElements
+ * @module TwitterElement
+ * @component
+ */
 export const TwitterElement = withStoryAndConfig(TwitterElementBase);

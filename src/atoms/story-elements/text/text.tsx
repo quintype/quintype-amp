@@ -62,4 +62,20 @@ export const TextBase = ({ element, story, config }: StoryElementProps) => {
     <DefaultText element={element} story={story} config={config} />
   );
 };
+/**
+ * Text is a story element.
+ * The look of the Text can be changed using the render prop textElementRender. In case textElementRender is passed in the config, it is rendered. Otherwise a default Text is rendered.
+ *
+ * ```javascript
+ * ...
+ * ampRoutes(app, {
+ *    textElementRender: ({ story, config }) => <MyCustomText story={story} config={config} />
+ * })
+ * ...
+ * ```
+ *
+ * @category StoryElements
+ * @module Text
+ * @component
+ */
 export const Text = withStoryAndConfig(TextBase);

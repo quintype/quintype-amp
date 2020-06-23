@@ -12,7 +12,4 @@ storiesOf("Related Stories", module)
   ))
   .add("Default", () => <RelatedStories stories={relatedStories} />)
   .add("With custom heading", () => <RelatedStories stories={relatedStories} heading="You might also like" />)
-  .add("With aspect ratio", () => <RelatedStories stories={relatedStories} aspectRatio={[4, 3]} />)
-  .add("With custom styles ", () => (
-    <RelatedStories stories={relatedStories} inlineStyles={{ color: "red", fontStyle: "italic" }} />
-  ));
+  .add("With aspect ratio", () => <RelatedStories stories={relatedStories} aspectRatio={[4, 3]} />);

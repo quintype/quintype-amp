@@ -27,4 +27,22 @@ export const EmbedBase = ({ element, story, config }: StoryElementProps) => {
     <DefaultEmbed element={element} story={story} config={config} />
   );
 };
+
+/**
+ * Embed is a story element.
+ * The look of the Embed can be changed using the render prop embedRender. In case embedRender is passed in the config, it is rendered. Otherwise a default Embed is rendered.
+ *
+ * ```javascript
+ * ...
+ * ampRoutes(app, {
+ *    embedRender: ({ story, config }) => <MyCustomEmbed story={story} config={config} />
+ * })
+ * ...
+ * ```
+ *
+ * @category StoryElements
+ * @module Embed
+ * @component
+ */
+
 export const Embed = withStoryAndConfig(EmbedBase);
