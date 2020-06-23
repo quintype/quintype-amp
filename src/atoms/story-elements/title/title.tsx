@@ -14,16 +14,25 @@ export const StyledTitle = styled.h3`
 export const TitleBase = ({ element, story, config }: StoryElementProps) => {
   const titleElementRender = get(config, ["opts", "storyElementRender", "titleElementRender"], null);
 
-  return titleElementRender ? titleElementRender({ story, config }) : <StyledTitle>{element.text}</StyledTitle>;
+  return titleElementRender ? (
+    titleElementRender({ story, config, element })
+  ) : (
+    <StyledTitle>{element.text}</StyledTitle>
+  );
 };
 /**
  * Summary is a story element.
  * The look of the Title can be changed using the render prop titleElementRender. In case titleElementRender is passed in the config, it is rendered. Otherwise a default Title is rendered.
  *
+ * @param {Object} params object containing parameters passed to the render prop
+ * @param {Object} params.story story object
+ * @param {Object} params.config config object
+ * @param {Object} params.element the story element. This is same as the story element found in the story API response
+ *
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    titleElementRender: ({ story, config }) => <MyCustomTitle story={story} config={config} />
+ *    titleElementRender: ({ story, config, element }) => <MyCustomTitle story={story} config={config} storyElement={element} />
  * })
  * ...
  * ```

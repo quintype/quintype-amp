@@ -31,7 +31,7 @@ export const AlsoReadBase = ({ element, story, config }: StoryElementProps) => {
   }
 
   return alsoReadRender ? (
-    alsoReadRender({ story, config })
+    alsoReadRender({ story, config, element })
   ) : (
     <StyledAlsoRead>
       <Spacer token="m" align="horizontal" />
@@ -46,10 +46,15 @@ export const AlsoReadBase = ({ element, story, config }: StoryElementProps) => {
  * AlsoRead is a story element
  * The look of the AlsoRead can be changed using the render prop alsoReadRender. In case alsoReadRender is passed in the config, it is rendered. Otherwise a default AlsoRead is rendered.
  *
+ * @param {Object} params object containing parameters passed to the render prop
+ * @param {Object} params.story story object
+ * @param {Object} params.config config object
+ * @param {Object} params.element the story element. This is same as the story element found in the story API response
+ *
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    alsoReadRender: ({ story, config }) => <MyCustomAlsoRead story={story} config={config} />
+ *    alsoReadRender: ({ story, config, element }) => <MyCustomAlsoRead story={story} config={config} storyElement={element} />
  * })
  * ...
  * ```

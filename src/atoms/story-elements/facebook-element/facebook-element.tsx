@@ -20,7 +20,7 @@ export const FacebookElementBase = ({ element, story, config, ...props }: Facebo
     return null;
   }
   return facebookElementRender ? (
-    facebookElementRender({ story, config })
+    facebookElementRender({ story, config, element })
   ) : (
     <Facebook data-href={metadata["facebook-url"]} data-embed-as={embedAs[metadata.provider]} {...props} />
   );
@@ -30,10 +30,15 @@ export const FacebookElementBase = ({ element, story, config, ...props }: Facebo
  * FacebookElement is a story element.
  * The look of the FacebookElement can be changed using the render prop facebookElementRender. In case facebookElementRender is passed in the config, it is rendered. Otherwise a default FacebookElement is rendered.
  *
+ * @param {Object} params object containing parameters passed to the render prop
+ * @param {Object} params.story story object
+ * @param {Object} params.config config object
+ * @param {Object} params.element the story element. This is same as the story element found in the story API response
+ *
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    facebookElementRender: ({ story, config }) => <MyCustomFacebookElement story={story} config={config} />
+ *    facebookElementRender: ({ story, config, element }) => <MyCustomFacebookElement story={story} config={config} storyElement={element} />
  * })
  * ...
  * ```

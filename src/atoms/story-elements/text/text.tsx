@@ -57,7 +57,7 @@ export const DefaultText = ({ element, externalLink }: StoryElementProps & TextP
 export const TextBase = ({ element, story, config }: StoryElementProps) => {
   const textElementRender = get(config, ["opts", "storyElementRender", "textElementRender"], null);
   return textElementRender ? (
-    textElementRender({ story, config })
+    textElementRender({ story, config, element })
   ) : (
     <DefaultText element={element} story={story} config={config} />
   );
@@ -66,10 +66,15 @@ export const TextBase = ({ element, story, config }: StoryElementProps) => {
  * Text is a story element.
  * The look of the Text can be changed using the render prop textElementRender. In case textElementRender is passed in the config, it is rendered. Otherwise a default Text is rendered.
  *
+ * @param {Object} params object containing parameters passed to the render prop
+ * @param {Object} params.story story object
+ * @param {Object} params.config config object
+ * @param {Object} params.element the story element. This is same as the story element found in the story API response
+ *
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    textElementRender: ({ story, config }) => <MyCustomText story={story} config={config} />
+ *    textElementRender: ({ story, config, element }) => <MyCustomText story={story} config={config} storyElement={element} />
  * })
  * ...
  * ```

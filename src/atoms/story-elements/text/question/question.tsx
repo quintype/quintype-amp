@@ -13,7 +13,7 @@ export const QuestionBase = ({ element, story, config }: StoryElementProps) => {
   const questionElementRender = get(config, ["opts", "storyElementRender", "questionElementRender"], null);
 
   return questionElementRender ? (
-    questionElementRender({ story, config })
+    questionElementRender({ story, config, element })
   ) : (
     <StyledQuestion
       element={element}
@@ -28,10 +28,15 @@ export const QuestionBase = ({ element, story, config }: StoryElementProps) => {
  * Question is a story element.
  * The look of the Question can be changed using the render prop questionElementRender. In case questionElementRender is passed in the config, it is rendered. Otherwise a default Question is rendered.
  *
+ * @param {Object} params object containing parameters passed to the render prop
+ * @param {Object} params.story story object
+ * @param {Object} params.config config object
+ * @param {Object} params.element the story element. This is same as the story element found in the story API response
+ *
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    questionElementRender: ({ story, config }) => <MyCustomQuestion story={story} config={config} />
+ *    questionElementRender: ({ story, config, element }) => <MyCustomQuestion story={story} config={config} storyElement={element} />
  * })
  * ...
  * ```
