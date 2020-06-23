@@ -55,10 +55,6 @@ describe("Carousel", () => {
     expect(wrapper.find("amp-carousel").prop("layout")).toBe("responsive");
     expect(wrapper.find("amp-carousel").prop("lightbox")).toBe(true);
   });
-  it("should render carousel with custom styles", () => {
-    const wrapper = mount(<Carousel inlineStyles={{ border: "2px solid black" }} type="slides" />);
-    expect(wrapper.find("div").prop("style")).toStrictEqual({ border: "2px solid black" });
-  });
   it("shouldn't render images", () => {
     const wrapper = mount(<Carousel height="300" width="500" layout="responsive" type="slides" />);
     expect(wrapper.find("amp-img").length).toBe(0);

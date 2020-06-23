@@ -17,5 +17,4 @@ storiesOf("Facebook", module)
       data-embed-type="comment"
       data-href="https://www.facebook.com/zuck/posts/10102735452532991?comment_id=1070233703036185"
     />
-  ))
-  .add("with custom styles", () => <Facebook data-href={postSrc} inlineStyles={{ border: "2px solid black" }} />);
+  ));

@@ -30,5 +30,4 @@ storiesOf("Section", module)
   ))
   .add("Default section", () => <Section section={section} />)
   .add("With display name", () => <Section section={section} />)
-  .add("Without display name", () => <Section section={sectionWithoutDisplayName} />)
-  .add("With custom styles", () => <Section section={section} inlineStyles={{ backgroundColor: "blue" }} />);
+  .add("Without display name", () => <Section section={sectionWithoutDisplayName} />);

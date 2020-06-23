@@ -5,7 +5,5 @@ export interface StoryElementProps {
   element: StoryElement;
   story?: Story;
   config?: Config;
-  inlineStyles?: object;
-  style?: object;
-  theme?: object;
+  style?: { [key: string]: string };
 }

@@ -19,7 +19,4 @@ storiesOf("Twitter", module)
     <Twitter data-tweetid="abcd">
       <div fallback="true">Failed to load tweet, this is a Fallback</div>
     </Twitter>
-  ))
-  .add("Tweet with custom styles", () => (
-    <Twitter data-tweetid={tweetId} inlineStyles={{ border: "2px solid red" }}></Twitter>
   ));
