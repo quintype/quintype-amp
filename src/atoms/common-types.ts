@@ -23,6 +23,7 @@ declare global {
       "amp-o2-player";
       "amp-analytics";
       "amp-nested-menu";
+      "amp-next-page";
     }
   }
 }

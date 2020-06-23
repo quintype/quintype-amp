@@ -32,7 +32,8 @@ describe("Ampify Story with custom opts", () => {
       ampConfig,
       opts: configOpts,
       relatedStories,
-      seo
+      seo,
+      infiniteScrollInlineConfig: `[{\"image\":\"https://foo.com/puppies.jpg\",\"title\":\"Puppies Page\",\"url\":\"/puppies\"}]`
     });
     const ampValidatorOutput = await isValidAmpHtml(ampHtml);
     expect(ampValidatorOutput).toBe(true);

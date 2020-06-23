@@ -25,6 +25,8 @@ export const ampConfig: AMPConfig = {
   menu: {
     enabled: true
   },
+  "related-collection-id": 1234,
+  "infinite-scroll-collection-id": 5678,
   "menu-groups": {
     default: {
       id: 43,

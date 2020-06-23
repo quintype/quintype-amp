@@ -10,10 +10,12 @@ import {
   GoogleAnalytics,
   QuintypeAnalytics,
   ComScore,
-  ChartBeat
+  ChartBeat,
+  InfiniteScroll
 } from "../../atoms";
 import styled from "styled-components";
 import { TextStoryTypes } from "./types";
+import get from "lodash.get";
 
 const { TopAd, BodyAd, BottomAd } = AmpAds;
 const { StoryPageSlots } = Slots;
@@ -26,52 +28,71 @@ const Wrapper = styled.div`
   padding: 0 ${(props) => props.theme.spacing.s};
 `;
 const canDisplayBodyAd = (cardIdx) => cardIdx === 0;
-const TextStory = ({ story, config, relatedStories }: TextStoryTypes) => (
-  <Layout story={story} config={config}>
-    <Navbar />
-    <IncompatibleBanner />
-    <GoogleTagManager />
-    <Wrapper>
-      <TopAd />
-      <TopSlot />
-      <Spacer token="s" />
-      <StoryContainer>
-        <HeaderCard />
-        <WebEngage />
-        <Spacer token="m" />
-        {story.cards.map((card, cardIdx) => {
-          const storyCard = card["story-elements"].map((element) => (
-            <StoryElement key={element.id} element={element} />
-          ));
-          return canDisplayBodyAd(cardIdx) ? (
-            <Fragment key={card.id}>
-              {storyCard}
-              <Spacer token="l" />
-              <BodyAd />
-              <Spacer token="l" />
-            </Fragment>
-          ) : (
-            <Fragment key={card.id}>{storyCard}</Fragment>
-          );
-        })}
+const TextStory = ({ story, config, relatedStories, infiniteScrollInlineConfig = "" }: TextStoryTypes) => {
+  const footerText = get(config, ["publisherConfig", "publisher-settings", "copyright"], null);
+  const infiniteScrollExists =
+    get(config, ["ampConfig", "related-collection-id"], null) && infiniteScrollInlineConfig.length; // !!!! change to infinite-scroll-collection-id later
+  let lastComponent = <Footer text={footerText} />;
+  if (infiniteScrollExists) {
+    if (config.opts && config.opts.infiniteScrollRender) {
+      lastComponent = config.opts.infiniteScrollRender({ story, config, inlineConfig: infiniteScrollInlineConfig });
+    } else {
+      lastComponent = (
+        <InfiniteScroll inlineConfig={infiniteScrollInlineConfig}>
+          <div next-page-hide="true" footer="true">
+            <Footer text={footerText} />
+          </div>
+        </InfiniteScroll>
+      );
+    }
+  }
+  return (
+    <Layout story={story} config={config}>
+      <div next-page-hide={infiniteScrollExists}>
+        <Navbar />
+      </div>
+      <IncompatibleBanner />
+      <GoogleTagManager />
+      <Wrapper>
+        <TopAd />
+        <TopSlot />
+        <Spacer token="s" />
+        <StoryContainer>
+          <HeaderCard />
+          <WebEngage />
+          <Spacer token="m" />
+          {story.cards.map((card, cardIdx) => {
+            const storyCard = card["story-elements"].map((element) => (
+              <StoryElement key={element.id} element={element} />
+            ));
+            return canDisplayBodyAd(cardIdx) ? (
+              <Fragment key={card.id}>
+                {storyCard}
+                <Spacer token="l" />
+                <BodyAd />
+                <Spacer token="l" />
+              </Fragment>
+            ) : (
+              <Fragment key={card.id}>{storyCard}</Fragment>
+            );
+          })}
 
-        {config.opts && config.opts.relatedStoriesRender ? (
-          config.opts.relatedStoriesRender({ relatedStories, config, story })
-        ) : (
-          <RelatedStories stories={relatedStories} />
-        )}
-      </StoryContainer>
-      <BottomSlot />
-      <BottomAd />
-    </Wrapper>
-    <Footer
-      text={config.publisherConfig["publisher-settings"] && config.publisherConfig["publisher-settings"]["copyright"]}
-    />
-    <GoogleAnalytics />
-    <QuintypeAnalytics />
-    <ComScore />
-    <ChartBeat />
-  </Layout>
-);
+          {config.opts && config.opts.relatedStoriesRender ? (
+            config.opts.relatedStoriesRender({ relatedStories, config, story })
+          ) : (
+            <RelatedStories stories={relatedStories} />
+          )}
+        </StoryContainer>
+        <BottomSlot />
+        <BottomAd />
+      </Wrapper>
+      <GoogleAnalytics />
+      <QuintypeAnalytics />
+      <ComScore />
+      <ChartBeat />
+      {lastComponent}
+    </Layout>
+  );
+};
 
 export { TextStory };

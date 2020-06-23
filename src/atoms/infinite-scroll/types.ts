@@ -1,9 +1,9 @@
 import { Story } from "../../types/story";
 import { Config } from "../../types/config";
 
-export interface TextStoryTypes {
+export interface InfiniteScrollTypes {
   story: Story;
   config: Config;
-  relatedStories: Story[];
-  infiniteScrollInlineConfig?: string;
+  inlineConfig: string;
+  children?: JSX.Element[] | JSX.Element;
 }

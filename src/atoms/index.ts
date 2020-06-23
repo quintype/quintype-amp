@@ -32,6 +32,7 @@ import { ComScore } from "./comscore";
 import { QuintypeAnalytics } from "./quintype-analytics";
 import { LightboxGallery } from "./lightbox-gallery";
 import { ChartBeat } from "./chartbeat";
+import { InfiniteScroll } from "./infinite-scroll";
 
 export {
   Carousel,
@@ -67,5 +68,6 @@ export {
   ComScore,
   QuintypeAnalytics,
   LightboxGallery,
-  ChartBeat
+  ChartBeat,
+  InfiniteScroll
 };
