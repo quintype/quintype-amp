@@ -85,7 +85,7 @@ export const ImageGalleryElementBase = ({ element, story, config }: StoryElement
   const imageGalleryElementRender = get(config, ["opts", "storyElementRender", "imageGalleryElementRender"], null);
 
   return imageGalleryElementRender ? (
-    imageGalleryElementRender({ story, config })
+    imageGalleryElementRender({ story, config, element })
   ) : (
     <DefaultImageGalleryElement element={element} story={story} config={config} />
   );
@@ -95,10 +95,15 @@ export const ImageGalleryElementBase = ({ element, story, config }: StoryElement
  * ImageGalleryElement is a story element.
  * The look of the ImageGalleryElement can be changed using the render prop imageGalleryElementRender. In case imageGalleryElementRender is passed in the config, it is rendered. Otherwise a default ImageGalleryElement is rendered.
  *
+ * @param {Object} params object containing parameters passed to the render prop
+ * @param {Object} params.story story object
+ * @param {Object} params.config config object
+ * @param {Object} params.element the story element. This is same as the story element found in the story API response
+ *
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    imageGalleryElementRender: ({ story, config }) => <MyCustomImageGalleryElement story={story} config={config} />
+ *    imageGalleryElementRender: ({ story, config, element }) => <MyCustomImageGalleryElement story={story} config={config} storyElement={element} />
  * })
  * ...
  * ```

@@ -31,7 +31,7 @@ export const ImageElementBase = ({ element, story, config }: StoryElementProps) 
   const imageElementRender = get(config, ["opts", "storyElementRender", "imageElementRender"], null);
 
   return imageElementRender ? (
-    imageElementRender({ story, config })
+    imageElementRender({ story, config, element })
   ) : (
     <Image slug={element["image-s3-key"]} metadata={element["image-metadata"]}>
       {element.title && element.title.length > 1 && <StyledFigCaption>{element.title}</StyledFigCaption>}
@@ -43,10 +43,15 @@ export const ImageElementBase = ({ element, story, config }: StoryElementProps) 
  * ImageElement is a story element.
  * The look of the ImageElement can be changed using the render prop imageElementRender. In case imageElementRender is passed in the config, it is rendered. Otherwise a default ImageElement is rendered.
  *
+ * @param {Object} params object containing parameters passed to the render prop
+ * @param {Object} params.story story object
+ * @param {Object} params.config config object
+ * @param {Object} params.element the story element. This is same as the story element found in the story API response
+ *
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    imageElementRender: ({ story, config }) => <MyCustomImageElement story={story} config={config} />
+ *    imageElementRender: ({ story, config, element }) => <MyCustomImageElement story={story} config={config} storyElement={element} />
  * })
  * ...
  * ```

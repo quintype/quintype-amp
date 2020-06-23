@@ -22,7 +22,7 @@ export const getIframeSourceURL = (str: string): string | null => {
 export const EmbedBase = ({ element, story, config }: StoryElementProps) => {
   const embedRender = get(config, ["opts", "storyElementRender", "embedRender"], null);
   return embedRender ? (
-    embedRender({ story, config })
+    embedRender({ story, config, element })
   ) : (
     <DefaultEmbed element={element} story={story} config={config} />
   );
@@ -32,10 +32,15 @@ export const EmbedBase = ({ element, story, config }: StoryElementProps) => {
  * Embed is a story element.
  * The look of the Embed can be changed using the render prop embedRender. In case embedRender is passed in the config, it is rendered. Otherwise a default Embed is rendered.
  *
+ * @param {Object} params object containing parameters passed to the render prop
+ * @param {Object} params.story story object
+ * @param {Object} params.config config object
+ * @param {Object} params.element the story element. This is same as the story element found in the story API response
+ *
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    embedRender: ({ story, config }) => <MyCustomEmbed story={story} config={config} />
+ *    embedRender: ({ story, config, element }) => <MyCustomEmbed story={story} config={config} storyElement={element} />
  * })
  * ...
  * ```

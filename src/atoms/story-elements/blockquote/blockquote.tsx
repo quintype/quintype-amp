@@ -97,7 +97,7 @@ export const BlockQuoteBase = ({ element, story, config }: StoryElementProps) =>
   const blockquoteRender = get(config, ["opts", "storyElementRender", "blockquoteRender"], null);
 
   return blockquoteRender ? (
-    blockquoteRender({ story, config })
+    blockquoteRender({ story, config, element })
   ) : (
     <DefaultBlockQuote element={element} story={story} config={config} />
   );
@@ -106,10 +106,15 @@ export const BlockQuoteBase = ({ element, story, config }: StoryElementProps) =>
  * BlockQuote is a story element.
  * The look of the BlockQuote can be changed using the render prop blockquoteRender. In case blockquoteRender is passed in the config, it is rendered. Otherwise a default BlockQuote is rendered.
  *
+ * @param {Object} params object containing parameters passed to the render prop
+ * @param {Object} params.story story object
+ * @param {Object} params.config config object
+ * @param {Object} params.element the story element. This is same as the story element found in the story API response
+ *
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    blockquoteRender: ({ story, config }) => <MyCustomBlockQuote story={story} config={config} />
+ *    blockquoteRender: ({ story, config, element }) => <MyCustomBlockQuote story={story} config={config} storyElement={element} />
  * })
  * ...
  * ```
