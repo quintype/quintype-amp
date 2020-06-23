@@ -86,7 +86,4 @@ storiesOf("Image", module)
   })
   .add("Lightbox with value 'hero'", () => {
     return <Image metadata={metadata} slug={s3key} alt={caption} lightbox="hero" />;
-  })
-  .add("With custom styles", () => {
-    return <Image metadata={metadata} slug={s3key} alt={caption} inlineStyles={{ border: "2px solid red" }} />;
   });

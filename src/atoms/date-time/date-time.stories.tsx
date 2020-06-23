@@ -11,7 +11,4 @@ storiesOf("Date Time", module)
     </Layout>
   ))
   .add("Default", () => <DateTime formattedDate="14 June 2017" />)
-  .add("With prepend", () => <DateTime formattedDate="14 June 2017" prepend="Published: " />)
-  .add("With custom styles", () => (
-    <DateTime formattedDate="14 June 2017" prepend="Published: " inlineStyles={{ backgroundColor: "blue" }} />
-  ));
+  .add("With prepend", () => <DateTime formattedDate="14 June 2017" prepend="Published: " />);

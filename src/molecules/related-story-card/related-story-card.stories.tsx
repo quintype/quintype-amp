@@ -24,14 +24,4 @@ storiesOf("Related Story Card", module)
   ))
   .add("Without HeroImage & without fallback src", () => (
     <RelatedStoryCard aspectRatio={[16, 9]} fallbackSrc="" story={relatedStoryEithoutHeroImage} />
-  ))
-  .add("With custom styles", () => (
-    <RelatedStoryCard
-      aspectRatio={[16, 9]}
-      fallbackSrc=""
-      story={sampleRelatedStory}
-      wrapperInlineStyles={{ backgroundColor: "#ccf" }}
-      anchorInlineStyles={{ fontStyle: "italic" }}
-      headlineInlineStyles={{ fontSize: "bold" }}
-    />
   ));

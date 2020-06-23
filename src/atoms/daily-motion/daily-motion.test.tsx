@@ -1,6 +1,6 @@
 import React from "react";
 import { DailyMotion } from "./daily-motion";
-import { shallow, mount } from "enzyme";
+import { shallow } from "enzyme";
 
 const videoID = "x7t9n13";
 describe("Daily Motion", () => {
@@ -23,11 +23,5 @@ describe("Daily Motion", () => {
   it("should render dailymotion video auto play", () => {
     const wrapper = shallow(<DailyMotion data-videoid={videoID} autoplay={true} />);
     expect(wrapper.find("amp-dailymotion").prop("autoplay")).toBe(true);
-  });
-  it("should render dailymotion element with custom styles", () => {
-    const wrapper = mount(
-      <DailyMotion data-videoid={videoID} inlineStyles={{ border: "2px solid red" }}></DailyMotion>
-    );
-    expect(wrapper.find("div").prop("style")).toStrictEqual({ border: "2px solid red" });
   });
 });
