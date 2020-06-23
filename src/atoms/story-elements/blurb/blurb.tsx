@@ -36,7 +36,16 @@ export const BlurbBase = ({ element, story, config }: StoryElementProps) => {
 };
 
 /**
- * Blurb story element
+ * Blurb is a story element.
+ * The look of the Blurb can be changed using the render prop blurbRender. In case blurbRender is passed in the config, it is rendered. Otherwise a default Blurb is rendered.
+ *
+ * ```javascript
+ * ...
+ * ampRoutes(app, {
+ *    blurbRender: ({ story, config }) => <MyCustomBlurb story={story} config={config} />
+ * })
+ * ...
+ * ```
  *
  * @category StoryElements
  * @module Blurb

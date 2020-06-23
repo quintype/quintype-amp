@@ -27,4 +27,20 @@ export const BigfactBase = ({ element, story, config }: StoryElementProps) => {
     />
   );
 };
+/**
+ * Bigfact is a story element.
+ * The look of the Bigfact can be changed using the render prop bigfactElementRender. In case bigfactElementRender is passed in the config, it is rendered. Otherwise a default Bigfact is rendered.
+ *
+ * ```javascript
+ * ...
+ * ampRoutes(app, {
+ *    bigfactElementRender: ({ story, config }) => <MyCustomBigfact story={story} config={config} />
+ * })
+ * ...
+ * ```
+ *
+ * @category StoryElements
+ * @module Bigfact
+ * @component
+ */
 export const Bigfact = withStoryAndConfig(BigfactBase);

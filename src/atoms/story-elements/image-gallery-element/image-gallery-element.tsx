@@ -90,4 +90,21 @@ export const ImageGalleryElementBase = ({ element, story, config }: StoryElement
     <DefaultImageGalleryElement element={element} story={story} config={config} />
   );
 };
+
+/**
+ * ImageGalleryElement is a story element.
+ * The look of the ImageGalleryElement can be changed using the render prop imageGalleryElementRender. In case imageGalleryElementRender is passed in the config, it is rendered. Otherwise a default ImageGalleryElement is rendered.
+ *
+ * ```javascript
+ * ...
+ * ampRoutes(app, {
+ *    imageGalleryElementRender: ({ story, config }) => <MyCustomImageGalleryElement story={story} config={config} />
+ * })
+ * ...
+ * ```
+ *
+ * @category StoryElements
+ * @module ImageGalleryElement
+ * @component
+ */
 export const ImageGalleryElement = withStoryAndConfig(ImageGalleryElementBase);
