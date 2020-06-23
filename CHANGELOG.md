@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/quintype/quintype-amp/compare/v1.1.0...v1.1.1) (2020-06-23)
+
+
+### Bug Fixes
+
+* pass element to every story element override; update docs ([0c772c1](https://github.com/quintype/quintype-amp/commit/0c772c10aaf0bfefde68e49bbaa03ae6443abe8e))
+* remove check in infiniteScrollExists ([481a2da](https://github.com/quintype/quintype-amp/commit/481a2da84e8489189a66728d3e928a4663571330))
+
 ## [1.1.0](https://github.com/quintype/quintype-amp/compare/v1.0.25...v1.1.0) (2020-06-23)
 
 
