@@ -35,4 +35,11 @@ export const BlurbBase = ({ element, story, config }: StoryElementProps) => {
   );
 };
 
+/**
+ * Blurb story element
+ *
+ * @category StoryElements
+ * @module Blurb
+ * @component
+ */
 export const Blurb = withStoryAndConfig(BlurbBase);
