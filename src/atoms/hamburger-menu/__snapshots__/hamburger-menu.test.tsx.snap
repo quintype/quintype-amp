@@ -11,27 +11,31 @@ exports[`HamburgerMenu should render 1`] = `
       src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"
     />
   </HelmetWrapper>
-  <amp-sidebar
-    id="sidebar"
-    layout="nodisplay"
-    on="sidebarClose:nested-menu.reset"
-    side="left"
-    style={
-      Object {
-        "width": "250px",
+  <styled.div>
+    <amp-sidebar
+      id="sidebar"
+      layout="nodisplay"
+      on="sidebarClose:nested-menu.reset"
+      side="left"
+      style={
+        Object {
+          "width": "250px",
+        }
       }
-    }
-  >
-    <amp-nested-menu
-      id="nested-menu"
-      layout="fill"
     >
-      <styled.ul
-        dir="ltr"
-      >
-        <Component />
-      </styled.ul>
-    </amp-nested-menu>
-  </amp-sidebar>
+      <styled.div>
+        <amp-nested-menu
+          id="nested-menu"
+          layout="fill"
+        >
+          <styled.ul
+            dir="ltr"
+          >
+            <Component />
+          </styled.ul>
+        </amp-nested-menu>
+      </styled.div>
+    </amp-sidebar>
+  </styled.div>
 </Fragment>
 `;

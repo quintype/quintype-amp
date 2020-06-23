@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Question should render Question element 1`] = `
+<Component
+  config={Object {}}
+  element={
+    Object {
+      "id": "1",
+      "subtype": "question",
+      "text": "<p><strong>You have a patient on Rikers who is older than ninety?</strong></p>",
+      "type": "text",
+    }
+  }
+  story={Object {}}
+/>
+`;

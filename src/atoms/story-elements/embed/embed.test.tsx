@@ -1,7 +1,8 @@
 import React from "react";
-import { Embed, getIframeSourceURL } from "./embed";
+import { getIframeSourceURL, EmbedBase, DefaultEmbed } from "./embed";
 import { shallow } from "enzyme";
 import { Iframe } from "../../iframe";
+import { config, textStory } from "../../../__fixtures__";
 
 const sampleJsEmbedElement = {
   description: "",
@@ -31,12 +32,19 @@ const sampleJsEmbedElementWithoutIframe = {
 
 describe("Embed", () => {
   it("should render embed", () => {
-    const wrapper = shallow(<Embed element={sampleJsEmbedElement} />);
+    const wrapper = shallow(<DefaultEmbed element={sampleJsEmbedElement} />);
     expect(wrapper.find(Iframe).length).toBe(1);
   });
   it("should render null", () => {
-    const wrapper = shallow(<Embed element={sampleJsEmbedElementWithoutIframe} />);
+    const wrapper = shallow(<DefaultEmbed element={sampleJsEmbedElementWithoutIframe} />);
     expect(wrapper.find(Iframe).length).toBe(0);
+  });
+  it("should call embedRender prop when passed to opts", () => {
+    const embedRender = jest.fn();
+    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { embedRender } } };
+    const wrapper = shallow(<EmbedBase element={sampleJsEmbedElement} story={textStory} config={modifiedConfig} />);
+    expect(embedRender.mock.calls.length).toBe(1);
+    expect(wrapper.find(DefaultEmbed).length).toBe(0);
   });
 });
 

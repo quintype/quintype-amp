@@ -4,4 +4,5 @@ export interface SocialShareTypes {
   height?: string;
   styles?: object;
   fbAppId?: string;
+  inlineStyles?: object;
 }

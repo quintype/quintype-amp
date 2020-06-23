@@ -610,6 +610,7 @@ exports[`TextStory Template should render 1`] = `
         },
       },
       "publisherConfig": Object {
+        "cdn-image": "gumlet.assettype.com",
         "cdn-name": "https://thumbor-stg.assettype.com/",
         "env": "production",
         "facebook": Object {

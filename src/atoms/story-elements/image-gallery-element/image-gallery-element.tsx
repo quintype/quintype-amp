@@ -5,12 +5,14 @@ import { Carousel } from "../../carousel";
 import { Image } from "../../image";
 import styled from "styled-components";
 import { media } from "../../../utils/media";
+import { withStoryAndConfig } from "../../../context";
+import get from "lodash.get";
+type ImageGalleryElementProps = StoryElementProps & ImageGalleryTypes;
 
 const StyledGallery = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 `;
-
 const StyledFigcaption = styled.figcaption`
   text-align: left;
   position: absolute;
@@ -30,8 +32,8 @@ const StyledFigcaption = styled.figcaption`
 		overflow-y: scroll;
 	`}
 `;
-type ImageGalleryElementProps = StoryElementProps & ImageGalleryTypes;
-const ImageGalleryElement = ({
+
+export const DefaultImageGalleryElement = ({
   element,
   height = "750",
   width = "1200",
@@ -47,7 +49,7 @@ const ImageGalleryElement = ({
     element["story-elements"] &&
     element["story-elements"].map((image) => (
       <Image
-        key={image["id"]}
+        key={image.id}
         metadata={image["image-metadata"]}
         slug={image["image-s3-key"]}
         aspectRatio={aspectRatio}
@@ -73,10 +75,19 @@ const ImageGalleryElement = ({
   );
 };
 
-export { ImageGalleryElement };
-
 export function getFigcaptionText(caption, attribution) {
   if (caption && attribution) return `${caption}`;
   else if (caption || attribution) return `${caption || attribution}`;
   else return false;
 }
+
+export const ImageGalleryElementBase = ({ element, story, config }: StoryElementProps) => {
+  const imageGalleryElementRender = get(config, ["opts", "storyElementRender", "imageGalleryElementRender"], null);
+
+  return imageGalleryElementRender ? (
+    imageGalleryElementRender({ story, config })
+  ) : (
+    <DefaultImageGalleryElement element={element} story={story} config={config} />
+  );
+};
+export const ImageGalleryElement = withStoryAndConfig(ImageGalleryElementBase);

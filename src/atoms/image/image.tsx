@@ -1,9 +1,14 @@
 import React, { Fragment } from "react";
-import { ImageTypes, AmpImgPropTypes } from "./types";
+import { StyledImageTypes, ImageTypes, AmpImgPropTypes } from "./types";
 import { Config } from "../../types/config";
 import { focusedImagePath } from "../../helpers/image-helpers";
 import { withConfig } from "../../context";
 import { LightboxGallery } from "../lightbox-gallery";
+import styled from "styled-components";
+
+export const StyledImage = styled.div.attrs(({ style }: StyledImageTypes) => ({
+  style
+}))<StyledImageTypes>``;
 
 export const BaseImage = ({
   metadata,
@@ -16,13 +21,14 @@ export const BaseImage = ({
   opts = {},
   config,
   lightbox = true,
+  inlineStyles,
   ...rest
 }: ImageTypes & { config: Config }) => {
-  const cdnName = config.publisherConfig["cdn-name"];
-  if (!slug || !cdnName) throw new Error("Required attributes missing, cant render image");
+  const cdnImage = config.publisherConfig["cdn-image"];
+  if (!slug || !cdnImage) throw new Error("Required attributes missing, cant render image");
   let imgAspectRatio = aspectRatio || [16, 9];
   if (metadata && metadata.width && metadata.height) imgAspectRatio = [metadata.width, metadata.height];
-  const path = focusedImagePath({ opts, slug, metadata, imgAspectRatio, cdnName });
+  const path = focusedImagePath({ opts, slug, metadata, imgAspectRatio, cdnImage });
   const value: AmpImgPropTypes = {
     src: path,
     alt,
@@ -49,10 +55,14 @@ export const BaseImage = ({
   return lightbox ? (
     <Fragment>
       <LightboxGallery />
-      <amp-img {...value} lightbox={lightbox} />
+      <StyledImage style={inlineStyles}>
+        <amp-img {...value} lightbox={lightbox} />
+      </StyledImage>
     </Fragment>
   ) : (
-    <amp-img {...value} />
+    <StyledImage style={inlineStyles}>
+      <amp-img {...value} />
+    </StyledImage>
   );
 };
 

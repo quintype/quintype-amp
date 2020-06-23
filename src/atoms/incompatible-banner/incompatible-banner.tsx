@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { withStory } from "../../context";
+import { IncompatibleBannerTypes } from "./types";
 import get from "lodash.get";
 
 const BannerWrapper = styled.div`
@@ -8,9 +9,10 @@ const BannerWrapper = styled.div`
   text-align: center;
   line-height: ${(props) => props.theme.font.lineHeight.level5};
   padding: 10px;
+  z-index: ${(props) => props.theme.zIndex.z1};
 `;
 
-const IncompatibleBannerBase = ({ story }) => {
+const IncompatibleBannerBase = ({ story }: IncompatibleBannerTypes) => {
   const isAmpSupported = get(story, "is-amp-supported", null);
   return (
     !isAmpSupported && (

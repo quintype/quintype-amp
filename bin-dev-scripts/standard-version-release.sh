@@ -11,9 +11,8 @@ case $ISPROD in
     npm run jest
     npm run build
     git diff --quiet
-    # npm run docs
+    npm run docs:deploy
     npx standard-version
-    # npx gh-pages -d docs
     ;;
   n)
     npm run build

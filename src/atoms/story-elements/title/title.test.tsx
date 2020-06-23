@@ -1,6 +1,8 @@
 import React from "react";
-import { Title } from "./title";
-import { shallow } from "enzyme";
+import { Title, StyledTitle, TitleBase } from "./title";
+import { shallow, mount } from "enzyme";
+import { Theme } from "../../../context/theme";
+import { config, textStory } from "../../../__fixtures__";
 
 const sampleTitleElement = {
   description: "",
@@ -18,5 +20,12 @@ describe("Title", () => {
   it("should render default", () => {
     const wrapper = shallow(<Title element={sampleTitleElement} />);
     expect(wrapper).toMatchSnapshot();
+  });
+  it("should call titleElementRender prop when passed to opts", () => {
+    const titleElementRender = jest.fn();
+    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { titleElementRender } } };
+    const wrapper = shallow(<TitleBase element={sampleTitleElement} story={textStory} config={modifiedConfig} />);
+    expect(titleElementRender.mock.calls.length).toBe(1);
+    expect(wrapper.find(StyledTitle).length).toBe(0);
   });
 });
