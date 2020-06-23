@@ -94,7 +94,8 @@ describe("Image", () => {
         slug={s3key}
         aspectRatio={aspectRatio}
         config={config}
-        inlineStyles={{ border: "5px solid red" }}></BaseImage>
+        inlineStyles={{ border: "5px solid red" }}
+      />
     );
     expect(wrapper.find("div").prop("style")).toStrictEqual({ border: "5px solid red" });
   });

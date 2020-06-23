@@ -36,7 +36,7 @@ export const InstagramElementBase = ({ element, story, config }: StoryElementPro
   return instagramElementRender ? (
     instagramElementRender({ story, config })
   ) : (
-    <DefaultInstagramElement element={element} story={story} config={config} />
+    <DefaultInstagramElement element={element} />
   );
 };
 export const InstagramElement = withStoryAndConfig(InstagramElementBase);

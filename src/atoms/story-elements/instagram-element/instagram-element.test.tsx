@@ -1,7 +1,7 @@
 import React from "react";
 import { mount, shallow } from "enzyme";
 import { DefaultInstagramElement, InstagramElementBase } from "./instagram-element";
-import { config, textStory } from "../../../__fixtures__";
+import { config } from "../../../__fixtures__";
 const sampleInstagramElement = {
   description: "",
   "embed-js":
@@ -36,9 +36,7 @@ describe("Instagram Element", () => {
   it("should call instagramElementRender prop when passed to opts", () => {
     const instagramElementRender = jest.fn();
     const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { instagramElementRender } } };
-    const wrapper = shallow(
-      <InstagramElementBase element={sampleInstagramElement} story={textStory} config={modifiedConfig} />
-    );
+    const wrapper = shallow(<InstagramElementBase element={sampleInstagramElement} config={modifiedConfig} />);
     expect(instagramElementRender.mock.calls.length).toBe(1);
     expect(wrapper.find(DefaultInstagramElement).length).toBe(0);
   });
