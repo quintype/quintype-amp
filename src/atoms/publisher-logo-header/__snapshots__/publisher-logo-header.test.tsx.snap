@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PublisherLogoHeader should render 1`] = `
-<a
+<styled.a
   href="/"
 >
   <amp-img
@@ -10,5 +10,5 @@ exports[`PublisherLogoHeader should render 1`] = `
     src="https://unsplash.com/photos/ffODvgBivdw"
     width="200px"
   />
-</a>
+</styled.a>
 `;

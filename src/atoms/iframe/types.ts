@@ -10,4 +10,5 @@ export interface IframeTypes extends Common {
   allowpaymentrequest?: string;
   allowtransparency?: string;
   referrerpolicy?: string;
+  inlineStyles?: object;
 }

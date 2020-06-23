@@ -1,7 +1,8 @@
 import React from "react";
 
-import { ImageElement } from "./image-element";
-import { shallow } from "enzyme";
+import { ImageElement, ImageElementBase } from "./image-element";
+import { shallow, mount } from "enzyme";
+import { config, textStory } from "../../../__fixtures__";
 
 const sampleImageElement = {
   description: "",
@@ -33,5 +34,14 @@ describe("Image Element", () => {
     const sampleImageElementWithNoCaption = { ...sampleImageElement, title: "" };
     const wrapper = shallow(<ImageElement element={sampleImageElementWithNoCaption} />);
     expect(wrapper).toMatchSnapshot();
+  });
+  it("should call imageElementRender prop when passed to opts", () => {
+    const imageElementRender = jest.fn();
+    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { imageElementRender } } };
+    const wrapper = shallow(
+      <ImageElementBase element={sampleImageElement} story={textStory} config={modifiedConfig} />
+    );
+    expect(imageElementRender.mock.calls.length).toBe(1);
+    expect(wrapper.find(Image).length).toBe(0);
   });
 });

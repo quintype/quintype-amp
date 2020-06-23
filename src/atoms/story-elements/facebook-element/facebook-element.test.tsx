@@ -1,6 +1,8 @@
 import React from "react";
-import { mount } from "enzyme";
-import { FacebookElement } from "./facebook-element";
+import { mount, shallow } from "enzyme";
+import { FacebookElement, FacebookElementBase } from "./facebook-element";
+import { config, textStory } from "../../../__fixtures__";
+import { Facebook } from "../../facebook";
 const sampleFacebookElement = {
   description: "",
   "embed-js":
@@ -22,5 +24,14 @@ describe("Facebook Element", () => {
   it("should render facebook", () => {
     const wrapper = mount(<FacebookElement element={sampleFacebookElement} />);
     expect(wrapper.find("amp-facebook").length).toBe(1);
+  });
+  it("should call facebookElementRender prop when passed to opts", () => {
+    const facebookElementRender = jest.fn();
+    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { facebookElementRender } } };
+    const wrapper = shallow(
+      <FacebookElementBase element={sampleFacebookElement} story={textStory} config={modifiedConfig} />
+    );
+    expect(facebookElementRender.mock.calls.length).toBe(1);
+    expect(wrapper.find(Facebook).length).toBe(0);
   });
 });

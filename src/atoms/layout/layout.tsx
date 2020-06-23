@@ -1,11 +1,10 @@
 import React, { Fragment } from "react";
-import { Layout } from "./types";
+import { Layout as LayoutTypes } from "./types";
 import { Helmet } from "react-helmet";
 import { Theme } from "../../context/theme";
 import { StoryProvider } from "../../context/story/story-context";
 import { ConfigProvider } from "../../context/config/config-context";
 import { getTokensFromAMPConfig } from "../../utils/theme";
-
 import styled from "styled-components";
 
 const Container = styled.main`
@@ -13,7 +12,7 @@ const Container = styled.main`
   position: relative;
 `;
 
-const Layout = ({ style, children, story, config }: Layout) => {
+const Layout = ({ style, children, story, config }: LayoutTypes) => {
   const tokens = getTokensFromAMPConfig(config.ampConfig);
   const embedCustomFonts = config.ampConfig.fonts;
   return (

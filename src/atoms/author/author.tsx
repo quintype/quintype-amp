@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Author } from "../../types/story";
+import { Author as AuthorTypesStory } from "../../types/story";
 import { AuthorProps } from "./types";
 import { Spacer } from "../spacer";
 
@@ -12,7 +12,7 @@ const StyledAuthor = styled.div`
   align-items: center;
 `;
 
-const getAuthorNames = (authors: Author[]) =>
+const getAuthorNames = (authors: AuthorTypesStory[]) =>
   authors.reduce((acc, author, index) => {
     if (authors.length === 1) {
       return `${author.name}`;

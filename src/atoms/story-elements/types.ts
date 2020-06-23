@@ -3,7 +3,9 @@ import { Config } from "../../types/config";
 
 export interface StoryElementProps {
   element: StoryElement;
-  style?: { [key: string]: string };
   story?: Story;
   config?: Config;
+  inlineStyles?: object;
+  style?: object;
+  theme?: object;
 }

@@ -7,4 +7,5 @@ export interface RelatedStoriesTypes {
   heading?: string;
   fallbackSrc?: string;
   aspectRatio?: number[];
+  inlineStyles?: object;
 }

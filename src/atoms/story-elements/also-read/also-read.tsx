@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { Spacer } from "../../spacer";
 import { withStoryAndConfig } from "../../../context";
 
-const StyledAlsoRead = styled.div`
+export const StyledAlsoRead = styled.div`
   display: flex;
   align-items: center;
   font-size: ${(props) => props.theme.font.size.xs};
@@ -21,15 +21,18 @@ const StyledAlsoRead = styled.div`
   }
 `;
 
-export const BaseAlsoRead = ({ element, story }: StoryElementProps) => {
+export const AlsoReadBase = ({ element, story, config }: StoryElementProps) => {
   const linkedStoryId = get(element, ["metadata", "linked-story-id"]);
   const linkedStory = get(story, ["linked-stories", linkedStoryId]);
+  const alsoReadRender = get(config, ["opts", "storyElementRender", "alsoReadRender"], null);
 
   if (!linkedStory) {
     return null;
   }
 
-  return (
+  return alsoReadRender ? (
+    alsoReadRender({ story, config })
+  ) : (
     <StyledAlsoRead>
       <Spacer token="m" align="horizontal" />
       <span>Also read: </span>
@@ -40,4 +43,4 @@ export const BaseAlsoRead = ({ element, story }: StoryElementProps) => {
   );
 };
 
-export const AlsoRead = withStoryAndConfig(BaseAlsoRead);
+export const AlsoRead = withStoryAndConfig(AlsoReadBase);

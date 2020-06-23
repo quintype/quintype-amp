@@ -3,4 +3,8 @@ export interface PublisherLogoHeaderTypes {
   publisherName: string;
   width?: string;
   height?: string;
+  inlineStyles?: object;
+}
+export interface StyledPublisherLogoHeaderTypes {
+  style?: object;
 }
