@@ -86,7 +86,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"></div><div class="category"><h2>Atoms</h2><h3>Components</h3><ul><li><a href="module-Author.html">Author</a></li></ul></div><div class="category"><h2>Helper</h2><h3>Global</h3><ul><li><a href="global.html#renderToString">renderToString</a></li></ul></div><div class="category"><h2>Molecules</h2><h3>Components</h3><ul><li><a href="module-HeaderCard.html">HeaderCard</a></li></ul></div><div class="category"><h2>StoryElements</h2><h3>Components</h3><ul><li><a href="module-Blurb.html">Blurb</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"></div><div class="category"><h2>Atoms</h2><h3>Components</h3><ul><li><a href="module-Author.html">Author</a></li></ul></div><div class="category"><h2>Helper</h2><h3>Global</h3><ul><li><a href="global.html#renderToString">renderToString</a></li></ul></div><div class="category"><h2>Molecules</h2><h3>Components</h3><ul><li><a href="module-HeaderCard.html">HeaderCard</a></li></ul></div><div class="category"><h2>StoryElements</h2><h3>Components</h3><ul><li><a href="module-AlsoRead.html">AlsoRead</a></li><li><a href="module-Answer.html">Answer</a></li><li><a href="module-Bigfact.html">Bigfact</a></li><li><a href="module-BlockQuote.html">BlockQuote</a></li><li><a href="module-Blurb.html">Blurb</a></li><li><a href="module-DailyMotionElement.html">DailyMotionElement</a></li><li><a href="module-Embed.html">Embed</a></li><li><a href="module-FacebookElement.html">FacebookElement</a></li><li><a href="module-ImageElement.html">ImageElement</a></li><li><a href="module-ImageGalleryElement.html">ImageGalleryElement</a></li><li><a href="module-InstagramElement.html">InstagramElement</a></li><li><a href="module-Question.html">Question</a></li><li><a href="module-Summary.html">Summary</a></li><li><a href="module-Text.html">Text</a></li><li><a href="module-Title.html">Title</a></li><li><a href="module-TwitterElement.html">TwitterElement</a></li><li><a href="module-VidibleElement.html">VidibleElement</a></li><li><a href="module-YouTube.html">YouTube</a></li></ul></div>
                 
             </nav>
         </div>
@@ -106,6 +106,8 @@
             <pre class="prettyprint source linenums"><code>import React from "react";
 import { StoryElementProps } from "../types";
 import styled from "styled-components";
+import { withStoryAndConfig } from "../../../context";
+import get from "lodash.get";
 
 const StyledBlurb = styled.blockquote`
   font-size: ${(props) => props.theme.font.size.m};
@@ -115,27 +117,46 @@ const StyledBlurb = styled.blockquote`
   border-left: 3px solid ${(props) => props.theme.color.mono7};
   padding: 0 ${(props) => props.theme.spacing.m};
 
-  // Applies when rendering direct html, fallback case
+  /* Applies when rendering direct html, fallback case */
   blockquote {
     margin: 0 ${(props) => props.theme.spacing.s};
   }
 `;
 
-/**
- * Blurb story element
- *
- * @category StoryElements
- * @module Blurb
- * @component
- */
-const Blurb = ({ element }: StoryElementProps) => {
+export const DefaultBlurb = ({ element }: StoryElementProps) => {
   if (element.metadata &amp;&amp; element.metadata.content) {
     return &lt;StyledBlurb>{element.metadata.content}&lt;/StyledBlurb>;
   }
   return &lt;StyledBlurb as="div" dangerouslySetInnerHTML={{ __html: element.text || "" }} />;
 };
 
-export { Blurb };
+export const BlurbBase = ({ element, story, config }: StoryElementProps) => {
+  const blurbRender = get(config, ["opts", "storyElementRender", "blurbRender"], null);
+
+  return blurbRender ? (
+    blurbRender({ story, config })
+  ) : (
+    &lt;DefaultBlurb element={element} story={story} config={config} />
+  );
+};
+
+/**
+ * Blurb is a story element.
+ * The look of the Blurb can be changed using the render prop blurbRender. In case blurbRender is passed in the config, it is rendered. Otherwise a default Blurb is rendered.
+ *
+ * ```javascript
+ * ...
+ * ampRoutes(app, {
+ *    blurbRender: ({ story, config }) => &lt;MyCustomBlurb story={story} config={config} />
+ * })
+ * ...
+ * ```
+ *
+ * @category StoryElements
+ * @module Blurb
+ * @component
+ */
+export const Blurb = withStoryAndConfig(BlurbBase);
 </code></pre>
         </article>
     </section>

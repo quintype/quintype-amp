@@ -7,7 +7,7 @@
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66074042-1', 'auto');ga('send', 'pageview');</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AMP Lib atoms/author/author.tsx</title>
+  <title>AMP Lib atoms/story-elements/image-element/image-element.tsx</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -94,7 +94,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>atoms/author/author.tsx</h1>
+                    <h1>atoms/story-elements/image-element/image-element.tsx</h1>
                 </header>
                 
 
@@ -104,54 +104,64 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React from "react";
-import styled from "styled-components";
-import { Author as AuthorTypesStory } from "../../types/story";
-import { AuthorProps } from "./types";
-import { Spacer } from "../spacer";
 
-const StyledAuthor = styled.div`
-  font-family: ${(props) => props.theme.font.family.secondary};
-  font-size: ${(props) => props.theme.font.size.tiny};
-  font-weight: bold;
-  display: flex;
-  align-items: center;
+import { Image } from "../../image";
+import { media } from "../../../utils/media";
+import { StoryElementProps } from "../types";
+import styled from "styled-components";
+import { withStoryAndConfig } from "../../../context";
+import get from "lodash.get";
+
+const StyledFigCaption = styled.figcaption`
+  text-align: left;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px;
+  max-height: 90px;
+  color: ${(props) => props.theme.color.white};
+  line-height: ${(props) => props.theme.font.lineHeight.level1};
+  background: ${(props) => `${props.theme.color.black}90`};
+  font-size: ${(props) => props.theme.font.size.xxs};
+  z-index: ${(props) => props.theme.zIndex.z100};
+
+  ${media.laptop`
+		max-height: 130px;
+		overflow-y: scroll;
+	`}
 `;
 
-const getAuthorNames = (authors: AuthorTypesStory[]) =>
-  authors.reduce((acc, author, index) => {
-    if (authors.length === 1) {
-      return `${author.name}`;
-    } else if (index === authors.length - 2) {
-      return `${acc} ${author.name}`;
-    } else if (index === authors.length - 1) {
-      return `${acc} &amp; ${author.name}`;
-    } else if (index &lt; authors.length) {
-      return `${acc} ${author.name},`;
-    }
-    return "";
-  }, "");
+export const ImageElementBase = ({ element, story, config }: StoryElementProps) => {
+  const imageElementRender = get(config, ["opts", "storyElementRender", "imageElementRender"], null);
 
-/**
- * Author Component - displays all authors passed as an array
- *
- * @category Atoms
- * @module Author
- * @component
- * @param {AuthorProps} props
- * @param {Author[]} props.authors Array containing details about all authors of the story. Comes from Story API
- * @param {(string | React.Component)} props.prepend Optional. Used to prepend either some string or a component containing some icon to authors.
- */
-const Author = ({ authors, prepend }: AuthorProps) => {
-  return (
-    &lt;StyledAuthor>
-      {prepend &amp;&amp; prepend}
-      {prepend &amp;&amp; &lt;Spacer token="m" align="horizontal" />}
-      {getAuthorNames(authors)}
-    &lt;/StyledAuthor>
+  return imageElementRender ? (
+    imageElementRender({ story, config })
+  ) : (
+    &lt;Image slug={element["image-s3-key"]} metadata={element["image-metadata"]}>
+      {element.title &amp;&amp; element.title.length > 1 &amp;&amp; &lt;StyledFigCaption>{element.title}&lt;/StyledFigCaption>}
+    &lt;/Image>
   );
 };
 
-export { Author };
+/**
+ * ImageElement is a story element.
+ * The look of the ImageElement can be changed using the render prop imageElementRender. In case imageElementRender is passed in the config, it is rendered. Otherwise a default ImageElement is rendered.
+ *
+ * ```javascript
+ * ...
+ * ampRoutes(app, {
+ *    imageElementRender: ({ story, config }) => &lt;MyCustomImageElement story={story} config={config} />
+ * })
+ * ...
+ * ```
+ *
+ * @category StoryElements
+ * @module ImageElement
+ * @component
+ */
+
+export const ImageElement = withStoryAndConfig(ImageElementBase);
 </code></pre>
         </article>
     </section>

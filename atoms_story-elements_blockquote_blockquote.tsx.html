@@ -7,7 +7,7 @@
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66074042-1', 'auto');ga('send', 'pageview');</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AMP Lib atoms/author/author.tsx</title>
+  <title>AMP Lib atoms/story-elements/blockquote/blockquote.tsx</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -94,7 +94,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>atoms/author/author.tsx</h1>
+                    <h1>atoms/story-elements/blockquote/blockquote.tsx</h1>
                 </header>
                 
 
@@ -105,53 +105,125 @@
         <article>
             <pre class="prettyprint source linenums"><code>import React from "react";
 import styled from "styled-components";
-import { Author as AuthorTypesStory } from "../../types/story";
-import { AuthorProps } from "./types";
-import { Spacer } from "../spacer";
+import { StoryElementProps } from "../types";
+import { Spacer } from "../../spacer";
+import { withStoryAndConfig } from "../../../context";
+import get from "lodash.get";
 
-const StyledAuthor = styled.div`
-  font-family: ${(props) => props.theme.font.family.secondary};
-  font-size: ${(props) => props.theme.font.size.tiny};
-  font-weight: bold;
+const Wrapper = styled.div`
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  position: relative;
+
+  &amp;:before {
+    content: "\\201C";
+    font-size: ${(props) => props.theme.font.size.big};
+    font-weight: bold;
+    color: ${(props) => props.theme.color.mono7};
+    margin: 0 ${(props) => props.theme.spacing.s};
+    position: absolute;
+    top: 4px;
+  }
+`;
+const StyledBlockQuote = styled.blockquote`
+  padding: 0 0 0 50px;
+  margin: 0;
+  font-size: ${(props) => props.theme.font.size.l};
+  color: ${(props) => props.theme.color.mono6};
+  line-height: ${(props) => props.theme.font.lineHeight.level5};
+`;
+const StyledAttribution = styled.span`
+  color: ${(props) => props.theme.color.mono6};
+  font-size: ${(props) => props.theme.font.size.m};
+  font-weight: bold;
+  padding: 0 0 0 38px;
+  &amp;:before {
+    content: "-";
+    margin-right: 5px;
+  }
+`;
+const FallbackBlockQuote = styled.div`
+  div {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    &amp;:before {
+      content: "\\201C";
+      font-size: ${(props) => props.theme.font.size.big};
+      font-weight: bold;
+      color: ${(props) => props.theme.color.mono7};
+      margin: 0 ${(props) => props.theme.spacing.s};
+      position: absolute;
+      top: 4px;
+    }
+  }
+
+  blockquote {
+    padding: 0 0 0 50px;
+    margin: 0;
+    font-size: ${(props) => props.theme.font.size.l};
+    color: ${(props) => props.theme.color.mono6};
+    line-height: ${(props) => props.theme.font.lineHeight.level5};
+  }
+
+  .attribution {
+    text-align: right;
+    color: ${(props) => props.theme.color.mono6};
+    font-size: ${(props) => props.theme.font.size.m};
+    font-weight: bold;
+    &amp;:before {
+      content: "-";
+      margin-right: 5px;
+    }
+  }
 `;
 
-const getAuthorNames = (authors: AuthorTypesStory[]) =>
-  authors.reduce((acc, author, index) => {
-    if (authors.length === 1) {
-      return `${author.name}`;
-    } else if (index === authors.length - 2) {
-      return `${acc} ${author.name}`;
-    } else if (index === authors.length - 1) {
-      return `${acc} &amp; ${author.name}`;
-    } else if (index &lt; authors.length) {
-      return `${acc} ${author.name},`;
-    }
-    return "";
-  }, "");
+export const DefaultBlockQuote = ({ element }: StoryElementProps) => {
+  if (element.metadata) {
+    const { content, attribution } = element.metadata;
+    return (
+      &lt;Wrapper>
+        &lt;StyledBlockQuote>{content}&lt;/StyledBlockQuote>
+        {attribution &amp;&amp; attribution.length &amp;&amp; (
+          &lt;React.Fragment>
+            &lt;Spacer token="s" />
+            &lt;StyledAttribution>{attribution}&lt;/StyledAttribution>
+          &lt;/React.Fragment>
+        )}
+      &lt;/Wrapper>
+    );
+  }
 
-/**
- * Author Component - displays all authors passed as an array
- *
- * @category Atoms
- * @module Author
- * @component
- * @param {AuthorProps} props
- * @param {Author[]} props.authors Array containing details about all authors of the story. Comes from Story API
- * @param {(string | React.Component)} props.prepend Optional. Used to prepend either some string or a component containing some icon to authors.
- */
-const Author = ({ authors, prepend }: AuthorProps) => {
-  return (
-    &lt;StyledAuthor>
-      {prepend &amp;&amp; prepend}
-      {prepend &amp;&amp; &lt;Spacer token="m" align="horizontal" />}
-      {getAuthorNames(authors)}
-    &lt;/StyledAuthor>
-  );
+  return &lt;FallbackBlockQuote dangerouslySetInnerHTML={{ __html: element.text || "" }} />;
 };
 
-export { Author };
+export const BlockQuoteBase = ({ element, story, config }: StoryElementProps) => {
+  const blockquoteRender = get(config, ["opts", "storyElementRender", "blockquoteRender"], null);
+
+  return blockquoteRender ? (
+    blockquoteRender({ story, config })
+  ) : (
+    &lt;DefaultBlockQuote element={element} story={story} config={config} />
+  );
+};
+/**
+ * BlockQuote is a story element.
+ * The look of the BlockQuote can be changed using the render prop blockquoteRender. In case blockquoteRender is passed in the config, it is rendered. Otherwise a default BlockQuote is rendered.
+ *
+ * ```javascript
+ * ...
+ * ampRoutes(app, {
+ *    blockquoteRender: ({ story, config }) => &lt;MyCustomBlockQuote story={story} config={config} />
+ * })
+ * ...
+ * ```
+ *
+ * @category StoryElements
+ * @module BlockQuote
+ * @component
+ */
+export const BlockQuote = withStoryAndConfig(BlockQuoteBase);
 </code></pre>
         </article>
     </section>

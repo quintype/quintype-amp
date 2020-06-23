@@ -7,7 +7,7 @@
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66074042-1', 'auto');ga('send', 'pageview');</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AMP Lib atoms/author/author.tsx</title>
+  <title>AMP Lib atoms/story-elements/vidible-element/vidible-element.tsx</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -94,7 +94,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>atoms/author/author.tsx</h1>
+                    <h1>atoms/story-elements/vidible-element/vidible-element.tsx</h1>
                 </header>
                 
 
@@ -103,55 +103,80 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React from "react";
-import styled from "styled-components";
-import { Author as AuthorTypesStory } from "../../types/story";
-import { AuthorProps } from "./types";
-import { Spacer } from "../spacer";
+            <pre class="prettyprint source linenums"><code>// delivery\.vidible\.tv\/htmlembed\/pid=([^$]*)\/([^$]*).html\?vid=([^$]*)
+import React from "react";
+import { StoryElementProps } from "../types";
+import { O2PlayerTypes } from "../../o2-player/types";
+import { O2Player } from "../../o2-player";
+import { withStoryAndConfig } from "../../../context";
+import get from "lodash.get";
+type VidibleElementProps = StoryElementProps &amp; Omit&lt;O2PlayerTypes, "data-pid" | "data-bcid" | "data-vid">;
 
-const StyledAuthor = styled.div`
-  font-family: ${(props) => props.theme.font.family.secondary};
-  font-size: ${(props) => props.theme.font.size.tiny};
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-`;
+interface VidibleIds {
+  pid: string;
+  bcid: string;
+  vid: string;
+}
 
-const getAuthorNames = (authors: AuthorTypesStory[]) =>
-  authors.reduce((acc, author, index) => {
-    if (authors.length === 1) {
-      return `${author.name}`;
-    } else if (index === authors.length - 2) {
-      return `${acc} ${author.name}`;
-    } else if (index === authors.length - 1) {
-      return `${acc} &amp; ${author.name}`;
-    } else if (index &lt; authors.length) {
-      return `${acc} ${author.name},`;
-    }
-    return "";
-  }, "");
-
-/**
- * Author Component - displays all authors passed as an array
- *
- * @category Atoms
- * @module Author
- * @component
- * @param {AuthorProps} props
- * @param {Author[]} props.authors Array containing details about all authors of the story. Comes from Story API
- * @param {(string | React.Component)} props.prepend Optional. Used to prepend either some string or a component containing some icon to authors.
- */
-const Author = ({ authors, prepend }: AuthorProps) => {
-  return (
-    &lt;StyledAuthor>
-      {prepend &amp;&amp; prepend}
-      {prepend &amp;&amp; &lt;Spacer token="m" align="horizontal" />}
-      {getAuthorNames(authors)}
-    &lt;/StyledAuthor>
-  );
+export const getVidibleIDs = (url: string) => {
+  const match = /delivery\.vidible\.tv\/htmlembed\/pid=([^$]*)\/([^$]*).html\?vid=([^$]*)/.exec(url);
+  return match ? { pid: match[1], bcid: match[2], vid: match[3] } : null;
 };
 
-export { Author };
+export const DefaultVidibleElement = ({
+  element,
+  layout = "responsive",
+  width = "16",
+  height = "9",
+  "data-macros": dataMacros,
+  ...props
+}: VidibleElementProps) => {
+  const { metadata } = element;
+  let vidibleIds: VidibleIds | null = null;
+
+  if (metadata &amp;&amp; metadata["player-url"]) {
+    vidibleIds = getVidibleIDs(metadata["player-url"]);
+  }
+  return vidibleIds ? (
+    &lt;O2Player
+      data-pid={vidibleIds.pid}
+      data-bcid={vidibleIds.bcid}
+      data-vid={vidibleIds.vid}
+      data-macros={dataMacros ? dataMacros : "m.playback=click"}
+      layout={layout}
+      width={width}
+      height={height}
+      {...props}
+    />
+  ) : null;
+};
+
+export const VidibleElementBase = ({ element, story, config }: StoryElementProps) => {
+  const vidibleElementRender = get(config, ["opts", "storyElementRender", "vidibleElementRender"], null);
+
+  return vidibleElementRender ? (
+    vidibleElementRender({ story, config })
+  ) : (
+    &lt;DefaultVidibleElement element={element} story={story} config={config} />
+  );
+};
+/**
+ * VidibleElement is a story element.
+ * The look of the VidibleElement can be changed using the render prop vidibleElementRender. In case vidibleElementRender is passed in the config, it is rendered. Otherwise a default VidibleElement is rendered.
+ *
+ * ```javascript
+ * ...
+ * ampRoutes(app, {
+ *    vidibleElementRender: ({ story, config }) => &lt;MyCustomVidibleElement story={story} config={config} />
+ * })
+ * ...
+ * ```
+ *
+ * @category StoryElements
+ * @module VidibleElement
+ * @component
+ */
+export const VidibleElement = withStoryAndConfig(VidibleElementBase);
 </code></pre>
         </article>
     </section>

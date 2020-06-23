@@ -7,7 +7,7 @@
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66074042-1', 'auto');ga('send', 'pageview');</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AMP Lib atoms/author/author.tsx</title>
+  <title>AMP Lib atoms/story-elements/also-read/also-read.tsx</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -94,7 +94,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>atoms/author/author.tsx</h1>
+                    <h1>atoms/story-elements/also-read/also-read.tsx</h1>
                 </header>
                 
 
@@ -104,54 +104,66 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React from "react";
+import { StoryElementProps } from "../types";
+import get from "lodash.get";
 import styled from "styled-components";
-import { Author as AuthorTypesStory } from "../../types/story";
-import { AuthorProps } from "./types";
-import { Spacer } from "../spacer";
+import { Spacer } from "../../spacer";
+import { withStoryAndConfig } from "../../../context";
 
-const StyledAuthor = styled.div`
-  font-family: ${(props) => props.theme.font.family.secondary};
-  font-size: ${(props) => props.theme.font.size.tiny};
-  font-weight: bold;
+export const StyledAlsoRead = styled.div`
   display: flex;
   align-items: center;
+  font-size: ${(props) => props.theme.font.size.xs};
+  span {
+    font-weight: bold;
+  }
+  a {
+    color: ${(props) => props.theme.color.primaryColor};
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
 `;
 
-const getAuthorNames = (authors: AuthorTypesStory[]) =>
-  authors.reduce((acc, author, index) => {
-    if (authors.length === 1) {
-      return `${author.name}`;
-    } else if (index === authors.length - 2) {
-      return `${acc} ${author.name}`;
-    } else if (index === authors.length - 1) {
-      return `${acc} &amp; ${author.name}`;
-    } else if (index &lt; authors.length) {
-      return `${acc} ${author.name},`;
-    }
-    return "";
-  }, "");
+export const AlsoReadBase = ({ element, story, config }: StoryElementProps) => {
+  const linkedStoryId = get(element, ["metadata", "linked-story-id"]);
+  const linkedStory = get(story, ["linked-stories", linkedStoryId]);
+  const alsoReadRender = get(config, ["opts", "storyElementRender", "alsoReadRender"], null);
 
-/**
- * Author Component - displays all authors passed as an array
- *
- * @category Atoms
- * @module Author
- * @component
- * @param {AuthorProps} props
- * @param {Author[]} props.authors Array containing details about all authors of the story. Comes from Story API
- * @param {(string | React.Component)} props.prepend Optional. Used to prepend either some string or a component containing some icon to authors.
- */
-const Author = ({ authors, prepend }: AuthorProps) => {
-  return (
-    &lt;StyledAuthor>
-      {prepend &amp;&amp; prepend}
-      {prepend &amp;&amp; &lt;Spacer token="m" align="horizontal" />}
-      {getAuthorNames(authors)}
-    &lt;/StyledAuthor>
+  if (!linkedStory) {
+    return null;
+  }
+
+  return alsoReadRender ? (
+    alsoReadRender({ story, config })
+  ) : (
+    &lt;StyledAlsoRead>
+      &lt;Spacer token="m" align="horizontal" />
+      &lt;span>Also read: &lt;/span>
+      &lt;Spacer token="s" align="horizontal" />
+      &lt;a href={linkedStory.url}>{linkedStory.headline}&lt;/a>
+      &lt;Spacer token="m" align="horizontal" />
+    &lt;/StyledAlsoRead>
   );
 };
-
-export { Author };
+/**
+ * AlsoRead is a story element
+ * The look of the AlsoRead can be changed using the render prop alsoReadRender. In case alsoReadRender is passed in the config, it is rendered. Otherwise a default AlsoRead is rendered.
+ *
+ * ```javascript
+ * ...
+ * ampRoutes(app, {
+ *    alsoReadRender: ({ story, config }) => &lt;MyCustomAlsoRead story={story} config={config} />
+ * })
+ * ...
+ * ```
+ *
+ * @category StoryElements
+ * @module AlsoRead
+ * @component
+ */
+export const AlsoRead = withStoryAndConfig(AlsoReadBase);
 </code></pre>
         </article>
     </section>
