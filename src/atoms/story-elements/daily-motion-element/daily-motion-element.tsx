@@ -22,7 +22,7 @@ export const DailyMotionElementBase = ({
   if (!(metadata && metadata["video-id"])) return null;
 
   return dailyMotionRender ? (
-    dailyMotionRender({ story, config })
+    dailyMotionRender({ story, config, element })
   ) : (
     <DailyMotion data-videoid={metadata["video-id"]} layout={layout} width={width} height={height} {...props} />
   );
@@ -32,10 +32,15 @@ export const DailyMotionElementBase = ({
  * DailyMotionElement is a story element.
  * The look of the DailyMotionElement can be changed using the render prop dailyMotionRender. In case dailyMotionRender is passed in the config, it is rendered. Otherwise a default DailyMotionElement is rendered.
  *
+ * @param {Object} params object containing parameters passed to the render prop
+ * @param {Object} params.story story object
+ * @param {Object} params.config config object
+ * @param {Object} params.element the story element. This is same as the story element found in the story API response
+ *
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    dailyMotionRender: ({ story, config }) => <MyCustomDailyMotionElement story={story} config={config} />
+ *    dailyMotionRender: ({ story, config, element }) => <MyCustomDailyMotionElement story={story} config={config} storyElement={element} />
  * })
  * ...
  * ```

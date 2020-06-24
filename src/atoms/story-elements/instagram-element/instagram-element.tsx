@@ -34,7 +34,7 @@ export const DefaultInstagramElement = ({
 export const InstagramElementBase = ({ element, story, config }: StoryElementProps) => {
   const instagramElementRender = get(config, ["opts", "storyElementRender", "instagramElementRender"], null);
   return instagramElementRender ? (
-    instagramElementRender({ story, config })
+    instagramElementRender({ story, config, element })
   ) : (
     <DefaultInstagramElement element={element} />
   );
@@ -43,10 +43,15 @@ export const InstagramElementBase = ({ element, story, config }: StoryElementPro
  * InstagramElement is a story element.
  * The look of the InstagramElement can be changed using the render prop instagramElementRender. In case instagramElementRender is passed in the config, it is rendered. Otherwise a default InstagramElement is rendered.
  *
+ * @param {Object} params object containing parameters passed to the render prop
+ * @param {Object} params.story story object
+ * @param {Object} params.config config object
+ * @param {Object} params.element the story element. This is same as the story element found in the story API response
+ *
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    instagramElementRender: ({ story, config }) => <MyCustomInstagramElement story={story} config={config} />
+ *    instagramElementRender: ({ story, config, element }) => <MyCustomInstagramElement story={story} config={config} storyElement={element} />
  * })
  * ...
  * ```

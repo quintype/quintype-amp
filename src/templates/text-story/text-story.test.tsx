@@ -17,20 +17,18 @@ describe("TextStory Template", () => {
   });
   it("should render infinite scroll component if exists", () => {
     const modifiedConfig = cloneDeep(config);
-    modifiedConfig.ampConfig["related-collection-id"] = "1234"; // !!!! change to infinite-scroll-collection-id later
     const wrapper = shallow(
       <TextStory
         story={textStory}
         config={modifiedConfig}
         relatedStories={relatedStories}
-        infiniteScrollInlineConfig="foo"
+        infiniteScrollInlineConfig={`[{\"image\":\"https://foo.com/puppies.jpg\",\"title\":\"Puppies Page\",\"url\":\"/puppies\"}]`}
       />
     );
     expect(wrapper.find(InfiniteScroll).length).toBe(1);
   });
   it("should not render infinite scroll component if infinite-scroll-collection-id not passed in ampconfig", () => {
     const modifiedConfig = cloneDeep(config);
-    modifiedConfig.ampConfig["related-collection-id"] = null; // !!!! change to infinite-scroll-collection-id later
     const wrapper = shallow(<TextStory story={textStory} config={modifiedConfig} relatedStories={relatedStories} />);
     expect(wrapper.find(InfiniteScroll).length).toBe(0);
   });

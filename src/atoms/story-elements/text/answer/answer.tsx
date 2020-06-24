@@ -13,7 +13,7 @@ export const StyledAnswer = styled.p<StoryElementProps>`
 export const AnswerBase = ({ element, story, config }: StoryElementProps) => {
   const answerElementRender = get(config, ["opts", "storyElementRender", "answerElementRender"], null);
   return answerElementRender ? (
-    answerElementRender({ story, config })
+    answerElementRender({ story, config, element })
   ) : (
     <StyledAnswer
       element={element}
@@ -28,10 +28,15 @@ export const AnswerBase = ({ element, story, config }: StoryElementProps) => {
  * Answer is a story element.
  * The look of the Answer can be changed using the render prop answerElementRender. In case answerElementRender is passed in the config, it is rendered. Otherwise a default Answer is rendered.
  *
+ * @param {Object} params object containing parameters passed to the render prop
+ * @param {Object} params.story story object
+ * @param {Object} params.config config object
+ * @param {Object} params.element the story element. This is same as the story element found in the story API response
+ *
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    answerElementRender: ({ story, config }) => <MyCustomAnswer story={story} config={config} />
+ *    answerElementRender: ({ story, config, element }) => <MyCustomAnswer story={story} config={config} storyElement={element} />
  * })
  * ...
  * ```
