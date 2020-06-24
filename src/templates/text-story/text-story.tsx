@@ -28,9 +28,9 @@ const Wrapper = styled.div`
   padding: 0 ${(props) => props.theme.spacing.s};
 `;
 const canDisplayBodyAd = (cardIdx) => cardIdx === 0;
-const TextStory = ({ story, config, relatedStories, infiniteScrollInlineConfig = "" }: TextStoryTypes) => {
+const TextStory = ({ story, config, relatedStories, infiniteScrollInlineConfig }: TextStoryTypes) => {
   const footerText = get(config, ["publisherConfig", "publisher-settings", "copyright"], null);
-  const infiniteScrollExists = infiniteScrollInlineConfig.length; // should also check if infinite scroll collection exists here
+  const infiniteScrollExists = infiniteScrollInlineConfig && infiniteScrollInlineConfig.length; // should also check if infinite scroll collection exists here
   let lastComponent = <Footer text={footerText} />;
   if (infiniteScrollExists) {
     if (config.opts && config.opts.infiniteScrollRender) {

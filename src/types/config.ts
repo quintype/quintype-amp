@@ -164,5 +164,5 @@ interface RelatedStoriesRenderPropTypes {
 interface InfiniteScrollRenderPropTypes {
   story: Story;
   config: Config;
-  inlineConfig: string;
+  inlineConfig?: string;
 }

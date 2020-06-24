@@ -1577,9 +1577,7 @@ exports[`TextStory Template should render 1`] = `
     }
   }
 >
-  <div
-    next-page-hide={0}
-  >
+  <div>
     <WithTheme(Component) />
   </div>
   <Component />
