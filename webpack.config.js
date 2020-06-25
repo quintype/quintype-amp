@@ -1,9 +1,8 @@
 const path = require("path");
 
-module.exports = {
+const baseConfig = {
   entry: "./src/index.ts",
   target: "node",
-  mode: "production",
   module: {
     rules: [
       {
@@ -21,4 +20,15 @@ module.exports = {
     library: "amp"
   },
   plugins: []
+};
+
+module.exports = (env, argv) => {
+  if (argv.mode === "development") {
+    return {
+      ...baseConfig,
+      devtool: "eval-source-map"
+    };
+  } else {
+    return baseConfig;
+  }
 };

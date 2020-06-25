@@ -9,7 +9,7 @@ case $ISPROD in
   y)
     npm install
     npm run jest
-    npm run build
+    npm run build:prod
     git diff --quiet
     npm run docs:deploy
     npx standard-version
