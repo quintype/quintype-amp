@@ -19,11 +19,13 @@ export function renderToString(component, seo = "") {
   try {
     const { title, script, customStyles, link, metaTags } = getHeadTagsFromHelmet(component);
     const { htmlStr, styles } = getHtmlAndStyledComponentsStyles(component);
-    const seoStr = `${title}\n${link}\n${metaTags}\n${seo}\n`;
+    const seoStr = `${metaTags}\n${link}\n${seo}\n`;
     str += `${headStart}\n`;
     str += `${seoStr}\n`;
     str += `${script}\n`;
     str += `<style amp-custom>\n${customStyles}\n${styles}\n</style>`;
+    str += `${ampBoilerplate}`;
+    str += `${title}\n`;
     str += `${headEndBodyStart}\n`;
     str += `${htmlStr}\n`;
     str += `${bodyEnd}`;
@@ -64,7 +66,7 @@ const headStart = `<!doctype html>
     <meta charset="utf-8">\n
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">\n
     <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">\n
-    <script async src="https://cdn.ampproject.org/v0.js"></script>\n
-    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>\n`;
+    <script async src="https://cdn.ampproject.org/v0.js"></script>\n`;
+const ampBoilerplate = `<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>\n`;
 const headEndBodyStart = `</head>\n<body>`;
 const bodyEnd = `</body>\n</html>`;
