@@ -24,12 +24,12 @@ interface FBConfig {
 }
 
 interface Colors {
-  primary: string;
-  secondary: string;
-  "footer-background": string;
-  "footer-text-color": string;
-  "header-background": string;
-  "section-text-color": string;
+  primary?: string;
+  secondary?: string;
+  "footer-background"?: string;
+  "footer-text-color"?: string;
+  "header-background"?: string;
+  "section-text-color"?: string;
 }
 
 export interface AMPConfig {
