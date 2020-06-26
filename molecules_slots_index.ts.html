@@ -7,7 +7,7 @@
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66074042-1', 'auto');ga('send', 'pageview');</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AMP Lib atoms/story-elements/twitter-element/twitter-element.tsx</title>
+  <title>AMP Lib molecules/slots/index.ts</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -94,7 +94,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>atoms/story-elements/twitter-element/twitter-element.tsx</h1>
+                    <h1>molecules/slots/index.ts</h1>
                 </header>
                 
 
@@ -103,49 +103,92 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React from "react";
-import { StoryElementProps } from "../types";
-import { Twitter } from "../../twitter";
-import { TwitterTypes } from "../../twitter/types";
-import { withStoryAndConfig } from "../../../context";
-import get from "lodash.get";
+            <pre class="prettyprint source linenums"><code>import * as StoryPageSlots from "./story-page-slots";
 
-type TwitterElementProps = StoryElementProps &amp; Omit&lt;TwitterTypes, "data-tweetid">;
-
-export const TwitterElementBase = ({ element, story, config, ...props }: TwitterElementProps) => {
-  const { metadata } = element;
-  const twitterElementRender = get(config, ["opts", "storyElementRender", "twitterElementRender"], null);
-
-  if (!(metadata &amp;&amp; metadata["tweet-id"])) return null;
-
-  return twitterElementRender ? (
-    twitterElementRender({ story, config, element })
-  ) : (
-    &lt;Twitter data-tweetid={metadata["tweet-id"]} {...props} />
-  );
-};
 /**
- * TwitterElement is a story element.
- * The look of the TwitterElement can be changed using the render prop twitterElementRender. In case twitterElementRender is passed in the config, it is rendered. Otherwise a default TwitterElement is rendered.
+ * Slots can be thought of as windows that let the user "slot in" whatever he/she needs. They are nothing but render props.
+ * In story page, we have two slots - the [top slot]{@link module:TopSlot} and the bottom slot [bottom slot]{@link module:BottomSlot}
+ *
+ * the render props needed for slots need to be passed in opts object to ampRoutes function.
+ * Please note that in the render prop, `&lt;Layout />` has to be the outermost component, since it's the context provider. It needs mandatory props story and config, that are given by the render prop as parameter (refer below code for clarity)
  *
  * @param {Object} params object containing parameters passed to the render prop
- * @param {Object} params.story story object
- * @param {Object} params.config config object
- * @param {Object} params.element the story element. This is same as the story element found in the story API response
+ * @param {Story} params.story story object
+ * @param {Config} params.config config object
  *
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    twitterElementRender: ({ story, config, element }) => &lt;MyCustomTwitterElement story={story} config={config} storyElement={element}  />
+ *    slots: {
+ *      story: {
+ *        "top-slot": ({story, config}) => &lt;MyTopSlot story={story} config={config} />
+ *        "bottom-slot": ({story, config}) => &lt;MyBottomSlot story={story} config={config} />
+ *      }
+ *    }
  * })
  * ...
+ *
+ * import { AMP } from "@quintype/amp";
+ * const { Layout, Head, Spacer, DateUpdated, DateLastPublished } = AMP;
+ *
+ * const MyTopSlot = ({ story, config }) => (
+ *  &lt;Layout story={story} config={config}>
+ *    &lt;Head>
+ *      &lt;script
+ *        async={undefined}
+ *        custom-element="amp-date-countdown"
+ *        src="https://cdn.ampproject.org/v0/amp-date-countdown-0.1.js"
+ *      />
+ *      &lt;script
+ *        async={undefined}
+ *        custom-template="amp-mustache"
+ *        src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"
+ *      />
+ *      &lt;style>{`
+ *        .ts_wrapper {
+ *          background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+ *          filter: brightness(0.9);
+ *          margin: 15px 0;
+ *          line-height: 50px;
+ *          text-align: center;
+ *          display: block;
+ *          color: white;
+ *        }
+ *      `}&lt;/style>
+ *      &lt;style>{`
+ *        .ts_a {
+ *          color: inherit;
+ *        }
+ *      `}&lt;/style>
+ *    &lt;/Head>
+ *    &lt;div>This is the top slot&lt;/div>
+ *    &lt;div>
+ *      &lt;DateLastPublished prepend="Published:" />
+ *      &lt;Spacer token="m" align="horizontal" />
+ *      &lt;DateUpdated prepend="Updated:" />
+ *    &lt;/div>
+ *    &lt;div
+ *      dangerouslySetInnerHTML={{
+ *        __html: `&lt;amp-date-countdown height="100" class="ts_wrapper" timestamp-seconds="2147483648"
+ *        layout="fixed-height">
+ *        &lt;template type="amp-mustache">
+ *          &lt;div>This is the top slot&lt;/div>
+ *          &lt;div>
+ *            {{d}} days, {{h}} hours, {{m}} minutes and {{s}} seconds until &lt;a class="ts_a" href="https://en.wikipedia.org/wiki/Year_2038_problem">Y2K38&lt;/a>.
+ *          &lt;/div>
+ *        &lt;/template>
+ *      &lt;/amp-date-countdown>`
+ *      }}
+ *    />
+ *  &lt;/Layout>
+ * );
  * ```
  *
- * @category StoryElements
- * @module TwitterElement
- * @component
+ * @category Atoms
+ * @module Slots
  */
-export const TwitterElement = withStoryAndConfig(TwitterElementBase);
+
+export { StoryPageSlots };
 </code></pre>
         </article>
     </section>
