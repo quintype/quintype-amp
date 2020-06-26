@@ -16,6 +16,8 @@ const SocialShareHeader = ({ fbAppId }: SocialShareHeaderProps) => {
       <SocialShareIcon type="facebook" styles={styles} fbAppId={fbAppId} />
       <Spacer align="horizontal" token="m" />
       <SocialShareIcon type="whatsapp" styles={styles} />
+      <Spacer align="horizontal" token="m" />
+      <SocialShareIcon type="system" styles={styles} />
     </Wrapper>
   );
 };
