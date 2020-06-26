@@ -37,5 +37,18 @@ exports[`SocialShareHeader should render 1`] = `
     }
     type="whatsapp"
   />
+  <Spacer
+    align="horizontal"
+    token="m"
+  />
+  <Component
+    styles={
+      Object {
+        "backgroundSize": "75%",
+        "borderRadius": "50%",
+      }
+    }
+    type="system"
+  />
 </styled.div>
 `;
