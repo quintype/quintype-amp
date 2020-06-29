@@ -35,7 +35,7 @@ describe("Carousel", () => {
   });
   it("should render carousel images with width and height", () => {
     const wrapper = mount(
-      <Carousel height="300" width="500" layout="responsive" type="slides">
+      <Carousel height="300" width="1200" layout="responsive" type="slides">
         {sampleImages}
       </Carousel>
     );
@@ -45,7 +45,7 @@ describe("Carousel", () => {
   });
   it("should render carousel with lightbox images", () => {
     const wrapper = mount(
-      <Carousel height="300" width="500" layout="responsive" type="carousel" lightbox={true}>
+      <Carousel height="300" width="1200" layout="responsive" type="carousel" lightbox={true}>
         {sampleImages}
       </Carousel>
     );
