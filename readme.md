@@ -28,7 +28,7 @@ To work on a feature
 3. Once done, open a PR. Get changes reviewed & approved.
 4. Once approved, run npm publish on feature branch and do a prod release
 5. Push changes to remote
-6. Squash and merge to Master
+6. Squash and merge to Master.
 
 ### API Reference
 
