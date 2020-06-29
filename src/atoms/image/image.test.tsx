@@ -40,12 +40,12 @@ describe("Image", () => {
         metadata={metadata}
         slug={s3key}
         aspectRatio={aspectRatio}
-        // width={"500"}
+        width={"500"}
         height={"500"}
       />
     );
     expect(wrapper.find(`amp-img`).prop("height")).toBe("500");
-    // expect(wrapper.find(`amp-img`).prop("width")).toBe("500");
+    expect(wrapper.find(`amp-img`).prop("width")).toBe("500");
     expect(wrapper.find(`amp-img`).prop("layout")).toBe("fixed");
   });
   it("should render nodisplay layout", () => {
@@ -61,11 +61,11 @@ describe("Image", () => {
     );
     expect(wrapper.find(`amp-img`).prop("layout")).toBe("nodisplay");
   });
-  it("should render responsive layout by default and set width, height from metadata", () => {
+  it("should render responsive layout by default and set width, height from hardcoded values", () => {
     const wrapper = shallow(<BaseImage metadata={metadata} slug={s3key} alt="Sample Image" config={config} />);
     expect(wrapper.find(`amp-img`).prop("layout")).toBe("responsive");
-    // expect(wrapper.find(`amp-img`).prop("width")).toBe(metadata.width.toString());
-    expect(wrapper.find(`amp-img`).prop("height")).toBe(metadata.height.toString());
+    expect(wrapper.find(`amp-img`).prop("width")).toBe("1200");
+    expect(wrapper.find(`amp-img`).prop("height")).toBe("750");
   });
   it("Should add lightbox attribute and amp-lightbox-gallery script by default", () => {
     const wrapper = shallow(<BaseImage metadata={metadata} slug={s3key} alt="Sample Image" config={config} />);

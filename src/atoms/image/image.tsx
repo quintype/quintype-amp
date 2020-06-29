@@ -35,17 +35,16 @@ export const BaseImage = ({
       value.height = height;
       break;
     case "fixed" || "intrinsic":
-      value.width = "1200";
+      value.width = width;
       value.height = height;
       break;
     case "nodisplay" || "fill" || "flex-item":
       value.height = "";
       value.width = "";
     case "responsive":
-      value.width = "1200".toString();
-      value.height = imgAspectRatio[1].toString();
+      value.width = "1200";
+      value.height = "750";
   }
-
   return lightbox ? (
     <Fragment>
       <LightboxGallery />
