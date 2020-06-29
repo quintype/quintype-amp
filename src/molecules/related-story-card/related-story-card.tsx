@@ -62,7 +62,7 @@ const ImageForStory = ({ metadata, s3Key, aspectRatio, altText, fallbackSrc }: I
     ) : (
       <amp-img
         alt={altText || "fallback image"}
-        width={aspectRatio[0]}
+        width={"1200"}
         height={aspectRatio[1]}
         layout="responsive"
         src={fallbackSrc}

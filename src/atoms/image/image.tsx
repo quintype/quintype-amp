@@ -35,14 +35,14 @@ export const BaseImage = ({
       value.height = height;
       break;
     case "fixed" || "intrinsic":
-      value.width = width;
+      value.width = "1200";
       value.height = height;
       break;
     case "nodisplay" || "fill" || "flex-item":
       value.height = "";
       value.width = "";
     case "responsive":
-      value.width = imgAspectRatio[0].toString();
+      value.width = "1200".toString();
       value.height = imgAspectRatio[1].toString();
   }
 
