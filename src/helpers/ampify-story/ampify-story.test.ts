@@ -4,7 +4,15 @@
 
 import { ampifyStory } from "./ampify-story";
 import { isValidAmpHtml } from "../../utils/validate-amp";
-import { storyWithManyJsEmbeds, publisherConfig, ampConfig, relatedStories, configOpts, seo } from "../../__fixtures__";
+import {
+  allElementsStory,
+  storyWithManyJsEmbeds,
+  publisherConfig,
+  ampConfig,
+  relatedStories,
+  configOpts,
+  seo
+} from "../../__fixtures__";
 import { sampleTextStory } from "./sampleTextStory";
 
 describe("Ampify Story with custom opts", () => {
@@ -27,7 +35,7 @@ describe("Ampify Story with custom opts", () => {
 
   it("ampifyStory function should return valid amp-html", async () => {
     const ampHtml = ampifyStory({
-      story: storyWithManyJsEmbeds,
+      story: allElementsStory,
       publisherConfig,
       ampConfig,
       opts: configOpts,

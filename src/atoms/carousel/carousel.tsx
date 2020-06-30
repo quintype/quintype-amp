@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { CarouselTypes } from "./types";
 import { LightboxGallery } from "../lightbox-gallery";
 
-export const Carousel = ({ children, ...props }: CarouselTypes) => {
+export const Carousel = (props: CarouselTypes) => {
   return (
     <Fragment>
       <Helmet>
@@ -14,7 +14,7 @@ export const Carousel = ({ children, ...props }: CarouselTypes) => {
         />
       </Helmet>
       {props.lightbox && <LightboxGallery />}
-      <amp-carousel {...props}>{children}</amp-carousel>
+      <amp-carousel {...props} />
     </Fragment>
   );
 };
