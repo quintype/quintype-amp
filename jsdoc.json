@@ -20,7 +20,7 @@
     "destination": "docs/",
     "recurse": true,
     "verbose": true,
-    "tutorials": false,
+    "tutorials": "./docs-src/tutorials",
     "readme": "./docs-src/home.md",
     "template": "node_modules/better-docs"
   },
