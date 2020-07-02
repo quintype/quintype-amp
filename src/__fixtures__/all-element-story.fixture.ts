@@ -153,6 +153,97 @@ const allElementsStory = {
         },
         {
           description: "",
+          "page-url": "/story/af018d6b-2166-4344-b167-40405a148e41/element/a50b2136-c18b-4dd9-a2b2-0df96e2c253a",
+          type: "composite",
+          "family-id": "88e7df74-fe20-42ad-b5aa-54de86108fc4",
+          "story-elements": [
+            {
+              description: "",
+              "image-metadata": {
+                width: 656,
+                height: 280
+              },
+              type: "image",
+              "family-id": "fae56324-4c23-45b7-baac-81da10ae5ff6",
+              "image-attribution": "Attribution of an imitation game",
+              title: "Chase: An Imitation Game - A Story On Dharavi's Fake Leather Bags",
+              id: "5c375339-5fb0-481a-a811-ae271d894b3b",
+              "image-s3-key":
+                "ace/2020-03/ad503d63-4d05-41e6-9722-fdfe3acb2405/handwashing_8_wide_eb1f71948877c7a15d27a82cd7d90b324b956a89.jpg",
+              metadata: {},
+              subtype: null
+            },
+            {
+              description: "",
+              "image-metadata": {
+                width: 326,
+                height: 155
+              },
+              type: "image",
+              "family-id": "953a1d2c-d52d-4b13-8af5-969e74813197",
+              "image-attribution": "Ramsharan Gorur Jayaraman",
+              title: "Caption",
+              id: "48b14295-99ed-4fc8-ad99-4cb1d85a29ae",
+              "image-s3-key": "ace/2019-06/051658dc-43f0-4945-92bd-f2da2a206e40/panda.jpg",
+              metadata: {},
+              subtype: null
+            }
+          ],
+          title: "",
+          id: "a50b2136-c18b-4dd9-a2b2-0df96e2c253a",
+          metadata: {
+            type: "slideshow"
+          },
+          subtype: "image-gallery"
+        },
+        {
+          description: "",
+          "page-url": "/story/af018d6b-2166-4344-b167-40405a148e41/element/db5dd415-e4e1-41f8-83af-48f771fe22ec",
+          type: "composite",
+          "family-id": "015f0be5-428f-47f2-86ff-fba42be6c77b",
+          "story-elements": [
+            {
+              description: "",
+              "image-metadata": {
+                width: 1200,
+                height: 520
+              },
+              type: "image",
+              "family-id": "6532027a-f855-474c-8651-dbdd96de3b39",
+              "image-attribution": "",
+              title: "Are college interviews now a saffron litmus test?",
+              id: "36452445-2155-496a-b471-de48870b713a",
+              "image-s3-key": "ace/2019-06/051658dc-43f0-4945-92bd-f2da2a206e40/panda.jpg",
+              metadata: {},
+              subtype: null
+            },
+            {
+              description: "",
+              "image-metadata": {
+                width: 3128,
+                height: 3910,
+                "focus-point": [350, 3166]
+              },
+              type: "image",
+              "family-id": "e343544a-93b4-43d8-bc52-2c3a63adeac7",
+              "image-attribution": "unsplash",
+              title: "Traffic cones",
+              id: "0898278c-9fac-4685-a0ae-d9caf8c1e7a7",
+              "image-s3-key":
+                "ace/2020-03/ad503d63-4d05-41e6-9722-fdfe3acb2405/handwashing_8_wide_eb1f71948877c7a15d27a82cd7d90b324b956a89.jpg",
+              metadata: {},
+              subtype: null
+            }
+          ],
+          title: "",
+          id: "db5dd415-e4e1-41f8-83af-48f771fe22ec",
+          metadata: {
+            type: "gallery"
+          },
+          subtype: "image-gallery"
+        },
+        {
+          description: "",
           "embed-js":
             "PGlmcmFtZSBoZWlnaHQ9IjI2NSIgc3R5bGU9IndpZHRoOiAxMDAlOyIgc2Nyb2xsaW5nPSJubyIgdGl0bGU9ImxpZ2h0IGJ1bGIiIHNyYz0iaHR0cHM6Ly9jb2RlcGVuLmlvL3ZsYWRpc3NsYXd3dy9lbWJlZC9wb2p2enFaP2hlaWdodD0yNjUmdGhlbWUtaWQ9ZGFyayZkZWZhdWx0LXRhYj1odG1sLHJlc3VsdCIgZnJhbWVib3JkZXI9Im5vIiBhbGxvd3RyYW5zcGFyZW5jeT0idHJ1ZSIgYWxsb3dmdWxsc2NyZWVuPSJ0cnVlIiBsb2FkaW5nPSJsYXp5Ij4KICBTZWUgdGhlIFBlbiA8YSBocmVmPSdodHRwczovL2NvZGVwZW4uaW8vdmxhZGlzc2xhd3d3L3Blbi9wb2p2enFaJz5saWdodCBidWxiPC9hPiBieSB2bGFkaXNzbGF3dwogICg8YSBocmVmPSdodHRwczovL2NvZGVwZW4uaW8vdmxhZGlzc2xhd3d3Jz5AdmxhZGlzc2xhd3d3PC9hPikgb24gPGEgaHJlZj0naHR0cHM6Ly9jb2RlcGVuLmlvJz5Db2RlUGVuPC9hPi4KPC9pZnJhbWU+",
           "page-url": "/story/05066b94-784b-4913-971b-c01a1bcfb43d/element/5bf7ba6d-9a51-41f2-b919-47539c4a5acd",

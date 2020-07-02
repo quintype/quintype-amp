@@ -87,7 +87,7 @@ export const ImageGalleryElementBase = ({ element, story, config }: StoryElement
   return imageGalleryElementRender ? (
     imageGalleryElementRender({ story, config, element })
   ) : (
-    <DefaultImageGalleryElement element={element} story={story} config={config} />
+    <DefaultImageGalleryElement element={element} />
   );
 };
 
