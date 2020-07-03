@@ -1,2 +1,2 @@
-import { TextStory } from "./text-story/text-story";
-export { TextStory };
+import { GenericStory } from "./generic-story/generic-story";
+export { GenericStory };
