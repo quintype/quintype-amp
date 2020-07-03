@@ -53,4 +53,14 @@ storiesOf("HeroImage", module)
   })
   .add("HeroImage with custom attributes - with no caption and no attribution", () => {
     return <HeroImage caption={null} attribution={null} slug={customS3Key} metadata={customMetadata} />;
+  })
+  .add("HeroImage with custom attributes wrapped in HTML Tags", () => {
+    return (
+      <HeroImage
+        caption="<p>Congress, AAP and AIMIM leaders</p>"
+        attribution="<span>custom attribution</span>"
+        slug={customS3Key}
+        metadata={customMetadata}
+      />
+    );
   });

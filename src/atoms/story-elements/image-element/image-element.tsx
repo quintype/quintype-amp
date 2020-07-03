@@ -29,7 +29,7 @@ const StyledFigCaption = styled.figcaption`
 
 export const ImageElementBase = ({ element, story, config }: StoryElementProps) => {
   const imageElementRender = get(config, ["opts", "storyElementRender", "imageElementRender"], null);
-
+  element.title = element.title && element.title.replace(/(<([^>]+)>)/gi, "");
   return imageElementRender ? (
     imageElementRender({ story, config, element })
   ) : (

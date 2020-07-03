@@ -44,4 +44,9 @@ describe("Image Element", () => {
     expect(imageElementRender.mock.calls.length).toBe(1);
     expect(wrapper.find(Image).length).toBe(0);
   });
+  it("should render fig caption with caption wrapped inside an HTML Tag", () => {
+    const sampleImageElementWithHTMLTagCaption = { ...sampleImageElement, title: "<p>Wash your hands</p>" };
+    const wrapper = shallow(<ImageElement element={sampleImageElementWithHTMLTagCaption} />);
+    expect(wrapper).toMatchSnapshot();
+  });
 });

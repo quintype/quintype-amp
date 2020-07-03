@@ -54,6 +54,7 @@ export const HeroImageBase = ({ story, attribution, slug, metadata, caption }: H
     imageProps.attribution = ATTRIBUTION;
     figcaptionText = getFigcaptionText(CAPTION, ATTRIBUTION);
   }
+  figcaptionText = figcaptionText && figcaptionText.replace(/(<([^>]+)>)/gi, "");
   return (
     <div>
       <Image {...imageProps}>{figcaptionText && <StyledFigcaption>{figcaptionText}</StyledFigcaption>}</Image>
