@@ -1,9 +1,5 @@
 # ⚡ Quintype Amp ⚡
 
-### To Start Storybook:
-
-`npm run storybook`
-
 ### Note about writing commit messages
 
 It's important to follow [these guidelines](https://www.conventionalcommits.org/en/v1.0.0/), as versions (major/minor/patch) are released based on commit messages
@@ -29,6 +25,13 @@ To work on a feature
 4. Once approved, run npm publish on feature branch and do a prod release
 5. Push changes to remote
 6. Squash and merge to Master.
+
+### Useful NPM scripts
+
+- **storybook** starts storybook
+- **docs:build** compiles jsDoc documentation and serves it on port 3001. Note that there's no hot reloading for docs. This is like running https://developers.quintype.com/quintype-amp on local
+- **build** bundles code by running webpack in development mode. Useful for debugging
+- **test** runs jest in watch mode
 
 ### API Reference
 

@@ -1,0 +1,11 @@
+{
+  "default-story-templates": {
+    "title": "Default Story Templates"
+  },
+  "overview": {
+    "title": "Overview"
+  },
+  "opts": {
+    "title": "The 'opts' object"
+  }
+}

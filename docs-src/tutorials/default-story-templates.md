@@ -1,3 +1,5 @@
-### Default templates
+## 1. Generic Template
 
-take the deep dive here
+This is the template that's rendered as a fallback case.
+
+<!-- ![Chair Image](./sample1.jpeg) -->
