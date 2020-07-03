@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/quintype/quintype-amp/compare/v1.0.25...v1.6.0) (2020-07-03)
+
+
+### Features
+
+* add and configure jsDoc with better-docs ([#188](https://github.com/quintype/quintype-amp/issues/188)) ([ceb56ac](https://github.com/quintype/quintype-amp/commit/ceb56ac0c39fcfd8d2898698efe2e86fb2b5a2b8))
+
+
+### Bug Fixes
+
+* change ampifyStory to accept any custom story template ([#222](https://github.com/quintype/quintype-amp/issues/222)) ([5b172fd](https://github.com/quintype/quintype-amp/commit/5b172fd573cd70cbc1336a8c10e796291e7773b0)), closes [#223](https://github.com/quintype/quintype-amp/issues/223)
+* change image component to take cdn-image instead of cdn-name ([#199](https://github.com/quintype/quintype-amp/issues/199)) ([1b58c82](https://github.com/quintype/quintype-amp/commit/1b58c8253a5cba14b49be2ee48b153b570041e58))
+* change story slots to accept render props ([#193](https://github.com/quintype/quintype-amp/issues/193)) ([5db3925](https://github.com/quintype/quintype-amp/commit/5db3925386eb780e6a1dc4cd955c43b55f941707))
+* remove some inline styles; fix failing tests ([#205](https://github.com/quintype/quintype-amp/issues/205)) ([1c763d5](https://github.com/quintype/quintype-amp/commit/1c763d5d063017885d39562390f822f25a950198))
+* remove unnecessary params being passed to amp-carousel ([#220](https://github.com/quintype/quintype-amp/issues/220)) ([9cbf9a8](https://github.com/quintype/quintype-amp/commit/9cbf9a8aaa562b7e3974612ba2cfc971b10e5b1d))
+
 ## [1.5.0](https://github.com/quintype/quintype-amp/compare/v1.5.0-amp-carousel-bugfix.0...v1.5.0) (2020-06-30)
 
 ## [1.4.0](https://github.com/quintype/quintype-amp/compare/v1.0.25...v1.4.0) (2020-06-26)
