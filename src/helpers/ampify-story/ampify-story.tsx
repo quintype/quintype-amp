@@ -19,30 +19,18 @@ export function ampifyStory({
 }
 
 const getTemplate = ({ story, config, relatedStories, infiniteScrollInlineConfig }) => {
-  const storyTemplate = get(story, "story-template");
-  const opts = get(config, "opts", null);
-  const publisherTemplates = opts && opts.templates ? opts.templates : {};
+  const storyType = get(story, "story-template");
+  const customTemplate = get(config, ["opts", "templates", storyType], null);
+  const propsForTemplate = {
+    story,
+    config,
+    relatedStories,
+    infiniteScrollInlineConfig
+  };
+  if (customTemplate) return customTemplate(propsForTemplate);
 
-  switch (storyTemplate) {
-    case "text":
-      return "text" in publisherTemplates ? (
-        publisherTemplates.text({ story, config, relatedStories })
-      ) : (
-        <TextStory
-          story={story}
-          config={config}
-          relatedStories={relatedStories}
-          infiniteScrollInlineConfig={infiniteScrollInlineConfig}
-        />
-      );
+  switch (storyType) {
     default:
-      return (
-        <TextStory
-          story={story}
-          config={config}
-          relatedStories={relatedStories}
-          infiniteScrollInlineConfig={infiniteScrollInlineConfig}
-        />
-      );
+      return <TextStory {...propsForTemplate} />;
   }
 };
