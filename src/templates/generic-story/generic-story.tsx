@@ -14,7 +14,7 @@ import {
   InfiniteScroll
 } from "../../atoms";
 import styled from "styled-components";
-import { TextStoryTypes } from "./types";
+import { GenericStoryTypes } from "./types";
 import get from "lodash.get";
 
 const { TopAd, BodyAd, BottomAd } = AmpAds;
@@ -28,7 +28,8 @@ const Wrapper = styled.div`
   padding: 0 ${(props) => props.theme.spacing.s};
 `;
 const canDisplayBodyAd = (cardIdx) => cardIdx === 0;
-const TextStory = ({ story, config, relatedStories, infiniteScrollInlineConfig }: TextStoryTypes) => {
+
+export const GenericStory = ({ story, config, relatedStories, infiniteScrollInlineConfig }: GenericStoryTypes) => {
   const footerText = get(config, ["publisherConfig", "publisher-settings", "copyright"], null);
   const infiniteScrollExists = infiniteScrollInlineConfig && infiniteScrollInlineConfig.length; // should also check if infinite scroll collection exists here
   let lastComponent = <Footer text={footerText} />;
@@ -93,5 +94,3 @@ const TextStory = ({ story, config, relatedStories, infiniteScrollInlineConfig }
     </Layout>
   );
 };
-
-export { TextStory };
