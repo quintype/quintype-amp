@@ -1,6 +1,6 @@
 import { AmpifyStoryTypes } from "./types";
 import renderToString from "../render-to-string";
-import { TextStory } from "../../templates/text-story/text-story";
+import { GenericStory } from "../../templates";
 import get from "lodash.get";
 import React from "react";
 
@@ -31,6 +31,6 @@ const getTemplate = ({ story, config, relatedStories, infiniteScrollInlineConfig
 
   switch (storyType) {
     default:
-      return <TextStory {...propsForTemplate} />;
+      return <GenericStory {...propsForTemplate} />;
   }
 };
