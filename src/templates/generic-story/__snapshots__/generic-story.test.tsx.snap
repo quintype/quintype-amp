@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TextStory Template should render 1`] = `
+exports[`GenericStory Template should render 1`] = `
 <Layout
   config={
     Object {

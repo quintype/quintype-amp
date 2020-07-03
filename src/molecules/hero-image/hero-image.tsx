@@ -56,7 +56,9 @@ export const HeroImageBase = ({ story, attribution, slug, metadata, caption }: H
   }
   return (
     <div>
-      <Image {...imageProps}>{figcaptionText && <StyledFigcaption>{figcaptionText}</StyledFigcaption>}</Image>
+      <Image {...imageProps}>
+        {figcaptionText && <StyledFigcaption dangerouslySetInnerHTML={{ __html: figcaptionText || "" }} />}
+      </Image>
     </div>
   );
 };

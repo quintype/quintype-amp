@@ -6,3 +6,14 @@ exports[`HeroImage should render 1`] = `
   story={Object {}}
 />
 `;
+
+exports[`HeroImage should render caption without HTML Tags 1`] = `
+<Component
+  attribution="<span>custom attribution</span>"
+  caption="<p>Congress, AAP and AIMIM leaders</p>"
+  config={Object {}}
+  story={Object {}}
+/>
+`;
+
+exports[`getFigcaptionText should return caption and attribution without HTML Tags 1`] = `"img caption | img attribution"`;

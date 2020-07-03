@@ -25,7 +25,7 @@ const sampleImageElement = {
 };
 
 const sampleImageElementWithNoCaption = { ...sampleImageElement, title: "" };
-
+const sampleImageElementWithCaptionInsideHTMLTag = { ...sampleImageElement, title: "<p>Wash your hands</p>" };
 storiesOf("Image Element", module)
   .addDecorator((story) => (
     <Layout story={textStory} config={config}>
@@ -33,4 +33,7 @@ storiesOf("Image Element", module)
     </Layout>
   ))
   .add("Default Image Element", () => <ImageElement element={sampleImageElement} />)
-  .add("Image Element without caption", () => <ImageElement element={sampleImageElementWithNoCaption} />);
+  .add("Image Element without caption", () => <ImageElement element={sampleImageElementWithNoCaption} />)
+  .add("Image Element without caption inside HTML Tag", () => (
+    <ImageElement element={sampleImageElementWithCaptionInsideHTMLTag} />
+  ));
