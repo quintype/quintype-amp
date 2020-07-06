@@ -1,6 +1,6 @@
 The AMP library accepts customizations via the "opts" javascript object. These are all optional.
 
-## AMP story pages
+# AMP story pages
 
 The opts object for rendering AMP story pages has the following structure:
 
@@ -27,7 +27,7 @@ const myStoryPageOptsObj = {
 <hr />
 This section is useful if you want to use custom templates. Else, jump to <a href="#slots_link">slots</a>
 
-#### Passing custom templates
+## Passing custom templates
 
 Pass an object containing your custom templates to the `templates` key of the `opts` object.
 This is what your server/app.js file might look like
@@ -60,19 +60,12 @@ ampRoutes(app, {
 
 <hr/>
 
-#### Slots
+## Slots
 
-<a id="slots_link" href="/story-page-slots.png" target="_blank">Image For Reference</a>
-
-Slots can be thought of as windows that let you "slot in" whatever you need. In story page, we have two slots:
-
-- **top slot** - placed just below the top ad
-- **bottom slot** - placed just above the bottom ad
+Slots are nothing but functions that should return a react component.
 
 You might want to use slots to add ads, some scripts etc.
 The `<Head />` component may be used to put code in the head. Using it, custom scripts, css can be added. It uses [react-helmet](https://www.npmjs.com/package/react-helmet)
-
-Slots are nothing but functions that should return a react component.
 
 ```jsx
 ampRoutes(app, {
@@ -87,7 +80,7 @@ ampRoutes(app, {
 
 Here, `story` and `config` is same as what's mentioned <a href="#storyConfig_link">above</a>.
 
-#### Renders
+## Renders
 
 If you wish to customize the default templates, you can do so using the various render prop overrides that the library provides. These too are functions that should return react components
 
