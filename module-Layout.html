@@ -5,7 +5,7 @@
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66074042-1', 'auto');ga('send', 'pageview');</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AMP Library AlsoRead</title>
+  <title>AMP Library Layout</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -113,8 +113,8 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Components</p>
-                    <h1>AlsoRead</h1>
+                    <p>Module</p>
+                    <h1>Layout</h1>
                 </header>
                 
 
@@ -125,9 +125,8 @@
 
 <header>
     
-        <h2>
-            &ltAlsoRead  /&gt
-        </h2>
+        
+            
         
     
 </header>
@@ -136,34 +135,11 @@
     <div class="container-overview">
     
         
-            <div class='vertical-section'>
-                <div class="members">
-                    <div class="member">
-                        <div class=name>
-                            <span class="tag">Constructor</span>
-                        </div>
-                        
-
-
-    
-    <h4 class="name" id="AlsoRead">
-        <a class="href-link" href="#AlsoRead">#</a>
+            <div class="description"><p>Layout component is a wrapper and provider of story, config and theme context. Therefore, most library components that consome context need to be wrapped with layout</p></div>
         
-        <span class="code-name">
+
+        
             
-                &ltAlsoRead  /&gt
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        <p>AlsoRead is a story element
-The look of the AlsoRead can be changed using the render prop alsoReadRender. In case alsoReadRender is passed in the config, it is rendered. Otherwise a default AlsoRead is rendered.</p>
-    </div>
-    
 
 
 
@@ -171,7 +147,6 @@ The look of the AlsoRead can be changed using the render prop alsoReadRender. In
 
 
 
-    
 
 
 
@@ -231,7 +206,7 @@ The look of the AlsoRead can be changed using the render prop alsoReadRender. In
   <td class="type">
   
       
-<span class="param-type">Object</span>
+<span class="param-type">Story</span>
 
 
   
@@ -254,7 +229,7 @@ The look of the AlsoRead can be changed using the render prop alsoReadRender. In
   <td class="type">
   
       
-<span class="param-type">Object</span>
+<span class="param-type">Config</span>
 
 
   
@@ -271,7 +246,7 @@ The look of the AlsoRead can be changed using the render prop alsoReadRender. In
     
 <tr class="deep-level-1">
   
-      <td class="name"><code>element</code></td>
+      <td class="name"><code>children</code></td>
   
 
   <td class="type">
@@ -287,13 +262,7 @@ The look of the AlsoRead can be changed using the render prop alsoReadRender. In
 
   
 
-  <td class="description last"><p>the story element. This is same as the story element found in the story API response</p>
-<pre class="prettyprint source lang-javascript"><code>...
-ampRoutes(app, {
-   alsoReadRender: ({ story, config, element }) => &lt;MyCustomAlsoRead story={story} config={config} storyElement={element} />
-})
-...
-</code></pre></td>
+  <td class="description last"><p>child components</p></td>
 </tr>
 
   
@@ -341,9 +310,9 @@ ampRoutes(app, {
 
     
         <p class="tag-source">
-            <a href="atoms_story-elements_also-read_also-read.tsx.html" class="button">View Source</a>
+            <a href="atoms_layout_layout.tsx.html" class="button">View Source</a>
             <span>
-                <a href="atoms_story-elements_also-read_also-read.tsx.html">atoms/story-elements/also-read/also-read.tsx</a>, <a href="atoms_story-elements_also-read_also-read.tsx.html#line36">line 36</a>
+                <a href="atoms_layout_layout.tsx.html">atoms/layout/layout.tsx</a>, <a href="atoms_layout_layout.tsx.html#line9">line 9</a>
             </span>
         </p>
     
@@ -370,14 +339,9 @@ ampRoutes(app, {
 
 
 
-                    </div>
-                </div>
-            </div>
         
     
     </div>
-    
-        
     
     
 

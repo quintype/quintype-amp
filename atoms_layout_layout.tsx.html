@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66074042-1', 'auto');ga('send', 'pageview');</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AMP Library AlsoRead</title>
+  <title>AMP Library atoms/layout/layout.tsx</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -113,294 +115,69 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Components</p>
-                    <h1>AlsoRead</h1>
+                    <p>Source</p>
+                    <h1>atoms/layout/layout.tsx</h1>
                 </header>
                 
 
 
 
-
-<section>
-
-<header>
     
-        <h2>
-            &ltAlsoRead  /&gt
-        </h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class='vertical-section'>
-                <div class="members">
-                    <div class="member">
-                        <div class=name>
-                            <span class="tag">Constructor</span>
-                        </div>
-                        
-
-
-    
-    <h4 class="name" id="AlsoRead">
-        <a class="href-link" href="#AlsoRead">#</a>
-        
-        <span class="code-name">
-            
-                &ltAlsoRead  /&gt
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        <p>AlsoRead is a story element
-The look of the AlsoRead can be changed using the render prop alsoReadRender. In case alsoReadRender is passed in the config, it is rendered. Otherwise a default AlsoRead is rendered.</p>
-    </div>
-    
-
-
-
-
-
-
-
-    
-
-
-
-    <h5>Parameters:</h5>
-    
-<div class="table-container">
-    <table class="params table">
-        <thead>
-        <tr>
-            
-            <th>Name</th>
-            
-
-            <th>Type</th>
-
-            
-
-            
-
-            <th class="last">Description</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>params</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Object</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>object containing parameters passed to the render prop</p></td>
-</tr>
-
-  
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>story</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Object</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>story object</p></td>
-</tr>
-
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>config</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Object</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>config object</p></td>
-</tr>
-
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>element</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Object</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>the story element. This is same as the story element found in the story API response</p>
-<pre class="prettyprint source lang-javascript"><code>...
-ampRoutes(app, {
-   alsoReadRender: ({ story, config, element }) => &lt;MyCustomAlsoRead story={story} config={config} storyElement={element} />
-})
-...
-</code></pre></td>
-</tr>
-
-  
-
-
-        
-        </tbody>
-    </table>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="atoms_story-elements_also-read_also-read.tsx.html" class="button">View Source</a>
-            <span>
-                <a href="atoms_story-elements_also-read_also-read.tsx.html">atoms/story-elements/also-read/also-read.tsx</a>, <a href="atoms_story-elements_also-read_also-read.tsx.html#line36">line 36</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-                </div>
-            </div>
-        
-    
-    </div>
-    
-        
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { Fragment } from "react";
+import { Layout as LayoutTypes } from "./types";
+import { Helmet } from "react-helmet";
+import { Theme } from "../../context/theme";
+import { StoryProvider } from "../../context/story/story-context";
+import { ConfigProvider } from "../../context/config/config-context";
+import { getTokensFromAMPConfig } from "../../utils/theme";
+import styled from "styled-components";
+
+/**
+ *
+ * Layout component is a wrapper and provider of story, config and theme context. Therefore, most library components that consome context need to be wrapped with layout
+ *
+ * @param {Object} params object containing parameters passed to the render prop
+ * @param {Story} params.story story object
+ * @param {Config} params.config config object
+ * @param {Object} params.children child components
+ *
+ * @category Atoms
+ * @module Layout
+ */
+
+const Container = styled.main`
+  font-family: ${(props) => props.theme.font.family.primary};
+  position: relative;
+`;
+
+export const Layout = ({ children, story, config }: LayoutTypes) => {
+  const tokens = getTokensFromAMPConfig(config.ampConfig);
+  const embedCustomFonts = config.ampConfig.fonts;
+  return (
+    &lt;Fragment>
+      &lt;Helmet>
+        {embedCustomFonts.primary.url &amp;&amp; (
+          &lt;link href={`https://fonts.googleapis.com/css?family=${embedCustomFonts.primary.url}`} rel="stylesheet" />
+        )}
+        {embedCustomFonts.secondary.url &amp;&amp; (
+          &lt;link href={`https://fonts.googleapis.com/css?family=${embedCustomFonts.secondary.url}`} rel="stylesheet" />
+        )}
+      &lt;/Helmet>
+      &lt;ConfigProvider value={config}>
+        &lt;StoryProvider value={story}>
+          &lt;Theme tokens={tokens}>
+            &lt;Container>{children}&lt;/Container>
+          &lt;/Theme>
+        &lt;/StoryProvider>
+      &lt;/ConfigProvider>
+    &lt;/Fragment>
+  );
+};
+</code></pre>
+        </article>
+    </section>
 
 
 
