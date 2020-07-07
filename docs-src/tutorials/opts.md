@@ -62,7 +62,7 @@ ampRoutes(app, {
 
 ## Slots
 
-Slots are nothing but functions that should return a react component.
+[Slots]{@link module:Slots} are nothing but functions that should return a react component.
 
 You might want to use slots to add ads, some scripts etc.
 The `<Head />` component may be used to put code in the head. Using it, custom scripts, css can be added. It uses [react-helmet](https://www.npmjs.com/package/react-helmet)

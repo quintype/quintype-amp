@@ -10,5 +10,8 @@
   },
   "custom-story-templates": {
     "title": "Custom Story Templates"
+  },
+  "library-exports": {
+    "title": "AMP Library Exports"
   }
 }

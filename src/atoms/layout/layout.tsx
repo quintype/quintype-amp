@@ -7,12 +7,25 @@ import { ConfigProvider } from "../../context/config/config-context";
 import { getTokensFromAMPConfig } from "../../utils/theme";
 import styled from "styled-components";
 
+/**
+ *
+ * Layout component is a wrapper and provider of story, config and theme context. Therefore, most library components that consome context need to be wrapped with layout
+ *
+ * @param {Object} params object containing parameters passed to the render prop
+ * @param {Story} params.story story object
+ * @param {Config} params.config config object
+ * @param {Object} params.children child components
+ *
+ * @category Atoms
+ * @module Layout
+ */
+
 const Container = styled.main`
   font-family: ${(props) => props.theme.font.family.primary};
   position: relative;
 `;
 
-const Layout = ({ style, children, story, config }: LayoutTypes) => {
+export const Layout = ({ children, story, config }: LayoutTypes) => {
   const tokens = getTokensFromAMPConfig(config.ampConfig);
   const embedCustomFonts = config.ampConfig.fonts;
   return (
@@ -24,7 +37,6 @@ const Layout = ({ style, children, story, config }: LayoutTypes) => {
         {embedCustomFonts.secondary.url && (
           <link href={`https://fonts.googleapis.com/css?family=${embedCustomFonts.secondary.url}`} rel="stylesheet" />
         )}
-        <style>{style}</style>
       </Helmet>
       <ConfigProvider value={config}>
         <StoryProvider value={story}>
@@ -36,5 +48,3 @@ const Layout = ({ style, children, story, config }: LayoutTypes) => {
     </Fragment>
   );
 };
-
-export default Layout;
