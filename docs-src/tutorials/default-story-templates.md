@@ -19,7 +19,7 @@ Slots can be thought of as windows that let you "slot in" whatever you need. In 
 - **top slot** - placed just below the top ad
 - **bottom slot** - placed just above the bottom ad
 
-<a id="slots_link" href="/quintype-amp/story-page-slots.png" target="_blank">Image For Reference</a>
+<a id="slots_link" href="./story-page-slots.png" target="_blank">Image For Reference</a>
 
 #### 2. The Header Card:
 
@@ -28,8 +28,8 @@ Using the `headerCardRender` function, customize the entire header card.
 Left: is the default header card. Right: custom headerCard
 
 <div>
-  <div style="display: inline-block; width: 45%;"><img src="/quintype-amp/headerCardRender/without.png"></div>
-  <div style="display: inline-block; width: 45%;"><img src="/quintype-amp/headerCardRender/with.png"></div>
+  <div style="display: inline-block; width: 45%;"><img src="./headerCardRender/without.png"></div>
+  <div style="display: inline-block; width: 45%;"><img src="./headerCardRender/with.png"></div>
 </div>
 
 #### 3. Related Stories:
@@ -39,8 +39,8 @@ Left: is the default header card. Right: custom headerCard
 Left: default. Right: custom
 
 <div>
-  <div style="display: inline-block; width: 45%;"><img src="/quintype-amp/relatedStoriesRender/without.png"></div>
-  <div style="display: inline-block; width: 45%;"><img src="/quintype-amp/relatedStoriesRender/with.png"></div>
+  <div style="display: inline-block; width: 45%;"><img src="./relatedStoriesRender/without.png"></div>
+  <div style="display: inline-block; width: 45%;"><img src="./relatedStoriesRender/with.png"></div>
 </div>
 
 #### 4. Infinite Scroll:
@@ -54,6 +54,6 @@ You can customize story elements using story element render props.
 Left: default text story element. Right: custom
 
 <div>
-  <div style="display: inline-block; width: 45%;"><img src="/quintype-amp/storyElement-text/without.png"></div>
-  <div style="display: inline-block; width: 45%;"><img src="/quintype-amp/storyElement-text/with.png"></div>
+  <div style="display: inline-block; width: 45%;"><img src="./storyElement-text/without.png"></div>
+  <div style="display: inline-block; width: 45%;"><img src="./storyElement-text/with.png"></div>
 </div>
