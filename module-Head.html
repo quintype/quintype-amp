@@ -5,7 +5,7 @@
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66074042-1', 'auto');ga('send', 'pageview');</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AMP Library Answer</title>
+  <title>AMP Library Head</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -113,8 +113,8 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Components</p>
-                    <h1>Answer</h1>
+                    <p>Module</p>
+                    <h1>Head</h1>
                 </header>
                 
 
@@ -125,9 +125,8 @@
 
 <header>
     
-        <h2>
-            &ltAnswer  /&gt
-        </h2>
+        
+            
         
     
 </header>
@@ -136,34 +135,13 @@
     <div class="container-overview">
     
         
-            <div class='vertical-section'>
-                <div class="members">
-                    <div class="member">
-                        <div class=name>
-                            <span class="tag">Constructor</span>
-                        </div>
-                        
-
-
-    
-    <h4 class="name" id="Answer">
-        <a class="href-link" href="#Answer">#</a>
+            <div class="description"><p>Head component is a simple wrapper for the <a href="https://www.npmjs.com/package/react-helmet">react-helmet</a> <code>&lt;Helmet /&gt;</code> component.
+It puts child items in the document head. Scripts, styles, SEO meta tags, link tag etc. can be given as children to this component.
+Can be used multiple times or nested.</p></div>
         
-        <span class="code-name">
+
+        
             
-                &ltAnswer  /&gt
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        <p>Answer is a story element.
-The look of the Answer can be changed using the render prop answerElementRender. In case answerElementRender is passed in the config, it is rendered. Otherwise a default Answer is rendered.</p>
-    </div>
-    
 
 
 
@@ -171,7 +149,6 @@ The look of the Answer can be changed using the render prop answerElementRender.
 
 
 
-    
 
 
 
@@ -225,7 +202,7 @@ The look of the Answer can be changed using the render prop answerElementRender.
     
 <tr class="deep-level-1">
   
-      <td class="name"><code>story</code></td>
+      <td class="name"><code>children</code></td>
   
 
   <td class="type">
@@ -241,59 +218,7 @@ The look of the Answer can be changed using the render prop answerElementRender.
 
   
 
-  <td class="description last"><p>story object</p></td>
-</tr>
-
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>config</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Object</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>config object</p></td>
-</tr>
-
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>element</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Object</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>the story element. This is same as the story element found in the story API response</p>
-<pre class="prettyprint source lang-javascript"><code>...
-ampRoutes(app, {
-   answerElementRender: ({ story, config, element }) => &lt;MyCustomAnswer story={story} config={config} storyElement={element} />
-})
-...
-</code></pre></td>
+  <td class="description last"><p>child components</p></td>
 </tr>
 
   
@@ -341,9 +266,9 @@ ampRoutes(app, {
 
     
         <p class="tag-source">
-            <a href="atoms_story-elements_text_answer_answer.tsx.html" class="button">View Source</a>
+            <a href="atoms_head_head.tsx.html" class="button">View Source</a>
             <span>
-                <a href="atoms_story-elements_text_answer_answer.tsx.html">atoms/story-elements/text/answer/answer.tsx</a>, <a href="atoms_story-elements_text_answer_answer.tsx.html#line15">line 15</a>
+                <a href="atoms_head_head.tsx.html">atoms/head/head.tsx</a>, <a href="atoms_head_head.tsx.html#line4">line 4</a>
             </span>
         </p>
     
@@ -370,14 +295,9 @@ ampRoutes(app, {
 
 
 
-                    </div>
-                </div>
-            </div>
         
     
     </div>
-    
-        
     
     
 
