@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pending should render pending element 1`] = `
+<styled.div>
+  This element is pending implementation
+  <div>
+    Type: 
+    text
+     
+    <br />
+    Subtype: 
+    also-read
+  </div>
+</styled.div>
+`;
