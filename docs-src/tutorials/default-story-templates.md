@@ -6,8 +6,6 @@ The default story templates are great for publishers who do not wish to radicall
 
 At the time of writing, the AMP library only supports the generic story template. But more (video, live-blog) will be added.
 
-To see what all the library exports, go to {@tutorial library-exports}
-
 ## Customizations:
 
 The AMP library gives you control of parts of the story page by providing various **render props**. You are free to build these parts of the story page using AMP library components or amphtml of your choice. Go to {@tutorial opts} for the API reference

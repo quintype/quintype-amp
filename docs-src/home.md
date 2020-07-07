@@ -9,9 +9,11 @@ Until now, AMP pages were handled by platform. The frontend app would route amp 
 
 ## What all does the library export?
 
-- React components with base styles that you can use to build custom amp pages for your malibu app
-- Helper functions that are needed for this purpose
-- A default story page template built using these components.
+For a comprehensive list of items, go to {@tutorial library-exports}
+
+- React components with base styles that you can use to build amp pages for your malibu app
+- Helper functions
+- Default templates built using these components
 
 ## Set up process
 

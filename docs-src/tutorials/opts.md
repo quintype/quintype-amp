@@ -1,4 +1,4 @@
-The AMP library accepts customizations via the "opts" javascript object. These are all optional.
+The AMP library accepts customizations via the "opts" javascript object.
 
 # AMP story pages
 
