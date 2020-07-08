@@ -6,7 +6,7 @@ import React from "react";
 import { RelatedStories, RelatedStoriesBase, Heading } from "./related-stories";
 import { shallow } from "enzyme";
 import { renderToString } from "../../helpers";
-import { Layout, Link } from "../../atoms";
+import { Layout, Head } from "../../atoms";
 import { isValidAmpHtml } from "../../utils/validate-amp";
 import { config, relatedStories, textStory } from "../../__fixtures__";
 
@@ -26,7 +26,9 @@ describe("RelatedStories", () => {
   it("Should return valid amp-html", async () => {
     const Component = () => (
       <Layout story={textStory} config={config}>
-        <Link rel="canonical" href="." />
+        <Head>
+          <link rel="canonical" href="." />
+        </Head>
         <RelatedStories stories={relatedStories} />
       </Layout>
     );

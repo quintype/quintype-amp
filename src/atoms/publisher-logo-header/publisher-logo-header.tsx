@@ -17,7 +17,9 @@ export const PublisherLogoHeaderBase = ({ config }: PublisherLogoHeaderTypes) =>
           }
         `}</style>
       </Head>
-      <amp-img class="qt-amp-publisher-logo-header" alt={publisherName} src={logo} layout="fill" />
+      <a href="/">
+        <amp-img class="qt-amp-publisher-logo-header" alt={publisherName} src={logo} layout="fill" />
+      </a>
     </Fragment>
   );
 };

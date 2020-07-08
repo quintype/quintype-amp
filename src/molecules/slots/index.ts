@@ -11,7 +11,7 @@ import * as StoryPageSlots from "./story-page-slots";
  * @param {Story} params.story story object
  * @param {Config} params.config config object
  *
- * ```javascript
+ * ```js
  * ...
  * ampRoutes(app, {
  *    slots: {
