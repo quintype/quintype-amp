@@ -4,9 +4,7 @@ import { shallow } from "enzyme";
 
 describe("PublisherLogoHeader", () => {
   it("should render", () => {
-    const wrapper = shallow(
-      <PublisherLogoHeader publisherName="foo" logoSrc="https://unsplash.com/photos/ffODvgBivdw" />
-    );
+    const wrapper = shallow(<PublisherLogoHeader />);
     expect(wrapper).toMatchSnapshot();
   });
 });
