@@ -8,7 +8,7 @@ import get from "lodash.get";
 export const DefaultEmbed = ({ element }: StoryElementProps) => {
   const embedData = element["embed-js"] ? atob(element["embed-js"]) : "";
   const src = getIframeSourceURL(embedData);
-  const title = element.title || element.description || "";
+  const title = element.subtype || element.title || "";
   return src ? <Iframe src={src} title={title} /> : null;
 };
 

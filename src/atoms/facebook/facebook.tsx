@@ -7,7 +7,7 @@ export const StyledFacebook = styled.div.attrs(({ style }: StyledFacebookTypes) 
   style
 }))<StyledFacebookTypes>``;
 
-export const Facebook = ({ inlineStyles, ...props }: FacebookTypes) => {
+export const Facebook = ({ inlineStyles, title, ...props }: FacebookTypes) => {
   const { width, height, layout } = props;
   const setDefaultLayout = !width || !height || !layout;
   const componentProps: FacebookTypes = setDefaultLayout
@@ -28,7 +28,7 @@ export const Facebook = ({ inlineStyles, ...props }: FacebookTypes) => {
         />
       </Helmet>
       <StyledFacebook style={inlineStyles}>
-        <amp-facebook {...componentProps} />
+        <amp-facebook {...componentProps} title={title} />
       </StyledFacebook>
     </Fragment>
   );

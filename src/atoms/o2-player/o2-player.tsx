@@ -7,7 +7,7 @@ export const StyledO2Player = styled.div.attrs(({ style }: StyledO2PlayerTypes) 
   style
 }))<StyledO2PlayerTypes>``;
 
-export const O2Player = ({ inlineStyles, ...props }: O2PlayerTypes) => {
+export const O2Player = ({ inlineStyles, title, ...props }: O2PlayerTypes) => {
   if (!(props["data-pid"] || props["data-bcid"] || props["data-vid"])) {
     return null;
   }
@@ -31,7 +31,7 @@ export const O2Player = ({ inlineStyles, ...props }: O2PlayerTypes) => {
         />
       </Helmet>
       <StyledO2Player style={inlineStyles}>
-        <amp-o2-player {...componentProps} />
+        <amp-o2-player title={title} {...componentProps} />
       </StyledO2Player>
     </Fragment>
   );

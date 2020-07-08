@@ -28,7 +28,7 @@ export const DefaultVidibleElement = ({
 }: VidibleElementProps) => {
   const { metadata } = element;
   let vidibleIds: VidibleIds | null = null;
-
+  const title = element.subtype || element.title || "";
   if (metadata && metadata["player-url"]) {
     vidibleIds = getVidibleIDs(metadata["player-url"]);
   }
@@ -41,6 +41,7 @@ export const DefaultVidibleElement = ({
       layout={layout}
       width={width}
       height={height}
+      title={title}
       {...props}
     />
   ) : null;
