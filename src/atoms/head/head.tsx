@@ -15,7 +15,7 @@ import { HeadTypes } from "./types";
  * @param {Object} params.children child components
  *
  * @category Atoms
- * @module Head
+ * @component
  */
 
 export const Head = ({ children }: HeadTypes) => (
