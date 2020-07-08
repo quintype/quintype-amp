@@ -14,6 +14,6 @@ const BottomSlotBase = ({ story, config }) => {
  * BottomSlot is a render prop. It's placed just above the bottom ad, so whatever the render prop outputs will be displayed here.
  *
  * @category Atoms
- * @module BottomSlot
+ * @component
  */
 export const BottomSlot = withStoryAndConfig(BottomSlotBase);

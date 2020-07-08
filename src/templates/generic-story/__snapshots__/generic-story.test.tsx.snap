@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GenericStory Template should render 1`] = `
-<Layout
+<Component
   config={
     Object {
       "ampConfig": Object {
@@ -4745,5 +4745,5 @@ exports[`GenericStory Template should render 1`] = `
   <WithTheme(BaseFooter)
     text="Copyright © 2020 Newslaundry Media Private Limited.  All Rights Reserved "
   />
-</Layout>
+</Component>
 `;

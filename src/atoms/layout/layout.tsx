@@ -12,7 +12,32 @@ const Container = styled.main`
   position: relative;
 `;
 
-const Layout = ({ style, children, story, config }: LayoutTypes) => {
+/**
+ *
+ * Layout component is a wrapper and provider of story, config and theme context. Therefore, most library components that consome context need to be wrapped with layout
+ *
+ * ```js
+ * <Layout story={textStory} config={config}>
+ *  <Navbar />
+ *  <div>
+ *    <TopAd />
+ *    <Spacer token="s" />
+ *    <HeaderCard />
+ *  </div>
+ * </Layout>
+ * ```
+ *
+ * @param {Object} params object containing parameters passed to the render prop
+ * @param {Story} params.story story object
+ * @param {Config} params.config config object
+ * @param {Object} params.children child components
+ *
+ * @category Atoms
+ * @component
+ *
+ */
+
+export const Layout = ({ children, story, config }: LayoutTypes) => {
   const tokens = getTokensFromAMPConfig(config.ampConfig);
   const embedCustomFonts = config.ampConfig.fonts;
   return (
@@ -24,7 +49,6 @@ const Layout = ({ style, children, story, config }: LayoutTypes) => {
         {embedCustomFonts.secondary.url && (
           <link href={`https://fonts.googleapis.com/css?family=${embedCustomFonts.secondary.url}`} rel="stylesheet" />
         )}
-        <style>{style}</style>
       </Helmet>
       <ConfigProvider value={config}>
         <StoryProvider value={story}>
@@ -36,5 +60,3 @@ const Layout = ({ style, children, story, config }: LayoutTypes) => {
     </Fragment>
   );
 };
-
-export default Layout;

@@ -7,11 +7,13 @@ import { isValidAmpHtml } from "../utils/validate-amp";
 import { textStory, config } from "../__fixtures__";
 import { HeaderCard } from "./index";
 import React from "react";
-import { Layout, Link } from "../atoms";
+import { Layout, Head } from "../atoms";
 
 const LayoutForHeaderCard = () => (
   <Layout story={textStory} config={config}>
-    <Link rel="canonical" href="." />
+    <Head>
+      <link rel="canonical" href="." />
+    </Head>
     <HeaderCard />
   </Layout>
 );

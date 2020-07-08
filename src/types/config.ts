@@ -144,8 +144,6 @@ export interface ConfigOpts {
     blurbRender?: (props: CommonRenderPropTypes) => any;
     alsoReadRender?: (props: CommonRenderPropTypes) => any;
   };
-  // story element render props
-
   headerCardRender?: (props: CommonRenderPropTypes) => any;
   relatedStoriesRender?: (props: RelatedStoriesRenderPropTypes) => any;
   infiniteScrollRender?: (props: InfiniteScrollRenderPropTypes) => any;
