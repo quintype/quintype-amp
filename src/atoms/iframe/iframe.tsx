@@ -16,6 +16,7 @@ const Iframe = ({
   height = "9",
   children,
   inlineStyles,
+  title,
   ...restProps
 }: IframeTypes) => {
   return (
