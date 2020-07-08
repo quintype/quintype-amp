@@ -18,7 +18,7 @@ export const TreeNode = ({ item, textDirection }: TreeNodeComponentTypes) => {
 
 export const CloseButton = () => (
   <StyledListItem>
-    <StyledCloseIcon role="button" tabIndex={0} on="tap:sidebar.close">
+    <StyledCloseIcon role="button" tabIndex={0} on="tap:sidebar.close" aria-label="close">
       X
     </StyledCloseIcon>
   </StyledListItem>
