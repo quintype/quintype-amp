@@ -1,6 +1,5 @@
+import { Config } from "../../types/config";
+
 export interface PublisherLogoHeaderTypes {
-  logoSrc: string;
-  publisherName: string;
-  width?: string;
-  height?: string;
+  config: Config;
 }
