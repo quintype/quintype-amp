@@ -21,7 +21,6 @@ storiesOf("Navbar", module)
     </Layout>
   ))
   .add("Default", () => <Navbar />)
-  .add("With custom logo", () => <Navbar logoSrc="/header-logo.png" />)
   .add("Right Aligned", () => <Navbar align="right" />);
 
 storiesOf("Navbar for RTL publisher", module)
@@ -31,7 +30,6 @@ storiesOf("Navbar for RTL publisher", module)
     </Layout>
   ))
   .add("Default", () => <Navbar />)
-  .add("With custom logo", () => <Navbar logoSrc="/header-logo.png" />)
   .add("Right Aligned", () => <Navbar align="right" />);
 
 storiesOf("Navbar for publisher with disabled hamburger menu", module)
