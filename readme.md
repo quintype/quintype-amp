@@ -30,6 +30,7 @@ To work on a feature
 
 - **storybook** starts storybook
 - **docs:build** compiles jsDoc documentation and serves it on port 3001. Note that there's no hot reloading for docs. This is like running https://developers.quintype.com/quintype-amp on local
+- **docs:deploy** compiles & deploys docs to https://developers.quintype.com/quintype-amp
 - **build** bundles code by running webpack in development mode. Useful for debugging
 - **test** runs jest in watch mode
 
