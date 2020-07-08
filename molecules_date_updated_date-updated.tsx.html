@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66074042-1', 'auto');ga('send', 'pageview');</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AMP Library Layout</title>
+  <title>AMP Library molecules/date/updated/date-updated.tsx</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -106,265 +108,58 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"></div><div class="category"><h2>Atoms</h2><h3>Modules</h3><ul><li><a href="module-BottomSlot.html">BottomSlot</a></li><li><a href="module-Head.html">Head</a></li><li><a href="module-Layout.html">Layout</a></li><li><a href="module-Slots.html">Slots</a></li><li><a href="module-TopSlot.html">TopSlot</a></li></ul><h3>Components</h3><ul><li><a href="module-Author.html">Author</a></li></ul></div><div class="category"><h2>Helper</h2><h3>Global</h3><ul><li><a href="global.html#ampifyStory">ampifyStory</a></li><li><a href="global.html#renderToString">renderToString</a></li></ul></div><div class="category"><h2>Molecules</h2><h3>Components</h3><ul><li><a href="module-HeaderCard.html">HeaderCard</a></li></ul></div><div class="category"><h2>StoryElements</h2><h3>Components</h3><ul><li><a href="module-AlsoRead.html">AlsoRead</a></li><li><a href="module-Answer.html">Answer</a></li><li><a href="module-Bigfact.html">Bigfact</a></li><li><a href="module-BlockQuote.html">BlockQuote</a></li><li><a href="module-Blurb.html">Blurb</a></li><li><a href="module-DailyMotionElement.html">DailyMotionElement</a></li><li><a href="module-Embed.html">Embed</a></li><li><a href="module-FacebookElement.html">FacebookElement</a></li><li><a href="module-ImageElement.html">ImageElement</a></li><li><a href="module-ImageGalleryElement.html">ImageGalleryElement</a></li><li><a href="module-InstagramElement.html">InstagramElement</a></li><li><a href="module-Question.html">Question</a></li><li><a href="module-Summary.html">Summary</a></li><li><a href="module-Text.html">Text</a></li><li><a href="module-Title.html">Title</a></li><li><a href="module-TwitterElement.html">TwitterElement</a></li><li><a href="module-VidibleElement.html">VidibleElement</a></li><li><a href="module-YouTube.html">YouTube</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"></div><div class="category"><h2>Atoms</h2><h3>Modules</h3><ul><li><a href="module-Slots.html">Slots</a></li></ul><h3>Components</h3><ul><li><a href="BottomSlot.html">BottomSlot</a></li><li><a href="DateTime.html">DateTime</a></li><li><a href="Head.html">Head</a></li><li><a href="Layout.html">Layout</a></li><li><a href="module-Author.html">Author</a></li><li><a href="TopSlot.html">TopSlot</a></li></ul></div><div class="category"><h2>Helper</h2><h3>Global</h3><ul><li><a href="global.html#ampifyStory">ampifyStory</a></li><li><a href="global.html#renderToString">renderToString</a></li></ul></div><div class="category"><h2>Molecules</h2><h3>Components</h3><ul><li><a href="DateLastPublished.html">DateLastPublished</a></li><li><a href="DateUpdated.html">DateUpdated</a></li><li><a href="module-HeaderCard.html">HeaderCard</a></li></ul></div><div class="category"><h2>StoryElements</h2><h3>Components</h3><ul><li><a href="module-AlsoRead.html">AlsoRead</a></li><li><a href="module-Answer.html">Answer</a></li><li><a href="module-Bigfact.html">Bigfact</a></li><li><a href="module-BlockQuote.html">BlockQuote</a></li><li><a href="module-Blurb.html">Blurb</a></li><li><a href="module-DailyMotionElement.html">DailyMotionElement</a></li><li><a href="module-Embed.html">Embed</a></li><li><a href="module-FacebookElement.html">FacebookElement</a></li><li><a href="module-ImageElement.html">ImageElement</a></li><li><a href="module-ImageGalleryElement.html">ImageGalleryElement</a></li><li><a href="module-InstagramElement.html">InstagramElement</a></li><li><a href="module-Question.html">Question</a></li><li><a href="module-Summary.html">Summary</a></li><li><a href="module-Text.html">Text</a></li><li><a href="module-Title.html">Title</a></li><li><a href="module-TwitterElement.html">TwitterElement</a></li><li><a href="module-VidibleElement.html">VidibleElement</a></li><li><a href="module-YouTube.html">YouTube</a></li></ul></div>
                 
             </nav>
         </div>
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Module</p>
-                    <h1>Layout</h1>
+                    <p>Source</p>
+                    <h1>molecules/date/updated/date-updated.tsx</h1>
                 </header>
                 
 
 
 
-
-<section>
-
-<header>
     
-        
-            
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description"><p>Layout component is a wrapper and provider of story, config and theme context. Therefore, most library components that consome context need to be wrapped with layout</p></div>
-        
-
-        
-            
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-<div class="table-container">
-    <table class="params table">
-        <thead>
-        <tr>
-            
-            <th>Name</th>
-            
-
-            <th>Type</th>
-
-            
-
-            
-
-            <th class="last">Description</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>params</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Object</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>object containing parameters passed to the render prop</p></td>
-</tr>
-
-  
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>story</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Story</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>story object</p></td>
-</tr>
-
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>config</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Config</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>config object</p></td>
-</tr>
-
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>children</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Object</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>child components</p></td>
-</tr>
-
-  
-
-
-        
-        </tbody>
-    </table>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="atoms_layout_layout.tsx.html" class="button">View Source</a>
-            <span>
-                <a href="atoms_layout_layout.tsx.html">atoms/layout/layout.tsx</a>, <a href="atoms_layout_layout.tsx.html#line9">line 9</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-    
-    </div>
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from "react";
+import { DateTime } from "../../../atoms";
+import { withStoryAndConfig } from "../../../context";
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
+import { utcToZonedTime } from "date-fns-tz";
+import { DateUpdatedTypes } from "./types";
+
+export const DateUpdatedBase = ({ story, prepend }: DateUpdatedTypes) => {
+  const updatedAt = story["updated-at"];
+  if (!updatedAt) return null;
+
+  const timeZonedTime = utcToZonedTime(updatedAt, "Asia/Kolkata");
+  const humanizedString = formatDistanceToNow(timeZonedTime, { addSuffix: true });
+
+  return &lt;DateTime formattedDate={humanizedString} prepend={prepend} />;
+};
+
+/**
+ * DateUpdated Component - uses library "date-fns-tz" to format the story updated date. Uses the "DateTime" atomic component internally
+ *
+ * ```js
+ * &lt;DateUpdated prepend="Updated: " />
+ * ```
+ *
+ * @param {Object} props Object containing parameters passed to the render prop
+ * @param {String} props.prepend Optional. String that is prepended to the date
+ *
+ * @category Molecules
+ * @component
+ */
+
+export const DateUpdated = withStoryAndConfig(DateUpdatedBase);
+</code></pre>
+        </article>
+    </section>
 
 
 

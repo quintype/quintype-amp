@@ -7,7 +7,7 @@
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66074042-1', 'auto');ga('send', 'pageview');</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AMP Library atoms/story-elements/blurb/blurb.tsx</title>
+  <title>AMP Library molecules/date/published/date-last-published.tsx</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -116,7 +116,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>atoms/story-elements/blurb/blurb.tsx</h1>
+                    <h1>molecules/date/published/date-last-published.tsx</h1>
                 </header>
                 
 
@@ -126,64 +126,41 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React from "react";
-import { StoryElementProps } from "../types";
-import styled from "styled-components";
+import { DateTime } from "../../../atoms";
 import { withStoryAndConfig } from "../../../context";
-import get from "lodash.get";
+import { DateLastPublishedTypes } from "./types";
+import { getHumanizedDateTime } from "../../../utils/date-time";
 
-const StyledBlurb = styled.blockquote`
-  font-size: ${(props) => props.theme.font.size.m};
-  color: ${(props) => props.theme.color.mono7};
-  margin: 0 ${(props) => props.theme.spacing.s};
-  line-height: ${(props) => props.theme.font.lineHeight.level3};
-  border-left: 3px solid ${(props) => props.theme.color.mono7};
-  padding: 0 ${(props) => props.theme.spacing.m};
+export const DateLastPublishedBase = ({ story, format, prepend }: DateLastPublishedTypes) => {
+  const dateTime = story["last-published-at"];
+  if (!dateTime) return null;
 
-  /* Applies when rendering direct html, fallback case */
-  blockquote {
-    margin: 0 ${(props) => props.theme.spacing.s};
-  }
-`;
+  const formatDateTime = format || "do MMM, yyyy 'at' p";
+  const humanizedDate = getHumanizedDateTime({
+    dateFormat: formatDateTime,
+    timeZone: "Asia/Kolkata",
+    timeStamp: dateTime
+  });
 
-export const DefaultBlurb = ({ element }: StoryElementProps) => {
-  if (element.metadata &amp;&amp; element.metadata.content) {
-    return &lt;StyledBlurb>{element.metadata.content}&lt;/StyledBlurb>;
-  }
-  return &lt;StyledBlurb as="div" dangerouslySetInnerHTML={{ __html: element.text || "" }} />;
-};
-
-export const BlurbBase = ({ element, story, config }: StoryElementProps) => {
-  const blurbRender = get(config, ["opts", "storyElementRender", "blurbRender"], null);
-
-  return blurbRender ? (
-    blurbRender({ story, config, element })
-  ) : (
-    &lt;DefaultBlurb element={element} story={story} config={config} />
-  );
+  return &lt;DateTime formattedDate={humanizedDate} prepend={prepend} />;
 };
 
 /**
- * Blurb is a story element.
- * The look of the Blurb can be changed using the render prop blurbRender. In case blurbRender is passed in the config, it is rendered. Otherwise a default Blurb is rendered.
+ * DateLastPublished Component - uses library "date-fns-tz" to format the story publish date. Uses the "DateTime" atomic component internally
  *
- * @param {Object} params object containing parameters passed to the render prop
- * @param {Object} params.story story object
- * @param {Object} params.config config object
- * @param {Object} params.element the story element. This is same as the story element found in the story API response
- *
- * ```javascript
- * ...
- * ampRoutes(app, {
- *    blurbRender: ({ story, config, element }) => &lt;MyCustomBlurb story={story} config={config} storyElement={element} />
- * })
- * ...
+ * ```js
+ * &lt;DateLastPublished format="pp 'on' do MM yyyy" prepend="Date of publication: " />
  * ```
  *
- * @category StoryElements
- * @module Blurb
+ * @param {Object} props Object containing parameters passed to the render prop
+ * @param {String|Component} props.prepend Optional. String or Component (logo) that is prepended
+ * @param {String} props.format Optional. String that is used to format date. The default is "do MMM, yyyy 'at' p". For formatting info, check [the date-fns Docs]{@link https://date-fns.org/docs/format}
+ *
+ *  @category Molecules
  * @component
  */
-export const Blurb = withStoryAndConfig(BlurbBase);
+
+export const DateLastPublished = withStoryAndConfig(DateLastPublishedBase);
 </code></pre>
         </article>
     </section>
