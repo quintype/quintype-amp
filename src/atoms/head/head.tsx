@@ -8,6 +8,9 @@ import { HeadTypes } from "./types";
  * It puts child items in the document head. Scripts, styles, SEO meta tags, link tag etc. can be given as children to this component.
  * Can be used multiple times or nested.
  *
+ * **NOTE**: while copying scripts for amp components, change any boolean attributes like `async` to `async={undefined}`. Otherwise amp validator will throw an error.
+ *  So `<script async custom-element="amp-gfycat" src="https://cdn.ampproject.org/v0/amp-gfycat-0.1.js" />` will become `<script async={undefined} custom-element="amp-gfycat" src="https://cdn.ampproject.org/v0/amp-gfycat-0.1.js" />`
+ *
  * @param {Object} params object containing parameters passed to the render prop
  * @param {Object} params.children child components
  *
