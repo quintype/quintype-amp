@@ -7,7 +7,7 @@ import { ConfigProvider } from "../../context/config/config-context";
 import { getTokensFromAMPConfig } from "../../utils/theme";
 import styled from "styled-components";
 
-const Container = styled.main`
+const Container = styled.div`
   font-family: ${(props) => props.theme.font.family.primary};
   position: relative;
 `;

@@ -11,14 +11,15 @@ export const O2Player = ({ inlineStyles, ...props }: O2PlayerTypes) => {
   if (!(props["data-pid"] || props["data-bcid"] || props["data-vid"])) {
     return null;
   }
-  const { width, height, layout } = props;
-  const setDefaultLayout = !width || !height || !layout;
+  const { width, height, layout, title } = props;
+  const setDefaultLayout = !width || !height || !layout || !title;
   const componentProps: O2PlayerTypes = setDefaultLayout
     ? {
         ...props,
         width: "16",
         height: "9",
-        layout: "responsive"
+        layout: "responsive",
+        title: "o2player"
       }
     : props;
   return (
