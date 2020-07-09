@@ -14,6 +14,6 @@ const TopSlotBase = ({ story, config }) => {
  * TopSlot is a render prop. It's placed just below the top ad, so whatever the render prop outputs will be displayed here.
  *
  * @category Atoms
- * @module TopSlot
+ * @component
  */
 export const TopSlot = withStoryAndConfig(TopSlotBase);
