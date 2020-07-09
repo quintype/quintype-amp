@@ -7,18 +7,19 @@ export const StyledO2Player = styled.div.attrs(({ style }: StyledO2PlayerTypes) 
   style
 }))<StyledO2PlayerTypes>``;
 
-export const O2Player = ({ inlineStyles, title, ...props }: O2PlayerTypes) => {
+export const O2Player = ({ inlineStyles, ...props }: O2PlayerTypes) => {
   if (!(props["data-pid"] || props["data-bcid"] || props["data-vid"])) {
     return null;
   }
-  const { width, height, layout } = props;
-  const setDefaultLayout = !width || !height || !layout;
+  const { width, height, layout, title } = props;
+  const setDefaultLayout = !width || !height || !layout || !title;
   const componentProps: O2PlayerTypes = setDefaultLayout
     ? {
         ...props,
         width: "16",
         height: "9",
-        layout: "responsive"
+        layout: "responsive",
+        title: "o2player"
       }
     : props;
   return (
@@ -31,7 +32,7 @@ export const O2Player = ({ inlineStyles, title, ...props }: O2PlayerTypes) => {
         />
       </Helmet>
       <StyledO2Player style={inlineStyles}>
-        <amp-o2-player title={title} {...componentProps} />
+        <amp-o2-player {...componentProps} />
       </StyledO2Player>
     </Fragment>
   );

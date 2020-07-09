@@ -7,15 +7,16 @@ export const StyledFacebook = styled.div.attrs(({ style }: StyledFacebookTypes) 
   style
 }))<StyledFacebookTypes>``;
 
-export const Facebook = ({ inlineStyles, title, ...props }: FacebookTypes) => {
-  const { width, height, layout } = props;
-  const setDefaultLayout = !width || !height || !layout;
+export const Facebook = ({ inlineStyles, ...props }: FacebookTypes) => {
+  const { width, height, layout, title } = props;
+  const setDefaultLayout = !width || !height || !layout || !title;
   const componentProps: FacebookTypes = setDefaultLayout
     ? {
         ...props,
         width: "16",
         height: "9",
-        layout: "responsive"
+        layout: "responsive",
+        title: "facebook"
       }
     : props;
   return (

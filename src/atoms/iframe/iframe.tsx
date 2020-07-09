@@ -24,7 +24,7 @@ const Iframe = ({
       <Helmet>
         <script async={undefined} custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js" />
       </Helmet>
-      <StyledIframe style={inlineStyles}>
+      <StyledIframe style={inlineStyles} title={title}>
         <amp-iframe
           width={width}
           height={height}
@@ -32,6 +32,7 @@ const Iframe = ({
           layout={layout}
           frameborder={frameborder}
           src={src}
+          title={title}
           {...restProps}>
           {children && children}
         </amp-iframe>

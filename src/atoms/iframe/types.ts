@@ -11,5 +11,5 @@ export interface IframeTypes extends Common {
   allowtransparency?: string;
   referrerpolicy?: string;
   inlineStyles?: object;
-  title?: string;
+  title: string;
 }

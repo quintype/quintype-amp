@@ -50,7 +50,7 @@ describe("Embed", () => {
 
 describe("getIframeSourceURL", () => {
   it("should return source of iframe", () => {
-    expect(getIframeSourceURL('<iframe frameborder="0" src="https://www.google.com" />')).toBe(
+    expect(getIframeSourceURL('<iframe frameborder="0" src="https://www.google.com" title="google" />')).toBe(
       "https://www.google.com"
     );
   });

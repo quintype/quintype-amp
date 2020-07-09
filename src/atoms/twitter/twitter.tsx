@@ -7,15 +7,16 @@ export const StyledTwitter = styled.div.attrs(({ style }: { style?: object }) =>
   style
 }))``;
 
-export const Twitter = ({ inlineStyles, title, ...props }: TwitterTypes) => {
-  const { width, height, layout } = props;
-  const setDefaultLayout = !width || !height || !layout;
+export const Twitter = ({ inlineStyles, ...props }: TwitterTypes) => {
+  const { width, height, layout, title } = props;
+  const setDefaultLayout = !width || !height || !layout || !title;
   const componentProps: TwitterTypes = setDefaultLayout
     ? {
         ...props,
         width: "390",
         height: "330",
-        layout: "responsive"
+        layout: "responsive",
+        title: "twitter"
       }
     : props;
   return (
@@ -24,7 +25,7 @@ export const Twitter = ({ inlineStyles, title, ...props }: TwitterTypes) => {
         <script async={undefined} custom-element="amp-twitter" src="https://cdn.ampproject.org/v0/amp-twitter-0.1.js" />
       </Helmet>
       <StyledTwitter style={inlineStyles}>
-        <amp-twitter {...componentProps} title={title} />
+        <amp-twitter {...componentProps} />
       </StyledTwitter>
     </Fragment>
   );
