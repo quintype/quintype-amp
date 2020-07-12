@@ -53,7 +53,7 @@ export const NavbarBase = ({ align = "left", config, theme }: NavbarTypes) => {
       </LogoWrapperOuter>
       {isMenuEnabled && hamburgerMenuItems.length > 0 && (
         <Fragment>
-          <HamburgerWrapper role="button" tabIndex={0} on="tap:sidebar.open" align={align}>
+          <HamburgerWrapper role="button" tabIndex={0} on="tap:sidebar.open" align={align} aria-label="hamburger">
             <Hamburger width="40" height="40" color={hamburgerColor} />
           </HamburgerWrapper>
           <HamburgerMenu align={align} textDirection={textDirection} items={hamburgerMenuItems} />

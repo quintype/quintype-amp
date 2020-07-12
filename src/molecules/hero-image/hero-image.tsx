@@ -29,7 +29,7 @@ export const HeroImageBase = ({ story, attribution, slug, metadata, caption }: H
   let overRideStory = false;
   let figcaptionText: string | undefined | boolean;
   const imageProps: any = {};
-
+  const imageAttribution = story["hero-image-attribution"] || story["hero-image-caption"] || "";
   if (attribution || slug || metadata || caption) {
     overRideStory = true;
   }
@@ -56,7 +56,7 @@ export const HeroImageBase = ({ story, attribution, slug, metadata, caption }: H
   }
   return (
     <div>
-      <Image {...imageProps}>
+      <Image {...imageProps} alt={imageAttribution}>
         {figcaptionText && <StyledFigcaption dangerouslySetInnerHTML={{ __html: figcaptionText || "" }} />}
       </Image>
     </div>

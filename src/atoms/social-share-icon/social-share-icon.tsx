@@ -26,12 +26,19 @@ export const SocialShareIcon = ({
       </Helmet>
       {type === "facebook" && (
         <StyledSocialShare style={inlineStyles}>
-          <amp-social-share style={styles} type={type} width={width} height={height} data-param-app_id={fbAppId} />
+          <amp-social-share
+            style={styles}
+            type={type}
+            width={width}
+            height={height}
+            data-param-app_id={fbAppId}
+            aria-label="facebook social share icon"
+          />
         </StyledSocialShare>
       )}
       {type !== "facebook" && (
         <StyledSocialShare style={inlineStyles}>
-          <amp-social-share style={styles} type={type} width={width} height={height} />
+          <amp-social-share style={styles} type={type} width={width} height={height} aria-label="socialshare icon" />
         </StyledSocialShare>
       )}
     </Fragment>

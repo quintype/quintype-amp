@@ -2,7 +2,7 @@ import React from "react";
 import { SectionProps } from "./types";
 import styled from "styled-components";
 
-export const StyledSectionName = styled.h5.attrs(({ style }: SectionProps & { style?: object }) => ({
+export const StyledSectionName = styled.span.attrs(({ style }: SectionProps & { style?: object }) => ({
   style
 }))`
   color: ${(props) => props.theme.color.sectionTextColor};

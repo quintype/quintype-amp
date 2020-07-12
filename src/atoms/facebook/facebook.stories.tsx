@@ -5,16 +5,21 @@ import { Facebook } from "./facebook";
 const postSrc = "https://www.facebook.com/ParksCanada/posts/1712989015384373";
 
 storiesOf("Facebook", module)
-  .add("Post with 16:9 responsive (default) layout", () => <Facebook data-href={postSrc} />)
+  .add("Post with 16:9 responsive (default) layout", () => <Facebook data-href={postSrc} title="facebook" />)
   .add("Post with fixed (custom) layout", () => (
-    <Facebook width="200" height="200" layout="fixed" data-href={postSrc} />
+    <Facebook width="200" height="200" layout="fixed" data-href={postSrc} title="facebook" />
   ))
   .add("facebook video", () => (
-    <Facebook data-embed-as="video" data-href="https://www.facebook.com/nasaearth/videos/10155187938052139" />
+    <Facebook
+      data-embed-as="video"
+      data-href="https://www.facebook.com/nasaearth/videos/10155187938052139"
+      title="facebook"
+    />
   ))
   .add("facebook comment", () => (
     <Facebook
       data-embed-type="comment"
       data-href="https://www.facebook.com/zuck/posts/10102735452532991?comment_id=1070233703036185"
+      title="facebook"
     />
   ));

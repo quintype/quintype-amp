@@ -15,14 +15,19 @@ const embedAs = {
 export const FacebookElementBase = ({ element, story, config, ...props }: FacebookElementProps) => {
   const { metadata } = element;
   const facebookElementRender = get(config, ["opts", "storyElementRender", "facebookElementRender"], null);
-
+  const title = element.subtype || element.title || "";
   if (!(metadata && metadata.provider && metadata["facebook-url"])) {
     return null;
   }
   return facebookElementRender ? (
     facebookElementRender({ story, config, element })
   ) : (
-    <Facebook data-href={metadata["facebook-url"]} data-embed-as={embedAs[metadata.provider]} {...props} />
+    <Facebook
+      data-href={metadata["facebook-url"]}
+      data-embed-as={embedAs[metadata.provider]}
+      title={title}
+      {...props}
+    />
   );
 };
 

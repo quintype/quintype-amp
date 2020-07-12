@@ -28,7 +28,6 @@ export const DefaultVidibleElement = ({
 }: VidibleElementProps) => {
   const { metadata } = element;
   let vidibleIds: VidibleIds | null = null;
-
   if (metadata && metadata["player-url"]) {
     vidibleIds = getVidibleIDs(metadata["player-url"]);
   }
@@ -48,11 +47,11 @@ export const DefaultVidibleElement = ({
 
 export const VidibleElementBase = ({ element, story, config }: StoryElementProps) => {
   const vidibleElementRender = get(config, ["opts", "storyElementRender", "vidibleElementRender"], null);
-
+  const title = element.subtype || element.title || "";
   return vidibleElementRender ? (
     vidibleElementRender({ story, config, element })
   ) : (
-    <DefaultVidibleElement element={element} story={story} config={config} />
+    <DefaultVidibleElement element={element} story={story} config={config} title={title} />
   );
 };
 /**
