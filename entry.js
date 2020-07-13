@@ -22,32 +22,32 @@
 
     import './styles/iframe.css';
 
-  import Component0 from '../src/molecules/slots/story-page-slots/bottom-slot/bottom-slot.tsx';
-reactComponents['BottomSlot'] = Component0;
+  import Component0 from '../src/atoms/author/author.tsx';
+reactComponents['Author'] = Component0;
 
-import Component1 from '../src/molecules/date/published/date-last-published.tsx';
-reactComponents['DateLastPublished'] = Component1;
+import Component1 from '../src/molecules/slots/story-page-slots/bottom-slot/bottom-slot.tsx';
+reactComponents['BottomSlot'] = Component1;
 
-import Component2 from '../src/atoms/date-time/date-time.tsx';
-reactComponents['DateTime'] = Component2;
+import Component2 from '../src/molecules/date/published/date-last-published.tsx';
+reactComponents['DateLastPublished'] = Component2;
 
-import Component3 from '../src/molecules/date/updated/date-updated.tsx';
-reactComponents['DateUpdated'] = Component3;
+import Component3 from '../src/atoms/date-time/date-time.tsx';
+reactComponents['DateTime'] = Component3;
 
-import Component4 from '../src/atoms/head/head.tsx';
-reactComponents['Head'] = Component4;
+import Component4 from '../src/molecules/date/updated/date-updated.tsx';
+reactComponents['DateUpdated'] = Component4;
 
-import Component5 from '../src/atoms/layout/layout.tsx';
-reactComponents['Layout'] = Component5;
+import Component5 from '../src/atoms/head/head.tsx';
+reactComponents['Head'] = Component5;
 
-import Component6 from '../src/atoms/story-elements/also-read/also-read.tsx';
-reactComponents['AlsoRead'] = Component6;
+import Component6 from '../src/atoms/layout/layout.tsx';
+reactComponents['Layout'] = Component6;
 
-import Component7 from '../src/atoms/story-elements/text/answer/answer.tsx';
-reactComponents['Answer'] = Component7;
+import Component7 from '../src/atoms/story-elements/also-read/also-read.tsx';
+reactComponents['AlsoRead'] = Component7;
 
-import Component8 from '../src/atoms/author/author.tsx';
-reactComponents['Author'] = Component8;
+import Component8 from '../src/atoms/story-elements/text/answer/answer.tsx';
+reactComponents['Answer'] = Component8;
 
 import Component9 from '../src/atoms/story-elements/text/bigfact/bigfact.tsx';
 reactComponents['Bigfact'] = Component9;
@@ -100,5 +100,8 @@ reactComponents['VidibleElement'] = Component24;
 import Component25 from '../src/atoms/story-elements/youtube/youtube.tsx';
 reactComponents['YouTube'] = Component25;
 
-import Component26 from '../src/molecules/slots/story-page-slots/top-slot/top-slot.tsx';
-reactComponents['TopSlot'] = Component26;
+import Component26 from '../src/atoms/spacer/spacer.tsx';
+reactComponents['Spacer'] = Component26;
+
+import Component27 from '../src/molecules/slots/story-page-slots/top-slot/top-slot.tsx';
+reactComponents['TopSlot'] = Component27;
