@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GenericStory Template should render 1`] = `
-<Layout
+<Component
   config={
     Object {
       "ampConfig": Object {
@@ -57,7 +57,7 @@ exports[`GenericStory Template should render 1`] = `
         "gtm-id": "GTM-XXXXXX",
         "infinite-scroll-collection-id": 5678,
         "invalid-elements-strategy": "redirect-to-web-version",
-        "logo-url": "https://thumbor-stg.assettype.com/ace/2018-02/f0ba1430-8c21-49a3-a5cf-50c88ce9ec74/martian3.jpg",
+        "logo-url": "https://images.assettype.com/thecue/2020-01/fdf230c2-d529-4da6-86ad-535e54adfad8/TheCue_Logo_dark.png",
         "menu": Object {
           "enabled": true,
         },
@@ -4745,5 +4745,5 @@ exports[`GenericStory Template should render 1`] = `
   <WithTheme(BaseFooter)
     text="Copyright © 2020 Newslaundry Media Private Limited.  All Rights Reserved "
   />
-</Layout>
+</Component>
 `;

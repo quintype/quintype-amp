@@ -7,6 +7,7 @@ export interface O2PlayerTypes extends Common {
   "data-bid"?: string;
   "data-macros"?: string;
   inlineStyles?: object;
+  title: string;
 }
 
 export interface StyledO2PlayerTypes {

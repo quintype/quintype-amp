@@ -1,6 +1,6 @@
 {
   "name": "@quintype/amp",
-  "version": "1.6.0",
+  "version": "1.6.3",
   "description": "Quintype's AMP component library for publisher apps to create amp layouts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,7 +11,7 @@
     "prepublishOnly": "./bin-dev-scripts/standard-version-release.sh",
     "storybook": "start-storybook -s ./storybook-assets -p 9001",
     "docs:build": "rimraf docs && jsdoc -c jsdoc.json",
-    "docs:serve": "npm run docs:build && http-server docs -p 3001 --silent -o",
+    "docs:serve": "npm run docs:build && http-server docs -p 3001 --silent",
     "docs:deploy": "npm run docs:build && gh-pages -d docs",
     "build": "rimraf dist && webpack --mode=development",
     "build:prod": "rimraf dist && webpack --mode=production",

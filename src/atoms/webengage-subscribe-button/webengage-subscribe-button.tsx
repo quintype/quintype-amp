@@ -28,7 +28,7 @@ export const SubscribeMessage = styled.span`
 export const WebengageSubscribeButtonBase = ({ theme, on, text }: ButtonTypes) => {
   const bellIconColor = get(theme, ["color", "white"], "currentColor");
   return (
-    <StyledButton on={on}>
+    <StyledButton on={on} aria-label="bell icon">
       <Bell color={bellIconColor} />
       <Spacer align="horizontal" token="m" />
       <SubscribeMessage>{text || "Subscribe to instant updates"}</SubscribeMessage>

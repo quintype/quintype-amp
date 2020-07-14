@@ -8,6 +8,12 @@ describe("HeroImage", () => {
     const wrapper = shallow(<HeroImage />);
     expect(wrapper).toMatchSnapshot();
   });
+  it("should render caption without HTML Tags", () => {
+    const wrapper = shallow(
+      <HeroImage caption="<p>Congress, AAP and AIMIM leaders</p>" attribution="<span>custom attribution</span>" />
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
 });
 
 test("getFigcaptionText should return caption and attribution", () => {
@@ -25,4 +31,8 @@ test("getFigcaptionText should return caption", () => {
 test("getFigcaptionText should return false", () => {
   const text = getFigcaptionText(null, null);
   expect(text).toBe(false);
+});
+test("getFigcaptionText should return caption and attribution without HTML Tags", () => {
+  const text = getFigcaptionText("img caption", "img attribution");
+  expect(text).toMatchSnapshot();
 });

@@ -13,11 +13,16 @@ const StyledNavbar = styled.header`
   height: 60px;
   position: relative;
 `;
-const LogoWrapper = styled.div`
+const LogoWrapperOuter = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+`;
+const LogoWrapperInner = styled.div`
+  position: relative;
+  width: 200px;
+  height: 50px;
 `;
 export const HamburgerWrapper = styled.div<{ align: "left" | "right" }>`
   position: absolute;
@@ -34,22 +39,21 @@ export const HamburgerWrapper = styled.div<{ align: "left" | "right" }>`
   `}
 `;
 
-export const NavbarBase = ({ logoSrc, align = "left", config, theme }: NavbarTypes) => {
+export const NavbarBase = ({ align = "left", config, theme }: NavbarTypes) => {
   const isMenuEnabled = get(config, ["ampConfig", "menu", "enabled"], false);
   const hamburgerMenuItems = get(config, ["ampConfig", "menu-groups", "default", "items"], []);
   const textDirection = get(config, ["publisherConfig", "text-direction"], "ltr");
-  const logo = logoSrc || get(config, ["ampConfig", "logo-url"], null);
-  const publisherName = get(config, ["publisherConfig", "publisher-name"], "");
   const hamburgerColor = get(theme, ["color", "secondaryColor"], "currentColor");
-  if (!logo) return null;
   return (
     <StyledNavbar>
-      <LogoWrapper>
-        <PublisherLogoHeader publisherName={publisherName} logoSrc={logo} />
-      </LogoWrapper>
+      <LogoWrapperOuter>
+        <LogoWrapperInner>
+          <PublisherLogoHeader />
+        </LogoWrapperInner>
+      </LogoWrapperOuter>
       {isMenuEnabled && hamburgerMenuItems.length > 0 && (
         <Fragment>
-          <HamburgerWrapper role="button" tabIndex={0} on="tap:sidebar.open" align={align}>
+          <HamburgerWrapper role="button" tabIndex={0} on="tap:sidebar.open" align={align} aria-label="hamburger">
             <Hamburger width="40" height="40" color={hamburgerColor} />
           </HamburgerWrapper>
           <HamburgerMenu align={align} textDirection={textDirection} items={hamburgerMenuItems} />
