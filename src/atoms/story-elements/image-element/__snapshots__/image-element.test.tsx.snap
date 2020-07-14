@@ -51,3 +51,29 @@ exports[`Image Element should render amp image 1`] = `
   story={Object {}}
 />
 `;
+
+exports[`Image Element should render fig caption with caption wrapped inside an HTML Tag 1`] = `
+<Component
+  config={Object {}}
+  element={
+    Object {
+      "description": "",
+      "family-id": "c608c12f-f45b-4266-8a60-9de857ee92fd",
+      "id": "2c31b5ad-0189-4bad-841e-e105d738ca80",
+      "image-attribution": "Someone ",
+      "image-metadata": Object {
+        "height": 787,
+        "original-url": "https://media.npr.org/assets/img/2020/03/20/handwashing-8_wide-eb1f71948877c7a15d27a82cd7d90b324b956a89.jpg?s=1400",
+        "width": 1400,
+      },
+      "image-s3-key": "ace/2020-03/ad503d63-4d05-41e6-9722-fdfe3acb2405/handwashing_8_wide_eb1f71948877c7a15d27a82cd7d90b324b956a89.jpg",
+      "metadata": Object {},
+      "page-url": "/story/05066b94-784b-4913-971b-c01a1bcfb43d/element/2c31b5ad-0189-4bad-841e-e105d738ca80",
+      "subtype": null,
+      "title": "<p>Wash your hands</p>",
+      "type": "image",
+    }
+  }
+  story={Object {}}
+/>
+`;

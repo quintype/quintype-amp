@@ -8,14 +8,15 @@ export const StyledTwitter = styled.div.attrs(({ style }: { style?: object }) =>
 }))``;
 
 export const Twitter = ({ inlineStyles, ...props }: TwitterTypes) => {
-  const { width, height, layout } = props;
-  const setDefaultLayout = !width || !height || !layout;
+  const { width, height, layout, title } = props;
+  const setDefaultLayout = !width || !height || !layout || !title;
   const componentProps: TwitterTypes = setDefaultLayout
     ? {
         ...props,
         width: "390",
         height: "330",
-        layout: "responsive"
+        layout: "responsive",
+        title: "twitter"
       }
     : props;
   return (

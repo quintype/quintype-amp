@@ -8,7 +8,7 @@ import ReactDOMServer from "react-dom/server";
  * Styles created using styled components and those added using react-helmet are merged. script, meta, link tags, seo are added to the head
  *
  * @category Helper
- * @module renderToString
+ * @module RenderToString
  * @function renderToString
  * @param {class} component React component, ideally the containing the page layout
  * @param {string} seo the SEO string that is to be added in the head

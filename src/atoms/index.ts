@@ -19,7 +19,6 @@ import { IncompatibleBanner } from "./incompatible-banner";
 import { Iframe } from "./iframe";
 import { DailyMotion } from "./daily-motion";
 import { Head } from "./head";
-import { Link } from "./link";
 import { Instagram } from "./instagram";
 import { O2Player } from "./o2-player";
 import { WebPush } from "./web-push";
@@ -56,7 +55,6 @@ export {
   IncompatibleBanner,
   DailyMotion,
   Head,
-  Link,
   Instagram,
   O2Player,
   WebPush,

@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/react";
 import { Iframe } from "./iframe";
 
 const postSrc = "https://codepen.io/rvgpl/embed/qXGqKm?height=265&theme-id=dark&default-tab=css,result";
-
+const title = "code pen embed";
 storiesOf("Iframe", module)
   .addDecorator((story) => (
     <div>
@@ -13,6 +13,10 @@ storiesOf("Iframe", module)
       {story()}
     </div>
   ))
-  .add("Post with 16:9 responsive (default) layout", () => <Iframe src={postSrc} />)
-  .add("Post with fixed (custom) layout", () => <Iframe width="400" height="400" layout="fixed" src={postSrc} />)
-  .add("Post with custom style", () => <Iframe src={postSrc} inlineStyles={{ border: "5px solid red" }} />);
+  .add("Post with 16:9 responsive (default) layout", () => <Iframe src={postSrc} title={title} />)
+  .add("Post with fixed (custom) layout", () => (
+    <Iframe width="400" height="400" layout="fixed" src={postSrc} title={title} />
+  ))
+  .add("Post with custom style", () => (
+    <Iframe src={postSrc} inlineStyles={{ border: "5px solid red" }} title={title} />
+  ));

@@ -15,4 +15,18 @@ export const DateUpdatedBase = ({ story, prepend }: DateUpdatedTypes) => {
   return <DateTime formattedDate={humanizedString} prepend={prepend} />;
 };
 
+/**
+ * DateUpdated Component - uses library "date-fns-tz" to format the story updated date. Uses the "DateTime" atomic component internally
+ *
+ * ```js
+ * <DateUpdated prepend="Updated: " />
+ * ```
+ *
+ * @param {Object} props Object containing parameters passed to the render prop
+ * @param {String} props.prepend Optional. String that is prepended to the date
+ *
+ * @category Molecules
+ * @component
+ */
+
 export const DateUpdated = withStoryAndConfig(DateUpdatedBase);
