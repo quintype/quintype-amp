@@ -41,8 +41,8 @@ const discardEmptyTitle = (str: string) => str.replace(/<title data-react-helmet
 const getHeadTagsFromHelmet = (component) => {
   ReactDOMServer.renderToStaticMarkup(component); // without this, helmet.script returns empty
   const helmet = Helmet.renderStatic();
-  const titleRow = helmet.title.toString();
-  const title = discardEmptyTitle(titleRow);
+  const titleStr = helmet.title.toString();
+  const title = discardEmptyTitle(titleStr);
   const script = helmet.script.toString();
   const metaTags = helmet.meta.toString();
   const link = helmet.link.toString();
