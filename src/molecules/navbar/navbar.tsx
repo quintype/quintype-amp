@@ -63,4 +63,19 @@ export const NavbarBase = ({ align = "left", config, theme }: NavbarTypes) => {
   );
 };
 
+/**
+ * Navbar Component uses the PublisherLogoHeader, HamburgerMenu and Hamburger atomic components internally.
+ *
+ * ```js
+ * <Navbar align="right" />
+ * ```
+ *
+ * @param {Object} props Object containing parameters passed to the render prop
+ * @param {String} props.align Optional. A string of "right" or "left" which specifies the direction of the hamburger menu.
+ * @param {Object} props.config config object
+ * @param {Object} props.theme theme object
+ *  @category Molecules
+ * @component
+ */
+
 export const Navbar = withTheme(withConfig(NavbarBase));

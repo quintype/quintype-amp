@@ -70,3 +70,18 @@ const ImageForStory = ({ metadata, s3Key, aspectRatio, altText, fallbackSrc }: I
     )}
   </Fragment>
 );
+
+/**
+ * RelatedStoryCard Component uses the RelatedStoryCard atomic components internally depending on a condition orelse it uses `<amp-img>` component.
+ *
+ * ```js
+ * <RelatedStoryCard aspectRatio={[16, 9]} fallbackSrc="" story={relatedStory} />
+ * ```
+ *
+ * @param {Object} props Object containing parameters passed to the render prop
+ * @param {String} props.story Required. A story object from related stories collection.
+ * @param {Object} props.fallbackSrc Optional. A String which takes in fallback image source.
+ * @param {Object} props.aspectRatio Optional. An Array of width and height. Defaults to [16,9].
+ *  @category Molecules
+ * @component
+ */
