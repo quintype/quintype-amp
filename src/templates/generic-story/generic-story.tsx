@@ -76,12 +76,7 @@ export const GenericStory = ({ story, config, relatedStories, infiniteScrollInli
               <Fragment key={card.id}>{storyCard}</Fragment>
             );
           })}
-
-          {config.opts && config.opts.relatedStoriesRender ? (
-            config.opts.relatedStoriesRender({ relatedStories, config, story })
-          ) : (
-            <RelatedStories stories={relatedStories} />
-          )}
+          <RelatedStories stories={relatedStories} />
         </StoryContainer>
         <BottomSlot />
         <BottomAd />

@@ -15,13 +15,20 @@ describe("RelatedStories", () => {
     const wrapper = shallow(<RelatedStories stories={relatedStories} />);
     expect(wrapper).toMatchSnapshot();
   });
-  it("should render if valid stories are passed", () => {
-    const wrapper = shallow(<RelatedStoriesBase config={config} stories={relatedStories} />);
+  it("should render if valid related stories are passed", () => {
+    const wrapper = shallow(<RelatedStoriesBase story={textStory} config={config} stories={relatedStories} />);
     expect(wrapper.find(Heading).text()).toBe("Also Read");
   });
-  it("should not render if no stories are passed", () => {
-    const wrapper = shallow(<RelatedStoriesBase config={config} stories={[]} />);
+  it("should not render if no related stories are passed", () => {
+    const wrapper = shallow(<RelatedStoriesBase story={textStory} config={config} stories={[]} />);
     expect(wrapper.find(Heading).exists()).toBeFalsy();
+  });
+  it("should call relatedStoriesRender when passed", () => {
+    const relatedStoriesRender = jest.fn();
+    const modifiedConfig = { ...config, opts: { render: { relatedStoriesRender } } };
+    const wrapper = shallow(<RelatedStoriesBase story={textStory} config={modifiedConfig} stories={relatedStories} />);
+    expect(relatedStoriesRender.mock.calls.length).toBe(1);
+    expect(wrapper.find(RelatedStories).length).toBe(0);
   });
   it("Should return valid amp-html", async () => {
     const Component = () => (

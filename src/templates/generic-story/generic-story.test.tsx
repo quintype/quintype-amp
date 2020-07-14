@@ -32,13 +32,6 @@ describe("GenericStory Template", () => {
     const wrapper = shallow(<GenericStory story={textStory} config={modifiedConfig} relatedStories={relatedStories} />);
     expect(wrapper.find(InfiniteScroll).length).toBe(0);
   });
-  it("should call relatedStoriesRender prop when passed to opts", () => {
-    const relatedStoriesRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, relatedStoriesRender } };
-    const wrapper = shallow(<GenericStory story={textStory} config={modifiedConfig} relatedStories={relatedStories} />);
-    expect(relatedStoriesRender.mock.calls.length).toBe(1);
-    expect(wrapper.find(RelatedStories).length).toBe(0);
-  });
   it("should call infiniteScrollRender prop when passed to opts", () => {
     const infiniteScrollRender = jest.fn();
     const modifiedConfig = { ...config, opts: { ...config.opts, infiniteScrollRender } };

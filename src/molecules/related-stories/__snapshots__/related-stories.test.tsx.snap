@@ -2509,5 +2509,6 @@ exports[`RelatedStories should render default 1`] = `
       },
     ]
   }
+  story={Object {}}
 />
 `;
