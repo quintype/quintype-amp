@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Subscriptions should render Subscription services  1`] = `
+<Fragment>
+  <HelmetWrapper
+    defer={true}
+    encodeSpecialCharacters={true}
+  >
+    <script
+      custom-element="amp-subscriptions"
+      src="https://cdn.ampproject.org/v0/amp-subscriptions-0.1.js"
+    />
+  </HelmetWrapper>
+  <script
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "{\\"services\\":[{\\"authorizationUrl\\":\\"https://pub.com/amp-authorisation?rid=READER_ID&url=SOURCE_URL\\",\\"pingbackUrl\\":\\"https://pub.com/amp-pingback?rid=READER_ID&url=SOURCE_URL\\",\\"actions\\":{\\"login\\":\\"https://pub.com/amp-login?rid=READER_ID&url=SOURCE_URL\\",\\"subscribe\\":\\"https://pub.com/amp-subscribe?rid=READER_ID&url=SOURCE_URL\\"}}]}",
+      }
+    }
+    id="amp-subscriptions"
+    type="application/json"
+  />
+</Fragment>
+`;
