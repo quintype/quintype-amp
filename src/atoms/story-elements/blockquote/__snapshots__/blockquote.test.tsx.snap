@@ -13,13 +13,3 @@ exports[`BlockQuote should render default 1`] = `
   </styled.span>
 </styled.div>
 `;
-
-exports[`BlockQuote should render without metadata 1`] = `
-<styled.div
-  dangerouslySetInnerHTML={
-    Object {
-      "__html": "<div><blockquote>This is a blockquote</blockquote><span class='attribution'>Attribution</span></div>",
-    }
-  }
-/>
-`;

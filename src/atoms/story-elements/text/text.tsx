@@ -5,7 +5,7 @@ import { withStoryAndConfig } from "../../../context";
 import { TextProps } from "./types";
 import get from "lodash.get";
 
-const StyledText = styled.div<StoryElementProps>`
+export const StyledText = styled.div<StoryElementProps>`
   color: ${(props) => props.theme.color.mono6};
   font-size: ${(props) => props.theme.font.size.xs};
   font-family: ${(props) => props.theme.font.family.primary};

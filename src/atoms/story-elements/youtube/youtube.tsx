@@ -28,11 +28,7 @@ export const DefaultYouTube = ({ element, layout = "responsive", width = "480", 
 export const YouTubeBase = ({ element, story, config }: YouTubeProps & CommonRenderPropTypes) => {
   const youtubeElementRender = get(config, ["opts", "storyElementRender", "youtubeElementRender"], null);
 
-  return youtubeElementRender ? (
-    youtubeElementRender({ story, config, element })
-  ) : (
-    <DefaultYouTube element={element} story={story} config={config} />
-  );
+  return youtubeElementRender ? youtubeElementRender({ story, config, element }) : <DefaultYouTube element={element} />;
 };
 /**
  * YouTube is a story element.

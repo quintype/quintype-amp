@@ -20,6 +20,12 @@ const LayoutForHeaderCard = () => (
 
 describe("Molecules", () => {
   it("HeaderCard should render valid AMP Html", async () => {
+    const LayoutForHeaderCard = () => (
+      <Layout story={textStory} config={config}>
+        <Link rel="canonical" href="." />
+        <HeaderCard />
+      </Layout>
+    );
     const ampHtml = renderToString(<LayoutForHeaderCard />);
     const ampValidatorOutput = await isValidAmpHtml(ampHtml);
     expect(ampValidatorOutput).toBe(true);
