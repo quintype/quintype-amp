@@ -14,7 +14,7 @@ export const StyledSummary = styled.p<StoryElementProps>`
 `;
 
 export const SummaryBase = ({ element, story, config }: StoryElementProps) => {
-  const summaryElementRender = get(config, ["opts", "storyElementRender", "summaryElementRender"], null);
+  const summaryElementRender = get(config, ["opts", "render", "storyElementRender", "summaryElementRender"], null);
 
   return summaryElementRender ? (
     summaryElementRender({ story, config, element })

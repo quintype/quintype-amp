@@ -24,16 +24,20 @@ const sampleVidibleElement = {
 
 describe("Vidible Element", () => {
   it("should render vidible video", () => {
-    const wrapper = mount(<DefaultVidibleElement element={sampleVidibleElement} />);
+    const wrapper = mount(<VidibleElementBase element={sampleVidibleElement} />);
     expect(wrapper.find("amp-o2-player").length).toBe(1);
   });
   it("should auto play, disable macros", () => {
-    const wrapper = mount(<DefaultVidibleElement element={sampleVidibleElement} data-macros="auto" />);
+    const wrapper = mount(<DefaultVidibleElement title="" element={sampleVidibleElement} data-macros="auto" />);
     expect(wrapper.find("amp-o2-player").prop("data-macros")).toBe("auto");
   });
-  it("should call vidibleElementRender prop when passed to opts", () => {
+  it("should auto play, disable macros 2", () => {
+    const wrapper = mount(<VidibleElementBase element={sampleVidibleElement} data-macros="auto" />);
+    expect(wrapper.find("amp-o2-player").prop("data-macros")).toBe("auto");
+  });
+  it("should call vidibleElementRender when passed", () => {
     const vidibleElementRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { vidibleElementRender } } };
+    const modifiedConfig = { ...config, opts: { render: { storyElementRender: { vidibleElementRender } } } };
     const wrapper = shallow(
       <VidibleElementBase element={sampleVidibleElement} story={textStory} config={modifiedConfig} />
     );

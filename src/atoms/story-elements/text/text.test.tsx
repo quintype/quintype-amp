@@ -16,9 +16,9 @@ describe("Text", () => {
     const wrapper = shallow(<Text element={sampleTextElement} />);
     expect(wrapper).toMatchSnapshot();
   });
-  it("should render text and call storyElementRender prop when passed to opts", () => {
+  it("should call textElementRender when passed", () => {
     const textElementRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { textElementRender } } };
+    const modifiedConfig = { ...config, opts: { render: { storyElementRender: { textElementRender } } } };
     const wrapper = shallow(<TextBase element={sampleTextElement} story={textStory} config={modifiedConfig} />);
     expect(textElementRender.mock.calls.length).toBe(1);
     expect(wrapper.find("p").length).toBe(0);
