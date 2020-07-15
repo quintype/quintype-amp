@@ -94,13 +94,9 @@ export const DefaultBlockQuote = ({ element }: StoryElementProps) => {
 };
 
 export const BlockQuoteBase = ({ element, story, config }: StoryElementProps) => {
-  const blockquoteRender = get(config, ["opts", "storyElementRender", "blockquoteRender"], null);
+  const blockquoteRender = get(config, ["opts", "render", "storyElementRender", "blockquoteRender"], null);
 
-  return blockquoteRender ? (
-    blockquoteRender({ story, config, element })
-  ) : (
-    <DefaultBlockQuote element={element} story={story} config={config} />
-  );
+  return blockquoteRender ? blockquoteRender({ story, config, element }) : <DefaultBlockQuote element={element} />;
 };
 /**
  * BlockQuote is a story element.

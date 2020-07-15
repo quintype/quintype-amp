@@ -27,7 +27,7 @@ describe("DailyMotion Element", () => {
   });
   it("should call dailyMotionRender prop when passed to opts", () => {
     const dailyMotionRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { dailyMotionRender } } };
+    const modifiedConfig = { ...config, opts: { render: { storyElementRender: { dailyMotionRender } } } };
     const wrapper = shallow(
       <DailyMotionElementBase element={sampleDailyMotionElement} story={textStory} config={modifiedConfig} />
     );
