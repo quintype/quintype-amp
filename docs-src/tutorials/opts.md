@@ -7,11 +7,27 @@ The opts object for rendering AMP story pages has the following structure:
 ```jsx
 const myStoryPageOptsObj = {
   seo,
-  templates,
-  slots,
-  ...
-  ..renders..
-  ...
+  templates: {
+    text,
+    video,
+    // ... other templates
+  },
+  slots: {
+    story: {
+      "top-slot",
+      "bottom-slot"
+    }
+  },
+  render: {
+    headerCardRender,
+    relatedStoriesRender,
+    infiniteScrollRender,
+    storyElementRender: {
+      bigfactElementRender,
+      textElementRender,
+      // ... other renders
+    }
+  }
 };
 ```
 
@@ -87,20 +103,19 @@ If you wish to customize the default templates, you can do so using the various 
 For example,
 
 ```jsx
-const mySERenders = {
-  textElementRender: ({story, config, element}) => (<div>
-    <span>My Custom Text Element</span>
-    <div className="">{element.text}</div>
-  </div>)
-}
 ampRoutes(app, {
-   slots: {
-     story: {
-       "top-slot": ({story, config}) => <MyTopSlot story={story} config={config} />
-       "bottom-slot": ({story, config}) => <MyBottomSlot story={story} config={config} />
-     }
-   }
-})
+  render: {
+    headerCardRender: ({story, config}) => <div>CUSTOM HEADER CARD</div>
+    storyElementRender: {
+      textElementRender: ({ story, config, element }) => (
+        <div>
+          <span>My Custom Text Element</span>
+          <div className="">{element.text}</div>
+        </div>
+      )
+    }
+  }
+});
 ```
 
 Here too, `story` and `config` is same as what's mentioned <a href="#storyConfig_link">above</a>.
