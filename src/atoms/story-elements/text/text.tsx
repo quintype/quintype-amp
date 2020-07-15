@@ -56,11 +56,7 @@ export const DefaultText = ({ element, externalLink }: StoryElementProps & TextP
 
 export const TextBase = ({ element, story, config }: StoryElementProps) => {
   const textElementRender = get(config, ["opts", "render", "storyElementRender", "textElementRender"], null);
-  return textElementRender ? (
-    textElementRender({ story, config, element })
-  ) : (
-    <DefaultText element={element} story={story} config={config} />
-  );
+  return textElementRender ? textElementRender({ story, config, element }) : <DefaultText element={element} />;
 };
 /**
  * Text is a story element.

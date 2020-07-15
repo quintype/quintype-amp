@@ -35,7 +35,7 @@ export const ImageElementBase = ({ element, story, config }: StoryElementProps) 
   ) : (
     <Image slug={element["image-s3-key"]} metadata={element["image-metadata"]} alt={imageAttribution}>
       {element.title && element.title.length > 1 && (
-        <StyledFigCaption dangerouslySetInnerHTML={{ __html: element.title || "" }} />
+        <StyledFigCaption dangerouslySetInnerHTML={{ __html: element.title }} />
       )}
     </Image>
   );
