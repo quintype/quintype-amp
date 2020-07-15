@@ -9,15 +9,6 @@ import { HeaderCard } from "./index";
 import React from "react";
 import { Layout, Head } from "../atoms";
 
-const LayoutForHeaderCard = () => (
-  <Layout story={textStory} config={config}>
-    <Head>
-      <link rel="canonical" href="." />
-    </Head>
-    <HeaderCard />
-  </Layout>
-);
-
 describe("Molecules", () => {
   it("HeaderCard should render valid AMP Html", async () => {
     const LayoutForHeaderCard = () => (
