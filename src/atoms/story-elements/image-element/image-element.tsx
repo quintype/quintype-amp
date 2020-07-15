@@ -28,7 +28,7 @@ const StyledFigCaption = styled.figcaption`
 `;
 
 export const ImageElementBase = ({ element, story, config }: StoryElementProps) => {
-  const imageElementRender = get(config, ["opts", "storyElementRender", "imageElementRender"], null);
+  const imageElementRender = get(config, ["opts", "render", "storyElementRender", "imageElementRender"], null);
   const imageAttribution = element["image-attribution"] || element.title || "";
   return imageElementRender ? (
     imageElementRender({ story, config, element })

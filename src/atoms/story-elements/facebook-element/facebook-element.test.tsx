@@ -27,7 +27,7 @@ describe("Facebook Element", () => {
   });
   it("should call facebookElementRender prop when passed to opts", () => {
     const facebookElementRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { facebookElementRender } } };
+    const modifiedConfig = { ...config, opts: { render: { storyElementRender: { facebookElementRender } } } };
     const wrapper = shallow(
       <FacebookElementBase element={sampleFacebookElement} story={textStory} config={modifiedConfig} />
     );
