@@ -34,17 +34,13 @@ export const GenericStory = ({ story, config, relatedStories, infiniteScrollInli
   const infiniteScrollExists = infiniteScrollInlineConfig && infiniteScrollInlineConfig.length; // should also check if infinite scroll collection exists here
   let lastComponent = <Footer text={footerText} />;
   if (infiniteScrollExists) {
-    if (config.opts && config.opts.infiniteScrollRender) {
-      lastComponent = config.opts.infiniteScrollRender({ story, config, inlineConfig: infiniteScrollInlineConfig });
-    } else {
-      lastComponent = (
-        <InfiniteScroll inlineConfig={infiniteScrollInlineConfig}>
-          <div next-page-hide="true" footer="true">
-            <Footer text={footerText} />
-          </div>
-        </InfiniteScroll>
-      );
-    }
+    lastComponent = (
+      <InfiniteScroll inlineConfig={infiniteScrollInlineConfig}>
+        <div next-page-hide="true" footer="true">
+          <Footer text={footerText} />
+        </div>
+      </InfiniteScroll>
+    );
   }
   return (
     <Layout story={story} config={config}>
