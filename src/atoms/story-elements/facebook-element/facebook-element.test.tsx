@@ -20,6 +20,8 @@ const sampleFacebookElement = {
   subtype: "facebook-post"
 };
 
+const { metadata, ...sampleFacebookElementWithoutMetadata } = sampleFacebookElement;
+
 describe("Facebook Element", () => {
   it("should render facebook", () => {
     const wrapper = mount(<FacebookElement element={sampleFacebookElement} />);
@@ -33,5 +35,9 @@ describe("Facebook Element", () => {
     );
     expect(facebookElementRender.mock.calls.length).toBe(1);
     expect(wrapper.find(Facebook).length).toBe(0);
+  });
+  it("shouldn't render facebook", () => {
+    const wrapper = mount(<FacebookElement element={sampleFacebookElementWithoutMetadata} />);
+    expect(wrapper.find("amp-facebook").length).toBe(0);
   });
 });

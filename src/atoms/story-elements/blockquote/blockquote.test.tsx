@@ -1,5 +1,5 @@
 import React from "react";
-import { BlockQuoteBase, DefaultBlockQuote } from "./blockquote";
+import { BlockQuoteBase, DefaultBlockQuote, FallbackBlockQuote } from "./blockquote";
 import { shallow } from "enzyme";
 import { textStory, config } from "../../../__fixtures__";
 const sampleBlockQuoteElement = {
@@ -21,9 +21,9 @@ describe("BlockQuote", () => {
     const wrapper = shallow(<DefaultBlockQuote element={sampleBlockQuoteElement} />);
     expect(wrapper).toMatchSnapshot();
   });
-  it("should render without metadata", () => {
+  it("should render FallbackBlockQuote if metadata doesn't exist", () => {
     const wrapper = shallow(<DefaultBlockQuote element={sampleBlockQuoteElementWithoutMetadata} />);
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find(FallbackBlockQuote).length).toBe(1);
   });
   it("should call blockquoteRender prop when passed to opts", () => {
     const blockquoteRender = jest.fn();

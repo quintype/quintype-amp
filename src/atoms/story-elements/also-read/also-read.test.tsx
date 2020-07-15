@@ -24,6 +24,11 @@ const sampleAlsoReadElement = {
   text: "LSAC Launches New Initiatives to Support Law School Enrollment Efforts in India"
 };
 
+const sampleAlsoReadElementWithoutID = {
+  ...sampleAlsoReadElement,
+  metadata: { ...sampleAlsoReadElement.metadata, "linked-story-id": "" }
+};
+
 describe("Also Read", () => {
   it("should render default", () => {
     const wrapper = shallow(<AlsoReadBase element={sampleAlsoReadElement} story={textStory} config={config} />);
@@ -34,6 +39,12 @@ describe("Also Read", () => {
     const modifiedConfig = { ...config, opts: { render: { storyElementRender: { alsoReadRender } } } };
     const wrapper = shallow(<AlsoReadBase element={sampleAlsoReadElement} story={textStory} config={modifiedConfig} />);
     expect(alsoReadRender.mock.calls.length).toBe(1);
+    expect(wrapper.find(StyledAlsoRead).length).toBe(0);
+  });
+  it("shouldn't render also read", () => {
+    const wrapper = shallow(
+      <AlsoReadBase element={sampleAlsoReadElementWithoutID} story={textStory} config={config} />
+    );
     expect(wrapper.find(StyledAlsoRead).length).toBe(0);
   });
 });

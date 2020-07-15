@@ -16,6 +16,8 @@ const sampleYouTubeElement = {
   subtype: null
 };
 
+const { url, ...sampleYouTubeElementWithoutUrl } = sampleYouTubeElement;
+
 describe("Youtube", () => {
   it("should render default", () => {
     const wrapper = shallow(<DefaultYouTube element={sampleYouTubeElement} />);
@@ -27,5 +29,9 @@ describe("Youtube", () => {
     const wrapper = shallow(<YouTubeBase element={sampleYouTubeElement} story={textStory} config={modifiedConfig} />);
     expect(youtubeElementRender.mock.calls.length).toBe(1);
     expect(wrapper.find(DefaultYouTube).length).toBe(0);
+  });
+  it("shouldn't render youtube", () => {
+    const wrapper = shallow(<DefaultYouTube element={sampleYouTubeElementWithoutUrl} />);
+    expect(wrapper.find("amp-youtube").length).toBe(0);
   });
 });

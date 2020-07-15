@@ -37,7 +37,7 @@ const StyledAttribution = styled.span`
     margin-right: 5px;
   }
 `;
-const FallbackBlockQuote = styled.div`
+export const FallbackBlockQuote = styled.div`
   div {
     display: flex;
     flex-direction: column;

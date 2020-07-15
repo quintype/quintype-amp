@@ -8,6 +8,12 @@ const o2PlayerIds = {
   "data-vid": "5e42d6c18c3ae829401a9ea5"
 };
 
+const NullO2PlayerIds = {
+  "data-pid": "",
+  "data-bcid": "",
+  "data-vid": ""
+};
+
 describe("O2Player", () => {
   it("should render o2-player element", () => {
     const wrapper = shallow(<O2Player {...o2PlayerIds} title="o2player" />);
@@ -27,5 +33,9 @@ describe("O2Player", () => {
   it("should render custom styles", () => {
     const wrapper = mount(<O2Player {...o2PlayerIds} inlineStyles={{ border: "5px solid red" }} title="o2player" />);
     expect(wrapper.find("div").prop("style")).toStrictEqual({ border: "5px solid red" });
+  });
+  it("should render o2-player element", () => {
+    const wrapper = shallow(<O2Player {...NullO2PlayerIds} title="o2player" />);
+    expect(wrapper.find("amp-o2-player").length).toBe(0);
   });
 });
