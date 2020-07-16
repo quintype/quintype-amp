@@ -16,6 +16,7 @@ import {
 import styled from "styled-components";
 import { GenericStoryTypes } from "./types";
 import get from "lodash.get";
+import { SubscriptionPaywall } from "../../atoms/subscriptions/subscription-paywall";
 
 const { TopAd, BodyAd, BottomAd } = AmpAds;
 const { StoryPageSlots } = Slots;
@@ -46,6 +47,7 @@ export const GenericStory = ({ story, config, relatedStories, infiniteScrollInli
       );
     }
   }
+  const subscriptionsSection = story.access !== "subscription" && "content";
   return (
     <Layout story={story} config={config}>
       <div next-page-hide={infiniteScrollExists}>
@@ -60,28 +62,31 @@ export const GenericStory = ({ story, config, relatedStories, infiniteScrollInli
         <StoryContainer>
           <HeaderCard />
           <WebEngage />
+          {story.access !== "subscription" && <SubscriptionPaywall />}
           <Spacer token="m" />
-          {story.cards.map((card, cardIdx) => {
-            const storyCard = card["story-elements"].map((element) => (
-              <StoryElement key={element.id} element={element} />
-            ));
-            return canDisplayBodyAd(cardIdx) ? (
-              <Fragment key={card.id}>
-                {storyCard}
-                <Spacer token="l" />
-                <BodyAd />
-                <Spacer token="l" />
-              </Fragment>
+          <section subscriptions-section={subscriptionsSection}>
+            <Spacer token="m" />
+            {story.cards.map((card, cardIdx) => {
+              const storyCard = card["story-elements"].map((element) => (
+                <StoryElement key={element.id} element={element} />
+              ));
+              return canDisplayBodyAd(cardIdx) ? (
+                <Fragment key={card.id}>
+                  {storyCard}
+                  <Spacer token="l" />
+                  <BodyAd />
+                  <Spacer token="l" />
+                </Fragment>
+              ) : (
+                <Fragment key={card.id}>{storyCard}</Fragment>
+              );
+            })}
+            {config.opts && config.opts.relatedStoriesRender ? (
+              config.opts.relatedStoriesRender({ relatedStories, config, story })
             ) : (
-              <Fragment key={card.id}>{storyCard}</Fragment>
-            );
-          })}
-
-          {config.opts && config.opts.relatedStoriesRender ? (
-            config.opts.relatedStoriesRender({ relatedStories, config, story })
-          ) : (
-            <RelatedStories stories={relatedStories} />
-          )}
+              <RelatedStories stories={relatedStories} />
+            )}
+          </section>
         </StoryContainer>
         <BottomSlot />
         <BottomAd />

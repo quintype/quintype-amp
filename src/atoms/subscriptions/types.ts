@@ -1,4 +1,7 @@
+import { Story } from "../../types/story";
+
 export interface SubscriptionProps {
+  story: Story;
   services: ServicesProps[];
   score?: ScoreProps;
   fallbackEntitlement?: FallbackEntitlementProps;
