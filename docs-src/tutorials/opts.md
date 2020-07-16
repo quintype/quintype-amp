@@ -27,7 +27,8 @@ const myOptsObj = {
       textElementRender,
       // ... other renders
     }
-  }
+  },
+  featureConfig: {}
 };
 ```
 
@@ -39,6 +40,7 @@ const myOptsObj = {
   - `relatedStoriesRender`
   - `headerCardRender`
   - `infiniteScrollRender`
+- `featureConfig` - used to provide config for amp lib features. For example show live-blog in ascending/descending order
 
 <hr />
 This section is useful if you want to use custom templates. Else, jump to <a href="#slots_link">slots</a>
