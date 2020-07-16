@@ -126,13 +126,29 @@
     <p>The AMP library accepts customizations via the &quot;opts&quot; javascript object.</p>
 <h1>AMP story pages</h1>
 <p>The opts object for rendering AMP story pages has the following structure:</p>
-<pre class="prettyprint source lang-jsx"><code>const myStoryPageOptsObj = {
+<pre class="prettyprint source lang-jsx"><code>const myOptsObj = {
   seo,
-  templates,
-  slots,
-  ...
-  ..renders..
-  ...
+  templates: {
+    text,
+    video,
+    // ... other templates
+  },
+  slots: {
+    story: {
+      &quot;top-slot&quot;,
+      &quot;bottom-slot&quot;
+    }
+  },
+  render: {
+    headerCardRender,
+    relatedStoriesRender,
+    infiniteScrollRender,
+    storyElementRender: {
+      bigfactElementRender,
+      textElementRender,
+      // ... other renders
+    }
+  }
 };
 </code></pre>
 <ul>
@@ -199,20 +215,19 @@ The <code>&lt;Head /&gt;</code> component may be used to put code in the head. U
 <h2>Renders</h2>
 <p>If you wish to customize the default templates, you can do so using the various render prop overrides that the library provides. These too are functions that should return react components</p>
 <p>For example,</p>
-<pre class="prettyprint source lang-jsx"><code>const mySERenders = {
-  textElementRender: ({story, config, element}) => (&lt;div>
-    &lt;span>My Custom Text Element&lt;/span>
-    &lt;div className=&quot;&quot;>{element.text}&lt;/div>
-  &lt;/div>)
-}
-ampRoutes(app, {
-   slots: {
-     story: {
-       &quot;top-slot&quot;: ({story, config}) => &lt;MyTopSlot story={story} config={config} />
-       &quot;bottom-slot&quot;: ({story, config}) => &lt;MyBottomSlot story={story} config={config} />
-     }
-   }
-})
+<pre class="prettyprint source lang-jsx"><code>ampRoutes(app, {
+  render: {
+    headerCardRender: ({story, config}) => &lt;div>CUSTOM HEADER CARD&lt;/div>
+    storyElementRender: {
+      textElementRender: ({ story, config, element }) => (
+        &lt;div>
+          &lt;span>My Custom Text Element&lt;/span>
+          &lt;div className=&quot;&quot;>{element.text}&lt;/div>
+        &lt;/div>
+      )
+    }
+  }
+});
 </code></pre>
 <p>Here too, <code>story</code> and <code>config</code> is same as what's mentioned <a href="#storyConfig_link">above</a>.</p>
 <table>
