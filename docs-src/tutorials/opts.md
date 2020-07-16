@@ -5,7 +5,7 @@ The AMP library accepts customizations via the "opts" javascript object.
 The opts object for rendering AMP story pages has the following structure:
 
 ```jsx
-const myStoryPageOptsObj = {
+const myOptsObj = {
   seo,
   templates: {
     text,
