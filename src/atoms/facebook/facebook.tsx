@@ -1,22 +1,16 @@
 import React, { Fragment } from "react";
-import { StyledFacebookTypes, FacebookTypes } from "./types";
+import { FacebookTypes } from "./types";
 import { Helmet } from "react-helmet";
-import styled from "styled-components";
 
-export const StyledFacebook = styled.div.attrs(({ style }: StyledFacebookTypes) => ({
-  style
-}))<StyledFacebookTypes>``;
-
-export const Facebook = ({ inlineStyles, ...props }: FacebookTypes) => {
+export const Facebook = (props: FacebookTypes) => {
   const { width, height, layout, title } = props;
-  const setDefaultLayout = !width || !height || !layout || !title;
+  const setDefaultLayout = !width || !height || !layout;
   const componentProps: FacebookTypes = setDefaultLayout
     ? {
         ...props,
         width: "16",
         height: "9",
-        layout: "responsive",
-        title: "facebook"
+        layout: "responsive"
       }
     : props;
   return (
@@ -28,9 +22,7 @@ export const Facebook = ({ inlineStyles, ...props }: FacebookTypes) => {
           src="https://cdn.ampproject.org/v0/amp-facebook-0.1.js"
         />
       </Helmet>
-      <StyledFacebook style={inlineStyles}>
-        <amp-facebook {...componentProps} title={title} />
-      </StyledFacebook>
+      <amp-facebook {...componentProps} title={title} />
     </Fragment>
   );
 };

@@ -21,12 +21,8 @@ export const getIframeSourceURL = (str: string): string | null => {
 };
 
 export const EmbedBase = ({ element, story, config }: StoryElementProps) => {
-  const embedRender = get(config, ["opts", "storyElementRender", "embedRender"], null);
-  return embedRender ? (
-    embedRender({ story, config, element })
-  ) : (
-    <DefaultEmbed element={element} story={story} config={config} />
-  );
+  const embedRender = get(config, ["opts", "render", "storyElementRender", "embedRender"], null);
+  return embedRender ? embedRender({ story, config, element }) : <DefaultEmbed element={element} />;
 };
 
 /**

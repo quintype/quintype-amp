@@ -10,7 +10,7 @@ export const StyledQuestion = styled.p<StoryElementProps>`
 `;
 
 export const QuestionBase = ({ element, story, config }: StoryElementProps) => {
-  const questionElementRender = get(config, ["opts", "storyElementRender", "questionElementRender"], null);
+  const questionElementRender = get(config, ["opts", "render", "storyElementRender", "questionElementRender"], null);
 
   return questionElementRender ? (
     questionElementRender({ story, config, element })

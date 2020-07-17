@@ -1,13 +1,48 @@
 import React from "react";
 import { withStoryAndConfig } from "../../context";
-import { DefaultHeaderCard } from "./container-components";
 import { CommonRenderPropTypes } from "../../types/config";
+import styled from "styled-components";
+import get from "lodash.get";
+import { Author, Section, Spacer } from "../../atoms";
+import { HeroImage, SocialShareHeader, DateLastPublished } from "../index";
 
 export const HeaderCardBase = ({ story, config }: CommonRenderPropTypes) => {
-  return config.opts && config.opts.headerCardRender ? (
-    config.opts.headerCardRender({ story, config })
-  ) : (
-    <DefaultHeaderCard story={story} config={config} />
+  const headerCardRender = get(config, ["opts", "render", "headerCardRender"], null);
+  return headerCardRender ? headerCardRender({ story, config }) : <DefaultHeaderCard story={story} config={config} />;
+};
+
+const Headline = styled.h1`
+  font-family: ${(props) => props.theme.font.family.primary};
+  font-size: ${(props) => props.theme.font.size.l};
+  color: ${(props) => props.theme.color.black};
+  line-height: ${(props) => props.theme.font.lineHeight.level2};
+  margin: 0;
+  font-weight: bold;
+`;
+const HeaderCardContainer = styled.div`
+  padding: 0 ${(props) => props.theme.spacing.s};
+  border-bottom: ${(props) => `1px solid ${props.theme.color.black}`};
+`;
+
+export const DefaultHeaderCard = ({ story, config }: CommonRenderPropTypes) => {
+  const { publisherConfig } = config;
+  return (
+    <div>
+      <HeroImage />
+      <Spacer token="xs" />
+      <HeaderCardContainer>
+        <Section section={story.sections[0]} />
+        <Spacer token="xs" />
+        <Headline>{story.headline}</Headline>
+        <Spacer token="s" />
+        <Author authors={story.authors} prepend="By " />
+        <Spacer token="xxs" />
+        <DateLastPublished />
+        <Spacer token="m" />
+        <SocialShareHeader fbAppId={publisherConfig.facebook && publisherConfig.facebook["app-id"]} />
+        <Spacer token="s" />
+      </HeaderCardContainer>
+    </div>
   );
 };
 

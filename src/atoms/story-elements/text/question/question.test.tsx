@@ -17,7 +17,7 @@ describe("Question", () => {
   });
   it("should call questionElementRender prop when passed to opts", () => {
     const questionElementRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { questionElementRender } } };
+    const modifiedConfig = { ...config, opts: { render: { storyElementRender: { questionElementRender } } } };
     const wrapper = shallow(<QuestionBase element={sampleQuestionElement} story={textStory} config={modifiedConfig} />);
     expect(questionElementRender.mock.calls.length).toBe(1);
     expect(wrapper.find("p").length).toBe(0);

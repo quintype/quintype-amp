@@ -32,7 +32,7 @@ export const DefaultInstagramElement = ({
 };
 
 export const InstagramElementBase = ({ element, story, config }: StoryElementProps) => {
-  const instagramElementRender = get(config, ["opts", "storyElementRender", "instagramElementRender"], null);
+  const instagramElementRender = get(config, ["opts", "render", "storyElementRender", "instagramElementRender"], null);
   return instagramElementRender ? (
     instagramElementRender({ story, config, element })
   ) : (
