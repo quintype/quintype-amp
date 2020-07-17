@@ -129,26 +129,27 @@
 <pre class="prettyprint source lang-jsx"><code>const myOptsObj = {
   seo,
   templates: {
-    text,
-    video,
+    text: ({ story, config, seo }) => &lt;CustomTextTemplate story={story} config={config} seo={seo} />,
+    video: ({ story, config, seo }) => &lt;CustomVideoTemplate story={story} config={config} seo={seo} />
     // ... other templates
   },
   slots: {
     story: {
-      &quot;top-slot&quot;,
-      &quot;bottom-slot&quot;
+      &quot;top-slot&quot;: ({ story, config }) => &lt;MyTopSlot story={story} config={config} />,
+      &quot;bottom-slot&quot;: ({ story, config }) => &lt;MyBottomSlot story={story} config={config} />
     }
   },
   render: {
-    headerCardRender,
-    relatedStoriesRender,
-    infiniteScrollRender,
+    headerCardRender: ({ story, config }) => &lt;CustHeaderCard story={story} config={config} />,
+    // ... other renders
     storyElementRender: {
-      bigfactElementRender,
-      textElementRender,
-      // ... other renders
+      bigfactElementRender: ({ story, config, element }) => (
+        &lt;CustBigFact story={story} config={config} element={element} />
+      )
+      // ... other SE renders
     }
-  }
+  },
+  featureConfig: {}
 };
 </code></pre>
 <ul>
@@ -163,40 +164,12 @@
 <li><code>infiniteScrollRender</code></li>
 </ul>
 </li>
+<li><code>featureConfig</code> - used to provide config for amp lib features. For example show live-blog in ascending/descending order</li>
 </ul>
 <hr />
 This section is useful if you want to use custom templates. Else, jump to <a href="#slots_link">slots</a>
 <h2>Passing custom templates</h2>
-<p>Pass an object containing your custom templates to the <code>templates</code> key of the <code>opts</code> object.
-This is what your server/app.js file might look like</p>
-<pre class="prettyprint source lang-jsx"><code>...
-ampRoutes(app, {
-  templates: {
-    text: ({ story, config, relatedStories, infiniteScrollInlineConfig }) => (
-      &lt;CustomTextStoryTemplate
-        story={story}
-        config={config}
-        relatedStories={relatedStories}
-        infiniteScrollInlineConfig={infiniteScrollInlineConfig}>
-    ),
-    &quot;live-blog&quot;: (props) => &lt;CustomLiveBlogStoryTemplate {...props}>
-  }
-})
-...
-</code></pre>
-<ul>
-<li>pass a function that returns your template (react component)</li>
-<li>this function takes an object as a parameter having the foll keys:
-<ul>
-<li><code>story</code> - <span id="storyConfig_link">the story object that platform gives</span></li>
-<li><code>config</code> - an object containing <code>publisherConfig</code> and <code>ampConfig</code>. The <code>publisherConfig</code> is the same as response of <em>/api/v1/config</em>. The<code>ampConfig</code> is an amp-specific config given by <em>api/v1/amp/config</em></li>
-<li><code>relatedStories</code> - contains stories from the related stories collection</li>
-<li><code>infiniteScrollInlineConfig</code> - contains inline config needed by amp infinite scroll</li>
-</ul>
-</li>
-<li><code>CustomTextStoryTemplate</code> is the template you've built using AMP library components and/or your own amp html. All your text stories will render this template.</li>
-<li><code>text</code>, <code>live-blog</code> are the story template names. <b><em>They must match the <code>story-template</code> in platform's story api response</em></b></li>
-</ul>
+<p>Go to <a href="tutorial-custom-story-templates.html">Custom Story Templates</a></p>
 <hr/>
 <h2>Slots</h2>
 <p><a href="module-Slots.html">Slots</a> are nothing but functions that should return a react component.</p>

@@ -124,6 +124,33 @@
 
 <article>
     <p>The custom story templates give you a blank canvas to create whatever you wish and pass it to the library via <a href="tutorial-opts.html">The 'opts' object</a></p>
+<p>Pass an object containing your custom templates to the <code>templates</code> key of the <code>opts</code> object.
+This is what your server/app.js file might look like</p>
+<pre class="prettyprint source lang-jsx"><code>...
+ampRoutes(app, {
+  templates: {
+    text: ({ story, config, seo }) => (
+      &lt;CustomTextStoryTemplate
+        story={story}
+        config={config}
+        seo={seo}
+    ),
+    &quot;live-blog&quot;: (props) => &lt;CustomLiveBlogStoryTemplate {...props}>
+  }
+})
+...
+</code></pre>
+<ul>
+<li>pass a function that returns your template (react component)</li>
+<li>this function takes an object as a parameter having the foll keys:
+<ul>
+<li><code>story</code> - <span id="storyConfig_link">the story object that platform gives</span></li>
+<li><code>config</code> - an object containing <code>publisherConfig</code>, <code>ampConfig</code> and <code>opts</code>. The <code>publisherConfig</code> is the same as response of <em>/api/v1/config</em>. The<code>ampConfig</code> is an amp-specific config given by <em>api/v1/amp/config</em>. <code>opts</code> contains an object inside it called <code>featureConfig</code> which provides config needed by features like inline config for infinite scroll, related stories etc.</li>
+</ul>
+</li>
+<li><code>CustomTextStoryTemplate</code> is the template you've built using AMP library components and/or your own amp html. All your text stories will render this template.</li>
+<li><code>text</code>, <code>live-blog</code> are the story template names. <b><em>They must match the <code>story-template</code> in platform's story api response</em></b></li>
+</ul>
 <p>To see what all the library exports, go to <a href="tutorial-library-exports.html">AMP Library Exports</a></p>
 </article>
 
