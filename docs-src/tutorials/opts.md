@@ -20,6 +20,7 @@ const myOptsObj = {
   },
   render: {
     headerCardRender: ({ story, config }) => <CustHeaderCard story={story} config={config} />,
+    infiniteScrollRender: ({ story, config, inlineConfig }) => <CustomInfiniteScroll story={story} config={config} firstFiveStoriesConfig={inlineConfig} />
     // ... other renders
     storyElementRender: {
       bigfactElementRender: ({ story, config, element }) => (
