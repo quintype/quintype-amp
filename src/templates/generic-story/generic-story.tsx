@@ -14,7 +14,7 @@ import {
   InfiniteScroll
 } from "../../atoms";
 import styled from "styled-components";
-import { GenericStoryTypes } from "./types";
+import { CommonTemplateTypes } from "../common-template-types";
 import get from "lodash.get";
 
 const { TopAd, BodyAd, BottomAd } = AmpAds;
@@ -29,7 +29,7 @@ const Wrapper = styled.div`
 `;
 const canDisplayBodyAd = (cardIdx) => cardIdx === 0;
 
-export const GenericStory = ({ story, config }: GenericStoryTypes) => {
+export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
   const footerText = get(config, ["publisherConfig", "publisher-settings", "copyright"], null);
   const infiniteScrollInlineConfig = get(
     config,
