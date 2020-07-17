@@ -8,24 +8,24 @@ The opts object for rendering AMP story pages has the following structure:
 const myOptsObj = {
   seo,
   templates: {
-    text,
-    video,
+    text: ({ story, config, seo }) => <CustomTextTemplate story={story} config={config} seo={seo} />,
+    video: ({ story, config, seo }) => <CustomVideoTemplate story={story} config={config} seo={seo} />
     // ... other templates
   },
   slots: {
     story: {
-      "top-slot",
-      "bottom-slot"
+      "top-slot": ({ story, config }) => <MyTopSlot story={story} config={config} />,
+      "bottom-slot": ({ story, config }) => <MyBottomSlot story={story} config={config} />
     }
   },
   render: {
-    headerCardRender,
-    relatedStoriesRender,
-    infiniteScrollRender,
+    headerCardRender: ({ story, config }) => <CustHeaderCard story={story} config={config} />,
+    // ... other renders
     storyElementRender: {
-      bigfactElementRender,
-      textElementRender,
-      // ... other renders
+      bigfactElementRender: ({ story, config, element }) => (
+        <CustBigFact story={story} config={config} element={element} />
+      )
+      // ... other SE renders
     }
   },
   featureConfig: {}

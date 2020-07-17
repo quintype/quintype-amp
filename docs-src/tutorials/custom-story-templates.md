@@ -26,7 +26,4 @@ ampRoutes(app, {
 - `CustomTextStoryTemplate` is the template you've built using AMP library components and/or your own amp html. All your text stories will render this template.
 - `text`, `live-blog` are the story template names. <b><em>They must match the `story-template` in platform's story api response</em></b>
 
-```
-
 To see what all the library exports, go to {@tutorial library-exports}
-```
