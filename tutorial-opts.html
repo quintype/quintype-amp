@@ -141,6 +141,7 @@
   },
   render: {
     headerCardRender: ({ story, config }) => &lt;CustHeaderCard story={story} config={config} />,
+    infiniteScrollRender: ({ story, config, inlineConfig }) => &lt;CustomInfiniteScroll story={story} config={config} firstFiveStoriesConfig={inlineConfig} />
     // ... other renders
     storyElementRender: {
       bigfactElementRender: ({ story, config, element }) => (
