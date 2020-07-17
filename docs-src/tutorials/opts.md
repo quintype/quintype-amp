@@ -47,34 +47,7 @@ This section is useful if you want to use custom templates. Else, jump to <a hre
 
 ## Passing custom templates
 
-Pass an object containing your custom templates to the `templates` key of the `opts` object.
-This is what your server/app.js file might look like
-
-```jsx
-...
-ampRoutes(app, {
-  templates: {
-    text: ({ story, config, relatedStories, infiniteScrollInlineConfig }) => (
-      <CustomTextStoryTemplate
-        story={story}
-        config={config}
-        relatedStories={relatedStories}
-        infiniteScrollInlineConfig={infiniteScrollInlineConfig}>
-    ),
-    "live-blog": (props) => <CustomLiveBlogStoryTemplate {...props}>
-  }
-})
-...
-```
-
-- pass a function that returns your template (react component)
-- this function takes an object as a parameter having the foll keys:
-  - `story` - <span id="storyConfig_link">the story object that platform gives</span>
-  - `config` - an object containing `publisherConfig` and `ampConfig`. The `publisherConfig` is the same as response of _/api/v1/config_. The`ampConfig` is an amp-specific config given by _api/v1/amp/config_
-  - `relatedStories` - contains stories from the related stories collection
-  - `infiniteScrollInlineConfig` - contains inline config needed by amp infinite scroll
-- `CustomTextStoryTemplate` is the template you've built using AMP library components and/or your own amp html. All your text stories will render this template.
-- `text`, `live-blog` are the story template names. <b><em>They must match the `story-template` in platform's story api response</em></b>
+Go to {@tutorial custom-story-templates}
 
 <hr/>
 

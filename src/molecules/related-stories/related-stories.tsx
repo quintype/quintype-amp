@@ -12,21 +12,21 @@ export const Heading = styled.h2`
 `;
 
 export const RelatedStoriesBase = ({
-  stories,
   story,
   config,
   heading = "Also Read",
   aspectRatio = [16, 9]
 }: RelatedStoriesTypes) => {
+  const relatedStories = get(config, ["opts", "featureConfig", "relatedStories", "stories"], null);
+  if (!relatedStories || !relatedStories.length) return null;
   const relatedStoriesRender = get(config, ["opts", "render", "relatedStoriesRender"], null);
-
-  if (relatedStoriesRender) return relatedStoriesRender({ relatedStories: stories, config, story });
-  return stories && stories.length ? (
+  if (relatedStoriesRender) return relatedStoriesRender({ relatedStories, config, story });
+  return (
     <Fragment>
       <Spacer token="m" />
       <Heading>{heading}</Heading>
       <div>
-        {stories.map((relatedStory) => (
+        {relatedStories.map((relatedStory) => (
           <RelatedStoryCard
             key={relatedStory.id}
             story={relatedStory}
@@ -36,7 +36,7 @@ export const RelatedStoriesBase = ({
         ))}
       </div>
     </Fragment>
-  ) : null;
+  );
 };
 
 export const RelatedStories = withStoryAndConfig(RelatedStoriesBase);

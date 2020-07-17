@@ -29,8 +29,13 @@ const Wrapper = styled.div`
 `;
 const canDisplayBodyAd = (cardIdx) => cardIdx === 0;
 
-export const GenericStory = ({ story, config, relatedStories, infiniteScrollInlineConfig }: GenericStoryTypes) => {
+export const GenericStory = ({ story, config }: GenericStoryTypes) => {
   const footerText = get(config, ["publisherConfig", "publisher-settings", "copyright"], null);
+  const infiniteScrollInlineConfig = get(
+    config,
+    ["opts", "featureConfig", "infiniteScroll", "infiniteScrollInlineConfig"],
+    null
+  );
   const infiniteScrollExists = infiniteScrollInlineConfig && infiniteScrollInlineConfig.length; // should also check if infinite scroll collection exists here
   let lastComponent = <Footer text={footerText} />;
   if (infiniteScrollExists) {
@@ -72,7 +77,7 @@ export const GenericStory = ({ story, config, relatedStories, infiniteScrollInli
               <Fragment key={card.id}>{storyCard}</Fragment>
             );
           })}
-          <RelatedStories stories={relatedStories} />
+          <RelatedStories />
         </StoryContainer>
         <BottomSlot />
         <BottomAd />

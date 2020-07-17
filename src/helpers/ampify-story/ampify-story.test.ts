@@ -4,15 +4,7 @@
 
 import { ampifyStory } from "./ampify-story";
 import { isValidAmpHtml } from "../../utils/validate-amp";
-import {
-  allElementsStory,
-  textStory,
-  publisherConfig,
-  ampConfig,
-  relatedStories,
-  configOpts,
-  seo
-} from "../../__fixtures__";
+import { allElementsStory, textStory, publisherConfig, ampConfig, configOpts, seo } from "../../__fixtures__";
 
 function mockStoryType(desiredType) {
   const story = { ...textStory };
@@ -28,9 +20,7 @@ describe("Ampify Story", () => {
       publisherConfig,
       ampConfig,
       opts: configOpts,
-      relatedStories,
-      seo,
-      infiniteScrollInlineConfig: `[{\"image\":\"https://foo.com/puppies.jpg\",\"title\":\"Puppies Page\",\"url\":\"/puppies\"}]`
+      seo
     });
     const ampValidatorOutput = await isValidAmpHtml(ampHtml);
     expect(ampValidatorOutput).toBe(true);
@@ -47,7 +37,6 @@ describe("Ampify Story", () => {
       publisherConfig,
       ampConfig,
       opts,
-      relatedStories,
       seo
     });
     expect(customTemplate.mock.calls.length).toBe(1);
@@ -68,7 +57,6 @@ describe("Ampify Story", () => {
       publisherConfig,
       ampConfig,
       opts,
-      relatedStories,
       seo
     });
     expect(customVideoTemplate.mock.calls.length).toBe(1);

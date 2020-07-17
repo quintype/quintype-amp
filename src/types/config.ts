@@ -149,7 +149,7 @@ export interface ConfigOpts {
       alsoReadRender?: (props: CommonRenderPropTypes) => any;
     };
   };
-  featureConfig?: object;
+  featureConfig?: FeatureConfigTypes;
 }
 
 export interface CommonRenderPropTypes {
@@ -165,5 +165,14 @@ interface RelatedStoriesRenderPropTypes {
 interface InfiniteScrollRenderPropTypes {
   story: Story;
   config: Config;
-  inlineConfig?: string;
+  inlineConfig: string;
+}
+
+interface FeatureConfigTypes {
+  infiniteScroll?: {
+    infiniteScrollInlineConfig: string;
+  };
+  relatedStories?: {
+    stories: Story[];
+  };
 }
