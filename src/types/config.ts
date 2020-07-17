@@ -17,6 +17,9 @@ export interface PublisherConfig {
   "publisher-id": number;
   "publisher-settings"?: object;
   sections?: [];
+  layout?: {
+    "no-of-visible-cards-in-a-blocked-story": number | null;
+  };
 }
 
 interface FBConfig {

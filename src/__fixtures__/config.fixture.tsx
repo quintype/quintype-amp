@@ -18,7 +18,10 @@ export const publisherConfig: PublisherConfig = {
     "publisher-logo": null,
     copyright: "Copyright © 2020 Newslaundry Media Private Limited.  All Rights Reserved "
   },
-  sections: []
+  sections: [],
+  layout: {
+    "no-of-visible-cards-in-a-blocked-story": 1
+  }
 };
 
 export const ampConfig: AMPConfig = {

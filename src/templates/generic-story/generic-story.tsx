@@ -31,6 +31,13 @@ const Wrapper = styled.div`
 const canDisplayBodyAd = (cardIdx) => cardIdx === 0;
 
 export const GenericStory = ({ story, config, relatedStories, infiniteScrollInlineConfig }: GenericStoryTypes) => {
+  const cardsVisibleForBlockedStory = get(
+    config,
+    ["publisherConfig", "layout", "no-of-visible-cards-in-a-blocked-story"],
+    0
+  );
+  const cardsAccessible = (cardIdx) => cardIdx <= cardsVisibleForBlockedStory;
+  const isNotSubscribed = story.access !== "subscription";
   const footerText = get(config, ["publisherConfig", "publisher-settings", "copyright"], null);
   const infiniteScrollExists = infiniteScrollInlineConfig && infiniteScrollInlineConfig.length; // should also check if infinite scroll collection exists here
   let lastComponent = <Footer text={footerText} />;
@@ -47,7 +54,6 @@ export const GenericStory = ({ story, config, relatedStories, infiniteScrollInli
       );
     }
   }
-  const subscriptionsSection = story.access !== "subscription" && "content";
   return (
     <Layout story={story} config={config}>
       <div next-page-hide={infiniteScrollExists}>
@@ -62,31 +68,29 @@ export const GenericStory = ({ story, config, relatedStories, infiniteScrollInli
         <StoryContainer>
           <HeaderCard />
           <WebEngage />
-          {story.access !== "subscription" && <SubscriptionPaywall />}
           <Spacer token="m" />
-          <section subscriptions-section={subscriptionsSection}>
-            <Spacer token="m" />
-            {story.cards.map((card, cardIdx) => {
-              const storyCard = card["story-elements"].map((element) => (
-                <StoryElement key={element.id} element={element} />
-              ));
-              return canDisplayBodyAd(cardIdx) ? (
-                <Fragment key={card.id}>
-                  {storyCard}
-                  <Spacer token="l" />
-                  <BodyAd />
-                  <Spacer token="l" />
-                </Fragment>
-              ) : (
-                <Fragment key={card.id}>{storyCard}</Fragment>
-              );
-            })}
-            {config.opts && config.opts.relatedStoriesRender ? (
-              config.opts.relatedStoriesRender({ relatedStories, config, story })
+          {story.cards.map((card, cardIdx) => {
+            const storyCard = card["story-elements"].map((element) => (
+              <StoryElement key={element.id} element={element} />
+            ));
+            return canDisplayBodyAd(cardIdx) ? (
+              <Fragment key={card.id}>
+                {storyCard}
+                <Spacer token="l" />
+                <BodyAd />
+                <Spacer token="l" />
+              </Fragment>
             ) : (
-              <RelatedStories stories={relatedStories} />
-            )}
-          </section>
+              (cardsAccessible(cardIdx) && isNotSubscribed && <Fragment key={card.id}>{storyCard}</Fragment>) ||
+                (!isNotSubscribed && <Fragment key={card.id}>{storyCard}</Fragment>)
+            );
+          })}
+          {isNotSubscribed && <SubscriptionPaywall />}
+          {config.opts && config.opts.relatedStoriesRender ? (
+            config.opts.relatedStoriesRender({ relatedStories, config, story })
+          ) : (
+            <RelatedStories stories={relatedStories} />
+          )}
         </StoryContainer>
         <BottomSlot />
         <BottomAd />
