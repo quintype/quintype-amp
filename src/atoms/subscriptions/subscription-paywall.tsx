@@ -7,6 +7,8 @@ const StyledWrapper = styled.div`
   padding: 40px;
   text-align: left;
   background-color: ${(props) => props.theme.color.white};
+`;
+const StyledButton = styled.div`
   button {
     border-radius: 5px;
     background-color: ${(props) => props.theme.color.primaryColor};
@@ -22,18 +24,22 @@ const StyledWrapper = styled.div`
       return `${fontWeight} ${fontSize} ${fontFamily}`;
     }};
   }
-  p button {
+`;
+const StyledLine = styled.p`
+  button {
     border: none;
     background-color: transparent;
+    font-size: ${(props) => props.theme.font.size.s};
+    color: ${(props) => props.theme.color.black};
+    font-weight: ${(props) => props.theme.font.weight.normal};
   }
-  p button span {
+  span {
     font-weight: ${(props) => props.theme.font.weight.bold};
     font-size: ${(props) => props.theme.font.size.s};
     color: ${(props) => props.theme.color.black};
     cursor: pointer;
   }
 `;
-
 export const SubscribeMessage = styled.span`
   color: ${(props) => props.theme.color.white};
   padding: 10px;
@@ -49,15 +55,16 @@ export const SubscriptionPaywall = () => {
   return (
     <StyledWrapper>
       <h2>Get Unlimited Stories</h2>
-      <button subscriptions-action="subscribe">
-        <SubscribeMessage>Subscribe</SubscribeMessage>
-      </button>
-      <p>
-        Already a user?
-        <button subscriptions-action="login" subscriptions-display="NOT data.isLoggedIn">
-          <span> Log in</span>
+      <StyledButton>
+        <button>
+          <SubscribeMessage>Subscribe</SubscribeMessage>
         </button>
-      </p>
+      </StyledButton>
+      <StyledLine>
+        <button>
+          Already a user ? <span> Log in</span>
+        </button>
+      </StyledLine>
     </StyledWrapper>
   );
 };
