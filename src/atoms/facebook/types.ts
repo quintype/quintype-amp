@@ -6,7 +6,7 @@ export interface FacebookTypes extends Common {
   "data-include-comment-parent"?: boolean;
   "data-align-center"?: boolean;
   inlineStyles?: object;
-  title: string;
+  title?: string;
 }
 
 export interface StyledFacebookTypes {

@@ -54,14 +54,14 @@ export const SubscribeMessage = styled.span`
 export const SubscriptionPaywall = () => {
   return (
     <StyledWrapper>
-      <h2>Get Unlimited Stories</h2>
+      <h2>To continue reading</h2>
       <StyledButton>
-        <button>
+        <button subscriptions-action="subscribe">
           <SubscribeMessage>Subscribe</SubscribeMessage>
         </button>
       </StyledButton>
       <StyledLine>
-        <button>
+        <button subscriptions-action="login">
           Already a user ? <span> Log in</span>
         </button>
       </StyledLine>
