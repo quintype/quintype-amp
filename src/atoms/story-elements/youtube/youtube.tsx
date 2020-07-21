@@ -1,15 +1,16 @@
 import React, { Fragment } from "react";
-import { StoryElementProps } from "../types";
 import getYouTubeID from "@rvgpl/get-youtube-id";
-import { Common } from "../../common-types";
 import Helmet from "react-helmet";
 import { withStoryAndConfig } from "../../../context";
-import { CommonRenderPropTypes } from "../../../types/config";
 import get from "lodash.get";
+import { YoutubeElementTypes, DefaultYoutubeElementTypes } from "./types";
 
-type YouTubeProps = StoryElementProps & Common;
-
-export const DefaultYouTube = ({ element, layout = "responsive", width = "480", height = "270" }: YouTubeProps) => {
+export const DefaultYouTube = ({
+  element,
+  layout = "responsive",
+  width = "480",
+  height = "270"
+}: DefaultYoutubeElementTypes) => {
   const youtubeID = element.url && getYouTubeID(element.url);
 
   if (!youtubeID) {
@@ -25,8 +26,8 @@ export const DefaultYouTube = ({ element, layout = "responsive", width = "480", 
     </Fragment>
   );
 };
-export const YouTubeBase = ({ element, story, config }: YouTubeProps & CommonRenderPropTypes) => {
-  const youtubeElementRender = get(config, ["opts", "storyElementRender", "youtubeElementRender"], null);
+export const YouTubeBase = ({ element, story, config }: YoutubeElementTypes) => {
+  const youtubeElementRender = get(config, ["opts", "render", "storyElementRender", "youtubeElementRender"], null);
 
   return youtubeElementRender ? youtubeElementRender({ story, config, element }) : <DefaultYouTube element={element} />;
 };

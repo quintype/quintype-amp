@@ -11,7 +11,7 @@ export const StyledAnswer = styled.p<StoryElementProps>`
 `;
 
 export const AnswerBase = ({ element, story, config }: StoryElementProps) => {
-  const answerElementRender = get(config, ["opts", "storyElementRender", "answerElementRender"], null);
+  const answerElementRender = get(config, ["opts", "render", "storyElementRender", "answerElementRender"], null);
   return answerElementRender ? (
     answerElementRender({ story, config, element })
   ) : (

@@ -1,39 +1,46 @@
-/**
- * @jest-environment node
- */
-
 import React from "react";
 import { RelatedStories, RelatedStoriesBase, Heading } from "./related-stories";
-import { shallow } from "enzyme";
-import { renderToString } from "../../helpers";
-import { Layout, Head } from "../../atoms";
-import { isValidAmpHtml } from "../../utils/validate-amp";
+import { RelatedStoryCard } from "../related-story-card";
+import { shallow, mount } from "enzyme";
+import { Layout } from "../../atoms";
 import { config, relatedStories, textStory } from "../../__fixtures__";
 
 describe("RelatedStories", () => {
   it("should render default", () => {
-    const wrapper = shallow(<RelatedStories stories={relatedStories} />);
-    expect(wrapper).toMatchSnapshot();
-  });
-  it("should render if valid stories are passed", () => {
-    const wrapper = shallow(<RelatedStoriesBase config={config} stories={relatedStories} />);
-    expect(wrapper.find(Heading).text()).toBe("Also Read");
-  });
-  it("should not render if no stories are passed", () => {
-    const wrapper = shallow(<RelatedStoriesBase config={config} stories={[]} />);
-    expect(wrapper.find(Heading).exists()).toBeFalsy();
-  });
-  it("Should return valid amp-html", async () => {
-    const Component = () => (
+    const wrapper = shallow(
       <Layout story={textStory} config={config}>
-        <Head>
-          <link rel="canonical" href="." />
-        </Head>
-        <RelatedStories stories={relatedStories} />
+        <RelatedStories />
       </Layout>
     );
-    const ampHtml = renderToString(<Component />);
-    const ampValidatorOutput = await isValidAmpHtml(ampHtml);
-    expect(ampValidatorOutput).toBe(true);
+    expect(wrapper).toMatchSnapshot();
+  });
+  it("should render if related stories passed", () => {
+    const wrapper = mount(
+      <Layout story={textStory} config={config}>
+        <RelatedStories />
+      </Layout>
+    );
+    expect(wrapper.find(RelatedStoryCard).length).toBeGreaterThan(0);
+    expect(wrapper.find(Heading).text()).toBe("Also Read");
+  });
+  it("should not render if related stories not passed", () => {
+    const modifiedConfig = { ...config };
+    modifiedConfig.opts = {};
+    const wrapper = mount(
+      <Layout story={textStory} config={modifiedConfig}>
+        <RelatedStories />
+      </Layout>
+    );
+    expect(wrapper.find(RelatedStoryCard).length).toBe(0);
+  });
+  it("should call relatedStoriesRender when passed", () => {
+    const relatedStoriesRender = jest.fn();
+    const modifiedConfig = {
+      ...config,
+      opts: { render: { relatedStoriesRender }, featureConfig: { relatedStories: { stories: relatedStories } } }
+    };
+    const wrapper = shallow(<RelatedStoriesBase story={textStory} config={modifiedConfig} />);
+    expect(relatedStoriesRender.mock.calls.length).toBe(1);
+    expect(wrapper.find(RelatedStories).length).toBe(0);
   });
 });

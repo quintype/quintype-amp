@@ -12,7 +12,7 @@ export const StyledTitle = styled.h3`
 `;
 
 export const TitleBase = ({ element, story, config }: StoryElementProps) => {
-  const titleElementRender = get(config, ["opts", "storyElementRender", "titleElementRender"], null);
+  const titleElementRender = get(config, ["opts", "render", "storyElementRender", "titleElementRender"], null);
 
   return titleElementRender ? (
     titleElementRender({ story, config, element })

@@ -36,7 +36,7 @@ describe("Also Read", () => {
   });
   it("should call alsoReadRender prop when passed to opts", () => {
     const alsoReadRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { alsoReadRender } } };
+    const modifiedConfig = { ...config, opts: { render: { storyElementRender: { alsoReadRender } } } };
     const wrapper = shallow(<AlsoReadBase element={sampleAlsoReadElement} story={textStory} config={modifiedConfig} />);
     expect(alsoReadRender.mock.calls.length).toBe(1);
     expect(wrapper.find(StyledAlsoRead).length).toBe(0);

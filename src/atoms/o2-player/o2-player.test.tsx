@@ -35,7 +35,7 @@ describe("O2Player", () => {
     expect(wrapper.find("div").prop("style")).toStrictEqual({ border: "5px solid red" });
   });
   it("should render o2-player element", () => {
-    const wrapper = shallow(<O2Player {...NullO2PlayerIds} />);
+    const wrapper = shallow(<O2Player {...NullO2PlayerIds} title="o2player" />);
     expect(wrapper.find("amp-o2-player").length).toBe(0);
   });
 });

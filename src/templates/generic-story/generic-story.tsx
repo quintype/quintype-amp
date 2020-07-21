@@ -29,22 +29,23 @@ const Wrapper = styled.div`
 `;
 const canDisplayBodyAd = (cardIdx) => cardIdx === 0;
 
-export const GenericStory = ({ story, config, relatedStories, infiniteScrollInlineConfig }: GenericStoryTypes) => {
+export const GenericStory = ({ story, config }: GenericStoryTypes) => {
   const footerText = get(config, ["publisherConfig", "publisher-settings", "copyright"], null);
-  const infiniteScrollExists = infiniteScrollInlineConfig && infiniteScrollInlineConfig.length; // should also check if infinite scroll collection exists here
+  const infiniteScrollInlineConfig = get(
+    config,
+    ["opts", "featureConfig", "infiniteScroll", "infiniteScrollInlineConfig"],
+    null
+  );
+  const infiniteScrollExists = infiniteScrollInlineConfig && infiniteScrollInlineConfig.length;
   let lastComponent = <Footer text={footerText} />;
   if (infiniteScrollExists) {
-    if (config.opts && config.opts.infiniteScrollRender) {
-      lastComponent = config.opts.infiniteScrollRender({ story, config, inlineConfig: infiniteScrollInlineConfig });
-    } else {
-      lastComponent = (
-        <InfiniteScroll inlineConfig={infiniteScrollInlineConfig}>
-          <div next-page-hide="true" footer="true">
-            <Footer text={footerText} />
-          </div>
-        </InfiniteScroll>
-      );
-    }
+    lastComponent = (
+      <InfiniteScroll inlineConfig={infiniteScrollInlineConfig}>
+        <div next-page-hide="true" footer="true">
+          <Footer text={footerText} />
+        </div>
+      </InfiniteScroll>
+    );
   }
   return (
     <Layout story={story} config={config}>
@@ -76,12 +77,7 @@ export const GenericStory = ({ story, config, relatedStories, infiniteScrollInli
               <Fragment key={card.id}>{storyCard}</Fragment>
             );
           })}
-
-          {config.opts && config.opts.relatedStoriesRender ? (
-            config.opts.relatedStoriesRender({ relatedStories, config, story })
-          ) : (
-            <RelatedStories stories={relatedStories} />
-          )}
+          <RelatedStories />
         </StoryContainer>
         <BottomSlot />
         <BottomAd />
