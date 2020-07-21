@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.4](https://github.com/quintype/quintype-amp/compare/v1.6.2...v1.6.4) (2020-07-21)
+
+
+### Bug Fixes
+
+* **opts restructure:** put infiniteScrollInlineConfig and relatedStories inside opts.featureConfig ([32f4531](https://github.com/quintype/quintype-amp/commit/32f4531bff94c90e92c0086d025bd613213f3420))
+* error fix in image-elelemt ([5e00a4f](https://github.com/quintype/quintype-amp/commit/5e00a4f047d8719bc8f885f0daf62d7553fddf95))
+* test ([a090b7c](https://github.com/quintype/quintype-amp/commit/a090b7ca576e314b66922ac973707fe6521603a4))
+* **opts restructure:** facebook, image-element, instagram, title ([56bce44](https://github.com/quintype/quintype-amp/commit/56bce4491b056d518340906f147d84079c33c153))
+* **opts restructure:** headerCardRender ([9f2c5e5](https://github.com/quintype/quintype-amp/commit/9f2c5e587a0036af2c6675a4c74f1a80d3ab2735))
+* **opts restructure:** image gallery ([7d532c6](https://github.com/quintype/quintype-amp/commit/7d532c633d4ead9026429d5bed80e26015749915))
+* **opts restructure:** infinite scroll | change related stories tests ([897b7e4](https://github.com/quintype/quintype-amp/commit/897b7e4d18f6456f5378e5663f18f1d371a921e8))
+* **opts restructure:** question, answer, bigfact ([6902ff1](https://github.com/quintype/quintype-amp/commit/6902ff1f40c208c3834ab50f3516f9f7ff9000c8))
+* **opts restructure:** relatedStoriesRender ([c642dc7](https://github.com/quintype/quintype-amp/commit/c642dc761fc08f62fe3c90346244c971c3622dee))
+* **opts restructure:** remaining elements ([981cba6](https://github.com/quintype/quintype-amp/commit/981cba6aa076eaa9ff39d9fa61fab3e09924c244))
+* **opts restructure:** summary, text, vidible, youtube ([c473238](https://github.com/quintype/quintype-amp/commit/c473238dcedce068931648bfad5b0756a5d7c6bf))
+* **opts restructure:** twitter ([85bdc12](https://github.com/quintype/quintype-amp/commit/85bdc121b16a9df61344a843b610cbaefe4418ca))
+
 ### [1.6.3](https://github.com/quintype/quintype-amp/compare/v1.6.3-improve-seo.1...v1.6.3) (2020-07-09)
 
 ### [1.6.2](https://github.com/quintype/quintype-amp/compare/v1.6.2-improve-seo.2...v1.6.2) (2020-07-08)
