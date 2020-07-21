@@ -4,5 +4,7 @@ declare namespace React {
     fallback?: string;
     on?: string;
     footer?: string;
+    items?: string;
+    update?: string;
   }
 }
