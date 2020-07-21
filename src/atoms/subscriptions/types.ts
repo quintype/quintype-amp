@@ -1,8 +1,10 @@
 import { Story } from "../../types/story";
+// import { configOpts } from "../../__fixtures__";
+import { Config } from "../../types/config";
 
 export interface SubscriptionProps {
-  story: Story;
-  services: ServicesProps[];
+  // story?: Story;
+  services?: ServicesProps[];
   score?: ScoreProps;
   fallbackEntitlement?: FallbackEntitlementProps;
 }
@@ -32,4 +34,11 @@ export interface FallbackEntitlementProps {
 
 export interface DataProps {
   isLoggedIn?: boolean;
+}
+export interface PaywallProps {
+  config?: Config;
+  story?: Story;
+  services?: ServicesProps[];
+  score?: ScoreProps;
+  fallbackEntitlement?: FallbackEntitlementProps;
 }

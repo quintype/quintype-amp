@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { HeaderCard, Navbar, AmpAds, RelatedStories, WebEngage, Slots } from "../../molecules";
+import { HeaderCard, AmpAds, RelatedStories, WebEngage, Slots } from "../../molecules";
 import {
   Layout,
   StoryElement,
@@ -11,12 +11,17 @@ import {
   QuintypeAnalytics,
   ComScore,
   ChartBeat,
-  InfiniteScroll
+  InfiniteScroll,
+  Subscription
 } from "../../atoms";
 import styled from "styled-components";
 import { GenericStoryTypes } from "./types";
 import get from "lodash.get";
-import { SubscriptionPaywall } from "../../atoms/subscriptions/subscription-paywall";
+import {
+  SubscriberAccessPaywall,
+  MeteredPaywall,
+  MeteredExhaustedPaywall
+} from "../../atoms/subscriptions/subscription-paywall";
 
 const { TopAd, BodyAd, BottomAd } = AmpAds;
 const { StoryPageSlots } = Slots;
@@ -30,7 +35,13 @@ const Wrapper = styled.div`
 `;
 const canDisplayBodyAd = (cardIdx) => cardIdx === 0;
 
-export const GenericStory = ({ story, config, relatedStories, infiniteScrollInlineConfig }: GenericStoryTypes) => {
+export const GenericStory = ({
+  story,
+  config,
+  relatedStories,
+  infiniteScrollInlineConfig
+}: // subscriptionConfig
+GenericStoryTypes) => {
   const cardsVisibleForBlockedStory = get(
     config,
     ["publisherConfig", "layout", "no-of-visible-cards-in-a-blocked-story"],
@@ -40,6 +51,11 @@ export const GenericStory = ({ story, config, relatedStories, infiniteScrollInli
   const isNotSubscribed = story.access !== "subscription";
   const footerText = get(config, ["publisherConfig", "publisher-settings", "copyright"], null);
   const infiniteScrollExists = infiniteScrollInlineConfig && infiniteScrollInlineConfig.length; // should also check if infinite scroll collection exists here
+  const services = get(config, ["opts", "subscriptions", "services"], null);
+  const score = get(config, ["opts", "subscriptions", "score"], null);
+  const fallbackEntitlement = get(config, ["opts", "subscriptions", "fallbackEntitlement"], null);
+  const loggedInData = get(config, ["opts", "subscriptions", "fallbackEntitlement", "data", "isLoggedIn"]);
+  const isLoggedIn = loggedInData === true;
   let lastComponent = <Footer text={footerText} />;
   if (infiniteScrollExists) {
     if (config.opts && config.opts.infiniteScrollRender) {
@@ -56,10 +72,9 @@ export const GenericStory = ({ story, config, relatedStories, infiniteScrollInli
   }
   return (
     <Layout story={story} config={config}>
-      <div next-page-hide={infiniteScrollExists}>
-        <Navbar />
-      </div>
+      <div next-page-hide={infiniteScrollExists}>{/* <Navbar /> */}</div>
       <IncompatibleBanner />
+      <Subscription services={services} score={score} fallbackEntitlement={fallbackEntitlement} />
       <GoogleTagManager />
       <Wrapper>
         <TopAd />
@@ -81,11 +96,33 @@ export const GenericStory = ({ story, config, relatedStories, infiniteScrollInli
                 <Spacer token="l" />
               </Fragment>
             ) : (
-              (cardsAccessible(cardIdx) && isNotSubscribed && <Fragment key={card.id}>{storyCard}</Fragment>) ||
-                (!isNotSubscribed && <Fragment key={card.id}>{storyCard}</Fragment>)
+              (cardsAccessible(cardIdx) && isNotSubscribed && !isLoggedIn && (
+                <Fragment key={card.id}>{storyCard}</Fragment>
+              )) ||
+                (!isNotSubscribed && isLoggedIn && <Fragment key={card.id}>{storyCard}</Fragment>)
             );
           })}
-          {isNotSubscribed && <SubscriptionPaywall />}
+          <MeteredPaywall
+            config={config}
+            story={story}
+            services={services}
+            score={score}
+            fallbackEntitlement={fallbackEntitlement}
+          />
+          <MeteredExhaustedPaywall
+            config={config}
+            story={story}
+            services={services}
+            score={score}
+            fallbackEntitlement={fallbackEntitlement}
+          />
+          <SubscriberAccessPaywall
+            config={config}
+            story={story}
+            services={services}
+            score={score}
+            fallbackEntitlement={fallbackEntitlement}
+          />
           {config.opts && config.opts.relatedStoriesRender ? (
             config.opts.relatedStoriesRender({ relatedStories, config, story })
           ) : (

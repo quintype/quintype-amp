@@ -631,6 +631,31 @@ export const configOpts = {
       // tslint:disable-next-line:no-shadowed-variable
       "top-slot": ({ story, config }) => <TopSlotTest story={story} config={config} />
     }
+  },
+  subscriptions: {
+    services: [
+      {
+        // Local service (required)
+        authorizationUrl: "https://pub.com/amp-authorisation?rid=READER_ID&url=SOURCE_URL",
+        pingbackUrl: "https://pub.com/amp-pingback?rid=READER_ID&url=SOURCE_URL",
+        actions: {
+          login: "https://www.google.com",
+          subscribe: "https://www.facebook.com"
+        }
+      }
+    ],
+    score: {
+      supportsViewer: 10,
+      isReadyToPay: 9
+    },
+    fallbackEntitlement: {
+      source: "fallback",
+      granted: true,
+      grantReason: "SUBSCRIBER",
+      data: {
+        isLoggedIn: false
+      }
+    }
   }
 };
 
