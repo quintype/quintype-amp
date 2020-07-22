@@ -25,10 +25,18 @@ export const LiveListBase = ({
           custom-element="amp-live-list"
           src="https://cdn.ampproject.org/v0/amp-live-list-0.1.js"
         />
+        <style>{`
+          .qt-amp-live-blog-refresh-btn{
+            margin: 0 auto;
+            width: 150px;
+            height: 30px;
+            font-size: 16px;
+          }
+        `}</style>
       </Helmet>
       <amp-live-list id={id} {...attributes}>
-        <button update="" on={`tap:${id}.update`}>
-          Tap to update
+        <button className="qt-amp-live-blog-refresh-btn" update="" on={`tap:${id}.update`}>
+          Tap to refresh
         </button>
         <div items="">{children}</div>
       </amp-live-list>

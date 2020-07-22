@@ -4044,7 +4044,13 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
     }
   }
 >
-  <WithTheme(Component) />
+  <div
+    next-page-hide={81}
+  >
+    <WithTheme(Component) />
+  </div>
+  <Component />
+  <Component />
   <styled.div>
     <Component />
     <Component />
@@ -4052,6 +4058,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
       token="s"
     />
     <styled.div>
+      <Component />
       <Component />
       <Spacer
         token="m"
@@ -4106,11 +4113,15 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
           <Component
             timeStamp={1595309566241}
           />
+          <Spacer
+            token="tiny"
+          />
+          <Component />
           <Component
             index={0}
           />
           <Spacer
-            token="xs"
+            token="tiny"
           />
         </div>
         <div
@@ -4154,11 +4165,15 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
           <Component
             timeStamp={1595309566241}
           />
+          <Spacer
+            token="tiny"
+          />
+          <Component />
           <Component
             index={1}
           />
           <Spacer
-            token="xs"
+            token="tiny"
           />
         </div>
         <div
@@ -4186,11 +4201,15 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
           <Component
             timeStamp={1595310701812}
           />
+          <Spacer
+            token="tiny"
+          />
+          <Component />
           <Component
             index={2}
           />
           <Spacer
-            token="xs"
+            token="tiny"
           />
         </div>
         <div
@@ -4218,11 +4237,15 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
           <Component
             timeStamp={1595310701812}
           />
+          <Spacer
+            token="tiny"
+          />
+          <Component />
           <Component
             index={3}
           />
           <Spacer
-            token="xs"
+            token="tiny"
           />
         </div>
         <div
@@ -4266,11 +4289,15 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
           <Component
             timeStamp={1595310701812}
           />
+          <Spacer
+            token="tiny"
+          />
+          <Component />
           <Component
             index={4}
           />
           <Spacer
-            token="xs"
+            token="tiny"
           />
         </div>
         <div
@@ -4298,11 +4325,15 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
           <Component
             timeStamp={1595310701812}
           />
+          <Spacer
+            token="tiny"
+          />
+          <Component />
           <Component
             index={5}
           />
           <Spacer
-            token="xs"
+            token="tiny"
           />
         </div>
         <div
@@ -4330,11 +4361,15 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
           <Component
             timeStamp={1595310701812}
           />
+          <Spacer
+            token="tiny"
+          />
+          <Component />
           <Component
             index={6}
           />
           <Spacer
-            token="xs"
+            token="tiny"
           />
         </div>
         <div
@@ -4362,11 +4397,15 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
           <Component
             timeStamp={1595310701812}
           />
+          <Spacer
+            token="tiny"
+          />
+          <Component />
           <Component
             index={7}
           />
           <Spacer
-            token="xs"
+            token="tiny"
           />
         </div>
         <div
@@ -4421,11 +4460,15 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
           <Component
             timeStamp={1595315980861}
           />
+          <Spacer
+            token="tiny"
+          />
+          <Component />
           <Component
             index={8}
           />
           <Spacer
-            token="xs"
+            token="tiny"
           />
         </div>
         <div
@@ -4453,11 +4496,15 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
           <Component
             timeStamp={1595315980861}
           />
+          <Spacer
+            token="tiny"
+          />
+          <Component />
           <Component
             index={9}
           />
           <Spacer
-            token="xs"
+            token="tiny"
           />
         </div>
         <div
@@ -4485,11 +4532,15 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
           <Component
             timeStamp={1595315980861}
           />
+          <Spacer
+            token="tiny"
+          />
+          <Component />
           <Component
             index={10}
           />
           <Spacer
-            token="xs"
+            token="tiny"
           />
         </div>
         <div
@@ -4517,11 +4568,15 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
           <Component
             timeStamp={1595315980861}
           />
+          <Spacer
+            token="tiny"
+          />
+          <Component />
           <Component
             index={11}
           />
           <Spacer
-            token="xs"
+            token="tiny"
           />
         </div>
         <div
@@ -4549,17 +4604,38 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
           <Component
             timeStamp={1595315980861}
           />
+          <Spacer
+            token="tiny"
+          />
+          <Component />
           <Component
             index={12}
           />
           <Spacer
-            token="xs"
+            token="tiny"
           />
         </div>
       </Component>
+      <Component />
     </styled.div>
     <Component />
     <Component />
   </styled.div>
+  <Component />
+  <Component />
+  <Component />
+  <Component />
+  <Component
+    inlineConfig="[{\\"image\\":\\"https://foo.com/puppies.jpg\\",\\"title\\":\\"Puppies Page\\",\\"url\\":\\"/puppies\\"}]"
+  >
+    <div
+      footer="true"
+      next-page-hide="true"
+    >
+      <WithTheme(BaseFooter)
+        text="Copyright © 2020 Newslaundry Media Private Limited.  All Rights Reserved "
+      />
+    </div>
+  </Component>
 </Component>
 `;
