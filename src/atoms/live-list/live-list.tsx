@@ -11,7 +11,7 @@ export const LiveListBase = ({
   "data-max-items-per-page": dataMaxItemsPerPage
 }: LiveListTypes) => {
   const id = `story-${story.id}`;
-  const disabled = get(story, ["metadata", "is-closed"], true);
+  const disabled = get(story, ["metadata", "is-closed"], false);
   const attributes: LiveListAttrs = {
     "data-poll-interval": dataPollInterval || "30000",
     "data-max-items-per-page": dataMaxItemsPerPage || "1000"
