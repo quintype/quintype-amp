@@ -124,29 +124,32 @@ interface SlotsTypes {
 export interface ConfigOpts {
   templates?: object;
   slots?: SlotsTypes;
-  storyElementRender?: {
-    bigfactElementRender?: (props: CommonRenderPropTypes) => any;
-    answerElementRender?: (props: CommonRenderPropTypes) => any;
-    questionElementRender?: (props: CommonRenderPropTypes) => any;
-    summaryElementRender?: (props: CommonRenderPropTypes) => any;
-    textElementRender?: (props: CommonRenderPropTypes) => any;
-    youtubeElementRender?: (props: CommonRenderPropTypes) => any;
-    vidibleElementRender?: (props: CommonRenderPropTypes) => any;
-    twitterElementRender?: (props: CommonRenderPropTypes) => any;
-    titleElementRender?: (props: CommonRenderPropTypes) => any;
-    instagramElementRender?: (props: CommonRenderPropTypes) => any;
-    imageGalleryElementRender?: (props: CommonRenderPropTypes) => any;
-    imageElementRender?: (props: CommonRenderPropTypes) => any;
-    facebookElementRender?: (props: CommonRenderPropTypes) => any;
-    embedRender?: (props: CommonRenderPropTypes) => any;
-    dailyMotionRender?: (props: CommonRenderPropTypes) => any;
-    blockquoteRender?: (props: CommonRenderPropTypes) => any;
-    blurbRender?: (props: CommonRenderPropTypes) => any;
-    alsoReadRender?: (props: CommonRenderPropTypes) => any;
+  render?: {
+    headerCardRender?: (props: CommonRenderPropTypes) => any;
+    relatedStoriesRender?: (props: RelatedStoriesRenderPropTypes) => any;
+    infiniteScrollRender?: (props: InfiniteScrollRenderPropTypes) => any;
+    storyElementRender?: {
+      bigfactElementRender?: (props: CommonRenderPropTypes) => any;
+      answerElementRender?: (props: CommonRenderPropTypes) => any;
+      questionElementRender?: (props: CommonRenderPropTypes) => any;
+      summaryElementRender?: (props: CommonRenderPropTypes) => any;
+      textElementRender?: (props: CommonRenderPropTypes) => any;
+      youtubeElementRender?: (props: CommonRenderPropTypes) => any;
+      vidibleElementRender?: (props: CommonRenderPropTypes) => any;
+      twitterElementRender?: (props: CommonRenderPropTypes) => any;
+      titleElementRender?: (props: CommonRenderPropTypes) => any;
+      instagramElementRender?: (props: CommonRenderPropTypes) => any;
+      imageGalleryElementRender?: (props: CommonRenderPropTypes) => any;
+      imageElementRender?: (props: CommonRenderPropTypes) => any;
+      facebookElementRender?: (props: CommonRenderPropTypes) => any;
+      embedRender?: (props: CommonRenderPropTypes) => any;
+      dailyMotionRender?: (props: CommonRenderPropTypes) => any;
+      blockquoteRender?: (props: CommonRenderPropTypes) => any;
+      blurbRender?: (props: CommonRenderPropTypes) => any;
+      alsoReadRender?: (props: CommonRenderPropTypes) => any;
+    };
   };
-  headerCardRender?: (props: CommonRenderPropTypes) => any;
-  relatedStoriesRender?: (props: RelatedStoriesRenderPropTypes) => any;
-  infiniteScrollRender?: (props: InfiniteScrollRenderPropTypes) => any;
+  featureConfig?: FeatureConfigTypes;
 }
 
 export interface CommonRenderPropTypes {
@@ -162,5 +165,14 @@ interface RelatedStoriesRenderPropTypes {
 interface InfiniteScrollRenderPropTypes {
   story: Story;
   config: Config;
-  inlineConfig?: string;
+  inlineConfig: string;
+}
+
+interface FeatureConfigTypes {
+  infiniteScroll?: {
+    infiniteScrollInlineConfig: string;
+  };
+  relatedStories?: {
+    stories: Story[];
+  };
 }

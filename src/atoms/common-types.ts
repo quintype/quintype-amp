@@ -28,8 +28,8 @@ declare global {
   }
 }
 
-// This element includes common attributes extended to AMP components.
-// https://amp.dev/documentation/guides-and-tutorials/learn/common_attributes/?format=websites
+// Should only contain the common attributes given in https://amp.dev/documentation/guides-and-tutorials/learn/common_attributes/?format=websites
+// do not add anything else here
 export interface Common {
   fallback?: string;
   heights?: string;
@@ -41,6 +41,4 @@ export interface Common {
   sizes?: string;
   width?: string;
   height?: string;
-  type?: string;
-  aspectRatio?: Array<number>;
 }

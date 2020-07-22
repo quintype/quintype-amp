@@ -32,7 +32,7 @@ describe("Blurb", () => {
   });
   it("should call blurbRender prop when passed to opts", () => {
     const blurbRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { blurbRender } } };
+    const modifiedConfig = { ...config, opts: { render: { storyElementRender: { blurbRender } } } };
     const wrapper = shallow(<BlurbBase element={sampleBlurbElement} story={textStory} config={modifiedConfig} />);
     expect(blurbRender.mock.calls.length).toBe(1);
     expect(wrapper.find(DefaultBlurb).length).toBe(0);

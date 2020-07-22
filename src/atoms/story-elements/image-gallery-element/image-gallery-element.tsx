@@ -7,7 +7,6 @@ import styled from "styled-components";
 import { media } from "../../../utils/media";
 import { withStoryAndConfig } from "../../../context";
 import get from "lodash.get";
-type ImageGalleryElementProps = StoryElementProps & ImageGalleryTypes;
 
 const StyledGallery = styled.div`
   display: grid;
@@ -42,7 +41,7 @@ export const DefaultImageGalleryElement = ({
   type,
   lightbox,
   ...props
-}: ImageGalleryElementProps) => {
+}: ImageGalleryTypes) => {
   // forcing imageGallery to false for now for vikatan.
   const imageGallery = element.metadata && element.metadata.type === "gallery" && false;
   const images =
@@ -82,7 +81,11 @@ export function getFigcaptionText(caption, attribution) {
 }
 
 export const ImageGalleryElementBase = ({ element, story, config }: StoryElementProps) => {
-  const imageGalleryElementRender = get(config, ["opts", "storyElementRender", "imageGalleryElementRender"], null);
+  const imageGalleryElementRender = get(
+    config,
+    ["opts", "render", "storyElementRender", "imageGalleryElementRender"],
+    null
+  );
 
   return imageGalleryElementRender ? (
     imageGalleryElementRender({ story, config, element })

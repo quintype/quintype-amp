@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import styled from "styled-components";
 import { RelatedStoryCard } from "../related-story-card";
 import { RelatedStoriesTypes } from "./types";
-import { withConfig } from "../../context";
+import { withStoryAndConfig } from "../../context";
 import { base64FallbackImage } from "../../helpers/image-helpers";
 import { Spacer } from "../../atoms";
 import get from "lodash.get";
@@ -11,23 +11,32 @@ export const Heading = styled.h2`
   font-size: ${(props) => props.theme.font.size.l};
 `;
 
-export const RelatedStoriesBase = ({ stories, config, heading, aspectRatio = [16, 9] }: RelatedStoriesTypes) => {
-  return stories && stories.length ? (
+export const RelatedStoriesBase = ({
+  story,
+  config,
+  heading = "Also Read",
+  aspectRatio = [16, 9]
+}: RelatedStoriesTypes) => {
+  const relatedStories = get(config, ["opts", "featureConfig", "relatedStories", "stories"], null);
+  if (!relatedStories || !relatedStories.length) return null;
+  const relatedStoriesRender = get(config, ["opts", "render", "relatedStoriesRender"], null);
+  if (relatedStoriesRender) return relatedStoriesRender({ relatedStories, config, story });
+  return (
     <Fragment>
       <Spacer token="m" />
-      <Heading>{heading || "Also Read"}</Heading>
+      <Heading>{heading}</Heading>
       <div>
-        {stories.map((story) => (
+        {relatedStories.map((relatedStory) => (
           <RelatedStoryCard
-            key={story.id}
-            story={story}
+            key={relatedStory.id}
+            story={relatedStory}
             fallbackSrc={get(config, ["ampConfig", "fallback-image-url"], base64FallbackImage)}
             aspectRatio={aspectRatio}
           />
         ))}
       </div>
     </Fragment>
-  ) : null;
+  );
 };
 
-export const RelatedStories = withConfig(RelatedStoriesBase);
+export const RelatedStories = withStoryAndConfig(RelatedStoriesBase);

@@ -24,7 +24,7 @@ export const StyledAlsoRead = styled.div`
 export const AlsoReadBase = ({ element, story, config }: StoryElementProps) => {
   const linkedStoryId = get(element, ["metadata", "linked-story-id"]);
   const linkedStory = get(story, ["linked-stories", linkedStoryId]);
-  const alsoReadRender = get(config, ["opts", "storyElementRender", "alsoReadRender"], null);
+  const alsoReadRender = get(config, ["opts", "render", "storyElementRender", "alsoReadRender"], null);
 
   if (!linkedStory) {
     return null;

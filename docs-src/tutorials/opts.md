@@ -5,13 +5,31 @@ The AMP library accepts customizations via the "opts" javascript object.
 The opts object for rendering AMP story pages has the following structure:
 
 ```jsx
-const myStoryPageOptsObj = {
+const myOptsObj = {
   seo,
-  templates,
-  slots,
-  ...
-  ..renders..
-  ...
+  templates: {
+    text: ({ story, config, seo }) => <CustomTextTemplate story={story} config={config} seo={seo} />,
+    video: ({ story, config, seo }) => <CustomVideoTemplate story={story} config={config} seo={seo} />
+    // ... other templates
+  },
+  slots: {
+    story: {
+      "top-slot": ({ story, config }) => <MyTopSlot story={story} config={config} />,
+      "bottom-slot": ({ story, config }) => <MyBottomSlot story={story} config={config} />
+    }
+  },
+  render: {
+    headerCardRender: ({ story, config }) => <CustHeaderCard story={story} config={config} />,
+    infiniteScrollRender: ({ story, config, inlineConfig }) => <CustomInfiniteScroll story={story} config={config} firstFiveStoriesConfig={inlineConfig} />
+    // ... other renders
+    storyElementRender: {
+      bigfactElementRender: ({ story, config, element }) => (
+        <CustBigFact story={story} config={config} element={element} />
+      )
+      // ... other SE renders
+    }
+  },
+  featureConfig: {}
 };
 ```
 
@@ -23,40 +41,14 @@ const myStoryPageOptsObj = {
   - `relatedStoriesRender`
   - `headerCardRender`
   - `infiniteScrollRender`
+- `featureConfig` - used to provide config for amp lib features. For example show live-blog in ascending/descending order
 
 <hr />
 This section is useful if you want to use custom templates. Else, jump to <a href="#slots_link">slots</a>
 
 ## Passing custom templates
 
-Pass an object containing your custom templates to the `templates` key of the `opts` object.
-This is what your server/app.js file might look like
-
-```jsx
-...
-ampRoutes(app, {
-  templates: {
-    text: ({ story, config, relatedStories, infiniteScrollInlineConfig }) => (
-      <CustomTextStoryTemplate
-        story={story}
-        config={config}
-        relatedStories={relatedStories}
-        infiniteScrollInlineConfig={infiniteScrollInlineConfig}>
-    ),
-    "live-blog": (props) => <CustomLiveBlogStoryTemplate {...props}>
-  }
-})
-...
-```
-
-- pass a function that returns your template (react component)
-- this function takes an object as a parameter having the foll keys:
-  - `story` - <span id="storyConfig_link">the story object that platform gives</span>
-  - `config` - an object containing `publisherConfig` and `ampConfig`. The `publisherConfig` is the same as response of _/api/v1/config_. The`ampConfig` is an amp-specific config given by _api/v1/amp/config_
-  - `relatedStories` - contains stories from the related stories collection
-  - `infiniteScrollInlineConfig` - contains inline config needed by amp infinite scroll
-- `CustomTextStoryTemplate` is the template you've built using AMP library components and/or your own amp html. All your text stories will render this template.
-- `text`, `live-blog` are the story template names. <b><em>They must match the `story-template` in platform's story api response</em></b>
+Go to {@tutorial custom-story-templates}
 
 <hr/>
 
@@ -87,20 +79,19 @@ If you wish to customize the default templates, you can do so using the various 
 For example,
 
 ```jsx
-const mySERenders = {
-  textElementRender: ({story, config, element}) => (<div>
-    <span>My Custom Text Element</span>
-    <div className="">{element.text}</div>
-  </div>)
-}
 ampRoutes(app, {
-   slots: {
-     story: {
-       "top-slot": ({story, config}) => <MyTopSlot story={story} config={config} />
-       "bottom-slot": ({story, config}) => <MyBottomSlot story={story} config={config} />
-     }
-   }
-})
+  render: {
+    headerCardRender: ({story, config}) => <div>CUSTOM HEADER CARD</div>
+    storyElementRender: {
+      textElementRender: ({ story, config, element }) => (
+        <div>
+          <span>My Custom Text Element</span>
+          <div className="">{element.text}</div>
+        </div>
+      )
+    }
+  }
+});
 ```
 
 Here too, `story` and `config` is same as what's mentioned <a href="#storyConfig_link">above</a>.

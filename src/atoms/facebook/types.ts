@@ -5,10 +5,5 @@ export interface FacebookTypes extends Common {
   "data-embed-as"?: "post" | "video" | "comment";
   "data-include-comment-parent"?: boolean;
   "data-align-center"?: boolean;
-  inlineStyles?: object;
-  title: string;
-}
-
-export interface StyledFacebookTypes {
-  style?: object;
+  title?: string;
 }

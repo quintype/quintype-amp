@@ -33,9 +33,9 @@ describe("Instagram Element", () => {
     const wrapper = mount(<DefaultInstagramElement element={sampleInstagramElement} />);
     expect(wrapper.find("amp-instagram").length).toBe(1);
   });
-  it("should call instagramElementRender prop when passed to opts", () => {
+  it("should call instagramElementRender when passed", () => {
     const instagramElementRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { instagramElementRender } } };
+    const modifiedConfig = { ...config, opts: { render: { storyElementRender: { instagramElementRender } } } };
     const wrapper = shallow(
       <InstagramElementBase element={sampleInstagramElement} story={textStory} config={modifiedConfig} />
     );

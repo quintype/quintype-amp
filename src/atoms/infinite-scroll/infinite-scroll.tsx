@@ -2,11 +2,15 @@ import React, { Fragment } from "react";
 import { Helmet } from "react-helmet";
 import { withStoryAndConfig } from "../../context";
 import { InfiniteScrollTypes } from "./types";
+import get from "lodash.get";
 
-const InfiniteScrollBase = ({ story, config, children, inlineConfig, ...props }: InfiniteScrollTypes) => {
+export const InfiniteScrollBase = ({ story, config, children, inlineConfig, ...props }: InfiniteScrollTypes) => {
   const { "story-content-id": storyId } = story;
   const { "sketches-host": host } = config.publisherConfig;
   const jsonConfigUrl = `${host}/amp/api/v1/amp-infinite-scroll?story-id=${storyId}`;
+  const infiniteScrollRender = get(config, ["opts", "render", "infiniteScrollRender"], null);
+
+  if (infiniteScrollRender) return infiniteScrollRender({ story, config, inlineConfig });
   return (
     <Fragment>
       <Helmet>

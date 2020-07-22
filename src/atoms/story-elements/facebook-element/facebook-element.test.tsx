@@ -20,6 +20,8 @@ const sampleFacebookElement = {
   subtype: "facebook-post"
 };
 
+const { metadata, ...sampleFacebookElementWithoutMetadata } = sampleFacebookElement;
+
 describe("Facebook Element", () => {
   it("should render facebook", () => {
     const wrapper = mount(<FacebookElement element={sampleFacebookElement} />);
@@ -27,11 +29,15 @@ describe("Facebook Element", () => {
   });
   it("should call facebookElementRender prop when passed to opts", () => {
     const facebookElementRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { facebookElementRender } } };
+    const modifiedConfig = { ...config, opts: { render: { storyElementRender: { facebookElementRender } } } };
     const wrapper = shallow(
       <FacebookElementBase element={sampleFacebookElement} story={textStory} config={modifiedConfig} />
     );
     expect(facebookElementRender.mock.calls.length).toBe(1);
     expect(wrapper.find(Facebook).length).toBe(0);
+  });
+  it("shouldn't render facebook", () => {
+    const wrapper = mount(<FacebookElement element={sampleFacebookElementWithoutMetadata} />);
+    expect(wrapper.find("amp-facebook").length).toBe(0);
   });
 });

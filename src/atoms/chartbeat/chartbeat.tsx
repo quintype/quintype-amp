@@ -3,18 +3,18 @@ import { withStoryAndConfig } from "../../context";
 import { Analytics } from "../analytics";
 
 const ChartBeatBase = ({ story, config }) => {
-  if (!config.ampConfig["chartbeat"]) {
+  if (!config.ampConfig.chartbeat) {
     return null;
   }
   const sections = story.sections.map((section) => section.name).join(",");
   const authors = story["author-name"];
   const targets = {
     vars: {
-      uid: config.ampConfig.chartbeat["uid"],
-      domain: config.ampConfig.chartbeat["domain"],
+      uid: config.ampConfig.chartbeat.uid,
+      domain: config.ampConfig.chartbeat.domain,
       useCanonical: true,
-      sections: sections,
-      authors: authors
+      sections,
+      authors
     }
   };
   return <Analytics type="chartbeat" targets={targets} />;

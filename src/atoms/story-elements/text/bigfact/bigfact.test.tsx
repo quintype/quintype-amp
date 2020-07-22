@@ -24,9 +24,9 @@ describe("Bigfact", () => {
     const wrapper = shallow(<Bigfact element={sampleBigfactElement} />);
     expect(wrapper).toMatchSnapshot();
   });
-  it("should call bigfactElementRender prop when passed to opts", () => {
+  it("should call bigfactElementRender when passed", () => {
     const bigfactElementRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { bigfactElementRender } } };
+    const modifiedConfig = { ...config, opts: { render: { storyElementRender: { bigfactElementRender } } } };
     const wrapper = shallow(<BigfactBase element={sampleBigfactElement} story={textStory} config={modifiedConfig} />);
     expect(bigfactElementRender.mock.calls.length).toBe(1);
     expect(wrapper.find("div").length).toBe(0);
