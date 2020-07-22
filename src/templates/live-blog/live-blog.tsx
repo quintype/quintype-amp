@@ -38,7 +38,7 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
                   {storyCard}
                   <CardUpdatedAt timeStamp={card["card-updated-at"]} />
                   <LiveBlogCardSlot index={idx} />
-                  <Spacer token="m" />
+                  <Spacer token="xs" />
                 </Fragment>
               );
             })}

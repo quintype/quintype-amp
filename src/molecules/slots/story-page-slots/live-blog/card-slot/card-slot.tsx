@@ -11,13 +11,13 @@ const LiveBlogCardSlotBase = ({ story, config, index }) => {
 };
 
 /**
- * LiveBlogCardSlot is a render prop. It's placed after every card on a live blog type story.
+ * live-blog-card is a story page slot. It's placed after every card on a live blog type story.
  *
  * @category Atoms
- * @component
+ * @module live-blog-card
  * @param {Props} props
  * @param {Story} props.story
  * @param {Config} props.config
- * @param {number} props.index the index of the card
+ * @param {number} props.index index of the card. For example the LiveBlogCardSlot coming after the 1st card will have index 0 and so on
  */
 export const LiveBlogCardSlot = withStoryAndConfig(LiveBlogCardSlotBase);
