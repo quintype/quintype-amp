@@ -33,7 +33,7 @@ const VerboseUpdateTime = ({ timeStamp }) => {
   });
   return (
     <DateLineWrapper>
-      <DateTime formattedDate={humanizedDate} prepend="Updated:" />
+      <DateTime formattedDate={humanizedDate} prepend="Updated at:" />
     </DateLineWrapper>
   );
 };

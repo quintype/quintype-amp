@@ -6,7 +6,7 @@
 //  - max items per page
 //  - poll-interval
 
-import React, { Fragment } from "react";
+import React from "react";
 import { CommonTemplateTypes } from "../common-template-types";
 import { Layout, StoryElement, Spacer, LiveList } from "../../atoms";
 import { HeaderCard, Navbar, AmpAds, Slots } from "../../molecules";
@@ -45,12 +45,16 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
                 <StoryElement key={element.id} element={element} />
               ));
               return (
-                <Fragment key={card.id}>
+                <div
+                  key={card.id}
+                  id={card.id}
+                  data-sort-time={card["card-added-at"]}
+                  data-update-time={card["card-updated-at"]}>
                   {storyCard}
                   <CardUpdatedAt timeStamp={card["card-updated-at"]} />
                   <LiveBlogCardSlot index={idx} />
                   <Spacer token="xs" />
-                </Fragment>
+                </div>
               );
             })}
           </LiveList>

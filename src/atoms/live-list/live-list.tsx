@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import { withStoryAndConfig } from "../../context";
 import get from "lodash.get";
 
-const LiveListBase = ({
+export const LiveListBase = ({
   story,
   children,
   "data-poll-interval": dataPollInterval,
