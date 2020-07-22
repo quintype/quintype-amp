@@ -17,6 +17,17 @@ const { TopAd, BottomAd } = AmpAds;
 const { StoryPageSlots } = Slots;
 const { TopSlot, BottomSlot, LiveBlogCardSlot } = StoryPageSlots;
 
+/**
+ * The LiveBlog is the default template for live blog type stories.
+ *
+ * Slots: top-slot, bottom-slot, live-blog-card-slot
+ * Customizable features:
+ *  - can choose normal or verbose card update timestamp. Normal > "about 24 hours ago"; Verbose > "July 21, 2020 at 9:34 AM".
+ *    Normal is chosen by default. To choose verbose, set opts.featureConfig.liveBlog.cardUpdateTimeStampFormat = "verbose"
+ *
+ * @category Default Templates
+ * @component
+ */
 export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
   return (
     <Layout story={story} config={config}>

@@ -5,7 +5,7 @@ const LiveBlogCardSlotBase = ({ story, config, index }) => {
   const liveBlogCardRender = getSlotFromConfig({
     config,
     slotType: "story",
-    slotName: "live-blog-card"
+    slotName: "live-blog-card-slot"
   });
   return liveBlogCardRender && liveBlogCardRender({ story, config, index });
 };
