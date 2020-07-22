@@ -13,7 +13,7 @@ export const StyledBigfact = styled.div<StoryElementProps>`
 `;
 
 export const BigfactBase = ({ element, story, config }: StoryElementProps) => {
-  const bigfactElementRender = get(config, ["opts", "storyElementRender", "bigfactElementRender"], null);
+  const bigfactElementRender = get(config, ["opts", "render", "storyElementRender", "bigfactElementRender"], null);
 
   return bigfactElementRender ? (
     bigfactElementRender({ story, config, element })

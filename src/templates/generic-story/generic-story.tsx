@@ -35,13 +35,7 @@ const Wrapper = styled.div`
 `;
 const canDisplayBodyAd = (cardIdx) => cardIdx === 0;
 
-export const GenericStory = ({
-  story,
-  config,
-  relatedStories,
-  infiniteScrollInlineConfig
-}: // subscriptionConfig
-GenericStoryTypes) => {
+export const GenericStory = ({ story, config }: GenericStoryTypes) => {
   const cardsVisibleForBlockedStory = get(
     config,
     ["publisherConfig", "layout", "no-of-visible-cards-in-a-blocked-story"],
@@ -49,26 +43,27 @@ GenericStoryTypes) => {
   );
   const cardsAccessible = (cardIdx) => cardIdx <= cardsVisibleForBlockedStory;
   const isNotSubscribed = story.access !== "subscription";
-  const footerText = get(config, ["publisherConfig", "publisher-settings", "copyright"], null);
-  const infiniteScrollExists = infiniteScrollInlineConfig && infiniteScrollInlineConfig.length; // should also check if infinite scroll collection exists here
   const services = get(config, ["opts", "subscriptions", "services"], null);
   const score = get(config, ["opts", "subscriptions", "score"], null);
   const fallbackEntitlement = get(config, ["opts", "subscriptions", "fallbackEntitlement"], null);
   const loggedInData = get(config, ["opts", "subscriptions", "fallbackEntitlement", "data", "isLoggedIn"]);
   const isLoggedIn = loggedInData === true;
+  const footerText = get(config, ["publisherConfig", "publisher-settings", "copyright"], null);
+  const infiniteScrollInlineConfig = get(
+    config,
+    ["opts", "featureConfig", "infiniteScroll", "infiniteScrollInlineConfig"],
+    null
+  );
+  const infiniteScrollExists = infiniteScrollInlineConfig && infiniteScrollInlineConfig.length;
   let lastComponent = <Footer text={footerText} />;
   if (infiniteScrollExists) {
-    if (config.opts && config.opts.infiniteScrollRender) {
-      lastComponent = config.opts.infiniteScrollRender({ story, config, inlineConfig: infiniteScrollInlineConfig });
-    } else {
-      lastComponent = (
-        <InfiniteScroll inlineConfig={infiniteScrollInlineConfig}>
-          <div next-page-hide="true" footer="true">
-            <Footer text={footerText} />
-          </div>
-        </InfiniteScroll>
-      );
-    }
+    lastComponent = (
+      <InfiniteScroll inlineConfig={infiniteScrollInlineConfig}>
+        <div next-page-hide="true" footer="true">
+          <Footer text={footerText} />
+        </div>
+      </InfiniteScroll>
+    );
   }
   return (
     <Layout story={story} config={config}>
@@ -123,11 +118,7 @@ GenericStoryTypes) => {
             score={score}
             fallbackEntitlement={fallbackEntitlement}
           />
-          {config.opts && config.opts.relatedStoriesRender ? (
-            config.opts.relatedStoriesRender({ relatedStories, config, story })
-          ) : (
-            <RelatedStories stories={relatedStories} />
-          )}
+          <RelatedStories />
         </StoryContainer>
         <BottomSlot />
         <BottomAd />

@@ -20,9 +20,9 @@ describe("Title", () => {
     const wrapper = shallow(<Title element={sampleTitleElement} />);
     expect(wrapper).toMatchSnapshot();
   });
-  it("should call titleElementRender prop when passed to opts", () => {
+  it("should call titleElementRender when passed", () => {
     const titleElementRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { titleElementRender } } };
+    const modifiedConfig = { ...config, opts: { render: { storyElementRender: { titleElementRender } } } };
     const wrapper = shallow(<TitleBase element={sampleTitleElement} story={textStory} config={modifiedConfig} />);
     expect(titleElementRender.mock.calls.length).toBe(1);
     expect(wrapper.find(StyledTitle).length).toBe(0);

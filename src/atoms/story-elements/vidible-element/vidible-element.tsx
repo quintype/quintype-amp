@@ -45,13 +45,18 @@ export const DefaultVidibleElement = ({
   ) : null;
 };
 
-export const VidibleElementBase = ({ element, story, config }: StoryElementProps) => {
-  const vidibleElementRender = get(config, ["opts", "storyElementRender", "vidibleElementRender"], null);
+export const VidibleElementBase = ({
+  element,
+  story,
+  config,
+  "data-macros": dataMacros
+}: StoryElementProps & { "data-macros"?: string }) => {
+  const vidibleElementRender = get(config, ["opts", "render", "storyElementRender", "vidibleElementRender"], null);
   const title = element.subtype || element.title || "";
   return vidibleElementRender ? (
     vidibleElementRender({ story, config, element })
   ) : (
-    <DefaultVidibleElement element={element} story={story} config={config} title={title} />
+    <DefaultVidibleElement element={element} title={title} data-macros={dataMacros} />
   );
 };
 /**
@@ -62,6 +67,7 @@ export const VidibleElementBase = ({ element, story, config }: StoryElementProps
  * @param {Object} params.story story object
  * @param {Object} params.config config object
  * @param {Object} params.element the story element. This is same as the story element found in the story API response
+ * @param {Object} params.data-macros macros passed as data-macros to the amp component amp-o2-player
  *
  * ```javascript
  * ...

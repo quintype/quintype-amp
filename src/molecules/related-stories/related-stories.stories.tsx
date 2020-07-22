@@ -1,7 +1,7 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { RelatedStories } from "./related-stories";
-import { config, textStory, relatedStories } from "../../__fixtures__";
+import { config, textStory } from "../../__fixtures__";
 import { Layout } from "../../atoms";
 
 storiesOf("Related Stories", module)
@@ -10,6 +10,6 @@ storiesOf("Related Stories", module)
       {story()}
     </Layout>
   ))
-  .add("Default", () => <RelatedStories stories={relatedStories} />)
-  .add("With custom heading", () => <RelatedStories stories={relatedStories} heading="You might also like" />)
-  .add("With aspect ratio", () => <RelatedStories stories={relatedStories} aspectRatio={[4, 3]} />);
+  .add("Default", () => <RelatedStories />)
+  .add("With custom heading", () => <RelatedStories heading="You might also like" />)
+  .add("With aspect ratio", () => <RelatedStories aspectRatio={[4, 3]} />);

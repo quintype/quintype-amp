@@ -17,7 +17,7 @@ export const DailyMotionElementBase = ({
   ...props
 }: DailyMotionElementProps) => {
   const { metadata } = element;
-  const dailyMotionRender = get(config, ["opts", "storyElementRender", "dailyMotionRender"], null);
+  const dailyMotionRender = get(config, ["opts", "render", "storyElementRender", "dailyMotionRender"], null);
 
   if (!(metadata && metadata["video-id"])) return null;
 

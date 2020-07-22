@@ -21,9 +21,9 @@ describe("Summary", () => {
     const wrapper = shallow(<Summary element={sampleSummaryElement} />);
     expect(wrapper).toMatchSnapshot();
   });
-  it("should call summaryElementRender prop when passed to opts", () => {
+  it("should call summaryElementRender when passed", () => {
     const summaryElementRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { summaryElementRender } } };
+    const modifiedConfig = { ...config, opts: { render: { storyElementRender: { summaryElementRender } } } };
     const wrapper = shallow(<SummaryBase element={sampleSummaryElement} story={textStory} config={modifiedConfig} />);
     expect(summaryElementRender.mock.calls.length).toBe(1);
     expect(wrapper.find("p").length).toBe(0);

@@ -37,7 +37,7 @@ describe("Image Element", () => {
   });
   it("should call imageElementRender prop when passed to opts", () => {
     const imageElementRender = jest.fn();
-    const modifiedConfig = { ...config, opts: { ...config.opts, storyElementRender: { imageElementRender } } };
+    const modifiedConfig = { ...config, opts: { render: { storyElementRender: { imageElementRender } } } };
     const wrapper = shallow(
       <ImageElementBase element={sampleImageElement} story={textStory} config={modifiedConfig} />
     );

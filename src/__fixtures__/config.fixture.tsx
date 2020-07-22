@@ -1,6 +1,8 @@
 import { Config, PublisherConfig, AMPConfig } from "../types/config";
 import { TopSlotTest } from "./render-props.fixture";
 import React from "react";
+import { ConfigOpts } from "../types/config";
+import { relatedStories } from "./related-stories";
 
 export const publisherConfig: PublisherConfig = {
   "cdn-name": "https://thumbor-stg.assettype.com/",
@@ -625,36 +627,21 @@ export const ampConfig: AMPConfig = {
     "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/300px-Wikipedia-logo-v2.svg.png"
 };
 
-export const configOpts = {
+const infiniteScrollInlineConfig = `[{\"image\":\"https://foo.com/puppies.jpg\",\"title\":\"Puppies Page\",\"url\":\"/puppies\"}]`;
+
+export const configOpts: ConfigOpts = {
   slots: {
     story: {
       // tslint:disable-next-line:no-shadowed-variable
       "top-slot": ({ story, config }) => <TopSlotTest story={story} config={config} />
     }
   },
-  subscriptions: {
-    services: [
-      {
-        // Local service (required)
-        authorizationUrl: "https://pub.com/amp-authorisation?rid=READER_ID&url=SOURCE_URL",
-        pingbackUrl: "https://pub.com/amp-pingback?rid=READER_ID&url=SOURCE_URL",
-        actions: {
-          login: "https://www.google.com",
-          subscribe: "https://www.facebook.com"
-        }
-      }
-    ],
-    score: {
-      supportsViewer: 10,
-      isReadyToPay: 9
+  featureConfig: {
+    infiniteScroll: {
+      infiniteScrollInlineConfig
     },
-    fallbackEntitlement: {
-      source: "fallback",
-      granted: true,
-      grantReason: "SUBSCRIBER",
-      data: {
-        isLoggedIn: false
-      }
+    relatedStories: {
+      stories: relatedStories
     }
   }
 };

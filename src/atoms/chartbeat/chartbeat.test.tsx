@@ -11,6 +11,9 @@ const config = {
     }
   }
 };
+const noChartbeat = {
+  ampConfig: {}
+};
 describe("ChartBeat", () => {
   it("should render", () => {
     const wrapper = shallow(<ChartBeatBase story={textStory} config={config} />);
@@ -27,5 +30,9 @@ describe("ChartBeat", () => {
   it("should have type prop", () => {
     const wrapper = shallow(<ChartBeatBase story={textStory} config={config} />);
     expect(wrapper.find(Analytics).prop("type")).toEqual("chartbeat");
+  });
+  it("shouldn't render", () => {
+    const wrapper = shallow(<ChartBeatBase story={textStory} config={noChartbeat} />);
+    expect(wrapper.find(Analytics).length).toBe(0);
   });
 });

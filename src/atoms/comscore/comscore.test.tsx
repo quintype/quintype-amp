@@ -11,6 +11,9 @@ const config = {
     }
   }
 };
+const noComscore = {
+  ampConfig: {}
+};
 describe("ComScore", () => {
   it("should render", () => {
     const wrapper = shallow(<ComScoreBase config={config} />);
@@ -27,5 +30,9 @@ describe("ComScore", () => {
   it("should render with type prop", () => {
     const wrapper = shallow(<ComScoreBase config={config} />);
     expect(wrapper.find(Analytics).prop("type")).toEqual("comscore");
+  });
+  it("shouldn't render", () => {
+    const wrapper = shallow(<ComScoreBase config={noComscore} />);
+    expect(wrapper.find(Analytics).length).toBe(0);
   });
 });

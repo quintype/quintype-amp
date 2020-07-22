@@ -5,7 +5,7 @@ import { withStoryAndConfig } from "../../../context";
 import { TextProps } from "./types";
 import get from "lodash.get";
 
-const StyledText = styled.div<StoryElementProps>`
+export const StyledText = styled.div<StoryElementProps>`
   color: ${(props) => props.theme.color.mono6};
   font-size: ${(props) => props.theme.font.size.xs};
   font-family: ${(props) => props.theme.font.family.primary};
@@ -55,12 +55,8 @@ export const DefaultText = ({ element, externalLink }: StoryElementProps & TextP
 };
 
 export const TextBase = ({ element, story, config }: StoryElementProps) => {
-  const textElementRender = get(config, ["opts", "storyElementRender", "textElementRender"], null);
-  return textElementRender ? (
-    textElementRender({ story, config, element })
-  ) : (
-    <DefaultText element={element} story={story} config={config} />
-  );
+  const textElementRender = get(config, ["opts", "render", "storyElementRender", "textElementRender"], null);
+  return textElementRender ? textElementRender({ story, config, element }) : <DefaultText element={element} />;
 };
 /**
  * Text is a story element.
