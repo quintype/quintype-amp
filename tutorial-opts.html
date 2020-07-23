@@ -190,6 +190,36 @@ The <code>&lt;Head /&gt;</code> component may be used to put code in the head. U
 })
 </code></pre>
 <p>Here, <code>story</code> and <code>config</code> is same as what's mentioned <a href="#storyConfig_link">above</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Slot Name</th>
+<th>Slot Type</th>
+<th>props</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>top-slot</td>
+<td>story</td>
+<td>obj - {story, config}</td>
+<td></td>
+</tr>
+<tr>
+<td>bottom-slot</td>
+<td>story</td>
+<td>obj - {story, config}</td>
+<td></td>
+</tr>
+<tr>
+<td>live-blog-card-slot</td>
+<td>story</td>
+<td>obj - {story, config, index, card}</td>
+<td>card - the card above this slot. index - the 1st card has 0th index and so on</td>
+</tr>
+</tbody>
+</table>
 <h2>Renders</h2>
 <p>If you wish to customize the default templates, you can do so using the various render prop overrides that the library provides. These too are functions that should return react components</p>
 <p>For example,</p>
@@ -349,6 +379,12 @@ The <code>&lt;Head /&gt;</code> component may be used to put code in the head. U
 <td>alsoReadRender</td>
 <td>obj - {story, config, element}</td>
 <td>- <em>same</em> -</td>
+</tr>
+<tr>
+<td>liveBlogCardTimeStamp</td>
+<td>-</td>
+<td>obj - {story, config, card}</td>
+<td><code>card</code> is the live blog card</td>
 </tr>
 </tbody>
 </table>
