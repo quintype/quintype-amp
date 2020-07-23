@@ -178,4 +178,35 @@ interface FeatureConfigTypes {
   relatedStories?: {
     stories: Story[];
   };
+  subscriptions?: {
+    services?: ServicesProps[];
+    score?: ScoreProps;
+    fallbackEntitlement?: FallbackEntitlementProps;
+  };
+}
+
+interface ServicesProps {
+  authorizationUrl: string;
+  pingbackUrl: string;
+  actions: ActionProps;
+}
+interface ActionProps {
+  login?: string;
+  subscribe?: string;
+}
+interface ScoreProps {
+  supportsViewer?: number;
+  isReadyToPay?: number;
+}
+interface FallbackEntitlementProps {
+  source?: string;
+  granted?: boolean;
+  grantReason?: string;
+  data?: DataProps;
+}
+interface DataProps {
+  isLoggedIn?: boolean;
+  articlesRead?: number;
+  articlesLeft?: number;
+  articleLimit?: number;
 }

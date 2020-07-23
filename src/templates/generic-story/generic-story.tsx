@@ -43,10 +43,29 @@ export const GenericStory = ({ story, config }: GenericStoryTypes) => {
   );
   const cardsAccessible = (cardIdx) => cardIdx <= cardsVisibleForBlockedStory;
   const isNotSubscribed = story.access !== "subscription";
-  const services = get(config, ["opts", "subscriptions", "services"], null);
-  const score = get(config, ["opts", "subscriptions", "score"], null);
-  const fallbackEntitlement = get(config, ["opts", "subscriptions", "fallbackEntitlement"], null);
-  const loggedInData = get(config, ["opts", "subscriptions", "fallbackEntitlement", "data", "isLoggedIn"]);
+  // const services = get(config, ["opts", "featureConfig", "subscriptions", "services"], null);
+  // const score = get(config, ["opts", "featureConfig", "subscriptions", "score"], null);
+  // const fallbackEntitlement = get(config, ["opts", "featureConfig", "subscriptions", "fallbackEntitlement"], null);
+  // const servicesExists = services && services.length;
+  // const scoreExists = score && score.length;
+  // const fallbackEntitlementExists = fallbackEntitlement && fallbackEntitlement.length;
+  // if (servicesExists && scoreExists && fallbackEntitlementExists) {
+  //   return (
+  //     <>
+  //       <MeteredPaywall config={config} story={story} />
+  //       <MeteredExhaustedPaywall config={config} story={story} />
+  //       <SubscriberAccessPaywall />
+  //     </>
+  //   );
+  // }
+  const loggedInData = get(config, [
+    "opts",
+    "featureConfig",
+    "subscriptions",
+    "fallbackEntitlement",
+    "data",
+    "isLoggedIn"
+  ]);
   const isLoggedIn = loggedInData === true;
   const footerText = get(config, ["publisherConfig", "publisher-settings", "copyright"], null);
   const infiniteScrollInlineConfig = get(
@@ -68,8 +87,9 @@ export const GenericStory = ({ story, config }: GenericStoryTypes) => {
   return (
     <Layout story={story} config={config}>
       <div next-page-hide={infiniteScrollExists}>{/* <Navbar /> */}</div>
+      {/* <Subscription services={services} score={score} fallbackEntitlement={fallbackEntitlement} /> */}
+      <Subscription />
       <IncompatibleBanner />
-      <Subscription services={services} score={score} fallbackEntitlement={fallbackEntitlement} />
       <GoogleTagManager />
       <Wrapper>
         <TopAd />
@@ -97,27 +117,9 @@ export const GenericStory = ({ story, config }: GenericStoryTypes) => {
                 (!isNotSubscribed && isLoggedIn && <Fragment key={card.id}>{storyCard}</Fragment>)
             );
           })}
-          <MeteredPaywall
-            config={config}
-            story={story}
-            services={services}
-            score={score}
-            fallbackEntitlement={fallbackEntitlement}
-          />
-          <MeteredExhaustedPaywall
-            config={config}
-            story={story}
-            services={services}
-            score={score}
-            fallbackEntitlement={fallbackEntitlement}
-          />
-          <SubscriberAccessPaywall
-            config={config}
-            story={story}
-            services={services}
-            score={score}
-            fallbackEntitlement={fallbackEntitlement}
-          />
+          <MeteredPaywall config={config} story={story} />
+          <MeteredExhaustedPaywall config={config} story={story} />
+          <SubscriberAccessPaywall />
           <RelatedStories />
         </StoryContainer>
         <BottomSlot />

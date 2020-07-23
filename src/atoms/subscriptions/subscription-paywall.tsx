@@ -78,51 +78,27 @@ const StyledCloseButton = styled.button`
   font-weight: ${(props) => props.theme.font.weight.bold};
 `;
 
-export const SubscriberAccessPaywall = ({ config, story }: PaywallProps) => {
-  const isLoggedIn = get(config, ["opts", "subscriptions", "fallbackEntitlement", "data", "isLoggedIn"]);
-  const isAccessible = story && story.access === "subscription";
-  const grantReason = get(config, ["opts", "subscriptions", "fallbackEntitlement", "grantReason"]);
-  const isSubscriber = grantReason === "SUBSCRIBER";
+export const SubscriberAccessPaywall = () => {
   return (
-    <Fragment>
-      {isAccessible && isSubscriber && isLoggedIn === false && (
-        <StyledWrapper>
-          <h2>Just login to continue reading</h2>
-          <StyledLine>
-            Already a user ?
-            <button subscription-action="login">
-              <span> Log in</span>
-            </button>
-          </StyledLine>
-        </StyledWrapper>
-      )}
-      {!isAccessible && isLoggedIn === false && (
-        <StyledWrapper>
-          <h2>Get unlimited access</h2>
-          <StyledButton>
-            <button subscription-action="subscribe">
-              <SubscribeMessage>Subscribe</SubscribeMessage>
-            </button>
-          </StyledButton>
-          <StyledLine>
-            Already a user ?
-            <button subscription-action="login">
-              <span> Log in</span>
-            </button>
-          </StyledLine>
-        </StyledWrapper>
-      )}
-      {!isAccessible && isLoggedIn === true && (
-        <StyledWrapper>
-          <h2>Get unlimited access</h2>
-          <StyledButton>
-            <button subscription-action="subscribe">
-              <SubscribeMessage>Subscribe</SubscribeMessage>
-            </button>
-          </StyledButton>
-        </StyledWrapper>
-      )}
-    </Fragment>
+    <StyledWrapper>
+      <div subscriptions-display="NOT data.isLoggedIn">Just login to continue reading</div>
+      <div subscriptions-display="data.isLoggedIn AND NOT grantReason = 'SUBSCRIBER' AND NOT granted">
+        Get unlimited access
+      </div>
+      <StyledButton>
+        <button
+          subscriptions-action="subscribe"
+          subscriptions-display="data.isLoggedIn AND NOT grantReason = 'SUBSCRIBER'">
+          <SubscribeMessage>Subscribe</SubscribeMessage>
+        </button>
+      </StyledButton>
+      <StyledLine>
+        Already a user ?
+        <button subscriptions-action="login" subscriptions-display="NOT data.isLoggedIn">
+          <span> Log in</span>
+        </button>
+      </StyledLine>
+    </StyledWrapper>
   );
 };
 
@@ -153,14 +129,14 @@ export const MeteredExhaustedPaywall = ({ config }: PaywallProps) => {
         <StyledMetered id="meteredexhaustedpaywall">
           <p>You have exceeded free stories limit for this month</p>
           <StyledButton>
-            <button subscription-action="subscribe">
+            <button subscriptions-action="subscribe">
               <SubscribeMessage>Subscribe</SubscribeMessage>
             </button>
           </StyledButton>
           {isLoggedIn === false && (
             <StyledLine>
               Already a user ?
-              <button subscription-action="login">
+              <button subscriptions-action="login" subscriptions-display="NOT data.isLoggedIn">
                 <span> Log in</span>
               </button>
             </StyledLine>

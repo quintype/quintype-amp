@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import { GenericStory } from "./generic-story";
-import { InfiniteScroll } from "../../atoms";
+import { InfiniteScroll, Subscription } from "../../atoms";
 import { textStory, config } from "../../__fixtures__";
 
 describe("GenericStory Template", () => {
@@ -28,5 +28,9 @@ describe("GenericStory Template", () => {
         .find("div")
         .prop("next-page-hide")
     ).toBe("true");
+  });
+  it("should render subscriptions if exists", () => {
+    const wrapper = shallow(<GenericStory story={textStory} config={config} />);
+    expect(wrapper.find(Subscription).length).toBe(1);
   });
 });
