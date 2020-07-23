@@ -129,15 +129,7 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>// slots: top, bottom, after every card, after every alternate card
-// overrides: card info ("updated at" line after every card)
-// config:
-//  - ascending/descending order of "card-added-at" time
-//  - show/hide "added at"; "updated at"
-//  - max items per page
-//  - poll-interval
-
-import React from "react";
+            <pre class="prettyprint source linenums"><code>import React from "react";
 import { CommonTemplateTypes } from "../common-template-types";
 import {
   Layout,
@@ -169,6 +161,10 @@ const { TopSlot, BottomSlot, LiveBlogCardSlot } = StoryPageSlots;
  *
  * renders: In addition to all renders offered by the generic story template, live blog offers the following renders:
  *  - liveBlogCardTimeStamp
+ *
+ * featureConfig: In addition to all feature configs provided by generic story template, live blog accepts following feature configs. They can be accessed via opts.featureConfig.liveBlog
+ *  - dataPollInterval: sets the data-poll-interval attr on &lt;amp-live-list />
+ *  - dataMaxItemsPerPage: sets the data-max-items-per-page attr on &lt;amp-live-list />
  *
  * @category Default Templates
  * @component
