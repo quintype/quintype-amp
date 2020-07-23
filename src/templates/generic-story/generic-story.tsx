@@ -29,6 +29,14 @@ const Wrapper = styled.div`
 `;
 const canDisplayBodyAd = (cardIdx) => cardIdx === 0;
 
+/**
+ * The GenericStory is the default template that's (as of Jul 2020) rendered for all stories except live-blog
+ *
+ * Slots: top-slot, bottom-slot
+ *
+ * @category Default Templates
+ * @component
+ */
 export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
   const footerText = get(config, ["publisherConfig", "publisher-settings", "copyright"], null);
   const infiniteScrollInlineConfig = get(
