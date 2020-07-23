@@ -22,7 +22,7 @@ describe("LiveList", () => {
         <div>foo</div>
       </LiveListBase>
     );
-    expect(wrapper.find("amp-live-list").prop("disabled")).toBe("");
+    expect(wrapper.find("amp-live-list").prop("disabled")).toBeDefined();
   });
   it("should apply dataPollInterval and dataMaxItemsPerPage values if passed via featureConfig", () => {
     const modifiedConfig = { ...config };
