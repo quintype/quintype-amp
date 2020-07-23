@@ -39,6 +39,10 @@ const { TopSlot, BottomSlot, LiveBlogCardSlot } = StoryPageSlots;
  * renders: In addition to all renders offered by the generic story template, live blog offers the following renders:
  *  - liveBlogCardTimeStamp
  *
+ * featureConfig: In addition to all feature configs provided by generic story template, live blog accepts following feature configs. They can be accessed via opts.featureConfig.liveBlog
+ *  - dataPollInterval: sets the data-poll-interval attr on <amp-live-list />
+ *  - dataMaxItemsPerPage: sets the data-max-items-per-page attr on <amp-live-list />
+ *
  * @category Default Templates
  * @component
  */
