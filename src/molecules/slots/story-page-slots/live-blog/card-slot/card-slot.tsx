@@ -1,13 +1,13 @@
 import { withStoryAndConfig } from "../../../../../context";
 import { getSlotFromConfig } from "../../../helpers";
 
-const LiveBlogCardSlotBase = ({ story, config, index }) => {
+const LiveBlogCardSlotBase = ({ story, config, index, card }) => {
   const liveBlogCardRender = getSlotFromConfig({
     config,
     slotType: "story",
     slotName: "live-blog-card-slot"
   });
-  return liveBlogCardRender && liveBlogCardRender({ story, config, index });
+  return liveBlogCardRender && liveBlogCardRender({ story, config, index, card });
 };
 
 /**
@@ -19,5 +19,6 @@ const LiveBlogCardSlotBase = ({ story, config, index }) => {
  * @param {Story} props.story
  * @param {Config} props.config
  * @param {number} props.index index of the card. For example the LiveBlogCardSlot coming after the 1st card will have index 0 and so on
+ * @param {Card} props.card gives the card that's above this slot
  */
 export const LiveBlogCardSlot = withStoryAndConfig(LiveBlogCardSlotBase);

@@ -36,6 +36,9 @@ const { TopSlot, BottomSlot, LiveBlogCardSlot } = StoryPageSlots;
  *
  * Slots: top-slot, bottom-slot, live-blog-card-slot
  *
+ * renders: In addition to all renders offered by the generic story template, live blog offers the following renders:
+ *  - liveBlogCardTimeStamp
+ *
  * @category Default Templates
  * @component
  */
@@ -84,10 +87,10 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
                   data-sort-time={card["card-added-at"]}
                   data-update-time={card["card-updated-at"]}>
                   {storyCard}
-                  <CardUpdatedAt timeStamp={card["card-updated-at"]} />
+                  <CardUpdatedAt timeStamp={card["card-updated-at"]} card={card} />
                   <Spacer token="tiny" />
                   <BodyAd />
-                  <LiveBlogCardSlot index={idx} />
+                  <LiveBlogCardSlot index={idx} card={card} />
                   <Spacer token="tiny" />
                 </div>
               );

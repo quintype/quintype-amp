@@ -4111,6 +4111,70 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             key="d84a916f-b911-4295-9e1f-fa13f1470a93"
           />
           <Component
+            card={
+              Object {
+                "card-added-at": 1595309398502,
+                "card-updated-at": 1595309566241,
+                "content-id": "e033dae1-8e77-49a5-bd66-902be4b72016",
+                "content-version-id": "edd09156-e65f-4b7b-b05c-150c0425575d",
+                "id": "e033dae1-8e77-49a5-bd66-902be4b72016",
+                "metadata": Object {
+                  "attributes": Object {},
+                  "social-share": Object {
+                    "image": Object {
+                      "attribution": "",
+                      "caption": null,
+                      "key": "barandbench/2020-01/fc12158c-b449-4cc0-aeb1-ac26350a3512/Mukul_Rohatgi.jpg",
+                      "metadata": Object {
+                        "file-name": "Mukul Rohatgi.jpg",
+                        "file-size": 1080794,
+                        "height": 1370,
+                        "mime-type": "image/jpeg",
+                        "width": 2560,
+                      },
+                      "url": null,
+                    },
+                    "message": null,
+                    "shareable": false,
+                    "title": "Rajasthan Political Crisis: HC reserves order on plea by Sachin Pilot, other Rebel MLAs challenging Speaker's notice [LIVE UPDATES]",
+                  },
+                },
+                "status": "draft",
+                "story-elements": Array [
+                  Object {
+                    "description": "",
+                    "family-id": "b5784a89-b919-4fff-8bb2-98c14526af53",
+                    "id": "010b1ab8-0faa-464b-84d7-ef06cb43ccd1",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/010b1ab8-0faa-464b-84d7-ef06cb43ccd1",
+                    "subtype": null,
+                    "text": "Senior Advocate Mukul Rohatgi arguing for the petitioners.",
+                    "title": "",
+                    "type": "title",
+                  },
+                  Object {
+                    "description": "",
+                    "family-id": "f87fa6df-f709-4d34-9c3a-ae5db45a9773",
+                    "id": "d84a916f-b911-4295-9e1f-fa13f1470a93",
+                    "image-attribution": "",
+                    "image-metadata": Object {
+                      "file-name": "Mukul Rohatgi.jpg",
+                      "file-size": 1080794,
+                      "height": 1370,
+                      "mime-type": "image/jpeg",
+                      "width": 2560,
+                    },
+                    "image-s3-key": "barandbench/2020-01/fc12158c-b449-4cc0-aeb1-ac26350a3512/Mukul_Rohatgi.jpg",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/d84a916f-b911-4295-9e1f-fa13f1470a93",
+                    "subtype": null,
+                    "title": "Senior Advocate Mukul Rohatgi",
+                    "type": "image",
+                  },
+                ],
+                "version": 2,
+              }
+            }
             timeStamp={1595309566241}
           />
           <Spacer
@@ -4118,6 +4182,70 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
           />
           <Component />
           <Component
+            card={
+              Object {
+                "card-added-at": 1595309398502,
+                "card-updated-at": 1595309566241,
+                "content-id": "e033dae1-8e77-49a5-bd66-902be4b72016",
+                "content-version-id": "edd09156-e65f-4b7b-b05c-150c0425575d",
+                "id": "e033dae1-8e77-49a5-bd66-902be4b72016",
+                "metadata": Object {
+                  "attributes": Object {},
+                  "social-share": Object {
+                    "image": Object {
+                      "attribution": "",
+                      "caption": null,
+                      "key": "barandbench/2020-01/fc12158c-b449-4cc0-aeb1-ac26350a3512/Mukul_Rohatgi.jpg",
+                      "metadata": Object {
+                        "file-name": "Mukul Rohatgi.jpg",
+                        "file-size": 1080794,
+                        "height": 1370,
+                        "mime-type": "image/jpeg",
+                        "width": 2560,
+                      },
+                      "url": null,
+                    },
+                    "message": null,
+                    "shareable": false,
+                    "title": "Rajasthan Political Crisis: HC reserves order on plea by Sachin Pilot, other Rebel MLAs challenging Speaker's notice [LIVE UPDATES]",
+                  },
+                },
+                "status": "draft",
+                "story-elements": Array [
+                  Object {
+                    "description": "",
+                    "family-id": "b5784a89-b919-4fff-8bb2-98c14526af53",
+                    "id": "010b1ab8-0faa-464b-84d7-ef06cb43ccd1",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/010b1ab8-0faa-464b-84d7-ef06cb43ccd1",
+                    "subtype": null,
+                    "text": "Senior Advocate Mukul Rohatgi arguing for the petitioners.",
+                    "title": "",
+                    "type": "title",
+                  },
+                  Object {
+                    "description": "",
+                    "family-id": "f87fa6df-f709-4d34-9c3a-ae5db45a9773",
+                    "id": "d84a916f-b911-4295-9e1f-fa13f1470a93",
+                    "image-attribution": "",
+                    "image-metadata": Object {
+                      "file-name": "Mukul Rohatgi.jpg",
+                      "file-size": 1080794,
+                      "height": 1370,
+                      "mime-type": "image/jpeg",
+                      "width": 2560,
+                    },
+                    "image-s3-key": "barandbench/2020-01/fc12158c-b449-4cc0-aeb1-ac26350a3512/Mukul_Rohatgi.jpg",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/d84a916f-b911-4295-9e1f-fa13f1470a93",
+                    "subtype": null,
+                    "title": "Senior Advocate Mukul Rohatgi",
+                    "type": "image",
+                  },
+                ],
+                "version": 2,
+              }
+            }
             index={0}
           />
           <Spacer
@@ -4163,6 +4291,66 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             key="7489b36d-d17d-46e5-8527-0f8b7071e61e"
           />
           <Component
+            card={
+              Object {
+                "card-added-at": 1595309398502,
+                "card-updated-at": 1595309566241,
+                "content-id": "1103e2ab-7a92-4b55-a6b5-c4e655317e33",
+                "content-version-id": "c0e16d9d-5152-4b4c-8af4-b487e8a062bf",
+                "id": "1103e2ab-7a92-4b55-a6b5-c4e655317e33",
+                "metadata": Object {
+                  "attributes": Object {},
+                  "social-share": Object {
+                    "image": Object {
+                      "attribution": null,
+                      "caption": null,
+                      "key": "barandbench/2020-07/5197a740-088f-4a48-a594-e9e3917b02b0/Rajasthan_High_Court.jpg",
+                      "metadata": Object {
+                        "file-name": "Rajasthan High Court.jpg",
+                        "file-size": 730425,
+                        "focus-point": Array [
+                          942,
+                          353,
+                        ],
+                        "height": 1100,
+                        "mime-type": "image/jpeg",
+                        "width": 2560,
+                      },
+                      "url": null,
+                    },
+                    "message": null,
+                    "shareable": false,
+                    "title": "Rajasthan Political Crisis: HC reserves order on plea by Sachin Pilot, other Rebel MLAs challenging Speaker's notice [LIVE UPDATES]",
+                  },
+                },
+                "status": "draft",
+                "story-elements": Array [
+                  Object {
+                    "description": "",
+                    "family-id": "e2fabdab-8e85-4fb2-8c00-fb6bfb9fe298",
+                    "id": "2acc3413-27c3-4c57-bfea-81290b03b858",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/2acc3413-27c3-4c57-bfea-81290b03b858",
+                    "subtype": null,
+                    "text": "Rohatgi istaking the Court through the Kihoto Hollohan v. Zachillhu case.",
+                    "title": "",
+                    "type": "title",
+                  },
+                  Object {
+                    "description": "",
+                    "family-id": "74b88103-289a-4dd4-ad2d-398c9234130a",
+                    "id": "7489b36d-d17d-46e5-8527-0f8b7071e61e",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/7489b36d-d17d-46e5-8527-0f8b7071e61e",
+                    "subtype": null,
+                    "text": "Kihoto must be read in the context of the case. Kihoto doesn’t say that if an MLA criticises CM, the High Court will be powerless to look at the facts, Rohatgi.",
+                    "title": "",
+                    "type": "title",
+                  },
+                ],
+                "version": 2,
+              }
+            }
             timeStamp={1595309566241}
           />
           <Spacer
@@ -4170,6 +4358,66 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
           />
           <Component />
           <Component
+            card={
+              Object {
+                "card-added-at": 1595309398502,
+                "card-updated-at": 1595309566241,
+                "content-id": "1103e2ab-7a92-4b55-a6b5-c4e655317e33",
+                "content-version-id": "c0e16d9d-5152-4b4c-8af4-b487e8a062bf",
+                "id": "1103e2ab-7a92-4b55-a6b5-c4e655317e33",
+                "metadata": Object {
+                  "attributes": Object {},
+                  "social-share": Object {
+                    "image": Object {
+                      "attribution": null,
+                      "caption": null,
+                      "key": "barandbench/2020-07/5197a740-088f-4a48-a594-e9e3917b02b0/Rajasthan_High_Court.jpg",
+                      "metadata": Object {
+                        "file-name": "Rajasthan High Court.jpg",
+                        "file-size": 730425,
+                        "focus-point": Array [
+                          942,
+                          353,
+                        ],
+                        "height": 1100,
+                        "mime-type": "image/jpeg",
+                        "width": 2560,
+                      },
+                      "url": null,
+                    },
+                    "message": null,
+                    "shareable": false,
+                    "title": "Rajasthan Political Crisis: HC reserves order on plea by Sachin Pilot, other Rebel MLAs challenging Speaker's notice [LIVE UPDATES]",
+                  },
+                },
+                "status": "draft",
+                "story-elements": Array [
+                  Object {
+                    "description": "",
+                    "family-id": "e2fabdab-8e85-4fb2-8c00-fb6bfb9fe298",
+                    "id": "2acc3413-27c3-4c57-bfea-81290b03b858",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/2acc3413-27c3-4c57-bfea-81290b03b858",
+                    "subtype": null,
+                    "text": "Rohatgi istaking the Court through the Kihoto Hollohan v. Zachillhu case.",
+                    "title": "",
+                    "type": "title",
+                  },
+                  Object {
+                    "description": "",
+                    "family-id": "74b88103-289a-4dd4-ad2d-398c9234130a",
+                    "id": "7489b36d-d17d-46e5-8527-0f8b7071e61e",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/7489b36d-d17d-46e5-8527-0f8b7071e61e",
+                    "subtype": null,
+                    "text": "Kihoto must be read in the context of the case. Kihoto doesn’t say that if an MLA criticises CM, the High Court will be powerless to look at the facts, Rohatgi.",
+                    "title": "",
+                    "type": "title",
+                  },
+                ],
+                "version": 2,
+              }
+            }
             index={1}
           />
           <Spacer
@@ -4199,6 +4447,55 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             key="14534a06-4024-4db4-bfd5-af35386055c6"
           />
           <Component
+            card={
+              Object {
+                "card-added-at": 1595309693361,
+                "card-updated-at": 1595310701812,
+                "content-id": "86081c3c-c7b2-4284-8397-78ca184bc7fb",
+                "content-version-id": "f99b0cc1-4297-41b3-bf9b-a0391f8ad7f6",
+                "id": "86081c3c-c7b2-4284-8397-78ca184bc7fb",
+                "metadata": Object {
+                  "attributes": Object {},
+                  "social-share": Object {
+                    "image": Object {
+                      "attribution": null,
+                      "caption": null,
+                      "key": "barandbench/2020-07/5197a740-088f-4a48-a594-e9e3917b02b0/Rajasthan_High_Court.jpg",
+                      "metadata": Object {
+                        "file-name": "Rajasthan High Court.jpg",
+                        "file-size": 730425,
+                        "focus-point": Array [
+                          942,
+                          353,
+                        ],
+                        "height": 1100,
+                        "mime-type": "image/jpeg",
+                        "width": 2560,
+                      },
+                      "url": null,
+                    },
+                    "message": null,
+                    "shareable": false,
+                    "title": "Rajasthan Political Crisis: HC reserves order on plea by Sachin Pilot, other Rebel MLAs challenging Speaker's notice [LIVE UPDATES]",
+                  },
+                },
+                "status": "draft",
+                "story-elements": Array [
+                  Object {
+                    "description": "",
+                    "family-id": "532afbc4-3817-43dd-90e7-304082970d43",
+                    "id": "14534a06-4024-4db4-bfd5-af35386055c6",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/14534a06-4024-4db4-bfd5-af35386055c6",
+                    "subtype": null,
+                    "text": "Kihoto cannot be used to oust my challenge before the High Court at the preliminary stage, as is being argued by the other side, Rohatgi.",
+                    "title": "",
+                    "type": "title",
+                  },
+                ],
+                "version": 6,
+              }
+            }
             timeStamp={1595310701812}
           />
           <Spacer
@@ -4206,6 +4503,55 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
           />
           <Component />
           <Component
+            card={
+              Object {
+                "card-added-at": 1595309693361,
+                "card-updated-at": 1595310701812,
+                "content-id": "86081c3c-c7b2-4284-8397-78ca184bc7fb",
+                "content-version-id": "f99b0cc1-4297-41b3-bf9b-a0391f8ad7f6",
+                "id": "86081c3c-c7b2-4284-8397-78ca184bc7fb",
+                "metadata": Object {
+                  "attributes": Object {},
+                  "social-share": Object {
+                    "image": Object {
+                      "attribution": null,
+                      "caption": null,
+                      "key": "barandbench/2020-07/5197a740-088f-4a48-a594-e9e3917b02b0/Rajasthan_High_Court.jpg",
+                      "metadata": Object {
+                        "file-name": "Rajasthan High Court.jpg",
+                        "file-size": 730425,
+                        "focus-point": Array [
+                          942,
+                          353,
+                        ],
+                        "height": 1100,
+                        "mime-type": "image/jpeg",
+                        "width": 2560,
+                      },
+                      "url": null,
+                    },
+                    "message": null,
+                    "shareable": false,
+                    "title": "Rajasthan Political Crisis: HC reserves order on plea by Sachin Pilot, other Rebel MLAs challenging Speaker's notice [LIVE UPDATES]",
+                  },
+                },
+                "status": "draft",
+                "story-elements": Array [
+                  Object {
+                    "description": "",
+                    "family-id": "532afbc4-3817-43dd-90e7-304082970d43",
+                    "id": "14534a06-4024-4db4-bfd5-af35386055c6",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/14534a06-4024-4db4-bfd5-af35386055c6",
+                    "subtype": null,
+                    "text": "Kihoto cannot be used to oust my challenge before the High Court at the preliminary stage, as is being argued by the other side, Rohatgi.",
+                    "title": "",
+                    "type": "title",
+                  },
+                ],
+                "version": 6,
+              }
+            }
             index={2}
           />
           <Spacer
@@ -4235,6 +4581,55 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             key="f7ad4aeb-0755-4cf6-bef1-b17bc2681a51"
           />
           <Component
+            card={
+              Object {
+                "card-added-at": 1595309759462,
+                "card-updated-at": 1595310701812,
+                "content-id": "9dc9b844-f2ab-4c89-bddf-96fca4f58b07",
+                "content-version-id": "c64e3c33-4b6d-4122-829b-1590bccb9585",
+                "id": "9dc9b844-f2ab-4c89-bddf-96fca4f58b07",
+                "metadata": Object {
+                  "attributes": Object {},
+                  "social-share": Object {
+                    "image": Object {
+                      "attribution": null,
+                      "caption": null,
+                      "key": "barandbench/2020-07/5197a740-088f-4a48-a594-e9e3917b02b0/Rajasthan_High_Court.jpg",
+                      "metadata": Object {
+                        "file-name": "Rajasthan High Court.jpg",
+                        "file-size": 730425,
+                        "focus-point": Array [
+                          942,
+                          353,
+                        ],
+                        "height": 1100,
+                        "mime-type": "image/jpeg",
+                        "width": 2560,
+                      },
+                      "url": null,
+                    },
+                    "message": null,
+                    "shareable": false,
+                    "title": "Rajasthan Political Crisis: HC reserves order on plea by Sachin Pilot, other Rebel MLAs challenging Speaker's notice [LIVE UPDATES]",
+                  },
+                },
+                "status": "draft",
+                "story-elements": Array [
+                  Object {
+                    "description": "",
+                    "family-id": "02c93080-6e46-4d5d-b5e8-de020d0e5676",
+                    "id": "f7ad4aeb-0755-4cf6-bef1-b17bc2681a51",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/f7ad4aeb-0755-4cf6-bef1-b17bc2681a51",
+                    "subtype": null,
+                    "text": "Challenge to show cause notice is limited on following grounds: excess of jurisdiction, lack of jurisdiction, violation of natural justice principles, mala fides: Rohatgi",
+                    "title": "",
+                    "type": "title",
+                  },
+                ],
+                "version": 5,
+              }
+            }
             timeStamp={1595310701812}
           />
           <Spacer
@@ -4242,6 +4637,55 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
           />
           <Component />
           <Component
+            card={
+              Object {
+                "card-added-at": 1595309759462,
+                "card-updated-at": 1595310701812,
+                "content-id": "9dc9b844-f2ab-4c89-bddf-96fca4f58b07",
+                "content-version-id": "c64e3c33-4b6d-4122-829b-1590bccb9585",
+                "id": "9dc9b844-f2ab-4c89-bddf-96fca4f58b07",
+                "metadata": Object {
+                  "attributes": Object {},
+                  "social-share": Object {
+                    "image": Object {
+                      "attribution": null,
+                      "caption": null,
+                      "key": "barandbench/2020-07/5197a740-088f-4a48-a594-e9e3917b02b0/Rajasthan_High_Court.jpg",
+                      "metadata": Object {
+                        "file-name": "Rajasthan High Court.jpg",
+                        "file-size": 730425,
+                        "focus-point": Array [
+                          942,
+                          353,
+                        ],
+                        "height": 1100,
+                        "mime-type": "image/jpeg",
+                        "width": 2560,
+                      },
+                      "url": null,
+                    },
+                    "message": null,
+                    "shareable": false,
+                    "title": "Rajasthan Political Crisis: HC reserves order on plea by Sachin Pilot, other Rebel MLAs challenging Speaker's notice [LIVE UPDATES]",
+                  },
+                },
+                "status": "draft",
+                "story-elements": Array [
+                  Object {
+                    "description": "",
+                    "family-id": "02c93080-6e46-4d5d-b5e8-de020d0e5676",
+                    "id": "f7ad4aeb-0755-4cf6-bef1-b17bc2681a51",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/f7ad4aeb-0755-4cf6-bef1-b17bc2681a51",
+                    "subtype": null,
+                    "text": "Challenge to show cause notice is limited on following grounds: excess of jurisdiction, lack of jurisdiction, violation of natural justice principles, mala fides: Rohatgi",
+                    "title": "",
+                    "type": "title",
+                  },
+                ],
+                "version": 5,
+              }
+            }
             index={3}
           />
           <Spacer
@@ -4287,6 +4731,66 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             key="3bf7b398-674c-4371-a356-61a6362cae65"
           />
           <Component
+            card={
+              Object {
+                "card-added-at": 1595310223414,
+                "card-updated-at": 1595310701812,
+                "content-id": "405fffd2-69f6-4568-b641-ce65935769fd",
+                "content-version-id": "f9a63348-2b61-44ba-b67b-2f28729126ba",
+                "id": "405fffd2-69f6-4568-b641-ce65935769fd",
+                "metadata": Object {
+                  "attributes": Object {},
+                  "social-share": Object {
+                    "image": Object {
+                      "attribution": null,
+                      "caption": null,
+                      "key": "barandbench/2020-07/5197a740-088f-4a48-a594-e9e3917b02b0/Rajasthan_High_Court.jpg",
+                      "metadata": Object {
+                        "file-name": "Rajasthan High Court.jpg",
+                        "file-size": 730425,
+                        "focus-point": Array [
+                          942,
+                          353,
+                        ],
+                        "height": 1100,
+                        "mime-type": "image/jpeg",
+                        "width": 2560,
+                      },
+                      "url": null,
+                    },
+                    "message": null,
+                    "shareable": false,
+                    "title": "Rajasthan Political Crisis: HC reserves order on plea by Sachin Pilot, other Rebel MLAs challenging Speaker's notice [LIVE UPDATES]",
+                  },
+                },
+                "status": "draft",
+                "story-elements": Array [
+                  Object {
+                    "description": "",
+                    "family-id": "02df6560-8948-454d-b559-f2fdb0497b14",
+                    "id": "af0d56b4-15ff-4a2c-85f6-21f5ab80c695",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/af0d56b4-15ff-4a2c-85f6-21f5ab80c695",
+                    "subtype": null,
+                    "text": "Rohatgi enlists facts that emerge from the case proving mala fides: 1. Notice was issued on the same day complaint was made. 2. Application of mind required on part of Speaker. Nothing on record to show that he did so.",
+                    "title": "",
+                    "type": "title",
+                  },
+                  Object {
+                    "description": "",
+                    "family-id": "5583179c-315b-4170-b26e-113dca4164ef",
+                    "id": "3bf7b398-674c-4371-a356-61a6362cae65",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/3bf7b398-674c-4371-a356-61a6362cae65",
+                    "subtype": null,
+                    "text": "3. Notice is returnable in three days, by 1 PM. Also says if there is no response in writing, matter will be disposed of ex parte, during COVID-19. This reeks of mala fides: Rohatgi.",
+                    "title": "",
+                    "type": "title",
+                  },
+                ],
+                "version": 4,
+              }
+            }
             timeStamp={1595310701812}
           />
           <Spacer
@@ -4294,6 +4798,66 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
           />
           <Component />
           <Component
+            card={
+              Object {
+                "card-added-at": 1595310223414,
+                "card-updated-at": 1595310701812,
+                "content-id": "405fffd2-69f6-4568-b641-ce65935769fd",
+                "content-version-id": "f9a63348-2b61-44ba-b67b-2f28729126ba",
+                "id": "405fffd2-69f6-4568-b641-ce65935769fd",
+                "metadata": Object {
+                  "attributes": Object {},
+                  "social-share": Object {
+                    "image": Object {
+                      "attribution": null,
+                      "caption": null,
+                      "key": "barandbench/2020-07/5197a740-088f-4a48-a594-e9e3917b02b0/Rajasthan_High_Court.jpg",
+                      "metadata": Object {
+                        "file-name": "Rajasthan High Court.jpg",
+                        "file-size": 730425,
+                        "focus-point": Array [
+                          942,
+                          353,
+                        ],
+                        "height": 1100,
+                        "mime-type": "image/jpeg",
+                        "width": 2560,
+                      },
+                      "url": null,
+                    },
+                    "message": null,
+                    "shareable": false,
+                    "title": "Rajasthan Political Crisis: HC reserves order on plea by Sachin Pilot, other Rebel MLAs challenging Speaker's notice [LIVE UPDATES]",
+                  },
+                },
+                "status": "draft",
+                "story-elements": Array [
+                  Object {
+                    "description": "",
+                    "family-id": "02df6560-8948-454d-b559-f2fdb0497b14",
+                    "id": "af0d56b4-15ff-4a2c-85f6-21f5ab80c695",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/af0d56b4-15ff-4a2c-85f6-21f5ab80c695",
+                    "subtype": null,
+                    "text": "Rohatgi enlists facts that emerge from the case proving mala fides: 1. Notice was issued on the same day complaint was made. 2. Application of mind required on part of Speaker. Nothing on record to show that he did so.",
+                    "title": "",
+                    "type": "title",
+                  },
+                  Object {
+                    "description": "",
+                    "family-id": "5583179c-315b-4170-b26e-113dca4164ef",
+                    "id": "3bf7b398-674c-4371-a356-61a6362cae65",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/3bf7b398-674c-4371-a356-61a6362cae65",
+                    "subtype": null,
+                    "text": "3. Notice is returnable in three days, by 1 PM. Also says if there is no response in writing, matter will be disposed of ex parte, during COVID-19. This reeks of mala fides: Rohatgi.",
+                    "title": "",
+                    "type": "title",
+                  },
+                ],
+                "version": 4,
+              }
+            }
             index={4}
           />
           <Spacer
@@ -4323,6 +4887,55 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             key="aaafcf67-93c4-44d0-9296-ce5017d4624a"
           />
           <Component
+            card={
+              Object {
+                "card-added-at": 1595310277389,
+                "card-updated-at": 1595310701812,
+                "content-id": "6d67b7f5-5125-439a-9f3e-ffe3728c6d33",
+                "content-version-id": "7567475b-30f8-4b7d-a683-2d245b61c726",
+                "id": "6d67b7f5-5125-439a-9f3e-ffe3728c6d33",
+                "metadata": Object {
+                  "attributes": Object {},
+                  "social-share": Object {
+                    "image": Object {
+                      "attribution": null,
+                      "caption": null,
+                      "key": "barandbench/2020-07/5197a740-088f-4a48-a594-e9e3917b02b0/Rajasthan_High_Court.jpg",
+                      "metadata": Object {
+                        "file-name": "Rajasthan High Court.jpg",
+                        "file-size": 730425,
+                        "focus-point": Array [
+                          942,
+                          353,
+                        ],
+                        "height": 1100,
+                        "mime-type": "image/jpeg",
+                        "width": 2560,
+                      },
+                      "url": null,
+                    },
+                    "message": null,
+                    "shareable": false,
+                    "title": "Rajasthan Political Crisis: HC reserves order on plea by Sachin Pilot, other Rebel MLAs challenging Speaker's notice [LIVE UPDATES]",
+                  },
+                },
+                "status": "draft",
+                "story-elements": Array [
+                  Object {
+                    "description": "",
+                    "family-id": "df2949fc-f79a-41ad-bf2c-3415315c10e2",
+                    "id": "aaafcf67-93c4-44d0-9296-ce5017d4624a",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/aaafcf67-93c4-44d0-9296-ce5017d4624a",
+                    "subtype": null,
+                    "text": "Bench, Rohatgi discussing when lockdown/curfew was imposed in Rajasthan",
+                    "title": "",
+                    "type": "title",
+                  },
+                ],
+                "version": 2,
+              }
+            }
             timeStamp={1595310701812}
           />
           <Spacer
@@ -4330,6 +4943,55 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
           />
           <Component />
           <Component
+            card={
+              Object {
+                "card-added-at": 1595310277389,
+                "card-updated-at": 1595310701812,
+                "content-id": "6d67b7f5-5125-439a-9f3e-ffe3728c6d33",
+                "content-version-id": "7567475b-30f8-4b7d-a683-2d245b61c726",
+                "id": "6d67b7f5-5125-439a-9f3e-ffe3728c6d33",
+                "metadata": Object {
+                  "attributes": Object {},
+                  "social-share": Object {
+                    "image": Object {
+                      "attribution": null,
+                      "caption": null,
+                      "key": "barandbench/2020-07/5197a740-088f-4a48-a594-e9e3917b02b0/Rajasthan_High_Court.jpg",
+                      "metadata": Object {
+                        "file-name": "Rajasthan High Court.jpg",
+                        "file-size": 730425,
+                        "focus-point": Array [
+                          942,
+                          353,
+                        ],
+                        "height": 1100,
+                        "mime-type": "image/jpeg",
+                        "width": 2560,
+                      },
+                      "url": null,
+                    },
+                    "message": null,
+                    "shareable": false,
+                    "title": "Rajasthan Political Crisis: HC reserves order on plea by Sachin Pilot, other Rebel MLAs challenging Speaker's notice [LIVE UPDATES]",
+                  },
+                },
+                "status": "draft",
+                "story-elements": Array [
+                  Object {
+                    "description": "",
+                    "family-id": "df2949fc-f79a-41ad-bf2c-3415315c10e2",
+                    "id": "aaafcf67-93c4-44d0-9296-ce5017d4624a",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/aaafcf67-93c4-44d0-9296-ce5017d4624a",
+                    "subtype": null,
+                    "text": "Bench, Rohatgi discussing when lockdown/curfew was imposed in Rajasthan",
+                    "title": "",
+                    "type": "title",
+                  },
+                ],
+                "version": 2,
+              }
+            }
             index={5}
           />
           <Spacer
@@ -4359,6 +5021,55 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             key="447d50ff-4447-4adc-9946-fffffb9c816c"
           />
           <Component
+            card={
+              Object {
+                "card-added-at": 1595310277389,
+                "card-updated-at": 1595310701812,
+                "content-id": "1e7e3c7d-6f68-4572-b4ee-5ba6f42ea014",
+                "content-version-id": "a77e3e2a-6323-417f-a71d-89457e15584f",
+                "id": "1e7e3c7d-6f68-4572-b4ee-5ba6f42ea014",
+                "metadata": Object {
+                  "attributes": Object {},
+                  "social-share": Object {
+                    "image": Object {
+                      "attribution": null,
+                      "caption": null,
+                      "key": "barandbench/2020-07/5197a740-088f-4a48-a594-e9e3917b02b0/Rajasthan_High_Court.jpg",
+                      "metadata": Object {
+                        "file-name": "Rajasthan High Court.jpg",
+                        "file-size": 730425,
+                        "focus-point": Array [
+                          942,
+                          353,
+                        ],
+                        "height": 1100,
+                        "mime-type": "image/jpeg",
+                        "width": 2560,
+                      },
+                      "url": null,
+                    },
+                    "message": null,
+                    "shareable": false,
+                    "title": "Rajasthan Political Crisis: HC reserves order on plea by Sachin Pilot, other Rebel MLAs challenging Speaker's notice [LIVE UPDATES]",
+                  },
+                },
+                "status": "draft",
+                "story-elements": Array [
+                  Object {
+                    "description": "",
+                    "family-id": "d3b2296c-c35e-48ea-b89f-fdb291bd0429",
+                    "id": "447d50ff-4447-4adc-9946-fffffb9c816c",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/447d50ff-4447-4adc-9946-fffffb9c816c",
+                    "subtype": null,
+                    "text": "Rohatgi - Consummate reading of these facts leave no manner of doubt that the decision (to suspend MLAs) is a foregone conclusion. What was the tearing hurry?",
+                    "title": "",
+                    "type": "title",
+                  },
+                ],
+                "version": 2,
+              }
+            }
             timeStamp={1595310701812}
           />
           <Spacer
@@ -4366,6 +5077,55 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
           />
           <Component />
           <Component
+            card={
+              Object {
+                "card-added-at": 1595310277389,
+                "card-updated-at": 1595310701812,
+                "content-id": "1e7e3c7d-6f68-4572-b4ee-5ba6f42ea014",
+                "content-version-id": "a77e3e2a-6323-417f-a71d-89457e15584f",
+                "id": "1e7e3c7d-6f68-4572-b4ee-5ba6f42ea014",
+                "metadata": Object {
+                  "attributes": Object {},
+                  "social-share": Object {
+                    "image": Object {
+                      "attribution": null,
+                      "caption": null,
+                      "key": "barandbench/2020-07/5197a740-088f-4a48-a594-e9e3917b02b0/Rajasthan_High_Court.jpg",
+                      "metadata": Object {
+                        "file-name": "Rajasthan High Court.jpg",
+                        "file-size": 730425,
+                        "focus-point": Array [
+                          942,
+                          353,
+                        ],
+                        "height": 1100,
+                        "mime-type": "image/jpeg",
+                        "width": 2560,
+                      },
+                      "url": null,
+                    },
+                    "message": null,
+                    "shareable": false,
+                    "title": "Rajasthan Political Crisis: HC reserves order on plea by Sachin Pilot, other Rebel MLAs challenging Speaker's notice [LIVE UPDATES]",
+                  },
+                },
+                "status": "draft",
+                "story-elements": Array [
+                  Object {
+                    "description": "",
+                    "family-id": "d3b2296c-c35e-48ea-b89f-fdb291bd0429",
+                    "id": "447d50ff-4447-4adc-9946-fffffb9c816c",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/447d50ff-4447-4adc-9946-fffffb9c816c",
+                    "subtype": null,
+                    "text": "Rohatgi - Consummate reading of these facts leave no manner of doubt that the decision (to suspend MLAs) is a foregone conclusion. What was the tearing hurry?",
+                    "title": "",
+                    "type": "title",
+                  },
+                ],
+                "version": 2,
+              }
+            }
             index={6}
           />
           <Spacer
@@ -4395,6 +5155,55 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             key="b00526e6-2431-4c09-94cb-10ba85e08487"
           />
           <Component
+            card={
+              Object {
+                "card-added-at": 1595310701812,
+                "card-updated-at": 1595310701812,
+                "content-id": "6dde1432-4eee-4f78-ae28-a00a6b88ac81",
+                "content-version-id": "7ae00d5a-c3e9-4c30-b82f-743d8f800c79",
+                "id": "6dde1432-4eee-4f78-ae28-a00a6b88ac81",
+                "metadata": Object {
+                  "attributes": Object {},
+                  "social-share": Object {
+                    "image": Object {
+                      "attribution": null,
+                      "caption": null,
+                      "key": "barandbench/2020-07/5197a740-088f-4a48-a594-e9e3917b02b0/Rajasthan_High_Court.jpg",
+                      "metadata": Object {
+                        "file-name": "Rajasthan High Court.jpg",
+                        "file-size": 730425,
+                        "focus-point": Array [
+                          942,
+                          353,
+                        ],
+                        "height": 1100,
+                        "mime-type": "image/jpeg",
+                        "width": 2560,
+                      },
+                      "url": null,
+                    },
+                    "message": null,
+                    "shareable": false,
+                    "title": "Rajasthan Political Crisis: HC reserves order on plea by Sachin Pilot, other Rebel MLAs challenging Speaker's notice [LIVE UPDATES]",
+                  },
+                },
+                "status": "draft",
+                "story-elements": Array [
+                  Object {
+                    "description": "",
+                    "family-id": "34d86796-7d63-4b10-ab8f-a685efc73982",
+                    "id": "b00526e6-2431-4c09-94cb-10ba85e08487",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/b00526e6-2431-4c09-94cb-10ba85e08487",
+                    "subtype": null,
+                    "text": "Your Lordships must ask the Speaker to file a better affidavit answering all the questions raised, Rohatgi",
+                    "title": "",
+                    "type": "title",
+                  },
+                ],
+                "version": 1,
+              }
+            }
             timeStamp={1595310701812}
           />
           <Spacer
@@ -4402,6 +5211,55 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
           />
           <Component />
           <Component
+            card={
+              Object {
+                "card-added-at": 1595310701812,
+                "card-updated-at": 1595310701812,
+                "content-id": "6dde1432-4eee-4f78-ae28-a00a6b88ac81",
+                "content-version-id": "7ae00d5a-c3e9-4c30-b82f-743d8f800c79",
+                "id": "6dde1432-4eee-4f78-ae28-a00a6b88ac81",
+                "metadata": Object {
+                  "attributes": Object {},
+                  "social-share": Object {
+                    "image": Object {
+                      "attribution": null,
+                      "caption": null,
+                      "key": "barandbench/2020-07/5197a740-088f-4a48-a594-e9e3917b02b0/Rajasthan_High_Court.jpg",
+                      "metadata": Object {
+                        "file-name": "Rajasthan High Court.jpg",
+                        "file-size": 730425,
+                        "focus-point": Array [
+                          942,
+                          353,
+                        ],
+                        "height": 1100,
+                        "mime-type": "image/jpeg",
+                        "width": 2560,
+                      },
+                      "url": null,
+                    },
+                    "message": null,
+                    "shareable": false,
+                    "title": "Rajasthan Political Crisis: HC reserves order on plea by Sachin Pilot, other Rebel MLAs challenging Speaker's notice [LIVE UPDATES]",
+                  },
+                },
+                "status": "draft",
+                "story-elements": Array [
+                  Object {
+                    "description": "",
+                    "family-id": "34d86796-7d63-4b10-ab8f-a685efc73982",
+                    "id": "b00526e6-2431-4c09-94cb-10ba85e08487",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/b00526e6-2431-4c09-94cb-10ba85e08487",
+                    "subtype": null,
+                    "text": "Your Lordships must ask the Speaker to file a better affidavit answering all the questions raised, Rohatgi",
+                    "title": "",
+                    "type": "title",
+                  },
+                ],
+                "version": 1,
+              }
+            }
             index={7}
           />
           <Spacer
@@ -4458,6 +5316,77 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             key="85ce8ab0-7037-43ac-a36a-975a025c4b38"
           />
           <Component
+            card={
+              Object {
+                "card-added-at": 1595310859439,
+                "card-updated-at": 1595315980861,
+                "content-id": "4a1a26c1-946b-4320-8b23-35436fbb081d",
+                "content-version-id": "66c0edb5-69b2-4023-a99d-72e7feac8530",
+                "id": "4a1a26c1-946b-4320-8b23-35436fbb081d",
+                "metadata": Object {
+                  "attributes": Object {},
+                  "social-share": Object {
+                    "image": Object {
+                      "attribution": null,
+                      "caption": null,
+                      "key": "barandbench/2020-07/5197a740-088f-4a48-a594-e9e3917b02b0/Rajasthan_High_Court.jpg",
+                      "metadata": Object {
+                        "file-name": "Rajasthan High Court.jpg",
+                        "file-size": 730425,
+                        "focus-point": Array [
+                          942,
+                          353,
+                        ],
+                        "height": 1100,
+                        "mime-type": "image/jpeg",
+                        "width": 2560,
+                      },
+                      "url": null,
+                    },
+                    "message": null,
+                    "shareable": false,
+                    "title": "Rajasthan Political Crisis: HC reserves order on plea by Sachin Pilot, other Rebel MLAs challenging Speaker's notice [LIVE UPDATES]",
+                  },
+                },
+                "status": "draft",
+                "story-elements": Array [
+                  Object {
+                    "description": "",
+                    "family-id": "7573eb98-a4fa-4562-ab30-3c2c57d8f4c8",
+                    "id": "4770f883-0010-409e-bb8d-0dab590810a0",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/4770f883-0010-409e-bb8d-0dab590810a0",
+                    "subtype": null,
+                    "text": "Today's thinking is that the power should be taken from the Speaker and vested in an external tribunal, Rohatgi refers to Supreme Court judgment in Manipur case.",
+                    "title": "",
+                    "type": "title",
+                  },
+                  Object {
+                    "description": "",
+                    "family-id": "7f85f402-a51e-443d-937d-9c864f7188c9",
+                    "id": "85ce8ab0-7037-43ac-a36a-975a025c4b38",
+                    "metadata": Object {
+                      "linked-story": Object {
+                        "headline": "Time for Parliament to rethink whether disqualification petitions ought to be entrusted to Speaker: Supreme Court
+",
+                        "highlighted-headline": null,
+                        "highlighted-text": "",
+                        "id": "5901f0dd-bd7f-4b6c-858c-ad8adf38cfa9",
+                        "story-content-id": "5901f0dd-bd7f-4b6c-858c-ad8adf38cfa9",
+                      },
+                      "linked-story-id": "5901f0dd-bd7f-4b6c-858c-ad8adf38cfa9",
+                    },
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/85ce8ab0-7037-43ac-a36a-975a025c4b38",
+                    "subtype": "also-read",
+                    "text": "Time for Parliament to rethink whether disqualification petitions ought to be entrusted to Speaker: Supreme Court
+",
+                    "title": "",
+                    "type": "text",
+                  },
+                ],
+                "version": 5,
+              }
+            }
             timeStamp={1595315980861}
           />
           <Spacer
@@ -4465,6 +5394,77 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
           />
           <Component />
           <Component
+            card={
+              Object {
+                "card-added-at": 1595310859439,
+                "card-updated-at": 1595315980861,
+                "content-id": "4a1a26c1-946b-4320-8b23-35436fbb081d",
+                "content-version-id": "66c0edb5-69b2-4023-a99d-72e7feac8530",
+                "id": "4a1a26c1-946b-4320-8b23-35436fbb081d",
+                "metadata": Object {
+                  "attributes": Object {},
+                  "social-share": Object {
+                    "image": Object {
+                      "attribution": null,
+                      "caption": null,
+                      "key": "barandbench/2020-07/5197a740-088f-4a48-a594-e9e3917b02b0/Rajasthan_High_Court.jpg",
+                      "metadata": Object {
+                        "file-name": "Rajasthan High Court.jpg",
+                        "file-size": 730425,
+                        "focus-point": Array [
+                          942,
+                          353,
+                        ],
+                        "height": 1100,
+                        "mime-type": "image/jpeg",
+                        "width": 2560,
+                      },
+                      "url": null,
+                    },
+                    "message": null,
+                    "shareable": false,
+                    "title": "Rajasthan Political Crisis: HC reserves order on plea by Sachin Pilot, other Rebel MLAs challenging Speaker's notice [LIVE UPDATES]",
+                  },
+                },
+                "status": "draft",
+                "story-elements": Array [
+                  Object {
+                    "description": "",
+                    "family-id": "7573eb98-a4fa-4562-ab30-3c2c57d8f4c8",
+                    "id": "4770f883-0010-409e-bb8d-0dab590810a0",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/4770f883-0010-409e-bb8d-0dab590810a0",
+                    "subtype": null,
+                    "text": "Today's thinking is that the power should be taken from the Speaker and vested in an external tribunal, Rohatgi refers to Supreme Court judgment in Manipur case.",
+                    "title": "",
+                    "type": "title",
+                  },
+                  Object {
+                    "description": "",
+                    "family-id": "7f85f402-a51e-443d-937d-9c864f7188c9",
+                    "id": "85ce8ab0-7037-43ac-a36a-975a025c4b38",
+                    "metadata": Object {
+                      "linked-story": Object {
+                        "headline": "Time for Parliament to rethink whether disqualification petitions ought to be entrusted to Speaker: Supreme Court
+",
+                        "highlighted-headline": null,
+                        "highlighted-text": "",
+                        "id": "5901f0dd-bd7f-4b6c-858c-ad8adf38cfa9",
+                        "story-content-id": "5901f0dd-bd7f-4b6c-858c-ad8adf38cfa9",
+                      },
+                      "linked-story-id": "5901f0dd-bd7f-4b6c-858c-ad8adf38cfa9",
+                    },
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/85ce8ab0-7037-43ac-a36a-975a025c4b38",
+                    "subtype": "also-read",
+                    "text": "Time for Parliament to rethink whether disqualification petitions ought to be entrusted to Speaker: Supreme Court
+",
+                    "title": "",
+                    "type": "text",
+                  },
+                ],
+                "version": 5,
+              }
+            }
             index={8}
           />
           <Spacer
@@ -4494,6 +5494,55 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             key="9ea3e4c1-d164-42b9-8443-3dc94950af71"
           />
           <Component
+            card={
+              Object {
+                "card-added-at": 1595311337341,
+                "card-updated-at": 1595315980861,
+                "content-id": "5b332973-a775-4465-983d-dbde7fd5c116",
+                "content-version-id": "215ec7cc-a1ba-4777-981e-5b682bed4d9a",
+                "id": "5b332973-a775-4465-983d-dbde7fd5c116",
+                "metadata": Object {
+                  "attributes": Object {},
+                  "social-share": Object {
+                    "image": Object {
+                      "attribution": null,
+                      "caption": null,
+                      "key": "barandbench/2020-07/5197a740-088f-4a48-a594-e9e3917b02b0/Rajasthan_High_Court.jpg",
+                      "metadata": Object {
+                        "file-name": "Rajasthan High Court.jpg",
+                        "file-size": 730425,
+                        "focus-point": Array [
+                          942,
+                          353,
+                        ],
+                        "height": 1100,
+                        "mime-type": "image/jpeg",
+                        "width": 2560,
+                      },
+                      "url": null,
+                    },
+                    "message": null,
+                    "shareable": false,
+                    "title": "Rajasthan Political Crisis: HC reserves order on plea by Sachin Pilot, other Rebel MLAs challenging Speaker's notice [LIVE UPDATES]",
+                  },
+                },
+                "status": "draft",
+                "story-elements": Array [
+                  Object {
+                    "description": "",
+                    "family-id": "3d9b0642-9242-4ef9-8f7c-86b2d39e5fc9",
+                    "id": "9ea3e4c1-d164-42b9-8443-3dc94950af71",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/9ea3e4c1-d164-42b9-8443-3dc94950af71",
+                    "subtype": null,
+                    "text": "High Court must examine the case and decide, Rohatgi concludes submissions.",
+                    "title": "",
+                    "type": "title",
+                  },
+                ],
+                "version": 4,
+              }
+            }
             timeStamp={1595315980861}
           />
           <Spacer
@@ -4501,6 +5550,55 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
           />
           <Component />
           <Component
+            card={
+              Object {
+                "card-added-at": 1595311337341,
+                "card-updated-at": 1595315980861,
+                "content-id": "5b332973-a775-4465-983d-dbde7fd5c116",
+                "content-version-id": "215ec7cc-a1ba-4777-981e-5b682bed4d9a",
+                "id": "5b332973-a775-4465-983d-dbde7fd5c116",
+                "metadata": Object {
+                  "attributes": Object {},
+                  "social-share": Object {
+                    "image": Object {
+                      "attribution": null,
+                      "caption": null,
+                      "key": "barandbench/2020-07/5197a740-088f-4a48-a594-e9e3917b02b0/Rajasthan_High_Court.jpg",
+                      "metadata": Object {
+                        "file-name": "Rajasthan High Court.jpg",
+                        "file-size": 730425,
+                        "focus-point": Array [
+                          942,
+                          353,
+                        ],
+                        "height": 1100,
+                        "mime-type": "image/jpeg",
+                        "width": 2560,
+                      },
+                      "url": null,
+                    },
+                    "message": null,
+                    "shareable": false,
+                    "title": "Rajasthan Political Crisis: HC reserves order on plea by Sachin Pilot, other Rebel MLAs challenging Speaker's notice [LIVE UPDATES]",
+                  },
+                },
+                "status": "draft",
+                "story-elements": Array [
+                  Object {
+                    "description": "",
+                    "family-id": "3d9b0642-9242-4ef9-8f7c-86b2d39e5fc9",
+                    "id": "9ea3e4c1-d164-42b9-8443-3dc94950af71",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/9ea3e4c1-d164-42b9-8443-3dc94950af71",
+                    "subtype": null,
+                    "text": "High Court must examine the case and decide, Rohatgi concludes submissions.",
+                    "title": "",
+                    "type": "title",
+                  },
+                ],
+                "version": 4,
+              }
+            }
             index={9}
           />
           <Spacer
@@ -4530,6 +5628,55 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             key="81da18fc-1595-42da-8d70-217d13e37450"
           />
           <Component
+            card={
+              Object {
+                "card-added-at": 1595313225506,
+                "card-updated-at": 1595315980861,
+                "content-id": "f85e63d5-deb2-4303-8d6b-ea0c590d033f",
+                "content-version-id": "2d983bbc-2a10-484e-8bc8-750076780e08",
+                "id": "f85e63d5-deb2-4303-8d6b-ea0c590d033f",
+                "metadata": Object {
+                  "attributes": Object {},
+                  "social-share": Object {
+                    "image": Object {
+                      "attribution": null,
+                      "caption": null,
+                      "key": "barandbench/2020-07/5197a740-088f-4a48-a594-e9e3917b02b0/Rajasthan_High_Court.jpg",
+                      "metadata": Object {
+                        "file-name": "Rajasthan High Court.jpg",
+                        "file-size": 730425,
+                        "focus-point": Array [
+                          942,
+                          353,
+                        ],
+                        "height": 1100,
+                        "mime-type": "image/jpeg",
+                        "width": 2560,
+                      },
+                      "url": null,
+                    },
+                    "message": null,
+                    "shareable": false,
+                    "title": "Rajasthan Political Crisis: HC reserves order on plea by Sachin Pilot, other Rebel MLAs challenging Speaker's notice [LIVE UPDATES]",
+                  },
+                },
+                "status": "draft",
+                "story-elements": Array [
+                  Object {
+                    "description": "",
+                    "family-id": "d0ad790a-a620-427a-babf-7eafa42cdad8",
+                    "id": "81da18fc-1595-42da-8d70-217d13e37450",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/81da18fc-1595-42da-8d70-217d13e37450",
+                    "subtype": null,
+                    "text": "Devadatt Kamat making sur-rejoinder arguments. Taking Court through Rajasthan Legislative Assembly Rules of Procedure",
+                    "title": "",
+                    "type": "title",
+                  },
+                ],
+                "version": 3,
+              }
+            }
             timeStamp={1595315980861}
           />
           <Spacer
@@ -4537,6 +5684,55 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
           />
           <Component />
           <Component
+            card={
+              Object {
+                "card-added-at": 1595313225506,
+                "card-updated-at": 1595315980861,
+                "content-id": "f85e63d5-deb2-4303-8d6b-ea0c590d033f",
+                "content-version-id": "2d983bbc-2a10-484e-8bc8-750076780e08",
+                "id": "f85e63d5-deb2-4303-8d6b-ea0c590d033f",
+                "metadata": Object {
+                  "attributes": Object {},
+                  "social-share": Object {
+                    "image": Object {
+                      "attribution": null,
+                      "caption": null,
+                      "key": "barandbench/2020-07/5197a740-088f-4a48-a594-e9e3917b02b0/Rajasthan_High_Court.jpg",
+                      "metadata": Object {
+                        "file-name": "Rajasthan High Court.jpg",
+                        "file-size": 730425,
+                        "focus-point": Array [
+                          942,
+                          353,
+                        ],
+                        "height": 1100,
+                        "mime-type": "image/jpeg",
+                        "width": 2560,
+                      },
+                      "url": null,
+                    },
+                    "message": null,
+                    "shareable": false,
+                    "title": "Rajasthan Political Crisis: HC reserves order on plea by Sachin Pilot, other Rebel MLAs challenging Speaker's notice [LIVE UPDATES]",
+                  },
+                },
+                "status": "draft",
+                "story-elements": Array [
+                  Object {
+                    "description": "",
+                    "family-id": "d0ad790a-a620-427a-babf-7eafa42cdad8",
+                    "id": "81da18fc-1595-42da-8d70-217d13e37450",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/81da18fc-1595-42da-8d70-217d13e37450",
+                    "subtype": null,
+                    "text": "Devadatt Kamat making sur-rejoinder arguments. Taking Court through Rajasthan Legislative Assembly Rules of Procedure",
+                    "title": "",
+                    "type": "title",
+                  },
+                ],
+                "version": 3,
+              }
+            }
             index={10}
           />
           <Spacer
@@ -4566,6 +5762,55 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             key="4537a24c-911b-4165-b8d3-1b797ea30649"
           />
           <Component
+            card={
+              Object {
+                "card-added-at": 1595313236619,
+                "card-updated-at": 1595315980861,
+                "content-id": "e663e830-c713-4f62-90cb-f11582d254ef",
+                "content-version-id": "c7b73899-9788-48bf-a3ed-9ca13424cd19",
+                "id": "e663e830-c713-4f62-90cb-f11582d254ef",
+                "metadata": Object {
+                  "attributes": Object {},
+                  "social-share": Object {
+                    "image": Object {
+                      "attribution": null,
+                      "caption": null,
+                      "key": "barandbench/2020-07/5197a740-088f-4a48-a594-e9e3917b02b0/Rajasthan_High_Court.jpg",
+                      "metadata": Object {
+                        "file-name": "Rajasthan High Court.jpg",
+                        "file-size": 730425,
+                        "focus-point": Array [
+                          942,
+                          353,
+                        ],
+                        "height": 1100,
+                        "mime-type": "image/jpeg",
+                        "width": 2560,
+                      },
+                      "url": null,
+                    },
+                    "message": null,
+                    "shareable": false,
+                    "title": "Rajasthan Political Crisis: HC reserves order on plea by Sachin Pilot, other Rebel MLAs challenging Speaker's notice [LIVE UPDATES]",
+                  },
+                },
+                "status": "draft",
+                "story-elements": Array [
+                  Object {
+                    "description": "",
+                    "family-id": "89e9dcee-e958-46a4-a33a-36dc4214946c",
+                    "id": "4537a24c-911b-4165-b8d3-1b797ea30649",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/4537a24c-911b-4165-b8d3-1b797ea30649",
+                    "subtype": null,
+                    "text": "In none of the notices issued to MLAs across the country are reasons required to be given, Kamat.",
+                    "title": "",
+                    "type": "title",
+                  },
+                ],
+                "version": 2,
+              }
+            }
             timeStamp={1595315980861}
           />
           <Spacer
@@ -4573,6 +5818,55 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
           />
           <Component />
           <Component
+            card={
+              Object {
+                "card-added-at": 1595313236619,
+                "card-updated-at": 1595315980861,
+                "content-id": "e663e830-c713-4f62-90cb-f11582d254ef",
+                "content-version-id": "c7b73899-9788-48bf-a3ed-9ca13424cd19",
+                "id": "e663e830-c713-4f62-90cb-f11582d254ef",
+                "metadata": Object {
+                  "attributes": Object {},
+                  "social-share": Object {
+                    "image": Object {
+                      "attribution": null,
+                      "caption": null,
+                      "key": "barandbench/2020-07/5197a740-088f-4a48-a594-e9e3917b02b0/Rajasthan_High_Court.jpg",
+                      "metadata": Object {
+                        "file-name": "Rajasthan High Court.jpg",
+                        "file-size": 730425,
+                        "focus-point": Array [
+                          942,
+                          353,
+                        ],
+                        "height": 1100,
+                        "mime-type": "image/jpeg",
+                        "width": 2560,
+                      },
+                      "url": null,
+                    },
+                    "message": null,
+                    "shareable": false,
+                    "title": "Rajasthan Political Crisis: HC reserves order on plea by Sachin Pilot, other Rebel MLAs challenging Speaker's notice [LIVE UPDATES]",
+                  },
+                },
+                "status": "draft",
+                "story-elements": Array [
+                  Object {
+                    "description": "",
+                    "family-id": "89e9dcee-e958-46a4-a33a-36dc4214946c",
+                    "id": "4537a24c-911b-4165-b8d3-1b797ea30649",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/4537a24c-911b-4165-b8d3-1b797ea30649",
+                    "subtype": null,
+                    "text": "In none of the notices issued to MLAs across the country are reasons required to be given, Kamat.",
+                    "title": "",
+                    "type": "title",
+                  },
+                ],
+                "version": 2,
+              }
+            }
             index={11}
           />
           <Spacer
@@ -4602,6 +5896,55 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             key="9cbe04b4-4cd0-494c-9f1c-b8005e80bd7b"
           />
           <Component
+            card={
+              Object {
+                "card-added-at": 1595315980861,
+                "card-updated-at": 1595315980861,
+                "content-id": "25b150b8-2063-4deb-8843-d3da24ba7df2",
+                "content-version-id": "b348e5b6-e163-4643-9487-663688254090",
+                "id": "25b150b8-2063-4deb-8843-d3da24ba7df2",
+                "metadata": Object {
+                  "attributes": Object {},
+                  "social-share": Object {
+                    "image": Object {
+                      "attribution": null,
+                      "caption": null,
+                      "key": "barandbench/2020-07/5197a740-088f-4a48-a594-e9e3917b02b0/Rajasthan_High_Court.jpg",
+                      "metadata": Object {
+                        "file-name": "Rajasthan High Court.jpg",
+                        "file-size": 730425,
+                        "focus-point": Array [
+                          942,
+                          353,
+                        ],
+                        "height": 1100,
+                        "mime-type": "image/jpeg",
+                        "width": 2560,
+                      },
+                      "url": null,
+                    },
+                    "message": null,
+                    "shareable": false,
+                    "title": "Rajasthan Political Crisis: HC reserves order on plea by Sachin Pilot, other Rebel MLAs challenging Speaker's notice [LIVE UPDATES]",
+                  },
+                },
+                "status": "draft",
+                "story-elements": Array [
+                  Object {
+                    "description": "",
+                    "family-id": "aa32a238-98cb-45fb-9b58-bd45bb1a783e",
+                    "id": "9cbe04b4-4cd0-494c-9f1c-b8005e80bd7b",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/9cbe04b4-4cd0-494c-9f1c-b8005e80bd7b",
+                    "subtype": null,
+                    "text": "Hearing concludes. Bench likely to pronounce verdict after lunch today.",
+                    "title": "",
+                    "type": "title",
+                  },
+                ],
+                "version": 1,
+              }
+            }
             timeStamp={1595315980861}
           />
           <Spacer
@@ -4609,6 +5952,55 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
           />
           <Component />
           <Component
+            card={
+              Object {
+                "card-added-at": 1595315980861,
+                "card-updated-at": 1595315980861,
+                "content-id": "25b150b8-2063-4deb-8843-d3da24ba7df2",
+                "content-version-id": "b348e5b6-e163-4643-9487-663688254090",
+                "id": "25b150b8-2063-4deb-8843-d3da24ba7df2",
+                "metadata": Object {
+                  "attributes": Object {},
+                  "social-share": Object {
+                    "image": Object {
+                      "attribution": null,
+                      "caption": null,
+                      "key": "barandbench/2020-07/5197a740-088f-4a48-a594-e9e3917b02b0/Rajasthan_High_Court.jpg",
+                      "metadata": Object {
+                        "file-name": "Rajasthan High Court.jpg",
+                        "file-size": 730425,
+                        "focus-point": Array [
+                          942,
+                          353,
+                        ],
+                        "height": 1100,
+                        "mime-type": "image/jpeg",
+                        "width": 2560,
+                      },
+                      "url": null,
+                    },
+                    "message": null,
+                    "shareable": false,
+                    "title": "Rajasthan Political Crisis: HC reserves order on plea by Sachin Pilot, other Rebel MLAs challenging Speaker's notice [LIVE UPDATES]",
+                  },
+                },
+                "status": "draft",
+                "story-elements": Array [
+                  Object {
+                    "description": "",
+                    "family-id": "aa32a238-98cb-45fb-9b58-bd45bb1a783e",
+                    "id": "9cbe04b4-4cd0-494c-9f1c-b8005e80bd7b",
+                    "metadata": Object {},
+                    "page-url": "/story/def11515-e565-4625-9a1f-296727cc3967/element/9cbe04b4-4cd0-494c-9f1c-b8005e80bd7b",
+                    "subtype": null,
+                    "text": "Hearing concludes. Bench likely to pronounce verdict after lunch today.",
+                    "title": "",
+                    "type": "title",
+                  },
+                ],
+                "version": 1,
+              }
+            }
             index={12}
           />
           <Spacer
