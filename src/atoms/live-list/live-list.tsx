@@ -8,8 +8,8 @@ export const LiveListBase = ({ story, config, children }: LiveListTypes) => {
   const id = `story-${story.id}`;
   const disabled = get(story, ["metadata", "is-closed"], false);
   const attributes: LiveListAttrs = {
-    "data-poll-interval": get(config, ["opts", "featureConfig", "liveBlog", "dataPollInterval"], null) || "30000",
-    "data-max-items-per-page": get(config, ["opts", "featureConfig", "liveBlog", "dataMaxItemsPerPage"], null) || "1000"
+    "data-poll-interval": get(config, ["opts", "featureConfig", "liveBlog", "dataPollInterval"], "30000"),
+    "data-max-items-per-page": get(config, ["opts", "featureConfig", "liveBlog", "dataMaxItemsPerPage"], "1000")
   };
   if (disabled) attributes.disabled = "";
   return (
