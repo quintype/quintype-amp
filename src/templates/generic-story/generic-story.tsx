@@ -38,6 +38,7 @@ export const GenericStory = ({ story, config }: GenericStoryTypes) => {
   );
   const infiniteScrollExists = !!(infiniteScrollInlineConfig && infiniteScrollInlineConfig.length);
   let lastComponent = <Footer text={footerText} />;
+  let navbarComponent = <Navbar />;
   if (infiniteScrollExists) {
     lastComponent = (
       <InfiniteScroll inlineConfig={infiniteScrollInlineConfig}>
@@ -46,12 +47,15 @@ export const GenericStory = ({ story, config }: GenericStoryTypes) => {
         </div>
       </InfiniteScroll>
     );
+    navbarComponent = (
+      <div next-page-hide="true">
+        <Navbar />
+      </div>
+    );
   }
   return (
     <Layout story={story} config={config}>
-      <div next-page-hide={infiniteScrollExists}>
-        <Navbar />
-      </div>
+      {navbarComponent}
       <IncompatibleBanner />
       <GoogleTagManager />
       <Wrapper>
