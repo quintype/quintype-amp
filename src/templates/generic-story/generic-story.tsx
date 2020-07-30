@@ -36,7 +36,7 @@ export const GenericStory = ({ story, config }: GenericStoryTypes) => {
     ["opts", "featureConfig", "infiniteScroll", "infiniteScrollInlineConfig"],
     null
   );
-  const infiniteScrollExists = infiniteScrollInlineConfig && infiniteScrollInlineConfig.length;
+  const infiniteScrollExists = !!(infiniteScrollInlineConfig && infiniteScrollInlineConfig.length);
   let lastComponent = <Footer text={footerText} />;
   if (infiniteScrollExists) {
     lastComponent = (
