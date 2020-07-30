@@ -59,7 +59,7 @@ export const BaseImage = ({
   return prefetchImage ? (
     <Fragment>
       <Helmet>
-        <link rel="preload" as="image" href={path} />
+        <link rel="preconnect dns-prefetch" href={path} />
       </Helmet>
       {imageComponent}
     </Fragment>

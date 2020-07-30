@@ -10,7 +10,7 @@ const DfpAdBase = ({ story, config, children, prefetchScript, ...rest }: DfpAdTy
       <Helmet>
         {prefetchScript ? (
           <script
-            rel="preload"
+            rel="preconnect dns-prefetch"
             crossorigin="anonymous"
             async={undefined}
             custom-element="amp-ad"
