@@ -5,7 +5,7 @@ import { getPropsForDfpAd } from "../shared/helpers";
 import { CommonDfpAdTypes } from "../shared/types";
 import { AdWrapper } from "../shared/components";
 
-const TopAdBase = ({ children, config, ...overridingProps }: CommonDfpAdTypes) => {
+export const TopAdBase = ({ children, config, ...overridingProps }: CommonDfpAdTypes) => {
   const propsForTopAd = getPropsForDfpAd({ overridingProps, config, adName: "top-ad" });
   return (
     propsForTopAd && (

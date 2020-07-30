@@ -1,10 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HeroImage should render 1`] = `
-<Component
-  config={Object {}}
-  story={Object {}}
-/>
+<div>
+  <Component
+    alt="Create"
+    attribution="Create"
+    metadata={
+      Object {
+        "file-name": "Discover_Law_Logo_1.jpg",
+        "file-size": 185634,
+        "focus-point": Array [
+          1275,
+          581,
+        ],
+        "height": 1162,
+        "mime-type": "image/jpeg",
+        "width": 2550,
+      }
+    }
+    prefetchImage={true}
+    slug="barandbench/2020-02/43fb44c4-2028-4b90-95ad-dc54aad47a28/Discover_Law_Logo_1.jpg"
+  >
+    <styled.figcaption
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Create",
+        }
+      }
+    />
+  </Component>
+</div>
 `;
 
 exports[`HeroImage should render caption without HTML Tags 1`] = `

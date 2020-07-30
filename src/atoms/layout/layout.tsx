@@ -57,18 +57,6 @@ export const Layout = ({ children, story, config }: LayoutTypes) => {
             href={`https://fonts.googleapis.com/css?family=${embedCustomFonts.secondary.url}`}
           />
         )}
-        <style>{`
-          @font-face {
-            font-family: ${embedCustomFonts.primary.url};
-            src: url("https://fonts.googleapis.com/css?family=${embedCustomFonts.primary.url}"),
-            font-display: swap;
-          }
-          @font-face {
-            font-family: ${embedCustomFonts.secondary.url};
-            src: url("https://fonts.googleapis.com/css?family=${embedCustomFonts.secondary.url}"),
-            font-display: swap;
-          }
-        `}</style>
       </Helmet>
       <ConfigProvider value={config}>
         <StoryProvider value={story}>

@@ -4,7 +4,7 @@ import { DfpAdTypes } from "./types";
 import { withStoryAndConfig } from "../../context";
 import { getTargetingInfo } from "./helpers";
 
-const DfpAdBase = ({ story, config, children, prefetchScript, ...rest }: DfpAdTypes) => {
+export const DfpAdBase = ({ story, config, children, prefetchScript, ...rest }: DfpAdTypes) => {
   return (
     <Fragment>
       <Helmet>

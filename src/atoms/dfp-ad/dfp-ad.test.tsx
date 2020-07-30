@@ -5,13 +5,26 @@
 // FYI mount wont work here as this runs in node env
 import { getTargetingInfo } from "./helpers";
 import { shallow } from "enzyme";
-import { DfpAd } from "./dfp-ad";
+import { DfpAd, DfpAdBase } from "./dfp-ad";
 import React from "react";
+import { textStory, config } from "../../__fixtures__";
 
 describe("dfp-ad component", () => {
   it("Should match snapshot", () => {
     const wrapper = shallow(<DfpAd />);
     expect(wrapper).toMatchSnapshot();
+  });
+  it("Should prefetch amp-ad script if prefetchScript attr is true", () => {
+    const wrapper = shallow(
+      <DfpAdBase prefetchScript={true} story={textStory} config={config} width={1} height={2} data-slot="foo" />
+    );
+    expect(wrapper.find("script").prop("rel")).toBe("preconnect dns-prefetch");
+    expect(wrapper.find("script").prop("crossorigin")).toBe("anonymous");
+  });
+  it("Should not prefetch amp-ad script if prefetchScript attr is not given", () => {
+    const wrapper = shallow(<DfpAdBase story={textStory} config={config} width={1} height={2} data-slot="foo" />);
+    expect(wrapper.find("script").prop("rel")).toBeFalsy();
+    expect(wrapper.find("script").prop("crossorigin")).toBeFalsy();
   });
 });
 test("getTargetingInfo helper", async () => {
