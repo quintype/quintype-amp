@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
 import { ImageTypes, AmpImgPropTypes } from "./types";
-import { Config } from "../../types/config";
 import { focusedImagePath } from "../../helpers/image-helpers";
 import { withConfig } from "../../context";
 import { LightboxGallery } from "../lightbox-gallery";
+import { Helmet } from "react-helmet";
 
 export const BaseImage = ({
   metadata,
@@ -16,8 +16,9 @@ export const BaseImage = ({
   opts = {},
   config,
   lightbox = true,
+  prefetchImage,
   ...rest
-}: ImageTypes & { config: Config }) => {
+}: ImageTypes) => {
   const cdnImage = config.publisherConfig["cdn-image"];
   if (!slug || !cdnImage) throw new Error("Required attributes missing, cant render image");
   let imgAspectRatio = aspectRatio || [16, 9];
@@ -46,13 +47,24 @@ export const BaseImage = ({
       value.height = imgAspectRatio[1].toString();
   }
 
-  return lightbox ? (
+  const imageComponent = lightbox ? (
     <Fragment>
       <LightboxGallery />
       <amp-img {...value} lightbox={lightbox} />
     </Fragment>
   ) : (
     <amp-img {...value} />
+  );
+
+  return prefetchImage ? (
+    <Fragment>
+      <Helmet>
+        <link rel="preload" as="image" href={path} />
+      </Helmet>
+      {imageComponent}
+    </Fragment>
+  ) : (
+    imageComponent
   );
 };
 
