@@ -44,10 +44,20 @@ export const Layout = ({ children, story, config }: LayoutTypes) => {
     <Fragment>
       <Helmet>
         {embedCustomFonts.primary.url && (
-          <link href={`https://fonts.googleapis.com/css?family=${embedCustomFonts.primary.url}`} rel="stylesheet" />
+          <link
+            rel="preload"
+            as="font"
+            crossorigin="anonymous"
+            href={`https://fonts.googleapis.com/css?family=${embedCustomFonts.primary.url}`}
+          />
         )}
         {embedCustomFonts.secondary.url && (
-          <link href={`https://fonts.googleapis.com/css?family=${embedCustomFonts.secondary.url}`} rel="stylesheet" />
+          <link
+            rel="preload"
+            as="font"
+            crossorigin="anonymous"
+            href={`https://fonts.googleapis.com/css?family=${embedCustomFonts.secondary.url}`}
+          />
         )}
       </Helmet>
       <ConfigProvider value={config}>
