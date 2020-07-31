@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { ImageTypes, AmpImgPropTypes } from "./types";
-import { focusedImagePath } from "../../helpers/image-helpers";
+import { focusedImagePath, getSrcsetStr } from "../../helpers/image-helpers";
 import { withConfig } from "../../context";
 import { LightboxGallery } from "../lightbox-gallery";
 import { Helmet } from "react-helmet";
@@ -24,8 +24,10 @@ export const BaseImage = ({
   let imgAspectRatio = aspectRatio || [16, 9];
   if (metadata && metadata.width && metadata.height) imgAspectRatio = [metadata.width, metadata.height];
   const path = focusedImagePath({ opts, slug, metadata, imgAspectRatio, cdnImage });
+  const srcset = getSrcsetStr({ opts, slug, metadata, imgAspectRatio, cdnImage });
   const value: AmpImgPropTypes = {
     src: path,
+    srcset,
     alt,
     layout,
     ...rest

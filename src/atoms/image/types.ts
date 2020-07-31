@@ -23,6 +23,6 @@ interface ImageMetadata {
 export interface AmpImgPropTypes extends Common {
   src: string;
   alt: string;
+  srcset: string;
   attribution?: string;
-  srcset?: string;
 }
