@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { ImageTypes, AmpImgPropTypes } from "./types";
-import { focusedImagePath, getSrcsetStr } from "../../helpers/image-helpers";
+import { getSrcAndSrcset } from "../../helpers";
 import { withConfig } from "../../context";
 import { LightboxGallery } from "../lightbox-gallery";
 import { Helmet } from "react-helmet";
@@ -23,10 +23,9 @@ export const BaseImage = ({
   if (!slug || !cdnImage) throw new Error("Required attributes missing, cant render image");
   let imgAspectRatio = aspectRatio || [16, 9];
   if (metadata && metadata.width && metadata.height) imgAspectRatio = [metadata.width, metadata.height];
-  const path = focusedImagePath({ opts, slug, metadata, imgAspectRatio, cdnImage });
-  const srcset = getSrcsetStr({ opts, slug, metadata, imgAspectRatio, cdnImage });
+  const { src, srcset } = getSrcAndSrcset({ opts, slug, metadata, imgAspectRatio, cdnImage });
   const value: AmpImgPropTypes = {
-    src: path,
+    src,
     srcset,
     alt,
     layout,
@@ -61,7 +60,7 @@ export const BaseImage = ({
   return prefetchImage ? (
     <Fragment>
       <Helmet>
-        <link rel="preconnect dns-prefetch" href={path} crossorigin="anonymous" />
+        <link rel="preconnect dns-prefetch" href={src} crossorigin="anonymous" />
       </Helmet>
       {imageComponent}
     </Fragment>

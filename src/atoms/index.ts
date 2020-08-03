@@ -12,7 +12,6 @@ import { StoryElement } from "./story-elements/story-element";
 import { StoryElements } from "./story-elements";
 import { PublisherLogoHeader } from "./publisher-logo-header";
 import { HamburgerMenu } from "./hamburger-menu";
-import * as icons from "./icons";
 import { SocialShareIcon } from "./social-share-icon";
 import { DfpAd } from "./dfp-ad";
 import { IncompatibleBanner } from "./incompatible-banner";
@@ -50,7 +49,6 @@ export {
   DfpAd,
   PublisherLogoHeader,
   HamburgerMenu,
-  icons,
   SocialShareIcon,
   IncompatibleBanner,
   DailyMotion,
