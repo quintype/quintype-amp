@@ -16,7 +16,7 @@ export const BaseImage = ({
   opts = {},
   config,
   lightbox = true,
-  prefetchImage,
+  preloadImage,
   ...rest
 }: ImageTypes) => {
   const cdnImage = config.publisherConfig["cdn-image"];
@@ -57,10 +57,10 @@ export const BaseImage = ({
     <amp-img {...value} />
   );
 
-  return prefetchImage ? (
+  return preloadImage ? (
     <Fragment>
       <Helmet>
-        <link rel="preconnect dns-prefetch" href={src} crossorigin="anonymous" />
+        <link rel="preload" href={src} crossorigin="anonymous" />
       </Helmet>
       {imageComponent}
     </Fragment>

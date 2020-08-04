@@ -12,7 +12,7 @@ export interface ImageTypes extends Common {
   opts?: object;
   attribution?: string;
   lightbox?: string | boolean;
-  prefetchImage?: boolean;
+  preloadImage?: boolean;
 }
 
 interface ImageMetadata {

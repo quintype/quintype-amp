@@ -18,7 +18,7 @@ exports[`HeroImage should render 1`] = `
         "width": 2550,
       }
     }
-    prefetchImage={true}
+    preloadImage={true}
     slug="barandbench/2020-02/43fb44c4-2028-4b90-95ad-dc54aad47a28/Discover_Law_Logo_1.jpg"
   >
     <styled.figcaption

@@ -86,7 +86,7 @@ describe("Image", () => {
     expect(wrapper.find(`amp-img`).prop("lightbox")).toBeFalsy();
     expect(wrapper.find(LightboxGallery).exists()).toBeFalsy();
   });
-  it("Should prefetch image when attr prefetchImage is passed", () => {
+  it("Should preload image when attr preloadImage is passed", () => {
     const wrapper = shallow(
       <BaseImage
         metadata={metadata}
@@ -94,10 +94,10 @@ describe("Image", () => {
         alt="Sample Image"
         config={config}
         lightbox={false}
-        prefetchImage={true}
+        preloadImage={true}
       />
     );
-    expect(wrapper.find(`link`).prop("rel")).toBe("preconnect dns-prefetch");
+    expect(wrapper.find(`link`).prop("rel")).toBe("preload");
     expect(wrapper.find(`link`).prop("crossorigin")).toBe("anonymous");
   });
   it("Should not prefetch image normally", () => {

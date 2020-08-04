@@ -17,9 +17,9 @@ describe("HeroImage", () => {
     );
     expect(wrapper).toMatchSnapshot();
   });
-  it("Should set prefetchScript attr to true", () => {
+  it("Should set preloadImage attr to true", () => {
     const wrapper = shallow(<HeroImageBase story={textStory} />);
-    expect(wrapper.find(Image).prop("prefetchImage")).toBe(true);
+    expect(wrapper.find(Image).prop("preloadImage")).toBe(true);
   });
 });
 
