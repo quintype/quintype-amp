@@ -45,14 +45,14 @@ export const Layout = ({ children, story, config }: LayoutTypes) => {
       <Helmet>
         {embedCustomFonts.primary.url && (
           <link
-            rel="preconnect dns-prefetch"
+            rel="dns-prefetch"
             crossorigin="anonymous"
             href={`https://fonts.googleapis.com/css?family=${embedCustomFonts.primary.url}`}
           />
         )}
         {embedCustomFonts.secondary.url && (
           <link
-            rel="preconnect dns-prefetch"
+            rel="dns-prefetch"
             crossorigin="anonymous"
             href={`https://fonts.googleapis.com/css?family=${embedCustomFonts.secondary.url}`}
           />

@@ -26,7 +26,7 @@ describe("Layout", () => {
         .find(`link`)
         .at(0)
         .prop("rel")
-    ).toBe("preconnect dns-prefetch");
+    ).toBe("dns-prefetch");
     expect(
       wrapper
         .find(`link`)
@@ -44,7 +44,7 @@ describe("Layout", () => {
         .find(`link`)
         .at(1)
         .prop("rel")
-    ).toBe("preconnect dns-prefetch");
+    ).toBe("dns-prefetch");
     expect(
       wrapper
         .find(`link`)
