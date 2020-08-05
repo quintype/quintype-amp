@@ -9,14 +9,18 @@ export const conditionExternalLinks = ({ text, config }) => {
   const regex = new RegExp(`^((?!${escapedSketchesHost}).)*$`);
   const domTree = parse(text);
   const anchorsArr = domTree.querySelectorAll("a");
+  let accumulator = text;
   anchorsArr.forEach((el) => {
     const href = el.rawAttributes.href;
     if (regex.test(href)) {
       const escapedHref = escapeRegex(href);
-      text = text.replace(new RegExp(`href="${escapedHref}"`), `href="${href}" rel=”nofollow” target="_blank"`);
+      accumulator = accumulator.replace(
+        new RegExp(`href="${escapedHref}"`),
+        `href="${href}" rel=”nofollow” target="_blank"`
+      );
     }
   });
-  return text;
+  return accumulator;
 };
 
 function escapeRegex(str: string) {
