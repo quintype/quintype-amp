@@ -60,7 +60,7 @@ export const BaseImage = ({
   return preloadImage ? (
     <Fragment>
       <Helmet>
-        <link rel="preload" href={src} crossorigin="anonymous" />
+        <link rel="preload" as="image" href={src} crossorigin="anonymous" />
       </Helmet>
       {imageComponent}
     </Fragment>
