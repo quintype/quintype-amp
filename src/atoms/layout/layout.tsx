@@ -49,6 +49,7 @@ export const Layout = ({ children, story, config }: LayoutTypes) => {
         {embedCustomFonts.primary.url && (
           <link
             rel="preload"
+            as="style"
             crossorigin="anonymous"
             href={`https://fonts.googleapis.com/css?family=${embedCustomFonts.primary.url}`}
           />
@@ -56,6 +57,7 @@ export const Layout = ({ children, story, config }: LayoutTypes) => {
         {embedCustomFonts.secondary.url && (
           <link
             rel="preload"
+            as="style"
             crossorigin="anonymous"
             href={`https://fonts.googleapis.com/css?family=${embedCustomFonts.secondary.url}`}
           />

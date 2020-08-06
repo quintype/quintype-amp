@@ -12,11 +12,13 @@ exports[`RelatedStories should render default 1`] = `
       rel="preconnect dns-prefetch"
     />
     <link
+      as="style"
       crossorigin="anonymous"
       href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
       rel="preload"
     />
     <link
+      as="style"
       crossorigin="anonymous"
       href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic"
       rel="preload"
