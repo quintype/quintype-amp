@@ -4,9 +4,18 @@ import { parse } from "node-html-parser";
 export const conditionExternalLinks = ({ text, config }) => {
   // finds external links and adds rel=”nofollow” target="_blank" to them
 
+  const internalHosts: string[] = [];
+
   const sketchesHost = get(config, ["publisherConfig", "sketches-host"]);
-  const escapedSketchesHost = escapeRegex(sketchesHost);
-  const regex = new RegExp(`^((?!${escapedSketchesHost}).)*$`);
+  internalHosts.push(escapeRegex(sketchesHost));
+
+  const domains = get(config, ["publisherConfig", "domains"], []);
+  domains.forEach((domain) => {
+    const hostUrl = get(domain, ["host-url"], null);
+    if (hostUrl) internalHosts.push(escapeRegex(hostUrl));
+  });
+
+  const regex = new RegExp(`^((?!${internalHosts.join("|")}).)*$`);
   const domTree = parse(text);
   const anchorsArr = domTree.querySelectorAll("a");
   let accumulator = text;
@@ -16,7 +25,7 @@ export const conditionExternalLinks = ({ text, config }) => {
       const escapedHref = escapeRegex(href);
       accumulator = accumulator.replace(
         new RegExp(`href="${escapedHref}"`),
-        `href="${href}" rel=”nofollow” target="_blank"`
+        `href="${href}" rel="nofollow" target="_blank"`
       );
     }
   });
