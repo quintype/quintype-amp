@@ -24,7 +24,7 @@ export const BaseImage = ({
   let imgAspectRatio = aspectRatio || [16, 9];
   if (metadata && metadata.width && metadata.height) imgAspectRatio = [metadata.width, metadata.height];
 
-  const srcSmall = focusedImagePath({ opts, slug, metadata, imgAspectRatio, cdnImage, width: "960" });
+  const srcSmall = focusedImagePath({ opts, slug, metadata, imgAspectRatio, cdnImage, width: "1000" });
   const srcBig = focusedImagePath({ opts, slug, metadata, imgAspectRatio, cdnImage, width: "1200" });
   const srcset = `${srcSmall} 1000w, ${srcBig} 1200w`;
 
