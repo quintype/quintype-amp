@@ -1,4 +1,4 @@
-import { getSrcAndSrcset } from "./image-helpers";
+import { focusedImagePath } from "./image-helpers";
 
 const dummyProps = {
   opts: {},
@@ -11,9 +11,7 @@ const dummyProps = {
   cdnImage: "gumlet.assettype.com"
 };
 
-test("getSrcsetAttrs should return correct srcset", () => {
-  const { srcset } = getSrcAndSrcset(dummyProps);
-  expect(srcset).toBe(
-    "https://gumlet.assettype.com/%2Ffoo%2Fbar%2Fimage.jpeg?auto=format%2Ccompress&w=480 480w,https://gumlet.assettype.com/%2Ffoo%2Fbar%2Fimage.jpeg?auto=format%2Ccompress&w=960 960w,https://gumlet.assettype.com/%2Ffoo%2Fbar%2Fimage.jpeg?auto=format%2Ccompress&w=1200 1200w"
-  );
+test("focusedImagePath should return correct value", () => {
+  const src = focusedImagePath(dummyProps);
+  expect(src).toBe("https://gumlet.assettype.com/%2Ffoo%2Fbar%2Fimage.jpeg?auto=format%2Ccompress&w=1200");
 });

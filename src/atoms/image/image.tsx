@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { ImageTypes, AmpImgPropTypes } from "./types";
-import { getSrcAndSrcset } from "../../helpers";
+import { focusedImagePath } from "../../helpers";
 import { withConfig } from "../../context";
 import { LightboxGallery } from "../lightbox-gallery";
 import { Helmet } from "react-helmet";
@@ -23,9 +23,13 @@ export const BaseImage = ({
   if (!slug || !cdnImage) throw new Error("Required attributes missing, cant render image");
   let imgAspectRatio = aspectRatio || [16, 9];
   if (metadata && metadata.width && metadata.height) imgAspectRatio = [metadata.width, metadata.height];
-  const { src, srcset } = getSrcAndSrcset({ opts, slug, metadata, imgAspectRatio, cdnImage });
+
+  const srcSmall = focusedImagePath({ opts, slug, metadata, imgAspectRatio, cdnImage, width: "960" });
+  const srcBig = focusedImagePath({ opts, slug, metadata, imgAspectRatio, cdnImage, width: "1200" });
+  const srcset = `${srcSmall} 1000w, ${srcBig} 1200w`;
+
   const value: AmpImgPropTypes = {
-    src,
+    src: srcSmall,
     srcset,
     alt,
     layout,
@@ -60,7 +64,8 @@ export const BaseImage = ({
   return preloadImage ? (
     <Fragment>
       <Helmet>
-        <link rel="preload" as="image" href={src} crossorigin="anonymous" />
+        <link rel="preload" as="image" href={srcSmall} media="(max-width: 1000px)" crossorigin="anonymous" />
+        <link rel="preload" as="image" href={srcBig} media="(min-width: 1001px)" crossorigin="anonymous" />
       </Helmet>
       {imageComponent}
     </Fragment>

@@ -97,8 +97,18 @@ describe("Image", () => {
         preloadImage={true}
       />
     );
-    expect(wrapper.find(`link`).prop("rel")).toBe("preload");
-    expect(wrapper.find(`link`).prop("crossorigin")).toBe("anonymous");
+    expect(
+      wrapper
+        .find(`link`)
+        .at(0)
+        .prop("rel")
+    ).toBe("preload");
+    expect(
+      wrapper
+        .find(`link`)
+        .at(0)
+        .prop("crossorigin")
+    ).toBe("anonymous");
   });
   it("Should not prefetch image normally", () => {
     const wrapper = shallow(
