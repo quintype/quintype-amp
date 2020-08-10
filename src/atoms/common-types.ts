@@ -24,6 +24,7 @@ declare global {
       "amp-analytics";
       "amp-nested-menu";
       "amp-next-page";
+      "amp-live-list";
     }
   }
 }

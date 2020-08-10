@@ -175,4 +175,8 @@ interface FeatureConfigTypes {
   relatedStories?: {
     stories: Story[];
   };
+  liveBlog?: {
+    dataPollInterval?: string;
+    dataMaxItemsPerPage?: string;
+  };
 }

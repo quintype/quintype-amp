@@ -14,7 +14,7 @@ import {
   InfiniteScroll
 } from "../../atoms";
 import styled from "styled-components";
-import { GenericStoryTypes } from "./types";
+import { CommonTemplateTypes } from "../common-template-types";
 import get from "lodash.get";
 
 const { TopAd, BodyAd, BottomAd } = AmpAds;
@@ -29,15 +29,24 @@ const Wrapper = styled.div`
 `;
 const canDisplayBodyAd = (cardIdx) => cardIdx === 0;
 
-export const GenericStory = ({ story, config }: GenericStoryTypes) => {
+/**
+ * The GenericStory is the default template that's (as of Jul 2020) rendered for all stories except live-blog
+ *
+ * Slots: top-slot, bottom-slot
+ *
+ * @category Default Templates
+ * @component
+ */
+export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
   const footerText = get(config, ["publisherConfig", "publisher-settings", "copyright"], null);
   const infiniteScrollInlineConfig = get(
     config,
     ["opts", "featureConfig", "infiniteScroll", "infiniteScrollInlineConfig"],
     null
   );
-  const infiniteScrollExists = infiniteScrollInlineConfig && infiniteScrollInlineConfig.length;
+  const infiniteScrollExists = !!(infiniteScrollInlineConfig && infiniteScrollInlineConfig.length);
   let lastComponent = <Footer text={footerText} />;
+  let navbarComponent = <Navbar />;
   if (infiniteScrollExists) {
     lastComponent = (
       <InfiniteScroll inlineConfig={infiniteScrollInlineConfig}>
@@ -46,12 +55,15 @@ export const GenericStory = ({ story, config }: GenericStoryTypes) => {
         </div>
       </InfiniteScroll>
     );
+    navbarComponent = (
+      <div next-page-hide="true">
+        <Navbar />
+      </div>
+    );
   }
   return (
     <Layout story={story} config={config}>
-      <div next-page-hide={infiniteScrollExists}>
-        <Navbar />
-      </div>
+      {navbarComponent}
       <IncompatibleBanner />
       <GoogleTagManager />
       <Wrapper>

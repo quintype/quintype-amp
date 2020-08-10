@@ -69,6 +69,7 @@ export interface Story {
 
 export interface Author {
   id: number;
+  social?: string | null;
   name: string;
   slug: string;
   "avatar-url": string | null;
@@ -207,6 +208,7 @@ export interface StoryMetadata {
   theme?: string;
   "imported-card-id"?: string;
   "story-attributes"?: any;
+  "is-closed"?: boolean;
 }
 
 export interface CardShare {
