@@ -4052,7 +4052,11 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
   <Component />
   <Component />
   <styled.div>
-    <Component />
+    <div
+      next-page-hide="true"
+    >
+      <Component />
+    </div>
     <Component />
     <Spacer
       token="s"
@@ -6011,12 +6015,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
       <Component />
     </styled.div>
     <Component />
-    <div
-      next-page-hide="true"
-    >
-      <Component />
-      ;
-    </div>
+    <Component />
   </styled.div>
   <Component />
   <Component />

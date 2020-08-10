@@ -48,7 +48,7 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
   const infiniteScrollExists = !!(infiniteScrollInlineConfig && infiniteScrollInlineConfig.length);
   let lastComponent = <Footer text={footerText} />;
   let navbarComponent = <Navbar />;
-  let bottomAd = <BottomAd />;
+  let topAd = <TopAd />;
   if (infiniteScrollExists) {
     lastComponent = (
       <InfiniteScroll inlineConfig={infiniteScrollInlineConfig}>
@@ -62,9 +62,9 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
         <Navbar />
       </div>
     );
-    bottomAd = (
+    topAd = (
       <div next-page-hide="true">
-        <BottomAd />;
+        <TopAd />
       </div>
     );
   }
@@ -74,7 +74,7 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
       <IncompatibleBanner />
       <GoogleTagManager />
       <Wrapper>
-        <TopAd />
+        {topAd}
         <TopSlot />
         <Spacer token="s" />
         <StoryContainer>
@@ -105,7 +105,7 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
           <RelatedStories />
         </StoryContainer>
         <BottomSlot />
-        {bottomAd}
+        <BottomAd />
       </Wrapper>
       <GoogleAnalytics />
       <QuintypeAnalytics />
