@@ -4089,7 +4089,7 @@ exports[`GenericStory Template should render 1`] = `
   }
 >
   <div
-    next-page-hide={81}
+    next-page-hide="true"
   >
     <WithTheme(Component) />
   </div>
@@ -4742,7 +4742,12 @@ exports[`GenericStory Template should render 1`] = `
       <Component />
     </styled.div>
     <Component />
-    <Component />
+    <div
+      next-page-hide="true"
+    >
+      <Component />
+      ;
+    </div>
   </styled.div>
   <Component />
   <Component />

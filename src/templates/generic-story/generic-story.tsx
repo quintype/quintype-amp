@@ -44,8 +44,10 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
     ["opts", "featureConfig", "infiniteScroll", "infiniteScrollInlineConfig"],
     null
   );
-  const infiniteScrollExists = infiniteScrollInlineConfig && infiniteScrollInlineConfig.length;
+  const infiniteScrollExists = !!(infiniteScrollInlineConfig && infiniteScrollInlineConfig.length);
   let lastComponent = <Footer text={footerText} />;
+  let navbarComponent = <Navbar />;
+  let bottomAd = <BottomAd />;
   if (infiniteScrollExists) {
     lastComponent = (
       <InfiniteScroll inlineConfig={infiniteScrollInlineConfig}>
@@ -54,12 +56,20 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
         </div>
       </InfiniteScroll>
     );
+    navbarComponent = (
+      <div next-page-hide="true">
+        <Navbar />
+      </div>
+    );
+    bottomAd = (
+      <div next-page-hide="true">
+        <BottomAd />;
+      </div>
+    );
   }
   return (
     <Layout story={story} config={config}>
-      <div next-page-hide={infiniteScrollExists}>
-        <Navbar />
-      </div>
+      {navbarComponent}
       <IncompatibleBanner />
       <GoogleTagManager />
       <Wrapper>
@@ -88,7 +98,7 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
           <RelatedStories />
         </StoryContainer>
         <BottomSlot />
-        <BottomAd />
+        {bottomAd}
       </Wrapper>
       <GoogleAnalytics />
       <QuintypeAnalytics />

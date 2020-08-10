@@ -4045,7 +4045,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
   }
 >
   <div
-    next-page-hide={81}
+    next-page-hide="true"
   >
     <WithTheme(Component) />
   </div>
@@ -6011,7 +6011,12 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
       <Component />
     </styled.div>
     <Component />
-    <Component />
+    <div
+      next-page-hide="true"
+    >
+      <Component />
+      ;
+    </div>
   </styled.div>
   <Component />
   <Component />
