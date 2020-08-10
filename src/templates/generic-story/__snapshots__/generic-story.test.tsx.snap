@@ -4096,11 +4096,7 @@ exports[`GenericStory Template should render 1`] = `
   <Component />
   <Component />
   <styled.div>
-    <div
-      next-page-hide="true"
-    >
-      <Component />
-    </div>
+    <Component />
     <Component />
     <Spacer
       token="s"
