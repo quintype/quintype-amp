@@ -4085,6 +4085,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
               }
             }
             key="010b1ab8-0faa-464b-84d7-ef06cb43ccd1"
+            noSpacer={true}
           />
           <Component
             element={
@@ -4109,6 +4110,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
               }
             }
             key="d84a916f-b911-4295-9e1f-fa13f1470a93"
+            noSpacer={true}
           />
           <Component
             card={
@@ -4178,7 +4180,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             timeStamp={1595309566241}
           />
           <Spacer
-            token="tiny"
+            token="xs"
           />
           <Component />
           <Component
@@ -4248,9 +4250,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             }
             index={0}
           />
-          <Spacer
-            token="tiny"
-          />
         </div>
         <div
           data-sort-time={1595309398502}
@@ -4273,6 +4272,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
               }
             }
             key="2acc3413-27c3-4c57-bfea-81290b03b858"
+            noSpacer={true}
           />
           <Component
             element={
@@ -4289,6 +4289,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
               }
             }
             key="7489b36d-d17d-46e5-8527-0f8b7071e61e"
+            noSpacer={true}
           />
           <Component
             card={
@@ -4354,7 +4355,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             timeStamp={1595309566241}
           />
           <Spacer
-            token="tiny"
+            token="xs"
           />
           <Component />
           <Component
@@ -4420,9 +4421,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             }
             index={1}
           />
-          <Spacer
-            token="tiny"
-          />
         </div>
         <div
           data-sort-time={1595309693361}
@@ -4445,6 +4443,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
               }
             }
             key="14534a06-4024-4db4-bfd5-af35386055c6"
+            noSpacer={true}
           />
           <Component
             card={
@@ -4499,7 +4498,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             timeStamp={1595310701812}
           />
           <Spacer
-            token="tiny"
+            token="xs"
           />
           <Component />
           <Component
@@ -4554,9 +4553,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             }
             index={2}
           />
-          <Spacer
-            token="tiny"
-          />
         </div>
         <div
           data-sort-time={1595309759462}
@@ -4579,6 +4575,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
               }
             }
             key="f7ad4aeb-0755-4cf6-bef1-b17bc2681a51"
+            noSpacer={true}
           />
           <Component
             card={
@@ -4633,7 +4630,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             timeStamp={1595310701812}
           />
           <Spacer
-            token="tiny"
+            token="xs"
           />
           <Component />
           <Component
@@ -4688,9 +4685,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             }
             index={3}
           />
-          <Spacer
-            token="tiny"
-          />
         </div>
         <div
           data-sort-time={1595310223414}
@@ -4713,6 +4707,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
               }
             }
             key="af0d56b4-15ff-4a2c-85f6-21f5ab80c695"
+            noSpacer={true}
           />
           <Component
             element={
@@ -4729,6 +4724,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
               }
             }
             key="3bf7b398-674c-4371-a356-61a6362cae65"
+            noSpacer={true}
           />
           <Component
             card={
@@ -4794,7 +4790,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             timeStamp={1595310701812}
           />
           <Spacer
-            token="tiny"
+            token="xs"
           />
           <Component />
           <Component
@@ -4860,9 +4856,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             }
             index={4}
           />
-          <Spacer
-            token="tiny"
-          />
         </div>
         <div
           data-sort-time={1595310277389}
@@ -4885,6 +4878,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
               }
             }
             key="aaafcf67-93c4-44d0-9296-ce5017d4624a"
+            noSpacer={true}
           />
           <Component
             card={
@@ -4939,7 +4933,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             timeStamp={1595310701812}
           />
           <Spacer
-            token="tiny"
+            token="xs"
           />
           <Component />
           <Component
@@ -4994,9 +4988,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             }
             index={5}
           />
-          <Spacer
-            token="tiny"
-          />
         </div>
         <div
           data-sort-time={1595310277389}
@@ -5019,6 +5010,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
               }
             }
             key="447d50ff-4447-4adc-9946-fffffb9c816c"
+            noSpacer={true}
           />
           <Component
             card={
@@ -5073,7 +5065,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             timeStamp={1595310701812}
           />
           <Spacer
-            token="tiny"
+            token="xs"
           />
           <Component />
           <Component
@@ -5128,9 +5120,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             }
             index={6}
           />
-          <Spacer
-            token="tiny"
-          />
         </div>
         <div
           data-sort-time={1595310701812}
@@ -5153,6 +5142,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
               }
             }
             key="b00526e6-2431-4c09-94cb-10ba85e08487"
+            noSpacer={true}
           />
           <Component
             card={
@@ -5207,7 +5197,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             timeStamp={1595310701812}
           />
           <Spacer
-            token="tiny"
+            token="xs"
           />
           <Component />
           <Component
@@ -5262,9 +5252,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             }
             index={7}
           />
-          <Spacer
-            token="tiny"
-          />
         </div>
         <div
           data-sort-time={1595310859439}
@@ -5287,6 +5274,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
               }
             }
             key="4770f883-0010-409e-bb8d-0dab590810a0"
+            noSpacer={true}
           />
           <Component
             element={
@@ -5314,6 +5302,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
               }
             }
             key="85ce8ab0-7037-43ac-a36a-975a025c4b38"
+            noSpacer={true}
           />
           <Component
             card={
@@ -5390,7 +5379,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             timeStamp={1595315980861}
           />
           <Spacer
-            token="tiny"
+            token="xs"
           />
           <Component />
           <Component
@@ -5467,9 +5456,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             }
             index={8}
           />
-          <Spacer
-            token="tiny"
-          />
         </div>
         <div
           data-sort-time={1595311337341}
@@ -5492,6 +5478,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
               }
             }
             key="9ea3e4c1-d164-42b9-8443-3dc94950af71"
+            noSpacer={true}
           />
           <Component
             card={
@@ -5546,7 +5533,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             timeStamp={1595315980861}
           />
           <Spacer
-            token="tiny"
+            token="xs"
           />
           <Component />
           <Component
@@ -5601,9 +5588,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             }
             index={9}
           />
-          <Spacer
-            token="tiny"
-          />
         </div>
         <div
           data-sort-time={1595313225506}
@@ -5626,6 +5610,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
               }
             }
             key="81da18fc-1595-42da-8d70-217d13e37450"
+            noSpacer={true}
           />
           <Component
             card={
@@ -5680,7 +5665,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             timeStamp={1595315980861}
           />
           <Spacer
-            token="tiny"
+            token="xs"
           />
           <Component />
           <Component
@@ -5735,9 +5720,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             }
             index={10}
           />
-          <Spacer
-            token="tiny"
-          />
         </div>
         <div
           data-sort-time={1595313236619}
@@ -5760,6 +5742,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
               }
             }
             key="4537a24c-911b-4165-b8d3-1b797ea30649"
+            noSpacer={true}
           />
           <Component
             card={
@@ -5814,7 +5797,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             timeStamp={1595315980861}
           />
           <Spacer
-            token="tiny"
+            token="xs"
           />
           <Component />
           <Component
@@ -5869,9 +5852,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             }
             index={11}
           />
-          <Spacer
-            token="tiny"
-          />
         </div>
         <div
           data-sort-time={1595315980861}
@@ -5894,6 +5874,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
               }
             }
             key="9cbe04b4-4cd0-494c-9f1c-b8005e80bd7b"
+            noSpacer={true}
           />
           <Component
             card={
@@ -5948,7 +5929,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             timeStamp={1595315980861}
           />
           <Spacer
-            token="tiny"
+            token="xs"
           />
           <Component />
           <Component
@@ -6002,9 +5983,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
               }
             }
             index={12}
-          />
-          <Spacer
-            token="tiny"
           />
         </div>
       </Component>

@@ -31,7 +31,7 @@ export const StyledTime = styled.time`
 export const DateTime = ({ prepend, formattedDate }: DateTimeProps) => (
   <StyledTime dateTime={formattedDate}>
     {prepend && prepend}
-    {prepend && <Spacer token="xs" align="horizontal" />}
+    {prepend && <Spacer token="xxs" align="horizontal" />}
     {formattedDate}
   </StyledTime>
 );

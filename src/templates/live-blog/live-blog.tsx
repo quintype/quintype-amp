@@ -78,7 +78,7 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
           <LiveList>
             {story.cards.map((card, idx) => {
               const storyCard = card["story-elements"].map((element) => (
-                <StoryElement key={element.id} element={element} />
+                <StoryElement key={element.id} element={element} noSpacer={true} />
               ));
               return (
                 <div
@@ -88,10 +88,9 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
                   data-update-time={card["card-updated-at"]}>
                   {storyCard}
                   <CardUpdatedAt timeStamp={card["card-updated-at"]} card={card} />
-                  <Spacer token="tiny" />
+                  <Spacer token="xs" />
                   <BodyAd />
                   <LiveBlogCardSlot index={idx} card={card} />
-                  <Spacer token="tiny" />
                 </div>
               );
             })}
