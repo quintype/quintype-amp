@@ -131,6 +131,11 @@ export interface ConfigOpts {
     headerCardRender?: (props: CommonRenderPropTypes) => any;
     relatedStoriesRender?: (props: RelatedStoriesRenderPropTypes) => any;
     infiniteScrollRender?: (props: InfiniteScrollRenderPropTypes) => any;
+    subscriptionRender?: {
+      meterRender?: (props: SubscriptionRenderPropTypes) => any;
+      LastStoryMeterRender?: (props: SubscriptionRenderPropTypes) => any;
+      paywallRender?: (props: SubscriptionRenderPropTypes) => any;
+    };
     storyElementRender?: {
       bigfactElementRender?: (props: CommonRenderPropTypes) => any;
       answerElementRender?: (props: CommonRenderPropTypes) => any;
@@ -171,6 +176,13 @@ interface InfiniteScrollRenderPropTypes {
   inlineConfig: string;
 }
 
+interface SubscriptionRenderPropTypes {
+  config: Config;
+  services?: ServicesProps;
+  score?: ScoreProps;
+  fallbackEntitlement?: FallbackEntitlementProps;
+}
+
 interface FeatureConfigTypes {
   infiniteScroll?: {
     infiniteScrollInlineConfig: string;
@@ -179,15 +191,15 @@ interface FeatureConfigTypes {
     stories: Story[];
   };
   subscriptions?: {
-    services?: ServicesProps[];
+    services?: ServicesProps;
     score?: ScoreProps;
     fallbackEntitlement?: FallbackEntitlementProps;
   };
 }
 
 interface ServicesProps {
-  authorizationUrl: string;
-  pingbackUrl: string;
+  authorizationUrl: (story) => any;
+  pingbackUrl: (story) => any;
   actions: ActionProps;
 }
 interface ActionProps {
@@ -205,8 +217,7 @@ interface FallbackEntitlementProps {
   data?: DataProps;
 }
 interface DataProps {
+  numberRemaining?: number;
+  isLast?: boolean;
   isLoggedIn?: boolean;
-  articlesRead?: number;
-  articlesLeft?: number;
-  articleLimit?: number;
 }

@@ -4,5 +4,6 @@ declare namespace React {
     fallback?: string;
     on?: string;
     footer?: string;
+    type?: string;
   }
 }

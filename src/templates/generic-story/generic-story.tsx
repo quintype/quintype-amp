@@ -22,7 +22,7 @@ import {
   MeteredPaywall,
   MeteredExhaustedPaywall
 } from "../../atoms/subscriptions/subscription-paywall";
-
+import { getServicesParams, getScoreParams, getFallbackEntitlementParams } from "./generic-story.helpers";
 const { TopAd, BodyAd, BottomAd } = AmpAds;
 const { StoryPageSlots } = Slots;
 const { TopSlot, BottomSlot } = StoryPageSlots;
@@ -39,10 +39,18 @@ export const GenericStory = ({ story, config }: GenericStoryTypes) => {
   const cardsVisibleForBlockedStory = get(
     config,
     ["publisherConfig", "layout", "no-of-visible-cards-in-a-blocked-story"],
-    0
+    1
   );
   const cardsAccessible = (cardIdx) => cardIdx <= cardsVisibleForBlockedStory;
-  const isNotSubscribed = story.access !== "subscription";
+  const granted = get(config, ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "granted"], null);
+  const isGranted = granted === true;
+  const isAccessible = story.access === "subscription";
+  const services = getServicesParams({ story, config });
+  console.log(services, "<---services");
+  const score = getScoreParams({ config });
+  console.log(score, "<---services");
+  const fallbackEntitlement = getFallbackEntitlementParams({ config });
+  console.log(fallbackEntitlement, "<---services");
   // const services = get(config, ["opts", "featureConfig", "subscriptions", "services"], null);
   // const score = get(config, ["opts", "featureConfig", "subscriptions", "score"], null);
   // const fallbackEntitlement = get(config, ["opts", "featureConfig", "subscriptions", "fallbackEntitlement"], null);
@@ -58,15 +66,6 @@ export const GenericStory = ({ story, config }: GenericStoryTypes) => {
   //     </>
   //   );
   // }
-  const loggedInData = get(config, [
-    "opts",
-    "featureConfig",
-    "subscriptions",
-    "fallbackEntitlement",
-    "data",
-    "isLoggedIn"
-  ]);
-  const isLoggedIn = loggedInData === true;
   const footerText = get(config, ["publisherConfig", "publisher-settings", "copyright"], null);
   const infiniteScrollInlineConfig = get(
     config,
@@ -87,8 +86,7 @@ export const GenericStory = ({ story, config }: GenericStoryTypes) => {
   return (
     <Layout story={story} config={config}>
       <div next-page-hide={infiniteScrollExists}>{/* <Navbar /> */}</div>
-      {/* <Subscription services={services} score={score} fallbackEntitlement={fallbackEntitlement} /> */}
-      <Subscription />
+      <Subscription services={services} score={score} fallbackEntitlement={fallbackEntitlement} />
       <IncompatibleBanner />
       <GoogleTagManager />
       <Wrapper>
@@ -111,15 +109,36 @@ export const GenericStory = ({ story, config }: GenericStoryTypes) => {
                 <Spacer token="l" />
               </Fragment>
             ) : (
-              (cardsAccessible(cardIdx) && isNotSubscribed && !isLoggedIn && (
+              (cardsAccessible(cardIdx) && isAccessible && !isGranted && (
                 <Fragment key={card.id}>{storyCard}</Fragment>
               )) ||
-                (!isNotSubscribed && isLoggedIn && <Fragment key={card.id}>{storyCard}</Fragment>)
+                (!isAccessible && isGranted && <Fragment key={card.id}>{storyCard}</Fragment>)
             );
           })}
-          <MeteredPaywall config={config} story={story} />
-          <MeteredExhaustedPaywall config={config} story={story} />
-          <SubscriberAccessPaywall />
+          {isAccessible && (
+            <>
+              <MeteredPaywall
+                config={config}
+                story={story}
+                services={services}
+                score={score}
+                fallbackEntitlement={fallbackEntitlement}
+              />
+              <MeteredExhaustedPaywall
+                config={config}
+                story={story}
+                services={services}
+                score={score}
+                fallbackEntitlement={fallbackEntitlement}
+              />
+              <SubscriberAccessPaywall
+                config={config}
+                services={services}
+                score={score}
+                fallbackEntitlement={fallbackEntitlement}
+              />
+            </>
+          )}
           <RelatedStories />
         </StoryContainer>
         <BottomSlot />

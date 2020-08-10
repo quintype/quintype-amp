@@ -644,30 +644,19 @@ export const configOpts: ConfigOpts = {
       stories: relatedStories
     },
     subscriptions: {
-      services: [
-        {
-          authorizationUrl: "https://pub.com/amp-authorisation?rid=READER_ID&url=SOURCE_URL",
-          pingbackUrl: "https://pub.com/amp-pingback?rid=READER_ID&url=SOURCE_URL",
-          actions: {
-            login: "https://www.google.com",
-            subscribe: "https://www.facebook.com"
-          }
-        }
-      ],
-      score: {
-        supportsViewer: 10,
-        isReadyToPay: 9
+      services: {
+        authorizationUrl: ({ story }) =>
+          `https://newslaundry-web.qtstage.io/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
+        pingbackUrl: ({ story }) =>
+          `https://newslaundry-web.qtstage.io/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
+        actions: { login: "https://www.google.com", subscribe: "https://www.facebook.com" }
       },
+      score: { supportsViewer: 10, isReadyToPay: 9 },
       fallbackEntitlement: {
         source: "fallback",
-        granted: false,
+        granted: true,
         grantReason: "SUBSCRIBER",
-        data: {
-          isLoggedIn: false,
-          articlesRead: 4,
-          articlesLeft: 1,
-          articleLimit: 5
-        }
+        data: { numberRemaining: 4, isLast: true, isLoggedIn: true }
       }
     }
   }
