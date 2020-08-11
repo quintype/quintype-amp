@@ -41,9 +41,9 @@ export const GenericStory = ({ story, config }: GenericStoryTypes) => {
     ["publisherConfig", "layout", "no-of-visible-cards-in-a-blocked-story"],
     1
   );
-  const cardsAccessible = (cardIdx) => cardIdx <= cardsVisibleForBlockedStory;
-  const granted = get(config, ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "granted"], null);
-  const isGranted = granted === true;
+  const cardsAccessible = (cardIdx) => cardIdx < cardsVisibleForBlockedStory;
+  // const granted = get(config, ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "granted"], null);
+  // const isGranted = granted === true;
   const isAccessible = story.access === "subscription";
   const services = getServicesParams({ story, config });
   console.log(services, "<---services");
@@ -109,10 +109,18 @@ export const GenericStory = ({ story, config }: GenericStoryTypes) => {
                 <Spacer token="l" />
               </Fragment>
             ) : (
-              (cardsAccessible(cardIdx) && isAccessible && !isGranted && (
-                <Fragment key={card.id}>{storyCard}</Fragment>
-              )) ||
-                (!isAccessible && isGranted && <Fragment key={card.id}>{storyCard}</Fragment>)
+              (cardsAccessible(cardIdx) && (
+                <section subscriptions-section="content-not-granted">
+                  <Fragment key={card.id}>{storyCard}</Fragment>
+                </section>
+              )) || (
+                <>
+                  console.log("content behind paywall");
+                  <section className="paywall" subscriptions-section="content">
+                    <Fragment key={card.id}>{storyCard}</Fragment>
+                  </section>
+                </>
+              )
             );
           })}
           {isAccessible && (

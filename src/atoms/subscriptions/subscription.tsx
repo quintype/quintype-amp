@@ -6,6 +6,15 @@ export const Subscription = ({ services, score, fallbackEntitlement }: Subscript
   return (
     <Fragment>
       <Helmet>
+        <link rel="preload" as="script" href="https://cdn.ampproject.org/v0/amp-subscriptions-0.1.js" />
+        <link rel="preload" as="script" href="https://cdn.ampproject.org/v0/amp-mustache-0.2.js" />
+        <script type="application/json" id="amp-subscriptions">
+          {JSON.stringify({
+            services,
+            score,
+            fallbackEntitlement
+          })}
+        </script>
         <script
           async={undefined}
           custom-element="amp-subscriptions"
@@ -16,13 +25,6 @@ export const Subscription = ({ services, score, fallbackEntitlement }: Subscript
           custom-template="amp-mustache"
           src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"
         />
-        <script type="application/json" id="amp-subscriptions">
-          {JSON.stringify({
-            services,
-            score,
-            fallbackEntitlement
-          })}
-        </script>
       </Helmet>
     </Fragment>
   );
