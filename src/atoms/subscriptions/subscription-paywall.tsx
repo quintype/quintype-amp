@@ -4,10 +4,16 @@ import { PaywallProps } from "./types";
 import { Helmet } from "react-helmet";
 // The user is a subscriber/non-subscriber and is logged/not logged into their account. He is Granted. Subscribe button depends whether he is  asubscriber or not. And login button too.
 export const SubscriberAccessPaywall = ({ config, services, score, fallbackEntitlement }: PaywallProps) => {
-  // const grantReason = get(config, ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "grantReason"]);
+  const granted = get(config, ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "granted"]);
+  const grantReason = get(config, ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "grantReason"]);
   // const isOnMetering = grantReason === "METERING";
   // const subscriptions = get(config, ["opts", "featureConfig", "subscriptions"], null);
   // if (!subscriptions || !subscriptions.length) return null;
+  const isLoggedIn = get(
+    config,
+    ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "data", "isLoggedIn"],
+    false
+  );
   const paywallRender = get(config, ["opts", "render", "subscriptionRender", "paywallRender"], null);
   if (paywallRender) return paywallRender({ config, services, score, fallbackEntitlement });
   return (
@@ -82,38 +88,74 @@ export const SubscriberAccessPaywall = ({ config, services, score, fallbackEntit
         }
       `}</style>
       </Helmet>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: `<section class="StyledWrapper" subscriptions-display="NOT granted" subscriptions-section="content-not-granted">
-        <h2 class="StyledText" subscriptions-actions subscriptions-display="data.isLoggedIn">
-          Get unlimited access
-        </h2>
-        <h2 class="StyledText" subscriptions-actions subscriptions-display="NOT data.isLoggedIn">
-          Just login to continue reading
-        </h2>
-        <div class="StyledButton" subscriptions-actions subscriptions-display="data.isLoggedIn">
-          <button subscriptions-action="subscribe" subscriptions-display="data.isLoggedIn">
-            <span class="SubscribeMessage">Subscribe</span>
-          </button>
-        </div>
-        <div class="StyledLine" subscriptions-actions subscriptions-display="NOT data.isLoggedIn">
-          <p>Already a user ?</p>
-          <button subscriptions-action="login" subscriptions-display="NOT data.isLoggedIn">
-            <span> Log in</span>
-          </button>
-        </div>
-    </section>`
-        }}
-      />
+      {isLoggedIn === true && granted === false && (
+        <section
+          className="StyledWrapper"
+          // subscriptions-display="NOT granted"
+          dangerouslySetInnerHTML={{
+            __html: `
+      <h2 class="StyledText">
+        Get unlimited access
+      </h2>
+      <div class="StyledButton">
+        <button subscriptions-action="subscribe" >
+          <span class="SubscribeMessage">Subscribe</span>
+        </button>
+      </div>`
+          }}
+        />
+      )}
+      {isLoggedIn === false && granted === false && (
+        <section
+          className="StyledWrapper"
+          // subscriptions-display="NOT granted"
+          dangerouslySetInnerHTML={{
+            __html: `
+      <h2 class="StyledText" >
+        Get unlimited access
+      </h2>
+      <div class="StyledButton">
+        <button subscriptions-action="subscribe" >
+          <span class="SubscribeMessage">Subscribe</span>
+        </button>
+      </div>
+      <div class="StyledLine">
+        <p>Already a user ?</p>
+        <button subscriptions-action="login" subscriptions-display="NOT data.isLoggedIn">
+          <span> Log in</span>
+        </button>
+      </div>`
+          }}
+        />
+      )}
+      {isLoggedIn === false && granted === true && grantReason === "SUBSCRIBER" && (
+        <section
+          className="StyledWrapper"
+          // subscriptions-display="NOT granted"
+          dangerouslySetInnerHTML={{
+            __html: `
+      <h2 class="StyledText">
+        Just login to continue reading
+      </h2>
+      <div class="StyledLine">
+        <p>Already a user ?</p>
+        <button subscriptions-action="login" subscriptions-display="NOT data.isLoggedIn">
+          <span> Log in</span>
+        </button>
+      </div>`
+          }}
+        />
+      )}
     </>
   );
 };
 // The user has read 4 out of 5 free articles. He is granted and he is on metering.
 export const MeteredPaywall = ({ config, services, score, fallbackEntitlement }: PaywallProps) => {
-  // const grantReason = get(config, ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "grantReason"]);
+  const grantReason = get(config, ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "grantReason"]);
   // const isOnMetering = grantReason === "METERING";
   // const subscriptions = get(config, ["opts", "featureConfig", "subscriptions"], null);
   // if (!subscriptions || !subscriptions.length) return null;
+  const granted = get(config, ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "granted"]);
   const meterRender = get(config, ["opts", "render", "subscriptionRender", "meterRender"], null);
   if (meterRender) return meterRender({ config, services, score, fallbackEntitlement });
   return (
@@ -129,15 +171,19 @@ export const MeteredPaywall = ({ config, services, score, fallbackEntitlement }:
       `}
         </style>
       </Helmet>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: `<template class="amp-subscriptions-dialog" type="amp-mustache" subscriptions-dialog subscriptions-display="granted AND grantReason != 'SUBSCRIBER'">
-          {{#data.numberRemaining}}
-            <p class="StyledText">You are left with {{data.numberRemaining}} free articles.</p>
-          {{/data.numberRemaining}}
-      </template>`
-        }}
-      />
+      {granted === true && grantReason === "METERING" && (
+        <template
+          className="amp-subscriptions-dialog"
+          type="amp-mustache"
+          subscriptions-dialog={true}
+          // subscriptions-display={isNotSubscriber}
+          dangerouslySetInnerHTML={{
+            __html: `
+            <p class="StyledText">You are left with 4 free articles.</p>
+         `
+          }}
+        />
+      )}
     </>
   );
 };
@@ -149,7 +195,11 @@ export const MeteredExhaustedPaywall = ({ config, services, score, fallbackEntit
   // const isOnMetering = grantReason === "METERING";
   // const subscriptions = get(config, ["opts", "featureConfig", "subscriptions"], null);
   // if (!subscriptions || !subscriptions.length) return null;
-  const isNotSubscriber = granted === true && grantReason !== "SUBSCRIBER";
+  const isLast = get(
+    config,
+    ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "data", "isLast"],
+    false
+  );
   const LastStoryMeterRender = get(config, ["opts", "render", "subscriptionRender", "LastStoryMeterRender"], null);
   if (LastStoryMeterRender) return LastStoryMeterRender({ config, services, score, fallbackEntitlement });
   return (
@@ -223,35 +273,33 @@ export const MeteredExhaustedPaywall = ({ config, services, score, fallbackEntit
         }`}
         </style>
       </Helmet>
-      <template
-        className="amp-subscriptions-dialog"
-        type="amp-mustache"
-        subscriptions-dialog={true}
-        subscriptions-display={isNotSubscriber}
-        dangerouslySetInnerHTML={{
-          __html: `
-          <div class="StyledMeter" subscriptions-actions subscriptions-display="granted AND grantReason != 'SUBSCRIBER'">
-          {{#data.isLast}}
-            <p class="StyledText" subscriptions-actions subscriptions-display="granted AND grantReason != 'SUBSCRIBER'">You have exceeded free stories limit for this month</p>
-          {{/data.isLast}}
+      {granted === true && grantReason === "METERING" && isLast === true && (
+        <template
+          className="amp-subscriptions-dialog"
+          type="amp-mustache"
+          subscriptions-dialog={true}
+          // subscriptions-display={isNotSubscriber}
+          dangerouslySetInnerHTML={{
+            __html: `
+          <div class="StyledMeter">
+            <p class="StyledText">You have exceeded free stories limit for this month</p>
             <div>
-              <div class="StyledButton" subscriptions-actions subscriptions-display="granted">
-                <button subscriptions-action="subscribe" subscriptions-display="granted">
+              <div class="StyledButton">
+                <button subscriptions-action="subscribe">
                   <span class="SubscribeMessage">Subscribe</span>
                 </button>
               </div>
-              {{^data.isLoggedIn}}
-              <div class="MeteredStyledLine" subscriptions-actions subscriptions-display="granted">
+              <div class="MeteredStyledLine">
                 <p>Already a user ?</p>
-                <button subscriptions-action="login" subscriptions-display="granted">
+                <button subscriptions-action="login" subscriptions-display="NOT data.isLoggedIn">
                   <span> Log in</span>
                 </button>
               </div>
-              {{/data.isLoggedIn}}
             </div>
           </div>`
-        }}
-      />
+          }}
+        />
+      )}
     </>
   );
 };
