@@ -1,13 +1,14 @@
 import React, { Fragment } from "react";
 import { matchStoryElement } from "../../../helpers/match-story-element";
 import { Spacer } from "../../spacer";
+import { StoryElementTypes } from "./types";
 
-export const StoryElement = ({ element, ...props }) => {
+export const StoryElement = ({ element, noSpacer, ...props }: StoryElementTypes) => {
   const Component = matchStoryElement(element);
   return (
     <Fragment>
       <Component element={element} {...props} />
-      <Spacer token="s" />
+      {!noSpacer && <Spacer token="s" />}
     </Fragment>
   );
 };

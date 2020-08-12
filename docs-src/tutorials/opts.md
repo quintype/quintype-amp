@@ -72,6 +72,12 @@ ampRoutes(app, {
 
 Here, `story` and `config` is same as what's mentioned <a href="#storyConfig_link">above</a>.
 
+| Slot Name           | Slot Type | props                              | description                                                                   |
+| ------------------- | --------- | ---------------------------------- | ----------------------------------------------------------------------------- |
+| top-slot            | story     | obj - {story, config}              |                                                                               |
+| bottom-slot         | story     | obj - {story, config}              |                                                                               |
+| live-blog-card-slot | story     | obj - {story, config, index, card} | card - the card above this slot. index - the 1st card has 0th index and so on |
+
 ## Renders
 
 If you wish to customize the default templates, you can do so using the various render prop overrides that the library provides. These too are functions that should return react components
@@ -120,3 +126,4 @@ Here too, `story` and `config` is same as what's mentioned <a href="#storyConfig
 | ↳                                                                       | blockquoteRender          | obj - {story, config, element}        | - _same_ -                                                                               |
 | ↳                                                                       | blurbRender               | obj - {story, config, element}        | - _same_ -                                                                               |
 | ↳                                                                       | alsoReadRender            | obj - {story, config, element}        | - _same_ -                                                                               |
+| liveBlogCardTimeStamp                                                   | -                         | obj - {story, config, card}           | `card` is the live blog card                                                             |

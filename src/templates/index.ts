@@ -1,2 +1,4 @@
-import { GenericStory } from "./generic-story/generic-story";
-export { GenericStory };
+import { GenericStory } from "./generic-story";
+import { LiveBlog } from "./live-blog";
+
+export { GenericStory, LiveBlog };

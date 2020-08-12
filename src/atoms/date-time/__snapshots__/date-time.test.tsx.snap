@@ -7,7 +7,7 @@ exports[`DateTime should match snapshot 1`] = `
   Published: 
   <Spacer
     align="horizontal"
-    token="xs"
+    token="xxs"
   />
   14 June 2017
 </styled.time>

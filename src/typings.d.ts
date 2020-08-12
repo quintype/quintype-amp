@@ -6,5 +6,7 @@ declare namespace React {
     footer?: string;
     rel?: string;
     crossorigin?: string;
+    items?: string;
+    update?: string;
   }
 }

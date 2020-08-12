@@ -31,6 +31,7 @@ import { QuintypeAnalytics } from "./quintype-analytics";
 import { LightboxGallery } from "./lightbox-gallery";
 import { ChartBeat } from "./chartbeat";
 import { InfiniteScroll } from "./infinite-scroll";
+import { LiveList } from "./live-list";
 
 export {
   Carousel,
@@ -65,5 +66,6 @@ export {
   QuintypeAnalytics,
   LightboxGallery,
   ChartBeat,
-  InfiniteScroll
+  InfiniteScroll,
+  LiveList
 };
