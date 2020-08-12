@@ -3,7 +3,6 @@
  */
 
 // FYI mount wont work here as this runs in node env
-// NOTE: Ignore the Warning: Invalid DOM property `crossorigin`. Did you mean `crossOrigin`? It's is an issue with react
 import { getTargetingInfo } from "./helpers";
 import { shallow } from "enzyme";
 import { DfpAd, DfpAdBase } from "./dfp-ad";
