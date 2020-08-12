@@ -1,4 +1,8 @@
+import React from "react";
 import get from "lodash.get";
+import { StoryElement, Spacer } from "../../atoms";
+import { Fragment } from "react";
+import { BodyAd } from "../../molecules/ads";
 
 export const getServicesParams = ({ story, config }) => {
   const authUrlFunction = get(config.opts, ["featureConfig", "subscriptions", "services", "authorizationUrl"], null);
@@ -65,4 +69,62 @@ export const getFallbackEntitlementParams = ({ config }) => {
     }
   };
   return fallbackEntitlement;
+};
+
+export const displayCardsWithoutBodyAd = ({ story, config }) => {
+  const cardsVisibleForBlockedStory = get(
+    config,
+    ["publisherConfig", "layout", "no-of-visible-cards-in-a-blocked-story"],
+    1
+  );
+  const isAccessible = story.access === "subscription";
+  // const canDisplayBodyAd = (cardIdx) => cardIdx === 0;
+  const cardsAccessible = (cardIdx) => cardIdx < cardsVisibleForBlockedStory;
+  const cards = story.cards;
+  const visibleCards = cards.slice(0, 2);
+  const cardsBehindPaywall = cards.slice(2);
+
+  return (
+    <>
+      <section className="paywall" subscriptions-section="content">
+        {visibleCards.map((card) => {
+          const storyCard = card["story-elements"].map((element) => (
+            <StoryElement key={element.id} element={element} />
+          ));
+          return isAccessible && <Fragment key={card.id}>{storyCard}</Fragment>;
+        })}
+      </section>
+      {cardsBehindPaywall.map((card, cardIdx) => {
+        const storyCard = card["story-elements"].map((element) => <StoryElement key={element.id} element={element} />);
+        return (
+          cardsAccessible(cardIdx) &&
+          isAccessible && (
+            <section subscriptions-section="content-not-granted">
+              <Fragment key={card.id}>{storyCard}</Fragment>
+            </section>
+          )
+        );
+      })}
+      {cards.map((card) => {
+        const storyCard = card["story-elements"].map((element) => <StoryElement key={element.id} element={element} />);
+        return !isAccessible && <Fragment key={card.id}>{storyCard}</Fragment>;
+      })}
+    </>
+  );
+};
+export const displayCardsWithBodyAd = ({ story }) => {
+  const canDisplayBodyAd = (cardIdx) => cardIdx === 0;
+  story.cards.map((card, cardIdx) => {
+    const storyCard = card["story-elements"].map((element) => <StoryElement key={element.id} element={element} />);
+    return canDisplayBodyAd(cardIdx) ? (
+      <Fragment key={card.id}>
+        {storyCard}
+        <Spacer token="l" />
+        <BodyAd />
+        <Spacer token="l" />
+      </Fragment>
+    ) : (
+      ""
+    );
+  });
 };

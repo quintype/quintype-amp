@@ -1,8 +1,8 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { HeaderCard, AmpAds, RelatedStories, WebEngage, Slots } from "../../molecules";
 import {
   Layout,
-  StoryElement,
+  // StoryElement,
   Spacer,
   IncompatibleBanner,
   Footer,
@@ -22,8 +22,18 @@ import {
   MeteredPaywall,
   MeteredExhaustedPaywall
 } from "../../atoms/subscriptions/subscription-paywall";
-import { getServicesParams, getScoreParams, getFallbackEntitlementParams } from "./generic-story.helpers";
-const { TopAd, BodyAd, BottomAd } = AmpAds;
+import {
+  getServicesParams,
+  getScoreParams,
+  getFallbackEntitlementParams,
+  displayCardsWithBodyAd,
+  displayCardsWithoutBodyAd
+} from "./generic-story.helpers";
+const {
+  TopAd,
+  //  BodyAd,
+  BottomAd
+} = AmpAds;
 const { StoryPageSlots } = Slots;
 const { TopSlot, BottomSlot } = StoryPageSlots;
 const StoryContainer = styled.div`
@@ -33,39 +43,11 @@ const StoryContainer = styled.div`
 const Wrapper = styled.div`
   padding: 0 ${(props) => props.theme.spacing.s};
 `;
-const canDisplayBodyAd = (cardIdx) => cardIdx === 0;
-
 export const GenericStory = ({ story, config }: GenericStoryTypes) => {
-  const cardsVisibleForBlockedStory = get(
-    config,
-    ["publisherConfig", "layout", "no-of-visible-cards-in-a-blocked-story"],
-    1
-  );
-  const cardsAccessible = (cardIdx) => cardIdx < cardsVisibleForBlockedStory;
-  // const granted = get(config, ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "granted"], null);
-  // const isGranted = granted === true;
   const isAccessible = story.access === "subscription";
   const services = getServicesParams({ story, config });
-  console.log(services, "<---services");
   const score = getScoreParams({ config });
-  console.log(score, "<---services");
   const fallbackEntitlement = getFallbackEntitlementParams({ config });
-  console.log(fallbackEntitlement, "<---services");
-  // const services = get(config, ["opts", "featureConfig", "subscriptions", "services"], null);
-  // const score = get(config, ["opts", "featureConfig", "subscriptions", "score"], null);
-  // const fallbackEntitlement = get(config, ["opts", "featureConfig", "subscriptions", "fallbackEntitlement"], null);
-  // const servicesExists = services && services.length;
-  // const scoreExists = score && score.length;
-  // const fallbackEntitlementExists = fallbackEntitlement && fallbackEntitlement.length;
-  // if (servicesExists && scoreExists && fallbackEntitlementExists) {
-  //   return (
-  //     <>
-  //       <MeteredPaywall config={config} story={story} />
-  //       <MeteredExhaustedPaywall config={config} story={story} />
-  //       <SubscriberAccessPaywall />
-  //     </>
-  //   );
-  // }
   const footerText = get(config, ["publisherConfig", "publisher-settings", "copyright"], null);
   const infiniteScrollInlineConfig = get(
     config,
@@ -97,7 +79,7 @@ export const GenericStory = ({ story, config }: GenericStoryTypes) => {
           <HeaderCard />
           <WebEngage />
           <Spacer token="m" />
-          {story.cards.map((card, cardIdx) => {
+          {/* {story.cards.map((card, cardIdx) => {
             const storyCard = card["story-elements"].map((element) => (
               <StoryElement key={element.id} element={element} />
             ));
@@ -122,7 +104,9 @@ export const GenericStory = ({ story, config }: GenericStoryTypes) => {
                 </>
               )
             );
-          })}
+          })} */}
+          {displayCardsWithBodyAd({ story })}
+          {displayCardsWithoutBodyAd({ story, config })}
           {isAccessible && (
             <>
               <MeteredPaywall
