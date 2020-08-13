@@ -78,12 +78,16 @@ export const displayCardsWithoutBodyAd = ({ story, config }) => {
     1
   );
   const isAccessible = story.access === "subscription";
-  // const canDisplayBodyAd = (cardIdx) => cardIdx === 0;
+  const grantReason = get(
+    config,
+    ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "grantReason"],
+    null
+  );
+  const isOnMetering = grantReason === "METERING";
   const cardsAccessible = (cardIdx) => cardIdx < cardsVisibleForBlockedStory;
   const cards = story.cards;
   const visibleCards = cards.slice(0, 2);
   const cardsBehindPaywall = cards.slice(2);
-
   return (
     <>
       <section className="paywall" subscriptions-section="content">
@@ -91,14 +95,15 @@ export const displayCardsWithoutBodyAd = ({ story, config }) => {
           const storyCard = card["story-elements"].map((element) => (
             <StoryElement key={element.id} element={element} />
           ));
-          return isAccessible && <Fragment key={card.id}>{storyCard}</Fragment>;
+          return isAccessible && !isOnMetering && <Fragment key={card.id}>{storyCard}</Fragment>;
         })}
       </section>
       {cardsBehindPaywall.map((card, cardIdx) => {
         const storyCard = card["story-elements"].map((element) => <StoryElement key={element.id} element={element} />);
         return (
           cardsAccessible(cardIdx) &&
-          isAccessible && (
+          isAccessible &&
+          !isOnMetering && (
             <section subscriptions-section="content-not-granted">
               <Fragment key={card.id}>{storyCard}</Fragment>
             </section>
@@ -107,7 +112,7 @@ export const displayCardsWithoutBodyAd = ({ story, config }) => {
       })}
       {cards.map((card) => {
         const storyCard = card["story-elements"].map((element) => <StoryElement key={element.id} element={element} />);
-        return !isAccessible && <Fragment key={card.id}>{storyCard}</Fragment>;
+        return (!isAccessible || isOnMetering) && <Fragment key={card.id}>{storyCard}</Fragment>;
       })}
     </>
   );

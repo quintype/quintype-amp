@@ -79,32 +79,6 @@ export const GenericStory = ({ story, config }: GenericStoryTypes) => {
           <HeaderCard />
           <WebEngage />
           <Spacer token="m" />
-          {/* {story.cards.map((card, cardIdx) => {
-            const storyCard = card["story-elements"].map((element) => (
-              <StoryElement key={element.id} element={element} />
-            ));
-            return canDisplayBodyAd(cardIdx) ? (
-              <Fragment key={card.id}>
-                {storyCard}
-                <Spacer token="l" />
-                <BodyAd />
-                <Spacer token="l" />
-              </Fragment>
-            ) : (
-              (cardsAccessible(cardIdx) && (
-                <section subscriptions-section="content-not-granted">
-                  <Fragment key={card.id}>{storyCard}</Fragment>
-                </section>
-              )) || (
-                <>
-                  console.log("content behind paywall");
-                  <section className="paywall" subscriptions-section="content">
-                    <Fragment key={card.id}>{storyCard}</Fragment>
-                  </section>
-                </>
-              )
-            );
-          })} */}
           {displayCardsWithBodyAd({ story })}
           {displayCardsWithoutBodyAd({ story, config })}
           {isAccessible && (
