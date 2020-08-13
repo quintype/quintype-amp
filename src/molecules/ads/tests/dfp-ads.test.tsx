@@ -1,10 +1,10 @@
 import React from "react";
-import { mount } from "enzyme";
+import { mount, shallow } from "enzyme";
 import cloneDeep from "lodash.clonedeep";
-import { TopAd } from "../top-ad";
-import { BodyAd } from "../body-ad";
-import { BottomAd } from "../bottom-ad";
-import { Layout } from "../../../atoms";
+import { TopAd, TopAdBase } from "../top-ad/top-ad";
+import { BodyAd, BodyAdBase } from "../body-ad/body-ad";
+import { BottomAd, BottomAdBase } from "../bottom-ad/bottom-ad";
+import { Layout, DfpAd } from "../../../atoms";
 import { textStory, config } from "../../../__fixtures__";
 
 const dummyConfig = cloneDeep(config);
@@ -85,5 +85,17 @@ describe("DFP Ads", () => {
       expect(node.prop("type")).toBe("highlyAnnoyingAd");
       expect(node.prop("width")).toBe("320");
     });
+  });
+  it("Should set prefetchScript to true for top ad", () => {
+    const wrapper = shallow(<TopAdBase config={config} width={1} height={2} data-slot="three" />);
+    expect(wrapper.find(DfpAd).prop("prefetchScript")).toBe(true);
+  });
+  it("Should not set prefetchScript attr for body ad", () => {
+    const wrapper = shallow(<BodyAdBase config={config} width={1} height={2} data-slot="three" />);
+    expect(wrapper.find(DfpAd).prop("prefetchScript")).toBeUndefined();
+  });
+  it("Should not set prefetchScript attr for bottom ad", () => {
+    const wrapper = shallow(<BottomAdBase config={config} width={1} height={2} data-slot="three" />);
+    expect(wrapper.find(DfpAd).prop("prefetchScript")).toBeUndefined();
   });
 });

@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { HeaderCard, Navbar, AmpAds, RelatedStories, WebEngage, Slots } from "../../molecules";
+import { HeaderCard, Navbar, RelatedStories, WebEngage } from "../../molecules";
 import {
   Layout,
   StoryElement,
@@ -16,9 +16,9 @@ import {
 import styled from "styled-components";
 import { CommonTemplateTypes } from "../common-template-types";
 import get from "lodash.get";
+import { TopAd, BodyAd, BottomAd } from "../../molecules/ads";
+import { StoryPageSlots } from "../../molecules/slots";
 
-const { TopAd, BodyAd, BottomAd } = AmpAds;
-const { StoryPageSlots } = Slots;
 const { TopSlot, BottomSlot } = StoryPageSlots;
 const StoryContainer = styled.div`
   max-width: 600px;

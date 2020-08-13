@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`dfp-ad component Should match snapshot 1`] = `
-<DfpAdBase
+<Component
   config={Object {}}
   story={Object {}}
 />

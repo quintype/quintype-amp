@@ -14,13 +14,13 @@ import {
   ChartBeat,
   InfiniteScroll
 } from "../../atoms";
-import { HeaderCard, Navbar, AmpAds, Slots, RelatedStories, WebEngage } from "../../molecules";
+import { HeaderCard, Navbar, RelatedStories, WebEngage } from "../../molecules";
+import { TopAd, BodyAd, BottomAd } from "../../molecules/ads";
 import { StoryContainer, Wrapper } from "./presentational-components";
 import { CardUpdatedAt } from "./container-components";
 import get from "lodash.get";
+import { StoryPageSlots } from "../../molecules/slots";
 
-const { TopAd, BottomAd, BodyAd } = AmpAds;
-const { StoryPageSlots } = Slots;
 const { TopSlot, BottomSlot, LiveBlogCardSlot } = StoryPageSlots;
 
 /**
