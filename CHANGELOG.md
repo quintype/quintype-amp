@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.4](https://github.com/quintype/quintype-amp/compare/v2.1.3...v2.1.4) (2020-08-13)
+
 ### [2.1.2](https://github.com/quintype/quintype-amp/compare/v2.1.2-perf-improvements.0...v2.1.2) (2020-08-12)
 
 ### [2.1.1](https://github.com/quintype/quintype-amp/compare/v2.1.1-live-blog.5...v2.1.1) (2020-08-10)
