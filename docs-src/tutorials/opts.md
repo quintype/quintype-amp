@@ -65,6 +65,7 @@ ampRoutes(app, {
      story: {
        "top-slot": ({story, config}) => <MyTopSlot story={story} config={config} />
        "bottom-slot": ({story, config}) => <MyBottomSlot story={story} config={config} />
+       "live-blog-card-slot": ({story, config, index, card}) => <MyLiveBlogCardSlot />
      }
    }
 })
