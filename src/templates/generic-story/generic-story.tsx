@@ -61,7 +61,8 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
       </div>
     );
   }
-  return (
+  let isAmpSupported: boolean = true;
+  const template = (
     <Layout story={story} config={config}>
       {navbarComponent}
       <IncompatibleBanner />
@@ -75,9 +76,13 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
           <WebEngage />
           <Spacer token="m" />
           {story.cards.map((card, cardIdx) => {
-            const storyCard = card["story-elements"].map((element) => (
-              <StoryElement key={element.id} element={element} />
-            ));
+            const storyCard = card["story-elements"].map((element) => {
+              // const storyElement = StoryElement({ element });
+              const storyElement = <StoryElement key={element.id} element={element} />;
+              if (storyElement) return storyElement;
+              isAmpSupported = false;
+              return null;
+            });
             return canDisplayBodyAd(cardIdx) ? (
               <Fragment key={card.id}>
                 {storyCard}
@@ -101,4 +106,5 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
       {lastComponent}
     </Layout>
   );
+  return { template, isAmpSupported };
 };

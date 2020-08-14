@@ -2,7 +2,6 @@ import { AmpifyStoryTypes } from "./types";
 import renderToString from "../render-to-string";
 import { GenericStory, LiveBlog } from "../../templates";
 import get from "lodash.get";
-import React from "react";
 
 /**
  * The ampifyStory function is used behind the scenes by `quintype/framework`
@@ -53,19 +52,19 @@ import React from "react";
 
 export function ampifyStory({ story, publisherConfig, ampConfig, seo = "", opts = {} }: AmpifyStoryTypes) {
   const config = { publisherConfig, ampConfig, opts };
-  const template = getTemplate({ story, config, seo });
-  return renderToString(template, seo);
+  const { template, isAmpSupported } = getTemplate({ story, config, seo });
+  return { ampHtml: renderToString(template, seo), isAmpSupported };
 }
 
 const getTemplate = ({ story, config, seo }) => {
   const storyType = story["story-template"];
   const customTemplate = get(config, ["opts", "templates", storyType], null);
-  if (customTemplate) return customTemplate({ story, config, seo });
+  if (customTemplate) return { template: customTemplate({ story, config, seo }), isAmpSupported: true };
 
   switch (storyType) {
     case "live-blog":
-      return <LiveBlog story={story} config={config} />;
+      return LiveBlog({ story, config });
     default:
-      return <GenericStory story={story} config={config} />;
+      return GenericStory({ story, config });
   }
 };

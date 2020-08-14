@@ -62,7 +62,7 @@ const StoryElementsTable = [
   ["text", anyType, Text],
   ["title", none, Title],
   ["youtube-video", none, YouTube],
-  [anyType, anyType, Pending]
+  [anyType, anyType, null] // this has to be the last element in the array
 ];
 
 function matchStoryElement(element, table = StoryElementsTable) {

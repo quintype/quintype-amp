@@ -15,7 +15,7 @@ function mockStoryType(desiredType) {
 
 describe("Ampify Story", () => {
   it("ampifyStory function should return valid amp-html", async () => {
-    const ampHtml = ampifyStory({
+    const { ampHtml } = ampifyStory({
       story: allElementsStory,
       publisherConfig,
       ampConfig,

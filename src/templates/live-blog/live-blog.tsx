@@ -62,7 +62,8 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
       </div>
     );
   }
-  return (
+  let isAmpSupported = true;
+  const template = (
     <Layout story={story} config={config}>
       {navbarComponent}
       <IncompatibleBanner />
@@ -77,9 +78,12 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
           <Spacer token="m" />
           <LiveList>
             {story.cards.map((card, idx) => {
-              const storyCard = card["story-elements"].map((element) => (
-                <StoryElement key={element.id} element={element} noSpacer={true} />
-              ));
+              const storyCard = card["story-elements"].map((element) => {
+                const storyElement = <StoryElement key={element.id} element={element} noSpacer={true} />;
+                if (storyElement) return storyElement;
+                isAmpSupported = false;
+                return null;
+              });
               return (
                 <div
                   key={card.id}
@@ -107,4 +111,5 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
       {lastComponent}
     </Layout>
   );
+  return { template, isAmpSupported };
 };
