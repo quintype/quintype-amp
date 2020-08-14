@@ -130,7 +130,7 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React, { Fragment } from "react";
-import { HeaderCard, Navbar, AmpAds, RelatedStories, WebEngage, Slots } from "../../molecules";
+import { HeaderCard, Navbar, RelatedStories, WebEngage } from "../../molecules";
 import {
   Layout,
   StoryElement,
@@ -147,9 +147,9 @@ import {
 import styled from "styled-components";
 import { CommonTemplateTypes } from "../common-template-types";
 import get from "lodash.get";
+import { TopAd, BodyAd, BottomAd } from "../../molecules/ads";
+import { StoryPageSlots } from "../../molecules/slots";
 
-const { TopAd, BodyAd, BottomAd } = AmpAds;
-const { StoryPageSlots } = Slots;
 const { TopSlot, BottomSlot } = StoryPageSlots;
 const StoryContainer = styled.div`
   max-width: 600px;
@@ -175,8 +175,9 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
     ["opts", "featureConfig", "infiniteScroll", "infiniteScrollInlineConfig"],
     null
   );
-  const infiniteScrollExists = infiniteScrollInlineConfig &amp;&amp; infiniteScrollInlineConfig.length;
+  const infiniteScrollExists = !!(infiniteScrollInlineConfig &amp;&amp; infiniteScrollInlineConfig.length);
   let lastComponent = &lt;Footer text={footerText} />;
+  let navbarComponent = &lt;Navbar />;
   if (infiniteScrollExists) {
     lastComponent = (
       &lt;InfiniteScroll inlineConfig={infiniteScrollInlineConfig}>
@@ -185,12 +186,15 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
         &lt;/div>
       &lt;/InfiniteScroll>
     );
+    navbarComponent = (
+      &lt;div next-page-hide="true">
+        &lt;Navbar />
+      &lt;/div>
+    );
   }
   return (
     &lt;Layout story={story} config={config}>
-      &lt;div next-page-hide={infiniteScrollExists}>
-        &lt;Navbar />
-      &lt;/div>
+      {navbarComponent}
       &lt;IncompatibleBanner />
       &lt;GoogleTagManager />
       &lt;Wrapper>

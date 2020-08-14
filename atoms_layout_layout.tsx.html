@@ -174,11 +174,24 @@ export const Layout = ({ children, story, config }: LayoutTypes) => {
   return (
     &lt;Fragment>
       &lt;Helmet>
+        {(embedCustomFonts.primary.url || embedCustomFonts.secondary.url) &amp;&amp; (
+          &lt;link rel="preconnect dns-prefetch" href="https://fonts.gstatic.com/" crossorigin="anonymous" />
+        )}
         {embedCustomFonts.primary.url &amp;&amp; (
-          &lt;link href={`https://fonts.googleapis.com/css?family=${embedCustomFonts.primary.url}`} rel="stylesheet" />
+          &lt;link
+            rel="preload"
+            as="style"
+            crossorigin="anonymous"
+            href={`https://fonts.googleapis.com/css?family=${embedCustomFonts.primary.url}`}
+          />
         )}
         {embedCustomFonts.secondary.url &amp;&amp; (
-          &lt;link href={`https://fonts.googleapis.com/css?family=${embedCustomFonts.secondary.url}`} rel="stylesheet" />
+          &lt;link
+            rel="preload"
+            as="style"
+            crossorigin="anonymous"
+            href={`https://fonts.googleapis.com/css?family=${embedCustomFonts.secondary.url}`}
+          />
         )}
       &lt;/Helmet>
       &lt;ConfigProvider value={config}>

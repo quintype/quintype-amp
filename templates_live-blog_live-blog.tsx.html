@@ -145,13 +145,13 @@ import {
   ChartBeat,
   InfiniteScroll
 } from "../../atoms";
-import { HeaderCard, Navbar, AmpAds, Slots, RelatedStories, WebEngage } from "../../molecules";
+import { HeaderCard, Navbar, RelatedStories, WebEngage } from "../../molecules";
+import { TopAd, BodyAd, BottomAd } from "../../molecules/ads";
 import { StoryContainer, Wrapper } from "./presentational-components";
 import { CardUpdatedAt } from "./container-components";
 import get from "lodash.get";
+import { StoryPageSlots } from "../../molecules/slots";
 
-const { TopAd, BottomAd, BodyAd } = AmpAds;
-const { StoryPageSlots } = Slots;
 const { TopSlot, BottomSlot, LiveBlogCardSlot } = StoryPageSlots;
 
 /**
@@ -176,8 +176,9 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
     ["opts", "featureConfig", "infiniteScroll", "infiniteScrollInlineConfig"],
     null
   );
-  const infiniteScrollExists = infiniteScrollInlineConfig &amp;&amp; infiniteScrollInlineConfig.length;
+  const infiniteScrollExists = !!(infiniteScrollInlineConfig &amp;&amp; infiniteScrollInlineConfig.length);
   let lastComponent = &lt;Footer text={footerText} />;
+  let navbarComponent = &lt;Navbar />;
   if (infiniteScrollExists) {
     lastComponent = (
       &lt;InfiniteScroll inlineConfig={infiniteScrollInlineConfig}>
@@ -186,12 +187,15 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
         &lt;/div>
       &lt;/InfiniteScroll>
     );
+    navbarComponent = (
+      &lt;div next-page-hide="true">
+        &lt;Navbar />
+      &lt;/div>
+    );
   }
   return (
     &lt;Layout story={story} config={config}>
-      &lt;div next-page-hide={infiniteScrollExists}>
-        &lt;Navbar />
-      &lt;/div>
+      {navbarComponent}
       &lt;IncompatibleBanner />
       &lt;GoogleTagManager />
       &lt;Wrapper>
@@ -205,7 +209,7 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
           &lt;LiveList>
             {story.cards.map((card, idx) => {
               const storyCard = card["story-elements"].map((element) => (
-                &lt;StoryElement key={element.id} element={element} />
+                &lt;StoryElement key={element.id} element={element} noSpacer={true} />
               ));
               return (
                 &lt;div
@@ -215,10 +219,9 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
                   data-update-time={card["card-updated-at"]}>
                   {storyCard}
                   &lt;CardUpdatedAt timeStamp={card["card-updated-at"]} card={card} />
-                  &lt;Spacer token="tiny" />
+                  &lt;Spacer token="xs" />
                   &lt;BodyAd />
                   &lt;LiveBlogCardSlot index={idx} card={card} />
-                  &lt;Spacer token="tiny" />
                 &lt;/div>
               );
             })}
