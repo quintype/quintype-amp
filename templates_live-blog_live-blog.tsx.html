@@ -199,7 +199,7 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
       &lt;IncompatibleBanner />
       &lt;GoogleTagManager />
       &lt;Wrapper>
-        &lt;TopAd />
+        &lt;TopAd templateName="liveBlog" />
         &lt;TopSlot />
         &lt;Spacer token="s" />
         &lt;StoryContainer>
@@ -219,8 +219,7 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
                   data-update-time={card["card-updated-at"]}>
                   {storyCard}
                   &lt;CardUpdatedAt timeStamp={card["card-updated-at"]} card={card} />
-                  &lt;Spacer token="xs" />
-                  &lt;BodyAd />
+                  &lt;BodyAd templateName="liveBlog" />
                   &lt;LiveBlogCardSlot index={idx} card={card} />
                 &lt;/div>
               );
@@ -229,7 +228,7 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
           &lt;RelatedStories />
         &lt;/StoryContainer>
         &lt;BottomSlot />
-        &lt;BottomAd />
+        &lt;BottomAd templateName="liveBlog" />
       &lt;/Wrapper>
       &lt;GoogleAnalytics />
       &lt;QuintypeAnalytics />

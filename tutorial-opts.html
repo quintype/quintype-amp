@@ -169,7 +169,7 @@
 <li><code>infiniteScrollRender</code></li>
 </ul>
 </li>
-<li><code>featureConfig</code> - used to provide config for amp lib features. For example show live-blog in ascending/descending order</li>
+<li><code>featureConfig</code> - used to provide config for amp lib features.</li>
 </ul>
 <hr />
 This section is useful if you want to use custom templates. Else, jump to <a href="#slots_link">slots</a>
@@ -221,6 +221,27 @@ The <code>&lt;Head /&gt;</code> component may be used to put code in the head. U
 </tr>
 </tbody>
 </table>
+<h2>Feature Config</h2>
+<p>Feature config is an object that can be used to configure different features of amp lib.</p>
+<pre class="prettyprint source lang-jsx"><code>const exampleFeatureConfig = {
+  enableAds: {
+    default: {
+      top: true / false,
+      body: true / false,
+      bottom: true / false
+    },
+    liveBlog: {
+      top: true / false,
+      body: true / false,
+      bottom: true / false
+    }
+  },
+  liveBlog: {
+    dataPollInterval: &quot;10000&quot;,
+    dataMaxItemsPerPage: &quot;50&quot;
+  }
+};
+</code></pre>
 <h2>Renders</h2>
 <p>If you wish to customize the default templates, you can do so using the various render prop overrides that the library provides. These too are functions that should return react components</p>
 <p>For example,</p>

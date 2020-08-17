@@ -198,7 +198,7 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
       &lt;IncompatibleBanner />
       &lt;GoogleTagManager />
       &lt;Wrapper>
-        &lt;TopAd />
+        &lt;TopAd templateName="default" />
         &lt;TopSlot />
         &lt;Spacer token="s" />
         &lt;StoryContainer>
@@ -212,9 +212,7 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
             return canDisplayBodyAd(cardIdx) ? (
               &lt;Fragment key={card.id}>
                 {storyCard}
-                &lt;Spacer token="l" />
-                &lt;BodyAd />
-                &lt;Spacer token="l" />
+                &lt;BodyAd templateName="default" />
               &lt;/Fragment>
             ) : (
               &lt;Fragment key={card.id}>{storyCard}&lt;/Fragment>
@@ -223,7 +221,7 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
           &lt;RelatedStories />
         &lt;/StoryContainer>
         &lt;BottomSlot />
-        &lt;BottomAd />
+        &lt;BottomAd templateName="default" />
       &lt;/Wrapper>
       &lt;GoogleAnalytics />
       &lt;QuintypeAnalytics />
