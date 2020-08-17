@@ -41,7 +41,7 @@ const myOptsObj = {
   - `relatedStoriesRender`
   - `headerCardRender`
   - `infiniteScrollRender`
-- `featureConfig` - used to provide config for amp lib features. For example show live-blog in ascending/descending order
+- `featureConfig` - used to provide config for amp lib features.
 
 <hr />
 This section is useful if you want to use custom templates. Else, jump to <a href="#slots_link">slots</a>
@@ -78,6 +78,31 @@ Here, `story` and `config` is same as what's mentioned <a href="#storyConfig_lin
 | top-slot            | story     | obj - {story, config}              |                                                                               |
 | bottom-slot         | story     | obj - {story, config}              |                                                                               |
 | live-blog-card-slot | story     | obj - {story, config, index, card} | card - the card above this slot. index - the 1st card has 0th index and so on |
+
+## Feature Config
+
+Feature config is an object that can be used to configure different features of amp lib.
+
+```jsx
+const exampleFeatureConfig = {
+  enableAds: {
+    default: {
+      top: true / false,
+      body: true / false,
+      bottom: true / false
+    },
+    liveBlog: {
+      top: true / false,
+      body: true / false,
+      bottom: true / false
+    }
+  },
+  liveBlog: {
+    dataPollInterval: "10000",
+    dataMaxItemsPerPage: "50"
+  }
+};
+```
 
 ## Renders
 
