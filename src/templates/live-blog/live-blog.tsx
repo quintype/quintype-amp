@@ -68,7 +68,7 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
       <IncompatibleBanner />
       <GoogleTagManager />
       <Wrapper>
-        <TopAd />
+        <TopAd templateName="liveBlog" />
         <TopSlot />
         <Spacer token="s" />
         <StoryContainer>
@@ -88,8 +88,7 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
                   data-update-time={card["card-updated-at"]}>
                   {storyCard}
                   <CardUpdatedAt timeStamp={card["card-updated-at"]} card={card} />
-                  <Spacer token="xs" />
-                  <BodyAd />
+                  <BodyAd templateName="liveBlog" />
                   <LiveBlogCardSlot index={idx} card={card} />
                 </div>
               );
@@ -98,7 +97,7 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
           <RelatedStories />
         </StoryContainer>
         <BottomSlot />
-        <BottomAd />
+        <BottomAd templateName="liveBlog" />
       </Wrapper>
       <GoogleAnalytics />
       <QuintypeAnalytics />
