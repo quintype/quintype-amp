@@ -1,28 +1,19 @@
-/**
- * @jest-environment node
- */
-
 import React from "react";
-import { liveBlogStory, config, publisherConfig, ampConfig } from "../../__fixtures__";
-import { ampifyStory } from "../../helpers";
-import { isValidAmpHtml } from "../../utils/validate-amp";
 import { shallow } from "enzyme";
 import { LiveBlog } from "./live-blog";
+import { textStory, config } from "../../__fixtures__";
+import { TopAd, BodyAd, BottomAd } from "../../molecules/ads";
+import { InfiniteScroll } from "../../atoms";
 
-describe("The LiveBlog Default Template", () => {
-  it("should match snapshot", () => {
-    const wrapper = shallow(<LiveBlog story={liveBlogStory} config={config} />);
-    expect(wrapper).toMatchSnapshot();
+describe("LiveBlog Template", () => {
+  it("should render infinite scroll component if exists", () => {
+    const wrapper = shallow(<LiveBlog story={textStory} config={config} />);
+    expect(wrapper.find(InfiniteScroll).length).toBe(1);
   });
-  it("should render valid amp html for a live blog story", async () => {
-    const ampHtml = ampifyStory({
-      story: liveBlogStory,
-      publisherConfig,
-      ampConfig,
-      opts: {},
-      seo: `<link rel="canonical" href="." />`
-    });
-    const ampValidatorOutput = await isValidAmpHtml(ampHtml);
-    expect(ampValidatorOutput).toBe(true);
+  it("should set 'templateName' prop as 'liveBlog' for all DFP ads", () => {
+    const wrapper = shallow(<LiveBlog story={textStory} config={config} />);
+    expect(wrapper.find(TopAd).prop("templateName")).toBe("liveBlog");
+    expect(wrapper.find(BodyAd).prop("templateName")).toBe("liveBlog");
+    expect(wrapper.find(BottomAd).prop("templateName")).toBe("liveBlog");
   });
 });

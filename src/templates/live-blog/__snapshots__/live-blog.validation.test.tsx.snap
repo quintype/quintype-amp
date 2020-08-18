@@ -4052,7 +4052,9 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
   <Component />
   <Component />
   <styled.div>
-    <Component />
+    <Component
+      templateName="liveBlog"
+    />
     <Component />
     <Spacer
       token="s"
@@ -4179,10 +4181,9 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             }
             timeStamp={1595309566241}
           />
-          <Spacer
-            token="xs"
+          <Component
+            templateName="liveBlog"
           />
-          <Component />
           <Component
             card={
               Object {
@@ -4354,10 +4355,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             }
             timeStamp={1595309566241}
           />
-          <Spacer
-            token="xs"
-          />
-          <Component />
           <Component
             card={
               Object {
@@ -4497,10 +4494,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             }
             timeStamp={1595310701812}
           />
-          <Spacer
-            token="xs"
-          />
-          <Component />
           <Component
             card={
               Object {
@@ -4629,10 +4622,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             }
             timeStamp={1595310701812}
           />
-          <Spacer
-            token="xs"
-          />
-          <Component />
           <Component
             card={
               Object {
@@ -4789,10 +4778,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             }
             timeStamp={1595310701812}
           />
-          <Spacer
-            token="xs"
-          />
-          <Component />
           <Component
             card={
               Object {
@@ -4932,10 +4917,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             }
             timeStamp={1595310701812}
           />
-          <Spacer
-            token="xs"
-          />
-          <Component />
           <Component
             card={
               Object {
@@ -5064,10 +5045,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             }
             timeStamp={1595310701812}
           />
-          <Spacer
-            token="xs"
-          />
-          <Component />
           <Component
             card={
               Object {
@@ -5196,10 +5173,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             }
             timeStamp={1595310701812}
           />
-          <Spacer
-            token="xs"
-          />
-          <Component />
           <Component
             card={
               Object {
@@ -5378,10 +5351,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             }
             timeStamp={1595315980861}
           />
-          <Spacer
-            token="xs"
-          />
-          <Component />
           <Component
             card={
               Object {
@@ -5532,10 +5501,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             }
             timeStamp={1595315980861}
           />
-          <Spacer
-            token="xs"
-          />
-          <Component />
           <Component
             card={
               Object {
@@ -5664,10 +5629,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             }
             timeStamp={1595315980861}
           />
-          <Spacer
-            token="xs"
-          />
-          <Component />
           <Component
             card={
               Object {
@@ -5796,10 +5757,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             }
             timeStamp={1595315980861}
           />
-          <Spacer
-            token="xs"
-          />
-          <Component />
           <Component
             card={
               Object {
@@ -5928,10 +5885,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             }
             timeStamp={1595315980861}
           />
-          <Spacer
-            token="xs"
-          />
-          <Component />
           <Component
             card={
               Object {
@@ -5989,7 +5942,9 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
       <Component />
     </styled.div>
     <Component />
-    <Component />
+    <Component
+      templateName="liveBlog"
+    />
   </styled.div>
   <Component />
   <Component />

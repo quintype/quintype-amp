@@ -4096,7 +4096,9 @@ exports[`GenericStory Template should render 1`] = `
   <Component />
   <Component />
   <styled.div>
-    <Component />
+    <Component
+      templateName="default"
+    />
     <Component />
     <Spacer
       token="s"
@@ -4123,12 +4125,8 @@ exports[`GenericStory Template should render 1`] = `
         }
         key="9eb8f5cc-6ebe-4fb0-88b8-eca79efde210"
       />
-      <Spacer
-        token="l"
-      />
-      <Component />
-      <Spacer
-        token="l"
+      <Component
+        templateName="default"
       />
       <Component
         element={
@@ -4742,7 +4740,9 @@ exports[`GenericStory Template should render 1`] = `
       <Component />
     </styled.div>
     <Component />
-    <Component />
+    <Component
+      templateName="default"
+    />
   </styled.div>
   <Component />
   <Component />
