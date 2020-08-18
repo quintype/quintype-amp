@@ -1,11 +1,9 @@
 import React from "react";
 import get from "lodash.get";
-import { PaywallProps } from "./types";
+import { PaywallProps } from "../types";
 import { Helmet } from "react-helmet";
 // The user is a subscriber/non-subscriber and is logged/not logged into their account. He is Granted. Subscribe button depends whether he is  asubscriber or not. And login button too.
 export const SubscriberAccessPaywall = ({ config, services, score, fallbackEntitlement }: PaywallProps) => {
-  // const grantReason = get(config, ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "grantReason"]);
-  // const isOnMetering = grantReason === "METERING";
   // const subscriptions = get(config, ["opts", "featureConfig", "subscriptions"], null);
   // if (!subscriptions || !subscriptions.length) return null;
   const paywallRender = get(config, ["opts", "render", "subscriptionRender", "paywallRender"], null);
@@ -85,20 +83,20 @@ export const SubscriberAccessPaywall = ({ config, services, score, fallbackEntit
       <div
         dangerouslySetInnerHTML={{
           __html: `<section class="StyledWrapper" subscriptions-actions subscriptions-display="NOT granted">
-        <h2 class="StyledText" subscriptions-actions subscriptions-display="NOT granted AND data.isLoggedIn">
+        <h2 class="StyledText" subscriptions-actions subscriptions-display="data.isLoggedIn">
           Get unlimited access
         </h2>
-        <h2 class="StyledText" subscriptions-actions subscriptions-display="NOT granted AND NOT data.isLoggedIn">
+        <h2 class="StyledText" subscriptions-actions subscriptions-display="NOT data.isLoggedIn">
           Just login to continue reading
         </h2>
-        <div class="StyledButton" subscriptions-actions subscriptions-display="NOT granted AND data.isLoggedIn">
-          <button subscriptions-action="subscribe" subscriptions-display="NOT granted AND data.isLoggedIn">
+        <div class="StyledButton" subscriptions-actions subscriptions-display="data.isLoggedIn">
+          <button subscriptions-action="subscribe" subscriptions-display="data.isLoggedIn">
             <span class="SubscribeMessage">Subscribe</span>
           </button>
         </div>
-        <div class="StyledLine" subscriptions-actions subscriptions-display="NOT granted AND NOT data.isLoggedIn">
+        <div class="StyledLine" subscriptions-actions subscriptions-display="NOT data.isLoggedIn">
           <p>Already a user ?</p>
-          <button subscriptions-action="login" subscriptions-display="NOT granted AND NOT data.isLoggedIn">
+          <button subscriptions-action="login" subscriptions-display="NOT data.isLoggedIn">
             <span> Log in</span>
           </button>
         </div>
@@ -110,8 +108,6 @@ export const SubscriberAccessPaywall = ({ config, services, score, fallbackEntit
 };
 // The user has read 4 out of 5 free articles. He is granted and he is on metering.
 export const MeteredPaywall = ({ config, services, score, fallbackEntitlement }: PaywallProps) => {
-  // const grantReason = get(config, ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "grantReason"]);
-  // const isOnMetering = grantReason === "METERING";
   // const subscriptions = get(config, ["opts", "featureConfig", "subscriptions"], null);
   // if (!subscriptions || !subscriptions.length) return null;
   const meterRender = get(config, ["opts", "render", "subscriptionRender", "meterRender"], null);
@@ -122,7 +118,7 @@ export const MeteredPaywall = ({ config, services, score, fallbackEntitlement }:
         <style type="text/css">
           {`
       .StyledText {
-        padding: 24px;
+        padding: 26px;
         font-weight: 800;
         margin: 0;
       }
@@ -144,9 +140,6 @@ export const MeteredPaywall = ({ config, services, score, fallbackEntitlement }:
 
 // The user does not have access because they have read 5 out of 5 free articles. He is not granted.
 export const MeteredExhaustedPaywall = ({ config, services, score, fallbackEntitlement }: PaywallProps) => {
-  // const grantReason = get(config, ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "grantReason"]);
-  // const granted = get(config, ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "granted"]);
-  // const isOnMetering = grantReason === "METERING";
   // const subscriptions = get(config, ["opts", "featureConfig", "subscriptions"], null);
   // if (!subscriptions || !subscriptions.length) return null;
   const LastStoryMeterRender = get(config, ["opts", "render", "subscriptionRender", "LastStoryMeterRender"], null);
@@ -163,7 +156,7 @@ export const MeteredExhaustedPaywall = ({ config, services, score, fallbackEntit
       `}</style>
         <style type="text/css">{`
       .StyledText {
-        padding: 24px;
+        padding: 26px;
         font-weight: 800;
         margin: 0;
       }

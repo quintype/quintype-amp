@@ -90,7 +90,7 @@ export const displayCardsWithoutBodyAd = ({ story, config }) => {
   const cardsBehindPaywall = cards.slice(2);
   return (
     <>
-      <section className="paywall" subscriptions-section="content">
+      <section>
         {visibleCards.map((card) => {
           const storyCard = card["story-elements"].map((element) => (
             <StoryElement key={element.id} element={element} />
@@ -98,18 +98,16 @@ export const displayCardsWithoutBodyAd = ({ story, config }) => {
           return isAccessible && !isOnMetering && <Fragment key={card.id}>{storyCard}</Fragment>;
         })}
       </section>
-      {cardsBehindPaywall.map((card, cardIdx) => {
-        const storyCard = card["story-elements"].map((element) => <StoryElement key={element.id} element={element} />);
-        return (
-          cardsAccessible(cardIdx) &&
-          isAccessible &&
-          !isOnMetering && (
-            <section subscriptions-section="content-not-granted">
-              <Fragment key={card.id}>{storyCard}</Fragment>
-            </section>
-          )
-        );
-      })}
+      <section className="paywall" subscriptions-section="content">
+        {cardsBehindPaywall.map((card, cardIdx) => {
+          const storyCard = card["story-elements"].map((element) => (
+            <StoryElement key={element.id} element={element} />
+          ));
+          return (
+            cardsAccessible(cardIdx) && isAccessible && !isOnMetering && <Fragment key={card.id}>{storyCard}</Fragment>
+          );
+        })}
+      </section>
       {cards.map((card) => {
         const storyCard = card["story-elements"].map((element) => <StoryElement key={element.id} element={element} />);
         return (!isAccessible || isOnMetering) && <Fragment key={card.id}>{storyCard}</Fragment>;

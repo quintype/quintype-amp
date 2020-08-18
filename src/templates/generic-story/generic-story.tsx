@@ -21,7 +21,7 @@ import {
   SubscriberAccessPaywall,
   MeteredPaywall,
   MeteredExhaustedPaywall
-} from "../../atoms/subscriptions/subscription-paywall";
+} from "../../atoms/subscriptions/subscriptions-paywall";
 import {
   getServicesParams,
   getScoreParams,
