@@ -4356,9 +4356,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             timeStamp={1595309566241}
           />
           <Component
-            templateName="liveBlog"
-          />
-          <Component
             card={
               Object {
                 "card-added-at": 1595309398502,
@@ -4498,9 +4495,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             timeStamp={1595310701812}
           />
           <Component
-            templateName="liveBlog"
-          />
-          <Component
             card={
               Object {
                 "card-added-at": 1595309693361,
@@ -4627,9 +4621,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
               }
             }
             timeStamp={1595310701812}
-          />
-          <Component
-            templateName="liveBlog"
           />
           <Component
             card={
@@ -4788,9 +4779,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             timeStamp={1595310701812}
           />
           <Component
-            templateName="liveBlog"
-          />
-          <Component
             card={
               Object {
                 "card-added-at": 1595310223414,
@@ -4930,9 +4918,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             timeStamp={1595310701812}
           />
           <Component
-            templateName="liveBlog"
-          />
-          <Component
             card={
               Object {
                 "card-added-at": 1595310277389,
@@ -5061,9 +5046,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             timeStamp={1595310701812}
           />
           <Component
-            templateName="liveBlog"
-          />
-          <Component
             card={
               Object {
                 "card-added-at": 1595310277389,
@@ -5190,9 +5172,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
               }
             }
             timeStamp={1595310701812}
-          />
-          <Component
-            templateName="liveBlog"
           />
           <Component
             card={
@@ -5373,9 +5352,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             timeStamp={1595315980861}
           />
           <Component
-            templateName="liveBlog"
-          />
-          <Component
             card={
               Object {
                 "card-added-at": 1595310859439,
@@ -5526,9 +5502,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             timeStamp={1595315980861}
           />
           <Component
-            templateName="liveBlog"
-          />
-          <Component
             card={
               Object {
                 "card-added-at": 1595311337341,
@@ -5655,9 +5628,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
               }
             }
             timeStamp={1595315980861}
-          />
-          <Component
-            templateName="liveBlog"
           />
           <Component
             card={
@@ -5788,9 +5758,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             timeStamp={1595315980861}
           />
           <Component
-            templateName="liveBlog"
-          />
-          <Component
             card={
               Object {
                 "card-added-at": 1595313236619,
@@ -5917,9 +5884,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
               }
             }
             timeStamp={1595315980861}
-          />
-          <Component
-            templateName="liveBlog"
           />
           <Component
             card={

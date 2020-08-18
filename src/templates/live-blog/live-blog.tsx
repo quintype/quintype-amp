@@ -88,7 +88,7 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
                   data-update-time={card["card-updated-at"]}>
                   {storyCard}
                   <CardUpdatedAt timeStamp={card["card-updated-at"]} card={card} />
-                  <BodyAd templateName="liveBlog" />
+                  {idx === 0 && <BodyAd templateName="liveBlog" />}
                   <LiveBlogCardSlot index={idx} card={card} />
                 </div>
               );
