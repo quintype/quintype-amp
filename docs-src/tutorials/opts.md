@@ -83,6 +83,8 @@ Here, `story` and `config` is same as what's mentioned <a href="#storyConfig_lin
 
 Feature config is an object that can be used to configure different features of amp lib.
 
+1. enableAds: used to enable/disable ads on different templates. `top`, `body` and `bottom` corresponds to top-ad, body-ad and bottom-ad respoectively. By default, the ads are shown if no featureConfig is given.
+
 ```jsx
 const exampleFeatureConfig = {
   enableAds: {

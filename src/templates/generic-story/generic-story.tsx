@@ -61,13 +61,14 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
       </div>
     );
   }
+  const templateName = "default";
   return (
     <Layout story={story} config={config}>
       {navbarComponent}
       <IncompatibleBanner />
       <GoogleTagManager />
       <Wrapper>
-        <TopAd templateName="default" />
+        <TopAd templateName={templateName} />
         <TopSlot />
         <Spacer token="s" />
         <StoryContainer>
@@ -81,7 +82,7 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
             return canDisplayBodyAd(cardIdx) ? (
               <Fragment key={card.id}>
                 {storyCard}
-                <BodyAd templateName="default" />
+                <BodyAd templateName={templateName} />
               </Fragment>
             ) : (
               <Fragment key={card.id}>{storyCard}</Fragment>
@@ -90,7 +91,7 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
           <RelatedStories />
         </StoryContainer>
         <BottomSlot />
-        <BottomAd templateName="default" />
+        <BottomAd templateName={templateName} />
       </Wrapper>
       <GoogleAnalytics />
       <QuintypeAnalytics />
