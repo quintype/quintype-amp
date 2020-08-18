@@ -1,18 +1,25 @@
 import React from "react";
-import { HeroImage } from "./hero-image";
+import { HeroImage, HeroImageBase } from "./hero-image";
+import { Image } from "../../atoms";
 import { shallow } from "enzyme";
 import { getFigcaptionText } from "./hero-image";
+import { textStory } from "../../__fixtures__";
 
 describe("HeroImage", () => {
   it("should render", () => {
-    const wrapper = shallow(<HeroImage />);
+    const wrapper = shallow(<HeroImageBase story={textStory} />);
     expect(wrapper).toMatchSnapshot();
   });
   it("should render caption without HTML Tags", () => {
+    // This test is incorrect
     const wrapper = shallow(
       <HeroImage caption="<p>Congress, AAP and AIMIM leaders</p>" attribution="<span>custom attribution</span>" />
     );
     expect(wrapper).toMatchSnapshot();
+  });
+  it("Should set preloadImage attr to true", () => {
+    const wrapper = shallow(<HeroImageBase story={textStory} />);
+    expect(wrapper.find(Image).prop("preloadImage")).toBe(true);
   });
 });
 

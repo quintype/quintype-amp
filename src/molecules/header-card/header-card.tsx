@@ -35,7 +35,7 @@ export const DefaultHeaderCard = ({ story, config }: CommonRenderPropTypes) => {
         <Spacer token="xs" />
         <Headline>{story.headline}</Headline>
         <Spacer token="s" />
-        <Author authors={story.authors} prepend="By " />
+        <Author authors={story.authors} prepend="By" />
         <Spacer token="xxs" />
         <DateLastPublished />
         <Spacer token="m" />

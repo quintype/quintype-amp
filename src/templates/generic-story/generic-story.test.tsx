@@ -3,6 +3,7 @@ import { shallow } from "enzyme";
 import { GenericStory } from "./generic-story";
 import { InfiniteScroll, Subscription } from "../../atoms";
 import { textStory, config } from "../../__fixtures__";
+import { TopAd, BottomAd } from "../../molecules/ads";
 
 describe("GenericStory Template", () => {
   it("should render", () => {
@@ -32,5 +33,11 @@ describe("GenericStory Template", () => {
   it("should render subscriptions if exists", () => {
     const wrapper = shallow(<GenericStory story={textStory} config={config} />);
     expect(wrapper.find(Subscription).length).toBe(1);
+  });
+  it("should set 'templateName' prop as 'default' for all DFP ads", () => {
+    const wrapper = shallow(<GenericStory story={textStory} config={config} />);
+    expect(wrapper.find(TopAd).prop("templateName")).toBe("default");
+    // expect(wrapper.find(BodyAd).prop("templateName")).toBe("default");
+    expect(wrapper.find(BottomAd).prop("templateName")).toBe("default");
   });
 });

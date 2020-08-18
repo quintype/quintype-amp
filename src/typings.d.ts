@@ -5,5 +5,9 @@ declare namespace React {
     on?: string;
     footer?: string;
     type?: string;
+    rel?: string;
+    crossorigin?: string;
+    items?: string;
+    update?: string;
   }
 }

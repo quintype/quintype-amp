@@ -4115,9 +4115,6 @@ exports[`GenericStory Template should render 1`] = `
     }
   }
 >
-  <div
-    next-page-hide={81}
-  />
   <Component
     fallbackEntitlement={
       Object {
@@ -4150,10 +4147,17 @@ exports[`GenericStory Template should render 1`] = `
       ]
     }
   />
+  <div
+    next-page-hide="true"
+  >
+    <WithTheme(Component) />
+  </div>
   <Component />
   <Component />
   <styled.div>
-    <Component />
+    <Component
+      templateName="default"
+    />
     <Component />
     <Spacer
       token="s"
@@ -16045,7 +16049,9 @@ exports[`GenericStory Template should render 1`] = `
       <Component />
     </styled.div>
     <Component />
-    <Component />
+    <Component
+      templateName="default"
+    />
   </styled.div>
   <Component />
   <Component />

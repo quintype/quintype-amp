@@ -1,5 +1,5 @@
 import React from "react";
-import { HeaderCard, AmpAds, RelatedStories, WebEngage, Slots } from "../../molecules";
+import { HeaderCard, Navbar, RelatedStories, WebEngage } from "../../molecules";
 import {
   Layout,
   // StoryElement,
@@ -15,7 +15,7 @@ import {
   Subscription
 } from "../../atoms";
 import styled from "styled-components";
-import { GenericStoryTypes } from "./types";
+import { CommonTemplateTypes } from "../common-template-types";
 import get from "lodash.get";
 import {
   SubscriberAccessPaywall,
@@ -29,12 +29,9 @@ import {
   displayCardsWithBodyAd,
   displayCardsWithoutBodyAd
 } from "./generic-story.helpers";
-const {
-  TopAd,
-  //  BodyAd,
-  BottomAd
-} = AmpAds;
-const { StoryPageSlots } = Slots;
+import { TopAd, BottomAd } from "../../molecules/ads";
+import { StoryPageSlots } from "../../molecules/slots";
+
 const { TopSlot, BottomSlot } = StoryPageSlots;
 const StoryContainer = styled.div`
   max-width: 600px;
@@ -43,7 +40,17 @@ const StoryContainer = styled.div`
 const Wrapper = styled.div`
   padding: 0 ${(props) => props.theme.spacing.s};
 `;
-export const GenericStory = ({ story, config }: GenericStoryTypes) => {
+// const canDisplayBodyAd = (cardIdx) => cardIdx === 0;
+
+/**
+ * The GenericStory is the default template that's (as of Jul 2020) rendered for all stories except live-blog
+ *
+ * Slots: top-slot, bottom-slot
+ *
+ * @category Default Templates
+ * @component
+ */
+export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
   const isAccessible = story.access === "subscription";
   const services = getServicesParams({ story, config });
   const score = getScoreParams({ config });
@@ -54,8 +61,9 @@ export const GenericStory = ({ story, config }: GenericStoryTypes) => {
     ["opts", "featureConfig", "infiniteScroll", "infiniteScrollInlineConfig"],
     null
   );
-  const infiniteScrollExists = infiniteScrollInlineConfig && infiniteScrollInlineConfig.length;
+  const infiniteScrollExists = !!(infiniteScrollInlineConfig && infiniteScrollInlineConfig.length);
   let lastComponent = <Footer text={footerText} />;
+  let navbarComponent = <Navbar />;
   if (infiniteScrollExists) {
     lastComponent = (
       <InfiniteScroll inlineConfig={infiniteScrollInlineConfig}>
@@ -64,15 +72,21 @@ export const GenericStory = ({ story, config }: GenericStoryTypes) => {
         </div>
       </InfiniteScroll>
     );
+    navbarComponent = (
+      <div next-page-hide="true">
+        <Navbar />
+      </div>
+    );
   }
+  const templateName = "default";
   return (
     <Layout story={story} config={config}>
-      <div next-page-hide={infiniteScrollExists}>{/* <Navbar /> */}</div>
       <Subscription services={services} score={score} fallbackEntitlement={fallbackEntitlement} />
+      {navbarComponent}
       <IncompatibleBanner />
       <GoogleTagManager />
       <Wrapper>
-        <TopAd />
+        <TopAd templateName={templateName} />
         <TopSlot />
         <Spacer token="s" />
         <StoryContainer>
@@ -108,7 +122,7 @@ export const GenericStory = ({ story, config }: GenericStoryTypes) => {
           <RelatedStories />
         </StoryContainer>
         <BottomSlot />
-        <BottomAd />
+        <BottomAd templateName={templateName} />
       </Wrapper>
       <GoogleAnalytics />
       <QuintypeAnalytics />

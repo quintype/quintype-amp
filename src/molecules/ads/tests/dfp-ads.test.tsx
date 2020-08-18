@@ -1,9 +1,10 @@
+// tests that are common to all dfp-ads should be written here
 import React from "react";
 import { mount } from "enzyme";
 import cloneDeep from "lodash.clonedeep";
-import { TopAd } from "../top-ad";
-import { BodyAd } from "../body-ad";
-import { BottomAd } from "../bottom-ad";
+import { TopAd } from "../top-ad/top-ad";
+import { BodyAd } from "../body-ad/body-ad";
+import { BottomAd } from "../bottom-ad/bottom-ad";
 import { Layout } from "../../../atoms";
 import { textStory, config } from "../../../__fixtures__";
 

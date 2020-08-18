@@ -1,6 +1,6 @@
 import { AmpifyStoryTypes } from "./types";
 import renderToString from "../render-to-string";
-import { GenericStory } from "../../templates";
+import { GenericStory, LiveBlog } from "../../templates";
 import get from "lodash.get";
 import React from "react";
 
@@ -63,6 +63,8 @@ const getTemplate = ({ story, config, seo }) => {
   if (customTemplate) return customTemplate({ story, config, seo });
 
   switch (storyType) {
+    case "live-blog":
+      return <LiveBlog story={story} config={config} />;
     default:
       return <GenericStory story={story} config={config} />;
   }

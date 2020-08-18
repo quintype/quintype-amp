@@ -41,7 +41,7 @@ const myOptsObj = {
   - `relatedStoriesRender`
   - `headerCardRender`
   - `infiniteScrollRender`
-- `featureConfig` - used to provide config for amp lib features. For example show live-blog in ascending/descending order
+- `featureConfig` - used to provide config for amp lib features.
 
 <hr />
 This section is useful if you want to use custom templates. Else, jump to <a href="#slots_link">slots</a>
@@ -65,12 +65,46 @@ ampRoutes(app, {
      story: {
        "top-slot": ({story, config}) => <MyTopSlot story={story} config={config} />
        "bottom-slot": ({story, config}) => <MyBottomSlot story={story} config={config} />
+       "live-blog-card-slot": ({story, config, index, card}) => <MyLiveBlogCardSlot />
      }
    }
 })
 ```
 
 Here, `story` and `config` is same as what's mentioned <a href="#storyConfig_link">above</a>.
+
+| Slot Name           | Slot Type | props                              | description                                                                   |
+| ------------------- | --------- | ---------------------------------- | ----------------------------------------------------------------------------- |
+| top-slot            | story     | obj - {story, config}              |                                                                               |
+| bottom-slot         | story     | obj - {story, config}              |                                                                               |
+| live-blog-card-slot | story     | obj - {story, config, index, card} | card - the card above this slot. index - the 1st card has 0th index and so on |
+
+## Feature Config
+
+Feature config is an object that can be used to configure different features of amp lib.
+
+1. enableAds: used to enable/disable ads on different templates. `top`, `body` and `bottom` corresponds to top-ad, body-ad and bottom-ad respoectively. By default, the ads are shown if no featureConfig is given.
+
+```jsx
+const exampleFeatureConfig = {
+  enableAds: {
+    default: {
+      top: true / false,
+      body: true / false,
+      bottom: true / false
+    },
+    liveBlog: {
+      top: true / false,
+      body: true / false,
+      bottom: true / false
+    }
+  },
+  liveBlog: {
+    dataPollInterval: "10000",
+    dataMaxItemsPerPage: "50"
+  }
+};
+```
 
 ## Renders
 
@@ -120,3 +154,4 @@ Here too, `story` and `config` is same as what's mentioned <a href="#storyConfig
 | ↳                                                                       | blockquoteRender          | obj - {story, config, element}        | - _same_ -                                                                               |
 | ↳                                                                       | blurbRender               | obj - {story, config, element}        | - _same_ -                                                                               |
 | ↳                                                                       | alsoReadRender            | obj - {story, config, element}        | - _same_ -                                                                               |
+| liveBlogCardTimeStamp                                                   | -                         | obj - {story, config, card}           | `card` is the live blog card                                                             |

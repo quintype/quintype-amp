@@ -1,12 +1,11 @@
 import React, { Fragment } from "react";
 import styled from "styled-components";
-import { PublisherLogoHeader, icons, HamburgerMenu } from "../../atoms";
+import { PublisherLogoHeader, HamburgerMenu } from "../../atoms";
+import { Hamburger } from "../../atoms/icons/hamburger";
 import { NavbarTypes } from "./types";
 import { withConfig } from "../../context";
 import get from "lodash.get";
 import { withTheme } from "styled-components";
-
-const { Hamburger } = icons;
 
 const StyledNavbar = styled.header`
   width: 100%;

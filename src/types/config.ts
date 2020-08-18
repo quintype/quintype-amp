@@ -195,6 +195,22 @@ interface FeatureConfigTypes {
     score?: ScoreProps;
     fallbackEntitlement?: FallbackEntitlementProps;
   };
+  liveBlog?: {
+    dataPollInterval?: string;
+    dataMaxItemsPerPage?: string;
+  };
+  enableAds?: {
+    default?: {
+      top?: boolean;
+      body?: boolean;
+      bottom?: boolean;
+    };
+    liveBlog?: {
+      top?: boolean;
+      body?: boolean;
+      bottom?: boolean;
+    };
+  };
 }
 
 interface ServicesProps {

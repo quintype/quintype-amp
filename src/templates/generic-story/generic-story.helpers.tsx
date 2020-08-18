@@ -1,6 +1,6 @@
 import React from "react";
 import get from "lodash.get";
-import { StoryElement, Spacer } from "../../atoms";
+import { StoryElement } from "../../atoms";
 import { Fragment } from "react";
 import { BodyAd } from "../../molecules/ads";
 
@@ -116,18 +116,17 @@ export const displayCardsWithoutBodyAd = ({ story, config }) => {
   );
 };
 export const displayCardsWithBodyAd = ({ story }) => {
+  const templateName = "default";
   const canDisplayBodyAd = (cardIdx) => cardIdx === 0;
   story.cards.map((card, cardIdx) => {
     const storyCard = card["story-elements"].map((element) => <StoryElement key={element.id} element={element} />);
     return canDisplayBodyAd(cardIdx) ? (
       <Fragment key={card.id}>
         {storyCard}
-        <Spacer token="l" />
-        <BodyAd />
-        <Spacer token="l" />
+        <BodyAd templateName={templateName} />
       </Fragment>
     ) : (
-      ""
-    );
+        ""
+      );
   });
 };
