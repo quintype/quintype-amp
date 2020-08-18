@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.5](https://github.com/quintype/quintype-amp/compare/v2.1.4...v2.1.5) (2020-08-18)
+
+
+### Bug Fixes
+
+* add documentation ([1419976](https://github.com/quintype/quintype-amp/commit/14199762cefd515e640d135bcb43e80ab40e7816))
+* add featureConfig to enable/disable ads in templates ([bcf63c1](https://github.com/quintype/quintype-amp/commit/bcf63c136d1ae8de903a2fb017e4fba7df67c861))
+* PR changes ([646ae14](https://github.com/quintype/quintype-amp/commit/646ae14cf33d2449fe2683a6538296ec8ceb0022))
+* show body ad just after 1st card in live blog ([0c73b4a](https://github.com/quintype/quintype-amp/commit/0c73b4ad225473a2065e19da99069e6a350afa83))
+
 ### [2.1.4](https://github.com/quintype/quintype-amp/compare/v2.1.3...v2.1.4) (2020-08-13)
 
 ### [2.1.2](https://github.com/quintype/quintype-amp/compare/v2.1.2-perf-improvements.0...v2.1.2) (2020-08-12)
