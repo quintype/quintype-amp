@@ -186,6 +186,7 @@ The <code>&lt;Head /&gt;</code> component may be used to put code in the head. U
        &quot;top-slot&quot;: ({story, config}) => &lt;MyTopSlot story={story} config={config} />
        &quot;bottom-slot&quot;: ({story, config}) => &lt;MyBottomSlot story={story} config={config} />
        &quot;live-blog-card-slot&quot;: ({story, config, index, card}) => &lt;MyLiveBlogCardSlot />
+       &quot;generic-story-card-slot&quot;: ({story, config, index, card}) => &lt;MyGenStoryCardSlot />
      }
    }
 })
@@ -219,10 +220,19 @@ The <code>&lt;Head /&gt;</code> component may be used to put code in the head. U
 <td>obj - {story, config, index, card}</td>
 <td>card - the card above this slot. index - the 1st card has 0th index and so on</td>
 </tr>
+<tr>
+<td>generic-story-card-slot</td>
+<td>story</td>
+<td>obj - {story, config, index, card}</td>
+<td>- same as above -</td>
+</tr>
 </tbody>
 </table>
 <h2>Feature Config</h2>
 <p>Feature config is an object that can be used to configure different features of amp lib.</p>
+<ol>
+<li>enableAds: used to enable/disable ads on different templates. <code>top</code>, <code>body</code> and <code>bottom</code> corresponds to top-ad, body-ad and bottom-ad respoectively. By default, the ads are shown if no featureConfig is given.</li>
+</ol>
 <pre class="prettyprint source lang-jsx"><code>const exampleFeatureConfig = {
   enableAds: {
     default: {
