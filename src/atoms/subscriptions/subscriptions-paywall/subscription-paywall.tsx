@@ -25,6 +25,15 @@ export const SubscriberAccessPaywall = ({ config, services, score, fallbackEntit
           font-size: ${(props) => props.theme.font.size.l};
           color: ${(props) => props.theme.color.black};
           font-weight: ${(props) => props.theme.font.weight.bold};
+          padding: 26px 0 26px;
+        }
+        `}</style>
+        <style type="text/css">{`
+        .StyledContent {
+          font-size: 16px;
+          line-height: 1.31;
+          color: #242424;
+          margin-top: 0;
         }
         `}</style>
         <style type="text/css">{`
@@ -35,11 +44,12 @@ export const SubscriberAccessPaywall = ({ config, services, score, fallbackEntit
         <style type="text/css">{`
         .StyledButton button {
           border-radius: 5px;
+          background-color: #e84646;
           background-color: ${(props) => props.theme.color.primaryColor};
           border: none;
           color: ${(props) => props.theme.color.white};
           padding: 10px;
-          margin: 10px;
+          margin: 10px 0 10px;
           cursor: pointer;
           font: ${(props) => {
             const fontFamily = props.theme.font.family.primary;
@@ -47,6 +57,11 @@ export const SubscriberAccessPaywall = ({ config, services, score, fallbackEntit
             const fontSize = props.theme.font.size.xs;
             return `${fontWeight} ${fontSize} ${fontFamily}`;
           }};
+        }
+        `}</style>
+        <style type="text/css">{`
+        .StyledLine {
+          display: flex;
         }
         `}</style>
         <style type="text/css">{`
@@ -64,6 +79,9 @@ export const SubscriberAccessPaywall = ({ config, services, score, fallbackEntit
            `}</style>
         <style type="text/css">{`
           .StyledLine span {
+            font-size: 16px;
+            font-weight: 600;
+            color: #e84646;
             font-weight: ${(props) => props.theme.font.weight.bold};
             font-size: ${(props) => props.theme.font.size.s};
             color: ${(props) => props.theme.color.black};
@@ -83,14 +101,15 @@ export const SubscriberAccessPaywall = ({ config, services, score, fallbackEntit
       <div
         dangerouslySetInnerHTML={{
           __html: `<section class="StyledWrapper" subscriptions-actions subscriptions-display="NOT granted">
-        <h2 class="StyledText" subscriptions-actions subscriptions-display="data.isLoggedIn">
+        <h2 class="StyledText" subscriptions-actions subscriptions-display="NOT granted AND NOT data.isLoggedIn">
           Get unlimited access
         </h2>
-        <h2 class="StyledText" subscriptions-actions subscriptions-display="NOT data.isLoggedIn">
+        <h2 class="StyledText" subscriptions-actions subscriptions-display="granted AND NOT data.isLoggedIn">
           Just login to continue reading
         </h2>
-        <div class="StyledButton" subscriptions-actions subscriptions-display="data.isLoggedIn">
-          <button subscriptions-action="subscribe" subscriptions-display="data.isLoggedIn">
+        <p class="StyledContent">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content</p>
+        <div class="StyledButton" subscriptions-actions subscriptions-display="NOT granted">
+          <button subscriptions-action="subscribe" subscriptions-display="NOT granted">
             <span class="SubscribeMessage">Subscribe</span>
           </button>
         </div>
