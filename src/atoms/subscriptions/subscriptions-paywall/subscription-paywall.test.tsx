@@ -29,14 +29,15 @@ describe("Subscriptions", () => {
       fallbackEntitlement={fallbackEntitlement} />);
     expect(wrapper.find("div").html()).toEqual(
       `<div><section class="StyledWrapper" subscriptions-actions subscriptions-display="NOT granted">
-        <h2 class="StyledText" subscriptions-actions subscriptions-display="data.isLoggedIn">
+        <h2 class="StyledText" subscriptions-actions subscriptions-display="NOT granted AND NOT data.isLoggedIn">
           Get unlimited access
         </h2>
-        <h2 class="StyledText" subscriptions-actions subscriptions-display="NOT data.isLoggedIn">
+        <h2 class="StyledText" subscriptions-actions subscriptions-display="granted AND NOT data.isLoggedIn">
           Just login to continue reading
         </h2>
-        <div class="StyledButton" subscriptions-actions subscriptions-display="data.isLoggedIn">
-          <button subscriptions-action="subscribe" subscriptions-display="data.isLoggedIn">
+        <p class="StyledContent">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content</p>
+        <div class="StyledButton" subscriptions-actions subscriptions-display="NOT granted">
+          <button subscriptions-action="subscribe" subscriptions-display="NOT granted">
             <span class="SubscribeMessage">Subscribe</span>
           </button>
         </div>
@@ -69,14 +70,15 @@ describe("Subscriptions", () => {
       fallbackEntitlement={fallbackEntitlement} />);
     expect(wrapper.find("div").html()).toEqual(
       `<div><section class="StyledWrapper" subscriptions-actions subscriptions-display="NOT granted">
-        <h2 class="StyledText" subscriptions-actions subscriptions-display="data.isLoggedIn">
+        <h2 class="StyledText" subscriptions-actions subscriptions-display="NOT granted AND NOT data.isLoggedIn">
           Get unlimited access
         </h2>
-        <h2 class="StyledText" subscriptions-actions subscriptions-display="NOT data.isLoggedIn">
+        <h2 class="StyledText" subscriptions-actions subscriptions-display="granted AND NOT data.isLoggedIn">
           Just login to continue reading
         </h2>
-        <div class="StyledButton" subscriptions-actions subscriptions-display="data.isLoggedIn">
-          <button subscriptions-action="subscribe" subscriptions-display="data.isLoggedIn">
+        <p class="StyledContent">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content</p>
+        <div class="StyledButton" subscriptions-actions subscriptions-display="NOT granted">
+          <button subscriptions-action="subscribe" subscriptions-display="NOT granted">
             <span class="SubscribeMessage">Subscribe</span>
           </button>
         </div>
