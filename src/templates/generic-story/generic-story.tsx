@@ -19,7 +19,7 @@ import get from "lodash.get";
 import { TopAd, BodyAd, BottomAd } from "../../molecules/ads";
 import { StoryPageSlots } from "../../molecules/slots";
 
-const { TopSlot, BottomSlot } = StoryPageSlots;
+const { TopSlot, BottomSlot, GenericStoryCardSlot } = StoryPageSlots;
 const StoryContainer = styled.div`
   max-width: 600px;
   margin: 0 auto;
@@ -27,7 +27,6 @@ const StoryContainer = styled.div`
 const Wrapper = styled.div`
   padding: 0 ${(props) => props.theme.spacing.s};
 `;
-const canDisplayBodyAd = (cardIdx) => cardIdx === 0;
 
 /**
  * The GenericStory is the default template that's (as of Jul 2020) rendered for all stories except live-blog
@@ -79,13 +78,12 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
             const storyCard = card["story-elements"].map((element) => (
               <StoryElement key={element.id} element={element} />
             ));
-            return canDisplayBodyAd(cardIdx) ? (
+            return (
               <Fragment key={card.id}>
                 {storyCard}
-                <BodyAd templateName={templateName} />
+                {cardIdx === 0 && <BodyAd templateName={templateName} />}
+                <GenericStoryCardSlot index={cardIdx} card={card} />
               </Fragment>
-            ) : (
-              <Fragment key={card.id}>{storyCard}</Fragment>
             );
           })}
           <RelatedStories />
