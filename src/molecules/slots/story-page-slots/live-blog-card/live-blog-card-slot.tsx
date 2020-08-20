@@ -1,5 +1,5 @@
-import { withStoryAndConfig } from "../../../../../context";
-import { getSlotFromConfig } from "../../../helpers";
+import { withStoryAndConfig } from "../../../../context";
+import { getSlotFromConfig } from "../../helpers";
 
 const LiveBlogCardSlotBase = ({ story, config, index, card }) => {
   const liveBlogCardRender = getSlotFromConfig({
