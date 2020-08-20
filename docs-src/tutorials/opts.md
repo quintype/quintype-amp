@@ -66,7 +66,7 @@ ampRoutes(app, {
        "top-slot": ({story, config}) => <MyTopSlot story={story} config={config} />
        "bottom-slot": ({story, config}) => <MyBottomSlot story={story} config={config} />
        "live-blog-card-slot": ({story, config, index, card}) => <MyLiveBlogCardSlot />
-       "generic-story-card-slot": ({story, config, index, card}) => <MyGenStoryCardSlot />
+       "default-story-card-slot": ({story, config, index, card}) => <MyStoryCardSlot />
      }
    }
 })
@@ -74,12 +74,12 @@ ampRoutes(app, {
 
 Here, `story` and `config` is same as what's mentioned <a href="#storyConfig_link">above</a>.
 
-| Slot Name               | Slot Type | props                              | description                                                                   |
-| ----------------------- | --------- | ---------------------------------- | ----------------------------------------------------------------------------- |
-| top-slot                | story     | obj - {story, config}              |                                                                               |
-| bottom-slot             | story     | obj - {story, config}              |                                                                               |
-| live-blog-card-slot     | story     | obj - {story, config, index, card} | card - the card above this slot. index - the 1st card has 0th index and so on |
-| generic-story-card-slot | story     | obj - {story, config, index, card} | - same as above -                                                             |
+| Slot Name               | Slot Type | props                              | description                                                                            |
+| ----------------------- | --------- | ---------------------------------- | -------------------------------------------------------------------------------------- |
+| top-slot                | story     | obj - {story, config}              |                                                                                        |
+| bottom-slot             | story     | obj - {story, config}              |                                                                                        |
+| live-blog-card-slot     | story     | obj - {story, config, index, card} | card - the card above this slot. index - the 1st card has 0th index and so on          |
+| default-story-card-slot | story     | obj - {story, config, index, card} | - same as above - This slot is placed after every card on non-liveblog story templates |
 
 ## Feature Config
 

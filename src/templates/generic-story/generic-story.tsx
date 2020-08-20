@@ -19,7 +19,7 @@ import get from "lodash.get";
 import { TopAd, BodyAd, BottomAd } from "../../molecules/ads";
 import { StoryPageSlots } from "../../molecules/slots";
 
-const { TopSlot, BottomSlot, GenericStoryCardSlot } = StoryPageSlots;
+const { TopSlot, BottomSlot, DefaultStoryCardSlot } = StoryPageSlots;
 const StoryContainer = styled.div`
   max-width: 600px;
   margin: 0 auto;
@@ -82,7 +82,7 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
               <Fragment key={card.id}>
                 {storyCard}
                 {cardIdx === 0 && <BodyAd templateName={templateName} />}
-                <GenericStoryCardSlot index={cardIdx} card={card} />
+                <DefaultStoryCardSlot index={cardIdx} card={card} />
               </Fragment>
             );
           })}

@@ -7,7 +7,7 @@ import { TopAd, BodyAd, BottomAd } from "../../molecules/ads";
 import { StoryPageSlots } from "../../molecules/slots";
 import cloneDeep from "lodash.clonedeep";
 
-const { TopSlot, BottomSlot, GenericStoryCardSlot } = StoryPageSlots;
+const { TopSlot, BottomSlot, DefaultStoryCardSlot } = StoryPageSlots;
 const dummyCard = {
   "story-elements": [
     {
@@ -79,6 +79,6 @@ describe("GenericStory Template", () => {
     const wrapper = shallow(<GenericStory story={dummyStory} config={config} />);
     expect(wrapper.find(TopSlot).length).toBe(1);
     expect(wrapper.find(BottomSlot).length).toBe(1);
-    expect(wrapper.find(GenericStoryCardSlot).length).toBe(5);
+    expect(wrapper.find(DefaultStoryCardSlot).length).toBe(5);
   });
 });
