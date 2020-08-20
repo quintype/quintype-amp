@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.6](https://github.com/quintype/quintype-amp/compare/v2.1.4...v2.1.6) (2020-08-20)
+
+
+### Bug Fixes
+
+* add slot in generic story after every card ([4a117ea](https://github.com/quintype/quintype-amp/commit/4a117ea43d76b8ce02b28e2a7fa24a762ee2ff68))
+* rename generic to default story card slot ([9903f6d](https://github.com/quintype/quintype-amp/commit/9903f6d1591d733c06568ca21464a92d8fc1a450))
+
 ### [2.1.5](https://github.com/quintype/quintype-amp/compare/v2.1.4...v2.1.5) (2020-08-18)
 
 
