@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +5,7 @@
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66074042-1', 'auto');ga('send', 'pageview');</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AMP Library molecules/date/published/date-last-published.tsx</title>
+  <title>AMP Library InfiniteScroll</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -119,55 +117,167 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Source</p>
-                    <h1>molecules/date/published/date-last-published.tsx</h1>
+                    <p>Components</p>
+                    <h1>InfiniteScroll</h1>
                 </header>
                 
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>import React from "react";
-import { DateTime } from "../../../atoms";
-import { withStoryAndConfig } from "../../../context";
-import { DateLastPublishedTypes } from "./types";
-import { getHumanizedDateTime } from "../../../utils/date-time";
+        <h2>
+            &ltInfiniteScroll  /&gt
+        </h2>
+        
+    
+</header>
 
-export const DateLastPublishedBase = ({ story, format, prepend }: DateLastPublishedTypes) => {
-  const dateTime = story["last-published-at"];
-  if (!dateTime) return null;
+<article>
+    <div class="container-overview">
+    
+        
+            <div class='vertical-section'>
+                <div class="members">
+                    <div class="member">
+                        <div class=name>
+                            <span class="tag">Constructor</span>
+                        </div>
+                        
 
-  const formatDateTime = format || "do MMM, yyyy 'at' p";
-  const humanizedDate = getHumanizedDateTime({
-    dateFormat: formatDateTime,
-    timeZone: "Asia/Kolkata",
-    timeStamp: dateTime
-  });
 
-  return &lt;DateTime formattedDate={humanizedDate} prepend={prepend} />;
-};
+    
+    <h4 class="name" id="InfiniteScroll">
+        <a class="href-link" href="#InfiniteScroll">#</a>
+        
+        <span class="code-name">
+            
+                &ltInfiniteScroll  /&gt
+            
+        </span>
+    </h4>
+    
 
-/**
- * DateLastPublished Component - uses library "date-fns-tz" to format the story publish date. Uses the "DateTime" atomic component internally
- *
- * ```js
- * &lt;DateLastPublished format="pp 'on' do MM yyyy" prepend="Date of publication: " />
- * ```
- *
- * @param {Object} props Object containing parameters passed to the render prop
- * @param {String|Component} props.prepend Optional. String or Component (logo) that is prepended
- * @param {String} props.format Optional. String that is used to format date. The default is "do MMM, yyyy 'at' p". For formatting info, check [the date-fns Docs]{@link https://date-fns.org/docs/format}
- *
- *  @category Molecules
- * @component
- */
+    
+    
+    <div class="description">
+        <p>Infinite Scroll:
+In order to enable infinite scroll in amp pages, there needs to be a collection created with slug <code>amp-infinite-scroll</code>. The stories from this collection power the infinite scroll.
+If no such collection exists, infinite scroll is not shown and amp library does not add infinite scroll components</p>
+<p>If you wish to override infinite scroll content, you can do so using the <code>infiniteScrollRender</code> render prop. See opts tutorial for more info.</p>
+    </div>
+    
 
-export const DateLastPublished = withStoryAndConfig(DateLastPublishedBase);
-</code></pre>
-        </article>
-    </section>
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="atoms_infinite-scroll_infinite-scroll.tsx.html" class="button">View Source</a>
+            <span>
+                <a href="atoms_infinite-scroll_infinite-scroll.tsx.html">atoms/infinite-scroll/infinite-scroll.tsx</a>, <a href="atoms_infinite-scroll_infinite-scroll.tsx.html#line20">line 20</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        
+    
+    </div>
+    
+        
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

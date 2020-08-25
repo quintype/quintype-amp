@@ -7,7 +7,7 @@
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66074042-1', 'auto');ga('send', 'pageview');</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AMP Library molecules/date/published/date-last-published.tsx</title>
+  <title>AMP Library atoms/infinite-scroll/infinite-scroll.tsx</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -120,7 +120,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>molecules/date/published/date-last-published.tsx</h1>
+                    <h1>atoms/infinite-scroll/infinite-scroll.tsx</h1>
                 </header>
                 
 
@@ -129,42 +129,49 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React from "react";
-import { DateTime } from "../../../atoms";
-import { withStoryAndConfig } from "../../../context";
-import { DateLastPublishedTypes } from "./types";
-import { getHumanizedDateTime } from "../../../utils/date-time";
+            <pre class="prettyprint source linenums"><code>import React, { Fragment } from "react";
+import { Helmet } from "react-helmet";
+import { withStoryAndConfig } from "../../context";
+import { InfiniteScrollTypes } from "./types";
+import get from "lodash.get";
 
-export const DateLastPublishedBase = ({ story, format, prepend }: DateLastPublishedTypes) => {
-  const dateTime = story["last-published-at"];
-  if (!dateTime) return null;
+export const InfiniteScrollBase = ({ story, config, children, inlineConfig, ...props }: InfiniteScrollTypes) => {
+  const { "story-content-id": storyId } = story;
+  const { "sketches-host": host } = config.publisherConfig;
+  const jsonConfigUrl = `${host}/amp/api/v1/amp-infinite-scroll?story-id=${storyId}`;
+  const infiniteScrollRender = get(config, ["opts", "render", "infiniteScrollRender"], null);
 
-  const formatDateTime = format || "do MMM, yyyy 'at' p";
-  const humanizedDate = getHumanizedDateTime({
-    dateFormat: formatDateTime,
-    timeZone: "Asia/Kolkata",
-    timeStamp: dateTime
-  });
-
-  return &lt;DateTime formattedDate={humanizedDate} prepend={prepend} />;
+  if (infiniteScrollRender) return infiniteScrollRender({ story, config, inlineConfig });
+  return (
+    &lt;Fragment>
+      &lt;Helmet>
+        &lt;script
+          async={undefined}
+          custom-element="amp-next-page"
+          src="https://cdn.ampproject.org/v0/amp-next-page-1.0.js"
+        />
+      &lt;/Helmet>
+      &lt;amp-next-page {...props} src={jsonConfigUrl}>
+        &lt;script type="application/json" dangerouslySetInnerHTML={{ __html: inlineConfig }} />
+        {children}
+      &lt;/amp-next-page>
+    &lt;/Fragment>
+  );
 };
 
 /**
- * DateLastPublished Component - uses library "date-fns-tz" to format the story publish date. Uses the "DateTime" atomic component internally
+ * Infinite Scroll:
+ * In order to enable infinite scroll in amp pages, there needs to be a collection created with slug `amp-infinite-scroll`. The stories from this collection power the infinite scroll.
+ * If no such collection exists, infinite scroll is not shown and amp library does not add infinite scroll components
  *
- * ```js
- * &lt;DateLastPublished format="pp 'on' do MM yyyy" prepend="Date of publication: " />
- * ```
+ * If you wish to override infinite scroll content, you can do so using the `infiniteScrollRender` render prop. See opts tutorial for more info.
  *
- * @param {Object} props Object containing parameters passed to the render prop
- * @param {String|Component} props.prepend Optional. String or Component (logo) that is prepended
- * @param {String} props.format Optional. String that is used to format date. The default is "do MMM, yyyy 'at' p". For formatting info, check [the date-fns Docs]{@link https://date-fns.org/docs/format}
- *
- *  @category Molecules
+ * @category Atoms
+ * @module InfiniteScroll
  * @component
  */
 
-export const DateLastPublished = withStoryAndConfig(DateLastPublishedBase);
+export const InfiniteScroll = withStoryAndConfig(InfiniteScrollBase);
 </code></pre>
         </article>
     </section>

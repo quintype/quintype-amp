@@ -79,26 +79,29 @@ reactComponents['ImageElement'] = Component17;
 import Component18 from '../src/atoms/story-elements/image-gallery-element/image-gallery-element.tsx';
 reactComponents['ImageGalleryElement'] = Component18;
 
-import Component19 from '../src/atoms/story-elements/instagram-element/instagram-element.tsx';
-reactComponents['InstagramElement'] = Component19;
+import Component19 from '../src/atoms/infinite-scroll/infinite-scroll.tsx';
+reactComponents['InfiniteScroll'] = Component19;
 
-import Component20 from '../src/atoms/story-elements/text/question/question.tsx';
-reactComponents['Question'] = Component20;
+import Component20 from '../src/atoms/story-elements/instagram-element/instagram-element.tsx';
+reactComponents['InstagramElement'] = Component20;
 
-import Component21 from '../src/atoms/story-elements/text/summary/summary.tsx';
-reactComponents['Summary'] = Component21;
+import Component21 from '../src/atoms/story-elements/text/question/question.tsx';
+reactComponents['Question'] = Component21;
 
-import Component22 from '../src/atoms/story-elements/text/text.tsx';
-reactComponents['Text'] = Component22;
+import Component22 from '../src/atoms/story-elements/text/summary/summary.tsx';
+reactComponents['Summary'] = Component22;
 
-import Component23 from '../src/atoms/story-elements/title/title.tsx';
-reactComponents['Title'] = Component23;
+import Component23 from '../src/atoms/story-elements/text/text.tsx';
+reactComponents['Text'] = Component23;
 
-import Component24 from '../src/atoms/story-elements/twitter-element/twitter-element.tsx';
-reactComponents['TwitterElement'] = Component24;
+import Component24 from '../src/atoms/story-elements/title/title.tsx';
+reactComponents['Title'] = Component24;
 
-import Component25 from '../src/atoms/story-elements/vidible-element/vidible-element.tsx';
-reactComponents['VidibleElement'] = Component25;
+import Component25 from '../src/atoms/story-elements/twitter-element/twitter-element.tsx';
+reactComponents['TwitterElement'] = Component25;
 
-import Component26 from '../src/atoms/story-elements/youtube/youtube.tsx';
-reactComponents['YouTube'] = Component26;
+import Component26 from '../src/atoms/story-elements/vidible-element/vidible-element.tsx';
+reactComponents['VidibleElement'] = Component26;
+
+import Component27 from '../src/atoms/story-elements/youtube/youtube.tsx';
+reactComponents['YouTube'] = Component27;
