@@ -25,12 +25,13 @@ import {
 import {
   getServicesParams,
   getScoreParams,
-  getFallbackEntitlementParams,
-  displayCardsWithBodyAd,
-  displayCardsWithoutBodyAd
+  getFallbackEntitlementParams
+  // displayCardsWithBodyAd,
+  // displayCardsWithoutBodyAd
 } from "./generic-story.helpers";
 import { TopAd, BottomAd } from "../../molecules/ads";
 import { StoryPageSlots } from "../../molecules/slots";
+import { StoryCardsWithSubscriptions } from "./subscription-components";
 
 const { TopSlot, BottomSlot } = StoryPageSlots;
 const StoryContainer = styled.div`
@@ -93,8 +94,9 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
           <HeaderCard />
           <WebEngage />
           <Spacer token="m" />
-          {displayCardsWithBodyAd({ story })}
-          {displayCardsWithoutBodyAd({ story, config })}
+          <StoryCardsWithSubscriptions />
+          {/* {displayCardsWithBodyAd({ story })}
+          {displayCardsWithoutBodyAd({ story, config })} */}
           {isAccessible && (
             <>
               <MeteredPaywall
