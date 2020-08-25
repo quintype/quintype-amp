@@ -28,4 +28,16 @@ export const InfiniteScrollBase = ({ story, config, children, inlineConfig, ...p
   );
 };
 
+/**
+ * Infinite Scroll:
+ * In order to enable infinite scroll in amp pages, there needs to be a collection created with slug `amp-infinite-scroll`. The stories from this collection power the infinite scroll.
+ * If no such collection exists, infinite scroll is not shown and amp library does not add infinite scroll components
+ *
+ * If you wish to override infinite scroll content, you can do so using the `infiniteScrollRender` render prop. See opts tutorial for more info.
+ *
+ * @category Atoms
+ * @module InfiniteScroll
+ * @component
+ */
+
 export const InfiniteScroll = withStoryAndConfig(InfiniteScrollBase);
