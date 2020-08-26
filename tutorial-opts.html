@@ -232,6 +232,11 @@ The <code>&lt;Head /&gt;</code> component may be used to put code in the head. U
 <p>Feature config is an object that can be used to configure different features of amp lib.</p>
 <ol>
 <li>enableAds: used to enable/disable ads on different templates. <code>top</code>, <code>body</code> and <code>bottom</code> corresponds to top-ad, body-ad and bottom-ad respoectively. By default, the ads are shown if no featureConfig is given.</li>
+<li>infiniteScroll:
+<ul>
+<li><code>storySeparatorText</code>: String that will be displayed by the separator that separates two infinite scroll stories. If nothing is passed, <code>SCROLL FOR NEXT</code> is displayed</li>
+</ul>
+</li>
 </ol>
 <pre class="prettyprint source lang-jsx"><code>const exampleFeatureConfig = {
   enableAds: {
@@ -249,6 +254,9 @@ The <code>&lt;Head /&gt;</code> component may be used to put code in the head. U
   liveBlog: {
     dataPollInterval: &quot;10000&quot;,
     dataMaxItemsPerPage: &quot;50&quot;
+  },
+  infiniteScroll: {
+    storySeparatorText: string
   }
 };
 </code></pre>
