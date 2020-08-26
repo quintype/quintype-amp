@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.7](https://github.com/quintype/quintype-amp/compare/v2.1.4...v2.1.7) (2020-08-26)
+
+
+### Bug Fixes
+
+* add slot in generic story after every card ([#259](https://github.com/quintype/quintype-amp/issues/259)) ([1faad65](https://github.com/quintype/quintype-amp/commit/1faad6549502d3341e36bbdd9bcff93ecd0e2471))
+* dont render pending element ([08d5085](https://github.com/quintype/quintype-amp/commit/08d5085dae9cb13b7b6ec90d4d5452a733b293f2))
+* remove pending element ([e24ffae](https://github.com/quintype/quintype-amp/commit/e24ffaeec1cfeb003fa8a169b097477f1d0939bc))
+
 ### [2.1.6](https://github.com/quintype/quintype-amp/compare/v2.1.4...v2.1.6) (2020-08-20)
 
 
