@@ -5,7 +5,6 @@ import {
   Answer,
   Bigfact,
   BlockQuote,
-  Pending,
   ImageElement,
   Blurb,
   AlsoRead,
@@ -62,7 +61,7 @@ const StoryElementsTable = [
   ["text", anyType, Text],
   ["title", none, Title],
   ["youtube-video", none, YouTube],
-  [anyType, anyType, Pending]
+  [anyType, anyType, noop]
 ];
 
 function matchStoryElement(element, table = StoryElementsTable) {
