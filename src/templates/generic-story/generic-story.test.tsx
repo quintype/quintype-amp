@@ -2,7 +2,7 @@ import React from "react";
 import { shallow, mount } from "enzyme";
 import { GenericStory } from "./generic-story";
 import { InfiniteScroll } from "../../atoms";
-import { textStory, config, relatedStories } from "../../__fixtures__";
+import { textStory, config } from "../../__fixtures__";
 import { TopAd, BodyAd, BottomAd } from "../../molecules/ads";
 import { StoryPageSlots } from "../../molecules/slots";
 import cloneDeep from "lodash.clonedeep";
@@ -77,14 +77,6 @@ describe("GenericStory Template", () => {
   it("should render all generic story page slots", () => {
     const dummyStory = cloneDeep(textStory);
     dummyStory.cards = [];
-    const modifiedConfig = { ...config };
-    modifiedConfig.opts = {
-      featureConfig: {
-        relatedStories: {
-          stories: relatedStories
-        }
-      }
-    };
     for (let i = 0; i < 5; i++) {
       dummyStory.cards.push(genDummyCard());
     }
