@@ -13,7 +13,7 @@ const DefaultStoryCardSlotBase = ({ story, config, index, card }) => {
 /**
  * default-story-card-slot is a story page slot. It's placed after every card on a non live blog story.
  *
- * @category Atoms
+ * @category Molecules
  * @module default-story-card-slot
  * @param {Props} props
  * @param {Story} props.story

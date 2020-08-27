@@ -74,18 +74,21 @@ ampRoutes(app, {
 
 Here, `story` and `config` is same as what's mentioned <a href="#storyConfig_link">above</a>.
 
-| Slot Name               | Slot Type | props                              | description                                                                            |
-| ----------------------- | --------- | ---------------------------------- | -------------------------------------------------------------------------------------- |
-| top-slot                | story     | obj - {story, config}              |                                                                                        |
-| bottom-slot             | story     | obj - {story, config}              |                                                                                        |
-| live-blog-card-slot     | story     | obj - {story, config, index, card} | card - the card above this slot. index - the 1st card has 0th index and so on          |
-| default-story-card-slot | story     | obj - {story, config, index, card} | - same as above - This slot is placed after every card on non-liveblog story templates |
+| Slot Name               | Slot Type | props                                      | description                                                                   |
+| ----------------------- | --------- | ------------------------------------------ | ----------------------------------------------------------------------------- |
+| top-slot                | story     | obj - {story, config}                      |                                                                               |
+| bottom-slot             | story     | obj - {story, config}                      |                                                                               |
+| live-blog-card-slot     | story     | obj - {story, config, index, card}         | card - the card above this slot. index - the 1st card has 0th index and so on |
+| default-story-card-slot | story     | obj - {story, config, index, card}         | This slot is placed after every card on non-liveblog story templates          |
+| related-story-card-slot | story     | obj - {story, config, index, relatedStory} | This slot is placed after every related story card (also read)                |
 
 ## Feature Config
 
 Feature config is an object that can be used to configure different features of amp lib.
 
 1. enableAds: used to enable/disable ads on different templates. `top`, `body` and `bottom` corresponds to top-ad, body-ad and bottom-ad respoectively. By default, the ads are shown if no featureConfig is given.
+2. relatedStories (also read)
+   - storiesToTake: sets the number of related stories displayed. Defaults to 5
 
 ```jsx
 const exampleFeatureConfig = {
@@ -104,6 +107,9 @@ const exampleFeatureConfig = {
   liveBlog: {
     dataPollInterval: "10000",
     dataMaxItemsPerPage: "50"
+  },
+  relatedStories: {
+    storiesToTake: number
   }
 };
 ```

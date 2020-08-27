@@ -13,7 +13,7 @@ const TopSlotBase = ({ story, config }) => {
 /**
  * top-slot is a story page slot. It's placed just below the top ad, so whatever the render prop outputs will be displayed here.
  *
- * @category Atoms
+ * @category Molecules
  * @module top-slot
  * @param {Props} props
  * @param {Story} props.story
