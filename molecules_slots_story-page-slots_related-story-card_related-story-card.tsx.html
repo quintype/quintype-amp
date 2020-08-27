@@ -7,7 +7,7 @@
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66074042-1', 'auto');ga('send', 'pageview');</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AMP Library atoms/story-elements/image-gallery-element/image-gallery-element.tsx</title>
+  <title>AMP Library molecules/slots/story-page-slots/related-story-card/related-story-card.tsx</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -120,7 +120,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>atoms/story-elements/image-gallery-element/image-gallery-element.tsx</h1>
+                    <h1>molecules/slots/story-page-slots/related-story-card/related-story-card.tsx</h1>
                 </header>
                 
 
@@ -129,124 +129,30 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React from "react";
-import { StoryElementProps } from "../types";
-import { ImageGalleryTypes } from "./types";
-import { Carousel } from "../../carousel";
-import { Image } from "../../image";
-import styled from "styled-components";
-import { media } from "../../../utils/media";
-import { withStoryAndConfig } from "../../../context";
-import get from "lodash.get";
+            <pre class="prettyprint source linenums"><code>import { withStoryAndConfig } from "../../../../context";
+import { getSlotFromConfig } from "../../helpers";
 
-const StyledGallery = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-`;
-const StyledFigcaption = styled.figcaption`
-  text-align: left;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 8px;
-  max-height: 90px;
-  color: ${(props) => props.theme.color.white};
-  line-height: ${(props) => props.theme.font.lineHeight.level1};
-  background: ${(props) => `${props.theme.color.black}60`};
-  font-size: ${(props) => props.theme.font.size.xxs};
-  z-index: ${(props) => props.theme.zIndex.z100};
-
-  ${media.laptop`
-		max-height: 130px;
-		overflow-y: scroll;
-	`}
-`;
-
-export const DefaultImageGalleryElement = ({
-  element,
-  height = "750",
-  width = "1200",
-  layout = "responsive",
-  aspectRatio = [16, 9],
-  type,
-  lightbox,
-  ...props
-}: ImageGalleryTypes) => {
-  // forcing imageGallery to false for now for vikatan.
-  const imageGallery = element.metadata &amp;&amp; element.metadata.type === "gallery" &amp;&amp; false;
-  const images =
-    element["story-elements"] &amp;&amp;
-    element["story-elements"].map((image) => (
-      &lt;Image
-        key={image.id}
-        metadata={image["image-metadata"]}
-        slug={image["image-s3-key"]}
-        aspectRatio={aspectRatio}
-        alt={image.title}
-        lightbox={imageGallery ? "imageGallery" : false}>
-        {getFigcaptionText(image.title, image["image-attribution"]) &amp;&amp; (
-          &lt;StyledFigcaption>{getFigcaptionText(image.title, image["image-attribution"])}&lt;/StyledFigcaption>
-        )}
-      &lt;/Image>
-    ));
-  const storyElements = element["story-elements"] &amp;&amp; element["story-elements"].length >= 1;
-  return (
-    &lt;>
-      {storyElements &amp;&amp;
-        (imageGallery ? (
-          &lt;StyledGallery>{images}&lt;/StyledGallery>
-        ) : (
-          &lt;Carousel height={height} width={width} layout={layout} type="slides" {...props}>
-            {images}
-          &lt;/Carousel>
-        ))}
-    &lt;/>
-  );
-};
-
-export function getFigcaptionText(caption, attribution) {
-  if (caption &amp;&amp; attribution) return `${caption}`;
-  else if (caption || attribution) return `${caption || attribution}`;
-  else return false;
-}
-
-export const ImageGalleryElementBase = ({ element, story, config }: StoryElementProps) => {
-  const imageGalleryElementRender = get(
+const RelatedStoryCardSlotBase = ({ story, config, index, relatedStory }) => {
+  const relatedStoryCardRender = getSlotFromConfig({
     config,
-    ["opts", "render", "storyElementRender", "imageGalleryElementRender"],
-    null
-  );
-
-  return imageGalleryElementRender ? (
-    imageGalleryElementRender({ story, config, element })
-  ) : (
-    &lt;DefaultImageGalleryElement element={element} />
-  );
+    slotType: "story",
+    slotName: "related-story-card-slot"
+  });
+  return relatedStoryCardRender &amp;&amp; relatedStoryCardRender({ story, config, index, relatedStory });
 };
 
 /**
- * ImageGalleryElement is a story element.
- * The look of the ImageGalleryElement can be changed using the render prop imageGalleryElementRender. In case imageGalleryElementRender is passed in the config, it is rendered. Otherwise a default ImageGalleryElement is rendered.
+ * related-story-card-slot is a story page slot. It's placed after every related story card.
  *
- * @param {Object} params object containing parameters passed to the render prop
- * @param {Object} params.story story object
- * @param {Object} params.config config object
- * @param {Object} params.element the story element. This is same as the story element found in the story API response
- *
- * ```javascript
- * ...
- * ampRoutes(app, {
- *    imageGalleryElementRender: ({ story, config, element }) => &lt;MyCustomImageGalleryElement story={story} config={config} storyElement={element} />
- * })
- * ...
- * ```
- *
- * @category StoryElements
- * @module ImageGalleryElement
- * @component
+ * @category Molecules
+ * @module related-story-card-slot
+ * @param {Props} props
+ * @param {Story} props.story
+ * @param {Config} props.config
+ * @param {number} props.index index of the card. For example the slot coming after the 1st card will have index 0 and so on
+ * @param {Story} props.relatedStory The related story that is above this slot
  */
-export const ImageGalleryElement = withStoryAndConfig(ImageGalleryElementBase);
+export const RelatedStoryCardSlot = withStoryAndConfig(RelatedStoryCardSlotBase);
 </code></pre>
         </article>
     </section>

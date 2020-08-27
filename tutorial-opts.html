@@ -224,7 +224,13 @@ The <code>&lt;Head /&gt;</code> component may be used to put code in the head. U
 <td>default-story-card-slot</td>
 <td>story</td>
 <td>obj - {story, config, index, card}</td>
-<td>- same as above - This slot is placed after every card on non-liveblog story templates</td>
+<td>This slot is placed after every card on non-liveblog story templates</td>
+</tr>
+<tr>
+<td>related-story-card-slot</td>
+<td>story</td>
+<td>obj - {story, config, index, relatedStory}</td>
+<td>This slot is placed after every related story card (also read)</td>
 </tr>
 </tbody>
 </table>
@@ -232,6 +238,11 @@ The <code>&lt;Head /&gt;</code> component may be used to put code in the head. U
 <p>Feature config is an object that can be used to configure different features of amp lib.</p>
 <ol>
 <li>enableAds: used to enable/disable ads on different templates. <code>top</code>, <code>body</code> and <code>bottom</code> corresponds to top-ad, body-ad and bottom-ad respoectively. By default, the ads are shown if no featureConfig is given.</li>
+<li>relatedStories (also read)
+<ul>
+<li>storiesToTake: sets the number of related stories displayed. Defaults to 5</li>
+</ul>
+</li>
 <li>infiniteScroll:
 <ul>
 <li><code>storySeparatorText</code>: String that will be displayed by the separator that separates two infinite scroll stories. If nothing is passed, <code>SCROLL FOR NEXT</code> is displayed</li>
@@ -255,6 +266,8 @@ The <code>&lt;Head /&gt;</code> component may be used to put code in the head. U
     dataPollInterval: &quot;10000&quot;,
     dataMaxItemsPerPage: &quot;50&quot;
   },
+  relatedStories: {
+    storiesToTake: number
   infiniteScroll: {
     storySeparatorText: string
   }
