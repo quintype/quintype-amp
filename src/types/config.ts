@@ -171,6 +171,7 @@ interface InfiniteScrollRenderPropTypes {
 interface FeatureConfigTypes {
   infiniteScroll?: {
     infiniteScrollInlineConfig: string;
+    storySeparatorText?: string;
   };
   relatedStories?: {
     stories: Story[];
