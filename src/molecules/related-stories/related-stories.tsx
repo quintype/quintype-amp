@@ -6,6 +6,9 @@ import { withStoryAndConfig } from "../../context";
 import { base64FallbackImage } from "../../helpers/image-helpers";
 import { Spacer } from "../../atoms";
 import get from "lodash.get";
+import { StoryPageSlots } from "../../molecules/slots";
+
+const { RelatedStoryCardSlot } = StoryPageSlots;
 
 export const Heading = styled.h2`
   font-size: ${(props) => props.theme.font.size.l};
@@ -26,13 +29,15 @@ export const RelatedStoriesBase = ({
       <Spacer token="m" />
       <Heading>{heading}</Heading>
       <div>
-        {relatedStories.map((relatedStory) => (
-          <RelatedStoryCard
-            key={relatedStory.id}
-            story={relatedStory}
-            fallbackSrc={get(config, ["ampConfig", "fallback-image-url"], base64FallbackImage)}
-            aspectRatio={aspectRatio}
-          />
+        {relatedStories.map((relatedStory, idx) => (
+          <Fragment key={relatedStory.id}>
+            <RelatedStoryCard
+              story={relatedStory}
+              fallbackSrc={get(config, ["ampConfig", "fallback-image-url"], base64FallbackImage)}
+              aspectRatio={aspectRatio}
+            />
+            <RelatedStoryCardSlot story={story} config={config} index={idx} relatedStory={relatedStory} />
+          </Fragment>
         ))}
       </div>
     </Fragment>

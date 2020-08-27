@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.9](https://github.com/quintype/quintype-amp/compare/v2.1.4...v2.1.9) (2020-08-27)
+
+
+### Bug Fixes
+
+* merge conflicts ([e377caa](https://github.com/quintype/quintype-amp/commit/e377caab3e5bff629cebbab26eedecf8e811d0dc))
+* **infinite scroll:** add separator; accept custom text from featureC… ([#264](https://github.com/quintype/quintype-amp/issues/264)) ([be0fd49](https://github.com/quintype/quintype-amp/commit/be0fd49cd3fb34c88a3fdabeb9ae651640dcf325))
+* add related story slots ([6ca29b0](https://github.com/quintype/quintype-amp/commit/6ca29b09a373c70b2330849ce05fae0681653e34))
+* add slot in generic story after every card ([#259](https://github.com/quintype/quintype-amp/issues/259)) ([1faad65](https://github.com/quintype/quintype-amp/commit/1faad6549502d3341e36bbdd9bcff93ecd0e2471))
+* dont render pending element ([#265](https://github.com/quintype/quintype-amp/issues/265)) ([9d4f3ef](https://github.com/quintype/quintype-amp/commit/9d4f3ef141b24ef35c1f3ec3bc915d25270caaf1))
+
 ### [2.1.8](https://github.com/quintype/quintype-amp/compare/v2.1.4...v2.1.8) (2020-08-27)
 
 
