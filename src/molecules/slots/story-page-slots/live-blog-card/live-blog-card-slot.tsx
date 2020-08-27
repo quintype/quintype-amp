@@ -13,7 +13,7 @@ const LiveBlogCardSlotBase = ({ story, config, index, card }) => {
 /**
  * live-blog-card is a story page slot. It's placed after every card on a live blog type story.
  *
- * @category Atoms
+ * @category Molecules
  * @module live-blog-card
  * @param {Props} props
  * @param {Story} props.story

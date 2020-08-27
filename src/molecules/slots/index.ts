@@ -79,7 +79,7 @@ import * as StoryPageSlots from "./story-page-slots";
  * );
  * ```
  *
- * @category Atoms
+ * @category Molecules
  * @module Slots
  */
 
