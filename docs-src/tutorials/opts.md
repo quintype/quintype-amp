@@ -89,6 +89,8 @@ Feature config is an object that can be used to configure different features of 
 1. enableAds: used to enable/disable ads on different templates. `top`, `body` and `bottom` corresponds to top-ad, body-ad and bottom-ad respoectively. By default, the ads are shown if no featureConfig is given.
 2. relatedStories (also read)
    - storiesToTake: sets the number of related stories displayed. Defaults to 5
+3. infiniteScroll:
+   - `storySeparatorText`: String that will be displayed by the separator that separates two infinite scroll stories. If nothing is passed, `SCROLL FOR NEXT` is displayed
 
 ```jsx
 const exampleFeatureConfig = {
@@ -110,6 +112,8 @@ const exampleFeatureConfig = {
   },
   relatedStories: {
     storiesToTake: number
+  infiniteScroll: {
+    storySeparatorText: string
   }
 };
 ```
