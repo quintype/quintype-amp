@@ -67,6 +67,26 @@ function heroImageAbsent(story) {
   return story["hero-image-s3-key"] === null;
 }
 
+/**
+ * HeroImage Component uses the "Image" atomic component internally. It even serves figure caption text which picks up "hero-image-attribution" and/or "hero-image-caption" depending which one is available.
+ *
+ * ```js
+ * <HeroImage
+ *  caption="<p>Congress, AAP and AIMIM leaders</p>"
+ *  attribution="<span>custom attribution</span>"
+ *  slug="quintype/2020-02/0ecdae82-a09e-47a9-9249-d8d1380e0de8/quintype_blog_HC.jpg"
+ * />
+ * ```
+ *
+ * @param {Object} props Object containing parameters passed to the render prop
+ * @param {String} props.alt Optional. A String of alternate text or image caption.
+ * @param {Object} props.metadata Optional. An object containing width, height, "mime-type", "file-size", "file-name"and "focus-point" parameters.
+ * @param {String} props.slug Optional. A String which is a part of URL.
+ * @param {String} props.attribution Optional. A String which is the image caption.
+ *  @category Molecules
+ * @component
+ */
+
 export const HeroImage = withStoryAndConfig(HeroImageBase);
 
 export function getFigcaptionText(caption, attribution) {

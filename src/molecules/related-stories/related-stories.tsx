@@ -44,4 +44,20 @@ export const RelatedStoriesBase = ({
   );
 };
 
+/**
+ * RelatedStories Component uses the RelatedStoryCard molecule component internally.
+ *
+ * ```js
+ * <RelatedStories stories={relatedStories} />
+ * ```
+ *
+ * @param {Object} props Object containing parameters passed to the render prop
+ * @param {Object} props.stories Required. It takes in related stories object.
+ * @param {Object} props.config config object
+ * @param {Object} props.heading Optional. A String which serves as a title for this collection. If not passed, defaults to "Also Read" text.
+ * @param {Object} props.aspectRatio Optional. An Array of width and height. If not passed, defaults to [16,9].
+ *  @category Molecules
+ * @component
+ */
+
 export const RelatedStories = withStoryAndConfig(RelatedStoriesBase);
