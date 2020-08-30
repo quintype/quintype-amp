@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { HeaderCard, Navbar, AmpAds, RelatedStories, WebEngage, Slots } from "../../molecules";
+import { HeaderCard, Navbar, RelatedStories, WebEngage } from "../../molecules";
 import {
   Layout,
   StoryElement,
@@ -14,12 +14,12 @@ import {
   InfiniteScroll
 } from "../../atoms";
 import styled from "styled-components";
-import { GenericStoryTypes } from "./types";
+import { CommonTemplateTypes } from "../common-template-types";
 import get from "lodash.get";
+import { TopAd, BodyAd, BottomAd } from "../../molecules/ads";
+import { StoryPageSlots } from "../../molecules/slots";
 
-const { TopAd, BodyAd, BottomAd } = AmpAds;
-const { StoryPageSlots } = Slots;
-const { TopSlot, BottomSlot } = StoryPageSlots;
+const { TopSlot, BottomSlot, DefaultStoryCardSlot } = StoryPageSlots;
 const StoryContainer = styled.div`
   max-width: 600px;
   margin: 0 auto;
@@ -27,34 +27,47 @@ const StoryContainer = styled.div`
 const Wrapper = styled.div`
   padding: 0 ${(props) => props.theme.spacing.s};
 `;
-const canDisplayBodyAd = (cardIdx) => cardIdx === 0;
 
-export const GenericStory = ({ story, config, relatedStories, infiniteScrollInlineConfig }: GenericStoryTypes) => {
+/**
+ * The GenericStory is the default template that's (as of Jul 2020) rendered for all stories except live-blog
+ *
+ * Slots: top-slot, bottom-slot
+ *
+ * @category Default Templates
+ * @component
+ */
+export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
   const footerText = get(config, ["publisherConfig", "publisher-settings", "copyright"], null);
-  const infiniteScrollExists = infiniteScrollInlineConfig && infiniteScrollInlineConfig.length; // should also check if infinite scroll collection exists here
+  const infiniteScrollInlineConfig = get(
+    config,
+    ["opts", "featureConfig", "infiniteScroll", "infiniteScrollInlineConfig"],
+    null
+  );
+  const infiniteScrollExists = !!(infiniteScrollInlineConfig && infiniteScrollInlineConfig.length);
   let lastComponent = <Footer text={footerText} />;
+  let navbarComponent = <Navbar />;
   if (infiniteScrollExists) {
-    if (config.opts && config.opts.infiniteScrollRender) {
-      lastComponent = config.opts.infiniteScrollRender({ story, config, inlineConfig: infiniteScrollInlineConfig });
-    } else {
-      lastComponent = (
-        <InfiniteScroll inlineConfig={infiniteScrollInlineConfig}>
-          <div next-page-hide="true" footer="true">
-            <Footer text={footerText} />
-          </div>
-        </InfiniteScroll>
-      );
-    }
-  }
-  return (
-    <Layout story={story} config={config}>
-      <div next-page-hide={infiniteScrollExists}>
+    lastComponent = (
+      <InfiniteScroll inlineConfig={infiniteScrollInlineConfig}>
+        <div next-page-hide="true" footer="true">
+          <Footer text={footerText} />
+        </div>
+      </InfiniteScroll>
+    );
+    navbarComponent = (
+      <div next-page-hide="true">
         <Navbar />
       </div>
+    );
+  }
+  const templateName = "default";
+  return (
+    <Layout story={story} config={config}>
+      {navbarComponent}
       <IncompatibleBanner />
       <GoogleTagManager />
       <Wrapper>
-        <TopAd />
+        <TopAd templateName={templateName} />
         <TopSlot />
         <Spacer token="s" />
         <StoryContainer>
@@ -65,26 +78,18 @@ export const GenericStory = ({ story, config, relatedStories, infiniteScrollInli
             const storyCard = card["story-elements"].map((element) => (
               <StoryElement key={element.id} element={element} />
             ));
-            return canDisplayBodyAd(cardIdx) ? (
+            return (
               <Fragment key={card.id}>
                 {storyCard}
-                <Spacer token="l" />
-                <BodyAd />
-                <Spacer token="l" />
+                {cardIdx === 0 && <BodyAd templateName={templateName} />}
+                <DefaultStoryCardSlot index={cardIdx} card={card} />
               </Fragment>
-            ) : (
-              <Fragment key={card.id}>{storyCard}</Fragment>
             );
           })}
-
-          {config.opts && config.opts.relatedStoriesRender ? (
-            config.opts.relatedStoriesRender({ relatedStories, config, story })
-          ) : (
-            <RelatedStories stories={relatedStories} />
-          )}
+          <RelatedStories />
         </StoryContainer>
         <BottomSlot />
-        <BottomAd />
+        <BottomAd templateName={templateName} />
       </Wrapper>
       <GoogleAnalytics />
       <QuintypeAnalytics />

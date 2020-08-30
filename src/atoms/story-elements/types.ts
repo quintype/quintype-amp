@@ -5,5 +5,4 @@ export interface StoryElementProps {
   element: StoryElement;
   story?: Story;
   config?: Config;
-  style?: { [key: string]: string };
 }

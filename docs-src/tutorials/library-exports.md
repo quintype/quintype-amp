@@ -57,9 +57,6 @@ The library exports following components. Check each component's API documentati
 | ↳              | DfpAd                    | -                         | Component  |                                                                                                             |
 | ↳              | PublisherLogoHeader      | -                         | Component  |                                                                                                             |
 | ↳              | HamburgerMenu            | -                         | Component  |                                                                                                             |
-| ↳              | icons                    |                           | **Object** |                                                                                                             |
-|                | ↳                        | Hamburger                 | Component  |                                                                                                             |
-|                |                          | Bell                      | Component  |                                                                                                             |
 | ↳              | SocialShareIcon          | -                         | Component  |                                                                                                             |
 | ↳              | IncompatibleBanner       | -                         | Component  |                                                                                                             |
 | ↳              | DailyMotion              | -                         | Component  |                                                                                                             |

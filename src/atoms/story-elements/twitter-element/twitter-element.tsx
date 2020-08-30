@@ -9,7 +9,7 @@ type TwitterElementProps = StoryElementProps & Omit<TwitterTypes, "data-tweetid"
 
 export const TwitterElementBase = ({ element, story, config, ...props }: TwitterElementProps) => {
   const { metadata } = element;
-  const twitterElementRender = get(config, ["opts", "storyElementRender", "twitterElementRender"], null);
+  const twitterElementRender = get(config, ["opts", "render", "storyElementRender", "twitterElementRender"], null);
   const title = element.subtype || element.title || "";
   if (!(metadata && metadata["tweet-id"])) return null;
 

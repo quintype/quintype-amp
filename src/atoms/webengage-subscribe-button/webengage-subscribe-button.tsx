@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Bell } from "../icons";
+import { Bell } from "../icons/bell";
 import { withTheme } from "styled-components";
 import { ButtonTypes } from "./types";
 import { Spacer } from "../spacer";

@@ -16,6 +16,7 @@ Slots can be thought of as windows that let you "slot in" whatever you need. In 
 
 - **top slot** - placed just below the top ad
 - **bottom slot** - placed just above the bottom ad
+- **live-blog-card-slot** - placed after every live blog card
 
 <a id="slots_link" href="./story-page-slots.png" target="_blank">Image For Reference</a>
 

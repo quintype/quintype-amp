@@ -40,7 +40,7 @@ const Author = ({ authors, prepend }: AuthorProps) => {
   return (
     <StyledAuthor>
       {prepend && prepend}
-      {prepend && <Spacer token="m" align="horizontal" />}
+      {prepend && <Spacer token="xxs" align="horizontal" />}
       {getAuthorNames(authors)}
     </StyledAuthor>
   );

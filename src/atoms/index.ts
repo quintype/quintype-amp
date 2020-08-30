@@ -12,7 +12,6 @@ import { StoryElement } from "./story-elements/story-element";
 import { StoryElements } from "./story-elements";
 import { PublisherLogoHeader } from "./publisher-logo-header";
 import { HamburgerMenu } from "./hamburger-menu";
-import * as icons from "./icons";
 import { SocialShareIcon } from "./social-share-icon";
 import { DfpAd } from "./dfp-ad";
 import { IncompatibleBanner } from "./incompatible-banner";
@@ -32,6 +31,7 @@ import { QuintypeAnalytics } from "./quintype-analytics";
 import { LightboxGallery } from "./lightbox-gallery";
 import { ChartBeat } from "./chartbeat";
 import { InfiniteScroll } from "./infinite-scroll";
+import { LiveList } from "./live-list";
 
 export {
   Carousel,
@@ -50,7 +50,6 @@ export {
   DfpAd,
   PublisherLogoHeader,
   HamburgerMenu,
-  icons,
   SocialShareIcon,
   IncompatibleBanner,
   DailyMotion,
@@ -67,5 +66,6 @@ export {
   QuintypeAnalytics,
   LightboxGallery,
   ChartBeat,
-  InfiniteScroll
+  InfiniteScroll,
+  LiveList
 };

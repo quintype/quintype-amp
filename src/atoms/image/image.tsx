@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
 import { ImageTypes, AmpImgPropTypes } from "./types";
-import { Config } from "../../types/config";
-import { focusedImagePath } from "../../helpers/image-helpers";
+import { focusedImagePath } from "../../helpers";
 import { withConfig } from "../../context";
 import { LightboxGallery } from "../lightbox-gallery";
+import { Helmet } from "react-helmet";
 
 export const BaseImage = ({
   metadata,
@@ -16,15 +16,21 @@ export const BaseImage = ({
   opts = {},
   config,
   lightbox = true,
+  preloadImage,
   ...rest
-}: ImageTypes & { config: Config }) => {
+}: ImageTypes) => {
   const cdnImage = config.publisherConfig["cdn-image"];
   if (!slug || !cdnImage) throw new Error("Required attributes missing, cant render image");
   let imgAspectRatio = aspectRatio || [16, 9];
   if (metadata && metadata.width && metadata.height) imgAspectRatio = [metadata.width, metadata.height];
-  const path = focusedImagePath({ opts, slug, metadata, imgAspectRatio, cdnImage });
+
+  const srcSmall = focusedImagePath({ opts, slug, metadata, imgAspectRatio, cdnImage, width: "1000" });
+  const srcBig = focusedImagePath({ opts, slug, metadata, imgAspectRatio, cdnImage, width: "1200" });
+  const srcset = `${srcSmall} 1000w, ${srcBig} 1200w`;
+
   const value: AmpImgPropTypes = {
-    src: path,
+    src: srcSmall,
+    srcset,
     alt,
     layout,
     ...rest
@@ -46,13 +52,25 @@ export const BaseImage = ({
       value.height = imgAspectRatio[1].toString();
   }
 
-  return lightbox ? (
+  const imageComponent = lightbox ? (
     <Fragment>
       <LightboxGallery />
       <amp-img {...value} lightbox={lightbox} />
     </Fragment>
   ) : (
     <amp-img {...value} />
+  );
+
+  return preloadImage ? (
+    <Fragment>
+      <Helmet>
+        <link rel="preload" as="image" href={srcSmall} media="(max-width: 1000px)" crossorigin="anonymous" />
+        <link rel="preload" as="image" href={srcBig} media="(min-width: 1001px)" crossorigin="anonymous" />
+      </Helmet>
+      {imageComponent}
+    </Fragment>
+  ) : (
+    imageComponent
   );
 };
 

@@ -19,15 +19,15 @@ export function renderToString(component, seo = "") {
   try {
     const { title, script, customStyles, link, metaTags } = getHeadTagsFromHelmet(component);
     const { htmlStr, styles } = getHtmlAndStyledComponentsStyles(component);
-    const seoStr = `${metaTags}\n${link}\n${seo}\n`;
-    str += `${headStart}\n`;
-    str += `${seoStr}\n`;
-    str += `${script}\n`;
-    str += `<style amp-custom>\n${customStyles}\n${styles}\n</style>`;
+    const seoStr = `${metaTags}${link}${seo}`;
+    str += `${headStart}`;
+    str += `${seoStr}`;
+    str += `${script}`;
+    str += `<style amp-custom>${customStyles}${styles}</style>`;
     str += `${ampBoilerplate}`;
-    str += `${title}\n`;
-    str += `${headEndBodyStart}\n`;
-    str += `${htmlStr}\n`;
+    str += `${title}`;
+    str += `${headEndBodyStart}`;
+    str += `${htmlStr}`;
     str += `${bodyEnd}`;
     return str;
   } catch (e) {
@@ -41,8 +41,8 @@ const discardEmptyTitle = (str: string) => str.replace(/<title data-react-helmet
 const getHeadTagsFromHelmet = (component) => {
   ReactDOMServer.renderToStaticMarkup(component); // without this, helmet.script returns empty
   const helmet = Helmet.renderStatic();
-  const titleRaw = helmet.title.toString();
-  const title = discardEmptyTitle(titleRaw);
+  const titleStr = helmet.title.toString();
+  const title = discardEmptyTitle(titleStr);
   const script = helmet.script.toString();
   const metaTags = helmet.meta.toString();
   const link = helmet.link.toString();
@@ -63,10 +63,10 @@ const getHtmlAndStyledComponentsStyles = (component: ReactElement) => {
 const headStart = `<!doctype html>
 <html ⚡>
   <head>
-    <meta charset="utf-8">\n
-    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">\n
-    <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">\n
-    <script async src="https://cdn.ampproject.org/v0.js"></script>\n`;
-const ampBoilerplate = `<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>\n`;
-const headEndBodyStart = `</head>\n<body>`;
-const bodyEnd = `</body>\n</html>`;
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>`;
+const ampBoilerplate = `<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>`;
+const headEndBodyStart = `</head><body>`;
+const bodyEnd = `</body></html>`;

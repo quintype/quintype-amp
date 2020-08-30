@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InfiniteScroll Component should render default 1`] = `
+<Component
+  config={Object {}}
+  inlineConfig="[{\\"image\\":\\"https://foo.com/puppies.jpg\\",\\"title\\":\\"Puppies Page\\",\\"url\\":\\"/puppies\\"}]"
+  story={Object {}}
+/>
+`;

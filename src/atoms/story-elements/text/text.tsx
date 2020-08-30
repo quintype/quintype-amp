@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { StoryElementProps } from "../types";
 import { withStoryAndConfig } from "../../../context";
-import { TextProps } from "./types";
 import get from "lodash.get";
+import { conditionExternalLinks } from "./text.helpers";
 
-const StyledText = styled.div<StoryElementProps>`
+export const StyledText = styled.div<StoryElementProps>`
   color: ${(props) => props.theme.color.mono6};
   font-size: ${(props) => props.theme.font.size.xs};
   font-family: ${(props) => props.theme.font.family.primary};
@@ -45,21 +45,18 @@ const StyledText = styled.div<StoryElementProps>`
   }
 `;
 
-export const DefaultText = ({ element, externalLink }: StoryElementProps & TextProps) => {
+export const DefaultText = ({ element, config }: StoryElementProps) => {
   let text = element.text || "";
-  if (externalLink) {
-    text = text.replace(/<a/g, '<a target="_blank"');
-  }
-
+  text = conditionExternalLinks({ text, config });
   return <StyledText element={element} dangerouslySetInnerHTML={{ __html: text }} />;
 };
 
 export const TextBase = ({ element, story, config }: StoryElementProps) => {
-  const textElementRender = get(config, ["opts", "storyElementRender", "textElementRender"], null);
+  const textElementRender = get(config, ["opts", "render", "storyElementRender", "textElementRender"], null);
   return textElementRender ? (
     textElementRender({ story, config, element })
   ) : (
-    <DefaultText element={element} story={story} config={config} />
+    <DefaultText element={element} config={config} />
   );
 };
 /**

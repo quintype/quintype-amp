@@ -4,6 +4,7 @@ import { storyWithManyJsEmbeds } from "./story-with-jsembeds.fixture";
 import { relatedStories } from "./related-stories";
 import { seo } from "./seo.fixture";
 import { allElementsStory } from "./all-element-story.fixture";
+import { liveBlogStory } from "./live-blog-story.fixture";
 
 export {
   allElementsStory,
@@ -14,5 +15,6 @@ export {
   storyWithManyJsEmbeds,
   relatedStories,
   configOpts,
-  seo
+  seo,
+  liveBlogStory
 };
