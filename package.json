@@ -13,6 +13,7 @@
     "docs:build": "rimraf docs && jsdoc -c jsdoc.json",
     "docs:serve": "npm run docs:build && http-server docs -p 3001 --silent",
     "docs:deploy": "npm run docs:build && gh-pages -d docs",
+    "dev": "watch 'npm run build' src",
     "build": "rimraf dist && webpack --mode=development",
     "build:prod": "rimraf dist && webpack --mode=production",
     "pack": "npm run build && npm pack",
@@ -101,7 +102,8 @@
     "performant-array-to-tree": "^1.7.1",
     "quintype-js": "^1.2.1",
     "react-helmet": "^5.2.1",
-    "styled-components": "~5.0.1"
+    "styled-components": "~5.0.1",
+    "watch": "^1.0.2"
   },
   "peerDependencies": {
     "react": "^16.12.0",
