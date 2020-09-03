@@ -93,7 +93,7 @@ Feature config is an object that can be used to configure different features of 
    - `storySeparatorText`: String that will be displayed by the separator that separates two infinite scroll stories. If nothing is passed, `SCROLL FOR NEXT` is displayed
 4. langTag:
    - used to add the lang attribute to the html tag for SEO purposes
-   - Optional. if not provided, it's assumed to be "en"
+   - Optional. if not provided, lang attribute is not added on the html tag
    - accepts an object. Key `sketches-host` and value is the lang attribute that you wish to provide.
 
 ```jsx
