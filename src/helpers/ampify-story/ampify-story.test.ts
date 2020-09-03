@@ -80,11 +80,11 @@ describe("getLangTag helper function", () => {
     };
     expect(getLangTag(modifiedConfig)).toBe("fr");
   });
-  it("should return en if featureConfig not provided", () => {
+  it("should return empty str if featureConfig not provided", () => {
     const modifiedConfig = { ...config };
     modifiedConfig.opts = {
       featureConfig: {}
     };
-    expect(getLangTag(modifiedConfig)).toBe("en");
+    expect(getLangTag(modifiedConfig)).toBe("");
   });
 });

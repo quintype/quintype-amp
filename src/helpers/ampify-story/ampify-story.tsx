@@ -44,6 +44,6 @@ export const getLangTag = (config) => {
   // Ideally lang tag should cone from story API. Until platform provides it in story API, taking it from featureConfig.
   const sketchesHost = get(config, ["publisherConfig", "sketches-host"]);
   const langTagObj = get(config, ["opts", "featureConfig", "langTag"]);
-  const langTag = get(langTagObj, sketchesHost, "en");
+  const langTag = get(langTagObj, sketchesHost, "");
   return langTag;
 };
