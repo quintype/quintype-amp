@@ -4,23 +4,41 @@ import { ServerStyleSheet } from "styled-components";
 import ReactDOMServer from "react-dom/server";
 
 /**
+ * The ampifyStory function is used behind the scenes by `quintype/framework`
+ * It picks the correct story template and passes on control to <a href="global.html#renderToString">renderToString</a>
+ *
+ * @category Helper
+ * @module AmpifyStory
+ * @function ampifyStory
+ * @param {Object} params [mandatory] object containing parameters
+ * @param {Object} params.story [mandatory] story object
+ * @param {Object} params.publisherConfig [mandatory] the publisher config - same as "/api/v1/config"
+ * @param {Object} params.ampConfig [mandatory] AMP specific config coming from platform - same as "/api/v1/amp/config"
+ * @param {String} params.seo ready to use SEO string that can be put in the document head
+ * @param {Object} params.opts opts object containing customizations and configs
+ * @returns {function} the renderToString function
+ */
+
+/**
  * The renderToString function generates AMP Html string from react component.
  * Styles created using styled components and those added using react-helmet are merged. script, meta, link tags, seo are added to the head
  *
  * @category Helper
  * @module RenderToString
  * @function renderToString
- * @param {class} component React component, ideally the containing the page layout
- * @param {string} seo the SEO string that is to be added in the head
+ * @param {Object} params [mandatory] object containing parameters
+ * @param {Object} params.template template react component
+ * @param {string} params.seo the SEO string that is to be added in the head
+ * @param {string} params.langTag the lang tag that is to be added to the html element. eg: en, fr
  * @returns {string} ready to render amp html
  */
-export function renderToString(component, seo = "") {
+export function renderToString({ template, seo, langTag }) {
   let str = "";
   try {
-    const { title, script, customStyles, link, metaTags } = getHeadTagsFromHelmet(component);
-    const { htmlStr, styles } = getHtmlAndStyledComponentsStyles(component);
+    const { title, script, customStyles, link, metaTags } = getHeadTagsFromHelmet(template);
+    const { htmlStr, styles } = getHtmlAndStyledComponentsStyles(template);
     const seoStr = `${metaTags}${link}${seo}`;
-    str += `${headStart}`;
+    str += getHeadStartStr(langTag);
     str += `${seoStr}`;
     str += `${script}`;
     str += `<style amp-custom>${customStyles}${styles}</style>`;
@@ -60,8 +78,8 @@ const getHtmlAndStyledComponentsStyles = (component: ReactElement) => {
   return { htmlStr, styles };
 };
 
-const headStart = `<!doctype html>
-<html ⚡>
+const getHeadStartStr = (langTag) => `<!doctype html>
+<html lang="${langTag}" ⚡>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">

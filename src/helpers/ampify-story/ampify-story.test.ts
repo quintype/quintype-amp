@@ -2,9 +2,9 @@
  * @jest-environment node
  */
 
-import { ampifyStory } from "./ampify-story";
+import { ampifyStory, getLangTag } from "./ampify-story";
 import { isValidAmpHtml } from "../../utils/validate-amp";
-import { allElementsStory, textStory, publisherConfig, ampConfig, configOpts, seo } from "../../__fixtures__";
+import { allElementsStory, textStory, publisherConfig, ampConfig, configOpts, seo, config } from "../../__fixtures__";
 
 function mockStoryType(desiredType) {
   const story = { ...textStory };
@@ -62,5 +62,29 @@ describe("Ampify Story", () => {
     expect(customVideoTemplate.mock.calls.length).toBe(1);
     expect(customTextTemplate.mock.calls.length).toBe(0);
     expect(customLiveBlogTemplate.mock.calls.length).toBe(0);
+  });
+});
+
+describe("getLangTag helper function", () => {
+  it("should pick lang tag if passed in featureConfig", () => {
+    const modifiedConfig = { ...config };
+    modifiedConfig.publisherConfig["sketches-host"] = "bar";
+    modifiedConfig.opts = {
+      featureConfig: {
+        langTag: {
+          foo: "de",
+          bar: "fr",
+          baz: "hi"
+        }
+      }
+    };
+    expect(getLangTag(modifiedConfig)).toBe("fr");
+  });
+  it("should return en if featureConfig not provided", () => {
+    const modifiedConfig = { ...config };
+    modifiedConfig.opts = {
+      featureConfig: {}
+    };
+    expect(getLangTag(modifiedConfig)).toBe("en");
   });
 });

@@ -19,7 +19,7 @@ describe("Molecules", () => {
         <HeaderCard />
       </Layout>
     );
-    const ampHtml = renderToString(<LayoutForHeaderCard />);
+    const ampHtml = renderToString({ template: <LayoutForHeaderCard />, seo: "", langTag: "en" });
     const ampValidatorOutput = await isValidAmpHtml(ampHtml);
     expect(ampValidatorOutput).toBe(true);
   });

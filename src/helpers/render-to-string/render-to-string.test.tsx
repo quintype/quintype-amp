@@ -20,7 +20,7 @@ test("renderToString function should return valid amp-html", async () => {
       <HeroImage />
     </Layout>
   );
-  const ampHtml = renderToString(dummyLayout);
+  const ampHtml = renderToString({ template: dummyLayout, seo: "", langTag: "ta" });
   const ampValidatorOutput = await isValidAmpHtml(ampHtml);
   expect(ampValidatorOutput).toBe(true);
   expect(ampHtml.includes(`<link data-react-helmet="true" rel="canonical" href="https://www.reddit.com/"/>`)).toBe(
@@ -29,4 +29,5 @@ test("renderToString function should return valid amp-html", async () => {
   expect(
     ampHtml.includes(`<link data-react-helmet="true" rel="icon" type="image/png" sizes="16x16" href="abc"/>`)
   ).toBe(true);
+  expect(ampHtml.includes(`<html lang="ta" ⚡>`));
 });
