@@ -248,6 +248,13 @@ The <code>&lt;Head /&gt;</code> component may be used to put code in the head. U
 <li><code>storySeparatorText</code>: String that will be displayed by the separator that separates two infinite scroll stories. If nothing is passed, <code>SCROLL FOR NEXT</code> is displayed</li>
 </ul>
 </li>
+<li>langTag:
+<ul>
+<li>used to add the lang attribute to the html tag for SEO purposes</li>
+<li>Optional. if not provided, lang attribute is not added on the html tag</li>
+<li>accepts an object. Key <code>sketches-host</code> and value is the lang attribute that you wish to provide.</li>
+</ul>
+</li>
 </ol>
 <pre class="prettyprint source lang-jsx"><code>const exampleFeatureConfig = {
   enableAds: {
@@ -270,6 +277,10 @@ The <code>&lt;Head /&gt;</code> component may be used to put code in the head. U
     storiesToTake: number
   infiniteScroll: {
     storySeparatorText: string
+  },
+  langTag: {
+    &quot;https://www.thequint.com&quot;: &quot;en&quot;,
+    &quot;https://hindi.thequint.com&quot;: &quot;hi&quot;
   }
 };
 </code></pre>

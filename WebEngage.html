@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +5,7 @@
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66074042-1', 'auto');ga('send', 'pageview');</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AMP Library atoms/story-elements/image-element/image-element.tsx</title>
+  <title>AMP Library WebEngage</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -119,85 +117,289 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Source</p>
-                    <h1>atoms/story-elements/image-element/image-element.tsx</h1>
+                    <p>Components</p>
+                    <h1>WebEngage</h1>
                 </header>
                 
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>import React from "react";
+        <h2>
+            &ltWebEngage  /&gt
+        </h2>
+        
+    
+</header>
 
-import { Image } from "../../image";
-import { media } from "../../../utils/media";
-import { StoryElementProps } from "../types";
-import styled from "styled-components";
-import { withStoryAndConfig } from "../../../context";
-import get from "lodash.get";
+<article>
+    <div class="container-overview">
+    
+        
+            <div class='vertical-section'>
+                <div class="members">
+                    <div class="member">
+                        <div class=name>
+                            <span class="tag">Constructor</span>
+                        </div>
+                        
 
-const StyledFigCaption = styled.figcaption`
-  text-align: left;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 8px;
-  max-height: 90px;
-  color: ${(props) => props.theme.color.white};
-  line-height: ${(props) => props.theme.font.lineHeight.level1};
-  background: ${(props) => `${props.theme.color.black}90`};
-  font-size: ${(props) => props.theme.font.size.xxs};
-  z-index: ${(props) => props.theme.zIndex.z100};
 
-  ${media.laptop`
-		max-height: 130px;
-		overflow-y: scroll;
-	`}
-`;
+    
+    <h4 class="name" id="WebEngage">
+        <a class="href-link" href="#WebEngage">#</a>
+        
+        <span class="code-name">
+            
+                &ltWebEngage  /&gt
+            
+        </span>
+    </h4>
+    
 
-export const ImageElementBase = ({ element, story, config }: StoryElementProps) => {
-  const imageElementRender = get(config, ["opts", "render", "storyElementRender", "imageElementRender"], null);
-  const imageAttribution = element["image-attribution"] || element.title || "";
-  return imageElementRender ? (
-    imageElementRender({ story, config, element })
-  ) : (
-    &lt;Image slug={element["image-s3-key"]} metadata={element["image-metadata"]} alt={imageAttribution}>
-      {element.title &amp;&amp; element.title.length > 1 &amp;&amp; (
-        &lt;StyledFigCaption dangerouslySetInnerHTML={{ __html: element.title }} />
-      )}
-    &lt;/Image>
-  );
-};
-
-/**
- * ImageElement is a story element.
- * The look of the ImageElement can be changed using the render prop imageElementRender. In case imageElementRender is passed in the config, it is rendered. Otherwise a default ImageElement is rendered.
- *
- * @param {Object} params object containing parameters passed to the render prop
- * @param {Object} params.story story object
- * @param {Object} params.config config object
- * @param {Object} params.element the story element. This is same as the story element found in the story API response
- *
- * ```javascript
- * ...
- * ampRoutes(app, {
- *    imageElementRender: ({ story, config, element }) => &lt;MyCustomImageElement story={story} config={config} storyElement={element} />
- * })
- * ...
- * ```
- *
- * @category StoryElements
- * @module ImageElement
- * @component
- */
-
-export const ImageElement = withStoryAndConfig(ImageElementBase);
+    
+    
+    <div class="description">
+        <p>WebEngage Component uses the WebPush, WebPushWidget and WebengageSubscribeButton atomic components internally.</p>
+<pre class="prettyprint source lang-js"><code>&lt;WebEngage />
 </code></pre>
-        </article>
-    </section>
+    </div>
+    
+
+
+
+
+
+
+
+    
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>props</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">Object</span>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>Object containing parameters passed to the render prop</p></td>
+</tr>
+
+  
+  
+    
+<tr class="deep-level-1">
+  
+      <td class="name"><code>buttonText</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">String</span>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>Optional. A String which shows on the button.</p></td>
+</tr>
+
+  
+    
+<tr class="deep-level-1">
+  
+      <td class="name"><code>width</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">String</span>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>Optional. A String which specifies the width of the button.</p></td>
+</tr>
+
+  
+    
+<tr class="deep-level-1">
+  
+      <td class="name"><code>height</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">String</span>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>Optional. A String which specifies the height of the button.</p></td>
+</tr>
+
+  
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="molecules_webengage_webengage.tsx.html" class="button">View Source</a>
+            <span>
+                <a href="molecules_webengage_webengage.tsx.html">molecules/webengage/webengage.tsx</a>, <a href="molecules_webengage_webengage.tsx.html#line33">line 33</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        
+    
+    </div>
+    
+        
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

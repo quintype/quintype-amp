@@ -7,7 +7,7 @@
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66074042-1', 'auto');ga('send', 'pageview');</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AMP Library atoms/story-elements/image-element/image-element.tsx</title>
+  <title>AMP Library molecules/related-stories/related-stories.tsx</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -120,7 +120,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>atoms/story-elements/image-element/image-element.tsx</h1>
+                    <h1>molecules/related-stories/related-stories.tsx</h1>
                 </header>
                 
 
@@ -129,72 +129,69 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React from "react";
-
-import { Image } from "../../image";
-import { media } from "../../../utils/media";
-import { StoryElementProps } from "../types";
+            <pre class="prettyprint source linenums"><code>import React, { Fragment } from "react";
 import styled from "styled-components";
-import { withStoryAndConfig } from "../../../context";
+import { RelatedStoryCard } from "../related-story-card";
+import { RelatedStoriesTypes } from "./types";
+import { withStoryAndConfig } from "../../context";
+import { base64FallbackImage } from "../../helpers/image-helpers";
+import { Spacer } from "../../atoms";
 import get from "lodash.get";
+import { StoryPageSlots } from "../../molecules/slots";
 
-const StyledFigCaption = styled.figcaption`
-  text-align: left;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 8px;
-  max-height: 90px;
-  color: ${(props) => props.theme.color.white};
-  line-height: ${(props) => props.theme.font.lineHeight.level1};
-  background: ${(props) => `${props.theme.color.black}90`};
-  font-size: ${(props) => props.theme.font.size.xxs};
-  z-index: ${(props) => props.theme.zIndex.z100};
+const { RelatedStoryCardSlot } = StoryPageSlots;
 
-  ${media.laptop`
-		max-height: 130px;
-		overflow-y: scroll;
-	`}
+export const Heading = styled.h2`
+  font-size: ${(props) => props.theme.font.size.l};
 `;
 
-export const ImageElementBase = ({ element, story, config }: StoryElementProps) => {
-  const imageElementRender = get(config, ["opts", "render", "storyElementRender", "imageElementRender"], null);
-  const imageAttribution = element["image-attribution"] || element.title || "";
-  return imageElementRender ? (
-    imageElementRender({ story, config, element })
-  ) : (
-    &lt;Image slug={element["image-s3-key"]} metadata={element["image-metadata"]} alt={imageAttribution}>
-      {element.title &amp;&amp; element.title.length > 1 &amp;&amp; (
-        &lt;StyledFigCaption dangerouslySetInnerHTML={{ __html: element.title }} />
-      )}
-    &lt;/Image>
+export const RelatedStoriesBase = ({
+  story,
+  config,
+  heading = "Also Read",
+  aspectRatio = [16, 9]
+}: RelatedStoriesTypes) => {
+  const relatedStories = get(config, ["opts", "featureConfig", "relatedStories", "stories"], null);
+  if (!relatedStories || !relatedStories.length) return null;
+  const relatedStoriesRender = get(config, ["opts", "render", "relatedStoriesRender"], null);
+  if (relatedStoriesRender) return relatedStoriesRender({ relatedStories, config, story });
+  return (
+    &lt;Fragment>
+      &lt;Spacer token="m" />
+      &lt;Heading>{heading}&lt;/Heading>
+      &lt;div>
+        {relatedStories.map((relatedStory, idx) => (
+          &lt;Fragment key={relatedStory.id}>
+            &lt;RelatedStoryCard
+              story={relatedStory}
+              fallbackSrc={get(config, ["ampConfig", "fallback-image-url"], base64FallbackImage)}
+              aspectRatio={aspectRatio}
+            />
+            &lt;RelatedStoryCardSlot story={story} config={config} index={idx} relatedStory={relatedStory} />
+          &lt;/Fragment>
+        ))}
+      &lt;/div>
+    &lt;/Fragment>
   );
 };
 
 /**
- * ImageElement is a story element.
- * The look of the ImageElement can be changed using the render prop imageElementRender. In case imageElementRender is passed in the config, it is rendered. Otherwise a default ImageElement is rendered.
+ * RelatedStories Component uses the RelatedStoryCard molecule component internally.
  *
- * @param {Object} params object containing parameters passed to the render prop
- * @param {Object} params.story story object
- * @param {Object} params.config config object
- * @param {Object} params.element the story element. This is same as the story element found in the story API response
- *
- * ```javascript
- * ...
- * ampRoutes(app, {
- *    imageElementRender: ({ story, config, element }) => &lt;MyCustomImageElement story={story} config={config} storyElement={element} />
- * })
- * ...
+ * ```js
+ * &lt;RelatedStories stories={relatedStories} />
  * ```
  *
- * @category StoryElements
- * @module ImageElement
+ * @param {Object} props Object containing parameters passed to the render prop
+ * @param {Object} props.stories Required. It takes in related stories object.
+ * @param {Object} props.config config object
+ * @param {Object} props.heading Optional. A String which serves as a title for this collection. If not passed, defaults to "Also Read" text.
+ * @param {Object} props.aspectRatio Optional. An Array of width and height. If not passed, defaults to [16,9].
+ *  @category Molecules
  * @component
  */
 
-export const ImageElement = withStoryAndConfig(ImageElementBase);
+export const RelatedStories = withStoryAndConfig(RelatedStoriesBase);
 </code></pre>
         </article>
     </section>
