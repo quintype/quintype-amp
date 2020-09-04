@@ -12,7 +12,7 @@ const AttachmentWrapper = styled.div`
   padding: 15px 25px;
   border: ${(props) => `1px solid ${props.theme.color.mono3}`};
 
-  ${media("desktop")`
+  ${media.laptop`
     flex-direction: row;
   `}
 `;
@@ -24,7 +24,7 @@ export const PreviewLink = styled.a`
   text-decoration: none;
   margin: 15px 0 0 0;
 
-  ${media("desktop")`
+  ${media.laptop`
     margin: 0 0 0 15px;
   `}
 `;
