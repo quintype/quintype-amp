@@ -21,7 +21,7 @@ const StyledFigCaption = styled.figcaption`
   font-size: ${(props) => props.theme.font.size.xxs};
   z-index: ${(props) => props.theme.zIndex.z100};
 
-  ${media.laptop`
+  ${media("desktop")`
 		max-height: 130px;
 		overflow-y: scroll;
 	`}
