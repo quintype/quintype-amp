@@ -192,4 +192,7 @@ interface FeatureConfigTypes {
       bottom?: boolean;
     };
   };
+  langTag?: {
+    [key: string]: string;
+  };
 }
