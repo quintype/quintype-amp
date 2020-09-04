@@ -37,9 +37,8 @@ const StoryCardsWithSubscriptionsBase = ({ story, config }) => {
   } else if (isHardPaywallStory) {
     const cardsVisibleInBlockedStory = get(
       config,
-      ["publisherConfig", "layout", "no-of-visible-cards-in-a-blocked-story"],
-      1
-    );
+      ["publisherConfig", "layout", "no-of-visible-cards-in-a-blocked-story"]
+    ) || 1;
     const visibleStoryCards = story.cards.slice(0, cardsVisibleInBlockedStory);
     const storyCardsBehindPaywall = story.cards.slice(cardsVisibleInBlockedStory);
 
