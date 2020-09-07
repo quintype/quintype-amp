@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.12](https://github.com/quintype/quintype-amp/compare/v2.1.11...v2.1.12) (2020-09-07)
+
+
+### Bug Fixes
+
+* add null check in conditionExternalLinks helper function ([#279](https://github.com/quintype/quintype-amp/issues/279)) ([1fb698a](https://github.com/quintype/quintype-amp/commit/1fb698a0fe1a703d48266540b12889e598741685))
+
 ### [2.1.11](https://github.com/quintype/quintype-amp/compare/v2.1.4...v2.1.11) (2020-09-04)
 
 
