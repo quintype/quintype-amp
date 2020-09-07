@@ -20,8 +20,8 @@ export const conditionExternalLinks = ({ text, config }) => {
   const anchorsArr = domTree.querySelectorAll("a");
   let accumulator = text;
   anchorsArr.forEach((el) => {
-    const href = el.rawAttributes.href;
-    if (regex.test(href)) {
+    const href = el.rawAttributes.href || null;
+    if (href && regex.test(href)) {
       const escapedHref = escapeRegex(href);
       accumulator = accumulator.replace(
         new RegExp(`href="${escapedHref}"`),
