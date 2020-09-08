@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Attachment should match snapshot 1`] = `
+<styled.div>
+  <div>
+    Order of Honble CJ - Phased resumption of physical functioning of Courts at High Court of Gujarat -- Sd.pdf
+  </div>
+  <styled.a
+    download=""
+    href="https://www.foo-bar/baz.pdf"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    Preview
+  </styled.a>
+</styled.div>
+`;

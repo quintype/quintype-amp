@@ -16,7 +16,8 @@ import {
   InstagramElement,
   VidibleElement,
   Title,
-  ImageGalleryElement
+  ImageGalleryElement,
+  Attachment
 } from "../../atoms/story-elements";
 
 const anyType = "any";
@@ -35,7 +36,7 @@ const StoryElementsTable = [
   ["external-file", "jwplayer", noop],
   ["external-file", "vod-video", noop],
   ["external-file", anyType, noop],
-  ["file", "attachment", noop],
+  ["file", "attachment", Attachment],
   ["image", none, ImageElement],
   ["jsembed", "avmm-vidible-video", noop],
   ["jsembed", "dailymotion-video", DailyMotionElement],
