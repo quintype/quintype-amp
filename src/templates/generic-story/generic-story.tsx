@@ -20,7 +20,7 @@ import get from "lodash.get";
 import {
   SubscriberAccessPaywall,
   MeteredPaywall,
-  MeteredExhaustedPaywall
+  // MeteredExhaustedPaywall
 } from "../../atoms/subscriptions/subscriptions-paywall";
 import {
   getServicesParams,
@@ -90,7 +90,6 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
         <TopAd templateName={templateName} />
         <TopSlot />
         <Spacer token="s" />
-        <div>Test123</div>
         <StoryContainer>
           <HeaderCard />
           <WebEngage />
@@ -107,13 +106,13 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
                 score={score}
                 fallbackEntitlement={fallbackEntitlement}
               />
-              <MeteredExhaustedPaywall
+              {/* <MeteredExhaustedPaywall
                 config={config}
                 story={story}
                 services={services}
                 score={score}
                 fallbackEntitlement={fallbackEntitlement}
-              />
+              /> */}
               <SubscriberAccessPaywall
                 config={config}
                 services={services}

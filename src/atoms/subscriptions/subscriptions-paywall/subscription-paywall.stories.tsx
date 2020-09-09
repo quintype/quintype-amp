@@ -30,6 +30,6 @@ storiesOf("Subscriber Access Paywall", module)
   .add("Metered Paywall", () => <MeteredPaywall config={config} services={services}
     score={score}
     fallbackEntitlement={fallbackEntitlement} />)
-  .add("Metered Exhausdted Paywall", () => <MeteredExhaustedPaywall config={config} services={services}
-    score={score}
-    fallbackEntitlement={fallbackEntitlement} />);
+  // .add("Metered Exhausdted Paywall", () => <MeteredExhaustedPaywall config={config} services={services}
+  //   score={score}
+  //   fallbackEntitlement={fallbackEntitlement} />);

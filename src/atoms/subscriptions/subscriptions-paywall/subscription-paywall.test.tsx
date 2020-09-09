@@ -1,7 +1,10 @@
 import React from "react";
 import { shallow } from "enzyme";
 import { Subscription } from "../subscription";
-import { SubscriberAccessPaywall, MeteredPaywall, MeteredExhaustedPaywall } from "./subscription-paywall";
+import {
+  SubscriberAccessPaywall, MeteredPaywall,
+  //  MeteredExhaustedPaywall 
+} from "./subscription-paywall";
 import { config } from "../../../__fixtures__/config.fixture";
 
 describe("Subscriptions", () => {
@@ -137,6 +140,26 @@ describe("Subscriptions", () => {
           {{#data.numberRemaining}}
             <p class="StyledText">You are left with {{data.numberRemaining}} free articles.</p>
           {{/data.numberRemaining}}
+          {{#data.isLast}}
+            <div class="StyledMeter">
+              <p class="StyledText">You have exceeded free stories limit for this month</p>
+              <div>
+                <div class="StyledButton" subscriptions-actions subscriptions-display="granted">
+                  <button subscriptions-action="subscribe" subscriptions-display="granted">
+                    <span class="SubscribeMessage">Subscribe</span>
+                  </button>
+                </div>
+                {{^data.isLoggedIn}}
+                <div class="MeteredStyledLine" subscriptions-actions subscriptions-display="granted">
+                  <p>Already a user ?</p>
+                  <button subscriptions-action="login" subscriptions-display="granted">
+                    <span> Log in</span>
+                  </button>
+                </div>
+                {{/data.isLoggedIn}}
+              </div>
+            </div>
+            {{/data.isLast}}
       </template></div>`
     );
   });
@@ -166,127 +189,127 @@ describe("Subscriptions", () => {
     expect(meterRender.mock.calls.length).toBe(1);
     expect(wrapper.find("template").length).toBe(0);
   });
-  it("should render Metered Exhausted Paywall with subscribe button", () => {
-    const services = [{
-      authorizationUrl:
-        `https://newslaundry-web.qtstage.io/api/access/v1/stories/7f3d5bdb-ec52-4047-ac0d-df4036ec974b/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
-      pingbackUrl:
-        `https://newslaundry-web.qtstage.io/api/access/v1/stories/7f3d5bdb-ec52-4047-ac0d-df4036ec974b/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
-      actions: { login: "https://www.google.com", subscribe: "https://www.facebook.com" }
-    }];
-    const score = { supportsViewer: 10, isReadyToPay: 9 };
-    const fallbackEntitlement = {
-      source: "fallback",
-      granted: true,
-      grantReason: "METERING",
-      data: { numberRemaining: 5, isLast: true, isLoggedIn: true }
-    };
-    const wrapper = shallow(<MeteredExhaustedPaywall services={services}
-      score={score}
-      fallbackEntitlement={fallbackEntitlement} />);
-    expect(wrapper.find("div").html()).toEqual(
-      `<div><template
-          class="amp-subscriptions-dialog"
-          type="amp-mustache"
-          subscriptions-dialog
-          subscriptions-display="granted AND grantReason = 'METERING'">
-          <div class="StyledMeter">
-          {{#data.isLast}}
-            <p class="StyledText">You have exceeded free stories limit for this month</p>
-          {{/data.isLast}}
-            <div>
-              <div class="StyledButton" subscriptions-actions subscriptions-display="granted">
-                <button subscriptions-action="subscribe" subscriptions-display="granted">
-                  <span class="SubscribeMessage">Subscribe</span>
-                </button>
-              </div>
-              {{^data.isLoggedIn}}
-              <div class="MeteredStyledLine" subscriptions-actions subscriptions-display="granted">
-                <p>Already a user ?</p>
-                <button subscriptions-action="login" subscriptions-display="granted">
-                  <span> Log in</span>
-                </button>
-              </div>
-              {{/data.isLoggedIn}}
-            </div>
-          </div>
-          </template></div>`
-    );
-  });
-  it("should render Metered Exhausted Paywall with subscribe and login button", () => {
-    const services = [{
-      authorizationUrl:
-        `https://newslaundry-web.qtstage.io/api/access/v1/stories/7f3d5bdb-ec52-4047-ac0d-df4036ec974b/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
-      pingbackUrl:
-        `https://newslaundry-web.qtstage.io/api/access/v1/stories/7f3d5bdb-ec52-4047-ac0d-df4036ec974b/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
-      actions: { login: "https://www.google.com", subscribe: "https://www.facebook.com" }
-    }];
-    const score = { supportsViewer: 10, isReadyToPay: 9 };
-    const fallbackEntitlement = {
-      source: "fallback",
-      granted: true,
-      grantReason: "METERING",
-      data: { numberRemaining: 5, isLast: true, isLoggedIn: false }
-    };
-    const wrapper = shallow(<MeteredExhaustedPaywall services={services}
-      score={score}
-      fallbackEntitlement={fallbackEntitlement} />);
-    expect(wrapper.find("div").html()).toEqual(
-      `<div><template
-          class="amp-subscriptions-dialog"
-          type="amp-mustache"
-          subscriptions-dialog
-          subscriptions-display="granted AND grantReason = 'METERING'">
-          <div class="StyledMeter">
-          {{#data.isLast}}
-            <p class="StyledText">You have exceeded free stories limit for this month</p>
-          {{/data.isLast}}
-            <div>
-              <div class="StyledButton" subscriptions-actions subscriptions-display="granted">
-                <button subscriptions-action="subscribe" subscriptions-display="granted">
-                  <span class="SubscribeMessage">Subscribe</span>
-                </button>
-              </div>
-              {{^data.isLoggedIn}}
-              <div class="MeteredStyledLine" subscriptions-actions subscriptions-display="granted">
-                <p>Already a user ?</p>
-                <button subscriptions-action="login" subscriptions-display="granted">
-                  <span> Log in</span>
-                </button>
-              </div>
-              {{/data.isLoggedIn}}
-            </div>
-          </div>
-          </template></div>`
-    );
-  });
-  it("should call LastStoryMeterRender when passed", () => {
-    const servicesProps = [{
-      authorizationUrl:
-        `https://newslaundry-web.qtstage.io/api/access/v1/stories/7f3d5bdb-ec52-4047-ac0d-df4036ec974b/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
-      pingbackUrl:
-        `https://newslaundry-web.qtstage.io/api/access/v1/stories/7f3d5bdb-ec52-4047-ac0d-df4036ec974b/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
-      actions: { login: "https://www.google.com", subscribe: "https://www.facebook.com" }
-    }];
-    const scoreProps = { supportsViewer: 10, isReadyToPay: 9 };
-    const fallbackEntitlementProps = {
-      source: "fallback",
-      granted: true,
-      grantReason: "METERING",
-      data: { numberRemaining: 5, isLast: true, isLoggedIn: true }
-    };
-    const LastStoryMeterRender = jest.fn();
-    const modifiedConfig = {
-      ...config,
-      opts: {
-        render: { subscriptionRender: { LastStoryMeterRender } }
-      }
-    }
-      ;
-    const wrapper = shallow(<MeteredExhaustedPaywall services={servicesProps}
-      score={scoreProps}
-      fallbackEntitlement={fallbackEntitlementProps} config={modifiedConfig} />);
-    expect(LastStoryMeterRender.mock.calls.length).toBe(1);
-    expect(wrapper.find("template").length).toBe(0);
-  });
+  // it("should render Metered Exhausted Paywall with subscribe button", () => {
+  //   const services = [{
+  //     authorizationUrl:
+  //       `https://newslaundry-web.qtstage.io/api/access/v1/stories/7f3d5bdb-ec52-4047-ac0d-df4036ec974b/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
+  //     pingbackUrl:
+  //       `https://newslaundry-web.qtstage.io/api/access/v1/stories/7f3d5bdb-ec52-4047-ac0d-df4036ec974b/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
+  //     actions: { login: "https://www.google.com", subscribe: "https://www.facebook.com" }
+  //   }];
+  //   const score = { supportsViewer: 10, isReadyToPay: 9 };
+  //   const fallbackEntitlement = {
+  //     source: "fallback",
+  //     granted: true,
+  //     grantReason: "METERING",
+  //     data: { numberRemaining: 5, isLast: true, isLoggedIn: true }
+  //   };
+  //   const wrapper = shallow(<MeteredExhaustedPaywall services={services}
+  //     score={score}
+  //     fallbackEntitlement={fallbackEntitlement} />);
+  //   expect(wrapper.find("div").html()).toEqual(
+  //     `<div><template
+  //         class="amp-subscriptions-dialog"
+  //         type="amp-mustache"
+  //         subscriptions-dialog
+  //         subscriptions-display="granted AND grantReason = 'METERING'">
+  //         <div class="StyledMeter">
+  //         {{#data.isLast}}
+  //           <p class="StyledText">You have exceeded free stories limit for this month</p>
+  //         {{/data.isLast}}
+  //           <div>
+  //             <div class="StyledButton" subscriptions-actions subscriptions-display="granted">
+  //               <button subscriptions-action="subscribe" subscriptions-display="granted">
+  //                 <span class="SubscribeMessage">Subscribe</span>
+  //               </button>
+  //             </div>
+  //             {{^data.isLoggedIn}}
+  //             <div class="MeteredStyledLine" subscriptions-actions subscriptions-display="granted">
+  //               <p>Already a user ?</p>
+  //               <button subscriptions-action="login" subscriptions-display="granted">
+  //                 <span> Log in</span>
+  //               </button>
+  //             </div>
+  //             {{/data.isLoggedIn}}
+  //           </div>
+  //         </div>
+  //         </template></div>`
+  //   );
+  // });
+  // it("should render Metered Exhausted Paywall with subscribe and login button", () => {
+  //   const services = [{
+  //     authorizationUrl:
+  //       `https://newslaundry-web.qtstage.io/api/access/v1/stories/7f3d5bdb-ec52-4047-ac0d-df4036ec974b/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
+  //     pingbackUrl:
+  //       `https://newslaundry-web.qtstage.io/api/access/v1/stories/7f3d5bdb-ec52-4047-ac0d-df4036ec974b/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
+  //     actions: { login: "https://www.google.com", subscribe: "https://www.facebook.com" }
+  //   }];
+  //   const score = { supportsViewer: 10, isReadyToPay: 9 };
+  //   const fallbackEntitlement = {
+  //     source: "fallback",
+  //     granted: true,
+  //     grantReason: "METERING",
+  //     data: { numberRemaining: 5, isLast: true, isLoggedIn: false }
+  //   };
+  //   const wrapper = shallow(<MeteredExhaustedPaywall services={services}
+  //     score={score}
+  //     fallbackEntitlement={fallbackEntitlement} />);
+  //   expect(wrapper.find("div").html()).toEqual(
+  //     `<div><template
+  //         class="amp-subscriptions-dialog"
+  //         type="amp-mustache"
+  //         subscriptions-dialog
+  //         subscriptions-display="granted AND grantReason = 'METERING'">
+  //         <div class="StyledMeter">
+  //         {{#data.isLast}}
+  //           <p class="StyledText">You have exceeded free stories limit for this month</p>
+  //         {{/data.isLast}}
+  //           <div>
+  //             <div class="StyledButton" subscriptions-actions subscriptions-display="granted">
+  //               <button subscriptions-action="subscribe" subscriptions-display="granted">
+  //                 <span class="SubscribeMessage">Subscribe</span>
+  //               </button>
+  //             </div>
+  //             {{^data.isLoggedIn}}
+  //             <div class="MeteredStyledLine" subscriptions-actions subscriptions-display="granted">
+  //               <p>Already a user ?</p>
+  //               <button subscriptions-action="login" subscriptions-display="granted">
+  //                 <span> Log in</span>
+  //               </button>
+  //             </div>
+  //             {{/data.isLoggedIn}}
+  //           </div>
+  //         </div>
+  //         </template></div>`
+  //   );
+  // });
+  // it("should call LastStoryMeterRender when passed", () => {
+  //   const servicesProps = [{
+  //     authorizationUrl:
+  //       `https://newslaundry-web.qtstage.io/api/access/v1/stories/7f3d5bdb-ec52-4047-ac0d-df4036ec974b/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
+  //     pingbackUrl:
+  //       `https://newslaundry-web.qtstage.io/api/access/v1/stories/7f3d5bdb-ec52-4047-ac0d-df4036ec974b/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
+  //     actions: { login: "https://www.google.com", subscribe: "https://www.facebook.com" }
+  //   }];
+  //   const scoreProps = { supportsViewer: 10, isReadyToPay: 9 };
+  //   const fallbackEntitlementProps = {
+  //     source: "fallback",
+  //     granted: true,
+  //     grantReason: "METERING",
+  //     data: { numberRemaining: 5, isLast: true, isLoggedIn: true }
+  //   };
+  //   const LastStoryMeterRender = jest.fn();
+  //   const modifiedConfig = {
+  //     ...config,
+  //     opts: {
+  //       render: { subscriptionRender: { LastStoryMeterRender } }
+  //     }
+  //   }
+  //     ;
+  //   const wrapper = shallow(<MeteredExhaustedPaywall services={servicesProps}
+  //     score={scoreProps}
+  //     fallbackEntitlement={fallbackEntitlementProps} config={modifiedConfig} />);
+  //   expect(LastStoryMeterRender.mock.calls.length).toBe(1);
+  //   expect(wrapper.find("template").length).toBe(0);
+  // });
 });

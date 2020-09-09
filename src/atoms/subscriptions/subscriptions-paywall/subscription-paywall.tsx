@@ -134,38 +134,6 @@ export const MeteredPaywall = ({ config, services, score, fallbackEntitlement }:
   return (
     <>
       <Helmet>
-        <style type="text/css">
-          {`
-      .StyledText {
-        padding: 26px;
-        font-weight: 800;
-        margin: 0;
-      }
-      `}
-        </style>
-      </Helmet>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: `<template class="amp-subscriptions-dialog" type="amp-mustache" subscriptions-dialog subscriptions-display="granted AND grantReason = 'METERING'">
-          {{#data.numberRemaining}}
-            <p class="StyledText">You are left with {{data.numberRemaining}} free articles.</p>
-          {{/data.numberRemaining}}
-      </template>`
-        }}
-      />
-    </>
-  );
-};
-
-// The user does not have access because they have read 5 out of 5 free articles. He is not granted.
-export const MeteredExhaustedPaywall = ({ config, services, score, fallbackEntitlement }: PaywallProps) => {
-  // const subscriptions = get(config, ["opts", "featureConfig", "subscriptions"], null);
-  // if (!subscriptions || !subscriptions.length) return null;
-  const LastStoryMeterRender = get(config, ["opts", "render", "subscriptionRender", "LastStoryMeterRender"], null);
-  if (LastStoryMeterRender) return LastStoryMeterRender({ config, services, score, fallbackEntitlement });
-  return (
-    <>
-      <Helmet>
         <style type="text/css">{`
       .StyledMeter {
         display: flex;
@@ -183,7 +151,7 @@ export const MeteredExhaustedPaywall = ({ config, services, score, fallbackEntit
         <style type="text/css">
           {`
       .MeteredStyledLine {
-        margin: 0 20px;
+       text-align: center;
         }`}
         </style>
         <style type="text/css">{`
@@ -236,34 +204,126 @@ export const MeteredExhaustedPaywall = ({ config, services, score, fallbackEntit
       </Helmet>
       <div
         dangerouslySetInnerHTML={{
-          __html: `<template
-          class="amp-subscriptions-dialog"
-          type="amp-mustache"
-          subscriptions-dialog
-          subscriptions-display="granted AND grantReason = 'METERING'">
-          <div class="StyledMeter">
+          __html: `<template class="amp-subscriptions-dialog" type="amp-mustache" subscriptions-dialog subscriptions-display="granted AND grantReason = 'METERING'">
+          {{#data.numberRemaining}}
+            <p class="StyledText">You are left with {{data.numberRemaining}} free articles.</p>
+          {{/data.numberRemaining}}
           {{#data.isLast}}
-            <p class="StyledText">You have exceeded free stories limit for this month</p>
-          {{/data.isLast}}
-            <div>
-              <div class="StyledButton" subscriptions-actions subscriptions-display="granted">
-                <button subscriptions-action="subscribe" subscriptions-display="granted">
-                  <span class="SubscribeMessage">Subscribe</span>
-                </button>
+            <div class="StyledMeter">
+              <p class="StyledText">You have exceeded free stories limit for this month</p>
+              <div>
+                <div class="StyledButton" subscriptions-actions subscriptions-display="granted">
+                  <button subscriptions-action="subscribe" subscriptions-display="granted">
+                    <span class="SubscribeMessage">Subscribe</span>
+                  </button>
+                </div>
+                {{^data.isLoggedIn}}
+                <div class="MeteredStyledLine" subscriptions-actions subscriptions-display="granted">
+                  <p>Already a user ?</p>
+                  <button subscriptions-action="login" subscriptions-display="granted">
+                    <span> Log in</span>
+                  </button>
+                </div>
+                {{/data.isLoggedIn}}
               </div>
-              {{^data.isLoggedIn}}
-              <div class="MeteredStyledLine" subscriptions-actions subscriptions-display="granted">
-                <p>Already a user ?</p>
-                <button subscriptions-action="login" subscriptions-display="granted">
-                  <span> Log in</span>
-                </button>
-              </div>
-              {{/data.isLoggedIn}}
             </div>
-          </div>
-          </template>`
+            {{/data.isLast}}
+      </template>`
         }}
       />
     </>
   );
 };
+
+// // The user does not have access because they have read 5 out of 5 free articles. He is not granted.
+// export const MeteredExhaustedPaywall = ({ config, services, score, fallbackEntitlement }: PaywallProps) => {
+//   // const subscriptions = get(config, ["opts", "featureConfig", "subscriptions"], null);
+//   // if (!subscriptions || !subscriptions.length) return null;
+//   const LastStoryMeterRender = get(config, ["opts", "render", "subscriptionRender", "LastStoryMeterRender"], null);
+//   if (LastStoryMeterRender) return LastStoryMeterRender({ config, services, score, fallbackEntitlement });
+//   return (
+//     <>
+      // <Helmet>
+      //   <style type="text/css">{`
+      // .StyledMeter {
+      //   display: flex;
+      //   align-items: center;
+      //   padding: 24px;
+      // }
+      // `}</style>
+      //   <style type="text/css">{`
+      // .StyledText {
+      //   padding: 26px;
+      //   font-weight: 800;
+      //   margin: 0;
+      // }
+      // `}</style>
+      //   <style type="text/css">
+      //     {`
+      // .MeteredStyledLine {
+      //   margin: 0 20px;
+      //   }`}
+      //   </style>
+      //   <style type="text/css">{`
+      //   .MeteredStyledLine p {
+      //     font-size: 12px;
+      //     font-weight: normal;
+      //     margin: 0;
+      //   }
+      //   `}</style>
+      //   <style type="text/css">{`
+      //   .MeteredStyledLine button {
+      //     border: none;
+      //     background-color: transparent;
+      //   }
+      //   `}</style>
+      //   <style type="text/css">{`
+      //   .MeteredStyledLine span {
+      //     font-weight: bold;
+      //     font-size: 14px;
+      //     cursor: pointer;
+      //   }
+      // `}</style>
+      //   <style type="text/css">{`
+      // .SubscribeMessage {
+      //   color: #fff;
+      //   padding: 10px;
+      //   font-size: 14px;
+      //   font-weight: bold;
+      // }
+      // `}</style>
+      //   <style type="text/css">{`
+      //   .StyledButton {
+      //     align-self: center;
+      //   }
+      // `}</style>
+      //   <style type="text/css">
+      //     {`
+      //   .StyledButton button {
+      //     border-radius: 5px;
+      //     background-color: #f00;
+      //     border: none;
+      //     color: #fff;
+      //     padding: 10px;
+      //     margin: 10px;
+      //     cursor: pointer;
+      //     font-size: 14px;
+      //     font-weight: bold;
+      //   }`}
+      //   </style>
+      // </Helmet>
+//       <div
+//         dangerouslySetInnerHTML={{
+//           __html: `<template
+//           class="amp-subscriptions-dialog"
+//           type="amp-mustache"
+//           subscriptions-dialog
+//           subscriptions-display="granted AND grantReason = 'METERING'">
+
+//           </template>`
+//         }}
+//       />
+//     </>
+//   );
+// };
+
