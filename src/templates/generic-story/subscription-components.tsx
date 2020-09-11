@@ -15,18 +15,20 @@ const StoryCardsWithSubscriptionsBase = ({ story, config }) => {
     ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "grantReason"],
     null
   );
-  const hardPaywallAccessGranted = get(
+  const granted = get(
     config,
     ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "granted"],
     null
   );
+  const hardPaywallAccessGranted = granted === true;
   const isMeteredStory = grantReason === "METERING";
   const isHardPaywallStory = grantReason === "SUBSCRIBER";
-
+  console.log(isHardPaywallStory, "<---isHardPaywallStory");
   if (!isStoryBehindPaywall || isMeteredStory) {
     return story.cards.map((card, cardIdx) => {
       return (
         <Fragment key={card.id}>
+          <p>metered story</p>
           {card["story-elements"].map((element) => (
             <StoryElement key={element.id} element={element} />
           ))}
@@ -44,6 +46,7 @@ const StoryCardsWithSubscriptionsBase = ({ story, config }) => {
 
     const visibleCards = visibleStoryCards.map((card) => (
       <Fragment key={card.id}>
+        <p>visibleCards</p>
         {card["story-elements"].map((element) => (
           <StoryElement key={element.id} element={element} />
         ))}
@@ -54,6 +57,7 @@ const StoryCardsWithSubscriptionsBase = ({ story, config }) => {
         {storyCardsBehindPaywall.map((card) => {
           return (
             <Fragment key={card.id}>
+              <p>cardsBehindPaywall</p>
               {card["story-elements"].map((element) => (
                 <StoryElement key={element.id} element={element} />
               ))}
@@ -64,6 +68,7 @@ const StoryCardsWithSubscriptionsBase = ({ story, config }) => {
     );
     return (
       <Fragment>
+        <p>hardpaywall</p>
         {visibleCards}
         {hardPaywallAccessGranted && cardsBehindPaywall}
       </Fragment>

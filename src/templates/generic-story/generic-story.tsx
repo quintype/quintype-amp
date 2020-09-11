@@ -91,10 +91,12 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
         <TopSlot />
         <Spacer token="s" />
         <StoryContainer>
+          <div>test123</div>
           <HeaderCard />
           <WebEngage />
           <Spacer token="m" />
           <StoryCardsWithSubscriptions />
+          <div>test123</div>
           {/* {displayCardsWithBodyAd({ story })}
           {displayCardsWithoutBodyAd({ story, config })} */}
           {isAccessible && (
@@ -121,6 +123,7 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
               />
             </>
           )}
+          <div>test123</div>
           <RelatedStories />
         </StoryContainer>
         <BottomSlot />
