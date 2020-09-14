@@ -2,7 +2,6 @@ import React from "react";
 import { HeaderCard, Navbar, RelatedStories, WebEngage } from "../../molecules";
 import {
   Layout,
-  // StoryElement,
   Spacer,
   IncompatibleBanner,
   Footer,
@@ -91,14 +90,10 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
         <TopSlot />
         <Spacer token="s" />
         <StoryContainer>
-          <div>test123</div>
           <HeaderCard />
           <WebEngage />
           <Spacer token="m" />
           <StoryCardsWithSubscriptions />
-          <div>test123</div>
-          {/* {displayCardsWithBodyAd({ story })}
-          {displayCardsWithoutBodyAd({ story, config })} */}
           {isAccessible && (
             <>
               <MeteredPaywall
@@ -108,13 +103,6 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
                 score={score}
                 fallbackEntitlement={fallbackEntitlement}
               />
-              {/* <MeteredExhaustedPaywall
-                config={config}
-                story={story}
-                services={services}
-                score={score}
-                fallbackEntitlement={fallbackEntitlement}
-              /> */}
               <SubscriberAccessPaywall
                 config={config}
                 services={services}
@@ -123,7 +111,6 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
               />
             </>
           )}
-          <div>test123</div>
           <RelatedStories />
         </StoryContainer>
         <BottomSlot />
