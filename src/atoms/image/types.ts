@@ -12,7 +12,6 @@ export interface ImageTypes extends Common {
   opts?: object;
   attribution?: string;
   lightbox?: string | boolean;
-  preloadImage?: boolean;
 }
 
 interface ImageMetadata {
@@ -23,6 +22,7 @@ interface ImageMetadata {
 export interface AmpImgPropTypes extends Common {
   src: string;
   alt: string;
-  srcset: string;
+  srcset?: string;
   attribution?: string;
+  lightbox?: string | boolean;
 }
