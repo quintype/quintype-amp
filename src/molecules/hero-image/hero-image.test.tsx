@@ -1,13 +1,12 @@
 import React from "react";
 import { HeroImage, HeroImageBase } from "./hero-image";
-import { Image } from "../../atoms";
 import { shallow } from "enzyme";
 import { getFigcaptionText } from "./hero-image";
-import { textStory } from "../../__fixtures__";
+import { textStory, config } from "../../__fixtures__";
 
 describe("HeroImage", () => {
   it("should render", () => {
-    const wrapper = shallow(<HeroImageBase story={textStory} />);
+    const wrapper = shallow(<HeroImageBase story={textStory} config={config} />);
     expect(wrapper).toMatchSnapshot();
   });
   it("should render caption without HTML Tags", () => {
@@ -17,9 +16,9 @@ describe("HeroImage", () => {
     );
     expect(wrapper).toMatchSnapshot();
   });
-  it("Should set preloadImage attr to true", () => {
-    const wrapper = shallow(<HeroImageBase story={textStory} />);
-    expect(wrapper.find(Image).prop("preloadImage")).toBe(true);
+  it("Should add data-hero attribute on amp-img so that amp optimizer will preload it", () => {
+    const wrapper = shallow(<HeroImageBase story={textStory} config={config} />);
+    expect(wrapper.find("amp-img").prop("data-hero")).toBe("true");
   });
 });
 

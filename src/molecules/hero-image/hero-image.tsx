@@ -1,9 +1,13 @@
 import React from "react";
-import { Image } from "../../atoms";
 import { HeroImageBaseTypes } from "./types";
+import { HeroImageMetadata } from "../../types/story";
 import styled from "styled-components";
 import { media } from "../../utils/media";
 import { withStoryAndConfig } from "../../context";
+import { LightboxGallery } from "../../atoms";
+import { focusedImagePath } from "../../helpers";
+import get from "lodash.get";
+import { AmpImgPropTypes } from "../../atoms/image/types";
 
 const StyledFigcaption = styled.figcaption`
   text-align: left;
@@ -25,65 +29,45 @@ const StyledFigcaption = styled.figcaption`
 	`}
 `;
 
-export const HeroImageBase = ({ story, attribution, slug, metadata, caption }: HeroImageBaseTypes) => {
-  let overRideStory = false;
-  let figcaptionText: string | undefined | boolean;
-  const imageProps: any = {};
-  const imageAttribution = story["hero-image-attribution"] || story["hero-image-caption"] || "";
-  if (attribution || slug || metadata || caption) {
-    overRideStory = true;
-  }
+export const HeroImageBase = ({ story, config }: HeroImageBaseTypes) => {
+  const metadata: HeroImageMetadata = get(story, "hero-image-metadata", null);
+  const slug: string | null = get(story, "hero-image-s3-key", null);
+  if (!slug || !metadata) return null;
 
-  if (overRideStory) {
-    imageProps.alt = caption;
-    imageProps.metadata = metadata;
-    imageProps.slug = slug;
-    imageProps.attribution = attribution;
-    figcaptionText = getFigcaptionText(caption, attribution);
-  } else {
-    if (heroImageAbsent(story)) return null;
-    const {
-      "hero-image-attribution": ATTRIBUTION,
-      "hero-image-s3-key": SLUG,
-      "hero-image-metadata": METADATA,
-      "hero-image-caption": CAPTION
-    } = story;
-    imageProps.alt = CAPTION;
-    imageProps.metadata = METADATA;
-    imageProps.slug = SLUG;
-    imageProps.attribution = ATTRIBUTION;
-    figcaptionText = getFigcaptionText(CAPTION, ATTRIBUTION);
-  }
+  const attribution: string | null = get(story, "hero-image-attribution", null);
+  const caption: string | null = get(story, "hero-image-caption", null);
+  const imgAspectRatio = metadata && metadata.width && metadata.height ? [metadata.width, metadata.height] : [16, 9];
+  const imgSrc = focusedImagePath({
+    slug,
+    metadata,
+    imgAspectRatio,
+    cdnImage: config.publisherConfig["cdn-image"]
+  });
+  const figcaptionText = getFigcaptionText(caption, attribution);
+
+  const ampImgProps: AmpImgPropTypes = {
+    width: imgAspectRatio[0].toString(),
+    height: imgAspectRatio[1].toString(),
+    src: imgSrc,
+    layout: "responsive",
+    alt: caption || attribution || "",
+    lightbox: "true"
+  };
+
   return (
     <div>
-      <Image {...imageProps} alt={imageAttribution} preloadImage={true}>
+      <LightboxGallery />
+      <amp-img {...ampImgProps} data-hero="true">
         {figcaptionText && <StyledFigcaption dangerouslySetInnerHTML={{ __html: figcaptionText || "" }} />}
-      </Image>
+      </amp-img>
     </div>
   );
 };
 
-function heroImageAbsent(story) {
-  return story["hero-image-s3-key"] === null;
-}
-
 /**
- * HeroImage Component uses the "Image" atomic component internally. It even serves figure caption text which picks up "hero-image-attribution" and/or "hero-image-caption" depending which one is available.
+ * HeroImage Component is a wrapper around the <amp-img> amp component. It even serves figure caption text which picks up "hero-image-attribution" and/or "hero-image-caption" depending which one is available.
  *
- * ```js
- * <HeroImage
- *  caption="<p>Congress, AAP and AIMIM leaders</p>"
- *  attribution="<span>custom attribution</span>"
- *  slug="quintype/2020-02/0ecdae82-a09e-47a9-9249-d8d1380e0de8/quintype_blog_HC.jpg"
- * />
- * ```
- *
- * @param {Object} props Object containing parameters passed to the render prop
- * @param {String} props.alt Optional. A String of alternate text or image caption.
- * @param {Object} props.metadata Optional. An object containing width, height, "mime-type", "file-size", "file-name"and "focus-point" parameters.
- * @param {String} props.slug Optional. A String which is a part of URL.
- * @param {String} props.attribution Optional. A String which is the image caption.
- *  @category Molecules
+ * @category Molecules
  * @component
  */
 

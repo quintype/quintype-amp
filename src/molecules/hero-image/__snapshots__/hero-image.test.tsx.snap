@@ -2,24 +2,15 @@
 
 exports[`HeroImage should render 1`] = `
 <div>
-  <Component
+  <Component />
+  <amp-img
     alt="Create"
-    attribution="Create"
-    metadata={
-      Object {
-        "file-name": "Discover_Law_Logo_1.jpg",
-        "file-size": 185634,
-        "focus-point": Array [
-          1275,
-          581,
-        ],
-        "height": 1162,
-        "mime-type": "image/jpeg",
-        "width": 2550,
-      }
-    }
-    preloadImage={true}
-    slug="barandbench/2020-02/43fb44c4-2028-4b90-95ad-dc54aad47a28/Discover_Law_Logo_1.jpg"
+    data-hero="true"
+    height="1162"
+    layout="responsive"
+    lightbox="true"
+    src="https://gumlet.assettype.com/barandbench%2F2020-02%2F43fb44c4-2028-4b90-95ad-dc54aad47a28%2FDiscover_Law_Logo_1.jpg?rect=0%2C0%2C2550%2C1162&auto=format%2Ccompress&w=1200"
+    width="2550"
   >
     <styled.figcaption
       dangerouslySetInnerHTML={
@@ -28,7 +19,7 @@ exports[`HeroImage should render 1`] = `
         }
       }
     />
-  </Component>
+  </amp-img>
 </div>
 `;
 
