@@ -1,12 +1,30 @@
-AMP paywall and subscription support gives control over which content can be accessed by a Reader and with what restrictions, based on the Reader’s subscription status, number of views, and other factors.
 
-# How It works ?
+Subscriptions feature is to restrict a reader from reading a particular content on the page. That particular content is called as a Premium content which is only available when a reader pays for it. The amount to be paid and duration will be mentioned in the Subscription plan. There can be single or multiple plans available and the reader is allowed to buy one or more plans. After the plan expires, the reader needs to buy a plan again to access a premium content.
+
+Subscriptions feature includes showing full content to a subscriber, a metering message to an anonymous user, or a snippet followed by a subscription upsell message to a user who has exhausted their metered quota.
+
+A reader when opens a particular story he sees a block of text which hides the rest of the content (premium content). That block of text is known as Hard paywall. There is another paywall, which is known as Metered Paywall. This is used to mention the reader that the story they are reading is under subscription but they are able to read it because they are under Metering. Metering is a story under subscription which is shown as a free story to the reader. We can set the number of stories to be under this Metering in the subscription platform. When the limit exceeds the reader gets to see a hard paywall.
+
+AMP paywall and subscription support gives control over which content can be accessed by a reader and with what restrictions, based on the reader’s subscription status, number of views, and other factors.
+
+
+## Terminology
+* Authorization endpoint : Authorization is an endpoint which returns the Entitlements object containing values whether to give access to the reader or not.
+* Fallback Entitlement: The values configured under this section will be used as a fallback when all the services fail.
+* Pingback endpoint: This endpoint is called automatically when the Reader has started viewing the document. One of the main goals of the Pingback is for the Publisher to update metering information.
+* Metering : It is implemented with a metered paywall which typically allows access to a set number(this value is set in the subscription platform) of articles before requiring a subscription.
+* Subscriber: A Reader who purchases a subscription plan and has access to premium content.
+* Subscription: It is a particular subscriber’s access to premium content which is behind a hard paywall.
+* Hard paywall: This restricts access to readers from viewing premium content without a subscription. Access to that content is given only after the reader is subscribed i.e., he must be a Subscriber.
+
+
+# How Subscriptions work ?
 
 1. The AMP Runtime calls the Authorization endpoint of all configured services.
 2. If all services fail to respond, the fallback entitlement will be used.
 3. The AMP Runtime uses the response to either hide or show different sections as defined by the Attributes.
-4. Attributes like `subscriptions-action="subscribe"` to subscribe button and `subscriptions-action="login"` to login button are added. 
-5. The AMP Runtime will pick the URL from the `config` and opens it in a popup.
+4. Attributes like `subscriptions-action="subscribe"` to subscribe button and `subscriptions-action="login"` to login button are added.
+5. The AMP Runtime will pick the URL for login and subscribe buttons from the `config` and opens in a popup.
 6. After the story has been shown to the Reader, AMP Runtime calls the Pingback endpoint that can be used to update the countdown meter (number of free views used).
 7. The `amp-subscriptions` script is added only for a story behind subscription paywall, i.e., `story.access === “subscription`.
 8. `amp-subscriptions` relies on the [Schema.org](https://schema.org/) page-level configuration for two main properties.
@@ -64,7 +82,7 @@ This configuration must be added to the `featureConfig`. It can be accessed via 
 
 2. The HTTPS URL for the Authorization and Pingback Endpoints i.e., `authorizationUrl` and `pingbackUrl` respectively are to be added to the services object along with the query parameters `readerId`, `sourceUrl` and `returnUrl`. These are functions where `story` is passed in.
 
-3. The login page will open as a result of a `login` action. The URL for the login page can be provided here `services -> actions -> login`.
+3. Login page must created in the frontend and it will open as a result of a `login` action. The URL for the login page can be provided here `services -> actions -> login`.
 
 ```jsx
 {
@@ -75,7 +93,7 @@ This configuration must be added to the `featureConfig`. It can be accessed via 
 }
 ```
 
-4. The subscribe page will open as a result of a `subscribe` action. The URL for the subscribe page can be provided here `services -> actions -> subscribe`.
+4. Subscription page must be created in the frontend and it will open as a result of a `subscribe` action. The URL for the subscribe page can be provided here `services -> actions -> subscribe`.
 
 ```jsx
 {
