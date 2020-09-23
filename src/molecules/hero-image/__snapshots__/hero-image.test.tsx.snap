@@ -10,6 +10,7 @@ exports[`HeroImage should render 1`] = `
     layout="responsive"
     lightbox="true"
     src="https://gumlet.assettype.com/barandbench%2F2020-02%2F43fb44c4-2028-4b90-95ad-dc54aad47a28%2FDiscover_Law_Logo_1.jpg?rect=0%2C0%2C2550%2C1162&auto=format%2Ccompress&w=1200"
+    srcset="https://gumlet.assettype.com/barandbench%2F2020-02%2F43fb44c4-2028-4b90-95ad-dc54aad47a28%2FDiscover_Law_Logo_1.jpg?rect=0%2C0%2C2550%2C1162&auto=format%2Ccompress&w=1200 1200w"
     width="2550"
   >
     <styled.figcaption

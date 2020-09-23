@@ -49,6 +49,7 @@ export const HeroImageBase = ({ story, config }: HeroImageBaseTypes) => {
     width: imgAspectRatio[0].toString(),
     height: imgAspectRatio[1].toString(),
     src: imgSrc,
+    srcset: `${imgSrc} 1200w`,
     layout: "responsive",
     alt: caption || attribution || "",
     lightbox: "true"
