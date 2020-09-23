@@ -80,7 +80,17 @@ This configuration must be added to the `featureConfig`. It can be accessed via 
  }
 ```
 
-2. The HTTPS URL for the Authorization and Pingback Endpoints i.e., `authorizationUrl` and `pingbackUrl` respectively are to be added to the services object along with the query parameters `readerId`, `sourceUrl` and `returnUrl`. These are functions where `story` is passed in.
+2. The HTTPS URL for the Authorization and Pingback Endpoints i.e., `authorizationUrl` and `pingbackUrl` respectively are to be added to the services object along with the query parameters `readerId`, `sourceUrl` and `returnUrl`. When configuring the URLs for these endpoints, the Publisher can use [substitution variables](https://amp.dev/documentation/components/amp-subscriptions/#url-variables), for example to pass `returnUrl` to the server. These keys are functions where `story` is passed in. Below is an example of the URLs for publishers using [AccessType](https://www.quintype.com/products/accesstype) as Subscription platform -
+
+```jsx
+ services: {
+   authorizationUrl: ({ story }) =>
+    `https://amplib-web.qtstage.io/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=1MMmdsHimbytzjKXYGcv8Xwj&accesstype_integration_id=14&readerId=READER_ID`,
+  pingbackUrl: ({ story }) =>
+    `https://amplib-web.qtstage.io/api/access/v1/stories/${story["story-content-id"]}/amp-pingback?key=1MMmdsHimbytzjKXYGcv8Xwj&accesstype_integration_id=14&readerId=READER_ID`,
+  ...
+}
+```
 
 3. Login page must created in the frontend and it will open as a result of a `login` action. The URL for the login page can be provided here `services -> actions -> login`.
 
@@ -145,8 +155,8 @@ Render Prop should be passed like below :
 
  ```jsx
   ampRoutes(app, {
-    render?: {
-      subscriptionRender? : {
+    render: {
+      subscriptionRender: {
           paywallRender: ({ config, services, score, fallbackEntitlement }) => <MyCustomPaywall config={config} services={services} score={score} fallbackEntitlement={fallbackEntitlement} />
         })
       }
@@ -205,8 +215,8 @@ Render Prop should be passed like below :
 
 ```jsx
   ampRoutes(app, {
-  render?: {
-    subscriptionRender? : {
+  render: {
+    subscriptionRender: {
         meterRender: ({ config, services, score, fallbackEntitlement }) => <MyCustomMeteredPaywall config={config} services={services} score={score} fallbackEntitlement={fallbackEntitlement} />
        })
       }
