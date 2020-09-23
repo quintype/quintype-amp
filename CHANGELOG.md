@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.14](https://github.com/quintype/quintype-amp/compare/v2.1.12...v2.1.14) (2020-09-23)
+
+
+### Bug Fixes
+
+* add srcset to hero image ([f363235](https://github.com/quintype/quintype-amp/commit/f363235330597cc739b560d825c390f1eee1ac53))
+
 ### [2.1.13](https://github.com/quintype/quintype-amp/compare/v2.1.13-image-fix.0...v2.1.13) (2020-09-22)
 
 ### [2.1.12](https://github.com/quintype/quintype-amp/compare/v2.1.11...v2.1.12) (2020-09-07)
