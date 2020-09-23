@@ -654,9 +654,9 @@ export const configOpts: ConfigOpts = {
       score: { supportsViewer: 10, isReadyToPay: 9 },
       fallbackEntitlement: {
         source: "fallback",
-        granted: true,
+        granted: false,
         grantReason: "SUBSCRIBER",
-        data: { numberRemaining: 4, isLast: true, isLoggedIn: true }
+        data: { numberRemaining: 2, isLast: false, isLoggedIn: false }
       }
     }
   }

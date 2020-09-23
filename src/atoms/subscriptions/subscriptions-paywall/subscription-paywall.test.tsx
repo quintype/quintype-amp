@@ -32,7 +32,7 @@ describe("Subscriptions", () => {
       fallbackEntitlement={fallbackEntitlement} />);
     expect(wrapper.find("div").html()).toEqual(
       `<div><section class="StyledWrapper" subscriptions-actions subscriptions-display="NOT granted">
-        <h2 class="StyledText" subscriptions-actions subscriptions-display="NOT granted AND NOT data.isLoggedIn">
+        <h2 class="StyledText" subscriptions-actions subscriptions-display="NOT granted">
           Get unlimited access
         </h2>
         <h2 class="StyledText" subscriptions-actions subscriptions-display="granted AND NOT data.isLoggedIn">
@@ -44,9 +44,9 @@ describe("Subscriptions", () => {
             <span class="SubscribeMessage">Subscribe</span>
           </button>
         </div>
-        <div class="StyledLine" subscriptions-actions subscriptions-display="NOT data.isLoggedIn">
+        <div class="StyledLine" subscriptions-actions subscriptions-display="NOT granted AND NOT data.isLoggedIn">
           <p>Already a user ?</p>
-          <button subscriptions-action="login" subscriptions-display="NOT data.isLoggedIn">
+          <button subscriptions-action="login" subscriptions-display="NOT granted AND NOT data.isLoggedIn">
             <span> Log in</span>
           </button>
         </div>
@@ -73,7 +73,7 @@ describe("Subscriptions", () => {
       fallbackEntitlement={fallbackEntitlement} />);
     expect(wrapper.find("div").html()).toEqual(
       `<div><section class="StyledWrapper" subscriptions-actions subscriptions-display="NOT granted">
-        <h2 class="StyledText" subscriptions-actions subscriptions-display="NOT granted AND NOT data.isLoggedIn">
+        <h2 class="StyledText" subscriptions-actions subscriptions-display="NOT granted">
           Get unlimited access
         </h2>
         <h2 class="StyledText" subscriptions-actions subscriptions-display="granted AND NOT data.isLoggedIn">
@@ -85,9 +85,9 @@ describe("Subscriptions", () => {
             <span class="SubscribeMessage">Subscribe</span>
           </button>
         </div>
-        <div class="StyledLine" subscriptions-actions subscriptions-display="NOT data.isLoggedIn">
+        <div class="StyledLine" subscriptions-actions subscriptions-display="NOT granted AND NOT data.isLoggedIn">
           <p>Already a user ?</p>
-          <button subscriptions-action="login" subscriptions-display="NOT data.isLoggedIn">
+          <button subscriptions-action="login" subscriptions-display="NOT granted AND NOT data.isLoggedIn">
             <span> Log in</span>
           </button>
         </div>

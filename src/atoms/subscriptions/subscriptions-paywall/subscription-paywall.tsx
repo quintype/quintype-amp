@@ -4,8 +4,6 @@ import { PaywallProps } from "../types";
 import { Helmet } from "react-helmet";
 // The user is a subscriber/non-subscriber and is logged/not logged into their account. He is Granted. Subscribe button depends whether he is  asubscriber or not. And login button too.
 export const SubscriberAccessPaywall = ({ config, services, score, fallbackEntitlement }: PaywallProps) => {
-  // const subscriptions = get(config, ["opts", "featureConfig", "subscriptions"], null);
-  // if (!subscriptions || !subscriptions.length) return null;
   const paywallRender = get(config, ["opts", "render", "subscriptionRender", "paywallRender"], null);
   if (paywallRender) return paywallRender({ config, services, score, fallbackEntitlement });
   return (
@@ -127,8 +125,6 @@ export const SubscriberAccessPaywall = ({ config, services, score, fallbackEntit
 };
 // The user has read 4 out of 5 free articles. He is granted and he is on metering.
 export const MeteredPaywall = ({ config, services, score, fallbackEntitlement }: PaywallProps) => {
-  // const subscriptions = get(config, ["opts", "featureConfig", "subscriptions"], null);
-  // if (!subscriptions || !subscriptions.length) return null;
   const meterRender = get(config, ["opts", "render", "subscriptionRender", "meterRender"], null);
   if (meterRender) return meterRender({ config, services, score, fallbackEntitlement });
   return (
@@ -234,96 +230,3 @@ export const MeteredPaywall = ({ config, services, score, fallbackEntitlement }:
     </>
   );
 };
-
-// // The user does not have access because they have read 5 out of 5 free articles. He is not granted.
-// export const MeteredExhaustedPaywall = ({ config, services, score, fallbackEntitlement }: PaywallProps) => {
-//   // const subscriptions = get(config, ["opts", "featureConfig", "subscriptions"], null);
-//   // if (!subscriptions || !subscriptions.length) return null;
-//   const LastStoryMeterRender = get(config, ["opts", "render", "subscriptionRender", "LastStoryMeterRender"], null);
-//   if (LastStoryMeterRender) return LastStoryMeterRender({ config, services, score, fallbackEntitlement });
-//   return (
-//     <>
-      // <Helmet>
-      //   <style type="text/css">{`
-      // .StyledMeter {
-      //   display: flex;
-      //   align-items: center;
-      //   padding: 24px;
-      // }
-      // `}</style>
-      //   <style type="text/css">{`
-      // .StyledText {
-      //   padding: 26px;
-      //   font-weight: 800;
-      //   margin: 0;
-      // }
-      // `}</style>
-      //   <style type="text/css">
-      //     {`
-      // .MeteredStyledLine {
-      //   margin: 0 20px;
-      //   }`}
-      //   </style>
-      //   <style type="text/css">{`
-      //   .MeteredStyledLine p {
-      //     font-size: 12px;
-      //     font-weight: normal;
-      //     margin: 0;
-      //   }
-      //   `}</style>
-      //   <style type="text/css">{`
-      //   .MeteredStyledLine button {
-      //     border: none;
-      //     background-color: transparent;
-      //   }
-      //   `}</style>
-      //   <style type="text/css">{`
-      //   .MeteredStyledLine span {
-      //     font-weight: bold;
-      //     font-size: 14px;
-      //     cursor: pointer;
-      //   }
-      // `}</style>
-      //   <style type="text/css">{`
-      // .SubscribeMessage {
-      //   color: #fff;
-      //   padding: 10px;
-      //   font-size: 14px;
-      //   font-weight: bold;
-      // }
-      // `}</style>
-      //   <style type="text/css">{`
-      //   .StyledButton {
-      //     align-self: center;
-      //   }
-      // `}</style>
-      //   <style type="text/css">
-      //     {`
-      //   .StyledButton button {
-      //     border-radius: 5px;
-      //     background-color: #f00;
-      //     border: none;
-      //     color: #fff;
-      //     padding: 10px;
-      //     margin: 10px;
-      //     cursor: pointer;
-      //     font-size: 14px;
-      //     font-weight: bold;
-      //   }`}
-      //   </style>
-      // </Helmet>
-//       <div
-//         dangerouslySetInnerHTML={{
-//           __html: `<template
-//           class="amp-subscriptions-dialog"
-//           type="amp-mustache"
-//           subscriptions-dialog
-//           subscriptions-display="granted AND grantReason = 'METERING'">
-
-//           </template>`
-//         }}
-//       />
-//     </>
-//   );
-// };
-

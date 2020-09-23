@@ -19,14 +19,11 @@ import get from "lodash.get";
 import {
   SubscriberAccessPaywall,
   MeteredPaywall,
-  // MeteredExhaustedPaywall
 } from "../../atoms/subscriptions/subscriptions-paywall";
 import {
   getServicesParams,
   getScoreParams,
   getFallbackEntitlementParams
-  // displayCardsWithBodyAd,
-  // displayCardsWithoutBodyAd
 } from "./generic-story.helpers";
 import { TopAd, BottomAd } from "../../molecules/ads";
 import { StoryPageSlots } from "../../molecules/slots";
@@ -40,7 +37,6 @@ const StoryContainer = styled.div`
 const Wrapper = styled.div`
   padding: 0 ${(props) => props.theme.spacing.s};
 `;
-// const canDisplayBodyAd = (cardIdx) => cardIdx === 0;
 
 /**
  * The GenericStory is the default template that's (as of Jul 2020) rendered for all stories except live-blog

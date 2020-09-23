@@ -3116,12 +3116,12 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
           "subscriptions": Object {
             "fallbackEntitlement": Object {
               "data": Object {
-                "isLast": true,
-                "isLoggedIn": true,
-                "numberRemaining": 4,
+                "isLast": false,
+                "isLoggedIn": false,
+                "numberRemaining": 2,
               },
               "grantReason": "SUBSCRIBER",
-              "granted": true,
+              "granted": false,
               "source": "fallback",
             },
             "score": Object {
