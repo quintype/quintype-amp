@@ -7,7 +7,7 @@
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66074042-1', 'auto');ga('send', 'pageview');</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AMP Library atoms/story-elements/also-read/also-read.tsx</title>
+  <title>AMP Library atoms/story-elements/attachment/attachment.tsx</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -124,7 +124,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>atoms/story-elements/also-read/also-read.tsx</h1>
+                    <h1>atoms/story-elements/attachment/attachment.tsx</h1>
                 </header>
                 
 
@@ -135,70 +135,59 @@
         <article>
             <pre class="prettyprint source linenums"><code>import React from "react";
 import { StoryElementProps } from "../types";
-import get from "lodash.get";
 import styled from "styled-components";
-import { Spacer } from "../../spacer";
-import { withStoryAndConfig } from "../../../context";
+import { media } from "../../../utils/media";
 
-export const StyledAlsoRead = styled.div`
+const AttachmentWrapper = styled.div`
+  font-size: ${(props) => props.theme.font.size.m};
   display: flex;
+  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  font-size: ${(props) => props.theme.font.size.xs};
-  span {
-    font-weight: bold;
-  }
-  a {
-    color: ${(props) => props.theme.color.primaryColor};
-  }
+  padding: 15px 25px;
+  border: ${(props) => `1px solid ${props.theme.color.mono3}`};
 
-  a:hover {
-    text-decoration: none;
-  }
+  ${media.laptop`
+    flex-direction: row;
+  `}
+`;
+export const PreviewLink = styled.a`
+  border: ${(props) => `1px solid ${props.theme.color.mono4}`};
+  border-radius: 3px;
+  padding: 10px 25px;
+  color: unset;
+  text-decoration: none;
+  margin: 15px 0 0 0;
+
+  ${media.laptop`
+    margin: 0 0 0 15px;
+  `}
 `;
 
-export const AlsoReadBase = ({ element, story, config }: StoryElementProps) => {
-  const linkedStoryId = get(element, ["metadata", "linked-story-id"]);
-  const linkedStory = get(story, ["linked-stories", linkedStoryId]);
-  const alsoReadRender = get(config, ["opts", "render", "storyElementRender", "alsoReadRender"], null);
-
-  if (!linkedStory) {
-    return null;
-  }
-
-  return alsoReadRender ? (
-    alsoReadRender({ story, config, element })
-  ) : (
-    &lt;StyledAlsoRead>
-      &lt;Spacer token="m" align="horizontal" />
-      &lt;span>Also read: &lt;/span>
-      &lt;Spacer token="s" align="horizontal" />
-      &lt;a href={linkedStory.url}>{linkedStory.headline}&lt;/a>
-      &lt;Spacer token="m" align="horizontal" />
-    &lt;/StyledAlsoRead>
-  );
-};
 /**
- * AlsoRead is a story element
- * The look of the AlsoRead can be changed using the render prop alsoReadRender. In case alsoReadRender is passed in the config, it is rendered. Otherwise a default AlsoRead is rendered.
+ * Attachment is a story element and is displayed for type: file, subtype: attachment
  *
- * @param {Object} params object containing parameters passed to the render prop
+ * @param {Object} params object containing parameters
  * @param {Object} params.story story object
  * @param {Object} params.config config object
  * @param {Object} params.element the story element. This is same as the story element found in the story API response
  *
- * ```javascript
- * ...
- * ampRoutes(app, {
- *    alsoReadRender: ({ story, config, element }) => &lt;MyCustomAlsoRead story={story} config={config} storyElement={element} />
- * })
- * ...
- * ```
  *
  * @category StoryElements
- * @module AlsoRead
+ * @module FacebookElement
  * @component
  */
-export const AlsoRead = withStoryAndConfig(AlsoReadBase);
+
+export const Attachment = ({ element }: StoryElementProps) => {
+  return (
+    &lt;AttachmentWrapper>
+      &lt;div>{element["file-name"]}&lt;/div>
+      &lt;PreviewLink href={element.url} target="_blank" rel="noopener noreferrer" download="">
+        Preview
+      &lt;/PreviewLink>
+    &lt;/AttachmentWrapper>
+  );
+};
 </code></pre>
         </article>
     </section>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66074042-1', 'auto');ga('send', 'pageview');</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AMP Library subscriptions</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+             
+                <a class="image" href="index.html">
+                    <img src="https://images.assettype.com/quintype-website/2018-10/013e8cbe-92b4-435f-bbbb-3e101efbc99a/quintype_logo.png?w=180" alt="logo">
+                </a>
+            
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    API Documentation
+                </a>
+                
+                <div class="dropdown is-hoverable is-right">
+                    <a class="dropdown-trigger link">
+                        Tutorials
+                        <i class="fas fa-chevron-down fa-xs"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-content">
+                        
+                            <a class="dropdown-item" href="tutorial-overview.html">
+                                Overview
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-opts.html">
+                                The 'opts' object
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-default-story-templates.html">
+                                Default Story Templates
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-custom-story-templates.html">
+                                Custom Story Templates
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-library-exports.html">
+                                AMP Library Exports
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-migration-to-v2.html">
+                                Migration from @quintype/framework v3.x.x to v4.x.x
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-features.html">
+                                Features
+                            </a>
+                        
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar tutorials"
+            id="sidebarNav"
+        >
+            
+                <div class="search-wrapper">
+                    <input id="search" type="text" placeholder="Search docs..." class="input">
+                </div>
+            
+            <nav>
+                
+                    <div class="category"><h3>Tutorials</h3><ul><li><a href="tutorial-overview.html">Overview</a></li><li><a href="tutorial-opts.html">The 'opts' object</a></li><li><a href="tutorial-default-story-templates.html">Default Story Templates</a></li><li><a href="tutorial-custom-story-templates.html">Custom Story Templates</a></li><li><a href="tutorial-library-exports.html">AMP Library Exports</a></li><li><a href="tutorial-migration-to-v2.html">Migration from @quintype/framework v3.x.x to v4.x.x</a></li><li><a href="tutorial-features.html">Features</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Tutorial</p>
+                    <h1>subscriptions</h1>
+                </header>
+                <section>
+
+<article>
+    <p>Subscriptions feature is to restrict a reader from reading a particular content on the page. That particular content is called as a Premium content which is only available when a reader pays for it. The amount to be paid and duration will be mentioned in the Subscription plan. There can be single or multiple plans available and the reader is allowed to buy one or more plans. After the plan expires, the reader needs to buy a plan again to access a premium content.</p>
+<p>Subscriptions feature includes showing full content to a subscriber, a metering message to an anonymous user, or a snippet followed by a subscription upsell message to a user who has exhausted their metered quota.</p>
+<p>A reader when opens a particular story he sees a block of text which hides the rest of the content (premium content). That block of text is known as Hard paywall. There is another paywall, which is known as Metered Paywall. This is used to mention the reader that the story they are reading is under subscription but they are able to read it because they are under Metering. Metering is a story under subscription which is shown as a free story to the reader. We can set the number of stories to be under this Metering in the subscription platform. When the limit exceeds the reader gets to see a hard paywall.</p>
+<p>AMP paywall and subscription support gives control over which content can be accessed by a reader and with what restrictions, based on the reader’s subscription status, number of views, and other factors.</p>
+<h2>Terminology</h2>
+<ul>
+<li>Authorization endpoint : Authorization is an endpoint which returns the Entitlements object containing values whether to give access to the reader or not.</li>
+<li>Fallback Entitlement: The values configured under this section will be used as a fallback when all the services fail.</li>
+<li>Pingback endpoint: This endpoint is called automatically when the Reader has started viewing the document. One of the main goals of the Pingback is for the Publisher to update metering information.</li>
+<li>Metering : It is implemented with a metered paywall which typically allows access to a set number(this value is set in the subscription platform) of articles before requiring a subscription.</li>
+<li>Subscriber: A Reader who purchases a subscription plan and has access to premium content.</li>
+<li>Subscription: It is a particular subscriber’s access to premium content which is behind a hard paywall.</li>
+<li>Hard paywall: This restricts access to readers from viewing premium content without a subscription. Access to that content is given only after the reader is subscribed i.e., he must be a Subscriber.</li>
+</ul>
+<h1>How Subscriptions work ?</h1>
+<ol>
+<li>The AMP Runtime calls the Authorization endpoint of all configured services.</li>
+<li>If all services fail to respond, the fallback entitlement will be used.</li>
+<li>The AMP Runtime uses the response to either hide or show different sections as defined by the Attributes.</li>
+<li>Attributes like <code>subscriptions-action=&quot;subscribe&quot;</code> to subscribe button and <code>subscriptions-action=&quot;login&quot;</code> to login button are added.</li>
+<li>The AMP Runtime will pick the URL for login and subscribe buttons from the <code>config</code> and opens in a popup.</li>
+<li>After the story has been shown to the Reader, AMP Runtime calls the Pingback endpoint that can be used to update the countdown meter (number of free views used).</li>
+<li>The <code>amp-subscriptions</code> script is added only for a story behind subscription paywall, i.e., <code>story.access === “subscription</code>.</li>
+<li><code>amp-subscriptions</code> relies on the <a href="https://schema.org/">Schema.org</a> page-level configuration for two main properties.
+<ul>
+<li>The product ID that the user must be granted to view the content: <code>productID</code></li>
+<li>Whether this content requires this product at this time: <code>isAccessibleForFree</code>.
+These properties are added to <code>NewsArticle</code> and <code>Article</code> schema which are publisher specific.</li>
+</ul>
+</li>
+<li>Paywall will be displayed if it is a premium story (based on the access key).</li>
+<li>Access is driven through the Authorization URL.</li>
+<li>In a premium story, Header card will always be shown.</li>
+<li>If a user is on metering, full story will be shown.</li>
+<li>Number of cards to be displayed on a premium story for a non-subscriber will be decided based on the <code>no-of-visible-cards-in-a-blocked-story</code> key from publisher config, <code>api/v1/config</code>, if provided, else it falls back to the default value which is <code>1</code> (the first card).</li>
+<li>Paywalls are overridable with the help of Render Props.</li>
+</ol>
+<h1>How to Integrate ?</h1>
+<p>To integrate this feature, follow the below steps -</p>
+<ol>
+<li>The <code>amp-subscriptions</code> component must be configured using JSON configuration.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>services</code></td>
+<td><code>&lt;array&gt;</code> of <code>&lt;object&gt;</code></td>
+<td>This <code>array</code> is Mandatory and must include: one local service and Zero or more vendor services.</td>
+</tr>
+<tr>
+<td><code>score</code></td>
+<td><code>&lt;object&gt;</code></td>
+<td>Determines which service is selected if no valid entitlements are returned. This is optional.</td>
+</tr>
+<tr>
+<td><code>fallbackEntitlement</code></td>
+<td><code>&lt;object&gt;</code></td>
+<td>Determines what level of access the Reader should have if all services fail to respond to the Authorization requests. This is optional.</td>
+</tr>
+</tbody>
+</table>
+<p>This configuration must be added to the <code>featureConfig</code>. It can be accessed via <code>opts.featureConfig.subscriptions</code>.</p>
+<pre class="prettyprint source lang-jsx"><code> featureConfig: {
+     subscriptions: {
+      services: [
+        {
+        &quot;authorizationUrl&quot;: ({story}) => `https://pub.com/amp-authorisation?rid=READER_ID&url=SOURCE_URL`,
+        &quot;pingbackUrl&quot;: ({story}) => `https://pub.com/amp-pingback?rid=READER_ID&url=SOURCE_URL`,
+        actions: { login: &quot;https://pub.com/login&quot;, subscribe: &quot;https://pub.com/subscribe&quot; }
+        }
+      ],
+      score: { supportsViewer: 10, isReadyToPay: 9 },
+      fallbackEntitlement: {
+        source: &quot;fallback”,
+        granted: true,
+        grantReason: &quot;SUBSCRIBER&quot;,
+        data: {
+            &quot;isLoggedIn&quot;: false,
+            &quot;numberRemaining&quot;: 4,
+            &quot;isLast&quot;: false
+         }
+      }
+    }
+ }
+</code></pre>
+<ol start="2">
+<li>The HTTPS URL for the Authorization and Pingback Endpoints i.e., <code>authorizationUrl</code> and <code>pingbackUrl</code> respectively are to be added to the services object along with the query parameters <code>readerId</code>, <code>sourceUrl</code> and <code>returnUrl</code>. When configuring the URLs for these endpoints, the Publisher can use <a href="https://amp.dev/documentation/components/amp-subscriptions/#url-variables">substitution variables</a>, for example to pass <code>returnUrl</code> to the server. These keys are functions where <code>story</code> is passed in. Below is an example of the URLs for publishers using <a href="https://www.quintype.com/products/accesstype">AccessType</a> as Subscription platform -</li>
+</ol>
+<pre class="prettyprint source lang-jsx"><code> services: {
+   authorizationUrl: ({ story }) =>
+    `https://amplib-web.qtstage.io/api/access/v1/stories/${story[&quot;story-content-id&quot;]}/amp-access?key=1MMmdsHimbytzjKXYGcv8Xwj&accesstype_integration_id=14&readerId=READER_ID`,
+  pingbackUrl: ({ story }) =>
+    `https://amplib-web.qtstage.io/api/access/v1/stories/${story[&quot;story-content-id&quot;]}/amp-pingback?key=1MMmdsHimbytzjKXYGcv8Xwj&accesstype_integration_id=14&readerId=READER_ID`,
+  ...
+}
+</code></pre>
+<ol start="3">
+<li>Login page must created in the frontend and it will open as a result of a <code>login</code> action. The URL for the login page can be provided here <code>services -&gt; actions -&gt; login</code>.</li>
+</ol>
+<pre class="prettyprint source lang-jsx"><code>{
+  &quot;actions&quot;: {
+    &quot;login&quot;: &quot;https://pub.com/amp-login?rid=READER_ID&url=SOURCE_URL&quot;,
+    ...
+  }
+}
+</code></pre>
+<ol start="4">
+<li>Subscription page must be created in the frontend and it will open as a result of a <code>subscribe</code> action. The URL for the subscribe page can be provided here <code>services -&gt; actions -&gt; subscribe</code>.</li>
+</ol>
+<pre class="prettyprint source lang-jsx"><code>{
+  &quot;actions&quot;: {
+    &quot;subscribe&quot;: &quot;https://pub.com/amp-subscribe?rid=READER_ID&url=SOURCE_URL&quot;,
+    ...
+  }
+}
+</code></pre>
+<ol start="5">
+<li>If all configured services fail to get the entitlements, the entitlement configured under <code>fallbackEntitlement</code> section will be used as a fallback entitlement. Default values can be added here.</li>
+</ol>
+<pre class="prettyprint source lang-jsx"><code>{
+  &quot;fallbackEntitlement&quot;: {
+    &quot;source&quot;: &quot;fallback&quot;,
+    &quot;granted&quot;: true,
+    &quot;grantReason&quot;: &quot;SUBSCRIBER&quot;,
+    &quot;data&quot;: {
+      &quot;isLoggedIn&quot;: false
+    }
+  }
+}
+</code></pre>
+<ol start="6">
+<li>The <code>data</code> object which is inside the <code>fallbackEntitlement</code> object can be used for messaging related to metering or article count orelse left empty. <code>numberRemaining</code> tells the number of free metered articles left. The number of free metered stories to be shown is set on the subscription platform. <code>isLast</code> is a boolean value which shows <code>true</code> when the reader is reading his last free metered story. The values inside the <code>data</code> object can be customized.</li>
+</ol>
+<pre class="prettyprint source lang-jsx"><code>{
+  &quot;fallbackEntitlement&quot;: {
+    &quot;source&quot;: &quot;fallback&quot;,
+    &quot;granted&quot;: true,
+    &quot;grantReason&quot;: &quot;SUBSCRIBER&quot;,
+    &quot;data&quot;: {
+      &quot;isLoggedIn&quot;: false,
+      &quot;numberRemaining&quot;: 4,
+      &quot;isLast&quot;: false,
+    }
+  }
+}
+</code></pre>
+<h1>Paywalls</h1>
+<h2>Hard paywall</h2>
+<p>This <code>SubscriberAccessPaywall</code> component is the hard paywall. The look of the <code>SubscriberAccessPaywall</code> can be changed using the render prop <code>paywallRender</code>. In case <code>paywallRender</code> is passed in the config, it is rendered. Otherwise a default <code>SubscriberAccessPaywall</code> is rendered.
+Render Prop should be passed like below :</p>
+<pre class="prettyprint source lang-jsx"><code> ampRoutes(app, {
+   render: {
+     subscriptionRender: {
+         paywallRender: ({ config, services, score, fallbackEntitlement }) => &lt;MyCustomPaywall config={config} services={services} score={score} fallbackEntitlement={fallbackEntitlement} />
+       })
+     }
+   }
+</code></pre>
+<p>This paywall is rendered when the user is a subscriber/non-subscriber or is logged/not-logged into their account.</p>
+<h3>Scenario 1</h3>
+<p>Response for a user who has read all the free stories and is not subscribed or logged in. The paywall renders with both subscribe and login buttons along with the message provided.</p>
+<pre class="prettyprint source lang-jsx"><code>{
+    &quot;granted&quot;: false,
+    &quot;grantReason&quot;: &quot;SUBSCRIBER&quot;,
+    &quot;data&quot;: {
+      &quot;isLoggedIn&quot;: false
+    }
+}
+</code></pre>
+<h3>Scenario 2</h3>
+<p>Response for a user who has  read all free stories and is subscribed but not logged in. The paywall renders with login button along with the message provided.</p>
+<pre class="prettyprint source lang-jsx"><code>{
+    &quot;granted&quot;: true,
+    &quot;grantReason&quot;: &quot;SUBSCRIBER&quot;,
+    &quot;data&quot;: {
+      &quot;isLoggedIn&quot;: false
+    }
+}
+</code></pre>
+<h3>Scenario 3</h3>
+<p>Response for a user who has read all free stories and is not subscribed but logged in. The paywall renders with subscribe button along with the message provided.</p>
+<pre class="prettyprint source lang-jsx"><code>{
+    &quot;granted”: false,
+    &quot;grantReason&quot;: &quot;SUBSCRIBER&quot;,
+    &quot;data&quot;: {
+      &quot;isLoggedIn&quot;: true
+    }
+}
+</code></pre>
+<h2>Metered Paywall</h2>
+<p>This <code>MeteredPaywall</code> component is the Metering paywall. The look of the <code>MeteredPaywall</code> can be changed using the render prop <code>meterRender</code>. In case <code>meterRender</code> is passed in the config, it is rendered. Otherwise a default <code>MeteredPaywall</code> is rendered.
+<code>MeteredPaywall</code> component renders both metered and meter exhausted paywalls depending the the <code>numberRemaining</code> and <code>isLast</code> key values. The same <code>renderProp</code> can be used to change both the meterings.
+Render Prop should be passed like below :</p>
+<pre class="prettyprint source lang-jsx"><code>  ampRoutes(app, {
+  render: {
+    subscriptionRender: {
+        meterRender: ({ config, services, score, fallbackEntitlement }) => &lt;MyCustomMeteredPaywall config={config} services={services} score={score} fallbackEntitlement={fallbackEntitlement} />
+       })
+      }
+    }
+</code></pre>
+<p>This paywall is rendered when the user is on metering. The subscribe and login buttons are displayed when the metering is exhausted. Note that the close button design and animations are from <code>amp-subscriptions</code> script and they cannot be changed.</p>
+<h3>Scenario 1</h3>
+<p>Response for an anonymous Reader who has read 4 out of 5 free articles.</p>
+<pre class="prettyprint source lang-jsx"><code>{
+  &quot;granted&quot;: true,
+  &quot;grantReason&quot;: &quot;METERING&quot;,
+  &quot;data&quot; : {
+    &quot;isLoggedIn&quot;: false,
+    &quot;numberRemaining&quot;: 4,
+    &quot;isLast&quot;: false,
+  }
+}
+</code></pre>
+<h3>Scenario 2</h3>
+<p>Response for an anonymous Reader who does not have access because they have read 5 out of 5 free articles. This renders the meter exhausted paywall.</p>
+<pre class="prettyprint source lang-jsx"><code>  &quot;granted&quot;: false,
+  &quot;data&quot; : {
+    &quot;isLoggedIn&quot;: false,
+    &quot;numberRemaining&quot;: 5,
+    &quot;isLast&quot;: true,
+  }
+}
+</code></pre>
+</article>
+
+</section>
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+<script src="scripts/search.js"> </script>
+
+</body>
+</html>

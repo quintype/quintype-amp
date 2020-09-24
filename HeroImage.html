@@ -55,6 +55,7 @@
                 >
                     API Documentation
                 </a>
+                
                 <div class="dropdown is-hoverable is-right">
                     <a class="dropdown-trigger link">
                         Tutorials
@@ -63,35 +64,38 @@
                     <div class="dropdown-menu">
                         <div class="dropdown-content">
                         
-                            
-                                <a class="dropdown-item" href="tutorial-overview.html">
-                                    Overview
-                                </a>
-                            
-                                <a class="dropdown-item" href="tutorial-opts.html">
-                                    The 'opts' object
-                                </a>
-                            
-                                <a class="dropdown-item" href="tutorial-default-story-templates.html">
-                                    Default Story Templates
-                                </a>
-                            
-                                <a class="dropdown-item" href="tutorial-custom-story-templates.html">
-                                    Custom Story Templates
-                                </a>
-                            
-                                <a class="dropdown-item" href="tutorial-library-exports.html">
-                                    AMP Library Exports
-                                </a>
-                            
-                                <a class="dropdown-item" href="tutorial-migration-to-v2.html">
-                                    Migration from @quintype/framework v3.x.x to v4.x.x
-                                </a>
-                            
+                            <a class="dropdown-item" href="tutorial-overview.html">
+                                Overview
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-opts.html">
+                                The 'opts' object
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-default-story-templates.html">
+                                Default Story Templates
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-custom-story-templates.html">
+                                Custom Story Templates
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-library-exports.html">
+                                AMP Library Exports
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-migration-to-v2.html">
+                                Migration from @quintype/framework v3.x.x to v4.x.x
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-features.html">
+                                Features
+                            </a>
                         
                         </div>
                     </div>
                 </div>
+                
                 
                 
             </div>
@@ -164,13 +168,7 @@
     
     
     <div class="description">
-        <p>HeroImage Component uses the &quot;Image&quot; atomic component internally. It even serves figure caption text which picks up &quot;hero-image-attribution&quot; and/or &quot;hero-image-caption&quot; depending which one is available.</p>
-<pre class="prettyprint source lang-js"><code>&lt;HeroImage
- caption=&quot;&lt;p>Congress, AAP and AIMIM leaders&lt;/p>&quot;
- attribution=&quot;&lt;span>custom attribution&lt;/span>&quot;
- slug=&quot;quintype/2020-02/0ecdae82-a09e-47a9-9249-d8d1380e0de8/quintype_blog_HC.jpg&quot;
-/>
-</code></pre>
+        <p>HeroImage Component is a wrapper around the <amp-img> amp component. It even serves figure caption text which picks up &quot;hero-image-attribution&quot; and/or &quot;hero-image-caption&quot; depending which one is available.</p>
     </div>
     
 
@@ -183,152 +181,6 @@
     
 
 
-
-    <h5>Parameters:</h5>
-    
-<div class="table-container">
-    <table class="params table">
-        <thead>
-        <tr>
-            
-            <th>Name</th>
-            
-
-            <th>Type</th>
-
-            
-
-            
-
-            <th class="last">Description</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>props</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Object</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>Object containing parameters passed to the render prop</p></td>
-</tr>
-
-  
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>alt</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">String</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>Optional. A String of alternate text or image caption.</p></td>
-</tr>
-
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>metadata</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Object</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>Optional. An object containing width, height, &quot;mime-type&quot;, &quot;file-size&quot;, &quot;file-name&quot;and &quot;focus-point&quot; parameters.</p></td>
-</tr>
-
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>slug</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">String</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>Optional. A String which is a part of URL.</p></td>
-</tr>
-
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>attribution</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">String</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>Optional. A String which is the image caption.</p></td>
-</tr>
-
-  
-
-
-        
-        </tbody>
-    </table>
-</div>
 
 
 
@@ -369,7 +221,7 @@
         <p class="tag-source">
             <a href="molecules_hero-image_hero-image.tsx.html" class="button">View Source</a>
             <span>
-                <a href="molecules_hero-image_hero-image.tsx.html">molecules/hero-image/hero-image.tsx</a>, <a href="molecules_hero-image_hero-image.tsx.html#line76">line 76</a>
+                <a href="molecules_hero-image_hero-image.tsx.html">molecules/hero-image/hero-image.tsx</a>, <a href="molecules_hero-image_hero-image.tsx.html#line62">line 62</a>
             </span>
         </p>
     
@@ -435,7 +287,7 @@
             
             <footer class="footer">
                 <div class="content has-text-centered">
-                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a></p>
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a></p>
                     <p class="sidebar-created-by">
                         <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
                         <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
