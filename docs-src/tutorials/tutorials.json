@@ -16,8 +16,5 @@
   },
   "migration-to-v2": {
     "title": "Migration from @quintype/framework v3.x.x to v4.x.x"
-  },
-  "features": {
-    "title": "Features"
   }
 }
