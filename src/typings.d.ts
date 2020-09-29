@@ -9,5 +9,6 @@ declare namespace React {
     crossorigin?: string;
     items?: string;
     update?: string;
+    separator?: string;
   }
 }

@@ -2,6 +2,78 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.14](https://github.com/quintype/quintype-amp/compare/v2.1.12...v2.1.14) (2020-09-23)
+
+
+### Bug Fixes
+
+* add srcset to hero image ([f363235](https://github.com/quintype/quintype-amp/commit/f363235330597cc739b560d825c390f1eee1ac53))
+
+### [2.1.13](https://github.com/quintype/quintype-amp/compare/v2.1.13-image-fix.0...v2.1.13) (2020-09-22)
+
+### [2.1.12](https://github.com/quintype/quintype-amp/compare/v2.1.11...v2.1.12) (2020-09-07)
+
+
+### Bug Fixes
+
+* add null check in conditionExternalLinks helper function ([#279](https://github.com/quintype/quintype-amp/issues/279)) ([1fb698a](https://github.com/quintype/quintype-amp/commit/1fb698a0fe1a703d48266540b12889e598741685))
+
+### [2.1.11](https://github.com/quintype/quintype-amp/compare/v2.1.4...v2.1.11) (2020-09-04)
+
+
+### Bug Fixes
+
+* bump styled components and types ([#274](https://github.com/quintype/quintype-amp/issues/274)) ([997b89d](https://github.com/quintype/quintype-amp/commit/997b89da0a45ed39d3c4ab0e77866afd10114770))
+* **infinite scroll:** add separator; accept custom text from featureC… ([#264](https://github.com/quintype/quintype-amp/issues/264)) ([be0fd49](https://github.com/quintype/quintype-amp/commit/be0fd49cd3fb34c88a3fdabeb9ae651640dcf325))
+* add slot in generic story after every card ([#259](https://github.com/quintype/quintype-amp/issues/259)) ([1faad65](https://github.com/quintype/quintype-amp/commit/1faad6549502d3341e36bbdd9bcff93ecd0e2471))
+* dont render pending element ([#265](https://github.com/quintype/quintype-amp/issues/265)) ([9d4f3ef](https://github.com/quintype/quintype-amp/commit/9d4f3ef141b24ef35c1f3ec3bc915d25270caaf1))
+
+### [2.1.10](https://github.com/quintype/quintype-amp/compare/v2.1.4...v2.1.10) (2020-08-30)
+
+
+### Bug Fixes
+
+* add slot in generic story after every card ([#259](https://github.com/quintype/quintype-amp/issues/259)) ([1faad65](https://github.com/quintype/quintype-amp/commit/1faad6549502d3341e36bbdd9bcff93ecd0e2471))
+* dont render pending element ([#265](https://github.com/quintype/quintype-amp/issues/265)) ([9d4f3ef](https://github.com/quintype/quintype-amp/commit/9d4f3ef141b24ef35c1f3ec3bc915d25270caaf1))
+* **infinite scroll:** add separator; accept custom text from featureC… ([#264](https://github.com/quintype/quintype-amp/issues/264)) ([be0fd49](https://github.com/quintype/quintype-amp/commit/be0fd49cd3fb34c88a3fdabeb9ae651640dcf325))
+
+### [2.1.9](https://github.com/quintype/quintype-amp/compare/v2.1.4...v2.1.9) (2020-08-27)
+
+
+### Bug Fixes
+
+* merge conflicts ([e377caa](https://github.com/quintype/quintype-amp/commit/e377caab3e5bff629cebbab26eedecf8e811d0dc))
+* **infinite scroll:** add separator; accept custom text from featureC… ([#264](https://github.com/quintype/quintype-amp/issues/264)) ([be0fd49](https://github.com/quintype/quintype-amp/commit/be0fd49cd3fb34c88a3fdabeb9ae651640dcf325))
+* add related story slots ([6ca29b0](https://github.com/quintype/quintype-amp/commit/6ca29b09a373c70b2330849ce05fae0681653e34))
+* add slot in generic story after every card ([#259](https://github.com/quintype/quintype-amp/issues/259)) ([1faad65](https://github.com/quintype/quintype-amp/commit/1faad6549502d3341e36bbdd9bcff93ecd0e2471))
+* dont render pending element ([#265](https://github.com/quintype/quintype-amp/issues/265)) ([9d4f3ef](https://github.com/quintype/quintype-amp/commit/9d4f3ef141b24ef35c1f3ec3bc915d25270caaf1))
+
+### [2.1.8](https://github.com/quintype/quintype-amp/compare/v2.1.4...v2.1.8) (2020-08-27)
+
+
+### Bug Fixes
+
+* dont render pending element ([#265](https://github.com/quintype/quintype-amp/issues/265)) ([9d4f3ef](https://github.com/quintype/quintype-amp/commit/9d4f3ef141b24ef35c1f3ec3bc915d25270caaf1))
+* **infinite scroll:** add separator; accept custom text from featureConfig ([affb242](https://github.com/quintype/quintype-amp/commit/affb242bdcae929572ccf774e7e2988699d741d8))
+* add slot in generic story after every card ([#259](https://github.com/quintype/quintype-amp/issues/259)) ([1faad65](https://github.com/quintype/quintype-amp/commit/1faad6549502d3341e36bbdd9bcff93ecd0e2471))
+
+### [2.1.7](https://github.com/quintype/quintype-amp/compare/v2.1.4...v2.1.7) (2020-08-26)
+
+
+### Bug Fixes
+
+* add slot in generic story after every card ([#259](https://github.com/quintype/quintype-amp/issues/259)) ([1faad65](https://github.com/quintype/quintype-amp/commit/1faad6549502d3341e36bbdd9bcff93ecd0e2471))
+* dont render pending element ([08d5085](https://github.com/quintype/quintype-amp/commit/08d5085dae9cb13b7b6ec90d4d5452a733b293f2))
+* remove pending element ([e24ffae](https://github.com/quintype/quintype-amp/commit/e24ffaeec1cfeb003fa8a169b097477f1d0939bc))
+
+### [2.1.6](https://github.com/quintype/quintype-amp/compare/v2.1.4...v2.1.6) (2020-08-20)
+
+
+### Bug Fixes
+
+* add slot in generic story after every card ([4a117ea](https://github.com/quintype/quintype-amp/commit/4a117ea43d76b8ce02b28e2a7fa24a762ee2ff68))
+* rename generic to default story card slot ([9903f6d](https://github.com/quintype/quintype-amp/commit/9903f6d1591d733c06568ca21464a92d8fc1a450))
+
 ### [2.1.5](https://github.com/quintype/quintype-amp/compare/v2.1.4...v2.1.5) (2020-08-18)
 
 

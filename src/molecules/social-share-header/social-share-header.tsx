@@ -20,4 +20,17 @@ const SocialShareHeader = ({ fbAppId }: SocialShareHeaderProps) => {
   );
 };
 
+/**
+ * SocialShareHeader Component uses the SocialShareIcon atomic component internally.
+ *
+ * ```js
+ * <SocialShareHeader fbAppId="1234"/>
+ * ```
+ *
+ * @param {Object} props Object containing parameters passed to the render prop
+ * @param {String} props.fbAppId Required. Specify the facebook app id.
+ *  @category Molecules
+ * @component
+ */
+
 export { SocialShareHeader };

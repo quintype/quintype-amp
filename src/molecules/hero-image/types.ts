@@ -1,16 +1,7 @@
-import { HeroImageMetadata, Story } from "../../types/story";
-
-export interface HeroImageTypes {
-  attribution?: string | null;
-  slug?: string;
-  caption?: string | null;
-  metadata?: HeroImageMetadata;
-}
+import { Story } from "../../types/story";
+import { Config } from "../../types/config";
 
 export interface HeroImageBaseTypes {
   story: Story;
-  attribution?: string | null;
-  slug?: string;
-  caption?: string | null;
-  metadata?: HeroImageMetadata;
+  config: Config;
 }

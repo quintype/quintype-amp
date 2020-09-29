@@ -187,6 +187,7 @@ interface SubscriptionRenderPropTypes {
 interface FeatureConfigTypes {
   infiniteScroll?: {
     infiniteScrollInlineConfig: string;
+    storySeparatorText?: string;
   };
   relatedStories?: {
     stories: Story[];
@@ -211,5 +212,8 @@ interface FeatureConfigTypes {
       body?: boolean;
       bottom?: boolean;
     };
+  };
+  langTag?: {
+    [key: string]: string;
   };
 }

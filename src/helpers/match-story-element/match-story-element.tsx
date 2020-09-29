@@ -5,7 +5,6 @@ import {
   Answer,
   Bigfact,
   BlockQuote,
-  Pending,
   ImageElement,
   Blurb,
   AlsoRead,
@@ -17,7 +16,8 @@ import {
   InstagramElement,
   VidibleElement,
   Title,
-  ImageGalleryElement
+  ImageGalleryElement,
+  Attachment
 } from "../../atoms/story-elements";
 
 const anyType = "any";
@@ -29,26 +29,26 @@ const StoryElementsTable = [
   ["composite", "image-gallery", ImageGalleryElement],
   ["composite", "ingredients", noop],
   ["composite", "playlist", noop],
-  ["composite", "references", Pending],
-  ["data", "table", Pending],
-  ["external-file", "bitgravity-video", Pending],
-  ["external-file", "brightcove-video", Pending],
-  ["external-file", "jwplayer", Pending],
-  ["external-file", "vod-video", Pending],
-  ["external-file", anyType, Pending],
-  ["file", "attachment", Pending],
+  ["composite", "references", noop],
+  ["data", "table", noop],
+  ["external-file", "bitgravity-video", noop],
+  ["external-file", "brightcove-video", noop],
+  ["external-file", "jwplayer", noop],
+  ["external-file", "vod-video", noop],
+  ["external-file", anyType, noop],
+  ["file", "attachment", Attachment],
   ["image", none, ImageElement],
-  ["jsembed", "avmm-vidible-video", Pending],
+  ["jsembed", "avmm-vidible-video", noop],
   ["jsembed", "dailymotion-video", DailyMotionElement],
-  ["jsembed", "dilmot-q-and-a", Pending],
+  ["jsembed", "dilmot-q-and-a", noop],
   ["jsembed", "facebook-post", FacebookElement],
   ["jsembed", "facebook-video", FacebookElement],
   ["jsembed", "instagram", InstagramElement],
-  ["jsembed", "social-media", Pending],
+  ["jsembed", "social-media", noop],
   ["jsembed", "tweet", TwitterElement],
   ["jsembed", "vidible-video", VidibleElement],
   ["jsembed", anyType, Embed],
-  ["polltype", "opinion-poll", Pending],
+  ["polltype", "opinion-poll", noop],
   ["soundcloud-audio", none, noop],
   ["text", "also-read", AlsoRead],
   ["text", "answer", Answer],
@@ -62,7 +62,7 @@ const StoryElementsTable = [
   ["text", anyType, Text],
   ["title", none, Title],
   ["youtube-video", none, YouTube],
-  [anyType, anyType, Pending]
+  [anyType, anyType, noop]
 ];
 
 function matchStoryElement(element, table = StoryElementsTable) {

@@ -86,34 +86,10 @@ describe("Image", () => {
     expect(wrapper.find(`amp-img`).prop("lightbox")).toBeFalsy();
     expect(wrapper.find(LightboxGallery).exists()).toBeFalsy();
   });
-  it("Should preload image when attr preloadImage is passed", () => {
+  it("Should pass on remaining attributes to amp-img", () => {
     const wrapper = shallow(
-      <BaseImage
-        metadata={metadata}
-        slug={s3key}
-        alt="Sample Image"
-        config={config}
-        lightbox={false}
-        preloadImage={true}
-      />
+      <BaseImage metadata={metadata} slug={s3key} alt="Sample Image" config={config} data-foo="bar" />
     );
-    expect(
-      wrapper
-        .find(`link`)
-        .at(0)
-        .prop("rel")
-    ).toBe("preload");
-    expect(
-      wrapper
-        .find(`link`)
-        .at(0)
-        .prop("crossorigin")
-    ).toBe("anonymous");
-  });
-  it("Should not prefetch image normally", () => {
-    const wrapper = shallow(
-      <BaseImage metadata={metadata} slug={s3key} alt="Sample Image" config={config} lightbox={false} />
-    );
-    expect(wrapper.find(`link`).exists()).toBeFalsy();
+    expect(wrapper.find("amp-img").prop("data-foo")).toBe("bar");
   });
 });

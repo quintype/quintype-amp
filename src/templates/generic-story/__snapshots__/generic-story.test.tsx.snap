@@ -4141,8 +4141,8 @@ exports[`GenericStory Template should render 1`] = `
             "login": "https://www.google.com",
             "subscribe": "https://www.facebook.com",
           },
-          "authorizationUrl": "https://newslaundry-web.qtstage.io/api/access/v1/stories/7f3d5bdb-ec52-4047-ac0d-df4036ec974b/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID",
-          "pingbackUrl": "https://newslaundry-web.qtstage.io/api/access/v1/stories/7f3d5bdb-ec52-4047-ac0d-df4036ec974b/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID",
+          "authorizationUrl": "http://localhost:3000/api/access/v1/stories/7f3d5bdb-ec52-4047-ac0d-df4036ec974b/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID",
+          "pingbackUrl": "http://localhost:3000/api/access/v1/stories/7f3d5bdb-ec52-4047-ac0d-df4036ec974b/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID",
         },
       ]
     }
@@ -7361,8 +7361,8 @@ exports[`GenericStory Template should render 1`] = `
                 "login": "https://www.google.com",
                 "subscribe": "https://www.facebook.com",
               },
-              "authorizationUrl": "https://newslaundry-web.qtstage.io/api/access/v1/stories/7f3d5bdb-ec52-4047-ac0d-df4036ec974b/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID",
-              "pingbackUrl": "https://newslaundry-web.qtstage.io/api/access/v1/stories/7f3d5bdb-ec52-4047-ac0d-df4036ec974b/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID",
+              "authorizationUrl": "http://localhost:3000/api/access/v1/stories/7f3d5bdb-ec52-4047-ac0d-df4036ec974b/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID",
+              "pingbackUrl": "http://localhost:3000/api/access/v1/stories/7f3d5bdb-ec52-4047-ac0d-df4036ec974b/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID",
             },
           ]
         }
@@ -11505,8 +11505,8 @@ exports[`GenericStory Template should render 1`] = `
                 "login": "https://www.google.com",
                 "subscribe": "https://www.facebook.com",
               },
-              "authorizationUrl": "https://newslaundry-web.qtstage.io/api/access/v1/stories/7f3d5bdb-ec52-4047-ac0d-df4036ec974b/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID",
-              "pingbackUrl": "https://newslaundry-web.qtstage.io/api/access/v1/stories/7f3d5bdb-ec52-4047-ac0d-df4036ec974b/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID",
+              "authorizationUrl": "http://localhost:3000/api/access/v1/stories/7f3d5bdb-ec52-4047-ac0d-df4036ec974b/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID",
+              "pingbackUrl": "http://localhost:3000/api/access/v1/stories/7f3d5bdb-ec52-4047-ac0d-df4036ec974b/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID",
             },
           ]
         }

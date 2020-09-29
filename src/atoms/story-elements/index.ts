@@ -17,6 +17,8 @@ import { InstagramElement } from "./instagram-element";
 import { VidibleElement } from "./vidible-element";
 import { Title } from "./title";
 import { ImageGalleryElement } from "./image-gallery-element";
+import { Attachment } from "./attachment";
+
 const StoryElements = {
   Text,
   Summary,
@@ -36,7 +38,8 @@ const StoryElements = {
   InstagramElement,
   VidibleElement,
   Title,
-  ImageGalleryElement
+  ImageGalleryElement,
+  Attachment
 };
 export {
   Text,
@@ -57,6 +60,7 @@ export {
   InstagramElement,
   VidibleElement,
   Title,
-  ImageGalleryElement
+  ImageGalleryElement,
+  Attachment
 };
 export { StoryElements };

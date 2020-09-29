@@ -1,6 +1,14 @@
 import quintypeJs from "quintype-js";
+import { HeroImageMetadata } from "../../types/story";
 
-export const focusedImagePath = ({ opts, slug, metadata, imgAspectRatio, cdnImage, width = "1200" }) => {
+export const focusedImagePath = ({
+  opts,
+  slug,
+  metadata,
+  imgAspectRatio,
+  cdnImage,
+  width = "1200"
+}: FocusedImagePathTypes) => {
   let auto = ["format"];
   const supportsCompression = !/\.gif/.test(slug);
   if (supportsCompression) auto = auto.concat(["compress"]);
@@ -9,3 +17,12 @@ export const focusedImagePath = ({ opts, slug, metadata, imgAspectRatio, cdnImag
   const hostWithProtocol = /^https:\/\//.test(cdnImage) ? cdnImage : `https://${cdnImage}`;
   return `${hostWithProtocol}/${path}`;
 };
+
+interface FocusedImagePathTypes {
+  slug: string;
+  metadata: HeroImageMetadata;
+  imgAspectRatio: number[];
+  cdnImage: string;
+  opts?: object;
+  width?: string;
+}

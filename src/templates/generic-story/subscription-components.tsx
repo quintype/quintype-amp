@@ -6,6 +6,9 @@ import { StoryElement } from "../../atoms";
 import { Fragment } from "react";
 import { BodyAd } from "../../molecules/ads";
 import { withStoryAndConfig } from "../../context";
+import { StoryPageSlots } from "../../molecules/slots";
+
+const { DefaultStoryCardSlot } = StoryPageSlots;
 
 const StoryCardsWithSubscriptionsBase = ({ story, config }) => {
   // find a better name than StoryCardsWithSubscriptionsBase
@@ -31,6 +34,7 @@ const StoryCardsWithSubscriptionsBase = ({ story, config }) => {
             <StoryElement key={element.id} element={element} />
           ))}
           {cardIdx === 0 && <BodyAd />}
+          <DefaultStoryCardSlot index={cardIdx} card={card} />
         </Fragment>
       );
     });

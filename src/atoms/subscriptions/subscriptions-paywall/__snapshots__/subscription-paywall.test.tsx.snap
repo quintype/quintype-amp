@@ -20,7 +20,7 @@ exports[`Subscriptions should render subscriptions 1`] = `
       id="amp-subscriptions"
       type="application/json"
     >
-      {}
+      {"services":[{"actions":{"login":"https://www.google.com","subscribe":"https://www.facebook.com"}}]}
     </script>
     <script
       custom-element="amp-subscriptions"
