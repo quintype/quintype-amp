@@ -646,9 +646,9 @@ export const configOpts: ConfigOpts = {
     subscriptions: {
       services: {
         authorizationUrl: ({ story }) =>
-          `https://newslaundry-web.qtstage.io/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
+          `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
         pingbackUrl: ({ story }) =>
-          `https://newslaundry-web.qtstage.io/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
+          `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
         actions: { login: "https://www.google.com", subscribe: "https://www.facebook.com" }
       },
       score: { supportsViewer: 10, isReadyToPay: 9 },

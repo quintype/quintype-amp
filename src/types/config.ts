@@ -1,3 +1,4 @@
+import { FallbackEntitlementProps, ServicesProps, ScoreProps } from "../atoms/subscriptions/types";
 import { Story } from "./story";
 
 export interface Config {
@@ -178,7 +179,7 @@ interface InfiniteScrollRenderPropTypes {
 
 interface SubscriptionRenderPropTypes {
   config: Config;
-  services?: ServicesProps;
+  services: ServicesProps;
   score?: ScoreProps;
   fallbackEntitlement?: FallbackEntitlementProps;
 }
@@ -191,7 +192,7 @@ interface FeatureConfigTypes {
     stories: Story[];
   };
   subscriptions?: {
-    services?: ServicesProps;
+    services: ServicesProps;
     score?: ScoreProps;
     fallbackEntitlement?: FallbackEntitlementProps;
   };
@@ -211,29 +212,4 @@ interface FeatureConfigTypes {
       bottom?: boolean;
     };
   };
-}
-
-interface ServicesProps {
-  authorizationUrl: (story) => any;
-  pingbackUrl: (story) => any;
-  actions: ActionProps;
-}
-interface ActionProps {
-  login?: string;
-  subscribe?: string;
-}
-interface ScoreProps {
-  supportsViewer?: number;
-  isReadyToPay?: number;
-}
-interface FallbackEntitlementProps {
-  source?: string;
-  granted?: boolean;
-  grantReason?: string;
-  data?: DataProps;
-}
-interface DataProps {
-  numberRemaining?: number;
-  isLast?: boolean;
-  isLoggedIn?: boolean;
 }

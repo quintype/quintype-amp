@@ -102,9 +102,6 @@ export const SubscriberAccessPaywall = ({ config, services, score, fallbackEntit
         <h2 class="StyledText" subscriptions-actions subscriptions-display="NOT granted">
           Get unlimited access
         </h2>
-        <h2 class="StyledText" subscriptions-actions subscriptions-display="granted AND NOT data.isLoggedIn">
-          Just login to continue reading
-        </h2>
         <p class="StyledContent">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content</p>
         <div class="StyledButton" subscriptions-actions subscriptions-display="NOT granted">
           <button subscriptions-action="subscribe" subscriptions-display="NOT granted">

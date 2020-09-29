@@ -2,20 +2,20 @@ import { Story } from "../../types/story";
 import { Config } from "../../types/config";
 
 export interface SubscriptionProps {
-  services?: ServicesProps[];
+  services: ServicesProps[];
   score?: ScoreProps;
   fallbackEntitlement?: FallbackEntitlementProps;
 }
 
 export interface ServicesProps {
-  authorizationUrl: string;
-  pingbackUrl: string;
+  authorizationUrl: (story) => any;
+  pingbackUrl: (story) => any;
   actions: ActionProps;
 }
 
 export interface ActionProps {
-  login?: string;
-  subscribe?: string;
+  login: string;
+  subscribe: string;
 }
 
 export interface ScoreProps {
@@ -24,19 +24,21 @@ export interface ScoreProps {
 }
 
 export interface FallbackEntitlementProps {
-  source?: string;
-  granted?: boolean;
-  grantReason?: string;
-  data?: DataProps;
+  source: string;
+  granted: boolean;
+  grantReason: string;
+  data: DataProps;
 }
 
 export interface DataProps {
-  isLoggedIn?: boolean;
+  numberRemaining: number;
+  isLast: boolean;
+  isLoggedIn: boolean;
 }
 export interface PaywallProps {
   config?: Config;
   story?: Story;
-  services?: ServicesProps[];
+  services: ServicesProps[];
   score?: ScoreProps;
   fallbackEntitlement?: FallbackEntitlementProps;
 }
