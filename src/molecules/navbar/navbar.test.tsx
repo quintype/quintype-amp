@@ -5,6 +5,8 @@ import { configWithMenuDisabled, configWithNoHamburgerMenuItems, configWithTextD
 import { Layout, HamburgerMenu } from "../../atoms";
 import { textStory, config } from "../../__fixtures__";
 import { Hamburger } from "../../atoms/icons/hamburger";
+import { getDomainSpecificHamburgerMenuItems, objToArr } from "./helpers";
+import { dummyConfig, defaultMenuItems, newsMenuItems } from "./test-data";
 
 const LayoutWithMenuDisabled = () => (
   <Layout story={textStory} config={configWithMenuDisabled}>
@@ -63,5 +65,60 @@ describe("Navbar", () => {
     wrapper.find("ul").forEach((node) => {
       expect(node.prop("dir")).toBe("rtl");
     });
+  });
+});
+
+// tests for helper functions
+describe("objToArr helper function", () => {
+  it("should work", () => {
+    const obj = {
+      foo: {
+        a: 1,
+        b: "two"
+      },
+      bar: 42,
+      baz: ["a", "b"]
+    };
+    expect(objToArr(obj)).toMatchObject([
+      {
+        a: 1,
+        b: "two"
+      },
+      42,
+      ["a", "b"]
+    ]);
+  });
+});
+
+describe("getDomainSpecificHamburgerMenuItems helper function", () => {
+  it("Should return default menu group items for publisher having no associated subdomains", () => {
+    const newConfig = { ...dummyConfig };
+    newConfig.opts = { domainSlug: undefined };
+    const menuItems = getDomainSpecificHamburgerMenuItems(newConfig);
+    expect(menuItems).toMatchObject(defaultMenuItems);
+  });
+  it("Should return default menu group items when there are associated subdomains but the reader is on the main domain", () => {
+    const newConfig = { ...dummyConfig };
+    newConfig.opts = { domainSlug: null };
+    const menuItems = getDomainSpecificHamburgerMenuItems(newConfig);
+    expect(menuItems).toMatchObject(defaultMenuItems);
+  });
+  it("Should return default menu group items when the reader is on a subdomain & the publisher hasn't configured a menu group for the subdomain", () => {
+    const newConfig = { ...dummyConfig };
+    newConfig.opts = { domainSlug: "astrology" };
+    const menuItems = getDomainSpecificHamburgerMenuItems(newConfig);
+    expect(menuItems).toMatchObject(defaultMenuItems);
+  });
+  it("Should return default menu group items when the reader is on a subdomain & the publisher has deleted all the configured menu group items for that subdomain", () => {
+    const newConfig = { ...dummyConfig };
+    newConfig.opts = { domainSlug: "foo" };
+    const menuItems = getDomainSpecificHamburgerMenuItems(newConfig);
+    expect(menuItems).toMatchObject(defaultMenuItems);
+  });
+  it("Should return menu group items associated with the subdomain on which the reader is on, when the publisher has configured the menu group items for that subdomain", () => {
+    const newConfig = { ...dummyConfig };
+    newConfig.opts = { domainSlug: "news" };
+    const menuItems = getDomainSpecificHamburgerMenuItems(newConfig);
+    expect(menuItems).toMatchObject(newsMenuItems);
   });
 });
