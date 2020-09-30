@@ -186,52 +186,81 @@ Values in the `data` object of an Entitlements response can be used to build exp
 
 The paywall dialogs are shown automatically based on the authorization/entitlements response.
 
-The element on which `subscriptions-dialog` dialog is specified is a `<template>` element in which case it will be initially rendered before being displayed as a dialog. The renderComponent is wrapped with the `<templete>` tag to be sure.
-
-For example, this is our metered paywall -
-
+The element on which `subscriptions-dialog` dialog is specified is a `<template>` element in which case it will be initially rendered before being displayed as a dialog and this is mandatory.
 ```js
-<template class="amp-subscriptions-dialog" type="amp-mustache" subscriptions-dialog subscriptions-display="granted AND grantReason = 'METERING'">
-{{#data.numberRemaining}}
-  <p class="StyledText">You are left with {{data.numberRemaining}} free articles.</p>
-{{/data.numberRemaining}}
-{{#data.isLast}}
-  <div class="StyledMeter">
-    <p class="StyledText">You have exceeded free stories limit for this month</p>
-    <div>
-      <div class="StyledButton" subscriptions-actions subscriptions-display="granted">
-        <button subscriptions-action="subscribe" subscriptions-display="granted">
-          <span class="SubscribeMessage">Subscribe</span>
-        </button>
-      </div>
+<div
+dangerouslySetInnerHTML={{
+  __html: `<template class="amp-subscriptions-dialog" type="amp-mustache" subscriptions-dialog subscriptions-display="granted AND grantReason = 'METERING'">
+  {{#data.numberRemaining}}
+    <p>You are left with {{data.numberRemaining}} free articles.</p>
+  {{/data.numberRemaining}}
+  {{#data.isLast}}
+      <p>You have exceeded free stories limit for this month</p>
+      <button subscriptions-action="subscribe" subscriptions-display="granted">
+        Subscribe
+      </button>
       {{^data.isLoggedIn}}
-      <div class="MeteredStyledLine" subscriptions-actions subscriptions-display="granted">
         <p>Already a user ?</p>
         <button subscriptions-action="login" subscriptions-display="granted">
-          <span> Log in</span>
+        Log in
         </button>
-      </div>
       {{/data.isLoggedIn}}
-    </div>
-  </div>
   {{/data.isLast}}
 </template>`
+  }}
+/>
 ```
 This uses the `amp-mustache` script along with the `amp-subscriptions` script.
 For the content to render depending on the value of the data object, it should be wrapped with mustache as shown above in the snippet code.
 For metered paywall content, the content must be wrapped with `{{#data.numberRemaining}}` and `{{/data.numberRemaining}}`.
 For metered exhausted paywall content, the content must be wrapped with `{{#data.isLast}}` and `{{/data.isLast}}`.
 For rendering a login button on the paywall when the reader is not logged in, the content can be wrapped with `{{^data.isLoggedIn}}` and `{{/data.isLoggedIn}}`. `^` this implies NOT.
-By replacing, `^` with `#` then, the particular content will be rendered when the reader is logged in.
+By replacing, `^` with `#`, the particular content will be rendered when the reader is logged in.
 
-For more attributes to use, please free to check this [documentation](https://amp.dev/documentation/components/amp-subscriptions/#attributes)
+For more attributes to use, please feel free to check this [documentation](https://amp.dev/documentation/components/amp-subscriptions/#attributes)
 
 
 # Paywalls
 
 ## Hard paywall
 
-This `SubscriberAccessPaywall` component is the hard paywall. The look of the `SubscriberAccessPaywall` can be changed using the render prop `paywallRender`. In case `paywallRender` is passed in the config, it is rendered. Otherwise a default `SubscriberAccessPaywall` is rendered.
+This `SubscriberAccessPaywall` component is the hard paywall. The look of the `SubscriberAccessPaywall` can be changed using the render prop `paywallRender`. In case `paywallRender` is passed in the config, it is rendered. Otherwise a default `SubscriberAccessPaywall` is rendered. If the render prop is used, the rendered component is wrapped with the `<section>` tag. The component created must be a string and in HTML as shown below -
+
+```js
+<div
+dangerouslySetInnerHTML={{
+    __html: `<section class="StyledWrapper" subscriptions-actions subscriptions-display="NOT granted">
+  <h2 class="StyledText" subscriptions-actions subscriptions-display="NOT granted">
+    Get unlimited access
+  </h2>
+  <p class="StyledContent">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content</p>
+  <div class="StyledButton" subscriptions-actions subscriptions-display="NOT granted">
+    <button subscriptions-action="subscribe" subscriptions-display="NOT granted">
+      <span class="SubscribeMessage">Subscribe</span>
+    </button>
+  </div>
+  <div class="StyledLine" subscriptions-actions subscriptions-display="NOT granted AND NOT data.isLoggedIn">
+    <p>Already a user ?</p>
+    <button subscriptions-action="login" subscriptions-display="NOT granted AND NOT data.isLoggedIn">
+      <span> Log in</span>
+    </button>
+  </div>
+</section>`
+  }}
+/>
+```
+
+The styles for the paywall must be wrapped in a `<style>` tag. For example -
+
+```js
+<style type="text/css">{`
+  .StyledMeter {
+    display: flex;
+    align-items: center;
+    padding: 24px;
+  }
+`}</style>
+```
 Render Prop should be passed like below :
 
  ```jsx
@@ -288,9 +317,43 @@ The paywall looks like below -
 ## Metered Paywall
 
 This `MeteredPaywall` component is the Metering paywall. The look of the `MeteredPaywall` can be changed using the render prop `meterRender`. In case `meterRender` is passed in the config, it is rendered. Otherwise a default `MeteredPaywall` is rendered.
-`MeteredPaywall` component renders both metered and meter exhausted paywalls depending the the `numberRemaining` and `isLast` key values. The same `renderProp` can be used to change both the meterings.
-Render Prop should be passed like below :
+`MeteredPaywall` component renders both metered and meter exhausted paywalls depending the the `numberRemaining` and `isLast` key values. The same `renderProp` can be used to change both the meterings. If the render prop is used, the rendered component is wrapped with the `<template>` tag to be sure. The component created must be a string and in HTML as shown below. Adding `class="amp-subscriptions-dialog"` and `type="amp-mustache"` to `<template>` tag is mandatory.
+```js
+<div
+dangerouslySetInnerHTML={{
+  __html: `<template class="amp-subscriptions-dialog" type="amp-mustache" subscriptions-dialog subscriptions-display="granted AND grantReason = 'METERING'">
+  {{#data.numberRemaining}}
+    <p>You are left with {{data.numberRemaining}} free articles.</p>
+  {{/data.numberRemaining}}
+  {{#data.isLast}}
+    <div class="StyledMeter">
+      <p>You have exceeded free stories limit for this month</p>
+          <button subscriptions-action="subscribe" subscriptions-display="granted">
+            Subscribe
+          </button>
+        {{^data.isLoggedIn}}
+          <p>Already a user ?</p>
+          <button subscriptions-action="login" subscriptions-display="granted">
+          Log in
+          </button>
+        {{/data.isLoggedIn}}
+    </div>
+  {{/data.isLast}}
+</template>`
+  }}
+/>
+```
+The styles for the paywall must be wrapped in a `<style>` tag. For example -
 
+```js
+<style type="text/css">{`
+  .StyledMeter {
+    display: flex;
+    align-items: center;
+  }
+`}</style>
+```
+Render Prop should be passed like below :
 ```jsx
   ampRoutes(app, {
   render: {
