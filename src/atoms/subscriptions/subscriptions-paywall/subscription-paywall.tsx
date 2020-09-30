@@ -1,11 +1,10 @@
 import React from "react";
 import get from "lodash.get";
-import { PaywallProps } from "../types";
 import { Helmet } from "react-helmet";
 // The user is a subscriber/non-subscriber and is logged/not logged into their account. He is Granted. Subscribe button depends whether he is  asubscriber or not. And login button too.
-export const SubscriberAccessPaywall = ({ config, services, score, fallbackEntitlement }: PaywallProps) => {
+export const SubscriberAccessPaywall = ({ config }) => {
   const paywallRender = get(config, ["opts", "render", "subscriptionRender", "paywallRender"], null);
-  if (paywallRender) return paywallRender({ config, services, score, fallbackEntitlement });
+  if (paywallRender) return paywallRender({ config });
   return (
     <>
       <Helmet>
@@ -121,9 +120,9 @@ export const SubscriberAccessPaywall = ({ config, services, score, fallbackEntit
   );
 };
 // The user has read 4 out of 5 free articles. He is granted and he is on metering.
-export const MeteredPaywall = ({ config, services, score, fallbackEntitlement }: PaywallProps) => {
+export const MeteredPaywall = ({ config }) => {
   const meterRender = get(config, ["opts", "render", "subscriptionRender", "meterRender"], null);
-  if (meterRender) return meterRender({ config, services, score, fallbackEntitlement });
+  if (meterRender) return meterRender({ config });
   return (
     <>
       <Helmet>

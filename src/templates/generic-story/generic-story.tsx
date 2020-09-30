@@ -92,19 +92,8 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
           <StoryCardsWithSubscriptions />
           {isAccessible && (
             <>
-              <MeteredPaywall
-                config={config}
-                story={story}
-                services={services}
-                score={score}
-                fallbackEntitlement={fallbackEntitlement}
-              />
-              <SubscriberAccessPaywall
-                config={config}
-                services={services}
-                score={score}
-                fallbackEntitlement={fallbackEntitlement}
-              />
+              <MeteredPaywall config={config} />
+              <SubscriberAccessPaywall config={config} />
             </>
           )}
           <RelatedStories />

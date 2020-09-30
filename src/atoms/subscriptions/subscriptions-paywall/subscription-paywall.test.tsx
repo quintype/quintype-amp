@@ -6,27 +6,21 @@ import {
 } from "./subscription-paywall";
 import { config } from "../../../__fixtures__/config.fixture";
 
+const services = [{
+  authorizationUrl: ({ story }) =>
+    `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=1MMmdsHimbytzjKXYGcv8Xwj&accesstype_integration_id=14&readerId=READER_ID`,
+  pingbackUrl: ({ story }) =>
+    `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-pingback?key=1MMmdsHimbytzjKXYGcv8Xwj&accesstype_integration_id=14&readerId=READER_ID`,
+  actions: { login: "https://www.google.com", subscribe: "https://www.facebook.com" }
+}];
+const scoreProps = { supportsViewer: 10, isReadyToPay: 9 };
+
 describe("Subscriptions", () => {
   it("should render subscriptions", () => {
-    const services = [{
-      authorizationUrl: ({ story }) =>
-        `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=1MMmdsHimbytzjKXYGcv8Xwj&accesstype_integration_id=14&readerId=READER_ID`,
-      pingbackUrl: ({ story }) =>
-        `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-pingback?key=1MMmdsHimbytzjKXYGcv8Xwj&accesstype_integration_id=14&readerId=READER_ID`,
-      actions: { login: "https://www.google.com", subscribe: "https://www.facebook.com" }
-    }];
     const wrapper = shallow(<Subscription services={services} />);
     expect(wrapper).toMatchSnapshot();
   });
   it("should render Subscriber Access Paywall with Login button", () => {
-    const services = [{
-      authorizationUrl: ({ story }) =>
-        `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=1MMmdsHimbytzjKXYGcv8Xwj&accesstype_integration_id=14&readerId=READER_ID`,
-      pingbackUrl: ({ story }) =>
-        `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-pingback?key=1MMmdsHimbytzjKXYGcv8Xwj&accesstype_integration_id=14&readerId=READER_ID`,
-      actions: { login: "https://www.google.com", subscribe: "https://www.facebook.com" }
-    }];
-    const score = { supportsViewer: 10, isReadyToPay: 9 };
     const fallbackEntitlement = {
       source: "fallback",
       granted: false,
@@ -57,14 +51,6 @@ describe("Subscriptions", () => {
     );
   });
   it("should render Subscriber Access Paywall with subscribe button", () => {
-    const services = [{
-      authorizationUrl: ({ story }) =>
-        `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=1MMmdsHimbytzjKXYGcv8Xwj&accesstype_integration_id=14&readerId=READER_ID`,
-      pingbackUrl: ({ story }) =>
-        `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-pingback?key=1MMmdsHimbytzjKXYGcv8Xwj&accesstype_integration_id=14&readerId=READER_ID`,
-      actions: { login: "https://www.google.com", subscribe: "https://www.facebook.com" }
-    }];
-    const score = { supportsViewer: 10, isReadyToPay: 9 };
     const fallbackEntitlement = {
       source: "fallback",
       granted: false,
@@ -95,14 +81,6 @@ describe("Subscriptions", () => {
     );
   });
   it("should call paywallRender when passed", () => {
-    const servicesProps = [{
-      authorizationUrl: ({ story }) =>
-        `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=1MMmdsHimbytzjKXYGcv8Xwj&accesstype_integration_id=14&readerId=READER_ID`,
-      pingbackUrl: ({ story }) =>
-        `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-pingback?key=1MMmdsHimbytzjKXYGcv8Xwj&accesstype_integration_id=14&readerId=READER_ID`,
-      actions: { login: "https://www.google.com", subscribe: "https://www.facebook.com" }
-    }];
-    const scoreProps = { supportsViewer: 10, isReadyToPay: 9 };
     const fallbackEntitlementProps = {
       source: "fallback",
       granted: false,
@@ -118,14 +96,6 @@ describe("Subscriptions", () => {
     expect(wrapper.find("section").length).toBe(0);
   });
   it("should render Metered Paywall", () => {
-    const services = [{
-      authorizationUrl: ({ story }) =>
-        `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=1MMmdsHimbytzjKXYGcv8Xwj&accesstype_integration_id=14&readerId=READER_ID`,
-      pingbackUrl: ({ story }) =>
-        `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-pingback?key=1MMmdsHimbytzjKXYGcv8Xwj&accesstype_integration_id=14&readerId=READER_ID`,
-      actions: { login: "https://www.google.com", subscribe: "https://www.facebook.com" }
-    }];
-    const score = { supportsViewer: 10, isReadyToPay: 9 };
     const fallbackEntitlement = {
       source: "fallback",
       granted: true,
@@ -164,14 +134,6 @@ describe("Subscriptions", () => {
     );
   });
   it("should call meterRender when passed", () => {
-    const servicesProps = [{
-      authorizationUrl: ({ story }) =>
-        `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=1MMmdsHimbytzjKXYGcv8Xwj&accesstype_integration_id=14&readerId=READER_ID`,
-      pingbackUrl: ({ story }) =>
-        `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-pingback?key=1MMmdsHimbytzjKXYGcv8Xwj&accesstype_integration_id=14&readerId=READER_ID`,
-      actions: { login: "https://www.google.com", subscribe: "https://www.facebook.com" }
-    }];
-    const scoreProps = { supportsViewer: 10, isReadyToPay: 9 };
     const fallbackEntitlementProps = {
       source: "fallback",
       granted: true,
