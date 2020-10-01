@@ -140,6 +140,7 @@
 <li>Subscriber: A Reader who purchases a subscription plan and has access to premium content.</li>
 <li>Subscription: It is a particular subscriber’s access to premium content which is behind a hard paywall.</li>
 <li>Hard paywall: This restricts access to readers from viewing premium content without a subscription. Access to that content is given only after the reader is subscribed i.e., he must be a Subscriber.</li>
+<li>readerID : The Reader ID is an anonymous and unique ID created by the AMP ecosystem. It is unique for each Reader/Publisher pair - a Reader is identified differently to two different Publishers and it is a non-reversible ID.</li>
 </ul>
 <h1>How Subscriptions work ?</h1>
 <ol>
@@ -280,10 +281,94 @@ These properties are added to <code>NewsArticle</code> and <code>Article</code> 
   }
 }
 </code></pre>
+<h1>Attributes</h1>
+<p>The AMP Runtime uses the response of authorization and pingback endpoints to either hide or show different sections as defined by the Attributes. Using these attributes, Paywall is constructed.</p>
+<h3>subscription-action</h3>
+<p>In order to present the Reader with specific experiences, we need to provide specific actions which are declared in the &quot;actions&quot; configuration and can be marked up using <code>subscriptions-action</code> attribute.</p>
+<p>As mentioned in the integration section, the available values for actions are <code>login</code> and <code>subscribe</code>. <code>login</code> will trigger the Login page of the selected service and <code>subscribe</code>  will trigger the Subscribe page of the selected service.</p>
+<p>For example, this button will execute the &quot;subscribe&quot; action:</p>
+<pre class="prettyprint source lang-js"><code>&lt;button subscriptions-action=&quot;subscribe&quot; subscriptions-display=&quot;NOT granted&quot;>
+  Subscribe now
+&lt;/button>
+</code></pre>
+<p>By default, the actions are hidden and must be explicitly be shown using the <code>subscriptions-display</code> expression.</p>
+<h3>subscriptions-display</h3>
+<p>As well as showing/hiding premium and fallback content, there are more ways to customise the document using the <code>subscriptions-display</code> attribute which uses expressions for actions and dialogs. The value of <code>subscriptions-display</code> is a boolean expression.</p>
+<p>Values in the <code>data</code> object of an Entitlements response can be used to build expressions. In this example the value of <code>isLoggedIn</code> is in the data object and is used to conditionally show UI for login -</p>
+<pre class="prettyprint source lang-js"><code>&lt;div class=&quot;StyledLine&quot; subscriptions-actions subscriptions-display=&quot;NOT granted AND NOT data.isLoggedIn&quot;>
+  &lt;p>Already a user ?&lt;/p>
+  &lt;button subscriptions-action=&quot;login&quot; subscriptions-display=&quot;NOT granted AND NOT data.isLoggedIn&quot;>
+    &lt;span> Log in&lt;/span>
+  &lt;/button>
+&lt;/div>
+</code></pre>
+<h3>subscriptions-dialog</h3>
+<p>The paywall dialogs are shown automatically based on the authorization/entitlements response.</p>
+<p>The element on which <code>subscriptions-dialog</code> dialog is specified is a <code>&lt;template&gt;</code> element in which case it will be initially rendered before being displayed as a dialog and this is mandatory.</p>
+<pre class="prettyprint source lang-js"><code>&lt;div
+dangerouslySetInnerHTML={{
+  __html: `&lt;template class=&quot;amp-subscriptions-dialog&quot; type=&quot;amp-mustache&quot; subscriptions-dialog subscriptions-display=&quot;granted AND grantReason = 'METERING'&quot;>
+  {{#data.numberRemaining}}
+    &lt;p>You are left with {{data.numberRemaining}} free articles.&lt;/p>
+  {{/data.numberRemaining}}
+  {{#data.isLast}}
+      &lt;p>You have exceeded free stories limit for this month&lt;/p>
+      &lt;button subscriptions-action=&quot;subscribe&quot; subscriptions-display=&quot;granted&quot;>
+        Subscribe
+      &lt;/button>
+      {{^data.isLoggedIn}}
+        &lt;p>Already a user ?&lt;/p>
+        &lt;button subscriptions-action=&quot;login&quot; subscriptions-display=&quot;granted&quot;>
+        Log in
+        &lt;/button>
+      {{/data.isLoggedIn}}
+  {{/data.isLast}}
+&lt;/template>`
+  }}
+/>
+</code></pre>
+<p>This uses the <code>amp-mustache</code> script along with the <code>amp-subscriptions</code> script.
+For the content to render depending on the value of the data object, it should be wrapped with mustache as shown above in the snippet code.
+For metered paywall content, the content must be wrapped with <code>{{#data.numberRemaining}}</code> and <code>{{/data.numberRemaining}}</code>.
+For metered exhausted paywall content, the content must be wrapped with <code>{{#data.isLast}}</code> and <code>{{/data.isLast}}</code>.
+For rendering a login button on the paywall when the reader is not logged in, the content can be wrapped with <code>{{^data.isLoggedIn}}</code> and <code>{{/data.isLoggedIn}}</code>. <code>^</code> this implies NOT.
+By replacing, <code>^</code> with <code>#</code>, the particular content will be rendered when the reader is logged in.</p>
+<p>For more attributes to use, please feel free to check this <a href="https://amp.dev/documentation/components/amp-subscriptions/#attributes">documentation</a></p>
 <h1>Paywalls</h1>
 <h2>Hard paywall</h2>
-<p>This <code>SubscriberAccessPaywall</code> component is the hard paywall. The look of the <code>SubscriberAccessPaywall</code> can be changed using the render prop <code>paywallRender</code>. In case <code>paywallRender</code> is passed in the config, it is rendered. Otherwise a default <code>SubscriberAccessPaywall</code> is rendered.
-Render Prop should be passed like below :</p>
+<p>This <code>SubscriberAccessPaywall</code> component is the hard paywall. The look of the <code>SubscriberAccessPaywall</code> can be changed using the render prop <code>paywallRender</code>. In case <code>paywallRender</code> is passed in the config, it is rendered. Otherwise a default <code>SubscriberAccessPaywall</code> is rendered. If the render prop is used, the rendered component is wrapped with the <code>&lt;section&gt;</code> tag. The component created must be a string and in HTML as shown below -</p>
+<pre class="prettyprint source lang-js"><code>&lt;div
+dangerouslySetInnerHTML={{
+    __html: `&lt;section class=&quot;StyledWrapper&quot; subscriptions-actions subscriptions-display=&quot;NOT granted&quot;>
+  &lt;h2 class=&quot;StyledText&quot; subscriptions-actions subscriptions-display=&quot;NOT granted&quot;>
+    Get unlimited access
+  &lt;/h2>
+  &lt;p class=&quot;StyledContent&quot;>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content&lt;/p>
+  &lt;div class=&quot;StyledButton&quot; subscriptions-actions subscriptions-display=&quot;NOT granted&quot;>
+    &lt;button subscriptions-action=&quot;subscribe&quot; subscriptions-display=&quot;NOT granted&quot;>
+      &lt;span class=&quot;SubscribeMessage&quot;>Subscribe&lt;/span>
+    &lt;/button>
+  &lt;/div>
+  &lt;div class=&quot;StyledLine&quot; subscriptions-actions subscriptions-display=&quot;NOT granted AND NOT data.isLoggedIn&quot;>
+    &lt;p>Already a user ?&lt;/p>
+    &lt;button subscriptions-action=&quot;login&quot; subscriptions-display=&quot;NOT granted AND NOT data.isLoggedIn&quot;>
+      &lt;span> Log in&lt;/span>
+    &lt;/button>
+  &lt;/div>
+&lt;/section>`
+  }}
+/>
+</code></pre>
+<p>The styles for the paywall must be wrapped in a <code>&lt;style&gt;</code> tag. For example -</p>
+<pre class="prettyprint source lang-js"><code>&lt;style type=&quot;text/css&quot;>{`
+  .StyledMeter {
+    display: flex;
+    align-items: center;
+    padding: 24px;
+  }
+`}&lt;/style>
+</code></pre>
+<p>Render Prop should be passed like below :</p>
 <pre class="prettyprint source lang-jsx"><code> ampRoutes(app, {
    render: {
      subscriptionRender: {
@@ -303,17 +388,11 @@ Render Prop should be passed like below :</p>
     }
 }
 </code></pre>
+<p>The paywall looks like below -</p>
+<div>
+  <div style="display: inline-block; width: 100%; text-align: center; border: 2px solid black;"><img style="width:50%" src="./subscriptions/hard_paywall.png"></div>
+</div>
 <h3>Scenario 2</h3>
-<p>Response for a user who has  read all free stories and is subscribed but not logged in. The paywall renders with login button along with the message provided.</p>
-<pre class="prettyprint source lang-jsx"><code>{
-    &quot;granted&quot;: true,
-    &quot;grantReason&quot;: &quot;SUBSCRIBER&quot;,
-    &quot;data&quot;: {
-      &quot;isLoggedIn&quot;: false
-    }
-}
-</code></pre>
-<h3>Scenario 3</h3>
 <p>Response for a user who has read all free stories and is not subscribed but logged in. The paywall renders with subscribe button along with the message provided.</p>
 <pre class="prettyprint source lang-jsx"><code>{
     &quot;granted”: false,
@@ -323,10 +402,46 @@ Render Prop should be passed like below :</p>
     }
 }
 </code></pre>
+<p>The paywall looks like below -</p>
+<div>
+  <div style="display: inline-block; width: 100%; text-align: center; border: 2px solid black;"><img style="width:50%" src="./subscriptions/hard_paywall_sub.png"></div>
+</div>
 <h2>Metered Paywall</h2>
 <p>This <code>MeteredPaywall</code> component is the Metering paywall. The look of the <code>MeteredPaywall</code> can be changed using the render prop <code>meterRender</code>. In case <code>meterRender</code> is passed in the config, it is rendered. Otherwise a default <code>MeteredPaywall</code> is rendered.
-<code>MeteredPaywall</code> component renders both metered and meter exhausted paywalls depending the the <code>numberRemaining</code> and <code>isLast</code> key values. The same <code>renderProp</code> can be used to change both the meterings.
-Render Prop should be passed like below :</p>
+<code>MeteredPaywall</code> component renders both metered and meter exhausted paywalls depending the the <code>numberRemaining</code> and <code>isLast</code> key values. The same <code>renderProp</code> can be used to change both the meterings. If the render prop is used, the rendered component is wrapped with the <code>&lt;template&gt;</code> tag to be sure. The component created must be a string and in HTML as shown below. Adding <code>class=&quot;amp-subscriptions-dialog&quot;</code> and <code>type=&quot;amp-mustache&quot;</code> to <code>&lt;template&gt;</code> tag is mandatory.</p>
+<pre class="prettyprint source lang-js"><code>&lt;div
+dangerouslySetInnerHTML={{
+  __html: `&lt;template class=&quot;amp-subscriptions-dialog&quot; type=&quot;amp-mustache&quot; subscriptions-dialog subscriptions-display=&quot;granted AND grantReason = 'METERING'&quot;>
+  {{#data.numberRemaining}}
+    &lt;p>You are left with {{data.numberRemaining}} free articles.&lt;/p>
+  {{/data.numberRemaining}}
+  {{#data.isLast}}
+    &lt;div class=&quot;StyledMeter&quot;>
+      &lt;p>You have exceeded free stories limit for this month&lt;/p>
+          &lt;button subscriptions-action=&quot;subscribe&quot; subscriptions-display=&quot;granted&quot;>
+            Subscribe
+          &lt;/button>
+        {{^data.isLoggedIn}}
+          &lt;p>Already a user ?&lt;/p>
+          &lt;button subscriptions-action=&quot;login&quot; subscriptions-display=&quot;granted&quot;>
+          Log in
+          &lt;/button>
+        {{/data.isLoggedIn}}
+    &lt;/div>
+  {{/data.isLast}}
+&lt;/template>`
+  }}
+/>
+</code></pre>
+<p>The styles for the paywall must be wrapped in a <code>&lt;style&gt;</code> tag. For example -</p>
+<pre class="prettyprint source lang-js"><code>&lt;style type=&quot;text/css&quot;>{`
+  .StyledMeter {
+    display: flex;
+    align-items: center;
+  }
+`}&lt;/style>
+</code></pre>
+<p>Render Prop should be passed like below :</p>
 <pre class="prettyprint source lang-jsx"><code>  ampRoutes(app, {
   render: {
     subscriptionRender: {
@@ -348,9 +463,14 @@ Render Prop should be passed like below :</p>
   }
 }
 </code></pre>
+<p>The paywall dialog looks like below -</p>
+<div>
+  <div style="display: inline-block; width: 100%; text-align: center; border: 2px solid black;"><img style="width:50%" src="./subscriptions/metered_paywall.png"></div>
+</div>
 <h3>Scenario 2</h3>
-<p>Response for an anonymous Reader who does not have access because they have read 5 out of 5 free articles. This renders the meter exhausted paywall.</p>
-<pre class="prettyprint source lang-jsx"><code>  &quot;granted&quot;: false,
+<p>Response for an anonymous Reader who has read 5 out of 5 free articles. This renders the meter exhausted paywall with subscribe and login buttons.</p>
+<pre class="prettyprint source lang-jsx"><code>  &quot;granted&quot;: true,
+  &quot;grantReason&quot;: &quot;METERING&quot;,
   &quot;data&quot; : {
     &quot;isLoggedIn&quot;: false,
     &quot;numberRemaining&quot;: 5,
@@ -358,6 +478,25 @@ Render Prop should be passed like below :</p>
   }
 }
 </code></pre>
+<p>The paywall dialog looks like below -</p>
+<div>
+  <div style="display: inline-block; width: 100%; text-align: center; border: 2px solid black;"><img style="width:50%" src="./subscriptions/meter_exhausted_login.png"></div>
+</div>
+<h3>Scenario 3</h3>
+<p>Response for an anonymous Reader who has read 5 out of 5 free articles and is logged in. This renders the meter exhausted paywall with subscribe.</p>
+<pre class="prettyprint source lang-jsx"><code>  &quot;granted&quot;: true,
+  &quot;grantReason&quot;: &quot;METERING&quot;,
+  &quot;data&quot; : {
+    &quot;isLoggedIn&quot;: true,
+    &quot;numberRemaining&quot;: 5,
+    &quot;isLast&quot;: true,
+  }
+}
+</code></pre>
+<p>The paywall dialog looks like below -</p>
+<div>
+  <div style="display: inline-block; width: 100%; text-align: center; border: 2px solid black;"><img style="width:50%" src="./subscriptions/meter_exhausted_sub.png"></div>
+</div>
 </article>
 
 </section>
