@@ -11,6 +11,7 @@ const StyledNavbar = styled.header`
   width: 100%;
   height: 60px;
   position: relative;
+  background-color: ${(props) => props.theme.color.headerBackground};
 `;
 const LogoWrapperOuter = styled.div`
   position: absolute;
