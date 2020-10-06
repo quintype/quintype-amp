@@ -75,7 +75,6 @@ describe("GenericStory Template", () => {
   it("should set 'templateName' prop as 'default' for all DFP ads", () => {
     const wrapper = shallow(<GenericStory story={textStory} config={config} />);
     expect(wrapper.find(TopAd).prop("templateName")).toBe("default");
-    // expect(wrapper.find(BodyAd).prop("templateName")).toBe("default");
     expect(wrapper.find(BottomAd).prop("templateName")).toBe("default");
   });
   it("should render all generic story page slots", () => {

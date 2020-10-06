@@ -8,7 +8,9 @@ import * as AmpAds from "./ads";
 import * as Slots from "./slots";
 import { DateLastPublished, DateUpdated } from "./date";
 import { SocialShareHeader } from "./social-share-header";
-
+import { HardPaywallStoryContent } from "./hard-paywall-story-content";
+import { FullStoryContent } from "./full-story-content";
+import { StoryCardsWithSubscriptions } from "./subscription-components";
 export {
   HeaderCard,
   HeroImage,
@@ -20,5 +22,8 @@ export {
   WebEngage,
   DateLastPublished,
   DateUpdated,
-  SocialShareHeader
+  SocialShareHeader,
+  HardPaywallStoryContent,
+  FullStoryContent,
+  StoryCardsWithSubscriptions
 };

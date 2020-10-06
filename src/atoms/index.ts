@@ -33,6 +33,7 @@ import { ChartBeat } from "./chartbeat";
 import { InfiniteScroll } from "./infinite-scroll";
 import { Subscription } from "./subscriptions";
 import { LiveList } from "./live-list";
+import { SubscriberAccessPaywall, MeteredPaywall } from "./subscriptions/subscriptions-paywall";
 
 export {
   Carousel,
@@ -69,5 +70,7 @@ export {
   ChartBeat,
   InfiniteScroll,
   Subscription,
-  LiveList
+  LiveList,
+  SubscriberAccessPaywall,
+  MeteredPaywall
 };

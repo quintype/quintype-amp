@@ -6,30 +6,35 @@ import {
 } from "./subscription-paywall";
 import { config } from "../../../__fixtures__/config.fixture";
 
-const services = [{
+const servicesObject = [{
   authorizationUrl: ({ story }) =>
     `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=1MMmdsHimbytzjKXYGcv8Xwj&accesstype_integration_id=14&readerId=READER_ID`,
   pingbackUrl: ({ story }) =>
     `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-pingback?key=1MMmdsHimbytzjKXYGcv8Xwj&accesstype_integration_id=14&readerId=READER_ID`,
   actions: { login: "https://www.google.com", subscribe: "https://www.facebook.com" }
 }];
-const scoreProps = { supportsViewer: 10, isReadyToPay: 9 };
 
 describe("Subscriptions", () => {
   it("should render subscriptions", () => {
-    const wrapper = shallow(<Subscription services={services} />);
+    const wrapper = shallow(<Subscription services={servicesObject} />);
     expect(wrapper).toMatchSnapshot();
   });
-  it("should render Subscriber Access Paywall with Login button", () => {
-    const fallbackEntitlement = {
-      source: "fallback",
-      granted: false,
-      grantReason: "SUBSCRIBER",
-      data: { numberRemaining: 4, isLast: false, isLoggedIn: false }
+  it("should render Subscriber Access Paywall with Login button and subscribe buttons", () => {
+    const configObject = {
+      featureConfig: {
+        subscriptions: {
+          services: { servicesObject },
+          score: { supportsViewer: 10, isReadyToPay: 9 },
+          fallbackEntitlement: {
+            source: "fallback",
+            granted: false,
+            grantReason: "SUBSCRIBER",
+            data: { numberRemaining: 4, isLast: false, isLoggedIn: false }
+          }
+        }
+      }
     };
-    const wrapper = shallow(<SubscriberAccessPaywall services={services}
-      score={score}
-      fallbackEntitlement={fallbackEntitlement} />);
+    const wrapper = shallow(<SubscriberAccessPaywall config={configObject} />);
     expect(wrapper.find("div").html()).toEqual(
       `<div><section class="StyledWrapper" subscriptions-actions subscriptions-display="NOT granted">
         <h2 class="StyledText" subscriptions-actions subscriptions-display="NOT granted">
@@ -51,15 +56,27 @@ describe("Subscriptions", () => {
     );
   });
   it("should render Subscriber Access Paywall with subscribe button", () => {
-    const fallbackEntitlement = {
-      source: "fallback",
-      granted: false,
-      grantReason: "SUBSCRIBER",
-      data: { numberRemaining: 4, isLast: false, isLoggedIn: true }
+    const configObject = {
+      featureConfig: {
+        subscriptions: {
+          services: {
+            authorizationUrl: ({ story }) =>
+              `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
+            pingbackUrl: ({ story }) =>
+              `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
+            actions: { login: "https://www.google.com", subscribe: "https://www.facebook.com" }
+          },
+          score: { supportsViewer: 10, isReadyToPay: 9 },
+          fallbackEntitlement: {
+            source: "fallback",
+            granted: false,
+            grantReason: "SUBSCRIBER",
+            data: { numberRemaining: 4, isLast: false, isLoggedIn: true }
+          }
+        }
+      }
     };
-    const wrapper = shallow(<SubscriberAccessPaywall services={services}
-      score={score}
-      fallbackEntitlement={fallbackEntitlement} />);
+    const wrapper = shallow(<SubscriberAccessPaywall config={configObject} />);
     expect(wrapper.find("div").html()).toEqual(
       `<div><section class="StyledWrapper" subscriptions-actions subscriptions-display="NOT granted">
         <h2 class="StyledText" subscriptions-actions subscriptions-display="NOT granted">
@@ -81,30 +98,34 @@ describe("Subscriptions", () => {
     );
   });
   it("should call paywallRender when passed", () => {
-    const fallbackEntitlementProps = {
-      source: "fallback",
-      granted: false,
-      grantReason: "SUBSCRIBER",
-      data: { numberRemaining: 4, isLast: false, isLoggedIn: false }
-    };
     const paywallRender = jest.fn();
     const modifiedConfig = { ...config, opts: { render: { subscriptionRender: { paywallRender } } } };
-    const wrapper = shallow(<SubscriberAccessPaywall services={servicesProps}
-      score={scoreProps}
-      fallbackEntitlement={fallbackEntitlementProps} config={modifiedConfig} />);
+    const wrapper = shallow(<SubscriberAccessPaywall config={modifiedConfig} />);
     expect(paywallRender.mock.calls.length).toBe(1);
     expect(wrapper.find("section").length).toBe(0);
   });
   it("should render Metered Paywall", () => {
-    const fallbackEntitlement = {
-      source: "fallback",
-      granted: true,
-      grantReason: "METERING",
-      data: { numberRemaining: 4, isLast: false, isLoggedIn: false }
+    const configObject = {
+      featureConfig: {
+        subscriptions: {
+          services: {
+            authorizationUrl: ({ story }) =>
+              `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
+            pingbackUrl: ({ story }) =>
+              `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
+            actions: { login: "https://www.google.com", subscribe: "https://www.facebook.com" }
+          },
+          score: { supportsViewer: 10, isReadyToPay: 9 },
+          fallbackEntitlement: {
+            source: "fallback",
+            granted: true,
+            grantReason: "METERING",
+            data: { numberRemaining: 4, isLast: false, isLoggedIn: false }
+          }
+        }
+      }
     };
-    const wrapper = shallow(<MeteredPaywall services={services}
-      score={score}
-      fallbackEntitlement={fallbackEntitlement} />);
+    const wrapper = shallow(<MeteredPaywall config={configObject} />);
     expect(wrapper.find("div").html()).toEqual(
       `<div><template class="amp-subscriptions-dialog" type="amp-mustache" subscriptions-dialog subscriptions-display="granted AND grantReason = 'METERING'">
           {{#data.numberRemaining}}
@@ -134,20 +155,12 @@ describe("Subscriptions", () => {
     );
   });
   it("should call meterRender when passed", () => {
-    const fallbackEntitlementProps = {
-      source: "fallback",
-      granted: true,
-      grantReason: "METERING",
-      data: { numberRemaining: 4, isLast: false, isLoggedIn: false }
-    };
     const meterRender = jest.fn();
     const modifiedConfig = {
       ...config,
       opts: { render: { subscriptionRender: { meterRender } } }
     };
-    const wrapper = shallow(<MeteredPaywall services={servicesProps}
-      score={scoreProps}
-      fallbackEntitlement={fallbackEntitlementProps} config={modifiedConfig} />);
+    const wrapper = shallow(<MeteredPaywall config={modifiedConfig} />);
     expect(meterRender.mock.calls.length).toBe(1);
     expect(wrapper.find("template").length).toBe(0);
   });

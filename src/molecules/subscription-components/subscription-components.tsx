@@ -1,0 +1,32 @@
+import React from "react";
+import get from "lodash.get";
+import { withStoryAndConfig } from "../../context";
+import { FullStoryContent } from "../full-story-content";
+import { HardPaywallStoryContent } from "../hard-paywall-story-content";
+
+
+const StoryCardsWithSubscriptionsBase = ({ story, config }) => {
+  // find a better name than StoryCardsWithSubscriptionsBase
+  const isStoryBehindPaywall = story.access === "subscription";
+  const grantReason = get(
+    config,
+    ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "grantReason"],
+    "SUBSCRIBER"
+  );
+  const granted = get(
+    config,
+    ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "granted"],
+    true
+  );
+  const hardPaywallAccessGranted = granted === true;
+  const isMeteredStory = grantReason === "METERING";
+  const isHardPaywallStory = grantReason === "SUBSCRIBER";
+
+  if (!isStoryBehindPaywall || isMeteredStory) { // If a story is not behind paywall or if it a metered story then all the cards are shown
+    return <FullStoryContent story={story} />
+  } else if (isHardPaywallStory || !hardPaywallAccessGranted) {  // If a story is behind hard paywall
+    return <HardPaywallStoryContent story={story} config={config} />
+  } else return <FullStoryContent story={story} />; // If something goes wrong, it shows the full story as a fallback.
+};
+
+export const StoryCardsWithSubscriptions = withStoryAndConfig(StoryCardsWithSubscriptionsBase);

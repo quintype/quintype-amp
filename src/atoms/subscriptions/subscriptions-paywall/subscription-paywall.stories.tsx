@@ -4,19 +4,65 @@ import { SubscriberAccessPaywall, MeteredPaywall } from "./subscription-paywall"
 import { textStory, config } from "../../../__fixtures__";
 import { Layout } from "../../layout";
 
-const services = [{
-  authorizationUrl: ({ story }) =>
-    `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=1MMmdsHimbytzjKXYGcv8Xwj&accesstype_integration_id=14&readerId=READER_ID`,
-  pingbackUrl: ({ story }) =>
-    `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-pingback?key=1MMmdsHimbytzjKXYGcv8Xwj&accesstype_integration_id=14&readerId=READER_ID`,
-  actions: { login: "https://www.google.com", subscribe: "https://www.facebook.com" }
-}];
-const score = { supportsViewer: 10, isReadyToPay: 9 };
-const fallbackEntitlement = {
-  source: "fallback",
-  granted: false,
-  grantReason: "SUBSCRIBER",
-  data: { numberRemaining: 4, isLast: false, isLoggedIn: false }
+const meteredConfig = {
+  featureConfig: {
+    subscriptions: {
+      services: {
+        authorizationUrl: ({ story }) =>
+          `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
+        pingbackUrl: ({ story }) =>
+          `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
+        actions: { login: "https://www.google.com", subscribe: "https://www.facebook.com" }
+      },
+      score: { supportsViewer: 10, isReadyToPay: 9 },
+      fallbackEntitlement: {
+        source: "fallback",
+        granted: true,
+        grantReason: "METERING",
+        data: { numberRemaining: 4, isLast: false, isLoggedIn: false }
+      }
+    }
+  }
+};
+const meterExhaustedConfig = {
+  featureConfig: {
+    subscriptions: {
+      services: {
+        authorizationUrl: ({ story }) =>
+          `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
+        pingbackUrl: ({ story }) =>
+          `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
+        actions: { login: "https://www.google.com", subscribe: "https://www.facebook.com" }
+      },
+      score: { supportsViewer: 10, isReadyToPay: 9 },
+      fallbackEntitlement: {
+        source: "fallback",
+        granted: true,
+        grantReason: "METERING",
+        data: { numberRemaining: 4, isLast: true, isLoggedIn: false }
+      }
+    }
+  }
+};
+const hardPaywallConfig = {
+  featureConfig: {
+    subscriptions: {
+      services: {
+        authorizationUrl: ({ story }) =>
+          `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
+        pingbackUrl: ({ story }) =>
+          `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
+        actions: { login: "https://www.google.com", subscribe: "https://www.facebook.com" }
+      },
+      score: { supportsViewer: 10, isReadyToPay: 9 },
+      fallbackEntitlement: {
+        source: "fallback",
+        granted: false,
+        grantReason: "SUBSCRIBER",
+        data: { numberRemaining: 4, isLast: false, isLoggedIn: false }
+      }
+    }
+  }
 };
 storiesOf("Subscriber Access Paywall", module)
   .addDecorator((story) => (
@@ -24,9 +70,6 @@ storiesOf("Subscriber Access Paywall", module)
       {story()}
     </Layout>
   ))
-  .add("Subscriber Access Paywall", () => <SubscriberAccessPaywall services={services}
-    score={score}
-    fallbackEntitlement={fallbackEntitlement} config={config} story={textStory} />)
-  .add("Metered Paywall", () => <MeteredPaywall config={config} services={services}
-    score={score}
-    fallbackEntitlement={fallbackEntitlement} />)
+  .add("Subscriber Access Paywall", () => <SubscriberAccessPaywall config={hardPaywallConfig} />)
+  .add("Metered Paywall", () => <MeteredPaywall config={meteredConfig} />)
+  .add("Meter Exhausted Paywall", () => <MeteredPaywall config={meterExhaustedConfig} />)

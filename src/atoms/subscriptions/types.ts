@@ -8,8 +8,8 @@ export interface SubscriptionProps {
 }
 
 export interface ServicesProps {
-  authorizationUrl: (story) => any;
-  pingbackUrl: (story) => any;
+  authorizationUrl: (story) => string;
+  pingbackUrl: (story) => string;
   actions: ActionProps;
 }
 

@@ -11,15 +11,13 @@ import {
   ComScore,
   ChartBeat,
   InfiniteScroll,
-  Subscription
+  Subscription,
+  SubscriberAccessPaywall,
+  MeteredPaywall
 } from "../../atoms";
 import styled from "styled-components";
 import { CommonTemplateTypes } from "../common-template-types";
 import get from "lodash.get";
-import {
-  SubscriberAccessPaywall,
-  MeteredPaywall,
-} from "../../atoms/subscriptions/subscriptions-paywall";
 import {
   getServicesParams,
   getScoreParams,
@@ -27,7 +25,7 @@ import {
 } from "./generic-story.helpers";
 import { TopAd, BottomAd } from "../../molecules/ads";
 import { StoryPageSlots } from "../../molecules/slots";
-import { StoryCardsWithSubscriptions } from "./subscription-components";
+import { StoryCardsWithSubscriptions } from "../../molecules/subscription-components";
 
 const { TopSlot, BottomSlot } = StoryPageSlots;
 const StoryContainer = styled.div`
