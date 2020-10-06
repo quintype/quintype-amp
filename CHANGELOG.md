@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.15](https://github.com/quintype/quintype-amp/compare/v2.1.14...v2.1.15) (2020-10-06)
+
+
+### Bug Fixes
+
+* add enlarge=true query param to hero image ([2032e74](https://github.com/quintype/quintype-amp/commit/2032e74a3c4a24160aa5b6620025ec69363b94f8))
+
 ### [2.1.14](https://github.com/quintype/quintype-amp/compare/v2.1.12...v2.1.14) (2020-09-23)
 
 
