@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.16](https://github.com/quintype/quintype-amp/compare/v2.1.14...v2.1.16) (2020-10-06)
+
+
+### Bug Fixes
+
+* apply background-color to header ([3d1e87e](https://github.com/quintype/quintype-amp/commit/3d1e87eea276179e223e4115299c6a2c2579f2be))
+
 ### [2.1.15](https://github.com/quintype/quintype-amp/compare/v2.1.14...v2.1.15) (2020-10-06)
 
 
