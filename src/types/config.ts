@@ -210,4 +210,7 @@ interface FeatureConfigTypes {
   langTag?: {
     [key: string]: string;
   };
+  sidebarMenu?: {
+    menuGroupSlug?: string;
+  };
 }
