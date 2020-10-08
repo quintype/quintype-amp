@@ -2,6 +2,7 @@ import { Story } from "../../types/story";
 import { Config } from "../../types/config";
 
 export interface SubscriptionProps {
+  config: Config;
   services: ServicesProps[];
   score?: ScoreProps;
   fallbackEntitlement?: FallbackEntitlementProps;

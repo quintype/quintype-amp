@@ -1,5 +1,5 @@
 import React from "react";
-import { HeaderCard, Navbar, RelatedStories, WebEngage } from "../../molecules";
+import { FullStoryContent, HeaderCard, Navbar, RelatedStories, WebEngage } from "../../molecules";
 import {
   Layout,
   Spacer,
@@ -45,6 +45,9 @@ const Wrapper = styled.div`
  * @component
  */
 export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
+  const enableSubscriptions = get(
+    config,
+    ["opts", "featureConfig", "subscriptions"]);
   const isAccessible = story.access === "subscription";
   const services = getServicesParams({ story, config });
   const score = getScoreParams({ config });
@@ -75,7 +78,7 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
   const templateName = "default";
   return (
     <Layout story={story} config={config}>
-      <Subscription services={services} score={score} fallbackEntitlement={fallbackEntitlement} />
+      <Subscription services={services} score={score} fallbackEntitlement={fallbackEntitlement} config={config} />
       {navbarComponent}
       <IncompatibleBanner />
       <GoogleTagManager />
@@ -87,8 +90,9 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
           <HeaderCard />
           <WebEngage />
           <Spacer token="m" />
-          <StoryCardsWithSubscriptions />
-          {isAccessible && (
+          {!enableSubscriptions && <FullStoryContent story={story} />}
+          <StoryCardsWithSubscriptions story={story} config={config} />
+          {enableSubscriptions && isAccessible && (
             <>
               <MeteredPaywall config={config} />
               <SubscriberAccessPaywall config={config} />

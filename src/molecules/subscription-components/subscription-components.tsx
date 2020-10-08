@@ -26,7 +26,7 @@ const StoryCardsWithSubscriptionsBase = ({ story, config }) => {
     return <FullStoryContent story={story} />
   } else if (isHardPaywallStory || !hardPaywallAccessGranted) {  // If a story is behind hard paywall
     return <HardPaywallStoryContent story={story} config={config} />
-  } else return <FullStoryContent story={story} />; // If something goes wrong, it shows the full story as a fallback.
+  }
 };
 
 export const StoryCardsWithSubscriptions = withStoryAndConfig(StoryCardsWithSubscriptionsBase);

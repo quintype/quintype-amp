@@ -11,6 +11,11 @@ const { DefaultStoryCardSlot } = StoryPageSlots;
 
 // Renders only the first card with a paywall and if subscribed shows the other remaining cards
 export const HardPaywallStoryContent = ({ story, config }) => {
+    if (!get(
+        config,
+        ["opts", "featureConfig", "subscriptions"])) {
+        return null;
+    }
     const granted = get(
         config,
         ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "granted"],
@@ -32,7 +37,7 @@ export const HardPaywallStoryContent = ({ story, config }) => {
             {card["story-elements"].map((element) => (
                 <StoryElement key={element.id} element={element} />
             ))}
-            {cardIdx === 0 && <BodyAd />}
+            {cardsVisibleInBlockedStory !== 0 && cardIdx === 0 && <BodyAd />}
             <DefaultStoryCardSlot index={cardIdx} card={card} />
         </Fragment>
     ));
@@ -47,7 +52,7 @@ export const HardPaywallStoryContent = ({ story, config }) => {
                         {card["story-elements"].map((element) => (
                             <StoryElement key={element.id} element={element} />
                         ))}
-                        {cardIdx === 0 && <BodyAd />}
+                        {cardsVisibleInBlockedStory === 0 && cardIdx === 0 && <BodyAd />}
                         <DefaultStoryCardSlot index={cardIdx} card={card} />
                     </Fragment>
                 );
