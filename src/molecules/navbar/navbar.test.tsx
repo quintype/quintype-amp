@@ -17,9 +17,11 @@ import {
   dummyConfig7,
   dummyConfig8,
   dummyConfig9,
+  dummyConfig10,
   healthMenuItems,
   ampSidebarMenuNewsItems,
-  sidebarMenuNewsItems
+  sidebarMenuNewsItems,
+  sidebarMenuItemsMainDomain
 } from "./test-data";
 
 const LayoutWithMenuDisabled = () => (
@@ -136,5 +138,9 @@ describe("getDomainSpecificHamburgerMenuItems helper function", () => {
     expect(menuItems1).toMatchObject(defaultMenuItems);
     expect(menuItems2).toMatchObject(defaultMenuItems);
     expect(menuItems3).toMatchObject(defaultMenuItems);
+  });
+  it("Should return sidebar-menu menuGroup items when the reader is on main domain, featureConfig is not passed, sidebar-menu is created & amp-sidebar-menu menuGroup is not created", () => {
+    const menuItems = getDomainSpecificHamburgerMenuItems(dummyConfig10);
+    expect(menuItems).toMatchObject(sidebarMenuItemsMainDomain);
   });
 });

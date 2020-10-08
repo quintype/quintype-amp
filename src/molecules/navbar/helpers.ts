@@ -3,7 +3,6 @@ import get from "lodash.get";
 
 /**
  * returns hamburger menu items for subdomains
- * Will return "default" menu group items for main domain or if no menugroups are configured for subdomain
  *
  * which menuGroup to pick for which domain can be configured by setting featureConfig.sidebarMenu.menuGroupSlug for the subdomain
  * if featureConfig isn't passed, check if menuGroup with slug "amp-sidebar-menu-${domainSlug}" is present and return those items
@@ -18,11 +17,9 @@ import get from "lodash.get";
 export const getDomainSpecificHamburgerMenuItems = (config: Config) => {
   const { ampConfig } = config;
   if (!ampConfig["menu-groups"]) return [];
+
   const domainSlug = config.opts?.domainSlug;
-
   const defaultMenuGroupItems = get(config, ["ampConfig", "menu-groups", "default", "items"], []);
-  if (!domainSlug) return defaultMenuGroupItems;
-
   const allMenuGroupsArr: MenuGroupItemsTypes[] = objToArr(ampConfig["menu-groups"]);
 
   if (allMenuGroupsArr.length) {
@@ -46,13 +43,13 @@ export const objToArr = (obj: object) => {
 const getSidebarMenuSlug = (arr, config, domainSlug) => {
   // returns slug of the menu group to take
   // returns menuGroupSlug from featureConfig OR "amp-sidebar-menu-<domainSlug>" OR "sidebar-menu-<domainSlug>" OR null in this order
-
+  const slug = domainSlug ? `-${domainSlug}` : "";
   const menuGroupSlugFromFeatureConfig = get(config, ["opts", "featureConfig", "sidebarMenu", "menuGroupSlug"], null);
-  const ampSidebarMenuPresent = arr.find((item) => item.slug === `amp-sidebar-menu-${domainSlug}`);
-  const sidebarMenuPresent = arr.find((item) => item.slug === `sidebar-menu-${domainSlug}`);
+  const ampSidebarMenuPresent = arr.find((item) => item.slug === `amp-sidebar-menu${slug}`);
+  const sidebarMenuPresent = arr.find((item) => item.slug === `sidebar-menu${slug}`);
 
   if (menuGroupSlugFromFeatureConfig) return menuGroupSlugFromFeatureConfig;
-  else if (ampSidebarMenuPresent) return `amp-sidebar-menu-${domainSlug}`;
-  else if (sidebarMenuPresent) return `sidebar-menu-${domainSlug}`;
+  else if (ampSidebarMenuPresent) return `amp-sidebar-menu${slug}`;
+  else if (sidebarMenuPresent) return `sidebar-menu${slug}`;
   else return null;
 };

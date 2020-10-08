@@ -124,6 +124,40 @@ dummyConfig9.opts = {
 };
 // ----------------------------------------------------------------------
 
+const dummyConfig10 = generateDummyConfig(["default"]);
+dummyConfig10.ampConfig["menu-groups"]["sidebar-menu"] = {
+  id: 123,
+  slug: "sidebar-menu",
+  name: "Sidebar Menu Main Domain",
+  items: [
+    {
+      "tag-name": null,
+      "entity-properties": null,
+      "collection-id": 36414,
+      "entity-slug": null,
+      "item-id": 18685,
+      rank: 9599,
+      title: "\u0928\u0941\u0938\u094D\u0916\u0947 \u0914\u0930 \u0926\u0947\u0916\u092D\u093E\u0932",
+      "item-type": "section",
+      "section-slug": "nuskhe-aur-dekhbhal",
+      "tag-slug": null,
+      id: 9599,
+      "parent-id": null,
+      url: "https://health.raftaar.in/nuskhe-aur-dekhbhal",
+      "entity-name": null,
+      "collection-slug": "nuskhe-aur-dekhbhal",
+      "section-name": "\u0928\u0941\u0938\u094D\u0916\u0947 \u0914\u0930 \u0926\u0947\u0916\u092D\u093E\u0932",
+      data: { color: "#FFFFFF", link: "https://health.raftaar.in/nuskhe-aur-dekhbhal" }
+    }
+  ]
+};
+
+dummyConfig10.publisherConfig.domains = domains;
+dummyConfig10.opts = {
+  domainSlug: null
+};
+// ----------------------------------------------------------------------
+
 function generateDummyConfig(slugsArr) {
   const dummyConfig = cloneDeep(config);
   const obj = {
@@ -480,6 +514,27 @@ const healthMenuItems = [
     data: { color: "#FFFFFF", link: "https://health.raftaar.in/nuskhe-aur-dekhbhal" }
   }
 ];
+const sidebarMenuItemsMainDomain = [
+  {
+    "tag-name": null,
+    "entity-properties": null,
+    "collection-id": 36414,
+    "entity-slug": null,
+    "item-id": 18685,
+    rank: 9599,
+    title: "\u0928\u0941\u0938\u094D\u0916\u0947 \u0914\u0930 \u0926\u0947\u0916\u092D\u093E\u0932",
+    "item-type": "section",
+    "section-slug": "nuskhe-aur-dekhbhal",
+    "tag-slug": null,
+    id: 9599,
+    "parent-id": null,
+    url: "https://health.raftaar.in/nuskhe-aur-dekhbhal",
+    "entity-name": null,
+    "collection-slug": "nuskhe-aur-dekhbhal",
+    "section-name": "\u0928\u0941\u0938\u094D\u0916\u0947 \u0914\u0930 \u0926\u0947\u0916\u092D\u093E\u0932",
+    data: { color: "#FFFFFF", link: "https://health.raftaar.in/nuskhe-aur-dekhbhal" }
+  }
+];
 
 export {
   defaultMenuItems,
@@ -492,7 +547,9 @@ export {
   dummyConfig7,
   dummyConfig8,
   dummyConfig9,
+  dummyConfig10,
   healthMenuItems,
   ampSidebarMenuNewsItems,
-  sidebarMenuNewsItems
+  sidebarMenuNewsItems,
+  sidebarMenuItemsMainDomain
 };
