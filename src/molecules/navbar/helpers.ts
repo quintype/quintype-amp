@@ -1,4 +1,4 @@
-import { Config, MenuGroupItemsTypes, PublisherConfig } from "../../types/config";
+import { Config, MenuGroupItemsTypes } from "../../types/config";
 import get from "lodash.get";
 
 /**
@@ -15,36 +15,23 @@ import get from "lodash.get";
  */
 
 export const getDomainSpecificHamburgerMenuItems = (config: Config) => {
-  const { ampConfig, publisherConfig } = config;
+  const { ampConfig } = config;
   if (!ampConfig["menu-groups"]) return [];
   const domainSlug = config.opts?.domainSlug;
 
   const defaultMenuGroupItems = get(config, ["ampConfig", "menu-groups", "default", "items"], []);
   if (!domainSlug) return defaultMenuGroupItems;
 
-  const menuGroupIdsArr: number[] = getMenuGroupIds(domainSlug, publisherConfig);
-  if (!menuGroupIdsArr.length) return defaultMenuGroupItems;
-
   const allMenuGroupsArr: MenuGroupItemsTypes[] = objToArr(ampConfig["menu-groups"]);
-  const menuGroupsArr = menuGroupIdsArr
-    .map((id) => {
-      return allMenuGroupsArr.find((menuGroup) => menuGroup.id === id);
-    })
-    .filter((menuGroup) => menuGroup);
 
-  if (menuGroupsArr.length) {
-    const sidebarMenuGroupSlug = getSidebarMenuSlug(menuGroupsArr, config, domainSlug);
+  if (allMenuGroupsArr.length) {
+    const sidebarMenuGroupSlug = getSidebarMenuSlug(allMenuGroupsArr, config, domainSlug);
     if (sidebarMenuGroupSlug) {
-      const menuGroupToReturn = menuGroupsArr.find((menuGroup) => menuGroup?.slug === sidebarMenuGroupSlug);
-      if (menuGroupToReturn) return menuGroupToReturn.items;
+      const menuGroupToReturn = allMenuGroupsArr.find((menuGroup) => menuGroup?.slug === sidebarMenuGroupSlug);
+      if (menuGroupToReturn && menuGroupToReturn.items.length) return menuGroupToReturn.items;
     }
   }
   return defaultMenuGroupItems;
-};
-
-const getMenuGroupIds = (domainSlug, publisherConfig: PublisherConfig) => {
-  const domainInfo = publisherConfig.domains.find((domain) => domain.slug === domainSlug);
-  return domainInfo ? domainInfo["menu-groups"] : [];
 };
 
 // "menu-groups" in api/v1/amp/config should've been an array but it's an obj. Therefore doing this hack

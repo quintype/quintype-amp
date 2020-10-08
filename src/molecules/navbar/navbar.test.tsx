@@ -6,7 +6,21 @@ import { Layout, HamburgerMenu } from "../../atoms";
 import { textStory, config } from "../../__fixtures__";
 import { Hamburger } from "../../atoms/icons/hamburger";
 import { getDomainSpecificHamburgerMenuItems, objToArr } from "./helpers";
-import { dummyConfig, defaultMenuItems, newsMenuItems } from "./test-data";
+import {
+  defaultMenuItems,
+  dummyConfig1,
+  dummyConfig2,
+  dummyConfig3,
+  dummyConfig4,
+  dummyConfig5,
+  dummyConfig6,
+  dummyConfig7,
+  dummyConfig8,
+  dummyConfig9,
+  healthMenuItems,
+  ampSidebarMenuNewsItems,
+  sidebarMenuNewsItems
+} from "./test-data";
 
 const LayoutWithMenuDisabled = () => (
   <Layout story={textStory} config={configWithMenuDisabled}>
@@ -92,33 +106,35 @@ describe("objToArr helper function", () => {
 
 describe("getDomainSpecificHamburgerMenuItems helper function", () => {
   it("Should return default menu group items for publisher having no associated subdomains", () => {
-    const newConfig = { ...dummyConfig };
-    newConfig.opts = { domainSlug: undefined };
-    const menuItems = getDomainSpecificHamburgerMenuItems(newConfig);
+    const menuItems = getDomainSpecificHamburgerMenuItems(dummyConfig1);
     expect(menuItems).toMatchObject(defaultMenuItems);
   });
   it("Should return default menu group items when there are associated subdomains but the reader is on the main domain", () => {
-    const newConfig = { ...dummyConfig };
-    newConfig.opts = { domainSlug: null };
-    const menuItems = getDomainSpecificHamburgerMenuItems(newConfig);
+    const menuItems = getDomainSpecificHamburgerMenuItems(dummyConfig2);
     expect(menuItems).toMatchObject(defaultMenuItems);
   });
-  it("Should return default menu group items when the reader is on a subdomain & the publisher hasn't configured a menu group for the subdomain", () => {
-    const newConfig = { ...dummyConfig };
-    newConfig.opts = { domainSlug: "astrology" };
-    const menuItems = getDomainSpecificHamburgerMenuItems(newConfig);
+  it("Should return default menu group items when the reader is on a subdomain but no featureConfig is passed and sidebar-menu-<subdomain> & amp-sidebar-menu-<subdomain> menuGroups are not created", () => {
+    const menuItems = getDomainSpecificHamburgerMenuItems(dummyConfig3);
     expect(menuItems).toMatchObject(defaultMenuItems);
   });
-  it("Should return default menu group items when the reader is on a subdomain & the publisher has deleted all the configured menu group items for that subdomain", () => {
-    const newConfig = { ...dummyConfig };
-    newConfig.opts = { domainSlug: "foo" };
-    const menuItems = getDomainSpecificHamburgerMenuItems(newConfig);
-    expect(menuItems).toMatchObject(defaultMenuItems);
+  it("Should return menuGroup items as per featureConfig when the reader is on a subdomain, featureConfig is passed and sidebar-menu-<subdomain> & amp-sidebar-menu-<subdomain> menuGroups are created for the subdomain", () => {
+    const menuItems = getDomainSpecificHamburgerMenuItems(dummyConfig4);
+    expect(menuItems).toMatchObject(healthMenuItems);
   });
-  it("Should return menu group items associated with the subdomain on which the reader is on, when the publisher has configured the menu group items for that subdomain", () => {
-    const newConfig = { ...dummyConfig };
-    newConfig.opts = { domainSlug: "news" };
-    const menuItems = getDomainSpecificHamburgerMenuItems(newConfig);
-    expect(menuItems).toMatchObject(newsMenuItems);
+  it("Should return amp-sidebar-menu-<subdomain> menuGroup items when the reader is on a subdomain, featureConfig is not passed and sidebar-menu-<subdomain> & amp-sidebar-menu-<subdomain> menuGroups are created for the subdomain", () => {
+    const menuItems = getDomainSpecificHamburgerMenuItems(dummyConfig5);
+    expect(menuItems).toMatchObject(ampSidebarMenuNewsItems);
+  });
+  it("Should return sidebar-menu-<subdomain> menuGroup items when the reader is on a subdomain, featureConfig is not passed, amp-sidebar-menu-<subdomain> menuGroup isn't created and sidebar-menu-<subdomain> menuGroup is created for the subdomain", () => {
+    const menuItems = getDomainSpecificHamburgerMenuItems(dummyConfig6);
+    expect(menuItems).toMatchObject(sidebarMenuNewsItems);
+  });
+  it("Should return default menu group items when the reader is on a subdomain, and there are no menu items in menu groups amp-sidebar-menu-<subdomain>, sidebar-menu-<subdomain> or in the menuGroup given by featureConfig", () => {
+    const menuItems1 = getDomainSpecificHamburgerMenuItems(dummyConfig7);
+    const menuItems2 = getDomainSpecificHamburgerMenuItems(dummyConfig8);
+    const menuItems3 = getDomainSpecificHamburgerMenuItems(dummyConfig9);
+    expect(menuItems1).toMatchObject(defaultMenuItems);
+    expect(menuItems2).toMatchObject(defaultMenuItems);
+    expect(menuItems3).toMatchObject(defaultMenuItems);
   });
 });
