@@ -5,10 +5,11 @@ import get from "lodash.get";
  * returns hamburger menu items for subdomains
  * Will return "default" menu group items for main domain or if no menugroups are configured for subdomain
  *
- * which menuGroup to pick for which domain can be configured by setting featureConfig.sidebarMenu.menuGroupSlug on the main domain or the subdomain
+ * which menuGroup to pick for which domain can be configured by setting featureConfig.sidebarMenu.menuGroupSlug for the subdomain
  * if featureConfig isn't passed, check if menuGroup with slug "amp-sidebar-menu-${domainSlug}" is present and return those items
  * if that's not set, check if menuGroup with slug "sidebar-menu-${domainSlug}" is present and return those items
  * if that's not set either, return default menu group items
+ * return default menu group items in case there are no items in any of the above menuGroups
  *
  * @param {Object} config config object
  * @returns {Array} Menu Group Items that should be shown inside the hamburger menu
