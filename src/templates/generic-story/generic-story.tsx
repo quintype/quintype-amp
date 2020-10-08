@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { FullStoryContent, HeaderCard, Navbar, RelatedStories, WebEngage } from "../../molecules";
 import {
   Layout,
@@ -11,18 +11,14 @@ import {
   ComScore,
   ChartBeat,
   InfiniteScroll,
-  Subscription,
-  SubscriberAccessPaywall,
-  MeteredPaywall
+  Subscription
+  // SubscriberAccessPaywall,
+  // MeteredPaywall
 } from "../../atoms";
 import styled from "styled-components";
 import { CommonTemplateTypes } from "../common-template-types";
 import get from "lodash.get";
-import {
-  getServicesParams,
-  getScoreParams,
-  getFallbackEntitlementParams
-} from "./generic-story.helpers";
+import { getServicesParams, getScoreParams, getFallbackEntitlementParams } from "./generic-story.helpers";
 import { TopAd, BottomAd } from "../../molecules/ads";
 import { StoryPageSlots } from "../../molecules/slots";
 import { StoryCardsWithSubscriptions } from "../../molecules/subscription-components";
@@ -45,10 +41,8 @@ const Wrapper = styled.div`
  * @component
  */
 export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
-  const enableSubscriptions = get(
-    config,
-    ["opts", "featureConfig", "subscriptions"]);
-  const isAccessible = story.access === "subscription";
+  // const enableSubscriptions = get(config, ["opts", "featureConfig", "subscriptions"]);
+  // const isAccessible = story.access === "subscription";
   const services = getServicesParams({ story, config });
   const score = getScoreParams({ config });
   const fallbackEntitlement = getFallbackEntitlementParams({ config });
@@ -90,14 +84,15 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
           <HeaderCard />
           <WebEngage />
           <Spacer token="m" />
-          {!enableSubscriptions && <FullStoryContent story={story} />}
-          <StoryCardsWithSubscriptions story={story} config={config} />
-          {enableSubscriptions && isAccessible && (
+          <StoryCards story={story} config={config} />
+          {/* {!enableSubscriptions && <FullStoryContent story={story} />} */}
+          {/* <StoryCardsWithSubscriptions story={story} config={config} /> */}
+          {/* {enableSubscriptions && isAccessible && (
             <>
               <MeteredPaywall config={config} />
               <SubscriberAccessPaywall config={config} />
             </>
-          )}
+          )} */}
           <RelatedStories />
         </StoryContainer>
         <BottomSlot />
@@ -109,5 +104,19 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
       <ChartBeat />
       {lastComponent}
     </Layout>
+  );
+};
+
+const StoryCards = ({ story, config }) => {
+  // move this to molecules; wrap it with story, config; then remove "story={story} config={config}" from line 87 of this file
+  const subscriptionEnabled = get(config, ["opts", "featureConfig", "subscriptions"]);
+  return (
+    <Fragment>
+      {subscriptionEnabled ? (
+        <StoryCardsWithSubscriptions story={story} config={config} />
+      ) : (
+        <FullStoryContent story={story} />
+      )}
+    </Fragment>
   );
 };

@@ -1,22 +1,22 @@
 import React from "react";
 import { shallow } from "enzyme";
 import { Subscription } from "../subscription";
-import {
-  SubscriberAccessPaywall, MeteredPaywall
-} from "./subscription-paywall";
+import { SubscriberAccessPaywall, MeteredPaywall } from "./subscription-paywall";
 import { config } from "../../../__fixtures__/config.fixture";
 
-const servicesObject = [{
-  authorizationUrl: ({ story }) =>
-    `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=1MMmdsHimbytzjKXYGcv8Xwj&accesstype_integration_id=14&readerId=READER_ID`,
-  pingbackUrl: ({ story }) =>
-    `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-pingback?key=1MMmdsHimbytzjKXYGcv8Xwj&accesstype_integration_id=14&readerId=READER_ID`,
-  actions: { login: "https://www.google.com", subscribe: "https://www.facebook.com" }
-}];
+const servicesObject = [
+  {
+    authorizationUrl: ({ story }) =>
+      `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=1MMmdsHimbytzjKXYGcv8Xwj&accesstype_integration_id=14&readerId=READER_ID`,
+    pingbackUrl: ({ story }) =>
+      `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-pingback?key=1MMmdsHimbytzjKXYGcv8Xwj&accesstype_integration_id=14&readerId=READER_ID`,
+    actions: { login: "https://www.google.com", subscribe: "https://www.facebook.com" }
+  }
+];
 
 describe("Subscriptions", () => {
   it("should render subscriptions", () => {
-    const wrapper = shallow(<Subscription services={servicesObject} />);
+    const wrapper = shallow(<Subscription services={servicesObject} config={config} />);
     expect(wrapper).toMatchSnapshot();
   });
   it("should render Subscriber Access Paywall with Login button and subscribe buttons", () => {
