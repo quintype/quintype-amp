@@ -8,9 +8,9 @@ import get from "lodash.get";
  * if featureConfig isn't passed, check if menuGroup with slug "amp-sidebar-menu-${domainSlug}" is present and return those items
  * if that's not set, check if menuGroup with slug "sidebar-menu-${domainSlug}" is present and return those items
  * if that's not set either, return default menu group items
- * return default menu group items in case there are no items in any of the above menuGroups
  *
- * @param {Object} config config object
+ * @category Helpers
+ * @param {Object} config object
  * @returns {Array} Menu Group Items that should be shown inside the hamburger menu
  */
 
@@ -20,24 +20,16 @@ export const getDomainSpecificHamburgerMenuItems = (config: Config) => {
 
   const domainSlug = config.opts?.domainSlug;
   const defaultMenuGroupItems = get(config, ["ampConfig", "menu-groups", "default", "items"], []);
-  const allMenuGroupsArr: MenuGroupItemsTypes[] = objToArr(ampConfig["menu-groups"]);
+  const allMenuGroupsArr: MenuGroupItemsTypes[] = Object.values(ampConfig["menu-groups"]);
 
   if (allMenuGroupsArr.length) {
     const sidebarMenuGroupSlug = getSidebarMenuSlug(allMenuGroupsArr, config, domainSlug);
     if (sidebarMenuGroupSlug) {
-      const menuGroupToReturn = allMenuGroupsArr.find((menuGroup) => menuGroup?.slug === sidebarMenuGroupSlug);
+      const menuGroupToReturn = allMenuGroupsArr.find((menuGroup) => menuGroup.slug === sidebarMenuGroupSlug);
       if (menuGroupToReturn && menuGroupToReturn.items.length) return menuGroupToReturn.items;
     }
   }
   return defaultMenuGroupItems;
-};
-
-// "menu-groups" in api/v1/amp/config should've been an array but it's an obj. Therefore doing this hack
-export const objToArr = (obj: object) => {
-  const keysArr = Object.keys(obj);
-  const arr: MenuGroupItemsTypes[] = [];
-  keysArr.forEach((key) => obj[key] && arr.push(obj[key]));
-  return arr;
 };
 
 const getSidebarMenuSlug = (arr, config, domainSlug) => {

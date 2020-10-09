@@ -5,7 +5,7 @@ import { configWithMenuDisabled, configWithNoHamburgerMenuItems, configWithTextD
 import { Layout, HamburgerMenu } from "../../atoms";
 import { textStory, config } from "../../__fixtures__";
 import { Hamburger } from "../../atoms/icons/hamburger";
-import { getDomainSpecificHamburgerMenuItems, objToArr } from "./helpers";
+import { getDomainSpecificHamburgerMenuItems } from "./helpers";
 import {
   defaultMenuItems,
   dummyConfig1,
@@ -85,27 +85,6 @@ describe("Navbar", () => {
 });
 
 // tests for helper functions
-describe("objToArr helper function", () => {
-  it("should work", () => {
-    const obj = {
-      foo: {
-        a: 1,
-        b: "two"
-      },
-      bar: 42,
-      baz: ["a", "b"]
-    };
-    expect(objToArr(obj)).toMatchObject([
-      {
-        a: 1,
-        b: "two"
-      },
-      42,
-      ["a", "b"]
-    ]);
-  });
-});
-
 describe("getDomainSpecificHamburgerMenuItems helper function", () => {
   it("Should return default menu group items for publisher having no associated subdomains", () => {
     const menuItems = getDomainSpecificHamburgerMenuItems(dummyConfig1);
