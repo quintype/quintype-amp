@@ -37,7 +37,7 @@ export const HardPaywallStoryContent = ({ story, config }) => {
             {card["story-elements"].map((element) => (
                 <StoryElement key={element.id} element={element} />
             ))}
-            {cardsVisibleInBlockedStory !== 0 && cardIdx === 0 && <BodyAd />}
+            {cardIdx === 0 && <BodyAd />}
             <DefaultStoryCardSlot index={cardIdx} card={card} />
         </Fragment>
     ));
@@ -47,13 +47,14 @@ export const HardPaywallStoryContent = ({ story, config }) => {
     const cardsBehindPaywall = (
         <section className="paywall" subscriptions-section="content">
             {storyCardsBehindPaywall.map((card, cardIdx) => {
+                const computedIdx = cardsVisibleInBlockedStory + cardIdx;
                 return (
                     <Fragment key={card.id}>
                         {card["story-elements"].map((element) => (
                             <StoryElement key={element.id} element={element} />
                         ))}
-                        {cardsVisibleInBlockedStory === 0 && cardIdx === 0 && <BodyAd />}
-                        <DefaultStoryCardSlot index={cardsVisibleInBlockedStory + cardIdx} card={card} />
+                        {computedIdx === 0 && <BodyAd />}
+                        <DefaultStoryCardSlot index={computedIdx} card={card} />
                     </Fragment>
                 );
             })}
