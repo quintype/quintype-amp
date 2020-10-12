@@ -17,10 +17,21 @@ export interface PublisherConfig {
   env: string;
   "publisher-id": number;
   "publisher-settings"?: object;
+  domains: DomainsTypes[];
   sections?: [];
   layout?: {
     "no-of-visible-cards-in-a-blocked-story": number | null;
   };
+}
+
+interface DomainsTypes {
+  name: string;
+  slug: string;
+  "host-url": string;
+  "beta-host-url": string | null;
+  "home-collection-id": number;
+  "section-ids": number[];
+  "menu-groups": number[];
 }
 
 interface FBConfig {
@@ -43,13 +54,8 @@ export interface AMPConfig {
   "related-collection-id": number;
   "infinite-scroll-collection-id": number;
   "menu-groups"?: {
-    default?: {
-      id: number;
-      slug: string;
-      name: string;
-      items: MenuItemTypes[];
-    };
-  };
+    [menuGroup: string]: MenuGroupItemsTypes;
+  } | null;
   fonts: {
     primary: {
       url: string;
@@ -89,6 +95,13 @@ export interface AMPConfig {
   "fallback-image-url": string;
 }
 
+export interface MenuGroupItemsTypes {
+  id: number;
+  slug: string;
+  name: string;
+  items: MenuItemTypes[];
+}
+
 interface DoubleClickAdTypes {
   width: number;
   height: number;
@@ -115,6 +128,7 @@ export interface MenuItemTypes {
   data?: {
     color: string;
     link?: string;
+    "icon-code"?: string;
   };
 }
 
@@ -126,6 +140,7 @@ interface SlotsTypes {
 }
 
 export interface ConfigOpts {
+  domainSlug?: string | null;
   templates?: object;
   slots?: SlotsTypes;
   render?: {
@@ -215,5 +230,8 @@ interface FeatureConfigTypes {
   };
   langTag?: {
     [key: string]: string;
+  };
+  sidebarMenu?: {
+    menuGroupSlug?: string;
   };
 }

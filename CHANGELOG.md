@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.18](https://github.com/quintype/quintype-amp/compare/v2.1.14...v2.1.18) (2020-10-12)
+
+
+### Bug Fixes
+
+* merge conflicts ([c5359b6](https://github.com/quintype/quintype-amp/commit/c5359b687f64998006f00b5b793ec06926a94fe8))
+
+### [2.1.17](https://github.com/quintype/quintype-amp/compare/v2.1.15-domain-slug.0...v2.1.17) (2020-10-12)
+
+
+### Bug Fixes
+
+* accept featureconfig for main domain ([917791e](https://github.com/quintype/quintype-amp/commit/917791e1d62bf78549300a86ba68cb91119c1b3d))
+* picking items for hamburgerMenu based on featureConfig and fallbacks ([6ffc0cb](https://github.com/quintype/quintype-amp/commit/6ffc0cb9b00bb91e615c37cad4d4fe6fcb822adb))
+* PR changes ([5275f61](https://github.com/quintype/quintype-amp/commit/5275f61eb9b67f22f762d6eaef1ff45c7f957476))
+* remove engines from package.json ([b3c9e5d](https://github.com/quintype/quintype-amp/commit/b3c9e5d39a197d272789c85ff4a782c818e10084))
+* typo ([9986412](https://github.com/quintype/quintype-amp/commit/9986412286806c418b1b469eadbc6b1b3f3d1a81))
+
+### [2.1.16](https://github.com/quintype/quintype-amp/compare/v2.1.14...v2.1.16) (2020-10-06)
+
+
+### Bug Fixes
+
+* apply background-color to header ([3d1e87e](https://github.com/quintype/quintype-amp/commit/3d1e87eea276179e223e4115299c6a2c2579f2be))
+
+### [2.1.15](https://github.com/quintype/quintype-amp/compare/v2.1.14...v2.1.15) (2020-10-06)
+
+
+### Bug Fixes
+
+* add enlarge=true query param to hero image ([2032e74](https://github.com/quintype/quintype-amp/commit/2032e74a3c4a24160aa5b6620025ec69363b94f8))
+
 ### [2.1.14](https://github.com/quintype/quintype-amp/compare/v2.1.12...v2.1.14) (2020-09-23)
 
 

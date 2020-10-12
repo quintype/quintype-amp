@@ -24,6 +24,7 @@ export const publisherConfig: PublisherConfig = {
   layout: {
     "no-of-visible-cards-in-a-blocked-story": 1
   }
+  domains: []
 };
 
 export const ampConfig: AMPConfig = {
