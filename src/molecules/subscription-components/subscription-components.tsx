@@ -15,7 +15,6 @@ const StoryCardsWithSubscriptionsBase = ({ story, config }) => {
   );
   const granted = get(config, ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "granted"], true);
   const hardPaywallAccessGranted = granted === true;
-  // const isMeteredStory = grantReason === "METERING";
   const isHardPaywallStory = grantReason === "SUBSCRIBER";
   let storyContent;
   if (isHardPaywallStory || !hardPaywallAccessGranted)
@@ -33,14 +32,6 @@ const StoryCardsWithSubscriptionsBase = ({ story, config }) => {
       )}
     </Fragment>
   );
-
-  // if (!isStoryBehindPaywall || isMeteredStory) {
-  //   // If a story is not behind paywall or if it a metered story then all the cards are shown
-  //   return <FullStoryContent story={story} />;
-  // } else if (isHardPaywallStory || !hardPaywallAccessGranted) {
-  //   // If a story is behind hard paywall
-  //   return <HardPaywallStoryContent story={story} config={config} />;
-  // }
 };
 
 export const StoryCardsWithSubscriptions = withStoryAndConfig(StoryCardsWithSubscriptionsBase);

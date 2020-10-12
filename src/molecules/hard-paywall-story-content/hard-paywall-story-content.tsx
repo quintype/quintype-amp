@@ -53,7 +53,7 @@ export const HardPaywallStoryContent = ({ story, config }) => {
                             <StoryElement key={element.id} element={element} />
                         ))}
                         {cardsVisibleInBlockedStory === 0 && cardIdx === 0 && <BodyAd />}
-                        <DefaultStoryCardSlot index={cardIdx} card={card} />
+                        <DefaultStoryCardSlot index={cardsVisibleInBlockedStory + cardIdx} card={card} />
                     </Fragment>
                 );
             })}
