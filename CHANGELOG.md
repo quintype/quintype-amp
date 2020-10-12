@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.20](https://github.com/quintype/quintype-amp/compare/v2.1.19...v2.1.20) (2020-10-12)
+
+
+### Bug Fixes
+
+* commit package lock ([03e87a7](https://github.com/quintype/quintype-amp/commit/03e87a756092d798ce4cec1784b2a31909386952))
+
 ### [2.1.19](https://github.com/quintype/quintype-amp/compare/v2.1.18...v2.1.19) (2020-10-12)
 
 
