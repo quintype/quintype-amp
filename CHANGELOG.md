@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.19](https://github.com/quintype/quintype-amp/compare/v2.1.18...v2.1.19) (2020-10-12)
+
+
+### Bug Fixes
+
+*  failed tests ([#296](https://github.com/quintype/quintype-amp/issues/296)) ([9bdf9d3](https://github.com/quintype/quintype-amp/commit/9bdf9d3646e0e2a749f92ba3d82cdb23ddf01404))
+*  generic story snapshot ([#297](https://github.com/quintype/quintype-amp/issues/297)) ([967bb55](https://github.com/quintype/quintype-amp/commit/967bb55e6fe9fffe03e63b98fe4041a80ec1ff9d))
+
 ### [2.1.18](https://github.com/quintype/quintype-amp/compare/v2.1.14...v2.1.18) (2020-10-12)
 
 
