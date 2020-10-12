@@ -3136,6 +3136,30 @@ exports[`RelatedStories should render default 1`] = `
                 },
               ],
             },
+            "subscriptions": Object {
+              "fallbackEntitlement": Object {
+                "data": Object {
+                  "isLast": false,
+                  "isLoggedIn": false,
+                  "numberRemaining": 2,
+                },
+                "grantReason": "SUBSCRIBER",
+                "granted": false,
+                "source": "fallback",
+              },
+              "score": Object {
+                "isReadyToPay": 9,
+                "supportsViewer": 10,
+              },
+              "services": Object {
+                "actions": Object {
+                  "login": "https://www.google.com",
+                  "subscribe": "https://www.facebook.com",
+                },
+                "authorizationUrl": [Function],
+                "pingbackUrl": [Function],
+              },
+            },
           },
           "slots": Object {
             "story": Object {
@@ -3150,6 +3174,9 @@ exports[`RelatedStories should render default 1`] = `
           "env": "production",
           "facebook": Object {
             "app-id": "1234",
+          },
+          "layout": Object {
+            "no-of-visible-cards-in-a-blocked-story": 1,
           },
           "publisher-id": 1,
           "publisher-name": "vikatan",

@@ -31,7 +31,9 @@ import { QuintypeAnalytics } from "./quintype-analytics";
 import { LightboxGallery } from "./lightbox-gallery";
 import { ChartBeat } from "./chartbeat";
 import { InfiniteScroll } from "./infinite-scroll";
+import { Subscription } from "./subscriptions";
 import { LiveList } from "./live-list";
+import { SubscriberAccessPaywall, MeteredPaywall } from "./subscriptions/subscriptions-paywall";
 
 export {
   Carousel,
@@ -67,5 +69,8 @@ export {
   LightboxGallery,
   ChartBeat,
   InfiniteScroll,
-  LiveList
+  Subscription,
+  LiveList,
+  SubscriberAccessPaywall,
+  MeteredPaywall
 };

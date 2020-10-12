@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Subscriptions should render subscriptions 1`] = `
+<HelmetWrapper
+  defer={true}
+  encodeSpecialCharacters={true}
+>
+  <link
+    as="script"
+    href="https://cdn.ampproject.org/v0/amp-subscriptions-0.1.js"
+    rel="preload"
+  />
+  <link
+    as="script"
+    href="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"
+    rel="preload"
+  />
+  <script
+    id="amp-subscriptions"
+    type="application/json"
+  >
+    {"services":[{"actions":{"login":"https://www.google.com","subscribe":"https://www.facebook.com"}}]}
+  </script>
+  <script
+    custom-element="amp-subscriptions"
+    src="https://cdn.ampproject.org/v0/amp-subscriptions-0.1.js"
+  />
+  <script
+    custom-template="amp-mustache"
+    src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"
+  />
+</HelmetWrapper>
+`;

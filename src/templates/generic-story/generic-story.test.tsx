@@ -1,13 +1,13 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
 import { GenericStory } from "./generic-story";
-import { InfiniteScroll } from "../../atoms";
+import { InfiniteScroll, Subscription } from "../../atoms";
 import { textStory, config } from "../../__fixtures__";
-import { TopAd, BodyAd, BottomAd } from "../../molecules/ads";
+import { TopAd, BottomAd } from "../../molecules/ads";
 import { StoryPageSlots } from "../../molecules/slots";
 import cloneDeep from "lodash.clonedeep";
 
-const { TopSlot, BottomSlot, DefaultStoryCardSlot, RelatedStoryCardSlot } = StoryPageSlots;
+const { TopSlot, BottomSlot, RelatedStoryCardSlot } = StoryPageSlots;
 
 const genDummyCard = () => {
   const dummyId = String(Math.ceil(Math.random() * 100000000000));
@@ -68,10 +68,13 @@ describe("GenericStory Template", () => {
         .prop("next-page-hide")
     ).toBe("true");
   });
+  it("should render subscriptions if exists", () => {
+    const wrapper = shallow(<GenericStory story={textStory} config={config} />);
+    expect(wrapper.find(Subscription).length).toBe(1);
+  });
   it("should set 'templateName' prop as 'default' for all DFP ads", () => {
     const wrapper = shallow(<GenericStory story={textStory} config={config} />);
     expect(wrapper.find(TopAd).prop("templateName")).toBe("default");
-    expect(wrapper.find(BodyAd).prop("templateName")).toBe("default");
     expect(wrapper.find(BottomAd).prop("templateName")).toBe("default");
   });
   it("should render all generic story page slots", () => {
@@ -84,7 +87,6 @@ describe("GenericStory Template", () => {
     const wrapper = mount(<GenericStory story={dummyStory} config={config} />);
     expect(wrapper.find(TopSlot).length).toBe(1);
     expect(wrapper.find(BottomSlot).length).toBe(1);
-    expect(wrapper.find(DefaultStoryCardSlot).length).toBe(5);
     expect(wrapper.find(RelatedStoryCardSlot).length).toBe(4);
   });
 });

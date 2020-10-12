@@ -1,3 +1,4 @@
+import { FallbackEntitlementProps, ServicesProps, ScoreProps } from "../atoms/subscriptions/types";
 import { Story } from "./story";
 
 export interface Config {
@@ -18,6 +19,9 @@ export interface PublisherConfig {
   "publisher-settings"?: object;
   domains: DomainsTypes[];
   sections?: [];
+  layout?: {
+    "no-of-visible-cards-in-a-blocked-story": number | null;
+  };
 }
 
 interface DomainsTypes {
@@ -143,6 +147,11 @@ export interface ConfigOpts {
     headerCardRender?: (props: CommonRenderPropTypes) => any;
     relatedStoriesRender?: (props: RelatedStoriesRenderPropTypes) => any;
     infiniteScrollRender?: (props: InfiniteScrollRenderPropTypes) => any;
+    subscriptionRender?: {
+      meterRender?: (props: SubscriptionRenderPropTypes) => any;
+      LastStoryMeterRender?: (props: SubscriptionRenderPropTypes) => any;
+      paywallRender?: (props: SubscriptionRenderPropTypes) => any;
+    };
     storyElementRender?: {
       bigfactElementRender?: (props: CommonRenderPropTypes) => any;
       answerElementRender?: (props: CommonRenderPropTypes) => any;
@@ -183,6 +192,13 @@ interface InfiniteScrollRenderPropTypes {
   inlineConfig: string;
 }
 
+interface SubscriptionRenderPropTypes {
+  config: Config;
+  services: ServicesProps;
+  score?: ScoreProps;
+  fallbackEntitlement?: FallbackEntitlementProps;
+}
+
 interface FeatureConfigTypes {
   infiniteScroll?: {
     infiniteScrollInlineConfig: string;
@@ -190,6 +206,11 @@ interface FeatureConfigTypes {
   };
   relatedStories?: {
     stories: Story[];
+  };
+  subscriptions?: {
+    services: ServicesProps;
+    score?: ScoreProps;
+    fallbackEntitlement?: FallbackEntitlementProps;
   };
   liveBlog?: {
     dataPollInterval?: string;

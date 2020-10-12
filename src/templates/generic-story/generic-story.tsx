@@ -1,8 +1,7 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { HeaderCard, Navbar, RelatedStories, WebEngage } from "../../molecules";
 import {
   Layout,
-  StoryElement,
   Spacer,
   IncompatibleBanner,
   Footer,
@@ -11,15 +10,18 @@ import {
   QuintypeAnalytics,
   ComScore,
   ChartBeat,
-  InfiniteScroll
+  InfiniteScroll,
+  Subscription
 } from "../../atoms";
 import styled from "styled-components";
 import { CommonTemplateTypes } from "../common-template-types";
 import get from "lodash.get";
-import { TopAd, BodyAd, BottomAd } from "../../molecules/ads";
+import { getServicesParams, getScoreParams, getFallbackEntitlementParams } from "./generic-story.helpers";
+import { TopAd, BottomAd } from "../../molecules/ads";
 import { StoryPageSlots } from "../../molecules/slots";
+import { StoryCards } from "../../molecules/story-cards/story-card";
 
-const { TopSlot, BottomSlot, DefaultStoryCardSlot } = StoryPageSlots;
+const { TopSlot, BottomSlot } = StoryPageSlots;
 const StoryContainer = styled.div`
   max-width: 600px;
   margin: 0 auto;
@@ -37,6 +39,9 @@ const Wrapper = styled.div`
  * @component
  */
 export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
+  const services = getServicesParams({ story, config });
+  const score = getScoreParams({ config });
+  const fallbackEntitlement = getFallbackEntitlementParams({ config });
   const footerText = get(config, ["publisherConfig", "publisher-settings", "copyright"], null);
   const infiniteScrollInlineConfig = get(
     config,
@@ -63,6 +68,7 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
   const templateName = "default";
   return (
     <Layout story={story} config={config}>
+      <Subscription services={services} score={score} fallbackEntitlement={fallbackEntitlement} config={config} />
       {navbarComponent}
       <IncompatibleBanner />
       <GoogleTagManager />
@@ -74,18 +80,7 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
           <HeaderCard />
           <WebEngage />
           <Spacer token="m" />
-          {story.cards.map((card, cardIdx) => {
-            const storyCard = card["story-elements"].map((element) => (
-              <StoryElement key={element.id} element={element} />
-            ));
-            return (
-              <Fragment key={card.id}>
-                {storyCard}
-                {cardIdx === 0 && <BodyAd templateName={templateName} />}
-                <DefaultStoryCardSlot index={cardIdx} card={card} />
-              </Fragment>
-            );
-          })}
+          <StoryCards />
           <RelatedStories />
         </StoryContainer>
         <BottomSlot />

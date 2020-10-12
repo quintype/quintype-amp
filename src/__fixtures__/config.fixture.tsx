@@ -21,6 +21,9 @@ export const publisherConfig: PublisherConfig = {
     copyright: "Copyright © 2020 Newslaundry Media Private Limited.  All Rights Reserved "
   },
   sections: [],
+  layout: {
+    "no-of-visible-cards-in-a-blocked-story": 1
+  }
   domains: []
 };
 
@@ -640,6 +643,22 @@ export const configOpts: ConfigOpts = {
     },
     relatedStories: {
       stories: relatedStories
+    },
+    subscriptions: {
+      services: {
+        authorizationUrl: ({ story }) =>
+          `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
+        pingbackUrl: ({ story }) =>
+          `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
+        actions: { login: "https://www.google.com", subscribe: "https://www.facebook.com" }
+      },
+      score: { supportsViewer: 10, isReadyToPay: 9 },
+      fallbackEntitlement: {
+        source: "fallback",
+        granted: false,
+        grantReason: "SUBSCRIBER",
+        data: { numberRemaining: 2, isLast: false, isLoggedIn: false }
+      }
     }
   }
 };
