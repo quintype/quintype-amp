@@ -20,7 +20,7 @@ To work on a feature
 1. Pull latest master, create a feature branch
 2. Make your changes. If you need to publish a beta version for testing, run npm publish --tag beta
 3. Once done, open a PR. Get changes reviewed & approved
-4. Once approved, merge the latest master into feature branch
+4. Once approved, squash and merge the latest master into feature branch `git merge master --squash`
 5. Then run npm publish on feature branch and do a prod release
 6. Squash and merge feature branch to master
 7. If you've added new docs, go to master, pull the latest and run `npm run docs:deploy`. This will publish docs on https://developers.quintype.com/quintype-amp/
