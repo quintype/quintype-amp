@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.17](https://github.com/quintype/quintype-amp/compare/v2.1.15-domain-slug.0...v2.1.17) (2020-10-12)
+
+
+### Bug Fixes
+
+* accept featureconfig for main domain ([917791e](https://github.com/quintype/quintype-amp/commit/917791e1d62bf78549300a86ba68cb91119c1b3d))
+* picking items for hamburgerMenu based on featureConfig and fallbacks ([6ffc0cb](https://github.com/quintype/quintype-amp/commit/6ffc0cb9b00bb91e615c37cad4d4fe6fcb822adb))
+* PR changes ([5275f61](https://github.com/quintype/quintype-amp/commit/5275f61eb9b67f22f762d6eaef1ff45c7f957476))
+* remove engines from package.json ([b3c9e5d](https://github.com/quintype/quintype-amp/commit/b3c9e5d39a197d272789c85ff4a782c818e10084))
+* typo ([9986412](https://github.com/quintype/quintype-amp/commit/9986412286806c418b1b469eadbc6b1b3f3d1a81))
+
 ### [2.1.16](https://github.com/quintype/quintype-amp/compare/v2.1.14...v2.1.16) (2020-10-06)
 
 
