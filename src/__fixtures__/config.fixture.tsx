@@ -23,7 +23,7 @@ export const publisherConfig: PublisherConfig = {
   sections: [],
   layout: {
     "no-of-visible-cards-in-a-blocked-story": 1
-  }
+  },
   domains: []
 };
 
