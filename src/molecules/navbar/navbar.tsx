@@ -6,6 +6,7 @@ import { NavbarTypes } from "./types";
 import { withConfig } from "../../context";
 import get from "lodash.get";
 import { withTheme } from "styled-components";
+import { getDomainSpecificHamburgerMenuItems } from "./helpers";
 
 const StyledNavbar = styled.header`
   width: 100%;
@@ -41,7 +42,7 @@ export const HamburgerWrapper = styled.div<{ align: "left" | "right" }>`
 
 export const NavbarBase = ({ align = "left", config, theme }: NavbarTypes) => {
   const isMenuEnabled = get(config, ["ampConfig", "menu", "enabled"], false);
-  const hamburgerMenuItems = get(config, ["ampConfig", "menu-groups", "default", "items"], []);
+  const hamburgerMenuItems = getDomainSpecificHamburgerMenuItems(config);
   const textDirection = get(config, ["publisherConfig", "text-direction"], "ltr");
   const hamburgerColor = get(theme, ["color", "secondaryColor"], "currentColor");
   return (

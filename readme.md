@@ -14,17 +14,14 @@ It's important to follow [these guidelines](https://www.conventionalcommits.org/
 
 ### Workflow / Publishing
 
-- This repo uses [standard-version](https://www.npmjs.com/package/standard-version) that takes care of updating changelog, bumping version as per semver, creating tags
-- Doing prod publish will also update the [documentation](https://developers.quintype.com/quintype-amp)
-
+This repo uses [standard-version](https://www.npmjs.com/package/standard-version) that takes care of updating changelog, bumping version as per semver, creating tags
 To work on a feature
 
 1. Pull latest master, create a feature branch
 2. Make your changes. If you need to publish a beta version for testing, run npm publish --tag beta
-3. Once done, open a PR. Get changes reviewed & approved.
-4. Once approved, run npm publish on feature branch and do a prod release
-5. Push changes to remote
-6. Squash and merge to Master.
+3. Once done, open a PR. Get changes reviewed & approved
+4. Once approved, squash and merge to master
+5. From master, run `npm publish`. If you don't have admin access to directly push to master, you will need help of someone who does
 
 ### Useful NPM scripts
 
