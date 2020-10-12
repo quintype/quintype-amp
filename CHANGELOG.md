@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.18](https://github.com/quintype/quintype-amp/compare/v2.1.14...v2.1.18) (2020-10-12)
+
+
+### Bug Fixes
+
+* merge conflicts ([c5359b6](https://github.com/quintype/quintype-amp/commit/c5359b687f64998006f00b5b793ec06926a94fe8))
+
 ### [2.1.17](https://github.com/quintype/quintype-amp/compare/v2.1.15-domain-slug.0...v2.1.17) (2020-10-12)
 
 
