@@ -20,7 +20,7 @@ To work on a feature
 1. Pull latest master, create a feature branch
 2. Make your changes. If you need to publish a beta version for testing, run npm publish --tag beta
 3. Once done, open a PR. Get changes reviewed & approved
-4. Once approved, squash and merge to master
+4. Once approved, squash and merge feature branch into master
 5. From master, run `npm publish`. If you don't have admin access to directly push to master, you will need help of someone who does
 
 ### Useful NPM scripts
