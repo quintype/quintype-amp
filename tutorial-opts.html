@@ -55,7 +55,6 @@
                 >
                     API Documentation
                 </a>
-                
                 <div class="dropdown is-hoverable is-right">
                     <a class="dropdown-trigger link">
                         Tutorials
@@ -64,38 +63,39 @@
                     <div class="dropdown-menu">
                         <div class="dropdown-content">
                         
-                            <a class="dropdown-item" href="tutorial-overview.html">
-                                Overview
-                            </a>
-                        
-                            <a class="dropdown-item" href="tutorial-opts.html">
-                                The 'opts' object
-                            </a>
-                        
-                            <a class="dropdown-item" href="tutorial-default-story-templates.html">
-                                Default Story Templates
-                            </a>
-                        
-                            <a class="dropdown-item" href="tutorial-custom-story-templates.html">
-                                Custom Story Templates
-                            </a>
-                        
-                            <a class="dropdown-item" href="tutorial-library-exports.html">
-                                AMP Library Exports
-                            </a>
-                        
-                            <a class="dropdown-item" href="tutorial-migration-to-v2.html">
-                                Migration from @quintype/framework v3.x.x to v4.x.x
-                            </a>
-                        
-                            <a class="dropdown-item" href="tutorial-features.html">
-                                Features
-                            </a>
+                            
+                                <a class="dropdown-item" href="tutorial-overview.html">
+                                    Overview
+                                </a>
+                            
+                                <a class="dropdown-item" href="tutorial-opts.html">
+                                    The 'opts' object
+                                </a>
+                            
+                                <a class="dropdown-item" href="tutorial-default-story-templates.html">
+                                    Default Story Templates
+                                </a>
+                            
+                                <a class="dropdown-item" href="tutorial-custom-story-templates.html">
+                                    Custom Story Templates
+                                </a>
+                            
+                                <a class="dropdown-item" href="tutorial-library-exports.html">
+                                    AMP Library Exports
+                                </a>
+                            
+                                <a class="dropdown-item" href="tutorial-migration-to-v2.html">
+                                    Migration from @quintype/framework v3.x.x to v4.x.x
+                                </a>
+                            
+                                <a class="dropdown-item" href="tutorial-features.html">
+                                    Features
+                                </a>
+                            
                         
                         </div>
                     </div>
                 </div>
-                
                 
                 
             </div>
@@ -125,6 +125,10 @@
                     <h1>The 'opts' object</h1>
                 </header>
                 <section>
+
+<header>
+    
+</header>
 
 <article>
     <p>The AMP library accepts customizations via the &quot;opts&quot; javascript object.</p>
@@ -255,6 +259,13 @@ The <code>&lt;Head /&gt;</code> component may be used to put code in the head. U
 <li>accepts an object. Key <code>sketches-host</code> and value is the lang attribute that you wish to provide.</li>
 </ul>
 </li>
+<li>sidebarMenu
+<ul>
+<li>Optional. To tell amplib from where to pick items for the sidebar (Hamburger) menu, pass the slug of that menu group to <code>opts.featureConfig.sidebarMenu.menuGroupSlug</code></li>
+<li>This can be extended to subdomains as well. For example if you have a subdomain called <code>world-news</code>, set <code>opts.domains[&quot;world-news&quot;].featureConfig.sidebarMenu.menuGroupSlug</code>. Now the sidebar menu on the subdomain <code>world-news</code> will pick items from whatever menu group you've set</li>
+<li>go to <a href="tutorial-hamburger-menu.html">hamburger-menu</a> for more info</li>
+</ul>
+</li>
 </ol>
 <pre class="prettyprint source lang-jsx"><code>const exampleFeatureConfig = {
   enableAds: {
@@ -281,6 +292,9 @@ The <code>&lt;Head /&gt;</code> component may be used to put code in the head. U
   langTag: {
     &quot;https://www.thequint.com&quot;: &quot;en&quot;,
     &quot;https://hindi.thequint.com&quot;: &quot;hi&quot;
+  },
+  sidebarMenu: {
+    menuGroupSlug: string
   }
 };
 </code></pre>
@@ -460,7 +474,7 @@ The <code>&lt;Head /&gt;</code> component may be used to put code in the head. U
             
             <footer class="footer">
                 <div class="content has-text-centered">
-                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a></p>
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a></p>
                     <p class="sidebar-created-by">
                         <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
                         <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>

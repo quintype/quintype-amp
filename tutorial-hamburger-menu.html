@@ -5,7 +5,7 @@
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66074042-1', 'auto');ga('send', 'pageview');</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AMP Library default-story-card-slot</title>
+  <title>AMP Library hamburger-menu</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -104,7 +104,7 @@
 </div>
     <div id="main">
         <div
-            class="sidebar "
+            class="sidebar tutorials"
             id="sidebarNav"
         >
             
@@ -114,291 +114,87 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"></div><div class="category"><h2>Atoms</h2><h3>Components</h3><ul><li><a href="DateTime.html">DateTime</a></li><li><a href="Head.html">Head</a></li><li><a href="Layout.html">Layout</a></li><li><a href="module-Author.html">Author</a></li><li><a href="module-InfiniteScroll.html">InfiniteScroll</a></li></ul></div><div class="category"><h2>Default Templates</h2><h3>Components</h3><ul><li><a href="GenericStory.html">GenericStory</a></li><li><a href="LiveBlog.html">LiveBlog</a></li></ul></div><div class="category"><h2>Helper</h2><h3>Global</h3><ul><li><a href="global.html#ampifyStory">ampifyStory</a></li><li><a href="global.html#renderToString">renderToString</a></li></ul></div><div class="category"><h2>Helpers</h2><h3>Global</h3><ul><li><a href="global.html#getDomainSpecificHamburgerMenuItems">getDomainSpecificHamburgerMenuItems</a></li></ul></div><div class="category"><h2>Molecules</h2><h3>Modules</h3><ul><li><a href="module-bottom-slot.html">bottom-slot</a></li><li><a href="module-default-story-card-slot.html">default-story-card-slot</a></li><li><a href="module-live-blog-card.html">live-blog-card</a></li><li><a href="module-related-story-card-slot.html">related-story-card-slot</a></li><li><a href="module-Slots.html">Slots</a></li><li><a href="module-top-slot.html">top-slot</a></li></ul><h3>Components</h3><ul><li><a href="DateLastPublished.html">DateLastPublished</a></li><li><a href="DateUpdated.html">DateUpdated</a></li><li><a href="HeroImage.html">HeroImage</a></li><li><a href="module-HeaderCard.html">HeaderCard</a></li><li><a href="Navbar.html">Navbar</a></li><li><a href="RelatedStories.html">RelatedStories</a></li><li><a href="WebEngage.html">WebEngage</a></li></ul></div><div class="category"><h2>StoryElements</h2><h3>Components</h3><ul><li><a href="module-AlsoRead.html">AlsoRead</a></li><li><a href="module-Answer.html">Answer</a></li><li><a href="module-Bigfact.html">Bigfact</a></li><li><a href="module-BlockQuote.html">BlockQuote</a></li><li><a href="module-Blurb.html">Blurb</a></li><li><a href="module-DailyMotionElement.html">DailyMotionElement</a></li><li><a href="module-Embed.html">Embed</a></li><li><a href="module-FacebookElement.html">FacebookElement</a></li><li><a href="module-ImageElement.html">ImageElement</a></li><li><a href="module-ImageGalleryElement.html">ImageGalleryElement</a></li><li><a href="module-InstagramElement.html">InstagramElement</a></li><li><a href="module-Question.html">Question</a></li><li><a href="module-Summary.html">Summary</a></li><li><a href="module-Text.html">Text</a></li><li><a href="module-Title.html">Title</a></li><li><a href="module-TwitterElement.html">TwitterElement</a></li><li><a href="module-VidibleElement.html">VidibleElement</a></li><li><a href="module-YouTube.html">YouTube</a></li></ul></div>
+                    <div class="category"><h3>Tutorials</h3><ul><li><a href="tutorial-overview.html">Overview</a></li><li><a href="tutorial-opts.html">The 'opts' object</a></li><li><a href="tutorial-default-story-templates.html">Default Story Templates</a></li><li><a href="tutorial-custom-story-templates.html">Custom Story Templates</a></li><li><a href="tutorial-library-exports.html">AMP Library Exports</a></li><li><a href="tutorial-migration-to-v2.html">Migration from @quintype/framework v3.x.x to v4.x.x</a></li><li><a href="tutorial-features.html">Features</a></li></ul></div>
                 
             </nav>
         </div>
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Module</p>
-                    <h1>default-story-card-slot</h1>
+                    <p>Tutorial</p>
+                    <h1>hamburger-menu</h1>
                 </header>
-                
-
-
-
-
-<section>
+                <section>
 
 <header>
-    
-        
-            
-        
     
 </header>
 
 <article>
-    <div class="container-overview">
-    
-        
-            <div class="description"><p>default-story-card-slot is a story page slot. It's placed after every card on a non live blog story.</p></div>
-        
-
-        
-            
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-<div class="table-container">
-    <table class="params table">
-        <thead>
-        <tr>
-            
-            <th>Name</th>
-            
-
-            <th>Type</th>
-
-            
-
-            
-
-            <th class="last">Description</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>props</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Props</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"></td>
-</tr>
-
-  
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>story</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Story</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"></td>
-</tr>
-
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>config</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Config</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"></td>
-</tr>
-
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>index</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">number</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>index of the card. For example the default-story-card-slot coming after the 1st card will have index 0 and so on</p></td>
-</tr>
-
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>card</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Card</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>gives the card that's above this slot</p></td>
-</tr>
-
-  
-
-
-        
-        </tbody>
-    </table>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="molecules_slots_story-page-slots_default-story-card_default-story-card-slot.tsx.html" class="button">View Source</a>
-            <span>
-                <a href="molecules_slots_story-page-slots_default-story-card_default-story-card-slot.tsx.html">molecules/slots/story-page-slots/default-story-card/default-story-card-slot.tsx</a>, <a href="molecules_slots_story-page-slots_default-story-card_default-story-card-slot.tsx.html#line12">line 12</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-    
-    </div>
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
+    <p>The AMP hamburger menu takes items from a menu group. Which menu group that it takes its items from is decided based on the following logic:</p>
+<ul>
+<li>You can have items from any menu group of your choice. Just pass the slug of the menu group as a featureConfig to amp lib from your FE app and add items to that menu group. Check <code>sidebarMenu</code> in <code>feature config</code> in <a href="tutorial-opts.html">opts tutorial</a> for details</li>
+<li>else, if you've created a menu group having slug <code>amp-sidebar-menu</code> and added items to it, it'll pick those items</li>
+<li>else, if you've created a menu group having slug <code>sidebar-menu</code> and added items to it, it'll pick those items</li>
+<li>else it'll pick items from the <code>default</code> menu group</li>
+<li>else the sidebar menu is not shown</li>
+</ul>
+<h3>Subdomains</h3>
+<p>Assume you are publisher <code>www.example.com</code> and have configured a subdomain <code>world-news</code></p>
+<p>Which menu group items are shown inside the hamburger menu on the subdomain is decided based on the following logic:</p>
+<ul>
+<li>
+<p>1st priority is given to featureConfig, just like before. So pass the following opts:</p>
+<pre class="prettyprint source lang-js"><code>const exampleOptsObj = {
+  // main domain opts
+  featureConfig: {
+    sidebarMenu: {
+      menuGroupSlug: &quot;general-links&quot;
+    }
+  },
+  domains: {
+    &quot;world-news&quot;: {
+      // opts for &quot;world-news&quot; subdomain
+      featureConfig: {
+        sidebarMenu: {
+          menuGroupSlug: &quot;world-links&quot;
+        }
+      }
+    }
+  }
+};
+</code></pre>
+<p>your main domain will now show items from menu group having slug <code>general-links</code> and your subdomain <code>https://world-news.example.com</code> will show items from menu group having slug <code>world-links</code>. In this example, you don't <em>have</em> to pass featureConfig for the main domain. Following will also work just fine.</p>
+<pre class="prettyprint source lang-js"><code>const exampleOptsObj = {
+  domains: {
+    &quot;world-news&quot;: {
+      // opts for &quot;world-news&quot; subdomain
+      featureConfig: {
+        sidebarMenu: {
+          menuGroupSlug: &quot;world-links&quot;
+        }
+      }
+    }
+  }
+};
+</code></pre>
+</li>
+<li>
+<p>else, if you've created a menu group having slug <code>amp-sidebar-menu-world-news</code> and added items to it, it'll pick those items</p>
+</li>
+<li>
+<p>else, if you've created a menu group having slug <code>sidebar-menu-world-news</code> and added items to it, it'll pick those items</p>
+</li>
+<li>
+<p>else it'll pick items from the <code>default</code> menu group</p>
+</li>
+<li>
+<p>else the sidebar menu is not shown</p>
+</li>
+</ul>
 </article>
 
 </section>
-
-
-
 
             </div>
             

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66074042-1', 'auto');ga('send', 'pageview');</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AMP Library default-story-card-slot</title>
+  <title>AMP Library molecules/navbar/helpers.ts</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -121,281 +123,66 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Module</p>
-                    <h1>default-story-card-slot</h1>
+                    <p>Source</p>
+                    <h1>molecules/navbar/helpers.ts</h1>
                 </header>
                 
 
 
 
-
-<section>
-
-<header>
     
-        
-            
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description"><p>default-story-card-slot is a story page slot. It's placed after every card on a non live blog story.</p></div>
-        
-
-        
-            
-
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-<div class="table-container">
-    <table class="params table">
-        <thead>
-        <tr>
-            
-            <th>Name</th>
-            
-
-            <th>Type</th>
-
-            
-
-            
-
-            <th class="last">Description</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>props</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Props</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"></td>
-</tr>
-
-  
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>story</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Story</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"></td>
-</tr>
-
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>config</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Config</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"></td>
-</tr>
-
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>index</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">number</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>index of the card. For example the default-story-card-slot coming after the 1st card will have index 0 and so on</p></td>
-</tr>
-
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>card</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Card</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>gives the card that's above this slot</p></td>
-</tr>
-
-  
-
-
-        
-        </tbody>
-    </table>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="molecules_slots_story-page-slots_default-story-card_default-story-card-slot.tsx.html" class="button">View Source</a>
-            <span>
-                <a href="molecules_slots_story-page-slots_default-story-card_default-story-card-slot.tsx.html">molecules/slots/story-page-slots/default-story-card/default-story-card-slot.tsx</a>, <a href="molecules_slots_story-page-slots_default-story-card_default-story-card-slot.tsx.html#line12">line 12</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-    
-    </div>
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { Config, MenuGroupItemsTypes } from "../../types/config";
+import get from "lodash.get";
+
+/**
+ * returns hamburger menu items for subdomains
+ *
+ * which menuGroup to pick for which domain can be configured by setting featureConfig.sidebarMenu.menuGroupSlug for the subdomain
+ * if featureConfig isn't passed, check if menuGroup with slug "amp-sidebar-menu-${domainSlug}" is present and return those items
+ * if that's not set, check if menuGroup with slug "sidebar-menu-${domainSlug}" is present and return those items
+ * if that's not set either, return default menu group items
+ *
+ * @category Helpers
+ * @param {Object} config object
+ * @returns {Array} Menu Group Items that should be shown inside the hamburger menu
+ */
+
+export const getDomainSpecificHamburgerMenuItems = (config: Config) => {
+  const { ampConfig } = config;
+  if (!ampConfig["menu-groups"]) return [];
+
+  const domainSlug = config.opts?.domainSlug;
+  const defaultMenuGroupItems = get(config, ["ampConfig", "menu-groups", "default", "items"], []);
+  const allMenuGroupsArr: MenuGroupItemsTypes[] = Object.values(ampConfig["menu-groups"]);
+
+  if (allMenuGroupsArr.length) {
+    const sidebarMenuGroupSlug = getSidebarMenuSlug(allMenuGroupsArr, config, domainSlug);
+    if (sidebarMenuGroupSlug) {
+      const menuGroupToReturn = allMenuGroupsArr.find((menuGroup) => menuGroup.slug === sidebarMenuGroupSlug);
+      if (menuGroupToReturn &amp;&amp; menuGroupToReturn.items.length) return menuGroupToReturn.items;
+    }
+  }
+  return defaultMenuGroupItems;
+};
+
+const getSidebarMenuSlug = (arr, config, domainSlug) => {
+  // returns slug of the menu group to take
+  // returns menuGroupSlug from featureConfig OR "amp-sidebar-menu-&lt;domainSlug>" OR "sidebar-menu-&lt;domainSlug>" OR null in this order
+  const slug = domainSlug ? `-${domainSlug}` : "";
+  const menuGroupSlugFromFeatureConfig = get(config, ["opts", "featureConfig", "sidebarMenu", "menuGroupSlug"], null);
+  const ampSidebarMenuPresent = arr.find((item) => item.slug === `amp-sidebar-menu${slug}`);
+  const sidebarMenuPresent = arr.find((item) => item.slug === `sidebar-menu${slug}`);
+
+  if (menuGroupSlugFromFeatureConfig) return menuGroupSlugFromFeatureConfig;
+  else if (ampSidebarMenuPresent) return `amp-sidebar-menu${slug}`;
+  else if (sidebarMenuPresent) return `sidebar-menu${slug}`;
+  else return null;
+};
+</code></pre>
+        </article>
+    </section>
 
 
 
