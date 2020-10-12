@@ -41,7 +41,8 @@ export const HeroImageBase = ({ story, config }: HeroImageBaseTypes) => {
     slug,
     metadata,
     imgAspectRatio,
-    cdnImage: config.publisherConfig["cdn-image"]
+    cdnImage: config.publisherConfig["cdn-image"],
+    opts: { enlarge: true }
   });
   const figcaptionText = getFigcaptionText(caption, attribution);
 
