@@ -57,6 +57,7 @@
                 >
                     API Documentation
                 </a>
+                
                 <div class="dropdown is-hoverable is-right">
                     <a class="dropdown-trigger link">
                         Tutorials
@@ -65,39 +66,38 @@
                     <div class="dropdown-menu">
                         <div class="dropdown-content">
                         
-                            
-                                <a class="dropdown-item" href="tutorial-overview.html">
-                                    Overview
-                                </a>
-                            
-                                <a class="dropdown-item" href="tutorial-opts.html">
-                                    The 'opts' object
-                                </a>
-                            
-                                <a class="dropdown-item" href="tutorial-default-story-templates.html">
-                                    Default Story Templates
-                                </a>
-                            
-                                <a class="dropdown-item" href="tutorial-custom-story-templates.html">
-                                    Custom Story Templates
-                                </a>
-                            
-                                <a class="dropdown-item" href="tutorial-library-exports.html">
-                                    AMP Library Exports
-                                </a>
-                            
-                                <a class="dropdown-item" href="tutorial-migration-to-v2.html">
-                                    Migration from @quintype/framework v3.x.x to v4.x.x
-                                </a>
-                            
-                                <a class="dropdown-item" href="tutorial-features.html">
-                                    Features
-                                </a>
-                            
+                            <a class="dropdown-item" href="tutorial-overview.html">
+                                Overview
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-opts.html">
+                                The 'opts' object
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-default-story-templates.html">
+                                Default Story Templates
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-custom-story-templates.html">
+                                Custom Story Templates
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-library-exports.html">
+                                AMP Library Exports
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-migration-to-v2.html">
+                                Migration from @quintype/framework v3.x.x to v4.x.x
+                            </a>
+                        
+                            <a class="dropdown-item" href="tutorial-features.html">
+                                Features
+                            </a>
                         
                         </div>
                     </div>
                 </div>
+                
                 
                 
             </div>
@@ -133,11 +133,10 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React, { Fragment } from "react";
+            <pre class="prettyprint source linenums"><code>import React from "react";
 import { HeaderCard, Navbar, RelatedStories, WebEngage } from "../../molecules";
 import {
   Layout,
-  StoryElement,
   Spacer,
   IncompatibleBanner,
   Footer,
@@ -146,15 +145,18 @@ import {
   QuintypeAnalytics,
   ComScore,
   ChartBeat,
-  InfiniteScroll
+  InfiniteScroll,
+  Subscription
 } from "../../atoms";
 import styled from "styled-components";
 import { CommonTemplateTypes } from "../common-template-types";
 import get from "lodash.get";
-import { TopAd, BodyAd, BottomAd } from "../../molecules/ads";
+import { getServicesParams, getScoreParams, getFallbackEntitlementParams } from "./generic-story.helpers";
+import { TopAd, BottomAd } from "../../molecules/ads";
 import { StoryPageSlots } from "../../molecules/slots";
+import { StoryCards } from "../../molecules/story-cards/story-card";
 
-const { TopSlot, BottomSlot, DefaultStoryCardSlot } = StoryPageSlots;
+const { TopSlot, BottomSlot } = StoryPageSlots;
 const StoryContainer = styled.div`
   max-width: 600px;
   margin: 0 auto;
@@ -172,6 +174,9 @@ const Wrapper = styled.div`
  * @component
  */
 export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
+  const services = getServicesParams({ story, config });
+  const score = getScoreParams({ config });
+  const fallbackEntitlement = getFallbackEntitlementParams({ config });
   const footerText = get(config, ["publisherConfig", "publisher-settings", "copyright"], null);
   const infiniteScrollInlineConfig = get(
     config,
@@ -198,6 +203,7 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
   const templateName = "default";
   return (
     &lt;Layout story={story} config={config}>
+      &lt;Subscription services={services} score={score} fallbackEntitlement={fallbackEntitlement} config={config} />
       {navbarComponent}
       &lt;IncompatibleBanner />
       &lt;GoogleTagManager />
@@ -209,18 +215,7 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
           &lt;HeaderCard />
           &lt;WebEngage />
           &lt;Spacer token="m" />
-          {story.cards.map((card, cardIdx) => {
-            const storyCard = card["story-elements"].map((element) => (
-              &lt;StoryElement key={element.id} element={element} />
-            ));
-            return (
-              &lt;Fragment key={card.id}>
-                {storyCard}
-                {cardIdx === 0 &amp;&amp; &lt;BodyAd templateName={templateName} />}
-                &lt;DefaultStoryCardSlot index={cardIdx} card={card} />
-              &lt;/Fragment>
-            );
-          })}
+          &lt;StoryCards />
           &lt;RelatedStories />
         &lt;/StoryContainer>
         &lt;BottomSlot />
@@ -245,7 +240,7 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
             
             <footer class="footer">
                 <div class="content has-text-centered">
-                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a></p>
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a></p>
                     <p class="sidebar-created-by">
                         <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
                         <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
