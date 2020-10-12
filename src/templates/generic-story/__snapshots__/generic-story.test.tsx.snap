@@ -3147,6 +3147,7 @@ exports[`GenericStory Template should render 1`] = `
       "publisherConfig": Object {
         "cdn-image": "gumlet.assettype.com",
         "cdn-name": "https://thumbor-stg.assettype.com/",
+        "domains": Array [],
         "env": "production",
         "facebook": Object {
           "app-id": "1234",

@@ -1,1 +1,2 @@
-{@tutorial subscriptions}
+- [Subscriptions]{@tutorial subscriptions}
+- [Hamburger Menu]{@tutorial hamburger-menu}

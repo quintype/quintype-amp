@@ -16,6 +16,7 @@ AMP paywall and subscription support gives control over which content can be acc
 * Subscriber: A Reader who purchases a subscription plan and has access to premium content.
 * Subscription: It is a particular subscriber’s access to premium content which is behind a hard paywall.
 * Hard paywall: This restricts access to readers from viewing premium content without a subscription. Access to that content is given only after the reader is subscribed i.e., he must be a Subscriber.
+* readerID : The Reader ID is an anonymous and unique ID created by the AMP ecosystem. It is unique for each Reader/Publisher pair - a Reader is identified differently to two different Publishers and it is a non-reversible ID.
 
 
 # How Subscriptions work ?
@@ -146,11 +147,120 @@ This configuration must be added to the `featureConfig`. It can be accessed via 
 }
 ```
 
+# Attributes
+
+The AMP Runtime uses the response of authorization and pingback endpoints to either hide or show different sections as defined by the Attributes. Using these attributes, Paywall is constructed.
+
+### subscription-action
+
+In order to present the Reader with specific experiences, we need to provide specific actions which are declared in the "actions" configuration and can be marked up using `subscriptions-action` attribute.
+
+As mentioned in the integration section, the available values for actions are `login` and `subscribe`. `login` will trigger the Login page of the selected service and `subscribe`  will trigger the Subscribe page of the selected service.
+
+For example, this button will execute the "subscribe" action:
+
+```js
+<button subscriptions-action="subscribe" subscriptions-display="NOT granted">
+  Subscribe now
+</button>
+```
+
+By default, the actions are hidden and must be explicitly be shown using the `subscriptions-display` expression.
+
+### subscriptions-display
+
+As well as showing/hiding premium and fallback content, there are more ways to customise the document using the `subscriptions-display` attribute which uses expressions for actions and dialogs. The value of `subscriptions-display` is a boolean expression.
+
+Values in the `data` object of an Entitlements response can be used to build expressions. In this example the value of `isLoggedIn` is in the data object and is used to conditionally show UI for login - 
+
+```js
+<div class="StyledLine" subscriptions-actions subscriptions-display="NOT granted AND NOT data.isLoggedIn">
+  <p>Already a user ?</p>
+  <button subscriptions-action="login" subscriptions-display="NOT granted AND NOT data.isLoggedIn">
+    <span> Log in</span>
+  </button>
+</div>
+```
+
+### subscriptions-dialog
+
+The paywall dialogs are shown automatically based on the authorization/entitlements response.
+
+The element on which `subscriptions-dialog` dialog is specified is a `<template>` element in which case it will be initially rendered before being displayed as a dialog and this is mandatory.
+```js
+<div
+dangerouslySetInnerHTML={{
+  __html: `<template class="amp-subscriptions-dialog" type="amp-mustache" subscriptions-dialog subscriptions-display="granted AND grantReason = 'METERING'">
+  {{#data.numberRemaining}}
+    <p>You are left with {{data.numberRemaining}} free articles.</p>
+  {{/data.numberRemaining}}
+  {{#data.isLast}}
+      <p>You have exceeded free stories limit for this month</p>
+      <button subscriptions-action="subscribe" subscriptions-display="granted">
+        Subscribe
+      </button>
+      {{^data.isLoggedIn}}
+        <p>Already a user ?</p>
+        <button subscriptions-action="login" subscriptions-display="granted">
+        Log in
+        </button>
+      {{/data.isLoggedIn}}
+  {{/data.isLast}}
+</template>`
+  }}
+/>
+```
+This uses the `amp-mustache` script along with the `amp-subscriptions` script.
+For the content to render depending on the value of the data object, it should be wrapped with mustache as shown above in the snippet code.
+For metered paywall content, the content must be wrapped with `{{#data.numberRemaining}}` and `{{/data.numberRemaining}}`.
+For metered exhausted paywall content, the content must be wrapped with `{{#data.isLast}}` and `{{/data.isLast}}`.
+For rendering a login button on the paywall when the reader is not logged in, the content can be wrapped with `{{^data.isLoggedIn}}` and `{{/data.isLoggedIn}}`. `^` this implies NOT.
+By replacing, `^` with `#`, the particular content will be rendered when the reader is logged in.
+
+For more attributes to use, please feel free to check this [documentation](https://amp.dev/documentation/components/amp-subscriptions/#attributes)
+
+
 # Paywalls
 
 ## Hard paywall
 
-This `SubscriberAccessPaywall` component is the hard paywall. The look of the `SubscriberAccessPaywall` can be changed using the render prop `paywallRender`. In case `paywallRender` is passed in the config, it is rendered. Otherwise a default `SubscriberAccessPaywall` is rendered.
+This `SubscriberAccessPaywall` component is the hard paywall. The look of the `SubscriberAccessPaywall` can be changed using the render prop `paywallRender`. In case `paywallRender` is passed in the config, it is rendered. Otherwise a default `SubscriberAccessPaywall` is rendered. If the render prop is used, the rendered component is wrapped with the `<section>` tag. The component created must be a string and in HTML as shown below -
+
+```js
+<div
+dangerouslySetInnerHTML={{
+    __html: `<section class="StyledWrapper" subscriptions-actions subscriptions-display="NOT granted">
+  <h2 class="StyledText" subscriptions-actions subscriptions-display="NOT granted">
+    Get unlimited access
+  </h2>
+  <p class="StyledContent">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content</p>
+  <div class="StyledButton" subscriptions-actions subscriptions-display="NOT granted">
+    <button subscriptions-action="subscribe" subscriptions-display="NOT granted">
+      <span class="SubscribeMessage">Subscribe</span>
+    </button>
+  </div>
+  <div class="StyledLine" subscriptions-actions subscriptions-display="NOT granted AND NOT data.isLoggedIn">
+    <p>Already a user ?</p>
+    <button subscriptions-action="login" subscriptions-display="NOT granted AND NOT data.isLoggedIn">
+      <span> Log in</span>
+    </button>
+  </div>
+</section>`
+  }}
+/>
+```
+
+The styles for the paywall must be wrapped in a `<style>` tag. For example -
+
+```js
+<style type="text/css">{`
+  .StyledMeter {
+    display: flex;
+    align-items: center;
+    padding: 24px;
+  }
+`}</style>
+```
 Render Prop should be passed like below :
 
  ```jsx
@@ -178,22 +288,14 @@ Response for a user who has read all the free stories and is not subscribed or l
     }
 }
 ```
+The paywall looks like below -
+
+<div>
+  <div style="display: inline-block; width: 100%; text-align: center; border: 2px solid black;"><img style="width:50%" src="./subscriptions/hard_paywall.png"></div>
+</div>
+
 
 ### Scenario 2
-
-Response for a user who has  read all free stories and is subscribed but not logged in. The paywall renders with login button along with the message provided.
-
-```jsx
-{
-    "granted": true,
-    "grantReason": "SUBSCRIBER",
-    "data": {
-      "isLoggedIn": false
-    }
-}
-```
-
-### Scenario 3
 
 Response for a user who has read all free stories and is not subscribed but logged in. The paywall renders with subscribe button along with the message provided.
 
@@ -206,13 +308,52 @@ Response for a user who has read all free stories and is not subscribed but logg
     }
 }
 ```
+The paywall looks like below -
+
+<div>
+  <div style="display: inline-block; width: 100%; text-align: center; border: 2px solid black;"><img style="width:50%" src="./subscriptions/hard_paywall_sub.png"></div>
+</div>
 
 ## Metered Paywall
 
 This `MeteredPaywall` component is the Metering paywall. The look of the `MeteredPaywall` can be changed using the render prop `meterRender`. In case `meterRender` is passed in the config, it is rendered. Otherwise a default `MeteredPaywall` is rendered.
-`MeteredPaywall` component renders both metered and meter exhausted paywalls depending the the `numberRemaining` and `isLast` key values. The same `renderProp` can be used to change both the meterings.
-Render Prop should be passed like below :
+`MeteredPaywall` component renders both metered and meter exhausted paywalls depending the the `numberRemaining` and `isLast` key values. The same `renderProp` can be used to change both the meterings. If the render prop is used, the rendered component is wrapped with the `<template>` tag to be sure. The component created must be a string and in HTML as shown below. Adding `class="amp-subscriptions-dialog"` and `type="amp-mustache"` to `<template>` tag is mandatory.
+```js
+<div
+dangerouslySetInnerHTML={{
+  __html: `<template class="amp-subscriptions-dialog" type="amp-mustache" subscriptions-dialog subscriptions-display="granted AND grantReason = 'METERING'">
+  {{#data.numberRemaining}}
+    <p>You are left with {{data.numberRemaining}} free articles.</p>
+  {{/data.numberRemaining}}
+  {{#data.isLast}}
+    <div class="StyledMeter">
+      <p>You have exceeded free stories limit for this month</p>
+          <button subscriptions-action="subscribe" subscriptions-display="granted">
+            Subscribe
+          </button>
+        {{^data.isLoggedIn}}
+          <p>Already a user ?</p>
+          <button subscriptions-action="login" subscriptions-display="granted">
+          Log in
+          </button>
+        {{/data.isLoggedIn}}
+    </div>
+  {{/data.isLast}}
+</template>`
+  }}
+/>
+```
+The styles for the paywall must be wrapped in a `<style>` tag. For example -
 
+```js
+<style type="text/css">{`
+  .StyledMeter {
+    display: flex;
+    align-items: center;
+  }
+`}</style>
+```
+Render Prop should be passed like below :
 ```jsx
   ampRoutes(app, {
   render: {
@@ -241,13 +382,20 @@ Response for an anonymous Reader who has read 4 out of 5 free articles.
   }
 }
 ```
+The paywall dialog looks like below -
+
+<div>
+  <div style="display: inline-block; width: 100%; text-align: center; border: 2px solid black;"><img style="width:50%" src="./subscriptions/metered_paywall.png"></div>
+</div>
+
 
 ### Scenario 2
 
-Response for an anonymous Reader who does not have access because they have read 5 out of 5 free articles. This renders the meter exhausted paywall.
+Response for an anonymous Reader who has read 5 out of 5 free articles. This renders the meter exhausted paywall with subscribe and login buttons.
 
 ```jsx
-  "granted": false,
+  "granted": true,
+  "grantReason": "METERING",
   "data" : {
     "isLoggedIn": false,
     "numberRemaining": 5,
@@ -255,3 +403,29 @@ Response for an anonymous Reader who does not have access because they have read
   }
 }
 ```
+The paywall dialog looks like below -
+
+<div>
+  <div style="display: inline-block; width: 100%; text-align: center; border: 2px solid black;"><img style="width:50%" src="./subscriptions/meter_exhausted_login.png"></div>
+</div>
+
+### Scenario 3
+
+Response for an anonymous Reader who has read 5 out of 5 free articles and is logged in. This renders the meter exhausted paywall with subscribe.
+
+```jsx
+  "granted": true,
+  "grantReason": "METERING",
+  "data" : {
+    "isLoggedIn": true,
+    "numberRemaining": 5,
+    "isLast": true,
+  }
+}
+```
+The paywall dialog looks like below -
+
+<div>
+  <div style="display: inline-block; width: 100%; text-align: center; border: 2px solid black;"><img style="width:50%" src="./subscriptions/meter_exhausted_sub.png"></div>
+</div>
+
