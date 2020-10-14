@@ -31,29 +31,6 @@ To work on a feature
 - **build** bundles code by running webpack in development mode. Useful for debugging
 - **test** runs jest in watch mode
 
-### API Reference
-
-- #### Core Functions: renderToString
-
-  - Pass this function your `<Layout>` component and it will either return a string containing the amp HTML, or an error object
-
-- #### RenderLessComponents
-
-  - Analytics(amp-analytics)
-  - GoogleTagManager
-  - ComScore
-  - Google Analytics
-  - Quintype Analytics
-  - ChartBeat
-
-#### Opts
-
-- relatedStoriesRender - Render props to replace html generated from AMP Templates with whatever is passed by the user. A React render function which accepts stories as a parameter.
-- infiniteScrollRender
-  - params accepted: object containing keys - story, config, inlineConfig
-  - inlineConfig contains JSON config to be given inline to script tag (using dangerouslySetInnerHTML). It contains 1st five stories from the amp infinite scroll collection
-  - remaining stories come from remote endpoint given as `src` to `</amp-next-page>`. The endpoint to be called is `<https host>/amp/api/v1/amp-infinite-scroll?story-id=<story id>`. It needs story Id to remove current story if it exists from showing in infinite scroll
-
 ### NOTES:
 
 - the component plugin of better-docs uses parcel as a bundler, you have to install it globally
