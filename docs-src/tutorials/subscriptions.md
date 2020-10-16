@@ -44,7 +44,8 @@ AMP paywall and subscription support gives control over which content can be acc
 
 To integrate this feature, follow the below steps -
 
-1. The `amp-subscriptions` component must be configured using JSON configuration.
+1. Upgrade the frameowork and SEO to @quintype/framework@4.3.0 and @quintype/seo@1.38.23 or more respectively.
+2. The `amp-subscriptions` component must be configured using JSON configuration.
 
 
 |          Property           |     value     |        Description                                     |
@@ -81,7 +82,7 @@ This configuration must be added to the `featureConfig`. It can be accessed via 
  }
 ```
 
-2. The HTTPS URL for the Authorization and Pingback Endpoints i.e., `authorizationUrl` and `pingbackUrl` respectively are to be added to the services object along with the query parameters `readerId`, `sourceUrl` and `returnUrl`. When configuring the URLs for these endpoints, the Publisher can use [substitution variables](https://amp.dev/documentation/components/amp-subscriptions/#url-variables), for example to pass `returnUrl` to the server. These keys are functions where `story` is passed in. Below is an example of the URLs for publishers using [AccessType](https://www.quintype.com/products/accesstype) as Subscription platform -
+3. The HTTPS URL for the Authorization and Pingback Endpoints i.e., `authorizationUrl` and `pingbackUrl` respectively are to be added to the services object along with the query parameters `readerId`, `sourceUrl` and `returnUrl`. When configuring the URLs for these endpoints, the Publisher can use [substitution variables](https://amp.dev/documentation/components/amp-subscriptions/#url-variables), for example to pass `returnUrl` to the server. These keys are functions where `story` is passed in. Below is an example of the URLs for publishers using [AccessType](https://www.quintype.com/products/accesstype) as Subscription platform -
 
 ```jsx
  services: {
@@ -93,7 +94,7 @@ This configuration must be added to the `featureConfig`. It can be accessed via 
 }
 ```
 
-3. Login page must created in the frontend and it will open as a result of a `login` action. The URL for the login page can be provided here `services -> actions -> login`.
+4. Login page must created in the frontend and it will open as a result of a `login` action. The URL for the login page can be provided here `services -> actions -> login`.
 
 ```jsx
 {
@@ -104,7 +105,7 @@ This configuration must be added to the `featureConfig`. It can be accessed via 
 }
 ```
 
-4. Subscription page must be created in the frontend and it will open as a result of a `subscribe` action. The URL for the subscribe page can be provided here `services -> actions -> subscribe`.
+5. Subscription page must be created in the frontend and it will open as a result of a `subscribe` action. The URL for the subscribe page can be provided here `services -> actions -> subscribe`.
 
 ```jsx
 {
@@ -115,7 +116,7 @@ This configuration must be added to the `featureConfig`. It can be accessed via 
 }
 ```
 
-5. If all configured services fail to get the entitlements, the entitlement configured under `fallbackEntitlement` section will be used as a fallback entitlement. Default values can be added here.
+6. If all configured services fail to get the entitlements, the entitlement configured under `fallbackEntitlement` section will be used as a fallback entitlement. Default values can be added here.
 
 ```jsx
 {
@@ -130,7 +131,7 @@ This configuration must be added to the `featureConfig`. It can be accessed via 
 }
 ```
 
-6. The `data` object which is inside the `fallbackEntitlement` object can be used for messaging related to metering or article count orelse left empty. `numberRemaining` tells the number of free metered articles left. The number of free metered stories to be shown is set on the subscription platform. `isLast` is a boolean value which shows `true` when the reader is reading his last free metered story. The values inside the `data` object can be customized.
+7. The `data` object which is inside the `fallbackEntitlement` object can be used for messaging related to metering or article count orelse left empty. `numberRemaining` tells the number of free metered articles left. The number of free metered stories to be shown is set on the subscription platform. `isLast` is a boolean value which shows `true` when the reader is reading his last free metered story. The values inside the `data` object can be customized.
 
 ```jsx
 {
