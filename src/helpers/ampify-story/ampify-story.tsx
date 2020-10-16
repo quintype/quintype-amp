@@ -23,7 +23,7 @@ import React from "react";
 export function ampifyStory({ story, publisherConfig, ampConfig, seo = "", opts = {} }: AmpifyStoryTypes) {
   const config = { publisherConfig, ampConfig, opts };
   const template = getTemplate({ story, config, seo });
-  const langTag = getLangTag(config);
+  const langTag = get(publisherConfig, ["language", "iso-code"], null);
   return renderToString({ template, seo, langTag });
 }
 
@@ -38,12 +38,4 @@ const getTemplate = ({ story, config, seo }) => {
     default:
       return <GenericStory story={story} config={config} />;
   }
-};
-
-export const getLangTag = (config) => {
-  // Ideally lang tag should cone from story API. Until platform provides it in story API, taking it from featureConfig.
-  const sketchesHost = get(config, ["publisherConfig", "sketches-host"]);
-  const langTagObj = get(config, ["opts", "featureConfig", "langTag"]);
-  const langTag = get(langTagObj, sketchesHost, "");
-  return langTag;
 };

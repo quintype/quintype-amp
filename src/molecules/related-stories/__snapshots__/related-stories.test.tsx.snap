@@ -3175,6 +3175,12 @@ exports[`RelatedStories should render default 1`] = `
           "facebook": Object {
             "app-id": "1234",
           },
+          "language": Object {
+            "direction": "ltr",
+            "ietf-code": "en-us",
+            "iso-code": "en",
+            "name": "english",
+          },
           "layout": Object {
             "no-of-visible-cards-in-a-blocked-story": 1,
           },
