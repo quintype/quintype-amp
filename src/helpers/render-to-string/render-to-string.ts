@@ -19,8 +19,8 @@ import ReactDOMServer from "react-dom/server";
 export function renderToString({ template, seo, langTag }) {
   let str = "";
   try {
-    const { title, script, customStyles, link, metaTags } = getHeadTagsFromHelmet(template);
     const { htmlStr, styles } = getHtmlAndStyledComponentsStyles(template);
+    const { title, script, customStyles, link, metaTags } = getHeadTagsFromHelmet();
     const seoStr = `${metaTags}${link}${seo}`;
     str += getHeadStartStr(langTag);
     str += `${seoStr}`;
@@ -40,8 +40,8 @@ export function renderToString({ template, seo, langTag }) {
 const stripStyleTag = (str: string) => str.replace(/<style[^>]*>|<\/style>/g, "");
 const discardEmptyTitle = (str: string) => str.replace(/<title data-react-helmet="true"><\/title>/, "");
 
-const getHeadTagsFromHelmet = (component) => {
-  ReactDOMServer.renderToStaticMarkup(component); // without this, helmet.script returns empty
+const getHeadTagsFromHelmet = () => {
+  // IMP NOTE! - this has to come after `ReactDOMServer.renderToStaticMarkup` has run otherwise helmet.script returns empty
   const helmet = Helmet.renderStatic();
   const titleStr = helmet.title.toString();
   const title = discardEmptyTitle(titleStr);
