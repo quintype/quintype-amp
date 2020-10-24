@@ -1,5 +1,5 @@
 import React from "react";
-import { HeaderCard, Navbar, RelatedStories, WebEngage } from "../../molecules";
+import { HeaderCard, Navbar, RelatedStories, WebEngage, StoryCards } from "../../molecules";
 import {
   Layout,
   Spacer,
@@ -19,7 +19,6 @@ import get from "lodash.get";
 import { getServicesParams, getScoreParams, getFallbackEntitlementParams } from "./generic-story.helpers";
 import { TopAd, BottomAd } from "../../molecules/ads";
 import { StoryPageSlots } from "../../molecules/slots";
-import { StoryCards } from "../../molecules/story-cards/story-card";
 
 const { TopSlot, BottomSlot } = StoryPageSlots;
 const StoryContainer = styled.div`
