@@ -33,12 +33,12 @@ export const ImageElementBase = ({ element, story, config }: StoryElementProps) 
   return imageElementRender ? (
     imageElementRender({ story, config, element })
   ) : (
-    <Image slug={element["image-s3-key"]} metadata={element["image-metadata"]} alt={imageAttribution}>
-      {element.title && element.title.length > 1 && (
-        <StyledFigCaption dangerouslySetInnerHTML={{ __html: element.title }} />
-      )}
-    </Image>
-  );
+      <Image slug={element["image-s3-key"]} metadata={element["image-metadata"]} alt={imageAttribution}>
+        {element.title && element.title.length > 1 && (
+          <StyledFigCaption dangerouslySetInnerHTML={{ __html: element.title }} />
+        )}
+      </Image>
+    );
 };
 
 /**

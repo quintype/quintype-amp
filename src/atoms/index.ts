@@ -34,7 +34,13 @@ import { InfiniteScroll } from "./infinite-scroll";
 import { Subscription } from "./subscriptions";
 import { LiveList } from "./live-list";
 import { SubscriberAccessPaywall, MeteredPaywall } from "./subscriptions/subscriptions-paywall";
-
+import { VisualHeaderCard } from "./visual-header-card";
+import { VisualImage } from "./visual-image";
+import { VisualVideo } from "./visual-video";
+import { VisualText } from "./visual-text";
+import { VisualStoryCards } from "./visual-story-cards";
+import { VisualDefault } from "./visual-default";
+import { Bookend } from "./bookend";
 export {
   Carousel,
   Image,
@@ -72,5 +78,12 @@ export {
   Subscription,
   LiveList,
   SubscriberAccessPaywall,
-  MeteredPaywall
+  MeteredPaywall,
+  VisualHeaderCard,
+  VisualImage,
+  VisualVideo,
+  VisualText,
+  VisualStoryCards,
+  VisualDefault,
+  Bookend
 };

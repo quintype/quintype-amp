@@ -45,9 +45,8 @@ export const RelatedStoryCard = ({ story, aspectRatio, fallbackSrc }: RelatedSto
         />
         <Headline>{headline}</Headline>
         <DateTime formattedDate={humanizedDate} />
-        <Spacer token="s" />
       </StyledAnchor>
-    </Wrapper>
+    </Wrapper >
   );
 };
 
@@ -60,14 +59,14 @@ const ImageForStory = ({ metadata, s3Key, aspectRatio, altText, fallbackSrc }: I
     {imagePresent({ metadata, s3Key }) ? (
       <Image metadata={metadata} slug={s3Key} aspectRatio={aspectRatio} alt={altText} />
     ) : (
-      <amp-img
-        alt={altText || "fallback image"}
-        width={aspectRatio[0]}
-        height={aspectRatio[1]}
-        layout="responsive"
-        src={fallbackSrc}
-      />
-    )}
+        <amp-img
+          alt={altText || "fallback image"}
+          width={aspectRatio[0]}
+          height={aspectRatio[1]}
+          layout="responsive"
+          src={fallbackSrc}
+        />
+      )}
   </Fragment>
 );
 

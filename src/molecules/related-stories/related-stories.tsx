@@ -4,7 +4,7 @@ import { RelatedStoryCard } from "../related-story-card";
 import { RelatedStoriesTypes } from "./types";
 import { withStoryAndConfig } from "../../context";
 import { base64FallbackImage } from "../../helpers/image-helpers";
-import { Spacer } from "../../atoms";
+import { Layout, Spacer } from "../../atoms";
 import get from "lodash.get";
 import { StoryPageSlots } from "../../molecules/slots";
 
@@ -25,22 +25,30 @@ export const RelatedStoriesBase = ({
   const relatedStoriesRender = get(config, ["opts", "render", "relatedStoriesRender"], null);
   if (relatedStoriesRender) return relatedStoriesRender({ relatedStories, config, story });
   return (
-    <Fragment>
-      <Spacer token="m" />
-      <Heading>{heading}</Heading>
-      <div>
-        {relatedStories.map((relatedStory, idx) => (
-          <Fragment key={relatedStory.id}>
-            <RelatedStoryCard
-              story={relatedStory}
-              fallbackSrc={get(config, ["ampConfig", "fallback-image-url"], base64FallbackImage)}
-              aspectRatio={aspectRatio}
-            />
-            <RelatedStoryCardSlot story={story} config={config} index={idx} relatedStory={relatedStory} />
-          </Fragment>
-        ))}
-      </div>
-    </Fragment>
+    <>
+      {relatedStories.map((relatedStory, idx) => (
+        <>
+          <amp-story-page id={relatedStory.id}>
+            {/* <amp-story-grid-layer template="vertical">
+              <Layout story={story} config={config}>
+                <Spacer token="m" />
+                <Heading>{heading}</Heading>
+              </Layout>
+            </amp-story-grid-layer> */}
+            <amp-story-grid-layer template="vertical">
+              <Layout story={story} config={config}>
+                <RelatedStoryCard
+                  story={relatedStory}
+                  fallbackSrc={get(config, ["ampConfig", "fallback-image-url"], base64FallbackImage)}
+                  aspectRatio={aspectRatio}
+                />
+              </Layout>
+            </amp-story-grid-layer>
+          </amp-story-page>
+          {/* <RelatedStoryCardSlot story={story} config={config} index={idx} relatedStory={relatedStory} /> */}
+        </>
+      ))}
+    </>
   );
 };
 
