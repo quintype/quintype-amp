@@ -91,11 +91,7 @@ Feature config is an object that can be used to configure different features of 
    - storiesToTake: sets the number of related stories displayed. Defaults to 5
 3. infiniteScroll:
    - `storySeparatorText`: String that will be displayed by the separator that separates two infinite scroll stories. If nothing is passed, `SCROLL FOR NEXT` is displayed
-4. langTag:
-   - used to add the lang attribute to the html tag for SEO purposes
-   - Optional. if not provided, lang attribute is not added on the html tag
-   - accepts an object. Key `sketches-host` and value is the lang attribute that you wish to provide.
-5. sidebarMenu
+4. sidebarMenu
    - Optional. To tell amplib from where to pick items for the sidebar (Hamburger) menu, pass the slug of that menu group to `opts.featureConfig.sidebarMenu.menuGroupSlug`
    - This can be extended to subdomains as well. For example if you have a subdomain called `world-news`, set `opts.domains["world-news"].featureConfig.sidebarMenu.menuGroupSlug`. Now the sidebar menu on the subdomain `world-news` will pick items from whatever menu group you've set
    - go to {@tutorial hamburger-menu} for more info
@@ -122,10 +118,6 @@ const exampleFeatureConfig = {
     storiesToTake: number
   infiniteScroll: {
     storySeparatorText: string
-  },
-  langTag: {
-    "https://www.thequint.com": "en",
-    "https://hindi.thequint.com": "hi"
   },
   sidebarMenu: {
     menuGroupSlug: string
