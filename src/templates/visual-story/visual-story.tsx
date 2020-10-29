@@ -1,43 +1,46 @@
 import React from "react";
-import get from "lodash/get";
 import { Layout, StoryElement, VisualImage, VisualText } from "../../atoms";
-import Helmet from "react-helmet";
-import { HeaderCard, HeroImage, RelatedStories } from "../../molecules";
-import { Theme } from "../../context/theme";
-import { StoryCards } from "../../molecules/story-cards/story-card";
-import { textStory } from "../../__fixtures__";
-import { getTokensFromAMPConfig } from "../../utils/theme";
-import { ConfigProvider } from "../../context/config/config-context";
-import { ImageElement } from "../../atoms/story-elements";
+import { WebStory, CoverImage } from "../../atoms/visual-story";
+// import { HeaderCard } from "../../molecules";
 
 export const VisualStory = ({ story, config }) => {
-  const publisherLogo = get(config.publisherConfig["publisher-settings"]["publisher-logo"], "");
-  const publisherTitle = get(config.publisherConfig["publisher-settings"].title, "");
-
   return (
-    <>
-      <Helmet>
-        <script async={undefined} custom-element="amp-story" src="https://cdn.ampproject.org/v0/amp-story-1.0.js" />
-      </Helmet>
-      <amp-story
-        standalone=""
-        publisher-logo-src={publisherLogo}
-        title={story.headline}
-        publisher={publisherTitle}
-        poster-portrait-src={story["hero-image-s3-key"]}>
-        <amp-story-page id="cover">
-          <VisualImage story={story} config={config} />
-          <VerticalTemplateWrapper>
-            <Layout story={story} config={config}>
-              <HeaderCard story={story} config={config} />
-            </Layout>
-          </VerticalTemplateWrapper>
-        </amp-story-page>
-        <VisualFullStoryContent story={story} config={config} />
-        <RelatedStories />
-      </amp-story>
-    </>
+    <Layout story={story} config={config}>
+      <WebStory>
+        <CoverImage />
+        {/* <amp-story-page id="amp-story-0">
+          <amp-story-grid-layer template="fill"></amp-story-grid-layer>
+        </amp-story-page> */}
+      </WebStory>
+    </Layout>
   );
+  // <amp-story-page> => one card
+  // <amp-story-grid-layer> => wrapper around story elements OR atoms
+
+  // return (
+  //   <>
+  //     <Helmet>
+  //       <script async={undefined} custom-element="amp-story" src="https://cdn.ampproject.org/v0/amp-story-1.0.js" />
+  //     </Helmet>
+  //     <amp-story
+  //       standalone=""
+  //       publisher-logo-src={publisherLogo}
+  //       title={story.headline}
+  //       publisher={publisherTitle}
+  //       poster-portrait-src={story["hero-image-s3-key"]}>
+  //       <amp-story-page id="cover">
+  //         <VisualImage story={story} config={config} />
+  //         <VerticalTemplateWrapper>
+  //           <Layout story={story} config={config}>
+  //             <HeaderCard story={story} config={config} />
+  //           </Layout>
+  //         </VerticalTemplateWrapper>
+  //       </amp-story-page>
+  //       <VisualFullStoryContent story={story} config={config} />
+  //       <RelatedStories />
+  //     </amp-story>
+  //   </>
+  // );
 };
 
 export const ImageTemplateWrapper = ({ children }) => {
