@@ -26,10 +26,9 @@ const HeaderCardContainer = styled.div`
 
 export const DefaultHeaderCard = ({ story, config }: CommonRenderPropTypes) => {
   const { publisherConfig } = config;
-  const isVisualStory = story["story-template"] === "visual-story";
   return (
     <div>
-      {isVisualStory ? "" : <HeroImage />}
+      <HeroImage />
       <Spacer token="xs" />
       <HeaderCardContainer>
         <Section section={story.sections[0]} />
