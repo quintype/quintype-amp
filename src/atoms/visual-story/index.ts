@@ -1,4 +1,5 @@
 import { WebStory } from "./web-story";
-import { CoverImage } from "./cover-image";
+import { CoverPage } from "./cover-page";
+import { AmpStoryAutoAds } from "./amp-story-auto-ads";
 
-export { WebStory, CoverImage };
+export { WebStory, CoverPage, AmpStoryAutoAds };

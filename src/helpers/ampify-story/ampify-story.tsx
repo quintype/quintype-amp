@@ -35,7 +35,7 @@ const getTemplate = ({ story, config, seo }) => {
 
   switch (storyType) {
     case "visual-story":
-      return <VisualStory story={story} config={config} />
+      return <VisualStory story={story} config={config} />;
     case "live-blog":
       return <LiveBlog story={story} config={config} />;
     default:

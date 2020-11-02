@@ -1,75 +1,59 @@
 import React from "react";
-import { Layout } from "../../atoms";
-import { WebStory, CoverImage } from "../../atoms/visual-story";
-// import { HeaderCard } from "../../molecules";
+import { StoryProvider } from "../../context/story/story-context";
+import { ConfigProvider } from "../../context/config/config-context";
+import { Theme } from "../../context/theme";
+import { getTokensFromAMPConfig } from "../../utils/theme";
+import { WebStory, CoverPage, AmpStoryAutoAds } from "../../atoms/visual-story";
+import { CommonTemplateTypes } from "../common-template-types";
 
-export const VisualStory = ({ story, config }) => {
+export const VisualStory = ({ story, config }: CommonTemplateTypes) => {
+  const tokens = getTokensFromAMPConfig(config.ampConfig);
+  // const storyElementWhitelist = ["text", "title", "image"];
   return (
-    <Layout story={story} config={config}>
-      <WebStory>
-        <CoverImage />
-        {/* <amp-story-page id="amp-story-0">
-          <amp-story-grid-layer template="fill"></amp-story-grid-layer>
-        </amp-story-page> */}
-      </WebStory>
-    </Layout>
+    <Providers story={story} config={config} tokens={tokens}>
+      <body>
+        <WebStory>
+          <AmpStoryAutoAds />
+          <CoverPage />
+          {/* {story.cards.map((card) => {
+            return card["story-elements"].filter((el) => storyElementWhitelist.includes(el.type)).map((el) => {});
+          })} */}
+          <amp-story-page id="amp-story-0">
+            <amp-story-grid-layer template="fill">
+              <amp-img
+                animate-in="zoom-in"
+                animate-in-duration="120s"
+                width="480"
+                height="640"
+                layout="responsive"
+                alt="aa"
+                src="https://images.unsplash.com/photo-1603902552923-135b4049e1a2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+              />
+            </amp-story-grid-layer>
+          </amp-story-page>
+          <amp-story-page id="amp-story-1">
+            <amp-story-grid-layer template="fill">
+              <amp-img
+                animate-in="fade-in"
+                animate-in-duration="50s"
+                width="480"
+                height="640"
+                layout="responsive"
+                alt="aa"
+                src="https://images.unsplash.com/photo-1603994457350-5cc9f6c1279e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+              />
+            </amp-story-grid-layer>
+          </amp-story-page>
+        </WebStory>
+      </body>
+    </Providers>
   );
-  // <amp-story-page> => one card
-  // <amp-story-grid-layer> => wrapper around story elements OR atoms
-
-  // return (
-  //   <>
-  //     <Helmet>
-  //       <script async={undefined} custom-element="amp-story" src="https://cdn.ampproject.org/v0/amp-story-1.0.js" />
-  //     </Helmet>
-  //     <amp-story
-  //       standalone=""
-  //       publisher-logo-src={publisherLogo}
-  //       title={story.headline}
-  //       publisher={publisherTitle}
-  //       poster-portrait-src={story["hero-image-s3-key"]}>
-  //       <amp-story-page id="cover">
-  //         <VisualImage story={story} config={config} />
-  //         <VerticalTemplateWrapper>
-  //           <Layout story={story} config={config}>
-  //             <HeaderCard story={story} config={config} />
-  //           </Layout>
-  //         </VerticalTemplateWrapper>
-  //       </amp-story-page>
-  //       <VisualFullStoryContent story={story} config={config} />
-  //       <RelatedStories />
-  //     </amp-story>
-  //   </>
-  // );
 };
 
-// export const ImageTemplateWrapper = ({ children }) => {
-//   return <amp-story-grid-layer template="fill">{children}</amp-story-grid-layer>;
-// };
-
-// export const VerticalTemplateWrapper = ({ children }) => {
-//   return <amp-story-grid-layer template="vertical">{children}</amp-story-grid-layer>;
-// };
-
-// export const StoryElementTemplateWrapper = ({ children }) => {
-//   return <amp-story-grid-layer template="thirds">{children}</amp-story-grid-layer>;
-// };
-
-// export const VisualFullStoryContent = ({ story, config }) => {
-//   return story.cards.map((card) => {
-//     const imageElement = card["story-elements"].map((element) => element.type).includes("image");
-//     // console.log(imageElement, "<----imageElement");
-//     // console.log(card, "<----card");
-//     return (
-//       <amp-story-page id={card.id} key={card.id}>
-//         <Layout story={story} config={config}>
-//           {card["story-elements"].map((element) => (
-//             <ImageTemplateWrapper key={element.id}>
-//               <StoryElement key={element.id} element={element} />
-//             </ImageTemplateWrapper>
-//           ))}
-//         </Layout>
-//       </amp-story-page>
-//     );
-//   });
-// };
+const Providers = ({ story, config, tokens, children }) => (
+  <ConfigProvider value={config}>
+    <StoryProvider value={story}>
+      <Theme tokens={tokens}>{children}</Theme>
+    </StoryProvider>
+  </ConfigProvider>
+);

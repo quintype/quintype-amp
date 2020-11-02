@@ -234,4 +234,11 @@ interface FeatureConfigTypes {
   sidebarMenu?: {
     menuGroupSlug?: string;
   };
+  visualStories?: {
+    ads?: {
+      doubleclick?: {
+        dataSlot: string;
+      };
+    };
+  };
 }
