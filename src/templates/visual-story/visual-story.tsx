@@ -9,9 +9,12 @@ import { Card } from "../../types/story";
 import merge from "lodash.merge";
 import { invertHexColor } from "../../helpers";
 import defaultTokens from "../../context/theme/tokens";
+import get from "lodash.get";
 
 export const VisualStory = ({ story, config }: CommonTemplateTypes) => {
   const tokens = getTokensForDarkTheme(config);
+  const storyId = get(story, ["id"], "");
+  const sectionId = get(story, ["sections", 0, "id"], "");
   return (
     <Providers story={story} config={config} tokens={tokens}>
       <body>
@@ -25,6 +28,10 @@ export const VisualStory = ({ story, config }: CommonTemplateTypes) => {
                 <WebStoryPageComponents card={card} />
               </amp-story-page>
             ))}
+          <amp-story-bookend
+            src={`/amp/api/v1/bookend.json?storyId=${storyId}&sectionId=${sectionId}`}
+            layout="nodisplay"
+          />
         </WebStory>
       </body>
     </Providers>
