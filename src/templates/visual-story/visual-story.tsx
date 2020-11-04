@@ -3,51 +3,57 @@ import { StoryProvider } from "../../context/story/story-context";
 import { ConfigProvider } from "../../context/config/config-context";
 import { Theme } from "../../context/theme";
 import { getTokensFromAMPConfig } from "../../utils/theme";
-import { WebStory, CoverPage, AmpStoryAutoAds } from "../../atoms/visual-story";
+import { WebStory, CoverPage, AmpStoryAutoAds, WebStoryPageComponents } from "../../atoms/visual-story";
 import { CommonTemplateTypes } from "../common-template-types";
+import { Card } from "../../types/story";
+import merge from "lodash.merge";
+import { invertHexColor } from "../../helpers";
+import defaultTokens from "../../context/theme/tokens";
 
 export const VisualStory = ({ story, config }: CommonTemplateTypes) => {
-  const tokens = getTokensFromAMPConfig(config.ampConfig);
-  // const storyElementWhitelist = ["text", "title", "image"];
+  const tokens = getTokensForDarkTheme(config);
   return (
     <Providers story={story} config={config} tokens={tokens}>
       <body>
         <WebStory>
           <AmpStoryAutoAds />
           <CoverPage />
-          {/* {story.cards.map((card) => {
-            return card["story-elements"].filter((el) => storyElementWhitelist.includes(el.type)).map((el) => {});
-          })} */}
-          <amp-story-page id="amp-story-0">
-            <amp-story-grid-layer template="fill">
-              <amp-img
-                animate-in="zoom-in"
-                animate-in-duration="120s"
-                width="480"
-                height="640"
-                layout="responsive"
-                alt="aa"
-                src="https://images.unsplash.com/photo-1603902552923-135b4049e1a2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
-              />
-            </amp-story-grid-layer>
-          </amp-story-page>
-          <amp-story-page id="amp-story-1">
-            <amp-story-grid-layer template="fill">
-              <amp-img
-                animate-in="fade-in"
-                animate-in-duration="50s"
-                width="480"
-                height="640"
-                layout="responsive"
-                alt="aa"
-                src="https://images.unsplash.com/photo-1603994457350-5cc9f6c1279e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
-              />
-            </amp-story-grid-layer>
-          </amp-story-page>
+          {story.cards
+            .filter((card) => canTakeCard(card))
+            .map((card) => (
+              <amp-story-page key={card.id} id={card.id}>
+                <WebStoryPageComponents card={card} />
+              </amp-story-page>
+            ))}
         </WebStory>
       </body>
     </Providers>
   );
+};
+
+export const canTakeCard = (card: Card) => {
+  const storyElementWhitelist = ["text", "title", "image"];
+  return card["story-elements"].reduce((acc, storyEl) => {
+    if (!acc) return storyElementWhitelist.includes(storyEl.type);
+    return true;
+  }, false);
+};
+
+const getTokensForDarkTheme = (config) => {
+  const tokensFromConfig = getTokensFromAMPConfig(config.ampConfig);
+  const darkThemeDefaultTokens = {
+    color: {
+      mono1: invertHexColor(defaultTokens.color.mono1),
+      mono2: invertHexColor(defaultTokens.color.mono2),
+      mono3: invertHexColor(defaultTokens.color.mono3),
+      mono4: invertHexColor(defaultTokens.color.mono4),
+      mono5: invertHexColor(defaultTokens.color.mono5),
+      mono6: invertHexColor(defaultTokens.color.mono6),
+      mono7: invertHexColor(defaultTokens.color.mono7)
+    }
+  };
+  const tokens = merge(darkThemeDefaultTokens, tokensFromConfig);
+  return tokens;
 };
 
 const Providers = ({ story, config, tokens, children }) => (

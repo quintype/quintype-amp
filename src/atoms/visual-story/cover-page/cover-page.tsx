@@ -3,10 +3,12 @@ import { withStoryAndConfig } from "../../../context";
 import { Image, Spacer, PublisherLogoHeader } from "../../index";
 import { CoverPageProps } from "./types";
 import { getAuthorNames } from "../../author/author";
+import { Gradient } from "../shared-components";
 import styled from "styled-components";
 
 const CoverPageBase = ({ story }: CoverPageProps) => {
   const heroImgSrc = story["hero-image-s3-key"];
+  if (!heroImgSrc) return null;
   const heroImgMetadata = story["hero-image-metadata"];
   const altText = story["hero-image-caption"] || story["hero-image-attribution"] || "";
   const authorNames = getAuthorNames(story.authors);
@@ -19,17 +21,13 @@ const CoverPageBase = ({ story }: CoverPageProps) => {
             animate-in="zoom-in"
             animate-in-duration="120s"
             aspectRatio={[9, 21]}
-            // width="480"
-            // height="640"
             metadata={heroImgMetadata}
             slug={heroImgSrc}
             alt={altText}
             lightbox={false}
           />
         </amp-story-grid-layer>
-        <amp-story-grid-layer template="fill">
-          <StyledLayerGradient />
-        </amp-story-grid-layer>
+        <Gradient />
         <amp-story-grid-layer template="vertical">
           <LogoWrapper>
             <PublisherLogoHeader />
@@ -70,10 +68,6 @@ const StyledHeadline = styled.h1`
 `;
 const StyledAuthors = styled.p`
   font-size: ${(props) => props.theme.font.size.xs};
-`;
-const StyledLayerGradient = styled.div`
-  background-image: linear-gradient(to bottom, transparent 40%, rgba(0, 0, 0, 0.75));
-  /* background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 10%, rgba(0, 0, 0, 0) 100%); */
 `;
 const LogoWrapper = styled.div`
   position: relative;

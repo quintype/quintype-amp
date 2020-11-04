@@ -97,7 +97,7 @@ export interface Card {
 }
 
 export interface CardMetadata {
-  "social-share": SocialShare;
+  "social-share"?: SocialShare;
   attributes?: any;
   "external-id"?: string;
 }
@@ -169,6 +169,8 @@ export interface StoryElementMetadata {
   "include-in-video-sitemap"?: boolean;
   type?: string;
   "original-url"?: string;
+  question?: string;
+  answer?: string;
 }
 
 export interface LinkedStory {
@@ -191,7 +193,7 @@ export interface Section {
   id: number;
   "parent-id": string | number | null;
   "display-name": string;
-  collection: Collection;
+  collection: Collection | null;
   data: any | null;
 }
 
