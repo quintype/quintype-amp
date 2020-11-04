@@ -18,8 +18,8 @@ const CoverPageBase = ({ story }: CoverPageProps) => {
       <amp-story-page id="cover">
         <amp-story-grid-layer template="fill">
           <Image
-            animate-in="zoom-in"
-            animate-in-duration="120s"
+            // animate-in="zoom-in"
+            // animate-in-duration="120s"
             aspectRatio={[9, 21]}
             metadata={heroImgMetadata}
             slug={heroImgSrc}

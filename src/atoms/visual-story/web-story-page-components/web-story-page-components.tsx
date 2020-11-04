@@ -5,13 +5,6 @@ import { Gradient } from "../shared-components";
 import styled from "styled-components";
 import { matchStoryElement } from "../../../helpers/match-story-element";
 
-// NOTE:
-// one card can have only one "title" storyElement.
-// can have multiple other text story elements
-// only one image allowed per card
-// video not supported (since bold itself doesn't support video)
-// will take animation props as featureConfig later
-
 export const WebStoryPageComponents = ({ card }: WebStoryPageComponentsTypes) => {
   const title = card["story-elements"].find((el) => el.type === "title");
   const text = card["story-elements"].filter((el) => el.type === "text");
@@ -22,8 +15,6 @@ export const WebStoryPageComponents = ({ card }: WebStoryPageComponentsTypes) =>
       {image && (
         <amp-story-grid-layer template="fill">
           <Image
-            animate-in="zoom-in"
-            animate-in-duration="120s"
             metadata={image.metadata}
             aspectRatio={[9, 21]}
             slug={image["image-s3-key"]}
