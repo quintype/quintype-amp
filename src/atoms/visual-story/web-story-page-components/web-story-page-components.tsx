@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
-import { Image, Spacer } from "../../../atoms";
+import { Image, StoryElement } from "../../../atoms";
 import { WebStoryPageComponentsTypes } from "./types";
 import { Gradient } from "../shared-components";
 import styled from "styled-components";
-import { matchStoryElement } from "../../../helpers/match-story-element";
+// import { matchStoryElement } from "../../../helpers/match-story-element";
 
 export const WebStoryPageComponents = ({ card }: WebStoryPageComponentsTypes) => {
   const title = card["story-elements"].find((el) => el.type === "title");
@@ -43,13 +43,3 @@ export const WebStoryPageComponents = ({ card }: WebStoryPageComponentsTypes) =>
 const TextWrapper = styled.div`
   color: ${(props) => props.theme.color.white};
 `;
-
-const StoryElement = ({ element }) => {
-  const Component = matchStoryElement(element);
-  return (
-    <Fragment>
-      <Component element={element} />
-      <Spacer token="s" />
-    </Fragment>
-  );
-};
