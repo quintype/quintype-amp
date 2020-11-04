@@ -4,6 +4,7 @@ import { ConfigProvider } from "../../context/config/config-context";
 import { Theme } from "../../context/theme";
 import { getTokensFromAMPConfig } from "../../utils/theme";
 import { WebStory, CoverPage, AmpStoryAutoAds, WebStoryPageComponents } from "../../atoms/visual-story";
+import { GoogleAnalytics, QuintypeAnalytics } from "../../atoms";
 import { CommonTemplateTypes } from "../common-template-types";
 import { Card } from "../../types/story";
 import merge from "lodash.merge";
@@ -28,6 +29,8 @@ export const VisualStory = ({ story, config }: CommonTemplateTypes) => {
                 <WebStoryPageComponents card={card} />
               </amp-story-page>
             ))}
+          <GoogleAnalytics />
+          <QuintypeAnalytics />
           <amp-story-bookend
             src={`/amp/api/v1/bookend.json?storyId=${storyId}&sectionId=${sectionId}`}
             layout="nodisplay"
