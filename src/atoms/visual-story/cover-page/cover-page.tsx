@@ -3,7 +3,6 @@ import { withStoryAndConfig } from "../../../context";
 import { Image, Spacer, PublisherLogoHeader } from "../../index";
 import { CoverPageProps } from "./types";
 import { getAuthorNames } from "../../author/author";
-import { Gradient } from "../shared-components";
 import styled from "styled-components";
 
 const CoverPageBase = ({ story }: CoverPageProps) => {
@@ -22,7 +21,9 @@ const CoverPageBase = ({ story }: CoverPageProps) => {
             <FullLengthDiv />
           )}
         </amp-story-grid-layer>
-        <Gradient />
+        <amp-story-grid-layer template="fill">
+          <StyledLayerGradient />
+        </amp-story-grid-layer>
         <amp-story-grid-layer template="vertical">
           <LogoWrapper>
             <PublisherLogoHeader />
@@ -71,4 +72,7 @@ const LogoWrapper = styled.div`
 `;
 const FullLengthDiv = styled.div`
   height: 100%;
+`;
+const StyledLayerGradient = styled.div`
+  background-image: linear-gradient(to bottom, transparent 40%, rgba(0, 0, 0, 0.75));
 `;

@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import { Image, StoryElement } from "../../../atoms";
 import { WebStoryPageComponentsTypes } from "./types";
-import { Gradient } from "../shared-components";
 import styled from "styled-components";
 
 export const WebStoryPageComponents = ({ card }: WebStoryPageComponentsTypes) => {
@@ -22,17 +21,14 @@ export const WebStoryPageComponents = ({ card }: WebStoryPageComponentsTypes) =>
           />
         </amp-story-grid-layer>
       )}
-      <Gradient />
       {(titleElement || textElements.length) && (
         <amp-story-grid-layer template="thirds">
-          <div grid-area="lower-third">
-            <TextWrapper>
-              {titleElement && <StoryElement element={titleElement} />}
-              {textElements.map((textElement) => (
-                <StoryElement key={textElement.id} element={textElement} />
-              ))}
-            </TextWrapper>
-          </div>
+          <TextWrapper>
+            {titleElement && <StoryElement element={titleElement} />}
+            {textElements.map((textElement) => (
+              <StoryElement key={textElement.id} element={textElement} />
+            ))}
+          </TextWrapper>
         </amp-story-grid-layer>
       )}
     </Fragment>
@@ -41,4 +37,9 @@ export const WebStoryPageComponents = ({ card }: WebStoryPageComponentsTypes) =>
 
 const TextWrapper = styled.div`
   color: ${(props) => props.theme.color.white};
+  position: absolute;
+  bottom: 0;
+  padding: 48px 24px;
+  width: 100%;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(10, 10, 10, 0.35) 48%, rgba(0, 0, 0, 0.75));
 `;
