@@ -8,7 +8,6 @@ import styled from "styled-components";
 
 const CoverPageBase = ({ story }: CoverPageProps) => {
   const heroImgSrc = story["hero-image-s3-key"];
-  if (!heroImgSrc) return null;
   const heroImgMetadata = story["hero-image-metadata"];
   const altText = story["hero-image-caption"] || story["hero-image-attribution"] || "";
   const authorNames = getAuthorNames(story.authors);
@@ -17,7 +16,11 @@ const CoverPageBase = ({ story }: CoverPageProps) => {
     <Fragment>
       <amp-story-page id="cover">
         <amp-story-grid-layer template="fill">
-          <Image aspectRatio={[9, 21]} metadata={heroImgMetadata} slug={heroImgSrc} alt={altText} lightbox={false} />
+          {heroImgSrc ? (
+            <Image aspectRatio={[9, 21]} metadata={heroImgMetadata} slug={heroImgSrc} alt={altText} lightbox={false} />
+          ) : (
+            <FullLengthDiv />
+          )}
         </amp-story-grid-layer>
         <Gradient />
         <amp-story-grid-layer template="vertical">
@@ -65,4 +68,7 @@ const LogoWrapper = styled.div`
   position: relative;
   height: 50px;
   margin: auto;
+`;
+const FullLengthDiv = styled.div`
+  height: 100%;
 `;
