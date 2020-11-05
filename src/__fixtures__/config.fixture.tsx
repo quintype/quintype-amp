@@ -24,7 +24,13 @@ export const publisherConfig: PublisherConfig = {
   layout: {
     "no-of-visible-cards-in-a-blocked-story": 1
   },
-  domains: []
+  domains: [],
+  language: {
+    "iso-code": "en",
+    "ietf-code": "en-us",
+    name: "english",
+    direction: "ltr"
+  }
 };
 
 export const ampConfig: AMPConfig = {

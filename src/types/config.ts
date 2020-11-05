@@ -18,6 +18,12 @@ export interface PublisherConfig {
   "publisher-id": number;
   "publisher-settings"?: object;
   domains: DomainsTypes[];
+  language: {
+    "iso-code": string;
+    "ietf-code": string;
+    name: string;
+    direction: string;
+  };
   sections?: [];
   layout?: {
     "no-of-visible-cards-in-a-blocked-story": number | null;
