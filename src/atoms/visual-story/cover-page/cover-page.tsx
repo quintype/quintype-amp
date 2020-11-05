@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import { withStoryAndConfig } from "../../../context";
 import { Image, Spacer, PublisherLogoHeader } from "../../index";
+import { AmpStoryPage } from "../index";
 import { CoverPageProps } from "./types";
 import { getAuthorNames } from "../../author/author";
 import styled from "styled-components";
@@ -13,7 +14,7 @@ const CoverPageBase = ({ story }: CoverPageProps) => {
   const headline = story.headline || "";
   return (
     <Fragment>
-      <amp-story-page id="cover">
+      <AmpStoryPage id="cover">
         <amp-story-grid-layer template="fill">
           {heroImgSrc ? (
             <Image aspectRatio={[9, 21]} metadata={heroImgMetadata} slug={heroImgSrc} alt={altText} lightbox={false} />
@@ -21,28 +22,23 @@ const CoverPageBase = ({ story }: CoverPageProps) => {
             <FullLengthDiv />
           )}
         </amp-story-grid-layer>
-        <amp-story-grid-layer template="fill">
-          <StyledLayerGradient />
-        </amp-story-grid-layer>
         <amp-story-grid-layer template="vertical">
           <LogoWrapper>
             <PublisherLogoHeader />
           </LogoWrapper>
         </amp-story-grid-layer>
         <amp-story-grid-layer template="thirds">
-          <div grid-area="lower-third">
-            <StyledTextWrapper>
-              <StyledHeadline>{headline}</StyledHeadline>
-              {authorNames && (
-                <Fragment>
-                  <Spacer token="xs" />
-                  <StyledAuthors>{authorNames}</StyledAuthors>
-                </Fragment>
-              )}
-            </StyledTextWrapper>
-          </div>
+          <StyledTextWrapper>
+            <StyledHeadline>{headline}</StyledHeadline>
+            {authorNames && (
+              <Fragment>
+                <Spacer token="xs" />
+                <StyledAuthors>{authorNames}</StyledAuthors>
+              </Fragment>
+            )}
+          </StyledTextWrapper>
         </amp-story-grid-layer>
-      </amp-story-page>
+      </AmpStoryPage>
     </Fragment>
   );
 };
@@ -50,16 +46,16 @@ const CoverPageBase = ({ story }: CoverPageProps) => {
 export const CoverPage = withStoryAndConfig(CoverPageBase);
 
 const StyledTextWrapper = styled.div`
+  position: absolute;
+  bottom: 0;
+  padding: 32px;
   color: ${(props) => props.theme.color.white};
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
 `;
 const StyledHeadline = styled.h1`
   margin-top: ${(props) => props.theme.spacing.s};
   line-height: ${(props) => props.theme.font.lineHeight.level2};
-  font-weight: bold;
+  font-weight: ${(props) => props.theme.font.weight.medium};
   font-size: ${(props) => props.theme.font.size.huge};
 `;
 const StyledAuthors = styled.p`
@@ -72,7 +68,4 @@ const LogoWrapper = styled.div`
 `;
 const FullLengthDiv = styled.div`
   height: 100%;
-`;
-const StyledLayerGradient = styled.div`
-  background-image: linear-gradient(to bottom, transparent 40%, rgba(0, 0, 0, 0.75));
 `;

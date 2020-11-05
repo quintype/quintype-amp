@@ -3,7 +3,7 @@ import { StoryProvider } from "../../context/story/story-context";
 import { ConfigProvider } from "../../context/config/config-context";
 import { Theme } from "../../context/theme";
 import { getTokensForDarkTheme } from "../../utils/theme";
-import { WebStory, CoverPage, AmpStoryAutoAds, WebStoryPageComponents } from "../../atoms/visual-story";
+import { WebStory, CoverPage, AmpStoryAutoAds, WebStoryPageComponents, AmpStoryPage } from "../../atoms/visual-story";
 import { GoogleAnalytics, QuintypeAnalytics } from "../../atoms";
 import { CommonTemplateTypes } from "../common-template-types";
 import { Card } from "../../types/story";
@@ -22,9 +22,9 @@ export const VisualStory = ({ story, config }: CommonTemplateTypes) => {
           {story.cards
             .filter((card) => canTakeCard(card))
             .map((card) => (
-              <amp-story-page key={card.id} id={card.id}>
+              <AmpStoryPage key={card.id} id={card.id}>
                 <WebStoryPageComponents card={card} />
-              </amp-story-page>
+              </AmpStoryPage>
             ))}
           <GoogleAnalytics />
           <QuintypeAnalytics />
