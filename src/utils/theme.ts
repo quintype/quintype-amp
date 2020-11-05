@@ -26,8 +26,8 @@ export const getTokensFromAMPConfig = (config: AMPConfig) => {
 };
 
 /**
- * Inverts colors for datk theme
- * For now this only inverts mono1 - mono7 colors. Add more as per use case later
+ * Inverts colors for dark theme. Currently only inverts shades of gray
+ * not sure how desirable the output of this will be on non-gray colors. Check before using!
  *
  */
 export const getTokensForDarkTheme = (config) => {
@@ -43,6 +43,6 @@ export const getTokensForDarkTheme = (config) => {
       mono7: invertHexColor(defaultTokens.color.mono7)
     }
   };
-  const tokens = merge(darkThemeDefaultTokens, tokensFromConfig);
+  const tokens = merge({}, darkThemeDefaultTokens, tokensFromConfig);
   return tokens;
 };
