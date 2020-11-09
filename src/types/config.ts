@@ -241,6 +241,7 @@ interface FeatureConfigTypes {
     menuGroupSlug?: string;
   };
   visualStories?: {
+    autoAdvanceAfter?: string;
     ads?: {
       doubleclick?: {
         dataSlot: string;

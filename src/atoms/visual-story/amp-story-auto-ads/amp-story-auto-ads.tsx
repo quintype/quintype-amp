@@ -4,7 +4,7 @@ import { withStoryAndConfig } from "../../../context";
 import { AutoAdsTypes } from "./types";
 import { getTargetingInfo } from "../../dfp-ad/helpers";
 
-const AmpStoryAutoAdsBase = ({ story, config }: AutoAdsTypes) => {
+export const AmpStoryAutoAdsBase = ({ story, config }: AutoAdsTypes) => {
   const dataSlot = config.opts?.featureConfig?.visualStories?.ads?.doubleclick?.dataSlot;
   if (!dataSlot) return null;
   const adConfig = {

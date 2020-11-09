@@ -3,7 +3,7 @@ import { AmpStoryPageTypes } from "./types";
 import get from "lodash.get";
 import { withStoryAndConfig } from "../../../context";
 
-const AmpStoryPageBase = ({ config, story, children, ...props }: AmpStoryPageTypes) => {
+export const AmpStoryPageBase = ({ config, story, children, ...props }: AmpStoryPageTypes) => {
   const autoAdvanceAfter = get(config, ["opts", "featureConfig", "visualStories", "autoAdvanceAfter"], null);
 
   return (
