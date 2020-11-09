@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`amp-story-page should match snapshot 1`] = `
+<amp-story-page
+  auto-advance-after={null}
+  id="123"
+>
+  <div>
+    child
+  </div>
+</amp-story-page>
+`;

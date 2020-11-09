@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WebStoryPageComponents should match snapshot 1`] = `
+<Fragment>
+  <amp-story-grid-layer
+    template="fill"
+  >
+    <Component
+      alt=" <p>Masked man</p>"
+      aspectRatio={
+        Array [
+          9,
+          21,
+        ]
+      }
+      lightbox={false}
+      metadata={Object {}}
+      slug="amplib/2020-10/7e318e3a-7cec-47e9-8bc0-ccf9dee7f7d2/littpro_inc_og5eHNNyy7k_unsplash.jpg"
+    />
+  </amp-story-grid-layer>
+  <amp-story-grid-layer
+    template="thirds"
+  >
+    <styled.div>
+      <Component
+        element={
+          Object {
+            "description": "",
+            "family-id": "b31cd496-d269-466b-90a0-2a1c8c8e29a1",
+            "id": "568a8637-b3c6-426d-9c13-d560ffe0dc5f",
+            "metadata": Object {},
+            "page-url": "/story/e8e3a6d0-98ff-40eb-b400-5f9466599fb3/element/568a8637-b3c6-426d-9c13-d560ffe0dc5f",
+            "subtype": null,
+            "text": "<p>1st card - 1st text element</p>",
+            "title": "",
+            "type": "text",
+          }
+        }
+        key="568a8637-b3c6-426d-9c13-d560ffe0dc5f"
+      />
+      <Component
+        element={
+          Object {
+            "description": "",
+            "family-id": "db39bb3b-16a3-472a-b19d-a42373b63646",
+            "id": "6820ab9d-5f95-4e17-824f-e7511b29639a",
+            "metadata": Object {},
+            "page-url": "/story/e8e3a6d0-98ff-40eb-b400-5f9466599fb3/element/6820ab9d-5f95-4e17-824f-e7511b29639a",
+            "subtype": null,
+            "text": "<p>1st card - second text element</p>",
+            "title": "",
+            "type": "text",
+          }
+        }
+        key="6820ab9d-5f95-4e17-824f-e7511b29639a"
+      />
+    </styled.div>
+  </amp-story-grid-layer>
+</Fragment>
+`;

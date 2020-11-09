@@ -242,6 +242,7 @@ interface FeatureConfigTypes {
   };
   visualStories?: {
     autoAdvanceAfter?: string;
+    bookendUrl?: string;
     ads?: {
       doubleclick?: {
         dataSlot: string;

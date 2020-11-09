@@ -4,7 +4,7 @@ import Helmet from "react-helmet";
 import { withStoryAndConfig } from "../../../context";
 import { WebStoryTypes } from "./types";
 
-const WebStoryBase = ({ story, config, children }: WebStoryTypes) => {
+export const WebStoryBase = ({ story, config, children }: WebStoryTypes) => {
   const publisherLogo =
     get(config, ["publisherConfig", "publisher-settings", "publisher-logo", "url"], null) ||
     get(config, ["ampConfig", "logo-url"], null);

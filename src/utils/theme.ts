@@ -1,4 +1,4 @@
-import { AMPConfig } from "../types/config";
+import { AMPConfig, Config } from "../types/config";
 import get from "lodash.get";
 import { invertHexColor } from "../helpers";
 import defaultTokens from "../context/theme/tokens";
@@ -30,7 +30,7 @@ export const getTokensFromAMPConfig = (config: AMPConfig) => {
  * not sure how desirable the output of this will be on non-gray colors. Check before using!
  *
  */
-export const getTokensForDarkTheme = (config) => {
+export const getTokensForDarkTheme = (config: Config) => {
   const tokensFromConfig = getTokensFromAMPConfig(config.ampConfig);
   const darkThemeDefaultTokens = {
     color: {

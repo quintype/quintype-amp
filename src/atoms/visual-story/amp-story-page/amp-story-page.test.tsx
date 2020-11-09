@@ -3,7 +3,15 @@ import { visualStory, config } from "../../../__fixtures__";
 import { AmpStoryPageBase } from "./amp-story-page";
 import { shallow } from "enzyme";
 
-describe("amp-story-auto-ads", () => {
+describe("amp-story-page", () => {
+  it("should match snapshot", () => {
+    const wrapper = shallow(
+      <AmpStoryPageBase story={visualStory} config={config} id="123">
+        <div>child</div>
+      </AmpStoryPageBase>
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
   it("should add autoAdvanceAfter prop if passed in featureConfig", () => {
     const modifiedConfig = config;
     modifiedConfig.opts = {

@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CoverPage Component should match snapshot 1`] = `
+<Fragment>
+  <Component
+    id="cover"
+  >
+    <amp-story-grid-layer
+      template="fill"
+    >
+      <Component
+        alt=" <p>Masked woman</p>"
+        aspectRatio={
+          Array [
+            9,
+            21,
+          ]
+        }
+        lightbox={false}
+        metadata={
+          Object {
+            "file-name": "erin-agius-I7TLmA4j0c8-unsplash.jpg",
+            "file-size": 4016993,
+            "height": 8688,
+            "mime-type": "image/jpeg",
+            "width": 5792,
+          }
+        }
+        slug="amplib/2020-10/6adaf26f-3b7b-45e0-9973-6f99abeecf5d/erin_agius_I7TLmA4j0c8_unsplash.jpg"
+      />
+    </amp-story-grid-layer>
+    <amp-story-grid-layer
+      template="vertical"
+    >
+      <styled.div>
+        <Component />
+      </styled.div>
+    </amp-story-grid-layer>
+    <amp-story-grid-layer
+      template="thirds"
+    >
+      <styled.div>
+        <styled.h1>
+          Pets are awesome
+        </styled.h1>
+        <Spacer
+          token="xs"
+        />
+        <styled.p>
+          Amogh Sahasrabhojanee
+        </styled.p>
+      </styled.div>
+    </amp-story-grid-layer>
+  </Component>
+</Fragment>
+`;

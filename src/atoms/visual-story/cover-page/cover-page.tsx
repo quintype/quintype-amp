@@ -6,7 +6,7 @@ import { CoverPageProps } from "./types";
 import { getAuthorNames } from "../../author/author";
 import styled from "styled-components";
 
-const CoverPageBase = ({ story }: CoverPageProps) => {
+export const CoverPageBase = ({ story }: CoverPageProps) => {
   const heroImgSrc = story["hero-image-s3-key"];
   const heroImgMetadata = story["hero-image-metadata"];
   const altText = story["hero-image-caption"] || story["hero-image-attribution"] || "";

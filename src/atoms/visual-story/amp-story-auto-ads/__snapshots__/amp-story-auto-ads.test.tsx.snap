@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`amp-story-auto-ads should match snapshot 1`] = `
+<Fragment>
+  <HelmetWrapper
+    defer={true}
+    encodeSpecialCharacters={true}
+  >
+    <script
+      custom-element="amp-story-auto-ads"
+      src="https://cdn.ampproject.org/v0/amp-story-auto-ads-0.1.js"
+    />
+  </HelmetWrapper>
+  <amp-story-auto-ads>
+    <script
+      type="application/json"
+    >
+      {"ad-attributes":{"type":"doubleclick","data-slot":"foo","json":"{\\"targeting\\":{\\"environment\\":[\\"production\\"],\\"publisher-name\\":[\\"vikatan\\"],\\"sections\\":[\\"entertainment\\"]}}"}}
+    </script>
+  </amp-story-auto-ads>
+</Fragment>
+`;

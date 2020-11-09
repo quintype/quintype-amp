@@ -13,6 +13,7 @@ export const VisualStory = ({ story, config }: CommonTemplateTypes) => {
   const tokens = getTokensForDarkTheme(config);
   const storyId = get(story, ["id"], "");
   const sectionId = get(story, ["sections", 0, "id"], "");
+  const bookendUrl = get(config, ["opts", "featureConfig", "visualStories", "bookendUrl"], "/amp/api/v1/bookend.json");
   return (
     <Providers story={story} config={config} tokens={tokens}>
       <body>
@@ -28,10 +29,7 @@ export const VisualStory = ({ story, config }: CommonTemplateTypes) => {
             ))}
           <GoogleAnalytics />
           <QuintypeAnalytics />
-          <amp-story-bookend
-            src={`/amp/api/v1/bookend.json?storyId=${storyId}&sectionId=${sectionId}`}
-            layout="nodisplay"
-          />
+          <amp-story-bookend src={`${bookendUrl}?storyId=${storyId}&sectionId=${sectionId}`} layout="nodisplay" />
         </WebStory>
       </body>
     </Providers>
