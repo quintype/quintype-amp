@@ -11,6 +11,8 @@ import { SocialShareHeader } from "./social-share-header";
 import { HardPaywallStoryContent } from "./hard-paywall-story-content";
 import { FullStoryContent } from "./full-story-content";
 import { StoryCardsWithSubscriptions } from "./subscription-components";
+import { StoryCards } from "./story-cards";
+import { FourStoryRow } from "./collection-templates";
 export {
   HeaderCard,
   HeroImage,
@@ -25,5 +27,7 @@ export {
   SocialShareHeader,
   HardPaywallStoryContent,
   FullStoryContent,
-  StoryCardsWithSubscriptions
+  StoryCardsWithSubscriptions,
+  StoryCards,
+  FourStoryRow
 };

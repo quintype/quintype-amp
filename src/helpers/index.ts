@@ -1,7 +1,8 @@
 import ampifyStory from "./ampify-story";
-import renderToString from "./render-to-string";
+import { renderToString } from "./render-to-string";
 import { genStyles } from "./gen-styles";
 import { matchStoryElement } from "./match-story-element";
 import { focusedImagePath } from "./image-helpers";
+import { ampifySectionPage } from "./ampify-section-page";
 
-export { renderToString, ampifyStory, focusedImagePath, matchStoryElement, genStyles };
+export { renderToString, ampifyStory, focusedImagePath, matchStoryElement, genStyles, ampifySectionPage };

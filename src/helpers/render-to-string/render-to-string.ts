@@ -16,7 +16,7 @@ import ReactDOMServer from "react-dom/server";
  * @param {string} params.langTag the lang tag that is to be added to the html element. eg: en, fr
  * @returns {string} ready to render amp html
  */
-export function renderToString({ template, seo, langTag }) {
+export function renderToString({ template, seo = ``, langTag }) {
   let str = "";
   try {
     const { htmlStr, styles } = getHtmlAndStyledComponentsStyles(template);

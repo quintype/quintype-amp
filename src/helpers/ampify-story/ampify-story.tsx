@@ -1,5 +1,5 @@
 import { AmpifyStoryTypes } from "./types";
-import renderToString from "../render-to-string";
+import { renderToString } from "../render-to-string";
 import { GenericStory, LiveBlog } from "../../templates";
 import get from "lodash.get";
 import React from "react";
@@ -20,7 +20,7 @@ import React from "react";
  * @returns {function} the renderToString function
  */
 
-export function ampifyStory({ story, publisherConfig, ampConfig, seo = "", opts = {} }: AmpifyStoryTypes) {
+export function ampifyStory({ story, publisherConfig, ampConfig, seo, opts = {} }: AmpifyStoryTypes) {
   const config = { publisherConfig, ampConfig, opts };
   const template = getTemplate({ story, config, seo });
   const langTag = getLangTag(config);
