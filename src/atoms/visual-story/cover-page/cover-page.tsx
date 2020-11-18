@@ -46,6 +46,7 @@ export const CoverPageBase = ({ story }: CoverPageProps) => {
 export const CoverPage = withStoryAndConfig(CoverPageBase);
 
 const StyledTextWrapper = styled.div`
+  width: 100%;
   position: absolute;
   bottom: 0;
   padding: 32px;

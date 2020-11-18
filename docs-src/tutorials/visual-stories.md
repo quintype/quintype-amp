@@ -33,6 +33,13 @@ dummyOpts = {
         doubleclick: {
           dataSlot: "/1009127/FOO_AMP_TOP"
         }
+      },
+      animation: {
+        image: {
+          animateIn: "zoom-in",
+          animateInDuration: "120s",
+          animateInDelay: "1s"
+        }
       }
     }
   }
@@ -42,3 +49,4 @@ dummyOpts = {
 1. `autoAdvanceAfter`: (String) sets the time after which the page automatically advances. If omitted, the page will not automatically advance. Example: "500ms", "3s"
 2. `bookendUrl`: (String) the endpoint called by the bookend component. Please make sure that the route exists in your app and that it returns data in a valid format. `storyId` and `sectionId` are passed as query parameters. Refer [docs](https://amp.dev/documentation/components/amp-story-bookend/?format=stories)
 3. ad slot: (String) example "/1009443/PUBLISHER_AMP_TOP" `featureConfig` > `visualStories` > `ads` > `doubleclick` > `dataSlot` sets the ad slot for visual stories. Ads are dynamically inserted, please read [docs](https://amp.dev/documentation/components/amp-story-auto-ads/?format=stories)
+4. `animation`: (object) `animation` > `image` applies animation props to the story image. We accept `animateIn`, `animateInDuration` and `animateInDelay`. Refer [docs](https://amp.dev/documentation/guides-and-tutorials/start/visual_story/animating_elements/?format=stories)
