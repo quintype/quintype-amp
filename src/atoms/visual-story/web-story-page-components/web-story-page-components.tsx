@@ -36,6 +36,8 @@ export const WebStoryPageComponents = ({ card }: WebStoryPageComponentsTypes) =>
 };
 
 const TextWrapper = styled.div`
+  max-height: 100%;
+  overflow-y: scroll;
   color: ${(props) => props.theme.color.white};
   position: absolute;
   bottom: 0;
