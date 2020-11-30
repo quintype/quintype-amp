@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.21](https://github.com/quintype/quintype-amp/compare/v2.1.20...v2.1.21) (2020-11-26)
+
+
+### Bug Fixes
+
+* adding langTag to ampHtml based on language in api/v1/config ([#299](https://github.com/quintype/quintype-amp/issues/299)) ([7bedb30](https://github.com/quintype/quintype-amp/commit/7bedb3099de91350589df0099d2d277f66928708))
+
 ### [2.1.20](https://github.com/quintype/quintype-amp/compare/v2.1.19...v2.1.20) (2020-10-12)
 
 
