@@ -1,12 +1,13 @@
 import React, { Fragment } from "react";
 import { withStoryAndConfig } from "../../../context";
-import { Image, Spacer, PublisherLogoHeader } from "../../index";
+import { Spacer, PublisherLogoHeader } from "../../index";
 import { AmpStoryPage } from "../index";
 import { CoverPageProps } from "./types";
 import { getAuthorNames } from "../../author/author";
 import styled from "styled-components";
+import { WebStoryImage } from "../web-story-page-components";
 
-export const CoverPageBase = ({ story }: CoverPageProps) => {
+export const CoverPageBase = ({ story, config }: CoverPageProps) => {
   const heroImgSrc = story["hero-image-s3-key"];
   const heroImgMetadata = story["hero-image-metadata"];
   const altText = story["hero-image-caption"] || story["hero-image-attribution"] || "";
@@ -17,7 +18,7 @@ export const CoverPageBase = ({ story }: CoverPageProps) => {
       <AmpStoryPage id="cover">
         <amp-story-grid-layer template="fill">
           {heroImgSrc ? (
-            <Image aspectRatio={[9, 21]} metadata={heroImgMetadata} slug={heroImgSrc} alt={altText} lightbox={false} />
+            <WebStoryImage altText={altText} slug={heroImgSrc} metadata={heroImgMetadata} config={config} />
           ) : (
             <FullLengthDiv />
           )}

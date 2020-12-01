@@ -1,5 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`WebStoryImage should match snapshot 1`] = `
+<amp-img
+  alt=""
+  height="640"
+  layout="responsive"
+  lorem="ipsum"
+  src="//gumlet.assettype.com/foo?rect=173%2C0%2C450%2C800&w=1200"
+  width="480"
+/>
+`;
+
 exports[`WebStoryPageComponents should match snapshot 1`] = `
 <WebStoryPageComponentsBase
   card={
