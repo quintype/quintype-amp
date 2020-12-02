@@ -1,8 +1,28 @@
+#### How to integrate/enable visual stories for malibu apps:
+
+- Assuming ampLib integration is already done, make sure visual stories are enabled for your account. Please talk to Quintype support for this
+- Once enabled, you need to add the route `/ampstories/*` as a static route in your malibu app.
+  To do this, go to the file `app/server/routes.js` and add the following to `STATIC_ROUTES`
+
+```
+{
+    path: "/ampstories/*",
+    pageType: PAGE_TYPE.VISUAL_STORY,
+    exact: true
+  }
+```
+
+- next, go to file `app/isomorphic/constants.js` and add the following inside `PAGE_TYPE` object `VISUAL_STORY: "visual-story"`
+- That's it. You might want to enable ads on your visual stories. Please pass ad slot from `featureConfig`, read on to know how.
+
+<hr />
+
+#### Intro:
+
 AMP [Visual Stories](https://amp.dev/about/stories/) consist of `pages`. These are in turn made up of `layers` containing basic amp `elements`. Read [this](https://amp.dev/documentation/guides-and-tutorials/start/visual_story/parts_of_story/?format=stories) for more info.
 
 <img src="./visual-stories/visual_story_parts.png" alt="Parts of a visual story">
 
-- Firstly, make sure visual stories are enabled. Please talk to support for this
 - The first visual story page shows the hero image, headline, author name and publisher logo.
 - Every subsequent visual story page corresponds to a Quintype story card (i.e. the second visual story page will show the 1st storycard)
 - Only the following story elements are supported - image, title, also-read, answer, bigfact, blockquote, blurb, q-and-a, question, quote, summary, title, normal paragraph (text). All other story elements are ignored
@@ -21,7 +41,7 @@ Visual stories are rendered using this default template if no other template is 
 
 <hr />
 
-#### Visual story specific feature configs
+#### Visual story specific feature configs:
 
 ```js
 dummyOpts = {
