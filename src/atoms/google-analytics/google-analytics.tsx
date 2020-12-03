@@ -4,6 +4,7 @@ import { Analytics } from "../analytics";
 
 const GoogleAnalyticsBase = ({ config }) => {
   const googleAnalyticsTrackingId = config.ampConfig["google-analytics-tracking-id"];
+  if (!googleAnalyticsTrackingId) return null;
 
   const gaConfig = {
     vars: {
