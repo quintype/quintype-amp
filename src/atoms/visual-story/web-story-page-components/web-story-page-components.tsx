@@ -45,9 +45,15 @@ const TextWrapper = styled.div`
   color: ${(props) => props.theme.color.white};
   position: absolute;
   bottom: 0;
-  padding: 48px 24px;
+  padding: 48px 24px 24px 24px;
   width: 100%;
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(10, 10, 10, 0.35) 48%, rgba(0, 0, 0, 0.75));
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.2) 5%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.75)
+  );
 `;
 
 export const WebStoryImage = ({ altText = "", slug, metadata, config, ...props }) => {

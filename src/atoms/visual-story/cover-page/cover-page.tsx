@@ -54,7 +54,13 @@ const StyledTextWrapper = styled.div`
   bottom: 0;
   padding: 32px;
   color: ${(props) => props.theme.color.white};
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.2) 5%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.75)
+  );
 `;
 const StyledHeadline = styled.h1`
   margin-top: ${(props) => props.theme.spacing.s};
