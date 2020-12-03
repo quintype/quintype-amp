@@ -14,14 +14,6 @@ const config = {
 const noChartbeat = {
   ampConfig: {}
 };
-const chartbeatWithoutUid = {
-  ampConfig: {
-    chartbeat: {
-      uid: "",
-      domain: "vikatan.com"
-    }
-  }
-};
 describe("ChartBeat", () => {
   it("should render", () => {
     const wrapper = shallow(<ChartBeatBase story={textStory} config={config} />);
@@ -39,12 +31,8 @@ describe("ChartBeat", () => {
     const wrapper = shallow(<ChartBeatBase story={textStory} config={config} />);
     expect(wrapper.find(Analytics).prop("type")).toEqual("chartbeat");
   });
-  it("shouldn't render if chartbeat config isn't present in ampconfig", () => {
+  it("shouldn't render", () => {
     const wrapper = shallow(<ChartBeatBase story={textStory} config={noChartbeat} />);
-    expect(wrapper.find(Analytics).length).toBe(0);
-  });
-  it("shouldn't render if chartbeat UID is empty in ampconfig", () => {
-    const wrapper = shallow(<ChartBeatBase story={textStory} config={chartbeatWithoutUid} />);
     expect(wrapper.find(Analytics).length).toBe(0);
   });
 });

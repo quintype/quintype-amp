@@ -39,7 +39,7 @@ export const InfiniteScrollBase = ({ story, config, children, inlineConfig, ...p
         <script type="application/json" dangerouslySetInnerHTML={{ __html: inlineConfig }} />
         <div separator="true">
           <StyledSeparator>
-            <div data-testid="infinite-scroll-separator">{storySeparatorText}</div>
+            <div>{storySeparatorText}</div>
           </StyledSeparator>
         </div>
         {children}
