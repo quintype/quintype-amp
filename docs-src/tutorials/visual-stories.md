@@ -48,7 +48,7 @@ dummyOpts = {
   featureConfig: {
     visualStories: {
       autoAdvanceAfter: "5s",
-      bookendUrl: "/foo.json",
+      bookendUrl: "/amp/api/v1/bookend.json",
       ads: {
         doubleclick: {
           dataSlot: "/1009127/FOO_AMP_TOP"
@@ -66,7 +66,7 @@ dummyOpts = {
 };
 ```
 
-1. `autoAdvanceAfter`: (String) sets the time after which the page automatically advances. If omitted, the page will not automatically advance. Example: "500ms", "3s"
-2. `bookendUrl`: (String) the endpoint called by the bookend component. Please make sure that the route exists in your app and that it returns data in a valid format. `storyId` and `sectionId` are passed as query parameters. Refer [docs](https://amp.dev/documentation/components/amp-story-bookend/?format=stories)
-3. ad slot: (String) example "/1009443/PUBLISHER_AMP_TOP" `featureConfig` > `visualStories` > `ads` > `doubleclick` > `dataSlot` sets the ad slot for visual stories. Ads are dynamically inserted, please read [docs](https://amp.dev/documentation/components/amp-story-auto-ads/?format=stories)
-4. `animation`: (object) `animation` > `image` applies animation props to the story image. We accept `animateIn`, `animateInDuration` and `animateInDelay`. Refer [docs](https://amp.dev/documentation/guides-and-tutorials/start/visual_story/animating_elements/?format=stories)
+1. `autoAdvanceAfter`: (String) Optional. Sets the time after which the page automatically advances. If omitted, the page will not automatically advance. Example: "500ms", "3s"
+2. `bookendUrl`: (String) Optional. The endpoint called by the bookend component. Defaults to `/amp/api/v1/bookend.json` if nothing is passed. If an endpoint is passed, please make sure that the route exists in your app and that it returns data in a valid format. `storyId` and `sectionId` are passed as query parameters. Refer [docs](https://amp.dev/documentation/components/amp-story-bookend/?format=stories)
+3. ad slot: (String) Optional. Example "/1009443/PUBLISHER_AMP_TOP" `featureConfig` > `visualStories` > `ads` > `doubleclick` > `dataSlot` sets the ad slot for visual stories. Ads are dynamically inserted, please read [docs](https://amp.dev/documentation/components/amp-story-auto-ads/?format=stories)
+4. `animation`: (object) Optional. `animation` > `image` applies animation props to the story image. We accept `animateIn`, `animateInDuration` and `animateInDelay`. Refer [docs](https://amp.dev/documentation/guides-and-tutorials/start/visual_story/animating_elements/?format=stories)

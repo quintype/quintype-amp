@@ -6,7 +6,7 @@ export const getImageAnimationProps = (config: Config) => {
   if (!imgAnimationFeatCfg) return null;
 
   return {
-    ...(imgAnimationFeatCfg.animateIn && { "animate-in": imgAnimationFeatCfg.animateIn }),
+    "animate-in": imgAnimationFeatCfg.animateIn || "zoom-in",
     ...(imgAnimationFeatCfg.animateInDelay && { "animate-in-delay": imgAnimationFeatCfg.animateInDelay }),
     ...(imgAnimationFeatCfg.animateInDuration && { "animate-in-duration": imgAnimationFeatCfg.animateInDuration })
   };
