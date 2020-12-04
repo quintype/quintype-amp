@@ -1,5 +1,8 @@
-import { AMPConfig } from "../types/config";
+import { AMPConfig, Config } from "../types/config";
 import get from "lodash.get";
+import { invertHexColor } from "../helpers";
+import defaultTokens from "../context/theme/tokens";
+import merge from "lodash.merge";
 
 export const getTokensFromAMPConfig = (config: AMPConfig) => {
   const { colors } = config;
@@ -20,4 +23,26 @@ export const getTokensFromAMPConfig = (config: AMPConfig) => {
       }
     }
   };
+};
+
+/**
+ * Inverts colors for dark theme. Currently only inverts shades of gray
+ * not sure how desirable the output of this will be on non-gray colors. Check before using!
+ *
+ */
+export const getTokensForDarkTheme = (config: Config) => {
+  const tokensFromConfig = getTokensFromAMPConfig(config.ampConfig);
+  const darkThemeDefaultTokens = {
+    color: {
+      mono1: invertHexColor(defaultTokens.color.mono1),
+      mono2: invertHexColor(defaultTokens.color.mono2),
+      mono3: invertHexColor(defaultTokens.color.mono3),
+      mono4: invertHexColor(defaultTokens.color.mono4),
+      mono5: invertHexColor(defaultTokens.color.mono5),
+      mono6: invertHexColor(defaultTokens.color.mono6),
+      mono7: invertHexColor(defaultTokens.color.mono7)
+    }
+  };
+  const tokens = merge({}, darkThemeDefaultTokens, tokensFromConfig);
+  return tokens;
 };

@@ -14,6 +14,7 @@ export const StyledText = styled.div<StoryElementProps>`
   p {
     margin: 0 0 ${(props) => props.theme.spacing.xs} 0;
     line-height: ${(props) => props.theme.font.lineHeight.level6};
+    font-size: ${(props) => props.theme.font.size.xs};
   }
   a {
     color: ${(props) => props.theme.color.mono6};

@@ -12,7 +12,7 @@ const StyledAuthor = styled.div`
   align-items: center;
 `;
 
-const getAuthorNames = (authors: AuthorTypesStory[]) =>
+export const getAuthorNames = (authors: AuthorTypesStory[]) =>
   authors.reduce((acc, author, index) => {
     if (authors.length === 1) {
       return `${author.name}`;

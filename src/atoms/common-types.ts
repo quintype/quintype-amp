@@ -25,6 +25,12 @@ declare global {
       "amp-nested-menu";
       "amp-next-page";
       "amp-live-list";
+      "amp-story-grid-layer";
+      "amp-story-page";
+      "amp-story";
+      "amp-video";
+      "amp-story-bookend";
+      "amp-story-auto-ads";
     }
   }
 }
