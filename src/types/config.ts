@@ -240,4 +240,22 @@ interface FeatureConfigTypes {
   sidebarMenu?: {
     menuGroupSlug?: string;
   };
+  visualStories?: {
+    autoAdvanceAfter?: string;
+    bookendUrl?: string;
+    ads?: {
+      doubleclick?: {
+        dataSlot: string;
+      };
+    };
+    animation?: {
+      image: VisualStoryAnimationFeatureConfig;
+    };
+  };
+}
+
+interface VisualStoryAnimationFeatureConfig {
+  animateIn?: string;
+  animateInDelay?: string;
+  animateInDuration?: string;
 }

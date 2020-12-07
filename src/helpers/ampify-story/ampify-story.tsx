@@ -3,6 +3,7 @@ import renderToString from "../render-to-string";
 import { GenericStory, LiveBlog } from "../../templates";
 import get from "lodash.get";
 import React from "react";
+import { VisualStory } from "../../templates/visual-story/visual-story";
 
 /**
  * The ampifyStory function is used behind the scenes by `quintype/framework`
@@ -33,6 +34,8 @@ const getTemplate = ({ story, config, seo }) => {
   if (customTemplate) return customTemplate({ story, config, seo });
 
   switch (storyType) {
+    case "visual-story":
+      return <VisualStory story={story} config={config} />;
     case "live-blog":
       return <LiveBlog story={story} config={config} />;
     default:

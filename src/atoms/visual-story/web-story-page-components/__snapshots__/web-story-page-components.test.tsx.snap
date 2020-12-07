@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WebStoryImage should match snapshot 1`] = `
+<amp-img
+  alt=""
+  height="640"
+  layout="responsive"
+  lorem="ipsum"
+  src="//gumlet.assettype.com/foo?rect=173%2C0%2C450%2C800&w=1200"
+  width="480"
+/>
+`;
+
+exports[`WebStoryPageComponents should match snapshot 1`] = `
+<WebStoryPageComponentsBase
+  card={
+    Object {
+      "card-added-at": 1603197704132,
+      "card-updated-at": 1604385109145,
+      "content-id": "2bd1e574-0f4d-4c1e-8e58-a394425deadf",
+      "content-version-id": "b57a015f-07c3-424b-97d3-8d1ee589162f",
+      "id": "2bd1e574-0f4d-4c1e-8e58-a394425deadf",
+      "metadata": Object {
+        "attributes": Object {},
+        "social-share": Object {
+          "image": Object {
+            "attribution": "",
+            "caption": null,
+            "key": "amplib/2020-10/7e318e3a-7cec-47e9-8bc0-ccf9dee7f7d2/littpro_inc_og5eHNNyy7k_unsplash.jpg",
+            "metadata": Object {
+              "file-name": "littpro-inc-og5eHNNyy7k-unsplash.jpg",
+              "file-size": 1887693,
+              "height": 5772,
+              "mime-type": "image/jpeg",
+              "width": 3848,
+            },
+            "url": null,
+          },
+          "message": null,
+          "shareable": false,
+          "title": "Pets are awesome",
+        },
+      },
+      "status": "draft",
+      "story-elements": Array [
+        Object {
+          "description": "",
+          "family-id": "b31cd496-d269-466b-90a0-2a1c8c8e29a1",
+          "id": "568a8637-b3c6-426d-9c13-d560ffe0dc5f",
+          "metadata": Object {},
+          "page-url": "/story/e8e3a6d0-98ff-40eb-b400-5f9466599fb3/element/568a8637-b3c6-426d-9c13-d560ffe0dc5f",
+          "subtype": null,
+          "text": "<p>1st card - 1st text element</p>",
+          "title": "",
+          "type": "text",
+        },
+        Object {
+          "description": "",
+          "family-id": "f9c3c481-06fa-4c7e-ad38-f9c3c8cc1ef0",
+          "id": "43e7d7d6-a3f6-40b5-88d5-a2f23663a845",
+          "image-attribution": "",
+          "image-metadata": Object {
+            "file-name": "littpro-inc-og5eHNNyy7k-unsplash.jpg",
+            "file-size": 1887693,
+            "height": 5772,
+            "mime-type": "image/jpeg",
+            "width": 3848,
+          },
+          "image-s3-key": "amplib/2020-10/7e318e3a-7cec-47e9-8bc0-ccf9dee7f7d2/littpro_inc_og5eHNNyy7k_unsplash.jpg",
+          "metadata": Object {},
+          "page-url": "/story/e8e3a6d0-98ff-40eb-b400-5f9466599fb3/element/43e7d7d6-a3f6-40b5-88d5-a2f23663a845",
+          "subtype": null,
+          "title": " <p>Masked man</p>",
+          "type": "image",
+        },
+        Object {
+          "description": "",
+          "family-id": "db39bb3b-16a3-472a-b19d-a42373b63646",
+          "id": "6820ab9d-5f95-4e17-824f-e7511b29639a",
+          "metadata": Object {},
+          "page-url": "/story/e8e3a6d0-98ff-40eb-b400-5f9466599fb3/element/6820ab9d-5f95-4e17-824f-e7511b29639a",
+          "subtype": null,
+          "text": "<p>1st card - second text element</p>",
+          "title": "",
+          "type": "text",
+        },
+      ],
+      "version": 13,
+    }
+  }
+  config={Object {}}
+  story={Object {}}
+/>
+`;

@@ -1,2 +1,3 @@
 - [Subscriptions]{@tutorial subscriptions}
 - [Hamburger Menu]{@tutorial hamburger-menu}
+- [Visual Stories (web stories)]{@tutorial visual-stories}
