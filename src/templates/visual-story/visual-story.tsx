@@ -12,6 +12,14 @@ import get from "lodash.get";
 import merge from "lodash.merge";
 import { StoryPageSlots } from "../../molecules/slots";
 
+/**
+ * The VisualStory template is rendered when the story-template is `visual-story`
+ *
+ * Slots: top-slot
+ *
+ * @category Default Templates
+ * @component
+ */
 export const VisualStory = ({ story, config }: CommonTemplateTypes) => {
   const tokens = merge({}, getTokensForDarkTheme(config), getTokensForVisualStory());
   const storyId = get(story, ["id"], "");
