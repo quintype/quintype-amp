@@ -45,7 +45,7 @@ const TextWrapper = styled.div`
   color: ${(props) => props.theme.color.white};
   position: absolute;
   bottom: 0;
-  padding: 48px 24px 24px 24px;
+  padding: 24px;
   width: 100%;
   background-image: linear-gradient(
     to bottom,
@@ -56,9 +56,10 @@ const TextWrapper = styled.div`
   );
 `;
 
-export const WebStoryImage = ({ altText = "", slug, metadata, config, ...props }) => {
+export const WebStoryImage = ({ altText = "", slug, metadata, config, imgClassName = "", ...props }) => {
   const imgSrc = metadata ? new FocusedImage(slug, metadata).path([9, 16], { w: 1200 }) : `${slug}?w=1200`;
   const imageCdn = config.publisherConfig["cdn-image"];
+  const classNameForImage = imgClassName || "qt-amp-visual-story-img";
   const attrs = {
     width: "480",
     height: "640",
@@ -67,7 +68,7 @@ export const WebStoryImage = ({ altText = "", slug, metadata, config, ...props }
     src: `//${imageCdn}/${imgSrc}`,
     ...props
   };
-  return <amp-img {...attrs} />;
+  return <amp-img class={classNameForImage} {...attrs} />;
 };
 
 export const WebStoryPageComponents = withStoryAndConfig(WebStoryPageComponentsBase);

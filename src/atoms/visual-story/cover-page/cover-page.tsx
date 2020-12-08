@@ -18,7 +18,13 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
       <AmpStoryPage id="cover">
         <amp-story-grid-layer template="fill">
           {heroImgSrc ? (
-            <WebStoryImage altText={altText} slug={heroImgSrc} metadata={heroImgMetadata} config={config} />
+            <WebStoryImage
+              imgClassName="qt-amp-visual-story-img-cover"
+              altText={altText}
+              slug={heroImgSrc}
+              metadata={heroImgMetadata}
+              config={config}
+            />
           ) : (
             <FullLengthDiv />
           )}

@@ -10,16 +10,20 @@ import { getTokensForVisualStory } from "./visual-story.helpers";
 import { Card } from "../../types/story";
 import get from "lodash.get";
 import merge from "lodash.merge";
+import { StoryPageSlots } from "../../molecules/slots";
 
 export const VisualStory = ({ story, config }: CommonTemplateTypes) => {
   const tokens = merge({}, getTokensForDarkTheme(config), getTokensForVisualStory());
   const storyId = get(story, ["id"], "");
   const sectionId = get(story, ["sections", 0, "id"], "");
   const bookendUrl = get(config, ["opts", "featureConfig", "visualStories", "bookendUrl"], "/amp/api/v1/bookend.json");
+  const { TopSlot } = StoryPageSlots;
+
   return (
     <Providers story={story} config={config} tokens={tokens}>
       <body>
         <WebStory>
+          <TopSlot />
           <AmpStoryAutoAds />
           <CoverPage />
           {story.cards
