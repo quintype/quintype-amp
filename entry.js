@@ -118,5 +118,8 @@ reactComponents['Navbar'] = Component30;
 import Component31 from '../src/molecules/related-stories/related-stories.tsx';
 reactComponents['RelatedStories'] = Component31;
 
-import Component32 from '../src/molecules/webengage/webengage.tsx';
-reactComponents['WebEngage'] = Component32;
+import Component32 from '../src/templates/visual-story/visual-story.tsx';
+reactComponents['VisualStory'] = Component32;
+
+import Component33 from '../src/molecules/webengage/webengage.tsx';
+reactComponents['WebEngage'] = Component33;

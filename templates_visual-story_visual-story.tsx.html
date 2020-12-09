@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66074042-1', 'auto');ga('send', 'pageview');</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AMP Library DateTime</title>
+  <title>AMP Library templates/visual-story/visual-story.tsx</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -121,270 +123,83 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Components</p>
-                    <h1>DateTime</h1>
+                    <p>Source</p>
+                    <h1>templates/visual-story/visual-story.tsx</h1>
                 </header>
                 
 
 
 
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from "react";
+import { StoryProvider } from "../../context/story/story-context";
+import { ConfigProvider } from "../../context/config/config-context";
+import { Theme } from "../../context/theme";
+import { getTokensForDarkTheme } from "../../utils/theme";
+import { WebStory, CoverPage, AmpStoryAutoAds, WebStoryPageComponents, AmpStoryPage } from "../../atoms/visual-story";
+import { GoogleAnalytics, QuintypeAnalytics } from "../../atoms";
+import { CommonTemplateTypes } from "../common-template-types";
+import { getTokensForVisualStory } from "./visual-story.helpers";
+import { Card } from "../../types/story";
+import get from "lodash.get";
+import merge from "lodash.merge";
+import { StoryPageSlots } from "../../molecules/slots";
 
-<section>
+/**
+ * The VisualStory template is rendered when the story-template is `visual-story`
+ *
+ * Slots: top-slot
+ *
+ * @category Default Templates
+ * @component
+ */
+export const VisualStory = ({ story, config }: CommonTemplateTypes) => {
+  const tokens = merge({}, getTokensForDarkTheme(config), getTokensForVisualStory());
+  const storyId = get(story, ["id"], "");
+  const sectionId = get(story, ["sections", 0, "id"], "");
+  const bookendUrl = get(config, ["opts", "featureConfig", "visualStories", "bookendUrl"], "/amp/api/v1/bookend.json");
+  const { TopSlot } = StoryPageSlots;
 
-<header>
-    
-        <h2>
-            &ltDateTime  /&gt
-        </h2>
-        
-    
-</header>
+  return (
+    &lt;Providers story={story} config={config} tokens={tokens}>
+      &lt;body>
+        &lt;WebStory>
+          &lt;TopSlot />
+          &lt;AmpStoryAutoAds />
+          &lt;CoverPage />
+          {story.cards
+            .filter((card) => canTakeCard(card))
+            .map((card) => (
+              &lt;AmpStoryPage key={card.id} id={card.id}>
+                &lt;WebStoryPageComponents card={card} />
+              &lt;/AmpStoryPage>
+            ))}
+          &lt;GoogleAnalytics />
+          &lt;QuintypeAnalytics />
+          &lt;amp-story-bookend src={`${bookendUrl}?storyId=${storyId}&amp;sectionId=${sectionId}`} layout="nodisplay" />
+        &lt;/WebStory>
+      &lt;/body>
+    &lt;/Providers>
+  );
+};
 
-<article>
-    <div class="container-overview">
-    
-        
-            <div class='vertical-section'>
-                <div class="members">
-                    <div class="member">
-                        <div class=name>
-                            <span class="tag">Constructor</span>
-                        </div>
-                        
+export const canTakeCard = (card: Card) => {
+  const storyElementWhitelist = ["text", "title", "image"];
+  return card["story-elements"].some((el) => storyElementWhitelist.includes(el.type));
+};
 
-
-    
-    <h4 class="name" id="DateTime">
-        <a class="href-link" href="#DateTime">#</a>
-        
-        <span class="code-name">
-            
-                &ltDateTime  /&gt
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        <p>DateTime displays formatted date and prepend, if provided</p>
-<pre class="prettyprint source lang-js"><code>&lt;DateTime formattedDate=&quot;14 June 2017&quot; />
-&lt;DateTime formattedDate=&quot;14 June 2017&quot; prepend=&quot;Published: &quot; />
+const Providers = ({ story, config, tokens, children }) => (
+  &lt;ConfigProvider value={config}>
+    &lt;StoryProvider value={story}>
+      &lt;Theme tokens={tokens}>{children}&lt;/Theme>
+    &lt;/StoryProvider>
+  &lt;/ConfigProvider>
+);
 </code></pre>
-    </div>
-    
-
-
-
-
-
-
-
-    
-
-
-
-    <h5>Parameters:</h5>
-    
-<div class="table-container">
-    <table class="params table">
-        <thead>
-        <tr>
-            
-            <th>Name</th>
-            
-
-            <th>Type</th>
-
-            
-
-            
-
-            <th class="last">Description</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>params</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Object</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>object containing parameters passed to the render prop</p></td>
-</tr>
-
-  
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>prepend</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">String</span>
-|
-
-<span class="param-type">Component</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>string or component (icon) that is prepended</p></td>
-</tr>
-
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>formattedDate</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">String</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>formatted date</p></td>
-</tr>
-
-  
-
-
-        
-        </tbody>
-    </table>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="atoms_date-time_date-time.tsx.html" class="button">View Source</a>
-            <span>
-                <a href="atoms_date-time_date-time.tsx.html">atoms/date-time/date-time.tsx</a>, <a href="atoms_date-time_date-time.tsx.html#line28">line 28</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-                </div>
-            </div>
-        
-    
-    </div>
-    
-        
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+        </article>
+    </section>
 
 
 
