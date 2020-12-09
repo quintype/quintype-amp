@@ -55,7 +55,6 @@ export const CoverPage = withStoryAndConfig(CoverPageBase);
 const StyledTextWrapper = styled.div`
   width: 100%;
   max-height: 100%;
-  overflow-y: scroll;
   position: absolute;
   bottom: 0;
   padding: 32px;
