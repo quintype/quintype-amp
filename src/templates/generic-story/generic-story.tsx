@@ -31,7 +31,7 @@ const Wrapper = styled.div`
 `;
 
 /**
- * The GenericStory is the default template that's (as of Jul 2020) rendered for all stories except live-blog
+ * The GenericStory template is the default story template
  *
  * Slots: top-slot, bottom-slot
  *

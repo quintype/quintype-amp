@@ -18,7 +18,13 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
       <AmpStoryPage id="cover">
         <amp-story-grid-layer template="fill">
           {heroImgSrc ? (
-            <WebStoryImage altText={altText} slug={heroImgSrc} metadata={heroImgMetadata} config={config} />
+            <WebStoryImage
+              imgClassName="qt-amp-visual-story-img-cover"
+              altText={altText}
+              slug={heroImgSrc}
+              metadata={heroImgMetadata}
+              config={config}
+            />
           ) : (
             <FullLengthDiv />
           )}
@@ -49,7 +55,6 @@ export const CoverPage = withStoryAndConfig(CoverPageBase);
 const StyledTextWrapper = styled.div`
   width: 100%;
   max-height: 100%;
-  overflow-y: scroll;
   position: absolute;
   bottom: 0;
   padding: 32px;

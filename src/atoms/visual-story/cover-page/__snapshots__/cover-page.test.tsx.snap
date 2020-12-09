@@ -3183,6 +3183,7 @@ exports[`CoverPage Component should match snapshot 1`] = `
             },
           }
         }
+        imgClassName="qt-amp-visual-story-img-cover"
         metadata={
           Object {
             "file-name": "erin-agius-I7TLmA4j0c8-unsplash.jpg",
