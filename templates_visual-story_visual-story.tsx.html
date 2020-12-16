@@ -164,23 +164,21 @@ export const VisualStory = ({ story, config }: CommonTemplateTypes) => {
 
   return (
     &lt;Providers story={story} config={config} tokens={tokens}>
-      &lt;body>
-        &lt;WebStory>
-          &lt;TopSlot />
-          &lt;AmpStoryAutoAds />
-          &lt;CoverPage />
-          {story.cards
-            .filter((card) => canTakeCard(card))
-            .map((card) => (
-              &lt;AmpStoryPage key={card.id} id={card.id}>
-                &lt;WebStoryPageComponents card={card} />
-              &lt;/AmpStoryPage>
-            ))}
-          &lt;GoogleAnalytics />
-          &lt;QuintypeAnalytics />
-          &lt;amp-story-bookend src={`${bookendUrl}?storyId=${storyId}&amp;sectionId=${sectionId}`} layout="nodisplay" />
-        &lt;/WebStory>
-      &lt;/body>
+      &lt;WebStory>
+        &lt;TopSlot />
+        &lt;AmpStoryAutoAds />
+        &lt;CoverPage />
+        {story.cards
+          .filter((card) => canTakeCard(card))
+          .map((card) => (
+            &lt;AmpStoryPage key={card.id} id={card.id}>
+              &lt;WebStoryPageComponents card={card} />
+            &lt;/AmpStoryPage>
+          ))}
+        &lt;GoogleAnalytics />
+        &lt;QuintypeAnalytics />
+        &lt;amp-story-bookend src={`${bookendUrl}?storyId=${storyId}&amp;sectionId=${sectionId}`} layout="nodisplay" />
+      &lt;/WebStory>
     &lt;/Providers>
   );
 };

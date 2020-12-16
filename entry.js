@@ -70,10 +70,10 @@ reactComponents['DailyMotionElement'] = Component14;
 import Component15 from '../src/atoms/story-elements/embed/embed.tsx';
 reactComponents['Embed'] = Component15;
 
-import Component16 from '../src/atoms/story-elements/attachment/attachment.tsx';
+import Component16 from '../src/atoms/story-elements/facebook-element/facebook-element.tsx';
 reactComponents['FacebookElement'] = Component16;
 
-import Component17 from '../src/atoms/story-elements/facebook-element/facebook-element.tsx';
+import Component17 from '../src/atoms/story-elements/attachment/attachment.tsx';
 reactComponents['FacebookElement'] = Component17;
 
 import Component18 from '../src/molecules/header-card/header-card.tsx';
