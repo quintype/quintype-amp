@@ -29,23 +29,21 @@ export const VisualStory = ({ story, config }: CommonTemplateTypes) => {
 
   return (
     <Providers story={story} config={config} tokens={tokens}>
-      <body>
-        <WebStory>
-          <TopSlot />
-          <AmpStoryAutoAds />
-          <CoverPage />
-          {story.cards
-            .filter((card) => canTakeCard(card))
-            .map((card) => (
-              <AmpStoryPage key={card.id} id={card.id}>
-                <WebStoryPageComponents card={card} />
-              </AmpStoryPage>
-            ))}
-          <GoogleAnalytics />
-          <QuintypeAnalytics />
-          <amp-story-bookend src={`${bookendUrl}?storyId=${storyId}&sectionId=${sectionId}`} layout="nodisplay" />
-        </WebStory>
-      </body>
+      <WebStory>
+        <TopSlot />
+        <AmpStoryAutoAds />
+        <CoverPage />
+        {story.cards
+          .filter((card) => canTakeCard(card))
+          .map((card) => (
+            <AmpStoryPage key={card.id} id={card.id}>
+              <WebStoryPageComponents card={card} />
+            </AmpStoryPage>
+          ))}
+        <GoogleAnalytics />
+        <QuintypeAnalytics />
+        <amp-story-bookend src={`${bookendUrl}?storyId=${storyId}&sectionId=${sectionId}`} layout="nodisplay" />
+      </WebStory>
     </Providers>
   );
 };

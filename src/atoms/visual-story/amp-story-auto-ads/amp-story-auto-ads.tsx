@@ -24,7 +24,7 @@ export const AmpStoryAutoAdsBase = ({ story, config }: AutoAdsTypes) => {
         />
       </Helmet>
       <amp-story-auto-ads>
-        <script type="application/json">{JSON.stringify(adConfig)}</script>
+        <script type="application/json" dangerouslySetInnerHTML={{ __html: JSON.stringify(adConfig) }} />
       </amp-story-auto-ads>
     </Fragment>
   );
