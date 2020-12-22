@@ -9,14 +9,14 @@ export interface SubscriptionProps {
 }
 
 export interface ServicesProps {
-  authorizationUrl: (story) => string;
-  pingbackUrl: (story) => string;
+  authorizationUrl: (story, pbConfig) => string;
+  pingbackUrl: (story, pbConfig) => string;
   actions: ActionProps;
 }
 
 export interface ActionProps {
-  login: string;
-  subscribe: string;
+  login: (pbConfig) => string;
+  subscribe: (pbConfig) => string;
 }
 
 export interface ScoreProps {

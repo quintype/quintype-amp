@@ -5,6 +5,11 @@ export interface Config {
   publisherConfig: PublisherConfig;
   ampConfig: AMPConfig;
   opts?: ConfigOpts;
+  pbConfig?: PBConfig;
+}
+
+export interface PBConfig {
+  version: number
 }
 
 export interface PublisherConfig {
@@ -146,6 +151,7 @@ interface SlotsTypes {
 }
 
 export interface ConfigOpts {
+  getPbConfig?: (props: PBConfigPropTypes) => any;
   domainSlug?: string | null;
   templates?: object;
   slots?: SlotsTypes;
@@ -182,10 +188,15 @@ export interface ConfigOpts {
   featureConfig?: FeatureConfigTypes;
 }
 
+export interface PBConfigPropTypes {
+  pbConfig?: object;
+}
+
 export interface CommonRenderPropTypes {
   story: Story;
   config: Config;
 }
+
 interface RelatedStoriesRenderPropTypes {
   relatedStories: Story[];
   config: Config;

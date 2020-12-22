@@ -10,8 +10,8 @@ export const getServicesParams = ({ story, config }) => {
     null
   );
 
-  const authUrl = authUrlFunction && authUrlFunction({ story });
-  const pingbackUrl = pingbackUrlFunction && pingbackUrlFunction({ story });
+  const authUrl = authUrlFunction && authUrlFunction({ story, pbConfig: config.pbConfig });
+  const pingbackUrl = pingbackUrlFunction && pingbackUrlFunction({ story, pbConfig: config.pbConfig });
   const services = [
     {
       authorizationUrl: authUrl,

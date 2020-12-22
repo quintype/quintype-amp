@@ -21,8 +21,8 @@ import { VisualStory } from "../../templates/visual-story/visual-story";
  * @returns {function} the renderToString function
  */
 
-export function ampifyStory({ story, publisherConfig, ampConfig, seo = "", opts = {} }: AmpifyStoryTypes) {
-  const config = { publisherConfig, ampConfig, opts };
+export function ampifyStory({ story, publisherConfig, ampConfig, pbConfig, seo = "", opts = {} }: AmpifyStoryTypes) {
+  const config = { publisherConfig, ampConfig, pbConfig, opts };
   const template = getTemplate({ story, config, seo });
   const langTag = get(publisherConfig, ["language", "iso-code"], null);
   return renderToString({ template, seo, langTag });
