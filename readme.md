@@ -1,7 +1,8 @@
 # ⚡ Quintype Amp ⚡
 
-- Documentation >> https://developers.quintype.com/quintype-amp
-- For integrating in malibu, refer this doc >> https://developers.quintype.com/malibu/tutorial/amp-library-integration.html
+- [Documentation](https://developers.quintype.com/quintype-amp)
+- For integrating in malibu, refer [this](https://developers.quintype.com/malibu/tutorial/amp-library-integration.html) doc
+- Track lighthouse metrics [here](https://lighthouse-ci.staging.quinpress.com/app/projects/amplib/dashboard)
 
 ### Note about writing commit messages
 
