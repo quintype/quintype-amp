@@ -9,9 +9,8 @@ export const getServicesParams = ({ story, config }) => {
     ["opts", "featureConfig", "subscriptions", "services", "actions", "subscribe"],
     null
   );
-
-  const authUrl = authUrlFunction && authUrlFunction({ story, pbConfig: config.pbConfig });
-  const pingbackUrl = pingbackUrlFunction && pingbackUrlFunction({ story, pbConfig: config.pbConfig });
+  const authUrl = authUrlFunction && authUrlFunction({ story, config });
+  const pingbackUrl = pingbackUrlFunction && pingbackUrlFunction({ story, config });
   const services = [
     {
       authorizationUrl: authUrl,

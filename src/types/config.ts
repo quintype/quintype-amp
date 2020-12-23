@@ -5,10 +5,9 @@ export interface Config {
   publisherConfig: PublisherConfig;
   ampConfig: AMPConfig;
   opts?: ConfigOpts;
-  pbConfig?: PBConfig;
 }
 
-export interface PBConfig {
+export interface AdditionalConfig {
   version: number
 }
 
@@ -151,12 +150,12 @@ interface SlotsTypes {
 }
 
 export interface ConfigOpts {
-  getPbConfig?: (props: PBConfigPropTypes) => any;
+  getAdditionalConfig?: (props: AdditionalConfigPropTypes) => any;
   domainSlug?: string | null;
   templates?: object;
   slots?: SlotsTypes;
   render?: {
-    headerCardRender?: (props: CommonRenderPropTypes) => any;
+    headerCardRender?: (props: Config) => any;
     relatedStoriesRender?: (props: RelatedStoriesRenderPropTypes) => any;
     infiniteScrollRender?: (props: InfiniteScrollRenderPropTypes) => any;
     subscriptionRender?: {
@@ -186,10 +185,7 @@ export interface ConfigOpts {
     };
   };
   featureConfig?: FeatureConfigTypes;
-}
-
-export interface PBConfigPropTypes {
-  pbConfig?: object;
+  additionalConfig?: AdditionalConfig;
 }
 
 export interface CommonRenderPropTypes {
