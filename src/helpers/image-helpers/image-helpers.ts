@@ -1,5 +1,6 @@
 import { FocusedImage } from "quintype-js";
 import { HeroImageMetadata } from "../../types/story";
+import get from "lodash.get";
 
 export const getImgSrcAndSrcset = ({
   opts,
@@ -44,7 +45,7 @@ export const focusedImagePath = ({ opts, slug, metadata, aspectRatio, cdnImage, 
 };
 
 export const isGumlet = (config) => {
-  const cdn: string = config.publisherConfig["cdn-image"];
+  const cdn: string = get(config, ["publisherConfig", "cdn-image"], "");
   return cdn.includes("gumlet");
 };
 
