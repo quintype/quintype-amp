@@ -38,7 +38,7 @@ export const getImgSrcAndSrcset = ({
 export const focusedImagePath = ({ opts, slug, metadata, aspectRatio, cdnImage, width }: FocusedImagePathTypes) => {
   const imgAspectRatio: number[] = aspectRatio.map((el) => Number(el));
   const newOpts = width ? Object.assign({ w: width }, opts) : opts;
-  const path = metadata ? new FocusedImage(slug, metadata).path(imgAspectRatio, newOpts) : `${slug}?w=1200`;
+  const path = metadata ? new FocusedImage(slug, metadata).path(imgAspectRatio, newOpts) : `${slug}`;
   return `//${cdnImage}/${path}`;
 };
 
