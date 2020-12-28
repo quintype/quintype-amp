@@ -19,7 +19,6 @@ const WebStoryPageComponentsBase = ({ card, config }: WebStoryPageComponentsType
             class="qt-amp-visual-story-img"
             slug={imageElement["image-s3-key"]}
             metadata={imageElement["image-metadata"]}
-            skipSrcset={true}
             aspectRatio={[480, 640]}
             alt={imageElement.title || imageElement["image-attribution"]}
             {...imageAnimationProps}
