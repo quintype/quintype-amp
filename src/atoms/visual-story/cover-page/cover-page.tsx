@@ -25,6 +25,7 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
               alt={altText}
               slug={heroImgSrc}
               metadata={heroImgMetadata}
+              skipSrcset={true}
               {...imageAnimationProps}
             />
           ) : (

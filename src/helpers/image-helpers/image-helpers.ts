@@ -7,9 +7,11 @@ export const getImgSrcAndSrcset = ({
   slug,
   metadata,
   aspectRatio,
-  cdnImage
+  cdnImage,
+  skipSrcset
 }: GetImgSrcAndSrcsetTypes) => {
   const src = focusedImagePath({ opts, slug, metadata, aspectRatio, cdnImage });
+  if (skipSrcset) return { src, srcset: null };
 
   // 1x == 640 because images can be 600 css pixels wide at most as per current implementation. 640 is slightly greater than 600
   const widths = [
@@ -19,7 +21,14 @@ export const getImgSrcAndSrcset = ({
   ];
   const srcset = widths.reduce((acc, currVal, idx) => {
     const { xDescriptor, width } = currVal;
-    acc += `${focusedImagePath({ width, opts: srcSetOpts, slug, metadata, aspectRatio, cdnImage })} ${xDescriptor}`;
+    acc += `${focusedImagePath({
+      width,
+      opts: srcSetOpts,
+      slug,
+      metadata,
+      aspectRatio,
+      cdnImage
+    })} ${xDescriptor}`;
     if (idx < widths.length - 1) acc += `, `;
     return acc;
   }, "");
@@ -48,4 +57,5 @@ interface GetImgSrcAndSrcsetTypes {
   metadata: HeroImageMetadata | null;
   opts?: object;
   srcSetOpts?: object;
+  skipSrcset?: boolean;
 }

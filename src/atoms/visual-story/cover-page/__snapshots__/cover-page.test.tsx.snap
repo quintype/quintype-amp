@@ -26,6 +26,7 @@ exports[`CoverPage Component should match snapshot 1`] = `
             "width": 5792,
           }
         }
+        skipSrcset={true}
         slug="amplib/2020-10/6adaf26f-3b7b-45e0-9973-6f99abeecf5d/erin_agius_I7TLmA4j0c8_unsplash.jpg"
       />
     </amp-story-grid-layer>

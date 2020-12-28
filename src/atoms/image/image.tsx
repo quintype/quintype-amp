@@ -16,6 +16,7 @@ export const BaseImage = ({
   config,
   lightbox = true,
   useFallbackImage = false,
+  skipSrcset = false,
   ...rest
 }: ImageTypes) => {
   const cdnImage = config.publisherConfig["cdn-image"];
@@ -33,10 +34,11 @@ export const BaseImage = ({
       slug,
       metadata,
       aspectRatio: imgAspectRatio,
-      cdnImage
+      cdnImage,
+      skipSrcset
     });
     imgAttrs.src = srcAndSrcset.src;
-    imgAttrs.srcset = srcAndSrcset.srcset;
+    if (srcAndSrcset.srcset) imgAttrs.srcset = srcAndSrcset.srcset;
   } else if (useFallbackImage) {
     imgAttrs.src = base64FallbackImage;
     imgAttrs.alt = "fallback image";
@@ -87,6 +89,7 @@ const getAspectRatio = ({ aspectRatio, metadata }): number[] => {
  * @param {Object} params.srcSetOpts optional. This object is passed to quintype-js FocusedImage while calculating image srcset
  * @param {Boolean} params.lightbox optional. Used to enable/disable amp lightbox on image. Defaults to true
  * @param {Boolean} params.useFallbackImage optional. False by default. If true, it will show a fallback image of specified aspectRatio or 16:9
+ * @param {Boolean} params.skipSrcset optional. False by default. If true, does not add srcset on image
  * @param {any} params.rest optional. Any other props are passed down to the <amp-img> component
  *
  * @category Atoms

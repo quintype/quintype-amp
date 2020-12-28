@@ -12,6 +12,7 @@ export interface ImageTypes extends Common {
   attribution?: string;
   lightbox?: string | boolean;
   useFallbackImage?: boolean;
+  skipSrcset?: boolean;
 }
 
 interface ImageMetadata {
