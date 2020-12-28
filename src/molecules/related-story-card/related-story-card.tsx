@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Image, DateTime, Spacer } from "../../atoms";
 import { RelatedStoryCardTypes } from "./types";
 import { getHumanizedDateTime } from "../../utils/date-time";
+import { isGumlet } from "../../helpers";
 
 const Wrapper = styled.div`
   margin: ${(props) => `0 0 ${props.theme.spacing.l} 0`};
@@ -18,7 +19,7 @@ const Headline = styled.h1`
   font-weight: bold;
 `;
 
-export const RelatedStoryCard = ({ story }: RelatedStoryCardTypes) => {
+export const RelatedStoryCard = ({ story, config }: RelatedStoryCardTypes) => {
   const {
     headline,
     url,
@@ -33,10 +34,18 @@ export const RelatedStoryCard = ({ story }: RelatedStoryCardTypes) => {
     timeZone: "Asia/Kolkata",
     timeStamp: lastPublishedAt
   });
+  const imageOpts = isGumlet(config) ? { format: "auto" } : {};
   return (
     <Wrapper>
       <StyledAnchor href={url}>
-        <Image metadata={imgMetadata} slug={imgS3Key} alt={imgCaption || imgAttr || "image"} useFallbackImage={true} />
+        <Image
+          metadata={imgMetadata}
+          slug={imgS3Key}
+          alt={imgCaption || imgAttr || "image"}
+          useFallbackImage={true}
+          opts={imageOpts}
+          srcSetOpts={imageOpts}
+        />
         <Headline>{headline}</Headline>
         <DateTime formattedDate={humanizedDate} />
         <Spacer token="s" />

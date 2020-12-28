@@ -39,7 +39,13 @@ export const focusedImagePath = ({ opts, slug, metadata, aspectRatio, cdnImage, 
   const imgAspectRatio: number[] = aspectRatio.map((el) => Number(el));
   const newOpts = width ? Object.assign({ w: width }, opts) : opts;
   const path = metadata ? new FocusedImage(slug, metadata).path(imgAspectRatio, newOpts) : `${slug}`;
-  return `//${cdnImage}/${path}`;
+  const hostWithProtocol = cdnImage.startsWith("https://") ? cdnImage : `https://${cdnImage}`;
+  return `${hostWithProtocol}/${path}`;
+};
+
+export const isGumlet = (config) => {
+  const cdn: string = config.publisherConfig["cdn-image"];
+  return cdn.includes("gumlet");
 };
 
 interface FocusedImagePathTypes {

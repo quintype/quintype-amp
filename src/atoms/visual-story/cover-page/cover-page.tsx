@@ -6,6 +6,7 @@ import { CoverPageProps } from "./types";
 import { getAuthorNames } from "../../author/author";
 import styled from "styled-components";
 import { getImageAnimationProps } from "../web-story-page-components/web-story-page-components.helpers";
+import { isGumlet } from "../../../helpers";
 
 export const CoverPageBase = ({ story, config }: CoverPageProps) => {
   const heroImgSrc = story["hero-image-s3-key"];
@@ -13,6 +14,7 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
   const altText = story["hero-image-caption"] || story["hero-image-attribution"] || "";
   const authorNames = getAuthorNames(story.authors);
   const imageAnimationProps = getImageAnimationProps(config);
+  const imgOpts = isGumlet(config) ? { format: "auto" } : {};
   const headline = story.headline || "";
   return (
     <Fragment>
@@ -25,6 +27,8 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
               alt={altText}
               slug={heroImgSrc}
               metadata={heroImgMetadata}
+              opts={imgOpts}
+              srcSetOpts={imgOpts}
               {...imageAnimationProps}
             />
           ) : (

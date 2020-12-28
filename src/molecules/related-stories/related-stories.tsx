@@ -25,7 +25,7 @@ export const RelatedStoriesBase = ({ story, config, heading = "Also Read" }: Rel
       <div>
         {relatedStories.map((relatedStory, idx) => (
           <Fragment key={relatedStory.id}>
-            <RelatedStoryCard story={relatedStory} />
+            <RelatedStoryCard story={relatedStory} config={config} />
             <RelatedStoryCardSlot story={story} config={config} index={idx} relatedStory={relatedStory} />
           </Fragment>
         ))}

@@ -6,6 +6,7 @@ import { media } from "../../utils/media";
 import { withStoryAndConfig } from "../../context";
 import { Image } from "../../atoms";
 import get from "lodash.get";
+import { isGumlet } from "../../helpers";
 
 const StyledFigcaption = styled.figcaption`
   text-align: left;
@@ -27,7 +28,7 @@ const StyledFigcaption = styled.figcaption`
 	`}
 `;
 
-export const HeroImageBase = ({ story }: HeroImageBaseTypes) => {
+export const HeroImageBase = ({ story, config }: HeroImageBaseTypes) => {
   const metadata: HeroImageMetadata = get(story, "hero-image-metadata", null);
   const slug: string | null = get(story, "hero-image-s3-key", null);
   if (!slug || !metadata) return null;
@@ -35,6 +36,8 @@ export const HeroImageBase = ({ story }: HeroImageBaseTypes) => {
   const attribution: string | null = get(story, "hero-image-attribution", null);
   const caption: string | null = get(story, "hero-image-caption", null);
   const figcaptionText = getFigcaptionText(caption, attribution);
+  const imgOptsSrc = isGumlet(config) ? { w: 1200, enlarge: true, format: "auto" } : { w: 1200 };
+  const imgOptsSrcset = isGumlet(config) ? { format: "auto" } : { w: 1200 };
 
   return (
     <div>
@@ -43,7 +46,8 @@ export const HeroImageBase = ({ story }: HeroImageBaseTypes) => {
         metadata={metadata}
         slug={slug}
         alt={caption || attribution || ""}
-        opts={{ w: 1200, enlarge: true }}>
+        opts={imgOptsSrc}
+        srcSetOpts={imgOptsSrcset}>
         {figcaptionText && <StyledFigcaption dangerouslySetInnerHTML={{ __html: figcaptionText || "" }} />}
       </Image>
     </div>
