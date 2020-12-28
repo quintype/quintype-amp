@@ -64,7 +64,6 @@ exports[`RelatedStories should render default 1`] = `
               "width": 300,
             },
           },
-          "fallback-image-url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/300px-Wikipedia-logo-v2.svg.png",
           "fonts": Object {
             "primary": Object {
               "family": "\\"Open Sans\\", sans-serif",

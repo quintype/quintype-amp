@@ -98,7 +98,6 @@ export interface AMPConfig {
   "google-client-id-api": boolean;
   "invalid-elements-strategy": string;
   "google-analytics-tracking-id": string;
-  "fallback-image-url": string;
 }
 
 export interface MenuGroupItemsTypes {

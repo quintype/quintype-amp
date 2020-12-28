@@ -6,5 +6,4 @@ export interface RelatedStoriesTypes {
   config: Config;
   heading?: string;
   fallbackSrc?: string;
-  aspectRatio?: number[];
 }

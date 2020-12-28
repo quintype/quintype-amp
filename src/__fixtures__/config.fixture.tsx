@@ -629,9 +629,7 @@ export const ampConfig: AMPConfig = {
   "gtm-id": "GTM-XXXXXX",
   "google-client-id-api": false,
   "invalid-elements-strategy": "redirect-to-web-version",
-  "google-analytics-tracking-id": "UA-ABCDEFG",
-  "fallback-image-url":
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/300px-Wikipedia-logo-v2.svg.png"
+  "google-analytics-tracking-id": "UA-ABCDEFG"
 };
 
 const infiniteScrollInlineConfig = `[{\"image\":\"https://foo.com/puppies.jpg\",\"title\":\"Puppies Page\",\"url\":\"/puppies\"}]`;
