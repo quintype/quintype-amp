@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { PublisherLogoHeaderTypes } from "./types";
 import { withConfig } from "../../context";
 import get from "lodash.get";
-import { Head, Image } from "../index";
+import { Head } from "../index";
 
 export const PublisherLogoHeaderBase = ({ config }: PublisherLogoHeaderTypes) => {
   const publisherName = get(config, ["publisherConfig", "publisher-name"], "");
@@ -18,7 +18,7 @@ export const PublisherLogoHeaderBase = ({ config }: PublisherLogoHeaderTypes) =>
         `}</style>
       </Head>
       <a href="/">
-        <Image class="qt-amp-publisher-logo-header" alt={publisherName} slug={logo} layout="fill" skipSrcset={true} />
+        <amp-img class="qt-amp-publisher-logo-header" alt={publisherName} src={logo} layout="fill" />
       </a>
     </Fragment>
   );
