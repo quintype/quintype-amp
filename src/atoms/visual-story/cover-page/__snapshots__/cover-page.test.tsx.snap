@@ -17,6 +17,7 @@ exports[`CoverPage Component should match snapshot 1`] = `
           ]
         }
         class="qt-amp-visual-story-img-cover"
+        lightbox={false}
         metadata={
           Object {
             "file-name": "erin-agius-I7TLmA4j0c8-unsplash.jpg",

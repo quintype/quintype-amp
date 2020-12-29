@@ -25,6 +25,7 @@ const WebStoryPageComponentsBase = ({ card, config }: WebStoryPageComponentsType
             alt={imageElement.title || imageElement["image-attribution"]}
             opts={imgOpts}
             srcSetOpts={imgOpts}
+            lightbox={false}
             {...imageAnimationProps}
           />
         </amp-story-grid-layer>
