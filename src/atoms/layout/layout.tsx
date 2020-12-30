@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import { Layout as LayoutTypes } from "./types";
-import { Helmet } from "react-helmet";
 import { Theme } from "../../context/theme";
 import { StoryProvider } from "../../context/story/story-context";
 import { ConfigProvider } from "../../context/config/config-context";
@@ -39,30 +38,8 @@ const Container = styled.div`
 
 export const Layout = ({ children, story, config }: LayoutTypes) => {
   const tokens = getTokensFromAMPConfig(config.ampConfig);
-  const embedCustomFonts = config.ampConfig.fonts;
   return (
     <Fragment>
-      <Helmet>
-        {(embedCustomFonts.primary.url || embedCustomFonts.secondary.url) && (
-          <link rel="preconnect dns-prefetch" href="https://fonts.gstatic.com/" crossorigin="anonymous" />
-        )}
-        {embedCustomFonts.primary.url && (
-          <link
-            rel="preload"
-            as="style"
-            crossorigin="anonymous"
-            href={`https://fonts.googleapis.com/css?family=${embedCustomFonts.primary.url}`}
-          />
-        )}
-        {embedCustomFonts.secondary.url && (
-          <link
-            rel="preload"
-            as="style"
-            crossorigin="anonymous"
-            href={`https://fonts.googleapis.com/css?family=${embedCustomFonts.secondary.url}`}
-          />
-        )}
-      </Helmet>
       <ConfigProvider value={config}>
         <StoryProvider value={story}>
           <Theme tokens={tokens}>

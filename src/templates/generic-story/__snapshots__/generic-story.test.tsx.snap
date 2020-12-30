@@ -7327,6 +7327,7 @@ exports[`GenericStory Template should render 1`] = `
       ]
     }
   />
+  <Component />
   <div
     next-page-hide="true"
   >

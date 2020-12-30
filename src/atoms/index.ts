@@ -34,6 +34,7 @@ import { InfiniteScroll } from "./infinite-scroll";
 import { Subscription } from "./subscriptions";
 import { LiveList } from "./live-list";
 import { SubscriberAccessPaywall, MeteredPaywall } from "./subscriptions/subscriptions-paywall";
+import { Fonts } from "./fonts";
 
 export {
   Carousel,
@@ -72,5 +73,6 @@ export {
   Subscription,
   LiveList,
   SubscriberAccessPaywall,
-  MeteredPaywall
+  MeteredPaywall,
+  Fonts
 };

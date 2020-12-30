@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Fonts component Should match snapshot 1`] = `
+<HelmetWrapper
+  defer={true}
+  encodeSpecialCharacters={true}
+>
+  <link
+    crossorigin="anonymous"
+    href="https://fonts.gstatic.com"
+    rel="preconnect dns-prefetch"
+  />
+  <link
+    as="style"
+    crossorigin="anonymous"
+    href="https://fonts.googleapis.com/css?family=Mukta+Malar:300,400,600,700"
+    rel="preload"
+  />
+  <link
+    as="style"
+    crossorigin="anonymous"
+    href="https://fonts.googleapis.com/css?family=Mukta+Malar:400,400italic,700,700italic"
+    rel="preload"
+  />
+  <style>
+    
+        @font-face {
+          font-family: "Mukta Malar", sans-serif;
+          src: url(https://fonts.googleapis.com/css?family=Mukta+Malar:300,400,600,700);
+          font-display: block;
+        }
+        @font-face {
+          font-family: "Mukta Malar",sans-serif;
+          src: url(https://fonts.googleapis.com/css?family=Mukta+Malar:400,400italic,700,700italic);
+          font-display: block;
+        }
+      
+  </style>
+</HelmetWrapper>
+`;

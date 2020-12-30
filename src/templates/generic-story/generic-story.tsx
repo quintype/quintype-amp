@@ -11,7 +11,8 @@ import {
   ComScore,
   ChartBeat,
   InfiniteScroll,
-  Subscription
+  Subscription,
+  Fonts
 } from "../../atoms";
 import styled from "styled-components";
 import { CommonTemplateTypes } from "../common-template-types";
@@ -69,6 +70,7 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
   return (
     <Layout story={story} config={config}>
       <Subscription services={services} score={score} fallbackEntitlement={fallbackEntitlement} config={config} />
+      <Fonts />
       {navbarComponent}
       <IncompatibleBanner />
       <GoogleTagManager />
