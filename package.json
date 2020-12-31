@@ -1,6 +1,6 @@
 {
   "name": "@quintype/amp",
-  "version": "2.2.3-perf-images.1",
+  "version": "2.2.3-perf-images.2",
   "description": "Quintype's AMP component library for publisher apps to create amp layouts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
