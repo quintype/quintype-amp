@@ -26,12 +26,12 @@ export const FontsBase = ({ config }) => {
         @font-face {
           font-family: ${primaryFamily};
           src: url(https://fonts.googleapis.com/css?family=${primaryUrl});
-          font-display: block;
+          font-display: auto;
         }
         @font-face {
           font-family: ${secondaryFamily};
           src: url(https://fonts.googleapis.com/css?family=${secondaryUrl});
-          font-display: block;
+          font-display: auto;
         }
       `}</style>
     </Helmet>
