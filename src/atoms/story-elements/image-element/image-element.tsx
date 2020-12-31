@@ -1,12 +1,10 @@
 import React from "react";
-
 import { Image } from "../../image";
 import { media } from "../../../utils/media";
 import { StoryElementProps } from "../types";
 import styled from "styled-components";
 import { withStoryAndConfig } from "../../../context";
 import get from "lodash.get";
-import { isGumlet } from "../../../helpers";
 
 const StyledFigCaption = styled.figcaption`
   text-align: left;
@@ -31,16 +29,10 @@ const StyledFigCaption = styled.figcaption`
 export const ImageElementBase = ({ element, story, config }: StoryElementProps) => {
   const imageElementRender = get(config, ["opts", "render", "storyElementRender", "imageElementRender"], null);
   const imageAttribution = element["image-attribution"] || element.title || "";
-  const imgOpts = isGumlet(config) ? { format: "auto" } : {};
   return imageElementRender ? (
     imageElementRender({ story, config, element })
   ) : (
-    <Image
-      slug={element["image-s3-key"]}
-      metadata={element["image-metadata"]}
-      alt={imageAttribution}
-      opts={imgOpts}
-      srcSetOpts={imgOpts}>
+    <Image slug={element["image-s3-key"]} metadata={element["image-metadata"]} alt={imageAttribution}>
       {element.title && element.title.length > 1 && (
         <StyledFigCaption dangerouslySetInnerHTML={{ __html: element.title }} />
       )}

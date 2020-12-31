@@ -6,7 +6,6 @@ import styled from "styled-components";
 import { media } from "../../../utils/media";
 import { withStoryAndConfig } from "../../../context";
 import get from "lodash.get";
-import { isGumlet } from "../../../helpers";
 
 const StyledGallery = styled.div`
   display: grid;
@@ -45,7 +44,6 @@ export const DefaultImageGalleryElement = ({
 }: ImageGalleryTypes) => {
   // forcing imageGallery to false for now for vikatan.
   const imageGallery = element.metadata && element.metadata.type === "gallery" && false;
-  const imgOpts = isGumlet(config) ? { format: "auto" } : {};
   const images =
     element["story-elements"] &&
     element["story-elements"].map((image) => (
@@ -55,8 +53,6 @@ export const DefaultImageGalleryElement = ({
         slug={image["image-s3-key"]}
         aspectRatio={aspectRatio}
         alt={image.title}
-        opts={imgOpts}
-        srcSetOpts={imgOpts}
         lightbox={imageGallery ? "imageGallery" : false}>
         {getFigcaptionText(image.title, image["image-attribution"]) && (
           <StyledFigcaption>{getFigcaptionText(image.title, image["image-attribution"])}</StyledFigcaption>

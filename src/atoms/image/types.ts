@@ -8,11 +8,9 @@ export interface ImageTypes extends Common {
   alt: string;
   aspectRatio?: number[];
   opts?: object;
-  srcSetOpts?: object;
   attribution?: string;
   lightbox?: string | boolean;
   useFallbackImage?: boolean;
-  skipSrcset?: boolean;
 }
 
 interface ImageMetadata {

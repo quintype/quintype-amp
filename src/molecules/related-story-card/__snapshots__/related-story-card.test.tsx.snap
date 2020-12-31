@@ -8,17 +8,7 @@ exports[`RelatedStoryCard should render default 1`] = `
     <Component
       alt="image"
       metadata={null}
-      opts={
-        Object {
-          "format": "auto",
-        }
-      }
       slug={null}
-      srcSetOpts={
-        Object {
-          "format": "auto",
-        }
-      }
       useFallbackImage={true}
     />
     <styled.h1>
