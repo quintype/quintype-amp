@@ -128,11 +128,4 @@ describe("Image", () => {
     );
     expect(wrapper.find("amp-img").prop("data-foo")).toBe("bar");
   });
-  it("Should not add srcset if skipSrcset is true", () => {
-    const wrapper = shallow(
-      <BaseImage metadata={metadata} slug={s3key} alt="Sample Image" config={config} skipSrcset={true} />
-    );
-    expect(wrapper.find("amp-img").exists()).toBeTruthy();
-    expect(wrapper.find(`amp-img`).prop("srcset")).toBeUndefined();
-  });
 });

@@ -1,18 +1,10 @@
 import { FocusedImage } from "quintype-js";
 import { HeroImageMetadata } from "../../types/story";
-import get from "lodash.get";
 
-export const getImgSrcAndSrcset = ({
-  opts,
-  srcSetOpts,
-  slug,
-  metadata,
-  aspectRatio,
-  cdnImage,
-  skipSrcset
-}: GetImgSrcAndSrcsetTypes) => {
-  const src = focusedImagePath({ opts, slug, metadata, aspectRatio, cdnImage });
-  if (skipSrcset) return { src, srcset: null };
+export const getImgSrcAndSrcset = ({ opts, slug, metadata, aspectRatio, cdnImage }: GetImgSrcAndSrcsetTypes) => {
+  const isGumlet = cdnImage.includes("gumlet");
+  const imgOpts = isGumlet ? { format: "auto", ...opts } : opts;
+  const src = focusedImagePath({ opts: imgOpts, slug, metadata, aspectRatio, cdnImage });
 
   // 1x == 640 because images can be 600 css pixels wide at most as per current implementation. 640 is slightly greater than 600
   const widths = [
@@ -24,7 +16,7 @@ export const getImgSrcAndSrcset = ({
     const { xDescriptor, width } = currVal;
     acc += `${focusedImagePath({
       width,
-      opts: srcSetOpts,
+      opts: imgOpts,
       slug,
       metadata,
       aspectRatio,
@@ -44,11 +36,6 @@ export const focusedImagePath = ({ opts, slug, metadata, aspectRatio, cdnImage, 
   return `${hostWithProtocol}/${path}`;
 };
 
-export const isGumlet = (config) => {
-  const cdn: string = get(config, ["publisherConfig", "cdn-image"], "");
-  return cdn.includes("gumlet");
-};
-
 interface FocusedImagePathTypes {
   slug: string;
   aspectRatio: string[];
@@ -63,6 +50,4 @@ interface GetImgSrcAndSrcsetTypes {
   cdnImage: string;
   metadata: HeroImageMetadata | null;
   opts?: object;
-  srcSetOpts?: object;
-  skipSrcset?: boolean;
 }

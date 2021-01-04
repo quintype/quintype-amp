@@ -4,14 +4,12 @@ import { WebStoryPageComponentsTypes } from "./types";
 import styled from "styled-components";
 import { withStoryAndConfig } from "../../../context";
 import { getImageAnimationProps } from "./web-story-page-components.helpers";
-import { isGumlet } from "../../../helpers";
 
 const WebStoryPageComponentsBase = ({ card, config }: WebStoryPageComponentsTypes) => {
   const titleElement = card["story-elements"].find((el) => el.type === "title");
   const textElements = card["story-elements"].filter((el) => el.type === "text");
   const imageElement = card["story-elements"].find((el) => el.type === "image");
   const imageAnimationProps = getImageAnimationProps(config);
-  const imgOpts = isGumlet(config) ? { format: "auto" } : {};
 
   return (
     <Fragment>
@@ -23,8 +21,6 @@ const WebStoryPageComponentsBase = ({ card, config }: WebStoryPageComponentsType
             metadata={imageElement["image-metadata"]}
             aspectRatio={[480, 640]}
             alt={imageElement.title || imageElement["image-attribution"]}
-            opts={imgOpts}
-            srcSetOpts={imgOpts}
             lightbox={false}
             {...imageAnimationProps}
           />
