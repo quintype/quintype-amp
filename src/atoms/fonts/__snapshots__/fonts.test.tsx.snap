@@ -27,12 +27,12 @@ exports[`Fonts component Should match snapshot 1`] = `
         @font-face {
           font-family: "Mukta Malar", sans-serif;
           src: url(https://fonts.googleapis.com/css?family=Mukta+Malar:300,400,600,700);
-          font-display: block;
+          font-display: auto;
         }
         @font-face {
           font-family: "Mukta Malar",sans-serif;
           src: url(https://fonts.googleapis.com/css?family=Mukta+Malar:400,400italic,700,700italic);
-          font-display: block;
+          font-display: auto;
         }
       
   </style>
