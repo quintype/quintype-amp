@@ -5,26 +5,20 @@ export const getImgSrcAndSrcset = ({ opts, slug, metadata, aspectRatio, cdnImage
   const isGumlet = cdnImage.includes("gumlet");
   const imgOpts = isGumlet ? { format: "auto", ...opts } : opts;
   const src = focusedImagePath({ opts: imgOpts, slug, metadata, aspectRatio, cdnImage });
-
-  // 1x == 640 because images can be 600 css pixels wide at most as per current implementation. 640 is slightly greater than 600
-  const widths = [
-    { xDescriptor: "1x", width: "640" },
-    { xDescriptor: "2x", width: "1200" },
-    { xDescriptor: "4x", width: "2400" }
+  let srcset = "";
+  const srcsetOpts = [
+    { ...imgOpts, w: 480 },
+    { ...imgOpts, w: 960 },
+    { ...imgOpts, w: 1200 },
+    { ...imgOpts, w: 2048 }
   ];
-  const srcset = widths.reduce((acc, currVal, idx) => {
-    const { xDescriptor, width } = currVal;
-    acc += `${focusedImagePath({
-      width,
-      opts: imgOpts,
-      slug,
-      metadata,
-      aspectRatio,
-      cdnImage
-    })} ${xDescriptor}`;
-    if (idx < widths.length - 1) acc += `, `;
-    return acc;
-  }, "");
+  srcsetOpts.forEach((val, i) => {
+    if (i === srcsetOpts.length - 1) {
+      srcset += `${focusedImagePath({ opts: val, slug, metadata, aspectRatio, cdnImage })} ${val.w}w`;
+    } else {
+      srcset += `${focusedImagePath({ opts: val, slug, metadata, aspectRatio, cdnImage })} ${val.w}w, `;
+    }
+  });
   return { src, srcset };
 };
 
