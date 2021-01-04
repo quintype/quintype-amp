@@ -4,8 +4,6 @@ import { withStoryAndConfig } from "../../context";
 
 export const FontsBase = ({ config }) => {
   const { primary, secondary } = config.ampConfig.fonts;
-  const { url: primaryUrl, family: primaryFamily } = primary;
-  const { url: secondaryUrl, family: secondaryFamily } = secondary;
 
   return (
     <Helmet>
@@ -14,26 +12,14 @@ export const FontsBase = ({ config }) => {
         rel="preload"
         as="style"
         crossorigin="anonymous"
-        href={`https://fonts.googleapis.com/css?family=${primaryUrl}`}
+        href={`https://fonts.googleapis.com/css?family=${primary.url}&display=swap`}
       />
       <link
         rel="preload"
         as="style"
         crossorigin="anonymous"
-        href={`https://fonts.googleapis.com/css?family=${secondaryUrl}`}
+        href={`https://fonts.googleapis.com/css?family=${secondary.url}&display=swap`}
       />
-      <style>{`
-        @font-face {
-          font-family: ${primaryFamily};
-          src: url(https://fonts.googleapis.com/css?family=${primaryUrl});
-          font-display: auto;
-        }
-        @font-face {
-          font-family: ${secondaryFamily};
-          src: url(https://fonts.googleapis.com/css?family=${secondaryUrl});
-          font-display: auto;
-        }
-      `}</style>
     </Helmet>
   );
 };

@@ -53,7 +53,7 @@ describe("Fonts component", () => {
         .find(`link`)
         .at(1)
         .prop("href")
-    ).toBe("https://fonts.googleapis.com/css?family=Mukta+Malar:300,400,600,700");
+    ).toBe("https://fonts.googleapis.com/css?family=Mukta+Malar:300,400,600,700&display=swap");
     expect(
       wrapper
         .find(`link`)
@@ -71,6 +71,6 @@ describe("Fonts component", () => {
         .find(`link`)
         .at(2)
         .prop("href")
-    ).toBe("https://fonts.googleapis.com/css?family=Mukta+Malar:400,400italic,700,700italic");
+    ).toBe("https://fonts.googleapis.com/css?family=Mukta+Malar:400,400italic,700,700italic&display=swap");
   });
 });
