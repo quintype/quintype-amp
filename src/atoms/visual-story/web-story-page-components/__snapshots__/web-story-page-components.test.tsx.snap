@@ -3,6 +3,7 @@
 exports[`WebStoryImage should match snapshot 1`] = `
 <amp-img
   alt=""
+  class="qt-amp-visual-story-img"
   height="640"
   layout="responsive"
   lorem="ipsum"
