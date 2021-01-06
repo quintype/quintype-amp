@@ -26,15 +26,15 @@ export interface ScoreProps {
 
 export interface FallbackEntitlementProps {
   source: string;
-  granted: boolean;
-  grantReason: string;
+  granted: (config) => boolean;
+  grantReason: (config) => string;
   data: DataProps;
 }
 
 export interface DataProps {
   numberRemaining: number;
   isLast: boolean;
-  isLoggedIn: boolean;
+  isLoggedIn: (config) => boolean;
 }
 export interface PaywallProps {
   config?: Config;
