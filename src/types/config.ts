@@ -162,6 +162,7 @@ export interface ConfigOpts {
       bigfactElementRender?: (props: CommonRenderPropTypes) => any;
       answerElementRender?: (props: CommonRenderPropTypes) => any;
       questionElementRender?: (props: CommonRenderPropTypes) => any;
+      qAndAElementRender?: (props: CommonRenderPropTypes) => any;
       summaryElementRender?: (props: CommonRenderPropTypes) => any;
       textElementRender?: (props: CommonRenderPropTypes) => any;
       youtubeElementRender?: (props: CommonRenderPropTypes) => any;

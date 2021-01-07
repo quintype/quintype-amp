@@ -4,7 +4,7 @@ import { StoryElementProps } from "../../types";
 import { withStoryAndConfig } from "../../../../context";
 import get from "lodash.get";
 
-const StyledQuestion = styled.div`
+export const StyledQuestion = styled.div`
   font-size: ${(props) => props.theme.font.size.s};
   color: ${(props) => props.theme.color.mono7};
   line-height: ${(props) => props.theme.font.lineHeight.level5};
