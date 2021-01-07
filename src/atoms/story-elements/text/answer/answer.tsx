@@ -4,7 +4,7 @@ import { StoryElementProps } from "../../types";
 import { withStoryAndConfig } from "../../../../context";
 import get from "lodash.get";
 
-export const StyledAnswer = styled.p<StoryElementProps>`
+export const StyledAnswer = styled.div`
   color: ${(props) => props.theme.color.mono5};
 `;
 
@@ -13,12 +13,7 @@ export const AnswerBase = ({ element, story, config }: StoryElementProps) => {
   return answerElementRender ? (
     answerElementRender({ story, config, element })
   ) : (
-    <StyledAnswer
-      element={element}
-      story={story}
-      config={config}
-      dangerouslySetInnerHTML={{ __html: element.text || "" }}
-    />
+    <StyledAnswer dangerouslySetInnerHTML={{ __html: element.text || "" }} />
   );
 };
 /**

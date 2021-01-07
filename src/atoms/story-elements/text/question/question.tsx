@@ -4,17 +4,17 @@ import { StoryElementProps } from "../../types";
 import { withStoryAndConfig } from "../../../../context";
 import get from "lodash.get";
 
-const StyledQuestion = styled.p<StoryElementProps>`
+const StyledQuestion = styled.div`
+  font-size: ${(props) => props.theme.font.size.s};
+  color: ${(props) => props.theme.color.mono7};
+  line-height: ${(props) => props.theme.font.lineHeight.level5};
+  font-weight: ${(props) => props.theme.font.weight.bold};
+
   & > p {
     :before {
       content: "Q: ";
-      background-color: blue;
     }
   }
-  border: 5px solid black;
-  color: ${(props) => props.theme.color.mono7};
-  line-height: ${(props) => props.theme.font.lineHeight.level2};
-  font-weight: ${(props) => props.theme.font.weight.bold};
 `;
 
 export const QuestionBase = ({ element, story, config }: StoryElementProps) => {
@@ -23,12 +23,7 @@ export const QuestionBase = ({ element, story, config }: StoryElementProps) => {
   return questionElementRender ? (
     questionElementRender({ story, config, element })
   ) : (
-    <StyledQuestion
-      element={element}
-      story={story}
-      config={config}
-      dangerouslySetInnerHTML={{ __html: element.text || "" }}
-    />
+    <StyledQuestion dangerouslySetInnerHTML={{ __html: element.text || "" }} />
   );
 };
 /**
