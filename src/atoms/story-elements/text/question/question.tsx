@@ -8,8 +8,10 @@ const StyledQuestion = styled.p<StoryElementProps>`
   & > p {
     :before {
       content: "Q: ";
+      background-color: blue;
     }
   }
+  border: 5px solid black;
   color: ${(props) => props.theme.color.mono7};
   line-height: ${(props) => props.theme.font.lineHeight.level2};
   font-weight: ${(props) => props.theme.font.weight.bold};

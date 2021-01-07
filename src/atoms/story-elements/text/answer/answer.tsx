@@ -5,11 +5,6 @@ import { withStoryAndConfig } from "../../../../context";
 import get from "lodash.get";
 
 export const StyledAnswer = styled.p<StoryElementProps>`
-  & > p {
-    :before {
-      content: "A: ";
-    }
-  }
   color: ${(props) => props.theme.color.mono5};
 `;
 
