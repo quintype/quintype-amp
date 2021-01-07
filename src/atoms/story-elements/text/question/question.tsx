@@ -3,7 +3,13 @@ import styled from "styled-components";
 import { StoryElementProps } from "../../types";
 import { withStoryAndConfig } from "../../../../context";
 import get from "lodash.get";
-export const StyledQuestion = styled.p<StoryElementProps>`
+
+const StyledQuestion = styled.p<StoryElementProps>`
+  & > p {
+    :before {
+      content: "Q: ";
+    }
+  }
   color: ${(props) => props.theme.color.mono7};
   line-height: ${(props) => props.theme.font.lineHeight.level2};
   font-weight: ${(props) => props.theme.font.weight.bold};
@@ -19,7 +25,6 @@ export const QuestionBase = ({ element, story, config }: StoryElementProps) => {
       element={element}
       story={story}
       config={config}
-      as="p"
       dangerouslySetInnerHTML={{ __html: element.text || "" }}
     />
   );
