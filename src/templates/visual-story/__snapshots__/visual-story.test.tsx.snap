@@ -3703,6 +3703,7 @@ exports[`visual story template should match snapshot 1`] = `
     <Component />
     <Component />
     <Component />
+    <Component />
     <Component
       id="2bd1e574-0f4d-4c1e-8e58-a394425deadf"
       key="2bd1e574-0f4d-4c1e-8e58-a394425deadf"
