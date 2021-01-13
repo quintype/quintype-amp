@@ -592,7 +592,6 @@ export const ampConfig: AMPConfig = {
     "header-background": "#dd0b4d",
     "section-text-color": "#f4e842"
   },
-  // "logo-url": "https://thumbor-stg.assettype.com/ace/2018-02/f0ba1430-8c21-49a3-a5cf-50c88ce9ec74/martian3.jpg",
   "logo-url": "https://images.assettype.com/thecue/2020-01/fdf230c2-d529-4da6-86ad-535e54adfad8/TheCue_Logo_dark.png",
   doubleclick: {
     "top-ad": {
@@ -629,9 +628,7 @@ export const ampConfig: AMPConfig = {
   "gtm-id": "GTM-XXXXXX",
   "google-client-id-api": false,
   "invalid-elements-strategy": "redirect-to-web-version",
-  "google-analytics-tracking-id": "UA-ABCDEFG",
-  "fallback-image-url":
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/300px-Wikipedia-logo-v2.svg.png"
+  "google-analytics-tracking-id": "UA-ABCDEFG"
 };
 
 const infiniteScrollInlineConfig = `[{\"image\":\"https://foo.com/puppies.jpg\",\"title\":\"Puppies Page\",\"url\":\"/puppies\"}]`;

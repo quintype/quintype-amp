@@ -1,23 +1,17 @@
 import React from "react";
-import { HeroImage, HeroImageBase } from "./hero-image";
-import { shallow } from "enzyme";
+import { HeroImage } from "./hero-image";
+import { mount } from "enzyme";
 import { getFigcaptionText } from "./hero-image";
 import { textStory, config } from "../../__fixtures__";
+import { Layout } from "../../atoms";
 
 describe("HeroImage", () => {
-  it("should render", () => {
-    const wrapper = shallow(<HeroImageBase story={textStory} config={config} />);
-    expect(wrapper).toMatchSnapshot();
-  });
-  it("should render caption without HTML Tags", () => {
-    // This test is incorrect
-    const wrapper = shallow(
-      <HeroImage caption="<p>Congress, AAP and AIMIM leaders</p>" attribution="<span>custom attribution</span>" />
-    );
-    expect(wrapper).toMatchSnapshot();
-  });
   it("Should add data-hero attribute on amp-img so that amp optimizer will preload it", () => {
-    const wrapper = shallow(<HeroImageBase story={textStory} config={config} />);
+    const wrapper = mount(
+      <Layout story={textStory} config={config}>
+        <HeroImage />
+      </Layout>
+    );
     expect(wrapper.find("amp-img").prop("data-hero")).toBe("true");
   });
 });

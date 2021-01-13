@@ -1,29 +1,32 @@
 import React, { Fragment } from "react";
 import { withStoryAndConfig } from "../../../context";
-import { Spacer, PublisherLogoHeader } from "../../index";
+import { Spacer, PublisherLogoHeader, Image } from "../../index";
 import { AmpStoryPage } from "../index";
 import { CoverPageProps } from "./types";
 import { getAuthorNames } from "../../author/author";
 import styled from "styled-components";
-import { WebStoryImage } from "../web-story-page-components";
+import { getImageAnimationProps } from "../web-story-page-components/web-story-page-components.helpers";
 
 export const CoverPageBase = ({ story, config }: CoverPageProps) => {
   const heroImgSrc = story["hero-image-s3-key"];
   const heroImgMetadata = story["hero-image-metadata"];
   const altText = story["hero-image-caption"] || story["hero-image-attribution"] || "";
   const authorNames = getAuthorNames(story.authors);
+  const imageAnimationProps = getImageAnimationProps(config);
   const headline = story.headline || "";
   return (
     <Fragment>
       <AmpStoryPage id="cover">
         <amp-story-grid-layer template="fill">
           {heroImgSrc ? (
-            <WebStoryImage
-              imgClassName="qt-amp-visual-story-img-cover"
-              altText={altText}
+            <Image
+              class="qt-amp-visual-story-img-cover"
+              aspectRatio={[480, 640]}
+              alt={altText}
               slug={heroImgSrc}
               metadata={heroImgMetadata}
-              config={config}
+              lightbox={false}
+              {...imageAnimationProps}
             />
           ) : (
             <FullLengthDiv />
