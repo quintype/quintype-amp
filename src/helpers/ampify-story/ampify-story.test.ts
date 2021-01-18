@@ -19,6 +19,7 @@ describe("Ampify Story", () => {
       story: allElementsStory,
       publisherConfig,
       ampConfig,
+      additionalConfig: null,
       opts: configOpts,
       seo
     });
@@ -36,6 +37,7 @@ describe("Ampify Story", () => {
       story: textStory,
       publisherConfig,
       ampConfig,
+      additionalConfig: null,
       opts,
       seo
     });
@@ -56,6 +58,7 @@ describe("Ampify Story", () => {
       story: mockStoryType("video"),
       publisherConfig,
       ampConfig,
+      additionalConfig: null,
       opts,
       seo
     });

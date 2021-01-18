@@ -4,11 +4,8 @@ import { Story } from "./story";
 export interface Config {
   publisherConfig: PublisherConfig;
   ampConfig: AMPConfig;
+  additionalConfig: object | null;
   opts?: ConfigOpts;
-}
-
-export interface AdditionalConfig {
-  version: number
 }
 
 export interface PublisherConfig {
@@ -150,7 +147,6 @@ interface SlotsTypes {
 }
 
 export interface ConfigOpts {
-  getAdditionalConfig?: (props: AdditionalConfigPropTypes) => any;
   domainSlug?: string | null;
   templates?: object;
   slots?: SlotsTypes;
@@ -185,7 +181,6 @@ export interface ConfigOpts {
     };
   };
   featureConfig?: FeatureConfigTypes;
-  additionalConfig?: AdditionalConfig;
 }
 
 export interface CommonRenderPropTypes {

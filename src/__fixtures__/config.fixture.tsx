@@ -672,5 +672,6 @@ export const configOpts: ConfigOpts = {
 export const config: Config = {
   publisherConfig,
   ampConfig,
-  opts: configOpts
+  opts: configOpts,
+  additionalConfig: null
 };
