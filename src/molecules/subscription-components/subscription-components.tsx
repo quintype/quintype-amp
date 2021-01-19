@@ -4,10 +4,11 @@ import { withStoryAndConfig } from "../../context";
 import { FullStoryContent } from "../full-story-content";
 import { HardPaywallStoryContent } from "../hard-paywall-story-content";
 import { MeteredPaywall, SubscriberAccessPaywall } from "../../atoms";
+import { subscriptionsEnabled } from "../../atoms/subscriptions/subscriptions.helpers";
 
 const StoryCardsWithSubscriptionsBase = ({ story, config }) => {
   // find a better name than StoryCardsWithSubscriptionsBase
-  const isStoryBehindPaywall = story.access === "subscription";
+  const isStoryBehindPaywall = story.access === "subscription" && subscriptionsEnabled(story, config);
   const grantReason = get(
     config,
     ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "grantReason"],
@@ -17,7 +18,7 @@ const StoryCardsWithSubscriptionsBase = ({ story, config }) => {
   const hardPaywallAccessGranted = granted === true;
   const isHardPaywallStory = grantReason === "SUBSCRIBER";
   let storyContent;
-  if (isHardPaywallStory || !hardPaywallAccessGranted)
+  if (isHardPaywallStory && !hardPaywallAccessGranted)
     storyContent = <HardPaywallStoryContent story={story} config={config} />;
   else storyContent = <FullStoryContent story={story} />;
 
