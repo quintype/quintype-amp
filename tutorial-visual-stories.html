@@ -130,14 +130,15 @@
     <h4>How to integrate/enable visual stories for malibu apps:</h4>
 <ul>
 <li>Assuming ampLib integration is already done, make sure visual stories are enabled for your account. Please talk to Quintype support for this</li>
-<li>Once enabled, you need to add the route <code>/ampstories/*</code> as a static route in your malibu app.
+<li>Update <code>@quintype/framework</code> to latest (v4.5.11 at the time of writing this) by running <code>npm i @quintype/framework@latest</code></li>
+<li>next, you need to add the route <code>/ampstories/*</code> as a static route in your malibu app.
 To do this, go to the file <code>app/server/routes.js</code> and add the following to <code>STATIC_ROUTES</code></li>
 </ul>
 <pre class="prettyprint source"><code>{
-    path: &quot;/ampstories/*&quot;,
-    pageType: PAGE_TYPE.VISUAL_STORY,
-    exact: true
-  }
+  path: &quot;/ampstories/*&quot;,
+  pageType: PAGE_TYPE.VISUAL_STORY,
+  exact: true
+}
 </code></pre>
 <ul>
 <li>next, go to file <code>app/isomorphic/constants.js</code> and add the following inside <code>PAGE_TYPE</code> object <code>VISUAL_STORY: &quot;visual-story&quot;</code></li>
