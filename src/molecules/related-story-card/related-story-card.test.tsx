@@ -12,13 +12,13 @@ relatedStoryWithoutHeroImage["hero-image-metadata"] = null;
 
 describe("RelatedStoryCard", () => {
   it("should render default", () => {
-    const wrapper = shallow(<RelatedStoryCard story={sampleRelatedStory} config={config} />);
+    const wrapper = shallow(<RelatedStoryCard story={sampleRelatedStory} />);
     expect(wrapper).toMatchSnapshot();
   });
   it("should render RelatedStoryCard with fallback image if heroImage is absent", () => {
     const wrapper = mount(
       <Layout story={textStory} config={config}>
-        <RelatedStoryCard story={relatedStoryWithoutHeroImage} config={config} />
+        <RelatedStoryCard story={relatedStoryWithoutHeroImage} />
       </Layout>
     );
     expect(wrapper.find("amp-img").prop("src")).toBe(base64FallbackImage);
