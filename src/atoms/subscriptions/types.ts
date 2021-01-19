@@ -3,9 +3,7 @@ import { Config } from "../../types/config";
 
 export interface SubscriptionProps {
   config: Config;
-  services: ServicesProps[];
-  score?: ScoreProps;
-  fallbackEntitlement?: FallbackEntitlementProps;
+  story: Story;
 }
 
 export interface ServicesProps {

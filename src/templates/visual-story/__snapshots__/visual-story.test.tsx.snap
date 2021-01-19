@@ -4,6 +4,7 @@ exports[`visual story template should match snapshot 1`] = `
 <Providers
   config={
     Object {
+      "additionalConfig": null,
       "ampConfig": Object {
         "chartbeat": Object {
           "authors": "Ravi Kanth",
@@ -3117,11 +3118,11 @@ exports[`visual story template should match snapshot 1`] = `
             "fallbackEntitlement": Object {
               "data": Object {
                 "isLast": false,
-                "isLoggedIn": false,
+                "isLoggedIn": [Function],
                 "numberRemaining": 2,
               },
-              "grantReason": "SUBSCRIBER",
-              "granted": false,
+              "grantReason": [Function],
+              "granted": [Function],
               "source": "fallback",
             },
             "score": Object {
@@ -3130,8 +3131,8 @@ exports[`visual story template should match snapshot 1`] = `
             },
             "services": Object {
               "actions": Object {
-                "login": "https://www.google.com",
-                "subscribe": "https://www.facebook.com",
+                "login": [Function],
+                "subscribe": [Function],
               },
               "authorizationUrl": [Function],
               "pingbackUrl": [Function],
