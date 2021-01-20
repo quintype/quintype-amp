@@ -71,3 +71,47 @@ dummyOpts = {
 2. `bookendUrl`: (String) Optional. The endpoint called by the bookend component. Defaults to `/amp/api/v1/bookend.json` if nothing is passed. If an endpoint is passed, please make sure that the route exists in your app and that it returns data in a valid format. `storyId` and `sectionId` are passed as query parameters. Refer [docs](https://amp.dev/documentation/components/amp-story-bookend/?format=stories)
 3. ad slot: (String) Optional. Example "/1009443/PUBLISHER_AMP_TOP" `featureConfig` > `visualStories` > `ads` > `doubleclick` > `dataSlot` sets the ad slot for visual stories. Ads are dynamically inserted, please read [docs](https://amp.dev/documentation/components/amp-story-auto-ads/?format=stories)
 4. `animation`: (object) Optional. `animation` > `image` applies animation props to the story image. We accept `animateIn`, `animateInDuration` and `animateInDelay`. Refer [docs](https://amp.dev/documentation/guides-and-tutorials/start/visual_story/animating_elements/?format=stories)
+
+<hr />
+
+#### Special note for zoom-in animation effect:
+
+If you've enabled the `zoom-in` animation effect with a long animation duration, you must have noticed that the grey image background is visible below the image. This behaviour is built into google AMP, and we can't modify it.
+If it's not to your liking, we can add a zoom effect using CSS and disable the built-in animations.
+
+For this purpose, ampLib has placed a class called `qt-amp-visual-story-img-cover` on the cover image and `qt-amp-visual-story-img` on the remaining images. These classes can be targeted via CSS.
+
+Example:
+
+```js
+import React, { Fragment } from "react";
+import { AMP } from "@quintype/amp";
+
+// pass TopSlot to ampRoutes function
+export const TopSlot = (props) => {
+  const storyTemplate = props.story["story-template"]
+  if (storyTemplate === "visual-story") return <VisualStoryTopSlot {...props} />
+  return (
+    // your non-visualStory slot logic goes here
+  );
+};
+
+const VisualStoryTopSlot = ({ story, config }) => {
+  const { Head } = AMP;
+  return (
+    <Head>
+      <style>{`
+        amp-story-page[active] .qt-amp-visual-story-img > img {
+          animation: zoom 10s linear forwards;
+        }
+        amp-story-page[active] .qt-amp-visual-story-img-cover > img {
+          animation: zoom 10s linear forwards;
+        }
+        @keyframes zoom{0%{transform:scale(1)}100%{transform:scale(1.3)}}
+      `}</style>
+    </Head>
+  );
+};
+```
+
+After this, please make sure to disable all the image related animations in featureConfig, since they're now redundant.
