@@ -41,7 +41,9 @@ exports[`CoverPage Component should match snapshot 1`] = `
       template="thirds"
     >
       <styled.div>
-        <styled.h1>
+        <styled.h1
+          className="qt-amp-visual-story-cover-headline"
+        >
           Pets are awesome
         </styled.h1>
         <Spacer

@@ -39,7 +39,7 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
         </amp-story-grid-layer>
         <amp-story-grid-layer template="thirds">
           <StyledTextWrapper>
-            <StyledHeadline>{headline}</StyledHeadline>
+            <StyledHeadline className="qt-amp-visual-story-cover-headline">{headline}</StyledHeadline>
             {authorNames && (
               <Fragment>
                 <Spacer token="xs" />
