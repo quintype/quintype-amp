@@ -18,7 +18,7 @@ const StoryCardsWithSubscriptionsBase = ({ story, config }) => {
   const hardPaywallAccessGranted = granted === true;
   const isHardPaywallStory = grantReason === "SUBSCRIBER";
   let storyContent;
-  if ((isHardPaywallStory && !hardPaywallAccessGranted) || !hardPaywallAccessGranted)
+  if ((isHardPaywallStory && !hardPaywallAccessGranted) || (!hardPaywallAccessGranted || isHardPaywallStory))
     storyContent = <HardPaywallStoryContent story={story} config={config} />;
   else storyContent = <FullStoryContent story={story} />;
 
