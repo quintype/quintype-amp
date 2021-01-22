@@ -6,16 +6,13 @@ import { StoryElement } from "../../atoms";
 import { Fragment } from "react";
 import { BodyAd } from "../../molecules/ads";
 import { StoryPageSlots } from "../../molecules/slots";
+import { subscriptionsEnabled } from "../../atoms/subscriptions/subscriptions.helpers";
 
 const { DefaultStoryCardSlot } = StoryPageSlots;
 
 // Renders only the first card with a paywall and if subscribed shows the other remaining cards
 export const HardPaywallStoryContent = ({ story, config }) => {
-    if (!get(
-        config,
-        ["opts", "featureConfig", "subscriptions"])) {
-        return null;
-    }
+    if (!subscriptionsEnabled(story, config)) return null;
     const granted = get(
         config,
         ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "granted"],
