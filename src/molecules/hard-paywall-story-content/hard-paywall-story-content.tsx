@@ -13,12 +13,17 @@ const { DefaultStoryCardSlot } = StoryPageSlots;
 // Renders only the first card with a paywall and if subscribed shows the other remaining cards
 export const HardPaywallStoryContent = ({ story, config }) => {
     if (!subscriptionsEnabled(story, config)) return null;
-    const granted = get(
-        config,
-        ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "granted"],
-        true
-    );
-    const hardPaywallAccessGranted = granted === true;
+
+    // tslint:disable-next-line:no-shadowed-variable
+    const isGranted = (story, config): boolean => {
+        const grantedFunction = get(
+            config, ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "granted"],
+            true
+        );
+        const granted = grantedFunction && grantedFunction({ story, config });
+        return !!granted;
+    };
+    const hardPaywallAccessGranted = isGranted(story, config) === true;
     const cardsVisibleInBlockedStory = get(
         config,
         ["publisherConfig", "layout", "no-of-visible-cards-in-a-blocked-story"]

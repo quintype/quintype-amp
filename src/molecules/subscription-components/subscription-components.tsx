@@ -9,14 +9,29 @@ import { subscriptionsEnabled } from "../../atoms/subscriptions/subscriptions.he
 const StoryCardsWithSubscriptionsBase = ({ story, config }) => {
   // find a better name than StoryCardsWithSubscriptionsBase
   const isStoryBehindPaywall = story.access === "subscription" && subscriptionsEnabled(story, config);
-  const grantReason = get(
-    config,
-    ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "grantReason"],
-    "SUBSCRIBER"
-  );
-  const granted = get(config, ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "granted"], true);
-  const hardPaywallAccessGranted = granted === true;
-  const isHardPaywallStory = grantReason === "SUBSCRIBER";
+
+  // tslint:disable-next-line:no-shadowed-variable
+  const isReasonGranted = (story, config): string => {
+    const grantedReasonFunction = get(
+      config, ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "grantReason"],
+      "SUBSCRIBER"
+    );
+    const grantedReason = grantedReasonFunction && grantedReasonFunction({ story, config });
+    return grantedReason;
+  };
+  // tslint:disable-next-line:no-shadowed-variable
+  const isGranted = (story, config): boolean => {
+    const grantedFunction = get(
+      config, ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "granted"],
+      true
+    );
+    const granted = grantedFunction && grantedFunction({ story, config });
+    return !!granted;
+  };
+
+  const hardPaywallAccessGranted = isGranted(story, config) === true;
+  const isHardPaywallStory = isReasonGranted(story, config) === "SUBSCRIBER";
+
   let storyContent;
   if (isHardPaywallStory || !hardPaywallAccessGranted)
     storyContent = <HardPaywallStoryContent story={story} config={config} />;
