@@ -14,14 +14,6 @@ storiesOf("Related Story Card", module)
       {story()}
     </Layout>
   ))
-  .add("Default", () => <RelatedStoryCard aspectRatio={[16, 9]} fallbackSrc="" story={sampleRelatedStory} />)
-  .add("Without HeroImage", () => (
-    <RelatedStoryCard
-      aspectRatio={[16, 9]}
-      story={relatedStoryWithoutHeroImage}
-      fallbackSrc="https://gumlet.assettype.com/quintype-demo%2F2019-02%2Fae4829d6-e230-4d66-9b88-2a4db87a2060%2F64778.jpg?w=640&auto=format%2Ccompress"
-    />
-  ))
-  .add("Without HeroImage & without fallback src", () => (
-    <RelatedStoryCard aspectRatio={[16, 9]} fallbackSrc="" story={relatedStoryWithoutHeroImage} />
-  ));
+  .add("Default", () => <RelatedStoryCard story={sampleRelatedStory} />)
+  .add("Without HeroImage", () => <RelatedStoryCard story={relatedStoryWithoutHeroImage} />)
+  .add("Without HeroImage & without fallback src", () => <RelatedStoryCard story={relatedStoryWithoutHeroImage} />);
