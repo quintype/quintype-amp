@@ -48,6 +48,7 @@ const StyledTableHeadCell = styled.th`
   position: sticky;
   top: -2px;
   box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+  background-clip: padding-box;
 `;
 
 const TableBodyRow = ({ rowData, index }) => (
