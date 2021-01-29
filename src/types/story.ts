@@ -146,6 +146,12 @@ export interface StoryElement {
   subtype: null | string;
   text?: string;
   "story-elements"?: StoryElement[];
+  data?: StoryElementData | null;
+}
+
+interface StoryElementData {
+  content: string;
+  "content-type": string;
 }
 
 export interface StoryElementMetadata {
@@ -171,6 +177,7 @@ export interface StoryElementMetadata {
   "original-url"?: string;
   question?: string;
   answer?: string;
+  "has-header"?: boolean;
 }
 
 export interface LinkedStory {

@@ -176,6 +176,7 @@ export interface ConfigOpts {
       blockquoteRender?: (props: CommonRenderPropTypes) => any;
       blurbRender?: (props: CommonRenderPropTypes) => any;
       alsoReadRender?: (props: CommonRenderPropTypes) => any;
+      tableElementRender?: (props: CommonRenderPropTypes) => any;
     };
   };
   featureConfig?: FeatureConfigTypes;
