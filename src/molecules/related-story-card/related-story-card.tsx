@@ -1,7 +1,7 @@
-import React, { Fragment } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Image, DateTime, Spacer } from "../../atoms";
-import { RelatedStoryCardTypes, ImageForStoryTypes } from "./types";
+import { RelatedStoryCardTypes } from "./types";
 import { getHumanizedDateTime } from "../../utils/date-time";
 
 const Wrapper = styled.div`
@@ -18,7 +18,7 @@ const Headline = styled.h1`
   font-weight: bold;
 `;
 
-export const RelatedStoryCard = ({ story, aspectRatio, fallbackSrc }: RelatedStoryCardTypes) => {
+export const RelatedStoryCard = ({ story }: RelatedStoryCardTypes) => {
   const {
     headline,
     url,
@@ -36,13 +36,7 @@ export const RelatedStoryCard = ({ story, aspectRatio, fallbackSrc }: RelatedSto
   return (
     <Wrapper>
       <StyledAnchor href={url}>
-        <ImageForStory
-          metadata={imgMetadata}
-          s3Key={imgS3Key}
-          aspectRatio={aspectRatio}
-          altText={imgCaption || imgAttr || "image"}
-          fallbackSrc={fallbackSrc}
-        />
+        <Image metadata={imgMetadata} slug={imgS3Key} alt={imgCaption || imgAttr || "image"} useFallbackImage={true} />
         <Headline>{headline}</Headline>
         <DateTime formattedDate={humanizedDate} />
         <Spacer token="s" />
@@ -51,37 +45,12 @@ export const RelatedStoryCard = ({ story, aspectRatio, fallbackSrc }: RelatedSto
   );
 };
 
-const imagePresent = ({ metadata, s3Key }) => {
-  return !!(metadata && Object.keys(metadata).length && s3Key);
-};
-
-const ImageForStory = ({ metadata, s3Key, aspectRatio, altText, fallbackSrc }: ImageForStoryTypes) => (
-  <Fragment>
-    {imagePresent({ metadata, s3Key }) ? (
-      <Image metadata={metadata} slug={s3Key} aspectRatio={aspectRatio} alt={altText} />
-    ) : (
-      <amp-img
-        alt={altText || "fallback image"}
-        width={aspectRatio[0]}
-        height={aspectRatio[1]}
-        layout="responsive"
-        src={fallbackSrc}
-      />
-    )}
-  </Fragment>
-);
-
 /**
  * RelatedStoryCard Component uses the RelatedStoryCard atomic components internally depending on a condition orelse it uses `<amp-img>` component.
  *
- * ```js
- * <RelatedStoryCard aspectRatio={[16, 9]} fallbackSrc="" story={relatedStory} />
- * ```
  *
  * @param {Object} props Object containing parameters passed to the render prop
  * @param {String} props.story Required. A story object from related stories collection.
- * @param {Object} props.fallbackSrc Optional. A String which takes in fallback image source.
- * @param {Object} props.aspectRatio Optional. An Array of width and height. Defaults to [16,9].
  *  @category Molecules
  * @component
  */

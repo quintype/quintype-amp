@@ -1,6 +1,6 @@
 {
   "name": "@quintype/amp",
-  "version": "2.2.2",
+  "version": "2.2.4",
   "description": "Quintype's AMP component library for publisher apps to create amp layouts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -98,6 +98,7 @@
     "lodash.get": "^4.4.2",
     "lodash.merge": "^4.6.2",
     "node-html-parser": "^1.2.20",
+    "papaparse": "^5.3.0",
     "performant-array-to-tree": "^1.7.1",
     "quintype-js": "^1.2.1",
     "react-helmet": "^5.2.1",

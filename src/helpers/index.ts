@@ -2,7 +2,7 @@ import ampifyStory from "./ampify-story";
 import renderToString from "./render-to-string";
 import { genStyles } from "./gen-styles";
 import { matchStoryElement } from "./match-story-element";
-import { focusedImagePath } from "./image-helpers";
+import { getImgSrcAndSrcset } from "./image-helpers";
 import { invertHexColor } from "./invert-color";
 
-export { renderToString, ampifyStory, focusedImagePath, matchStoryElement, genStyles, invertHexColor };
+export { renderToString, ampifyStory, matchStoryElement, genStyles, invertHexColor, getImgSrcAndSrcset };

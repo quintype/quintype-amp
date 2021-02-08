@@ -2,16 +2,15 @@ import { Common } from "../common-types";
 import { Config } from "../../types/config";
 
 export interface ImageTypes extends Common {
-  metadata: ImageMetadata;
+  metadata: ImageMetadata | null;
   config: Config;
-  slug: string;
+  slug: string | null;
   alt: string;
   aspectRatio?: number[];
-  width?: string;
-  height?: string;
   opts?: object;
   attribution?: string;
   lightbox?: string | boolean;
+  useFallbackImage?: boolean;
 }
 
 interface ImageMetadata {
@@ -20,8 +19,8 @@ interface ImageMetadata {
 }
 
 export interface AmpImgPropTypes extends Common {
-  src: string;
   alt: string;
+  src?: string;
   srcset?: string;
   attribution?: string;
   lightbox?: string | boolean;

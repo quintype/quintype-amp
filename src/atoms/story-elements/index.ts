@@ -18,6 +18,7 @@ import { VidibleElement } from "./vidible-element";
 import { Title } from "./title";
 import { ImageGalleryElement } from "./image-gallery-element";
 import { Attachment } from "./attachment";
+import { TableElement } from "./table-element";
 
 const StoryElements = {
   Text,
@@ -39,7 +40,8 @@ const StoryElements = {
   VidibleElement,
   Title,
   ImageGalleryElement,
-  Attachment
+  Attachment,
+  TableElement
 };
 export {
   Text,
@@ -61,6 +63,7 @@ export {
   VidibleElement,
   Title,
   ImageGalleryElement,
-  Attachment
+  Attachment,
+  TableElement
 };
 export { StoryElements };

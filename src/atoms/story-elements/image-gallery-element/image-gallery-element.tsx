@@ -1,8 +1,7 @@
 import React from "react";
 import { StoryElementProps } from "../types";
 import { ImageGalleryTypes } from "./types";
-import { Carousel } from "../../carousel";
-import { Image } from "../../image";
+import { Image, Carousel } from "../../index";
 import styled from "styled-components";
 import { media } from "../../../utils/media";
 import { withStoryAndConfig } from "../../../context";
@@ -39,6 +38,7 @@ export const DefaultImageGalleryElement = ({
   layout = "responsive",
   aspectRatio = [16, 9],
   type,
+  config,
   lightbox,
   ...props
 }: ImageGalleryTypes) => {
@@ -90,7 +90,7 @@ export const ImageGalleryElementBase = ({ element, story, config }: StoryElement
   return imageGalleryElementRender ? (
     imageGalleryElementRender({ story, config, element })
   ) : (
-    <DefaultImageGalleryElement element={element} />
+    <DefaultImageGalleryElement element={element} config={config} />
   );
 };
 

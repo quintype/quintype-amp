@@ -1,3 +1,3 @@
-import { WebStoryPageComponents, WebStoryImage } from "./web-story-page-components";
+import { WebStoryPageComponents } from "./web-story-page-components";
 
-export { WebStoryPageComponents, WebStoryImage };
+export { WebStoryPageComponents };
