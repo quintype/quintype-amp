@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { PublisherLogoHeaderTypes } from "./types";
 import { withConfig } from "../../context";
 import get from "lodash.get";
-import { Head } from "../head";
+import { Head } from "../index";
 
 export const PublisherLogoHeaderBase = ({ config }: PublisherLogoHeaderTypes) => {
   const publisherName = get(config, ["publisherConfig", "publisher-name"], "");

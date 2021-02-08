@@ -1,4 +1,4 @@
-import { focusedImagePath } from "./image-helpers";
+import { getImgSrcAndSrcset } from "./image-helpers";
 import { base64FallbackImage } from "./fallback-image";
 
-export { focusedImagePath, base64FallbackImage };
+export { base64FallbackImage, getImgSrcAndSrcset };

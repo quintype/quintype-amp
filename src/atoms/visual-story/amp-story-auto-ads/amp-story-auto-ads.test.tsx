@@ -40,6 +40,8 @@ describe("amp-story-auto-ads", () => {
       }
     };
     const wrapper = shallow(<AmpStoryAutoAdsBase story={visualStory} config={configWithAd} />);
-    expect(wrapper.find("script[type='application/json']").text()).toMatch(/data-slot\":\"foo\"/);
+    expect(wrapper.find("script[type='application/json']").html()).toEqual(
+      '<script type="application/json">{"ad-attributes":{"type":"doubleclick","data-slot":"foo","json":"{\\"targeting\\":{\\"environment\\":[\\"production\\"],\\"publisher-name\\":[\\"vikatan\\"],\\"sections\\":[\\"entertainment\\"]}}"}}</script>'
+    );
   });
 });

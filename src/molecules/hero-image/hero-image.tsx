@@ -4,10 +4,8 @@ import { HeroImageMetadata } from "../../types/story";
 import styled from "styled-components";
 import { media } from "../../utils/media";
 import { withStoryAndConfig } from "../../context";
-import { LightboxGallery } from "../../atoms";
-import { focusedImagePath } from "../../helpers";
+import { Image } from "../../atoms";
 import get from "lodash.get";
-import { AmpImgPropTypes } from "../../atoms/image/types";
 
 const StyledFigcaption = styled.figcaption`
   text-align: left;
@@ -29,39 +27,20 @@ const StyledFigcaption = styled.figcaption`
 	`}
 `;
 
-export const HeroImageBase = ({ story, config }: HeroImageBaseTypes) => {
+export const HeroImageBase = ({ story }: HeroImageBaseTypes) => {
   const metadata: HeroImageMetadata = get(story, "hero-image-metadata", null);
   const slug: string | null = get(story, "hero-image-s3-key", null);
   if (!slug || !metadata) return null;
 
   const attribution: string | null = get(story, "hero-image-attribution", null);
   const caption: string | null = get(story, "hero-image-caption", null);
-  const imgAspectRatio = metadata && metadata.width && metadata.height ? [metadata.width, metadata.height] : [16, 9];
-  const imgSrc = focusedImagePath({
-    slug,
-    metadata,
-    imgAspectRatio,
-    cdnImage: config.publisherConfig["cdn-image"],
-    opts: { enlarge: true }
-  });
   const figcaptionText = getFigcaptionText(caption, attribution);
-
-  const ampImgProps: AmpImgPropTypes = {
-    width: imgAspectRatio[0].toString(),
-    height: imgAspectRatio[1].toString(),
-    src: imgSrc,
-    srcset: `${imgSrc} 1200w`,
-    layout: "responsive",
-    alt: caption || attribution || "",
-    lightbox: "true"
-  };
 
   return (
     <div>
-      <LightboxGallery />
-      <amp-img {...ampImgProps} data-hero="true">
+      <Image data-hero="true" metadata={metadata} slug={slug} alt={caption || attribution || ""}>
         {figcaptionText && <StyledFigcaption dangerouslySetInnerHTML={{ __html: figcaptionText || "" }} />}
-      </amp-img>
+      </Image>
     </div>
   );
 };

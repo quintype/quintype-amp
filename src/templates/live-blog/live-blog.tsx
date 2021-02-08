@@ -12,7 +12,8 @@ import {
   QuintypeAnalytics,
   ComScore,
   ChartBeat,
-  InfiniteScroll
+  InfiniteScroll,
+  Fonts
 } from "../../atoms";
 import { HeaderCard, Navbar, RelatedStories, WebEngage } from "../../molecules";
 import { TopAd, BodyAd, BottomAd } from "../../molecules/ads";
@@ -66,6 +67,7 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
   return (
     <Layout story={story} config={config}>
       {navbarComponent}
+      <Fonts />
       <IncompatibleBanner />
       <GoogleTagManager />
       <Wrapper>

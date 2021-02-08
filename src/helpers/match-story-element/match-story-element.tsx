@@ -17,7 +17,8 @@ import {
   VidibleElement,
   Title,
   ImageGalleryElement,
-  Attachment
+  Attachment,
+  TableElement
 } from "../../atoms/story-elements";
 
 const anyType = "any";
@@ -30,7 +31,7 @@ const StoryElementsTable = [
   ["composite", "ingredients", noop],
   ["composite", "playlist", noop],
   ["composite", "references", noop],
-  ["data", "table", noop],
+  ["data", "table", TableElement],
   ["external-file", "bitgravity-video", noop],
   ["external-file", "brightcove-video", noop],
   ["external-file", "jwplayer", noop],

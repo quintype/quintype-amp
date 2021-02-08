@@ -2,28 +2,6 @@
 
 exports[`RelatedStories should render default 1`] = `
 <Fragment>
-  <HelmetWrapper
-    defer={true}
-    encodeSpecialCharacters={true}
-  >
-    <link
-      crossorigin="anonymous"
-      href="https://fonts.gstatic.com/"
-      rel="preconnect dns-prefetch"
-    />
-    <link
-      as="style"
-      crossorigin="anonymous"
-      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
-      rel="preload"
-    />
-    <link
-      as="style"
-      crossorigin="anonymous"
-      href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700,700italic"
-      rel="preload"
-    />
-  </HelmetWrapper>
   <ContextProvider
     value={
       Object {
@@ -65,7 +43,6 @@ exports[`RelatedStories should render default 1`] = `
               "width": 300,
             },
           },
-          "fallback-image-url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/300px-Wikipedia-logo-v2.svg.png",
           "fonts": Object {
             "primary": Object {
               "family": "\\"Open Sans\\", sans-serif",

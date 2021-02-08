@@ -4,7 +4,17 @@
 
 import { ampifyStory } from "./ampify-story";
 import { isValidAmpHtml } from "../../utils/validate-amp";
-import { allElementsStory, textStory, publisherConfig, ampConfig, configOpts, seo } from "../../__fixtures__";
+import {
+  allElementsStory,
+  textStory,
+  publisherConfig,
+  ampConfig,
+  configOpts,
+  seo,
+  visualStory
+} from "../../__fixtures__";
+import React from "react";
+import { Head } from "../../atoms";
 
 function mockStoryType(desiredType) {
   const story = { ...textStory };
@@ -21,6 +31,47 @@ describe("Ampify Story", () => {
       ampConfig,
       additionalConfig: null,
       opts: configOpts,
+      seo
+    });
+    const ampValidatorOutput = await isValidAmpHtml(ampHtml);
+    expect(ampValidatorOutput).toBe(true);
+  });
+  it("ampifyStory function should return valid amp-html for a visual story", async () => {
+    const newOpts = {
+      slots: {
+        story: {
+          "top-slot": () => (
+            <Head>
+              <style>{`
+        amp-story-page[active] .qt-amp-visual-story-img > img {
+          animation: zoom 5s linear forwards;
+        }
+        amp-story-page[active] .qt-amp-visual-story-img-cover > img {
+          animation: zoom 5s linear forwards;
+        }
+        @keyframes zoom{0%{transform:scale(1)}100%{transform:scale(1.3)}}
+      `}</style>
+            </Head>
+          )
+        }
+      },
+      featureConfig: {
+        visualStories: {
+          autoAdvanceAfter: "10s",
+          ads: {
+            doubleclick: {
+              dataSlot: "/1009127/Viaktan_AMP_TOP"
+            }
+          }
+        }
+      }
+    };
+    const ampHtml = ampifyStory({
+      story: visualStory,
+      publisherConfig,
+      ampConfig,
+      additionalConfig: null,
+      opts: newOpts,
       seo
     });
     const ampValidatorOutput = await isValidAmpHtml(ampHtml);

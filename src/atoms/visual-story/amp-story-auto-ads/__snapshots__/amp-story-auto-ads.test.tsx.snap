@@ -13,10 +13,13 @@ exports[`amp-story-auto-ads should match snapshot 1`] = `
   </HelmetWrapper>
   <amp-story-auto-ads>
     <script
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "{\\"ad-attributes\\":{\\"type\\":\\"doubleclick\\",\\"data-slot\\":\\"foo\\",\\"json\\":\\"{\\\\\\"targeting\\\\\\":{\\\\\\"environment\\\\\\":[\\\\\\"production\\\\\\"],\\\\\\"publisher-name\\\\\\":[\\\\\\"vikatan\\\\\\"],\\\\\\"sections\\\\\\":[\\\\\\"entertainment\\\\\\"]}}\\"}}",
+        }
+      }
       type="application/json"
-    >
-      {"ad-attributes":{"type":"doubleclick","data-slot":"foo","json":"{\\"targeting\\":{\\"environment\\":[\\"production\\"],\\"publisher-name\\":[\\"vikatan\\"],\\"sections\\":[\\"entertainment\\"]}}"}}
-    </script>
+    />
   </amp-story-auto-ads>
 </Fragment>
 `;
