@@ -14,6 +14,10 @@ const GoogleAnalyticsBase = ({ config }) => {
       trackPageview: {
         on: "visible",
         request: "pageview"
+      },
+      trackScrollThrough: {
+        on: "amp-next-page-scroll",
+        request: "pageview"
       }
     }
   };
