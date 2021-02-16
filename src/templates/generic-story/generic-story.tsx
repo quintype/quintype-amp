@@ -21,6 +21,7 @@ import { getServicesParams, getScoreParams, getFallbackEntitlementParams } from 
 import { TopAd, BottomAd } from "../../molecules/ads";
 import { StoryPageSlots } from "../../molecules/slots";
 import { StoryCards } from "../../molecules/story-cards/story-card";
+import { infiniteScrollExists } from "../../helpers";
 
 const { TopSlot, BottomSlot } = StoryPageSlots;
 const StoryContainer = styled.div`
@@ -49,10 +50,9 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
     ["opts", "featureConfig", "infiniteScroll", "infiniteScrollInlineConfig"],
     null
   );
-  const infiniteScrollExists = !!(infiniteScrollInlineConfig && infiniteScrollInlineConfig.length);
   let lastComponent = <Footer text={footerText} />;
   let navbarComponent = <Navbar />;
-  if (infiniteScrollExists) {
+  if (infiniteScrollExists(config)) {
     lastComponent = (
       <InfiniteScroll inlineConfig={infiniteScrollInlineConfig}>
         <div next-page-hide="true" footer="true">

@@ -14,6 +14,16 @@ const configWithoutGa2 = {
     "google-analytics-tracking-id": ""
   }
 };
+const configWithInfiniteScroll = {
+  ampConfig: { "google-analytics-tracking-id": "UX-656565" },
+  opts: {
+    featureConfig: {
+      infiniteScroll: {
+        infiniteScrollInlineConfig: `[{\"image\":\"https://foo.com/puppies.jpg\",\"title\":\"Puppies Page\",\"url\":\"/puppies\"}]`
+      }
+    }
+  }
+};
 describe("Google Analytics", () => {
   it("should render", () => {
     const wrapper = shallow(<GoogleAnalyticsBase config={config} />);
@@ -24,7 +34,10 @@ describe("Google Analytics", () => {
       triggers: {
         trackPageview: {
           on: "visible",
-          request: "pageview"
+          request: "pageview",
+          scrollSpec: {
+            useInitialPageSize: false
+          }
         }
       }
     });
@@ -40,5 +53,22 @@ describe("Google Analytics", () => {
   it("should not render if GA config is empty", () => {
     const wrapper = shallow(<GoogleAnalyticsBase config={configWithoutGa2} />);
     expect(wrapper.find(Analytics).length).toBe(0);
+  });
+  it("should request pageview on event 'amp-next-page-scroll' and set scrollSpec.useInitialPageSize to true if infinite scroll is enabled", () => {
+    const wrapper = shallow(<GoogleAnalyticsBase config={configWithInfiniteScroll} />);
+    expect(wrapper.find(Analytics).prop("targets")).toEqual({
+      vars: {
+        account: "UX-656565"
+      },
+      triggers: {
+        trackPageview: {
+          on: "amp-next-page-scroll",
+          request: "pageview",
+          scrollSpec: {
+            useInitialPageSize: true
+          }
+        }
+      }
+    });
   });
 });
