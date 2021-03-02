@@ -1,6 +1,6 @@
 {
   "name": "@quintype/amp",
-  "version": "2.2.4",
+  "version": "2.2.7",
   "description": "Quintype's AMP component library for publisher apps to create amp layouts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
