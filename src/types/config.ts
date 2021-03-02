@@ -4,6 +4,7 @@ import { Story } from "./story";
 export interface Config {
   publisherConfig: PublisherConfig;
   ampConfig: AMPConfig;
+  additionalConfig: object | null;
   opts?: ConfigOpts;
 }
 
@@ -149,7 +150,7 @@ export interface ConfigOpts {
   templates?: object;
   slots?: SlotsTypes;
   render?: {
-    headerCardRender?: (props: CommonRenderPropTypes) => any;
+    headerCardRender?: (props: Config) => any;
     relatedStoriesRender?: (props: RelatedStoriesRenderPropTypes) => any;
     infiniteScrollRender?: (props: InfiniteScrollRenderPropTypes) => any;
     subscriptionRender?: {
@@ -186,6 +187,7 @@ export interface CommonRenderPropTypes {
   story: Story;
   config: Config;
 }
+
 interface RelatedStoriesRenderPropTypes {
   relatedStories: Story[];
   config: Config;
