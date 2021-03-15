@@ -1,12 +1,10 @@
-import React from "react";
 import { shallow } from "enzyme";
-import { Layout } from "./layout";
-import { textStory, config } from "../../__fixtures__";
+import { FontsBase } from "./fonts";
+import React from "react";
 
-describe("Layout", () => {
-  it("Should preload primary & secondary font stylesheets and preconnect to https://fonts.gstatic.com", () => {
-    const modifiedConfig = { ...config };
-    modifiedConfig.ampConfig.fonts = {
+const dummyConfig = {
+  ampConfig: {
+    fonts: {
       primary: {
         url: "Mukta+Malar:300,400,600,700",
         family: '"Mukta Malar", sans-serif'
@@ -15,12 +13,17 @@ describe("Layout", () => {
         url: "Mukta+Malar:400,400italic,700,700italic",
         family: '"Mukta Malar",sans-serif'
       }
-    };
-    const wrapper = shallow(
-      <Layout story={textStory} config={modifiedConfig}>
-        <div>foo</div>
-      </Layout>
-    );
+    }
+  }
+};
+
+describe("Fonts component", () => {
+  it("Should match snapshot", () => {
+    const wrapper = shallow(<FontsBase config={dummyConfig} />);
+    expect(wrapper).toMatchSnapshot();
+  });
+  it("Should preconnect to fonts provider and preload fonts", () => {
+    const wrapper = shallow(<FontsBase config={dummyConfig} />);
     expect(
       wrapper
         .find(`link`)
@@ -50,7 +53,7 @@ describe("Layout", () => {
         .find(`link`)
         .at(1)
         .prop("href")
-    ).toBe("https://fonts.googleapis.com/css?family=Mukta+Malar:300,400,600,700");
+    ).toBe("https://fonts.googleapis.com/css?family=Mukta+Malar:300,400,600,700&display=swap");
     expect(
       wrapper
         .find(`link`)
@@ -68,6 +71,6 @@ describe("Layout", () => {
         .find(`link`)
         .at(2)
         .prop("href")
-    ).toBe("https://fonts.googleapis.com/css?family=Mukta+Malar:400,400italic,700,700italic");
+    ).toBe("https://fonts.googleapis.com/css?family=Mukta+Malar:400,400italic,700,700italic&display=swap");
   });
 });

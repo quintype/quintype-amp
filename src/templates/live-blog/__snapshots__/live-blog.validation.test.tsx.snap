@@ -4,6 +4,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
 <Component
   config={
     Object {
+      "additionalConfig": null,
       "ampConfig": Object {
         "chartbeat": Object {
           "authors": "Ravi Kanth",
@@ -41,7 +42,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             "width": 300,
           },
         },
-        "fallback-image-url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/300px-Wikipedia-logo-v2.svg.png",
         "fonts": Object {
           "primary": Object {
             "family": "\\"Open Sans\\", sans-serif",
@@ -3117,11 +3117,11 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             "fallbackEntitlement": Object {
               "data": Object {
                 "isLast": false,
-                "isLoggedIn": false,
+                "isLoggedIn": [Function],
                 "numberRemaining": 2,
               },
-              "grantReason": "SUBSCRIBER",
-              "granted": false,
+              "grantReason": [Function],
+              "granted": [Function],
               "source": "fallback",
             },
             "score": Object {
@@ -3130,8 +3130,8 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             },
             "services": Object {
               "actions": Object {
-                "login": "https://www.google.com",
-                "subscribe": "https://www.facebook.com",
+                "login": [Function],
+                "subscribe": [Function],
               },
               "authorizationUrl": [Function],
               "pingbackUrl": [Function],
@@ -4083,6 +4083,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
   >
     <WithTheme(Component) />
   </div>
+  <Component />
   <Component />
   <Component />
   <styled.div>

@@ -1,36 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HeroImage should render 1`] = `
-<div>
-  <Component />
-  <amp-img
-    alt="Create"
-    data-hero="true"
-    height="1162"
-    layout="responsive"
-    lightbox="true"
-    src="https://gumlet.assettype.com/barandbench%2F2020-02%2F43fb44c4-2028-4b90-95ad-dc54aad47a28%2FDiscover_Law_Logo_1.jpg?rect=0%2C0%2C2550%2C1162&auto=format%2Ccompress&w=1200&enlarge=true"
-    srcset="https://gumlet.assettype.com/barandbench%2F2020-02%2F43fb44c4-2028-4b90-95ad-dc54aad47a28%2FDiscover_Law_Logo_1.jpg?rect=0%2C0%2C2550%2C1162&auto=format%2Ccompress&w=1200&enlarge=true 1200w"
-    width="2550"
-  >
-    <styled.figcaption
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "Create",
-        }
-      }
-    />
-  </amp-img>
-</div>
-`;
-
-exports[`HeroImage should render caption without HTML Tags 1`] = `
-<Component
-  attribution="<span>custom attribution</span>"
-  caption="<p>Congress, AAP and AIMIM leaders</p>"
-  config={Object {}}
-  story={Object {}}
-/>
-`;
-
 exports[`getFigcaptionText should return caption and attribution without HTML Tags 1`] = `"img caption | img attribution"`;

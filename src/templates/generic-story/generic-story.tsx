@@ -11,12 +11,12 @@ import {
   ComScore,
   ChartBeat,
   InfiniteScroll,
-  Subscription
+  Subscription,
+  Fonts
 } from "../../atoms";
 import styled from "styled-components";
 import { CommonTemplateTypes } from "../common-template-types";
 import get from "lodash.get";
-import { getServicesParams, getScoreParams, getFallbackEntitlementParams } from "./generic-story.helpers";
 import { TopAd, BottomAd } from "../../molecules/ads";
 import { StoryPageSlots } from "../../molecules/slots";
 import { StoryCards } from "../../molecules/story-cards/story-card";
@@ -39,9 +39,6 @@ const Wrapper = styled.div`
  * @component
  */
 export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
-  const services = getServicesParams({ story, config });
-  const score = getScoreParams({ config });
-  const fallbackEntitlement = getFallbackEntitlementParams({ config });
   const footerText = get(config, ["publisherConfig", "publisher-settings", "copyright"], null);
   const infiniteScrollInlineConfig = get(
     config,
@@ -68,7 +65,8 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
   const templateName = "default";
   return (
     <Layout story={story} config={config}>
-      <Subscription services={services} score={score} fallbackEntitlement={fallbackEntitlement} config={config} />
+      <Subscription />
+      <Fonts />
       {navbarComponent}
       <IncompatibleBanner />
       <GoogleTagManager />

@@ -4,6 +4,7 @@ import { Story } from "./story";
 export interface Config {
   publisherConfig: PublisherConfig;
   ampConfig: AMPConfig;
+  additionalConfig: object | null;
   opts?: ConfigOpts;
 }
 
@@ -98,7 +99,6 @@ export interface AMPConfig {
   "google-client-id-api": boolean;
   "invalid-elements-strategy": string;
   "google-analytics-tracking-id": string;
-  "fallback-image-url": string;
 }
 
 export interface MenuGroupItemsTypes {
@@ -150,7 +150,7 @@ export interface ConfigOpts {
   templates?: object;
   slots?: SlotsTypes;
   render?: {
-    headerCardRender?: (props: CommonRenderPropTypes) => any;
+    headerCardRender?: (props: Config) => any;
     relatedStoriesRender?: (props: RelatedStoriesRenderPropTypes) => any;
     infiniteScrollRender?: (props: InfiniteScrollRenderPropTypes) => any;
     subscriptionRender?: {
@@ -178,6 +178,7 @@ export interface ConfigOpts {
       blockquoteRender?: (props: CommonRenderPropTypes) => any;
       blurbRender?: (props: CommonRenderPropTypes) => any;
       alsoReadRender?: (props: CommonRenderPropTypes) => any;
+      tableElementRender?: (props: CommonRenderPropTypes) => any;
     };
   };
   featureConfig?: FeatureConfigTypes;
@@ -187,6 +188,7 @@ export interface CommonRenderPropTypes {
   story: Story;
   config: Config;
 }
+
 interface RelatedStoriesRenderPropTypes {
   relatedStories: Story[];
   config: Config;

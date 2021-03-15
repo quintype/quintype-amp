@@ -4,7 +4,7 @@
 
 import { conditionExternalLinks } from "./text.helpers";
 
-test("conditionExternalLinks should add nofollow and target blank on external links", async () => {
+test("conditionExternalLinks should add 'nofollow noopener' and target blank on external links", async () => {
   const dummyText = `<p><a href="https://www.vikatan.com/a/bc/def">An expert committee</a> set up by ... data.</p><p>The “<a href="https://static.mygov.in/rest/s3fs-public/mygov_159453381955063671.pdf">Report by the Committee </a>” recommends that ... citizens. Lorem <a href="https://sports.vikatan.com/aaaa/bbb/ccc.jpg">ipsum</a> dolor sit <a href="https://cinema.vikatan.com/foo/123" >amet</a>, consectetur <a href="https://www.facebook.com/mark/zucc">adipiscing</a> elit</p>`;
   const dummyConfig = {
     publisherConfig: {
@@ -33,7 +33,7 @@ test("conditionExternalLinks should add nofollow and target blank on external li
   };
   const output = conditionExternalLinks({ text: dummyText, config: dummyConfig });
   expect(output).toBe(
-    `<p><a href=\"https://www.vikatan.com/a/bc/def\">An expert committee</a> set up by ... data.</p><p>The “<a href=\"https://static.mygov.in/rest/s3fs-public/mygov_159453381955063671.pdf\" rel=\"nofollow\" target=\"_blank\">Report by the Committee </a>” recommends that ... citizens. Lorem <a href=\"https://sports.vikatan.com/aaaa/bbb/ccc.jpg\">ipsum</a> dolor sit <a href=\"https://cinema.vikatan.com/foo/123\" >amet</a>, consectetur <a href=\"https://www.facebook.com/mark/zucc\" rel=\"nofollow\" target=\"_blank\">adipiscing</a> elit</p>`
+    `<p><a href=\"https://www.vikatan.com/a/bc/def\">An expert committee</a> set up by ... data.</p><p>The “<a href=\"https://static.mygov.in/rest/s3fs-public/mygov_159453381955063671.pdf\" rel=\"nofollow noopener\" target=\"_blank\">Report by the Committee </a>” recommends that ... citizens. Lorem <a href=\"https://sports.vikatan.com/aaaa/bbb/ccc.jpg\">ipsum</a> dolor sit <a href=\"https://cinema.vikatan.com/foo/123\" >amet</a>, consectetur <a href=\"https://www.facebook.com/mark/zucc\" rel=\"nofollow noopener\" target=\"_blank\">adipiscing</a> elit</p>`
   );
 });
 
