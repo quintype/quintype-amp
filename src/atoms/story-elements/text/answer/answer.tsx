@@ -5,7 +5,16 @@ import { withStoryAndConfig } from "../../../../context";
 import get from "lodash.get";
 
 export const StyledAnswer = styled.div`
-  color: ${(props) => props.theme.color.mono5};
+  font-size: ${(props) => props.theme.font.size.s};
+  color: ${(props) => props.theme.color.mono7};
+  line-height: ${(props) => props.theme.font.lineHeight.level5};
+
+  & > p {
+    :before {
+      content: "A: ";
+      font-weight: ${(props) => props.theme.font.weight.bold};
+    }
+  }
 `;
 
 export const AnswerBase = ({ element, story, config }: StoryElementProps) => {
