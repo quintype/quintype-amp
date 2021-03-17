@@ -3,7 +3,6 @@ import { StoryElementProps } from "../../types";
 import { withStoryAndConfig } from "../../../../context";
 import { StyledQuestion } from "../question/question";
 import { StyledAnswer } from "../answer/answer";
-import { Spacer } from "../../../index";
 import get from "lodash.get";
 
 export const QAndABase = ({ element, story, config }: StoryElementProps) => {
@@ -18,13 +17,11 @@ export const QAndABase = ({ element, story, config }: StoryElementProps) => {
       {question && (
         <Fragment>
           <StyledQuestion dangerouslySetInnerHTML={{ __html: question }} />
-          <Spacer token="s" />
         </Fragment>
       )}
       {answer && (
         <Fragment>
           <StyledAnswer dangerouslySetInnerHTML={{ __html: answer }} />
-          <Spacer token="s" />
         </Fragment>
       )}
     </div>
