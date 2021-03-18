@@ -4,9 +4,16 @@ import { StoryElementProps } from "../../types";
 import { withStoryAndConfig } from "../../../../context";
 import get from "lodash.get";
 
-export const StyledAnswer = styled.p<StoryElementProps>`
-  .answer {
-    color: ${(props) => props.theme.color.mono5};
+export const StyledAnswer = styled.div`
+  font-size: ${(props) => props.theme.font.size.s};
+  color: ${(props) => props.theme.color.mono7};
+  line-height: ${(props) => props.theme.font.lineHeight.level5};
+
+  & > p {
+    :before {
+      content: "A: ";
+      font-weight: ${(props) => props.theme.font.weight.bold};
+    }
   }
 `;
 
@@ -15,13 +22,7 @@ export const AnswerBase = ({ element, story, config }: StoryElementProps) => {
   return answerElementRender ? (
     answerElementRender({ story, config, element })
   ) : (
-    <StyledAnswer
-      element={element}
-      story={story}
-      config={config}
-      as="p"
-      dangerouslySetInnerHTML={{ __html: element.text || "" }}
-    />
+    <StyledAnswer dangerouslySetInnerHTML={{ __html: element.text || "" }} />
   );
 };
 /**
