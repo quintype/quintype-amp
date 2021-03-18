@@ -5,7 +5,7 @@
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66074042-1', 'auto');ga('send', 'pageview');</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AMP Library Navbar</title>
+  <title>AMP Library QAndA</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -122,7 +122,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Components</p>
-                    <h1>Navbar</h1>
+                    <h1>QAndA</h1>
                 </header>
                 
 
@@ -134,7 +134,7 @@
 <header>
     
         <h2>
-            &ltNavbar  /&gt
+            &ltQAndA  /&gt
         </h2>
         
     
@@ -154,12 +154,12 @@
 
 
     
-    <h4 class="name" id="Navbar">
-        <a class="href-link" href="#Navbar">#</a>
+    <h4 class="name" id="QAndA">
+        <a class="href-link" href="#QAndA">#</a>
         
         <span class="code-name">
             
-                &ltNavbar  /&gt
+                &ltQAndA  /&gt
             
         </span>
     </h4>
@@ -168,9 +168,8 @@
     
     
     <div class="description">
-        <p>Navbar Component uses the PublisherLogoHeader, HamburgerMenu and Hamburger atomic components internally.</p>
-<pre class="prettyprint source lang-js"><code>&lt;Navbar align=&quot;right&quot; />
-</code></pre>
+        <p>QAndA is a story element.
+The look of the Question can be changed using the render prop qAndAElementRender. In case qAndAElementRender is passed in the config, it is rendered. Otherwise a default QAndA element is rendered.</p>
     </div>
     
 
@@ -210,7 +209,7 @@
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>props</code></td>
+      <td class="name"><code>params</code></td>
   
 
   <td class="type">
@@ -226,7 +225,7 @@
 
   
 
-  <td class="description last"><p>Object containing parameters passed to the render prop</p></td>
+  <td class="description last"><p>object containing parameters passed to the render prop</p></td>
 </tr>
 
   
@@ -234,13 +233,13 @@
     
 <tr class="deep-level-1">
   
-      <td class="name"><code>align</code></td>
+      <td class="name"><code>story</code></td>
   
 
   <td class="type">
   
       
-<span class="param-type">String</span>
+<span class="param-type">Object</span>
 
 
   
@@ -250,7 +249,7 @@
 
   
 
-  <td class="description last"><p>Optional. A string of &quot;right&quot; or &quot;left&quot; which specifies the direction of the hamburger menu.</p></td>
+  <td class="description last"><p>story object</p></td>
 </tr>
 
   
@@ -280,7 +279,7 @@
     
 <tr class="deep-level-1">
   
-      <td class="name"><code>theme</code></td>
+      <td class="name"><code>element</code></td>
   
 
   <td class="type">
@@ -296,7 +295,13 @@
 
   
 
-  <td class="description last"><p>theme object</p></td>
+  <td class="description last"><p>the story element. This is same as the story element found in the story API response</p>
+<pre class="prettyprint source lang-javascript"><code>...
+ampRoutes(app, {
+   qAndAElementRender: ({ story, config, element }) => &lt;MyCustomQAndAElement story={story} config={config} storyElement={element} />
+})
+...
+</code></pre></td>
 </tr>
 
   
@@ -344,9 +349,9 @@
 
     
         <p class="tag-source">
-            <a href="molecules_navbar_navbar.tsx.html" class="button">View Source</a>
+            <a href="atoms_story-elements_text_q-and-a_q-and-a.tsx.html" class="button">View Source</a>
             <span>
-                <a href="molecules_navbar_navbar.tsx.html">molecules/navbar/navbar.tsx</a>, <a href="molecules_navbar_navbar.tsx.html#line68">line 68</a>
+                <a href="atoms_story-elements_text_q-and-a_q-and-a.tsx.html">atoms/story-elements/text/q-and-a/q-and-a.tsx</a>, <a href="atoms_story-elements_text_q-and-a_q-and-a.tsx.html#line19">line 19</a>
             </span>
         </p>
     
