@@ -5,7 +5,6 @@ export interface AmpifyStoryTypes {
   story: Story;
   ampConfig: AMPConfig;
   publisherConfig: PublisherConfig;
-  additionalConfig: object | null;
   seo?: string;
   opts?: ConfigOpts;
 }

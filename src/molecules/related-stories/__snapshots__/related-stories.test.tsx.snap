@@ -5,7 +5,6 @@ exports[`RelatedStories should render default 1`] = `
   <ContextProvider
     value={
       Object {
-        "additionalConfig": null,
         "ampConfig": Object {
           "chartbeat": Object {
             "authors": "Ravi Kanth",
@@ -3118,11 +3117,11 @@ exports[`RelatedStories should render default 1`] = `
               "fallbackEntitlement": Object {
                 "data": Object {
                   "isLast": false,
-                  "isLoggedIn": [Function],
+                  "isLoggedIn": false,
                   "numberRemaining": 2,
                 },
-                "grantReason": [Function],
-                "granted": [Function],
+                "grantReason": "SUBSCRIBER",
+                "granted": false,
                 "source": "fallback",
               },
               "score": Object {
@@ -3131,8 +3130,8 @@ exports[`RelatedStories should render default 1`] = `
               },
               "services": Object {
                 "actions": Object {
-                  "login": [Function],
-                  "subscribe": [Function],
+                  "login": "https://www.google.com",
+                  "subscribe": "https://www.facebook.com",
                 },
                 "authorizationUrl": [Function],
                 "pingbackUrl": [Function],

@@ -24,8 +24,8 @@ export const CloseButton = () => (
   </StyledListItem>
 );
 
-const SubmenuOpen = () => <span amp-nested-submenu-open="">{" > "}</span>;
-const SubmenuClose = () => <span amp-nested-submenu-close="">{" < "}</span>;
+const SubmenuOpen = () => <span amp-nested-submenu-open="true">{" > "}</span>;
+const SubmenuClose = () => <span amp-nested-submenu-close="true">{" < "}</span>;
 
 export const MenuItem = ({ item }: MenuItemComponentTypes) =>
   item["item-type"] === "placeholder" ? <Placeholder item={item} /> : <DefaultItem item={item} />;
@@ -36,7 +36,7 @@ export const DefaultItem = ({ item }: MenuItemComponentTypes) => (
 );
 
 const SubMenu = ({ childItems, textDirection }: SubMenuTypes) => (
-  <div amp-nested-submenu="">
+  <div amp-nested-submenu="true">
     <StyledList dir={textDirection}>
       {childItems.map((childItem) => (
         <TreeNode key={childItem.id} item={childItem} textDirection={textDirection} />

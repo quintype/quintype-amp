@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Question should match snapshot 1`] = `
+exports[`Question should render Question element 1`] = `
 <Component
   config={Object {}}
   element={

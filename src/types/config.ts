@@ -4,7 +4,6 @@ import { Story } from "./story";
 export interface Config {
   publisherConfig: PublisherConfig;
   ampConfig: AMPConfig;
-  additionalConfig: object | null;
   opts?: ConfigOpts;
 }
 
@@ -150,7 +149,7 @@ export interface ConfigOpts {
   templates?: object;
   slots?: SlotsTypes;
   render?: {
-    headerCardRender?: (props: Config) => any;
+    headerCardRender?: (props: CommonRenderPropTypes) => any;
     relatedStoriesRender?: (props: RelatedStoriesRenderPropTypes) => any;
     infiniteScrollRender?: (props: InfiniteScrollRenderPropTypes) => any;
     subscriptionRender?: {
@@ -162,7 +161,6 @@ export interface ConfigOpts {
       bigfactElementRender?: (props: CommonRenderPropTypes) => any;
       answerElementRender?: (props: CommonRenderPropTypes) => any;
       questionElementRender?: (props: CommonRenderPropTypes) => any;
-      qAndAElementRender?: (props: CommonRenderPropTypes) => any;
       summaryElementRender?: (props: CommonRenderPropTypes) => any;
       textElementRender?: (props: CommonRenderPropTypes) => any;
       youtubeElementRender?: (props: CommonRenderPropTypes) => any;
@@ -188,7 +186,6 @@ export interface CommonRenderPropTypes {
   story: Story;
   config: Config;
 }
-
 interface RelatedStoriesRenderPropTypes {
   relatedStories: Story[];
   config: Config;

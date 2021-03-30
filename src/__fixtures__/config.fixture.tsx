@@ -653,14 +653,14 @@ export const configOpts: ConfigOpts = {
           `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
         pingbackUrl: ({ story }) =>
           `http://localhost:3000/api/access/v1/stories/${story["story-content-id"]}/amp-access?key=Fxugwc1mVDyJZ2dHB58bShso&accesstype_integration_id=10&readerId=READER_ID`,
-        actions: { login: () => "https://www.google.com", subscribe: () => "https://www.facebook.com" }
+        actions: { login: "https://www.google.com", subscribe: "https://www.facebook.com" }
       },
       score: { supportsViewer: 10, isReadyToPay: 9 },
       fallbackEntitlement: {
         source: "fallback",
-        granted: () => false,
-        grantReason: () => "SUBSCRIBER",
-        data: { numberRemaining: 2, isLast: false, isLoggedIn: () => false }
+        granted: false,
+        grantReason: "SUBSCRIBER",
+        data: { numberRemaining: 2, isLast: false, isLoggedIn: false }
       }
     }
   }
@@ -669,6 +669,5 @@ export const configOpts: ConfigOpts = {
 export const config: Config = {
   publisherConfig,
   ampConfig,
-  opts: configOpts,
-  additionalConfig: null
+  opts: configOpts
 };

@@ -4,7 +4,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
 <Component
   config={
     Object {
-      "additionalConfig": null,
       "ampConfig": Object {
         "chartbeat": Object {
           "authors": "Ravi Kanth",
@@ -3117,11 +3116,11 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             "fallbackEntitlement": Object {
               "data": Object {
                 "isLast": false,
-                "isLoggedIn": [Function],
+                "isLoggedIn": false,
                 "numberRemaining": 2,
               },
-              "grantReason": [Function],
-              "granted": [Function],
+              "grantReason": "SUBSCRIBER",
+              "granted": false,
               "source": "fallback",
             },
             "score": Object {
@@ -3130,8 +3129,8 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
             },
             "services": Object {
               "actions": Object {
-                "login": [Function],
-                "subscribe": [Function],
+                "login": "https://www.google.com",
+                "subscribe": "https://www.facebook.com",
               },
               "authorizationUrl": [Function],
               "pingbackUrl": [Function],

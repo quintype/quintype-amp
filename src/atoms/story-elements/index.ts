@@ -3,7 +3,6 @@ import { Text } from "./text";
 import { Summary } from "./text/summary";
 import { Question } from "./text/question";
 import { Answer } from "./text/answer";
-import { QAndA } from "./text/q-and-a";
 import { Bigfact } from "./text/bigfact";
 import { BlockQuote } from "./blockquote";
 import { ImageElement } from "./image-element";
@@ -26,7 +25,6 @@ const StoryElements = {
   Summary,
   Question,
   Answer,
-  QAndA,
   Bigfact,
   BlockQuote,
   Pending,
@@ -50,7 +48,6 @@ export {
   Summary,
   Question,
   Answer,
-  QAndA,
   Bigfact,
   Pending,
   BlockQuote,

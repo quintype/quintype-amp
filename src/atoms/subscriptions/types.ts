@@ -3,18 +3,20 @@ import { Config } from "../../types/config";
 
 export interface SubscriptionProps {
   config: Config;
-  story: Story;
+  services: ServicesProps[];
+  score?: ScoreProps;
+  fallbackEntitlement?: FallbackEntitlementProps;
 }
 
 export interface ServicesProps {
-  authorizationUrl: (story, config) => string;
-  pingbackUrl: (story, config) => string;
+  authorizationUrl: (story) => string;
+  pingbackUrl: (story) => string;
   actions: ActionProps;
 }
 
 export interface ActionProps {
-  login: (config) => string;
-  subscribe: (config) => string;
+  login: string;
+  subscribe: string;
 }
 
 export interface ScoreProps {
@@ -24,15 +26,15 @@ export interface ScoreProps {
 
 export interface FallbackEntitlementProps {
   source: string;
-  granted: (config) => boolean;
-  grantReason: (config) => string;
+  granted: boolean;
+  grantReason: string;
   data: DataProps;
 }
 
 export interface DataProps {
   numberRemaining: number;
   isLast: boolean;
-  isLoggedIn: (config) => boolean;
+  isLoggedIn: boolean;
 }
 export interface PaywallProps {
   config?: Config;

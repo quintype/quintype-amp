@@ -17,7 +17,7 @@ const sampleAnswerElement = {
 };
 
 describe("Answer", () => {
-  it("should match snapshot", () => {
+  it("should render Answer element", () => {
     const wrapper = shallow(<Answer element={sampleAnswerElement} />);
     expect(wrapper).toMatchSnapshot();
   });
