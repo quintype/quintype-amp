@@ -20,7 +20,8 @@ describe("The LiveBlog Default Template", () => {
       publisherConfig,
       ampConfig,
       opts: {},
-      seo: `<link rel="canonical" href="." />`
+      seo: `<link rel="canonical" href="." />`,
+      additionalConfig: null
     });
     const ampValidatorOutput = await isValidAmpHtml(ampHtml);
     expect(ampValidatorOutput).toBe(true);
