@@ -1,6 +1,7 @@
 import React from "react";
 import { withConfig } from "../../context";
 import { Analytics } from "../analytics";
+import { infiniteScrollExists } from "../../helpers";
 
 const GoogleAnalyticsBase = ({ config }) => {
   const googleAnalyticsTrackingId = config.ampConfig["google-analytics-tracking-id"];
@@ -12,8 +13,11 @@ const GoogleAnalyticsBase = ({ config }) => {
     },
     triggers: {
       trackPageview: {
-        on: "visible",
-        request: "pageview"
+        on: infiniteScrollExists(config) ? "amp-next-page-scroll" : "visible",
+        request: "pageview",
+        scrollSpec: {
+          useInitialPageSize: infiniteScrollExists(config)
+        }
       }
     }
   };

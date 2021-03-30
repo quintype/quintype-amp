@@ -4,5 +4,14 @@ import { genStyles } from "./gen-styles";
 import { matchStoryElement } from "./match-story-element";
 import { getImgSrcAndSrcset } from "./image-helpers";
 import { invertHexColor } from "./invert-color";
+import { infiniteScrollExists } from "./infinite-scroll-exists";
 
-export { renderToString, ampifyStory, matchStoryElement, genStyles, invertHexColor, getImgSrcAndSrcset };
+export {
+  renderToString,
+  ampifyStory,
+  matchStoryElement,
+  genStyles,
+  invertHexColor,
+  getImgSrcAndSrcset,
+  infiniteScrollExists
+};
