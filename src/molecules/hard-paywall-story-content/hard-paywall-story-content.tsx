@@ -6,66 +6,64 @@ import { StoryElement } from "../../atoms";
 import { Fragment } from "react";
 import { BodyAd } from "../../molecules/ads";
 import { StoryPageSlots } from "../../molecules/slots";
+import { subscriptionsEnabled } from "../../atoms/subscriptions/subscriptions.helpers";
 
 const { DefaultStoryCardSlot } = StoryPageSlots;
 
 // Renders only the first card with a paywall and if subscribed shows the other remaining cards
 export const HardPaywallStoryContent = ({ story, config }) => {
-    if (!get(
-        config,
-        ["opts", "featureConfig", "subscriptions"])) {
-        return null;
-    }
-    const granted = get(
-        config,
-        ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "granted"],
-        true
+  if (!subscriptionsEnabled(story, config)) return null;
+
+  // tslint:disable-next-line:no-shadowed-variable
+  const isGranted = (story, config): boolean => {
+    const grantedFunction = get(
+      config,
+      ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "granted"],
+      true
     );
-    const hardPaywallAccessGranted = granted === true;
-    const cardsVisibleInBlockedStory = get(
-        config,
-        ["publisherConfig", "layout", "no-of-visible-cards-in-a-blocked-story"]
-    ) || 1;
+    const granted = grantedFunction && grantedFunction({ story, config });
+    return !!granted;
+  };
+  const hardPaywallAccessGranted = isGranted(story, config) === true;
+  const cardsVisibleInBlockedStory =
+    get(config, ["publisherConfig", "layout", "no-of-visible-cards-in-a-blocked-story"]) || 1;
 
-    const visibleStoryCards = story.cards.slice(0, cardsVisibleInBlockedStory); // To pick up the first card of the story
-    const storyCardsBehindPaywall = story.cards.slice(cardsVisibleInBlockedStory); // To pick up the remaining cards which are behind the paywall
+  const visibleStoryCards = story.cards.slice(0, cardsVisibleInBlockedStory); // To pick up the first card of the story
+  const storyCardsBehindPaywall = story.cards.slice(cardsVisibleInBlockedStory); // To pick up the remaining cards which are behind the paywall
 
+  // Picked up first card to shown
+  const visibleCards = visibleStoryCards.map((card, cardIdx) => (
+    <Fragment key={card.id}>
+      {card["story-elements"].map((element) => (
+        <StoryElement key={element.id} element={element} />
+      ))}
+      {cardIdx === 0 && <BodyAd />}
+      <DefaultStoryCardSlot index={cardIdx} card={card} />
+    </Fragment>
+  ));
 
-    // Picked up first card to shown
-    const visibleCards = visibleStoryCards.map((card, cardIdx) => (
-        <Fragment key={card.id}>
+  // Picked up remaining cards are wrapped with section tag which has the attribute and className. These are mandatory for the content to be picked up by the Amp runtime.
+  const cardsBehindPaywall = (
+    <section className="paywall" subscriptions-section="content">
+      {storyCardsBehindPaywall.map((card, cardIdx) => {
+        const computedIdx = cardsVisibleInBlockedStory + cardIdx;
+        return (
+          <Fragment key={card.id}>
             {card["story-elements"].map((element) => (
-                <StoryElement key={element.id} element={element} />
+              <StoryElement key={element.id} element={element} />
             ))}
-            {cardIdx === 0 && <BodyAd />}
-            <DefaultStoryCardSlot index={cardIdx} card={card} />
-        </Fragment>
-    ));
+            {computedIdx === 0 && <BodyAd />}
+            <DefaultStoryCardSlot index={computedIdx} card={card} />
+          </Fragment>
+        );
+      })}
+    </section>
+  );
 
-
-    // Picked up remaining cards are wrapped with section tag which has the attribute and className. These are mandatory for the content to be picked up by the Amp runtime.
-    const cardsBehindPaywall = (
-        <section className="paywall" subscriptions-section="content">
-            {storyCardsBehindPaywall.map((card, cardIdx) => {
-                const computedIdx = cardsVisibleInBlockedStory + cardIdx;
-                return (
-                    <Fragment key={card.id}>
-                        {card["story-elements"].map((element) => (
-                            <StoryElement key={element.id} element={element} />
-                        ))}
-                        {computedIdx === 0 && <BodyAd />}
-                        <DefaultStoryCardSlot index={computedIdx} card={card} />
-                    </Fragment>
-                );
-            })}
-        </section>
-    );
-
-
-    return (
-        <Fragment>
-            { visibleCards}
-            { hardPaywallAccessGranted && cardsBehindPaywall}
-        </Fragment >
-    );
+  return (
+    <Fragment>
+      {visibleCards}
+      {hardPaywallAccessGranted && cardsBehindPaywall}
+    </Fragment>
+  );
 };
