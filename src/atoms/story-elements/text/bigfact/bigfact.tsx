@@ -39,7 +39,11 @@ export const BigfactBase = ({ element, story, config }: StoryElementProps) => {
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    bigfactElementRender: ({ story, config, element }) => <MyCustomBigfact story={story} config={config} storyElement={element} />
+ *  render: {
+ *    storyElementRender: {
+ *      bigfactElementRender: ({ story, config, element }) => <MyCustomBigfact story={story} config={config} storyElement={element} />
+ *    }
+ *  }
  * })
  * ...
  * ```

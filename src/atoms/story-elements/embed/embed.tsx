@@ -37,7 +37,11 @@ export const EmbedBase = ({ element, story, config }: StoryElementProps) => {
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    embedRender: ({ story, config, element }) => <MyCustomEmbed story={story} config={config} storyElement={element} />
+ *  render: {
+ *    storyElementRender: {
+ *      embedRender: ({ story, config, element }) => <MyCustomEmbed story={story} config={config} storyElement={element} />
+ *    }
+ *  }
  * })
  * ...
  * ```

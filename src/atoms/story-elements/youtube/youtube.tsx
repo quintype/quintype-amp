@@ -43,7 +43,11 @@ export const YouTubeBase = ({ element, story, config }: YoutubeElementTypes) => 
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    youtubeElementRender: ({ story, config, element }) => <MyCustomYouTube story={story} config={config} storyElement={element} />
+ *  render: {
+ *    storyElementRender: {
+ *      youtubeElementRender: ({ story, config, element }) => <MyCustomYouTube story={story} config={config} storyElement={element} />
+ *    }
+ *  }
  * })
  * ...
  * ```

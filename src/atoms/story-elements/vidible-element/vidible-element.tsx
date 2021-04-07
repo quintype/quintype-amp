@@ -72,7 +72,11 @@ export const VidibleElementBase = ({
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    vidibleElementRender: ({ story, config, element }) => <MyCustomVidibleElement story={story} config={config} storyElement={element} />
+ *  render: {
+ *    storyElementRender: {
+ *      vidibleElementRender: ({ story, config, element }) => <MyCustomVidibleElement story={story} config={config} storyElement={element} />
+ *    }
+ *  }
  * })
  * ...
  * ```

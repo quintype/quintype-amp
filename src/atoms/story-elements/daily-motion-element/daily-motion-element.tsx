@@ -40,7 +40,11 @@ export const DailyMotionElementBase = ({
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    dailyMotionRender: ({ story, config, element }) => <MyCustomDailyMotionElement story={story} config={config} storyElement={element} />
+ *  render: {
+ *    storyElementRender: {
+ *      dailyMotionRender: ({ story, config, element }) => <MyCustomDailyMotionElement story={story} config={config} storyElement={element} />
+ *    }
+ *  }
  * })
  * ...
  * ```
