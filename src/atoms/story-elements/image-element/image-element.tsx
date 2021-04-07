@@ -52,7 +52,11 @@ export const ImageElementBase = ({ element, story, config }: StoryElementProps) 
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    imageElementRender: ({ story, config, element }) => <MyCustomImageElement story={story} config={config} storyElement={element} />
+ *  render: {
+ *    storyElementRender: {
+ *      imageElementRender: ({ story, config, element }) => <MyCustomImageElement story={story} config={config} storyElement={element} />
+ *    }
+ *  }
  * })
  * ...
  * ```

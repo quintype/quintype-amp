@@ -40,7 +40,11 @@ export const SummaryBase = ({ element, story, config }: StoryElementProps) => {
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    summaryElementRender: ({ story, config, element }) => <MyCustomSummary story={story} config={config} storyElement={element} />
+ *  render: {
+ *    storyElementRender: {
+ *      summaryElementRender: ({ story, config, element }) => <MyCustomSummary story={story} config={config} storyElement={element} />
+ *    }
+ *  }
  * })
  * ...
  * ```

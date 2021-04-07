@@ -51,7 +51,11 @@ export const InstagramElementBase = ({ element, story, config }: StoryElementPro
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    instagramElementRender: ({ story, config, element }) => <MyCustomInstagramElement story={story} config={config} storyElement={element} />
+ *  render: {
+ *    storyElementRender: {
+ *      instagramElementRender: ({ story, config, element }) => <MyCustomInstagramElement story={story} config={config} storyElement={element} />
+ *    }
+ *  }
  * })
  * ...
  * ```

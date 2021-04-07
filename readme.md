@@ -8,17 +8,25 @@
 
 It's important to follow [these guidelines](https://www.conventionalcommits.org/en/v1.0.0/), as versions (major/minor/patch) are released based on commit messages
 
-**cheat sheet:**
-
 - `<type>[optional scope]: <description>`
-- commit of the type `fix` patches a bug in your codebase (this correlates with `PATCH` in semantic versioning)
-- commit of the type `feat` introduces a new feature to the codebase (this correlates with `MINOR` in semver
-- commit of type `BREAKING CHANGE:`, or appends a `!` after the type/scope, introduces a breaking API change (correlating with `MAJOR` in semantic versioning)
-- Other types: `build:`, `chore:`, `ci:`, `docs:`, `style:`, `refactor:`, `perf:`, `test:`
+- example: `docs: add tutorial for amp-subscriptions`
+- example: `refactor(story-elements): move all story elements to new directory`
+
+##### Types:
+- `build`: Changes that affect the build system or external dependencies
+- `ci`: Changes to our CI configuration files and scripts
+- `docs`: Documentation only changes
+- `BREAKING CHANGE`: introduces a breaking API change - major version release
+- `feat`: A new feature - minor release
+- `fix`: A bug fix - patch release
+- `perf`: A code change that improves performance
+- `refactor`: A code change that neither fixes a bug nor adds a feature
+- `style`: Changes that do not affect the meaning of the code
+- `test`: Adding missing tests or correcting existing tests
 
 ### Workflow / Publishing
 
-This repo uses [standard-version](https://www.npmjs.com/package/standard-version) that takes care of updating changelog, bumping version as per semver, creating tags
+This repo uses [standard-version](https://www.npmjs.com/package/standard-version) that takes care of updating changelog, bumping version as per [semver](https://semver.org/), creating tags
 To work on a feature
 
 1. Pull latest master, create a feature branch

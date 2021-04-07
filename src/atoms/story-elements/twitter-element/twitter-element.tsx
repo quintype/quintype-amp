@@ -31,7 +31,11 @@ export const TwitterElementBase = ({ element, story, config, ...props }: Twitter
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    twitterElementRender: ({ story, config, element }) => <MyCustomTwitterElement story={story} config={config} storyElement={element}  />
+ *  render: {
+ *    storyElementRender: {
+ *      twitterElementRender: ({ story, config, element }) => <MyCustomTwitterElement story={story} config={config} storyElement={element}  />
+ *    }
+ *  }
  * })
  * ...
  * ```

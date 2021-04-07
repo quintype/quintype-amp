@@ -106,7 +106,11 @@ export const ImageGalleryElementBase = ({ element, story, config }: StoryElement
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    imageGalleryElementRender: ({ story, config, element }) => <MyCustomImageGalleryElement story={story} config={config} storyElement={element} />
+ *  render: {
+ *    storyElementRender: {
+ *      imageGalleryElementRender: ({ story, config, element }) => <MyCustomImageGalleryElement story={story} config={config} storyElement={element} />
+ *    }
+ *  }
  * })
  * ...
  * ```
