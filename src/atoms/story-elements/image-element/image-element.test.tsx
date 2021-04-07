@@ -42,7 +42,7 @@ describe("Image Element", () => {
       <ImageElementBase element={sampleImageElement} story={textStory} config={modifiedConfig} />
     );
     expect(imageElementRender.mock.calls.length).toBe(1);
-    expect(wrapper.find(Image).length).toBe(0);
+    expect(wrapper.find(ImageElement).length).toBe(0);
   });
   it("should render fig caption with caption wrapped inside an HTML Tag", () => {
     const sampleImageElementWithHTMLTagCaption = { ...sampleImageElement, title: "<p>Wash your hands</p>" };

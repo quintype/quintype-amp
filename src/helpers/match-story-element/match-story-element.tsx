@@ -1,3 +1,4 @@
+import { ElementType } from "react";
 import {
   Text,
   Summary,
@@ -26,7 +27,7 @@ import {
 const anyType = "any";
 const none = "none";
 
-const StoryElementsTable = [
+const storyElementsTable = [
   ["composite", "image-gallery", ImageGalleryElement],
   ["composite", "ingredients", Unsupported],
   ["composite", "playlist", Unsupported],
@@ -66,13 +67,13 @@ const StoryElementsTable = [
   [anyType, anyType, Unsupported]
 ];
 
-export function matchStoryElement(element, table = StoryElementsTable) {
+export function matchStoryElement(element): ElementType {
   const { type, subtype } = element;
 
   // @ts-ignore
-  const [matchedType, matchedSubtype, component] =
+  const [matchedType, matchedSubtype, component]: [string, string, ElementType] =
     // @ts-ignore
-    table.find(([expectedType, expectedSubtype, value]) => {
+    storyElementsTable.find(([expectedType, expectedSubtype, value]) => {
       if (type === expectedType && subtype === expectedSubtype) {
         return true;
       }

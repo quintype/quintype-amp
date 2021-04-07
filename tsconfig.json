@@ -21,7 +21,8 @@
     "moduleResolution": "node",
     "typeRoots": ["./typings", "node_modules/@types"],
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "lib": ["ESNext"]
   },
   "exclude": [
     "dist",

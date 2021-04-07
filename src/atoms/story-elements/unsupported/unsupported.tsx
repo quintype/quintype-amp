@@ -8,6 +8,7 @@ const StyledWrapper = styled.div`
   padding: 10px;
   background-color: ${(props) => props.theme.color.mono2};
   text-align: center;
+  border-radius: 3px;
 `;
 
 const UnsupportedBase = ({ element, story, config }: StoryElementProps) => {
@@ -22,7 +23,7 @@ const UnsupportedBase = ({ element, story, config }: StoryElementProps) => {
     unsupportedElementRender({ story, config, element })
   ) : (
     <StyledWrapper>
-      `Element of type: ${type}`{subtype && <Fragment>` | subtype: ${subtype}`</Fragment>}` is not supported by AMP`
+      Element of type: '{type}'{subtype && <Fragment> and sub-type: '{subtype}'</Fragment>} is not supported by AMP
     </StyledWrapper>
   );
 };
