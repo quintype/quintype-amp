@@ -110,7 +110,11 @@ export const BlockQuoteBase = ({ element, story, config }: StoryElementProps) =>
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    blockquoteRender: ({ story, config, element }) => <MyCustomBlockQuote story={story} config={config} storyElement={element} />
+ *  render: {
+ *    storyElementRender: {
+ *      blockquoteRender: ({ story, config, element }) => <MyCustomBlockQuote story={story} config={config} storyElement={element} />
+ *    }
+ *  }
  * })
  * ...
  * ```

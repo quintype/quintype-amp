@@ -72,7 +72,11 @@ export const TextBase = ({ element, story, config }: StoryElementProps) => {
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    textElementRender: ({ story, config, element }) => <MyCustomText story={story} config={config} storyElement={element} />
+ *  render: {
+ *    storyElementRender: {
+ *      textElementRender: ({ story, config, element }) => <MyCustomText story={story} config={config} storyElement={element} />
+ *    }
+ *  }
  * })
  * ...
  * ```

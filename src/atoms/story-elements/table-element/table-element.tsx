@@ -31,7 +31,11 @@ export const TableElementBase = (props: StoryElementProps) => {
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    tableElementRender: ({ story, config, element }) => <MyCustomTableElement story={story} config={config} storyElement={element} />
+ *  render: {
+ *    storyElementRender: {
+ *      tableElementRender: ({ story, config, element }) => <MyCustomTableElement story={story} config={config} storyElement={element} />
+ *    }
+ *  }
  * })
  * ...
  * ```

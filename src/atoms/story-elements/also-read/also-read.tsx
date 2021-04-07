@@ -54,7 +54,11 @@ export const AlsoReadBase = ({ element, story, config }: StoryElementProps) => {
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    alsoReadRender: ({ story, config, element }) => <MyCustomAlsoRead story={story} config={config} storyElement={element} />
+ *  render: {
+ *    storyElementRender: {
+ *      alsoReadRender: ({ story, config, element }) => <MyCustomAlsoRead story={story} config={config} storyElement={element} />
+ *    }
+ *  }
  * })
  * ...
  * ```

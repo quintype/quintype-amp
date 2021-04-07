@@ -32,7 +32,11 @@ export const TitleBase = ({ element, story, config }: StoryElementProps) => {
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    titleElementRender: ({ story, config, element }) => <MyCustomTitle story={story} config={config} storyElement={element} />
+ *  render: {
+ *    storyElementRender: {
+ *      titleElementRender: ({ story, config, element }) => <MyCustomTitle story={story} config={config} storyElement={element} />
+ *    }
+ *  }
  * })
  * ...
  * ```

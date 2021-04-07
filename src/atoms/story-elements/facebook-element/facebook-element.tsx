@@ -43,7 +43,11 @@ export const FacebookElementBase = ({ element, story, config, ...props }: Facebo
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    facebookElementRender: ({ story, config, element }) => <MyCustomFacebookElement story={story} config={config} storyElement={element} />
+ *  render: {
+ *    storyElementRender: {
+ *      facebookElementRender: ({ story, config, element }) => <MyCustomFacebookElement story={story} config={config} storyElement={element} />
+ *    }
+ *  }
  * })
  * ...
  * ```

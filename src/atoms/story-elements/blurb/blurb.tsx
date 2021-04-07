@@ -43,7 +43,11 @@ export const BlurbBase = ({ element, story, config }: StoryElementProps) => {
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    blurbRender: ({ story, config, element }) => <MyCustomBlurb story={story} config={config} storyElement={element} />
+ *  render: {
+ *    storyElementRender: {
+ *      blurbRender: ({ story, config, element }) => <MyCustomBlurb story={story} config={config} storyElement={element} />
+ *    }
+ *  }
  * })
  * ...
  * ```

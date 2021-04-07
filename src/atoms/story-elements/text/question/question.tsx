@@ -38,7 +38,11 @@ export const QuestionBase = ({ element, story, config }: StoryElementProps) => {
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    questionElementRender: ({ story, config, element }) => <MyCustomQuestion story={story} config={config} storyElement={element} />
+ *  render: {
+ *    storyElementRender: {
+ *      questionElementRender: ({ story, config, element }) => <MyCustomQuestion story={story} config={config} storyElement={element} />
+ *    }
+ *  }
  * })
  * ...
  * ```

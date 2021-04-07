@@ -39,7 +39,11 @@ export const QAndABase = ({ element, story, config }: StoryElementProps) => {
  * ```javascript
  * ...
  * ampRoutes(app, {
- *    qAndAElementRender: ({ story, config, element }) => <MyCustomQAndAElement story={story} config={config} storyElement={element} />
+ *  render: {
+ *    storyElementRender: {
+ *      qAndAElementRender: ({ story, config, element }) => <MyCustomQAndAElement story={story} config={config} storyElement={element} />
+ *    }
+ *  }
  * })
  * ...
  * ```
