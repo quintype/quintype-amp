@@ -15,8 +15,7 @@ import { Unsupported } from "../../atoms/story-elements";
 
 export const unsupportedStoryElementsPresent = (story: Story): boolean => {
   return story.cards
-    .map((card) => card["story-elements"])
-    .flat()
+    .flatMap((card) => card["story-elements"])
     .map((storyElement) => matchStoryElement(storyElement))
     .includes(Unsupported);
 };
