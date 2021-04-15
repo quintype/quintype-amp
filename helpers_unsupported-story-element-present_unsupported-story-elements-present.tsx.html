@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66074042-1', 'auto');ga('send', 'pageview');</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AMP Library HeroImage</title>
+  <title>AMP Library helpers/unsupported-story-element-present/unsupported-story-elements-present.tsx</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -121,164 +123,40 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Components</p>
-                    <h1>HeroImage</h1>
+                    <p>Source</p>
+                    <h1>helpers/unsupported-story-element-present/unsupported-story-elements-present.tsx</h1>
                 </header>
                 
 
 
 
-
-<section>
-
-<header>
     
-        <h2>
-            &ltHeroImage  /&gt
-        </h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class='vertical-section'>
-                <div class="members">
-                    <div class="member">
-                        <div class=name>
-                            <span class="tag">Constructor</span>
-                        </div>
-                        
-
-
-    
-    <h4 class="name" id="HeroImage">
-        <a class="href-link" href="#HeroImage">#</a>
-        
-        <span class="code-name">
-            
-                &ltHeroImage  /&gt
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        <p>HeroImage Component is a wrapper around the <amp-img> amp component. It even serves figure caption text which picks up &quot;hero-image-attribution&quot; and/or &quot;hero-image-caption&quot; depending which one is available.</p>
-    </div>
-    
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="molecules_hero-image_hero-image.tsx.html" class="button">View Source</a>
-            <span>
-                <a href="molecules_hero-image_hero-image.tsx.html">molecules/hero-image/hero-image.tsx</a>, <a href="molecules_hero-image_hero-image.tsx.html#line44">line 44</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-                </div>
-            </div>
-        
-    
-    </div>
-    
-        
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { matchStoryElement } from "../match-story-element";
+import { Story } from "../../types/story";
+import { Unsupported } from "../../atoms/story-elements";
+
+/**
+ *
+ * unsupportedStoryElementsPresent is a helper function that internally uses the helper matchStoryElement to check if there are any
+ * unsupported story elements present in the story. Returns a boolean value
+ *
+ * @category Helper
+ * @module unsupportedStoryElementsPresent
+ * @param story the story object
+ * @returns {boolean}
+ */
+
+export const unsupportedStoryElementsPresent = (story: Story): boolean => {
+  return story.cards
+    .flatMap((card) => card["story-elements"])
+    .map((storyElement) => matchStoryElement(storyElement))
+    .includes(Unsupported);
+};
+</code></pre>
+        </article>
+    </section>
 
 
 
