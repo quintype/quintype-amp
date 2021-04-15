@@ -20,6 +20,7 @@ import { Title } from "./title";
 import { ImageGalleryElement } from "./image-gallery-element";
 import { Attachment } from "./attachment";
 import { TableElement } from "./table-element";
+import { Unsupported } from "./unsupported";
 
 const StoryElements = {
   Text,
@@ -43,7 +44,8 @@ const StoryElements = {
   Title,
   ImageGalleryElement,
   Attachment,
-  TableElement
+  TableElement,
+  Unsupported
 };
 export {
   Text,
@@ -67,6 +69,7 @@ export {
   Title,
   ImageGalleryElement,
   Attachment,
-  TableElement
+  TableElement,
+  Unsupported
 };
 export { StoryElements };

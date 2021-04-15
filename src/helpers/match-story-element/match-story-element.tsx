@@ -1,3 +1,4 @@
+import { ElementType } from "react";
 import {
   Text,
   Summary,
@@ -19,39 +20,38 @@ import {
   Title,
   ImageGalleryElement,
   Attachment,
-  TableElement
+  TableElement,
+  Unsupported
 } from "../../atoms/story-elements";
 
 const anyType = "any";
 const none = "none";
 
-const noop = () => null;
-
-const StoryElementsTable = [
+const storyElementsTable = [
   ["composite", "image-gallery", ImageGalleryElement],
-  ["composite", "ingredients", noop],
-  ["composite", "playlist", noop],
-  ["composite", "references", noop],
+  ["composite", "ingredients", Unsupported],
+  ["composite", "playlist", Unsupported],
+  ["composite", "references", Unsupported],
   ["data", "table", TableElement],
-  ["external-file", "bitgravity-video", noop],
-  ["external-file", "brightcove-video", noop],
-  ["external-file", "jwplayer", noop],
-  ["external-file", "vod-video", noop],
-  ["external-file", anyType, noop],
+  ["external-file", "bitgravity-video", Unsupported],
+  ["external-file", "brightcove-video", Unsupported],
+  ["external-file", "jwplayer", Unsupported],
+  ["external-file", "vod-video", Unsupported],
+  ["external-file", anyType, Unsupported],
   ["file", "attachment", Attachment],
   ["image", none, ImageElement],
-  ["jsembed", "avmm-vidible-video", noop],
+  ["jsembed", "avmm-vidible-video", Unsupported],
   ["jsembed", "dailymotion-video", DailyMotionElement],
-  ["jsembed", "dilmot-q-and-a", noop],
+  ["jsembed", "dilmot-q-and-a", Unsupported],
   ["jsembed", "facebook-post", FacebookElement],
   ["jsembed", "facebook-video", FacebookElement],
   ["jsembed", "instagram", InstagramElement],
-  ["jsembed", "social-media", noop],
+  ["jsembed", "social-media", Unsupported],
   ["jsembed", "tweet", TwitterElement],
   ["jsembed", "vidible-video", VidibleElement],
   ["jsembed", anyType, Embed],
-  ["polltype", "opinion-poll", noop],
-  ["soundcloud-audio", none, noop],
+  ["polltype", "opinion-poll", Unsupported],
+  ["soundcloud-audio", none, Unsupported],
   ["text", "also-read", AlsoRead],
   ["text", "answer", Answer],
   ["text", "bigfact", Bigfact],
@@ -64,16 +64,16 @@ const StoryElementsTable = [
   ["text", anyType, Text],
   ["title", none, Title],
   ["youtube-video", none, YouTube],
-  [anyType, anyType, noop]
+  [anyType, anyType, Unsupported]
 ];
 
-function matchStoryElement(element, table = StoryElementsTable) {
+export function matchStoryElement(element): ElementType {
   const { type, subtype } = element;
 
   // @ts-ignore
-  const [matchedType, matchedSubtype, component] =
+  const [matchedType, matchedSubtype, component]: [string, string, ElementType] =
     // @ts-ignore
-    table.find(([expectedType, expectedSubtype, value]) => {
+    storyElementsTable.find(([expectedType, expectedSubtype, value]) => {
       if (type === expectedType && subtype === expectedSubtype) {
         return true;
       }
@@ -95,5 +95,3 @@ function matchStoryElement(element, table = StoryElementsTable) {
 
   return component;
 }
-
-export { matchStoryElement };
