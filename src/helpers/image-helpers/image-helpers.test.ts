@@ -4,7 +4,7 @@ const dummyProps = {
   opts: {
     lorem: "ipsum"
   },
-  slug: "foo/bar/image.png",
+  encodedSlug: "foo/bar/image.png",
   metadata: {
     width: 1528,
     height: 3480,
