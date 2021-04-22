@@ -1,10 +1,10 @@
 import { FocusedImage } from "quintype-js";
 import { HeroImageMetadata } from "../../types/story";
 
-export const getImgSrcAndSrcset = ({ opts, encodedSlug, metadata, aspectRatio, cdnImage }: GetImgSrcAndSrcsetTypes) => {
+export const getImgSrcAndSrcset = ({ opts, imageSlug, metadata, aspectRatio, cdnImage }: GetImgSrcAndSrcsetTypes) => {
   const isGumlet = cdnImage.includes("gumlet");
   const imgOpts = isGumlet ? { format: "auto", ...opts } : opts;
-  const src = focusedImagePath({ opts: imgOpts, encodedSlug, metadata, aspectRatio, cdnImage });
+  const src = focusedImagePath({ opts: imgOpts, imageSlug, metadata, aspectRatio, cdnImage });
   let srcset = "";
   const srcsetOpts = [
     { ...imgOpts, w: 480 },
@@ -14,9 +14,9 @@ export const getImgSrcAndSrcset = ({ opts, encodedSlug, metadata, aspectRatio, c
   ];
   srcsetOpts.forEach((val, i) => {
     if (i === srcsetOpts.length - 1) {
-      srcset += `${focusedImagePath({ opts: val, encodedSlug, metadata, aspectRatio, cdnImage })} ${val.w}w`;
+      srcset += `${focusedImagePath({ opts: val, imageSlug, metadata, aspectRatio, cdnImage })} ${val.w}w`;
     } else {
-      srcset += `${focusedImagePath({ opts: val, encodedSlug, metadata, aspectRatio, cdnImage })} ${val.w}w, `;
+      srcset += `${focusedImagePath({ opts: val, imageSlug, metadata, aspectRatio, cdnImage })} ${val.w}w, `;
     }
   });
   return { src, srcset };
@@ -24,7 +24,7 @@ export const getImgSrcAndSrcset = ({ opts, encodedSlug, metadata, aspectRatio, c
 
 export const focusedImagePath = ({
   opts,
-  encodedSlug,
+  imageSlug,
   metadata,
   aspectRatio,
   cdnImage,
@@ -32,13 +32,13 @@ export const focusedImagePath = ({
 }: FocusedImagePathTypes) => {
   const imgAspectRatio: number[] = aspectRatio.map((el) => Number(el));
   const newOpts = width ? Object.assign({ w: width }, opts) : opts;
-  const path = metadata ? new FocusedImage(encodedSlug, metadata).path(imgAspectRatio, newOpts) : `${encodedSlug}`;
+  const path = metadata ? new FocusedImage(imageSlug, metadata).path(imgAspectRatio, newOpts) : `${imageSlug}`;
   const hostWithProtocol = cdnImage.startsWith("https://") ? cdnImage : `https://${cdnImage}`;
   return `${hostWithProtocol}/${path}`;
 };
 
 interface FocusedImagePathTypes {
-  encodedSlug: string;
+  imageSlug: string;
   aspectRatio: string[];
   cdnImage: string;
   metadata: HeroImageMetadata | null;
@@ -46,7 +46,7 @@ interface FocusedImagePathTypes {
   width?: string;
 }
 interface GetImgSrcAndSrcsetTypes {
-  encodedSlug: string;
+  imageSlug: string;
   aspectRatio: string[];
   cdnImage: string;
   metadata: HeroImageMetadata | null;

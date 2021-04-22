@@ -26,10 +26,10 @@ export const BaseImage = ({
   };
 
   if (slug) {
-    const encodedSlug = encodeURIComponent(slug);
+    const imageSlug = metadata ? slug : encodeURIComponent(slug);
     const { src, srcset } = getImgSrcAndSrcset({
       opts,
-      encodedSlug,
+      imageSlug,
       metadata,
       aspectRatio: imgAspectRatio,
       cdnImage
