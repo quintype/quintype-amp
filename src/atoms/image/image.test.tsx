@@ -143,7 +143,7 @@ describe("Image", () => {
       `https://gumlet.assettype.com/${encodeURIComponent("slug with a space")}`
     );
   });
-  it("should encode the url when the metadata is passed", () => {
+  it("should should not double encode the slug when the metadata is passed", () => {
     const wrapper = shallow(
       <BaseImage
         alt="Sample Image"
