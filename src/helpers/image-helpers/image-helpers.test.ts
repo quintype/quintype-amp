@@ -32,3 +32,21 @@ test("focusedImagePath helper", () => {
     "https://thumbor-stg.assettype.com/foo%2Fbar%2Fimage.png?rect=0%2C0%2C1528%2C3480&lorem=ipsum"
   );
 });
+
+const dummyPropsWithoutMetadata = {
+  ...dummyProps,
+  metadata: null
+};
+
+test("focusedImagePath helper", () => {
+  const pathWithoutWidth = focusedImagePath(dummyPropsWithoutMetadata);
+  expect(pathWithoutWidth).toBe("https://thumbor-stg.assettype.com/foo/bar/image.png");
+});
+
+test("getImgSrcAndSrcset helper", () => {
+  const { src, srcset } = getImgSrcAndSrcset(dummyPropsWithoutMetadata);
+  expect(src).toBe("https://thumbor-stg.assettype.com/foo/bar/image.png");
+  expect(srcset).toBe(
+    "https://thumbor-stg.assettype.com/foo/bar/image.png 480w, https://thumbor-stg.assettype.com/foo/bar/image.png 960w, https://thumbor-stg.assettype.com/foo/bar/image.png 1200w, https://thumbor-stg.assettype.com/foo/bar/image.png 2048w"
+  );
+});
