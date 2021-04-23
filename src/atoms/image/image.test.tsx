@@ -128,4 +128,34 @@ describe("Image", () => {
     );
     expect(wrapper.find("amp-img").prop("data-foo")).toBe("bar");
   });
+  it("should encode the url when the metadata is not passed", () => {
+    const wrapper = shallow(
+      <BaseImage
+        alt="Sample Image"
+        layout={"fixed-height"}
+        metadata={null}
+        slug="slug with a space"
+        aspectRatio={[0, 100]}
+        config={config}
+      />
+    );
+    expect(wrapper.find("amp-img").prop("src")).toBe(
+      `https://gumlet.assettype.com/${encodeURIComponent("slug with a space")}`
+    );
+  });
+  it("should encode the url when the metadata is passed", () => {
+    const wrapper = shallow(
+      <BaseImage
+        alt="Sample Image"
+        layout={"fixed-height"}
+        metadata={metadata}
+        slug="slug with a space"
+        aspectRatio={[0, 100]}
+        config={config}
+      />
+    );
+    expect(wrapper.find("amp-img").prop("src")).toBe(
+      "https://gumlet.assettype.com/slug%20with%20a%20space?rect=2609%2C0%2C0%2C3648&format=auto"
+    );
+  });
 });
