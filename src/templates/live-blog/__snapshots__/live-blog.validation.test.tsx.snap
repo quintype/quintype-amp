@@ -4085,7 +4085,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
   </div>
   <Component />
   <Component />
-  <Component />
   <styled.div>
     <Component
       templateName="liveBlog"

@@ -3,7 +3,7 @@ import { HeaderCard, Navbar, RelatedStories, WebEngage } from "../../molecules";
 import {
   Layout,
   Spacer,
-  IncompatibleBanner,
+  // IncompatibleBanner,
   Footer,
   GoogleTagManager,
   GoogleAnalytics,

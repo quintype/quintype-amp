@@ -4130,7 +4130,6 @@ exports[`GenericStory Template should render 1`] = `
     <WithTheme(Component) />
   </div>
   <Component />
-  <Component />
   <styled.div>
     <Component
       templateName="default"
