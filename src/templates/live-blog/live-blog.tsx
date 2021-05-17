@@ -68,7 +68,7 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
     <Layout story={story} config={config}>
       {navbarComponent}
       <Fonts />
-      <IncompatibleBanner />
+      {/* <IncompatibleBanner /> */}
       <GoogleTagManager />
       <Wrapper>
         <TopAd templateName={templateName} />

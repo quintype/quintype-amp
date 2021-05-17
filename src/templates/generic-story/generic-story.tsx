@@ -68,7 +68,7 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
       <Subscription />
       <Fonts />
       {navbarComponent}
-      <IncompatibleBanner />
+      {/* <IncompatibleBanner /> */}
       <GoogleTagManager />
       <Wrapper>
         <TopAd templateName={templateName} />
