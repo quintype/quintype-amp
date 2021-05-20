@@ -13,6 +13,7 @@ It's important to follow [these guidelines](https://www.conventionalcommits.org/
 - example: `refactor(story-elements): move all story elements to new directory`
 
 ##### Types:
+
 - `build`: Changes that affect the build system or external dependencies
 - `ci`: Changes to our CI configuration files and scripts
 - `docs`: Documentation only changes
@@ -37,6 +38,7 @@ To work on a feature
 
 ### Useful NPM scripts
 
+- **sync** builds amplib and copies the contents of the dist directory to the path you've specified. Useful for local development
 - **storybook** starts storybook
 - **docs:build** compiles jsDoc documentation and serves it on port 3001. Note that there's no hot reloading for docs. This is like running https://developers.quintype.com/quintype-amp on local
 - **docs:deploy** compiles & deploys docs to https://developers.quintype.com/quintype-amp
