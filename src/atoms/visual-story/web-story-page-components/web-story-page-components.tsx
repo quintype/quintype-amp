@@ -5,11 +5,11 @@ import styled from "styled-components";
 import { withStoryAndConfig } from "../../../context";
 import { getImageAnimationProps } from "./web-story-page-components.helpers";
 
-const WebStoryPageComponentsBase = ({ card, config }: WebStoryPageComponentsTypes) => {
+const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageComponentsTypes) => {
   const titleElement = card["story-elements"].find((el) => el.type === "title");
   const textElements = card["story-elements"].filter((el) => el.type === "text");
   const imageElement = card["story-elements"].find((el) => el.type === "image");
-  const imageAnimationProps = getImageAnimationProps(config);
+  const imageAnimationProps = getImageAnimationProps(config, story);
 
   return (
     <Fragment>

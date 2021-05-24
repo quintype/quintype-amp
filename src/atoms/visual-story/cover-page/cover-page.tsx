@@ -12,7 +12,7 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
   const heroImgMetadata = story["hero-image-metadata"];
   const altText = story["hero-image-caption"] || story["hero-image-attribution"] || "";
   const authorNames = getAuthorNames(story.authors);
-  const imageAnimationProps = getImageAnimationProps(config);
+  const imageAnimationProps = getImageAnimationProps(config, story);
   const headline = story.headline || "";
   return (
     <Fragment>
