@@ -3,9 +3,9 @@ import { Config } from "../../../types/config";
 import { Story } from "./../../../types/story";
 
 export const getImageAnimationProps = (config: Config, story: Story) => {
-  const featureConfig = get(config, ["opts", "featureConfig", "visualStories"]) || [];
+  const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"]) || null;
 
-  if (!Array.isArray(featureConfig)) {
+  if (!Array.isArray(visualStoriesConfig)) {
     // default to existing logic
     const imgAnimationFeatCfg = get(config, ["opts", "featureConfig", "visualStories", "animation", "image"], null);
     if (!imgAnimationFeatCfg) return null;
@@ -20,7 +20,7 @@ export const getImageAnimationProps = (config: Config, story: Story) => {
   const theme = visualStoryTheme[0];
   switch (theme) {
     case "theme-2":
-      const themeConfig2 = featureConfig[1];
+      const themeConfig2 = visualStoriesConfig[1];
       const imgAnimationFeatCfg2 = get(themeConfig2, ["animation", "image"]) || {};
       return {
         ...(imgAnimationFeatCfg2.animateIn && { "animate-in": imgAnimationFeatCfg2.animateIn }),
@@ -28,7 +28,7 @@ export const getImageAnimationProps = (config: Config, story: Story) => {
         ...(imgAnimationFeatCfg2.animateInDuration && { "animate-in-duration": imgAnimationFeatCfg2.animateInDuration })
       };
     case "theme-3":
-      const themeConfig3 = featureConfig[2];
+      const themeConfig3 = visualStoriesConfig[2];
       const imgAnimationFeatCfg3 = get(themeConfig3, ["animation", "image"]) || {};
       return {
         ...(imgAnimationFeatCfg3.animateIn && { "animate-in": imgAnimationFeatCfg3.animateIn }),
@@ -36,7 +36,7 @@ export const getImageAnimationProps = (config: Config, story: Story) => {
         ...(imgAnimationFeatCfg3.animateInDuration && { "animate-in-duration": imgAnimationFeatCfg3.animateInDuration })
       };
     default:
-      const themeConfig = featureConfig[0];
+      const themeConfig = visualStoriesConfig[0];
       const imgAnimationFeatConfig = get(themeConfig, ["animation", "image"]) || {};
       return {
         ...(imgAnimationFeatConfig.animateIn && { "animate-in": imgAnimationFeatConfig.animateIn }),
