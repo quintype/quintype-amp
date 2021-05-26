@@ -4,7 +4,7 @@ import { Config } from "../types/config";
 import { Story } from "../types/story";
 
 export const getVisualStoryImgConfig = (config: Config, story: Story) => {
-  const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"]) || null;
+  const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"]) || [];
   const visualStoryTheme = get(story, ["metadata", "story-attributes", "visualstorytheme"]) || [];
   const theme = visualStoryTheme[0];
   switch (theme) {
@@ -38,7 +38,7 @@ export const getVisualStoryImgConfig = (config: Config, story: Story) => {
 };
 
 export const getVisualStoryTextConfig = (config: Config, story: Story) => {
-  const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"]) || null;
+  const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"]) || [];
   const visualStoryTheme = get(story, ["metadata", "story-attributes", "visualstorytheme"]) || [];
   const theme = visualStoryTheme[0];
   switch (theme) {

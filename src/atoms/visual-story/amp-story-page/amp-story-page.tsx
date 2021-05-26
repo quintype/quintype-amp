@@ -6,7 +6,7 @@ import { withStoryAndConfig } from "../../../context";
 export const AmpStoryPageBase = ({ config, story, children, ...props }: AmpStoryPageTypes) => {
   let autoAdvanceAfter = get(config, ["opts", "featureConfig", "visualStories", "autoAdvanceAfter"], null);
 
-  const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"]) || null;
+  const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"]) || [];
   if (Array.isArray(visualStoriesConfig)) {
     const visualStoryTheme = get(story, ["metadata", "story-attributes", "visualstorytheme"]) || [];
     const theme = visualStoryTheme[0];
