@@ -5,6 +5,7 @@ import {
   StoryElement,
   Spacer,
   LiveList,
+  IncompatibleBanner,
   Footer,
   GoogleTagManager,
   GoogleAnalytics,
@@ -67,6 +68,7 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
     <Layout story={story} config={config}>
       {navbarComponent}
       <Fonts />
+      <IncompatibleBanner />
       <GoogleTagManager />
       <Wrapper>
         <TopAd templateName={templateName} />

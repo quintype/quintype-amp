@@ -3,6 +3,7 @@ import { HeaderCard, Navbar, RelatedStories, WebEngage } from "../../molecules";
 import {
   Layout,
   Spacer,
+  IncompatibleBanner,
   Footer,
   GoogleTagManager,
   GoogleAnalytics,
@@ -67,6 +68,7 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
       <Subscription />
       <Fonts />
       {navbarComponent}
+      <IncompatibleBanner />
       <GoogleTagManager />
       <Wrapper>
         <TopAd templateName={templateName} />
