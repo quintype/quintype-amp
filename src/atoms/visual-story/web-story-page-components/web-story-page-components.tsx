@@ -4,12 +4,14 @@ import { WebStoryPageComponentsTypes } from "./types";
 import styled from "styled-components";
 import { withStoryAndConfig } from "../../../context";
 import { getImageAnimationProps } from "./web-story-page-components.helpers";
+import { getVisualStoryTextConfig } from "../../../utils/visual-story-config";
 
 const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageComponentsTypes) => {
   const titleElement = card["story-elements"].find((el) => el.type === "title");
   const textElements = card["story-elements"].filter((el) => el.type === "text");
   const imageElement = card["story-elements"].find((el) => el.type === "image");
   const imageAnimationProps = getImageAnimationProps(config, story);
+  const visualStoryTextConfig = getVisualStoryTextConfig(config, story);
 
   return (
     <Fragment>
@@ -27,7 +29,7 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
         </amp-story-grid-layer>
       )}
       {(titleElement || textElements.length) && (
-        <amp-story-grid-layer template="thirds">
+        <amp-story-grid-layer template="thirds" {...visualStoryTextConfig}>
           <TextWrapper>
             {titleElement && <StoryElement element={titleElement} />}
             {textElements.map((textElement) => (

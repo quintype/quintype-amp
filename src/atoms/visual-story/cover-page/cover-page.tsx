@@ -6,6 +6,7 @@ import { CoverPageProps } from "./types";
 import { getAuthorNames } from "../../author/author";
 import styled from "styled-components";
 import { getImageAnimationProps } from "../web-story-page-components/web-story-page-components.helpers";
+import { getVisualStoryTextConfig } from "../../../utils/visual-story-config";
 
 export const CoverPageBase = ({ story, config }: CoverPageProps) => {
   const heroImgSrc = story["hero-image-s3-key"];
@@ -14,6 +15,7 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
   const authorNames = getAuthorNames(story.authors);
   const imageAnimationProps = getImageAnimationProps(config, story);
   const headline = story.headline || "";
+  const visualStoryTextConfig = getVisualStoryTextConfig(config, story);
   return (
     <Fragment>
       <AmpStoryPage id="cover">
@@ -37,7 +39,7 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
             <PublisherLogoHeader />
           </LogoWrapper>
         </amp-story-grid-layer>
-        <amp-story-grid-layer template="thirds">
+        <amp-story-grid-layer template="thirds" {...visualStoryTextConfig}>
           <StyledTextWrapper>
             <StyledHeadline className="qt-amp-visual-story-cover-headline">{headline}</StyledHeadline>
             {authorNames && (

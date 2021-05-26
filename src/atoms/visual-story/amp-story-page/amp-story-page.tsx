@@ -13,8 +13,10 @@ export const AmpStoryPageBase = ({ config, story, children, ...props }: AmpStory
     switch (theme) {
       case "theme-2":
         autoAdvanceAfter = visualStoriesConfig[1] && visualStoriesConfig[1].autoAdvanceAfter;
+        break;
       case "theme-3":
         autoAdvanceAfter = visualStoriesConfig[2] && visualStoriesConfig[2].autoAdvanceAfter;
+        break;
       default:
         autoAdvanceAfter = visualStoriesConfig[0] && visualStoriesConfig[0].autoAdvanceAfter;
     }
