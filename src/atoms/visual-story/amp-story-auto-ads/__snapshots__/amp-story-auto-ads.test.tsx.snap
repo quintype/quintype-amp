@@ -1,6 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`amp-story-auto-ads should match snapshot 1`] = `
+exports[`amp-story-auto-ads should match snapshot if visualStories config is array of object 1`] = `
+<Fragment>
+  <HelmetWrapper
+    defer={true}
+    encodeSpecialCharacters={true}
+  >
+    <script
+      custom-element="amp-story-auto-ads"
+      src="https://cdn.ampproject.org/v0/amp-story-auto-ads-0.1.js"
+    />
+  </HelmetWrapper>
+  <amp-story-auto-ads>
+    <script
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "{\\"ad-attributes\\":{\\"type\\":\\"doubleclick\\",\\"data-slot\\":\\"foo\\",\\"json\\":\\"{\\\\\\"targeting\\\\\\":{\\\\\\"environment\\\\\\":[\\\\\\"production\\\\\\"],\\\\\\"publisher-name\\\\\\":[\\\\\\"vikatan\\\\\\"],\\\\\\"sections\\\\\\":[\\\\\\"entertainment\\\\\\"]}}\\"}}",
+        }
+      }
+      type="application/json"
+    />
+  </amp-story-auto-ads>
+</Fragment>
+`;
+
+exports[`amp-story-auto-ads should match snapshot if visualStories config is object 1`] = `
 <Fragment>
   <HelmetWrapper
     defer={true}

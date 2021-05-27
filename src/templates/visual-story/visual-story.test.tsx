@@ -35,4 +35,20 @@ describe("visual story template", () => {
       `/foo/bar.json?storyId=${visualStory.id}&sectionId=${visualStory.sections[0].id}`
     );
   });
+  it("should take bookend URL if passed from visualStories in form of array of object", () => {
+    const modifiedConfig = config;
+    modifiedConfig.opts = {
+      featureConfig: {
+        visualStories: [
+          {
+            bookendUrl: "/foo/bar.json"
+          }
+        ]
+      }
+    };
+    const wrapper = shallow(<VisualStory story={visualStory} config={modifiedConfig} />);
+    expect(wrapper.find("amp-story-bookend").prop("src")).toBe(
+      `/foo/bar.json?storyId=${visualStory.id}&sectionId=${visualStory.sections[0].id}`
+    );
+  });
 });

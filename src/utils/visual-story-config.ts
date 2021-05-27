@@ -90,3 +90,25 @@ export const getVisualStoryBookendUrl = (config: Config, story: Story) => {
       return themeConfig.bookendUrl || "/amp/api/v1/bookend.json";
   }
 };
+
+export const getVisualStoryAdsSlot = (config: Config, story: Story) => {
+  const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"]) || null;
+
+  if (!Array.isArray(visualStoriesConfig)) {
+    return get(config, ["opts", "featureConfig", "visualStories", "ads", "doubleclick", "dataSlot"], null);
+  }
+
+  const visualStoryTheme = get(story, ["metadata", "story-attributes", "visualstorytheme"]) || [];
+  const theme = visualStoryTheme[0];
+  switch (theme) {
+    case "theme-2":
+      const themeConfig2 = visualStoriesConfig[1];
+      return themeConfig2.ads?.doubleclick?.dataSlot;
+    case "theme-3":
+      const themeConfig3 = visualStoriesConfig[2];
+      return themeConfig3.ads?.doubleclick?.dataSlot;
+    default:
+      const themeConfig = visualStoriesConfig[0];
+      return themeConfig.ads?.doubleclick?.dataSlot;
+  }
+};

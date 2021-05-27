@@ -267,7 +267,7 @@ interface FeatureConfigTypes {
           };
           animation?: {
             image: VisualStoryAnimationFeatureConfig;
-            text: VisualStoryAnimationFeatureConfig;
+            text?: VisualStoryAnimationFeatureConfig;
           };
         }
       ];

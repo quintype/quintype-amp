@@ -12,7 +12,7 @@ describe("amp-story-page", () => {
     );
     expect(wrapper).toMatchSnapshot();
   });
-  it("should add autoAdvanceAfter prop if passed in featureConfig", () => {
+  it("should add autoAdvanceAfter prop if passed in visualStories config in form of object inside featureConfig", () => {
     const modifiedConfig = config;
     modifiedConfig.opts = {
       featureConfig: {
@@ -27,5 +27,37 @@ describe("amp-story-page", () => {
       </AmpStoryPageBase>
     );
     expect(wrapper.find("amp-story-page").prop("auto-advance-after")).toBe("5555ms");
+  });
+
+  it("should add autoAdvanceAfter prop if passed in visualStories config in form of array of object inside featureConfig", () => {
+    const modifiedConfig = config;
+    modifiedConfig.opts = {
+      featureConfig: {
+        visualStories: [
+          {
+            autoAdvanceAfter: "5555ms"
+          }
+        ]
+      }
+    };
+    const wrapper = shallow(
+      <AmpStoryPageBase story={visualStory} config={modifiedConfig} id="123">
+        <div>child</div>
+      </AmpStoryPageBase>
+    );
+    expect(wrapper.find("amp-story-page").prop("auto-advance-after")).toBe("5555ms");
+  });
+
+  it("should not add autoAdvanceAfter prop if it's not passed in featureConfig is empty", () => {
+    const modifiedConfig = config;
+    modifiedConfig.opts = {
+      featureConfig: {}
+    };
+    const wrapper = shallow(
+      <AmpStoryPageBase story={visualStory} config={modifiedConfig} id="123">
+        <div>child</div>
+      </AmpStoryPageBase>
+    );
+    expect(wrapper.find("amp-story-page").prop("auto-advance-after")).toBe(undefined);
   });
 });
