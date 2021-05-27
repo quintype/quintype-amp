@@ -1,6 +1,6 @@
 {
   "name": "@quintype/amp",
-  "version": "2.4.1",
+  "version": "2.4.2-bugfix.1",
   "description": "Quintype's AMP component library for publisher apps to create amp layouts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -95,6 +95,7 @@
     "date-fns": "^2.11.0",
     "date-fns-tz": "^1.0.10",
     "lodash.clonedeep": "^4.5.0",
+    "lodash.flatten": "^4.4.0",
     "lodash.get": "^4.4.2",
     "lodash.merge": "^4.6.2",
     "node-html-parser": "^1.2.20",
