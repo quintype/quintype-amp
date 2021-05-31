@@ -1,6 +1,7 @@
 import { matchStoryElement } from "../match-story-element";
 import { Story } from "../../types/story";
 import { Unsupported } from "../../atoms/story-elements";
+import flatten from "lodash.flatten";
 
 /**
  *
@@ -14,8 +15,7 @@ import { Unsupported } from "../../atoms/story-elements";
  */
 
 export const unsupportedStoryElementsPresent = (story: Story): boolean => {
-  return story.cards
-    .flatMap((card) => card["story-elements"])
-    .map((storyElement) => matchStoryElement(storyElement))
-    .includes(Unsupported);
+  const cards = (story.cards && story.cards.map((card) => card["story-elements"])) || [];
+  const flattened = flatten(cards);
+  return flattened.map((storyElement) => matchStoryElement(storyElement)).includes(Unsupported);
 };
