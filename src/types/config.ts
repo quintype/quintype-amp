@@ -243,8 +243,7 @@ interface FeatureConfigTypes {
   sidebarMenu?: {
     menuGroupSlug?: string;
   };
-  visualStories?:
-    | {
+  visualStories?: {
         autoAdvanceAfter?: string;
         bookendUrl?: string;
         ads?: {
