@@ -40,13 +40,43 @@ AMP [Visual Stories](https://amp.dev/about/stories/) consist of `pages`. These a
 
 Currently, visual stories have 3 types of themes or templates that can be configured through story attributes from Bold.
 
-- Image - `zoom-in`, text - {} : This template is default template which will have image in zoom-in while text will be constant in bottom.
-- Image - `zoom-out`, text - `fly-in-bottom` : This template is 
-- Image - `fade-in`, text - `fly-in-left`: 
+- Image - `zoom-in`, text - {}: This template is the default template which will have the image in zoom-in while text will be constant at the bottom. you can set `theme-1` as story attribute in bold for rendering this template. If there are no story attributes are set in bold, this template will render as default.
+- Image - `zoom-out`, text - `fly-in-bottom` : This template will show the image `zoom-out` with `fly-in-bottom` text. you can set `theme-2` as story attributes to render this template.
+- Image - `fade-in`, text - `fly-in-left`: This template will show the image `fade-in` with `fly-in-left` text. you can set `theme-3` as story attributes to render this template.
 
 <hr />
 
+#### Configuring story attributes in bold:
+
+- Login into Bold
+#### Creating story attribute
+
+- Click on manage icon
+
+<img src="./visual-stories/manage.png" alt="Parts of a visual story">
+
+- Click on `Attributes` button
+- Click on `Create` button
+  - Name  - `Visual Story Theme`
+  - Type - `Story`
+  - Data type - `Multiple Values`
+  - Multiple values - create three thems : `theme-1`, `theme-2` and `theme-3`.
+
+<img src="./visual-stories/story-attribute-create.png" alt="Parts of a visual story">
+
+- Click on create.
+#### Setting story attributes for visual story
+
+- Click on `Add New` -> `Story` :  This will open new window with `text` story by default. 
+- Click on `TEXT` and select the visual story as template
+- Click on `Manage` -> `Show Advanced Options` -> `ATTRIBUTES`
+- Select the respective theme which you wanted to render from the story attributes field. 
+
+<img src="./visual-stories/visual-story.png" alt="Parts of a visual story">
+
 #### Old visual story specific feature configs:
+
+This feature configuration does not support the above templates. this configuration has `zoom-in` animation in the image and plain text which will be at bottom of the cards.
 
 ```js
 dummyOpts = {
@@ -71,10 +101,83 @@ dummyOpts = {
 };
 ```
 
+#### New visual story specific feature configs:
+
+This feature configuration supports the above all the 3 templates. it's similar to old but instead of passing an object to `visualStories` here, you need to pass as in form of an array of objects. this configuration also supports animation for text. You can still change the animations for image and text as per your wish while passing the feature configuration object in ampRoutes.
+
+
+```js
+dummyOpts = {
+  featureConfig: {
+    visualStories: [{
+        autoAdvanceAfter: "20s",
+        bookendUrl: "/amp/api/v1/bookend.json",
+        ads: {
+          doubleclick: {
+            dataSlot: "/1009127/FOO_AMP_TOP-1"
+          }
+        },
+        animation: {
+          image: {
+            animateIn: "zoom-in",
+            animateInDuration: "10s",
+            animateInDelay: "1s"
+          }
+        },
+        text: {}
+      },
+      {
+        autoAdvanceAfter: "20s",
+        bookendUrl: "/amp/api/v1/bookend.json",
+        ads: {
+          doubleclick: {
+            dataSlot: "/1009127/FOO_AMP_TOP-2"
+          }
+        },
+        animation: {
+          image: {
+            animateIn: "zoom-out",
+            animateInDuration: "15s",
+            animateInDelay: "1s"
+          },
+          text: {
+            animateIn: "fly-in-bottom",
+            animateInDuration: "1s",
+            animateInDelay: "1s"
+          }
+        }
+      },
+      {
+        autoAdvanceAfter: "5s",
+        bookendUrl: "/amp/api/v1/bookend.json",
+        ads: {
+          doubleclick: {
+            dataSlot: "/1009127/FOO_AMP_TOP-3"
+          }
+        },
+        animation: {
+          image: {
+            animateIn: "fade-in",
+            animateInDuration: "10s",
+            animateInDelay: "1s"
+          },
+          text: {
+            animateIn: "fly-in-left",
+            animateInDuration: "2s",
+            animateInDelay: "1s"
+          }
+        }
+      }]
+  }
+};
+```
+
 1. `autoAdvanceAfter`: (String) Optional. Sets the time after which the page automatically advances. If omitted, the page will not automatically advance. Example: "500ms", "3s"
 2. `bookendUrl`: (String) Optional. The endpoint called by the bookend component. Defaults to `/amp/api/v1/bookend.json` if nothing is passed. If an endpoint is passed, please make sure that the route exists in your app and that it returns data in a valid format. `storyId` and `sectionId` are passed as query parameters. Refer [docs](https://amp.dev/documentation/components/amp-story-bookend/?format=stories)
 3. ad slot: (String) Optional. Example "/1009443/PUBLISHER_AMP_TOP" `featureConfig` > `visualStories` > `ads` > `doubleclick` > `dataSlot` sets the ad slot for visual stories. Ads are dynamically inserted, please read [docs](https://amp.dev/documentation/components/amp-story-auto-ads/?format=stories)
-4. `animation`: (object) Optional. `animation` > `image` applies animation props to the story image. We accept `animateIn`, `animateInDuration` and `animateInDelay`. Refer [docs](https://amp.dev/documentation/guides-and-tutorials/start/visual_story/animating_elements/?format=stories)
+4. `animation`: (object) Optional. 
+  - `animation` > `image` applies animation props to the story image. We accept `animateIn`, `animateInDuration` and `animateInDelay`. Refer [docs](https://amp.dev/documentation/guides-and-tutorials/start/visual_story/animating_elements/?format=stories).
+  - `animation` > `text` applies animation props to the story text. We accept `animateIn`, `animateInDuration` and `animateInDelay`.
 
 <hr />
 
