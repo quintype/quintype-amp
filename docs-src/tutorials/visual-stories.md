@@ -29,20 +29,24 @@ AMP [Visual Stories](https://amp.dev/about/stories/) consist of `pages`. These a
 - Only the following story elements are supported - image, title, also-read, answer, bigfact, blockquote, blurb, q-and-a, question, quote, summary, title, normal paragraph (text). All other story elements are ignored
 - At this point of time our CMS does not support uploading videos, so they're not supported by AmpLib
 - At the end, a [bookend](https://amp.dev/documentation/components/amp-story-bookend/?format=stories) (which is an end screen of an AMP story, showcasing sharing and related content) is shown.
-
-<hr />
-
-#### The default visual story template:
-
-Visual stories are rendered using this default template if no other template is chosen. More templates are WIP. It has the following features:
-
 - There can be only one image per story card. If more than one image is added (per card), the first one is displayed
-- Similarly, there can be only one `title` story element
-- there can be one or more (or a combination of) also-read, answer, bigfact, blockquote, blurb, q-and-a, question, quote, summary, title, normal paragraph story elements. They're positioned at the bottom of the visual story page
+- Similarly, there can be only one `title` story element.
+- There can be one or more (or a combination of) also-read, answer, bigfact, blockquote, blurb, q-and-a, question, quote, summary, title, normal paragraph story elements. They're positioned at the bottom of the visual story page.
+
 
 <hr />
 
-#### Visual story specific feature configs:
+#### Visual story templates:
+
+Currently, visual stories have 3 types of themes or templates that can be configured through story attributes from Bold.
+
+- Image - `zoom-in`, text - {} : This template is default template which will have image in zoom-in while text will be constant in bottom.
+- Image - `zoom-out`, text - `fly-in-bottom` : This template is 
+- Image - `fade-in`, text - `fly-in-left`: 
+
+<hr />
+
+#### Old visual story specific feature configs:
 
 ```js
 dummyOpts = {
