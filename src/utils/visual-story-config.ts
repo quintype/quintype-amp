@@ -18,11 +18,14 @@ export const getAnimation = (imageConfig, textConfig) => {
   };
 };
 
+export const getTheme = (story) => {
+  const visualStoryTheme = get(story, ["metadata", "story-attributes", "visualstorytheme"]) || [];
+  return visualStoryTheme[0];
+};
+
 export const getVisualStoryConfig = (config: Config, story: Story) => {
   const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"]) || [];
-  const visualStoryTheme = get(story, ["metadata", "story-attributes", "visualstorytheme"]) || [];
-  const theme = visualStoryTheme[0];
-  switch (theme) {
+  switch (getTheme(story)) {
     case "theme-2":
       const themeConfig2 = visualStoriesConfig[1];
       const imgAnimationFeatCfg2 = get(themeConfig2, ["animation", "image"]) || {};
@@ -48,9 +51,7 @@ export const getVisualStoryBookendUrl = (config: Config, story: Story) => {
     return get(config, ["opts", "featureConfig", "visualStories", "bookendUrl"], "/amp/api/v1/bookend.json");
   }
 
-  const visualStoryTheme = get(story, ["metadata", "story-attributes", "visualstorytheme"]) || [];
-  const theme = visualStoryTheme[0];
-  switch (theme) {
+  switch (getTheme(story)) {
     case "theme-2":
       const themeConfig2 = visualStoriesConfig[1];
       return themeConfig2.bookendUrl || "/amp/api/v1/bookend.json";
@@ -70,9 +71,7 @@ export const getVisualStoryAdsSlot = (config: Config, story: Story) => {
     return get(config, ["opts", "featureConfig", "visualStories", "ads", "doubleclick", "dataSlot"], null);
   }
 
-  const visualStoryTheme = get(story, ["metadata", "story-attributes", "visualstorytheme"]) || [];
-  const theme = visualStoryTheme[0];
-  switch (theme) {
+  switch (getTheme(story)) {
     case "theme-2":
       const themeConfig2 = visualStoriesConfig[1];
       return themeConfig2.ads?.doubleclick?.dataSlot;
