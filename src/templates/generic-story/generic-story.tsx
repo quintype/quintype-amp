@@ -5,10 +5,10 @@ import {
   Spacer,
   IncompatibleBanner,
   Footer,
-  GoogleTagManager,
+  // GoogleTagManager,
   GoogleAnalytics,
-  QuintypeAnalytics,
-  ComScore,
+  // QuintypeAnalytics,
+  // ComScore,
   ChartBeat,
   InfiniteScroll,
   Subscription,
@@ -69,7 +69,6 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
       <Fonts />
       {navbarComponent}
       <IncompatibleBanner />
-      <GoogleTagManager />
       <Wrapper>
         <TopAd templateName={templateName} />
         <TopSlot />
@@ -85,8 +84,6 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
         <BottomAd templateName={templateName} />
       </Wrapper>
       <GoogleAnalytics />
-      <QuintypeAnalytics />
-      <ComScore />
       <ChartBeat />
       {lastComponent}
     </Layout>
