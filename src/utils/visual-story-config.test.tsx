@@ -75,22 +75,6 @@ describe("getVisualStoryConfig", () => {
     };
     expect(textConfig).toMatchObject(expectedValue);
   });
-
-  it("should return empty object if text and image are not passed in visualStories config", () => {
-    const modifiedConfig = config;
-    modifiedConfig.opts = {
-      featureConfig: {
-        visualStories: [{}]
-      }
-    };
-
-    const imageResponse = getVisualStoryConfig(modifiedConfig, visualStory);
-    const expectedValue = {
-      imageAnimation: {},
-      textAnimation: {}
-    };
-    expect(imageResponse).toMatchObject(expectedValue);
-  });
 });
 
 describe("getVisualStoryAdsSlot", () => {
