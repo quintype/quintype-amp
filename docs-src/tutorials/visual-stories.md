@@ -104,11 +104,11 @@ dummyOpts = {
 };
 ```
 
-<!-- Currently, visual stories have 3 types of themes or templates that can be configured through story attributes from Bold.
+Currently, visual stories have 3 types of themes or templates by default that can be configured through story attributes from our CMS.
 
 - Image - `zoom-in`, text - {}: This template is the default template which will have the image in zoom-in while text will be constant at the bottom. you can set `theme-1` as story attribute in bold for rendering this template. If there are no story attributes are set in bold, this template will render as default.
 - Image - `zoom-out`, text - `fly-in-bottom` : This template will show the image `zoom-out` with `fly-in-bottom` text. you can set `theme-2` as story attributes to render this template.
-- Image - `fade-in`, text - `fly-in-left`: This template will show the image `fade-in` with `fly-in-left` text. you can set `theme-3` as story attributes to render this template. -->
+- Image - `fade-in`, text - `fly-in-left`: This template will show the image `fade-in` with `fly-in-left` text. you can set `theme-3` as story attributes to render this template.
 
 #### Creating story attribute
 
