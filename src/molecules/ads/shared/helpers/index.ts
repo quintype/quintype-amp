@@ -1,7 +1,7 @@
 import get from "lodash.get";
 import cloneDeep from "lodash.clonedeep";
 
-const isEmpty = (obj: object) => Object.keys(obj).length === 0;
+export const isEmpty = (obj: object) => Object.keys(obj).length === 0;
 
 export const getPropsForDfpAd = ({ overridingProps, config, adName }) => {
   if (!isEmpty(overridingProps)) return overridingProps;

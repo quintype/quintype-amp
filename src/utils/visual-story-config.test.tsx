@@ -41,37 +41,7 @@ describe("getVisualStoryConfig", () => {
     expect(textConfig).toMatchObject(expectedValue);
   });
 
-  it("should return image animation if it's present inside visualStories config in form of array", () => {
-    const modifiedConfig = config;
-    modifiedConfig.opts = {
-      featureConfig: {
-        visualStories: [
-          {
-            animation: {
-              image: {
-                animateIn: "zoom-out",
-                animateInDuration: "15s",
-                animateInDelay: "1s"
-              }
-            }
-          }
-        ]
-      }
-    };
-
-    const textConfig = getVisualStoryConfig(modifiedConfig, visualStory);
-    const expectedValue = {
-      imageAnimation: {
-        "animate-in": "zoom-out",
-        "animate-in-delay": "1s",
-        "animate-in-duration": "15s"
-      },
-      textAnimation: {}
-    };
-    expect(textConfig).toMatchObject(expectedValue);
-  });
-
-  it("should return text animation if it's present inside visualStories config in form of array", () => {
+  it("should return text animation if it's present and image as default if not present inside visualStories config in form of array", () => {
     const modifiedConfig = config;
     modifiedConfig.opts = {
       featureConfig: {
@@ -92,7 +62,11 @@ describe("getVisualStoryConfig", () => {
 
     const textConfig = getVisualStoryConfig(modifiedConfig, visualStory);
     const expectedValue = {
-      imageAnimation: {},
+      imageAnimation: {
+        "animate-in": "zoom-in",
+        "animate-in-delay": "1s",
+        "animate-in-duration": "10s"
+      },
       textAnimation: {
         "animate-in": "zoom-out",
         "animate-in-delay": "1s",
@@ -111,7 +85,10 @@ describe("getVisualStoryConfig", () => {
     };
 
     const imageResponse = getVisualStoryConfig(modifiedConfig, visualStory);
-    const expectedValue = {};
+    const expectedValue = {
+      imageAnimation: {},
+      textAnimation: {}
+    };
     expect(imageResponse).toMatchObject(expectedValue);
   });
 });

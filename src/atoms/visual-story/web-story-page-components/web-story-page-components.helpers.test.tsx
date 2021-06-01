@@ -22,7 +22,11 @@ describe("getAnimationProps", () => {
 
     const imageResponse = getAnimationProps(modifiedConfig, visualStory);
     const expectedValue = {
-      imageAnimation: { "animate-in": "zoom-in", "animate-in-delay": "1s", "animate-in-duration": "10s" },
+      imageAnimation: {
+        "animate-in": "zoom-in",
+        "animate-in-delay": "1s",
+        "animate-in-duration": "10s"
+      },
       textAnimation: {}
     };
     expect(imageResponse).toMatchObject(expectedValue);
@@ -56,7 +60,7 @@ describe("getAnimationProps", () => {
     expect(imageResponse).toMatchObject(expectedValue);
   });
 
-  it("should return empty object if visualStories is not present", () => {
+  it("should return default image animation if visualStories is not present", () => {
     const modifiedConfig = config;
     modifiedConfig.opts = {
       featureConfig: {
@@ -65,7 +69,14 @@ describe("getAnimationProps", () => {
     };
 
     const imageResponse = getAnimationProps(modifiedConfig, visualStory);
-    const expectedValue = {};
+    const expectedValue = {
+      imageAnimation: {
+        "animate-in": "zoom-in",
+        "animate-in-delay": "1s",
+        "animate-in-duration": "10s"
+      },
+      textAnimation: {}
+    };
     expect(imageResponse).toMatchObject(expectedValue);
   });
 });

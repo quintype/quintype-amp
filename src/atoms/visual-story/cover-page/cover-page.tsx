@@ -38,15 +38,17 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
             <PublisherLogoHeader />
           </LogoWrapper>
         </amp-story-grid-layer>
-        <amp-story-grid-layer template="thirds" {...textAnimation}>
+        <amp-story-grid-layer template="thirds">
           <StyledTextWrapper>
-            <StyledHeadline className="qt-amp-visual-story-cover-headline">{headline}</StyledHeadline>
-            {authorNames && (
-              <Fragment>
-                <Spacer token="xs" />
-                <StyledAuthors>{authorNames}</StyledAuthors>
-              </Fragment>
-            )}
+            <div {...textAnimation}>
+              <StyledHeadline className="qt-amp-visual-story-cover-headline">{headline}</StyledHeadline>
+              {authorNames && (
+                <Fragment>
+                  <Spacer token="xs" />
+                  <StyledAuthors>{authorNames}</StyledAuthors>
+                </Fragment>
+              )}
+            </div>
           </StyledTextWrapper>
         </amp-story-grid-layer>
       </AmpStoryPage>

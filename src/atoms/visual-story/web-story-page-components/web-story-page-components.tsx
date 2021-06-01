@@ -26,12 +26,14 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
         </amp-story-grid-layer>
       )}
       {(titleElement || textElements.length) && (
-        <amp-story-grid-layer template="thirds" {...textAnimation}>
+        <amp-story-grid-layer template="thirds">
           <TextWrapper>
-            {titleElement && <StoryElement element={titleElement} />}
-            {textElements.map((textElement) => (
-              <StoryElement key={textElement.id} element={textElement} />
-            ))}
+            <div {...textAnimation}>
+              {titleElement && <StoryElement element={titleElement} />}
+              {textElements.map((textElement) => (
+                <StoryElement key={textElement.id} element={textElement} />
+              ))}
+            </div>
           </TextWrapper>
         </amp-story-grid-layer>
       )}

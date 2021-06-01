@@ -24,12 +24,12 @@ AMP [Visual Stories](https://amp.dev/about/stories/) consist of `pages`. These a
 
 <img src="./visual-stories/visual_story_parts.png" alt="Parts of a visual story">
 
-- The first visual story page shows the hero image, headline, author name and publisher logo.
-- Every subsequent visual story page corresponds to a Quintype story card (i.e. the second visual story page will show the 1st storycard)
-- Only the following story elements are supported - image, title, also-read, answer, bigfact, blockquote, blurb, q-and-a, question, quote, summary, title, normal paragraph (text). All other story elements are ignored
-- At this point of time our CMS does not support uploading videos, so they're not supported by AmpLib
+- The first visual story page shows the hero image, headline, author name, and publisher logo.
+- Every subsequent visual story page corresponds to a Quintype story card (i.e. the second visual story page will show the 1st storycard).
+- Only the following story elements are supported - image, title, also-read, answer, bigfact, blockquote, blurb, q-and-a, question, quote, summary, title, normal paragraph (text). All other story elements are ignored.
+- At this point of time our CMS does not support uploading videos, so they're not supported by AmpLib.
 - At the end, a [bookend](https://amp.dev/documentation/components/amp-story-bookend/?format=stories) (which is an end screen of an AMP story, showcasing sharing and related content) is shown.
-- There can be only one image per story card. If more than one image is added (per card), the first one is displayed
+- There can be only one image per story card. If more than one image is added (per card), the first one is displayed.
 - Similarly, there can be only one `title` story element.
 - There can be one or more (or a combination of) also-read, answer, bigfact, blockquote, blurb, q-and-a, question, quote, summary, title, normal paragraph story elements. They're positioned at the bottom of the visual story page.
 
