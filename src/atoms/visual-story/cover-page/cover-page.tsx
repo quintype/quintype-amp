@@ -5,17 +5,16 @@ import { AmpStoryPage } from "../index";
 import { CoverPageProps } from "./types";
 import { getAuthorNames } from "../../author/author";
 import styled from "styled-components";
-import { getImageAnimationProps } from "../web-story-page-components/web-story-page-components.helpers";
-import { getVisualStoryTextConfig } from "../../../utils/visual-story-config";
+import { getAnimationProps } from "../web-story-page-components/web-story-page-components.helpers";
+import { AnimationTypes } from "../web-story-page-components/types";
 
 export const CoverPageBase = ({ story, config }: CoverPageProps) => {
   const heroImgSrc = story["hero-image-s3-key"];
   const heroImgMetadata = story["hero-image-metadata"];
   const altText = story["hero-image-caption"] || story["hero-image-attribution"] || "";
   const authorNames = getAuthorNames(story.authors);
-  const imageAnimationProps = getImageAnimationProps(config, story);
+  const { imageAnimation, textAnimation }: AnimationTypes = getAnimationProps(config, story);
   const headline = story.headline || "";
-  const visualStoryTextConfig = getVisualStoryTextConfig(config, story);
   return (
     <Fragment>
       <AmpStoryPage id="cover">
@@ -28,7 +27,7 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
               slug={heroImgSrc}
               metadata={heroImgMetadata}
               lightbox={false}
-              {...imageAnimationProps}
+              {...imageAnimation}
             />
           ) : (
             <FullLengthDiv />
@@ -39,7 +38,7 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
             <PublisherLogoHeader />
           </LogoWrapper>
         </amp-story-grid-layer>
-        <amp-story-grid-layer template="thirds" {...visualStoryTextConfig}>
+        <amp-story-grid-layer template="thirds" {...textAnimation}>
           <StyledTextWrapper>
             <StyledHeadline className="qt-amp-visual-story-cover-headline">{headline}</StyledHeadline>
             {authorNames && (

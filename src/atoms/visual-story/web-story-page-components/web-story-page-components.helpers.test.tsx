@@ -1,8 +1,8 @@
 import { config, visualStory } from "../../../__fixtures__";
-import { getImageAnimationProps } from "./web-story-page-components.helpers";
+import { getAnimationProps } from "./web-story-page-components.helpers";
 
-describe("getImageAnimationProps", () => {
-  it("should return image animation if visualStories config is present in form of array of object", () => {
+describe("getAnimationProps", () => {
+  it("should return image animation if visualStories config is present in form of array", () => {
     const modifiedConfig = config;
     modifiedConfig.opts = {
       featureConfig: {
@@ -20,11 +20,10 @@ describe("getImageAnimationProps", () => {
       }
     };
 
-    const imageResponse = getImageAnimationProps(modifiedConfig, visualStory);
+    const imageResponse = getAnimationProps(modifiedConfig, visualStory);
     const expectedValue = {
-      "animate-in": "zoom-in",
-      "animate-in-delay": "1s",
-      "animate-in-duration": "10s"
+      imageAnimation: { "animate-in": "zoom-in", "animate-in-delay": "1s", "animate-in-duration": "10s" },
+      textAnimation: {}
     };
     expect(imageResponse).toMatchObject(expectedValue);
   });
@@ -45,11 +44,14 @@ describe("getImageAnimationProps", () => {
       }
     };
 
-    const imageResponse = getImageAnimationProps(modifiedConfig, visualStory);
+    const imageResponse = getAnimationProps(modifiedConfig, visualStory);
     const expectedValue = {
-      "animate-in": "zoom-in",
-      "animate-in-delay": "1s",
-      "animate-in-duration": "10s"
+      imageAnimation: {
+        "animate-in": "zoom-in",
+        "animate-in-delay": "1s",
+        "animate-in-duration": "10s"
+      },
+      textAnimation: {}
     };
     expect(imageResponse).toMatchObject(expectedValue);
   });
@@ -62,7 +64,7 @@ describe("getImageAnimationProps", () => {
       }
     };
 
-    const imageResponse = getImageAnimationProps(modifiedConfig, visualStory);
+    const imageResponse = getAnimationProps(modifiedConfig, visualStory);
     const expectedValue = {};
     expect(imageResponse).toMatchObject(expectedValue);
   });

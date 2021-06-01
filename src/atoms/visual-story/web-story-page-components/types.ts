@@ -7,3 +7,7 @@ export interface WebStoryPageComponentsTypes {
   config: Config;
   story: Story;
 }
+export interface AnimationTypes {
+  imageAnimation?: object;
+  textAnimation?: object;
+}

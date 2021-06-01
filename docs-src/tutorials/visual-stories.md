@@ -74,9 +74,11 @@ Currently, visual stories have 3 types of themes or templates that can be config
 
 <img src="./visual-stories/visual-story.png" alt="Parts of a visual story">
 
-#### Old visual story specific feature configs:
+#### Visual story specific feature configs:
 
-This feature configuration does not support the above templates. this configuration has `zoom-in` animation in the image and plain text which will be at bottom of the cards.
+The config of visualStories for featureConfig can be in form of an array or an object, If it's an array, it will take all the mentioned above templates. If it's an object it will be the old implementation which has `zoom-in` animation in the image and plain text which will be at bottom of the cards.
+
+**featureConfig with visualStories as object**
 
 ```js
 dummyOpts = {
@@ -100,11 +102,7 @@ dummyOpts = {
   }
 };
 ```
-
-#### New visual story specific feature configs:
-
-This feature configuration supports the above all the 3 templates. it's similar to old but instead of passing an object to `visualStories` here, you need to pass as in form of an array of objects. this configuration also supports animation for text. You can still change the animations for image and text as per your wish while passing the feature configuration object in ampRoutes.
-
+**featureConfig with visualStories as array**
 
 ```js
 dummyOpts = {
@@ -176,8 +174,10 @@ dummyOpts = {
 2. `bookendUrl`: (String) Optional. The endpoint called by the bookend component. Defaults to `/amp/api/v1/bookend.json` if nothing is passed. If an endpoint is passed, please make sure that the route exists in your app and that it returns data in a valid format. `storyId` and `sectionId` are passed as query parameters. Refer [docs](https://amp.dev/documentation/components/amp-story-bookend/?format=stories)
 3. ad slot: (String) Optional. Example "/1009443/PUBLISHER_AMP_TOP" `featureConfig` > `visualStories` > `ads` > `doubleclick` > `dataSlot` sets the ad slot for visual stories. Ads are dynamically inserted, please read [docs](https://amp.dev/documentation/components/amp-story-auto-ads/?format=stories)
 4. `animation`: (object) Optional. 
-  - `animation` > `image` applies animation props to the story image. We accept `animateIn`, `animateInDuration` and `animateInDelay`. Refer [docs](https://amp.dev/documentation/guides-and-tutorials/start/visual_story/animating_elements/?format=stories).
+  - `animation` > `image` applies animation props to the story image. We accept `animateIn`, `animateInDuration` and `animateInDelay`.
   - `animation` > `text` applies animation props to the story text. We accept `animateIn`, `animateInDuration` and `animateInDelay`.
+
+Note: The animation for image and text in the above config still you can change as per your wish. Refer [docs](https://amp.dev/documentation/guides-and-tutorials/start/visual_story/animating_elements/?format=stories).
 
 <hr />
 
