@@ -4,10 +4,8 @@ import { Story } from "./../../../types/story";
 import { getAnimation, getVisualStoryConfig } from "./../../../utils/visual-story-config";
 
 export const getAnimationProps = (config: Config, story: Story) => {
-  const featureConfig = get(config, ["opts", "featureConfig"], null);
-  const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"]) || null;
-
-  if (featureConfig && !Array.isArray(visualStoriesConfig)) {
+  const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"]) || [];
+  if (!Array.isArray(visualStoriesConfig)) {
     // default to existing logic
     const imgAnimationFeatCfg = get(config, ["opts", "featureConfig", "visualStories", "animation", "image"], null);
     if (!imgAnimationFeatCfg)
