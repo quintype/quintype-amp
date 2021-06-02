@@ -79,7 +79,7 @@ describe("Webengage", () => {
       "https://www.vikatan.com/amp/api/v1/amp-permission-dialog-web-engage.html"
     );
     expect(wrapper.find(WebPush).prop("service-worker-url")).toBe(
-      "https://www.vikatan.com/amp/api/v1/amp-service-worker-web-engage.js"
+      "https://www.vikatan.com/api/amp-service-worker-web-engage.js?licensecode=~134105365&version=1"
     );
     expect(wrapper.find(WebPushWidget).children()).toHaveLength(1);
   });
