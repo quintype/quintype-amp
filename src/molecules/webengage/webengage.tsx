@@ -7,7 +7,7 @@ import { getWebengageConfig } from "./helpers";
 export const WebEngageBase = ({ story, config, buttonText, width, height, visibility }: WebEngageTypes) => {
   const webengageConfig = getWebengageConfig({ story, config });
   if (!webengageConfig) return null;
-  const { trackingCode, websiteUrl, licenseCode } = webengageConfig;
+  const { trackingCode, websiteUrl } = webengageConfig;
 
   return (
     <Fragment>
@@ -15,9 +15,9 @@ export const WebEngageBase = ({ story, config, buttonText, width, height, visibi
       <Analytics id="webengage" type="webengage" targets={trackingCode} />
       <WebPush
         id="amp-web-push"
-        helper-iframe-url={`${websiteUrl}/api/amp-web-push-helper-frame.html?version=1`}
-        permission-dialog-url={`${websiteUrl}/api/amp-permission-dialog-web-engage.html?version=1`}
-        service-worker-url={`${websiteUrl}/api/amp-service-worker-web-engage.js?licensecode=${licenseCode}&version=1`}
+        helper-iframe-url={`${websiteUrl}/amp/api/v1/amp-web-push-helper-frame.html`}
+        permission-dialog-url={`${websiteUrl}/amp/api/v1/amp-permission-dialog-web-engage.html`}
+        service-worker-url={`${websiteUrl}/amp/api/v1/amp-service-worker-web-engage.js`}
       />
       <WebPushWidget visibility={visibility || "unsubscribed"} width={width || "350px"} height={height || "60px"}>
         <WebengageSubscribeButton on="tap:amp-web-push.subscribe" text={buttonText} />
