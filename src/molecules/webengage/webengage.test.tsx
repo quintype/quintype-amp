@@ -73,13 +73,13 @@ describe("Webengage", () => {
     const wrapper = shallow(<WebEngageBase config={vikatanConfig} story={vikatanStory} />);
     expect(wrapper.find(Analytics).exists()).toBeTruthy();
     expect(wrapper.find(WebPush).prop("helper-iframe-url")).toBe(
-      "https://www.vikatan.com/api/amp-web-push-helper-frame.html?version=1"
+      "https://www.vikatan.com/amp/api/v1/amp-web-push-helper-frame.html"
     );
     expect(wrapper.find(WebPush).prop("permission-dialog-url")).toBe(
-      "https://www.vikatan.com/api/amp-permission-dialog-web-engage.html?version=1"
+      "https://www.vikatan.com/amp/api/v1/amp-permission-dialog-web-engage.html"
     );
     expect(wrapper.find(WebPush).prop("service-worker-url")).toBe(
-      "https://www.vikatan.com/api/amp-service-worker-web-engage.js?licensecode=~134105365&version=1"
+      "https://www.vikatan.com/amp/api/v1/amp-service-worker-web-engage.js"
     );
     expect(wrapper.find(WebPushWidget).children()).toHaveLength(1);
   });

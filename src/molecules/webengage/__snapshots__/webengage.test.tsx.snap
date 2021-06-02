@@ -29,10 +29,10 @@ exports[`Webengage should match snapshot 1`] = `
     type="webengage"
   />
   <Component
-    helper-iframe-url="https://www.vikatan.com/api/amp-web-push-helper-frame.html?version=1"
+    helper-iframe-url="https://www.vikatan.com/amp/api/v1/amp-web-push-helper-frame.html"
     id="amp-web-push"
-    permission-dialog-url="https://www.vikatan.com/api/amp-permission-dialog-web-engage.html?version=1"
-    service-worker-url="https://www.vikatan.com/api/amp-service-worker-web-engage.js?licensecode=~134105365&version=1"
+    permission-dialog-url="https://www.vikatan.com/amp/api/v1/amp-permission-dialog-web-engage.html"
+    service-worker-url="https://www.vikatan.com/amp/api/v1/amp-service-worker-web-engage.js"
   />
   <Component
     height="60px"
