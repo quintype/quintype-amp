@@ -149,22 +149,19 @@ To do this, go to the file <code>app/server/routes.js</code> and add the followi
 <p>AMP <a href="https://amp.dev/about/stories/">Visual Stories</a> consist of <code>pages</code>. These are in turn made up of <code>layers</code> containing basic amp <code>elements</code>. Read <a href="https://amp.dev/documentation/guides-and-tutorials/start/visual_story/parts_of_story/?format=stories">this</a> for more info.</p>
 <img src="./visual-stories/visual_story_parts.png" alt="Parts of a visual story">
 <ul>
-<li>The first visual story page shows the hero image, headline, author name and publisher logo.</li>
-<li>Every subsequent visual story page corresponds to a Quintype story card (i.e. the second visual story page will show the 1st storycard)</li>
-<li>Only the following story elements are supported - image, title, also-read, answer, bigfact, blockquote, blurb, q-and-a, question, quote, summary, title, normal paragraph (text). All other story elements are ignored</li>
-<li>At this point of time our CMS does not support uploading videos, so they're not supported by AmpLib</li>
+<li>The first visual story page shows the hero image, headline, author name, and publisher logo.</li>
+<li>Every subsequent visual story page corresponds to a Quintype story card (i.e. the second visual story page will show the 1st storycard).</li>
+<li>Only the following story elements are supported - image, title, also-read, answer, bigfact, blockquote, blurb, q-and-a, question, quote, summary, title, normal paragraph (text). All other story elements are ignored.</li>
+<li>At this point of time our CMS does not support uploading videos, so they're not supported by AmpLib.</li>
 <li>At the end, a <a href="https://amp.dev/documentation/components/amp-story-bookend/?format=stories">bookend</a> (which is an end screen of an AMP story, showcasing sharing and related content) is shown.</li>
+<li>There can be only one image per story card. If more than one image is added (per card), the first one is displayed.</li>
+<li>Similarly, there can be only one <code>title</code> story element.</li>
+<li>There can be one or more (or a combination of) also-read, answer, bigfact, blockquote, blurb, q-and-a, question, quote, summary, title, normal paragraph story elements. They're positioned at the bottom of the visual story page.</li>
 </ul>
 <hr />
-<h4>The default visual story template:</h4>
-<p>Visual stories are rendered using this default template if no other template is chosen. More templates are WIP. It has the following features:</p>
-<ul>
-<li>There can be only one image per story card. If more than one image is added (per card), the first one is displayed</li>
-<li>Similarly, there can be only one <code>title</code> story element</li>
-<li>there can be one or more (or a combination of) also-read, answer, bigfact, blockquote, blurb, q-and-a, question, quote, summary, title, normal paragraph story elements. They're positioned at the bottom of the visual story page</li>
-</ul>
-<hr />
-<h4>Visual story specific feature configs:</h4>
+<h3>Customizing visual stories</h3>
+<p>By default, visual stories have no animations; just a simple image with text at the bottom. However you can add animation effects using featureConfig. Please go through these <a href="https://amp.dev/documentation/guides-and-tutorials/start/visual_story/animating_elements/?format=stories">docs</a> for choosing animation effects.</p>
+<p>Sample featureConfig:</p>
 <pre class="prettyprint source lang-js"><code>dummyOpts = {
   featureConfig: {
     visualStories: {
@@ -190,13 +187,80 @@ To do this, go to the file <code>app/server/routes.js</code> and add the followi
 <li><code>autoAdvanceAfter</code>: (String) Optional. Sets the time after which the page automatically advances. If omitted, the page will not automatically advance. Example: &quot;500ms&quot;, &quot;3s&quot;</li>
 <li><code>bookendUrl</code>: (String) Optional. The endpoint called by the bookend component. Defaults to <code>/amp/api/v1/bookend.json</code> if nothing is passed. If an endpoint is passed, please make sure that the route exists in your app and that it returns data in a valid format. <code>storyId</code> and <code>sectionId</code> are passed as query parameters. Refer <a href="https://amp.dev/documentation/components/amp-story-bookend/?format=stories">docs</a></li>
 <li>ad slot: (String) Optional. Example &quot;/1009443/PUBLISHER_AMP_TOP&quot; <code>featureConfig</code> &gt; <code>visualStories</code> &gt; <code>ads</code> &gt; <code>doubleclick</code> &gt; <code>dataSlot</code> sets the ad slot for visual stories. Ads are dynamically inserted, please read <a href="https://amp.dev/documentation/components/amp-story-auto-ads/?format=stories">docs</a></li>
-<li><code>animation</code>: (object) Optional. <code>animation</code> &gt; <code>image</code> applies animation props to the story image. We accept <code>animateIn</code>, <code>animateInDuration</code> and <code>animateInDelay</code>. Refer <a href="https://amp.dev/documentation/guides-and-tutorials/start/visual_story/animating_elements/?format=stories">docs</a></li>
+<li><code>animation</code>: (object) Optional.</li>
 </ol>
+<ul>
+<li><code>animation</code> &gt; <code>image</code> applies animation props to the story image. We accept <code>animateIn</code>, <code>animateInDuration</code> and <code>animateInDelay</code>.</li>
+<li><code>animation</code> &gt; <code>text</code> applies animation props to the story text. We accept <code>animateIn</code>, <code>animateInDuration</code> and <code>animateInDelay</code>. Refer <a href="https://amp.dev/documentation/guides-and-tutorials/start/visual_story/animating_elements/?format=stories">docs</a></li>
+</ul>
+<h4>Visual story templates:</h4>
+<p>You can also create upto three different templates for visual stories. <code>featureConfig.visualStories</code> can either be an object like shown above, or an array of such objects. The 0th element of this array will be the featureConfig for the 1st template, and so on. Templates can be selected using <em>story attributes</em> feature in BOLD.</p>
+<pre class="prettyprint source lang-js"><code>dummyOpts = {
+  featureConfig: {
+    visualStories: [
+      {
+        autoAdvanceAfter: &quot;5s&quot;,
+        bookendUrl: &quot;/amp/api/v1/bookend.json&quot;,
+        ads: {
+          doubleclick: {
+            dataSlot: &quot;/1009127/FOO_AMP_TOP&quot;
+          }
+        },
+        animation: {
+          image: {
+            animateIn: &quot;zoom-in&quot;,
+            animateInDuration: &quot;120s&quot;,
+            animateInDelay: &quot;1s&quot;
+          }
+        }
+      },
+      {
+        // featureConfig for template 2
+      }
+    ]
+  }
+};
+</code></pre>
+<p>Currently, visual stories have 3 types of themes or templates that can be configured through story attributes from our CMS.</p>
+<ul>
+<li>Image - <code>zoom-in</code>, text - {}: This template is the default template which will have the image in zoom-in while text will be constant at the bottom. you can set <code>theme-1</code> as story attribute in bold for rendering this template. If there are no story attributes are set in bold, this template will render as default.</li>
+<li>Image - <code>zoom-out</code>, text - <code>fly-in-bottom</code> : This template will show the image <code>zoom-out</code> with <code>fly-in-bottom</code> text. you can set <code>theme-2</code> as story attributes to render this template.</li>
+<li>Image - <code>fade-in</code>, text - <code>fly-in-left</code>: This template will show the image <code>fade-in</code> with <code>fly-in-left</code> text. you can set <code>theme-3</code> as story attributes to render this template.</li>
+</ul>
+<p>Above are the default templates, these can be overriden from feature config (as we’ve shown already).</p>
+<h4>Creating story attribute</h4>
+<ul>
+<li>In the editor, open the story and click on manage icon</li>
+</ul>
+<img src="./visual-stories/manage.png" alt="Parts of a visual story">
+<ul>
+<li>Click on <code>Attributes</code> button</li>
+<li>Click on <code>Create</code> button
+<ul>
+<li>Name - <code>Visual Story Theme</code></li>
+<li>Type - <code>Story</code></li>
+<li>Data type - <code>Multiple Values</code></li>
+<li>Multiple values - create three thems : <code>theme-1</code>, <code>theme-2</code> and <code>theme-3</code>.</li>
+</ul>
+</li>
+</ul>
+<img src="./visual-stories/story-attribute-create.png" alt="Parts of a visual story">
+<ul>
+<li>Click on create.</li>
+</ul>
+<h4>Setting story attributes for visual story</h4>
+<ul>
+<li>Click on <code>Add New</code> -&gt; <code>Story</code> : This will open new window with <code>text</code> story by default.</li>
+<li>Click on <code>TEXT</code> and select the visual story as template</li>
+<li>Click on <code>Manage</code> -&gt; <code>Show Advanced Options</code> -&gt; <code>ATTRIBUTES</code></li>
+<li>Select the respective theme which you wanted to render from the story attributes field.</li>
+</ul>
+<img src="./visual-stories/visual-story.png" alt="Parts of a visual story">
 <hr />
 <h4>Special note for zoom-in animation effect:</h4>
-<p>If you've enabled the <code>zoom-in</code> animation effect with a long animation duration, you must have noticed that the grey image background is visible below the image. This behaviour is built into google AMP, and we can't modify it.
-If it's not to your liking, we can add a zoom effect using CSS and disable the built-in animations.</p>
-<p>For this purpose, ampLib has placed a class called <code>qt-amp-visual-story-img-cover</code> on the cover image and <code>qt-amp-visual-story-img</code> on the remaining images. These classes can be targeted via CSS.</p>
+<p>If you've enabled the <code>zoom-in</code> animation effect with a long animation duration, you might have noticed that the grey image background is visible below the image.
+This happens when the images used in visual stories aren't of an appropriate aspect ratio.</p>
+<p>ampLib has placed a class called <code>qt-amp-visual-story-img-cover</code> on the cover image and <code>qt-amp-visual-story-img</code> on the remaining images. These classes can be targeted via CSS to add styles/css transitions if you wish</p>
 <p>Example:</p>
 <pre class="prettyprint source lang-js"><code>import React, { Fragment } from &quot;react&quot;;
 import { AMP } from &quot;@quintype/amp&quot;;
