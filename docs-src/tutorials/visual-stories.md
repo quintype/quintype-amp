@@ -70,7 +70,7 @@ dummyOpts = {
 4. `animation`: (object) Optional.
 
 - `animation` > `image` applies animation props to the story image. We accept `animateIn`, `animateInDuration` and `animateInDelay`.
-- `animation` > `text` applies animation props to the story text. We accept `animateIn`, `animateInDuration` and `animateInDelay`.
+- `animation` > `text` applies animation props to the story text. We accept `animateIn`, `animateInDuration` and `animateInDelay`. Refer [docs](https://amp.dev/documentation/guides-and-tutorials/start/visual_story/animating_elements/?format=stories)
 
 #### Visual story templates:
 
