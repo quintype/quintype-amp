@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.4.4](https://github.com/quintype/quintype-amp/compare/v2.4.3...v2.4.4) (2021-06-03)
+
+
+### Bug Fixes
+
+* remove unnecessary char from gtm url ([#344](https://github.com/quintype/quintype-amp/issues/344)) ([dc33a30](https://github.com/quintype/quintype-amp/commit/dc33a305174cb95e4ead289657359518a31c4f0f))
+
 ### [2.4.3](https://github.com/quintype/quintype-amp/compare/v2.4.3-visual-stories.4...v2.4.3) (2021-06-03)
 
 ### [2.4.2](https://github.com/quintype/quintype-amp/compare/v2.4.1...v2.4.2) (2021-05-27)
