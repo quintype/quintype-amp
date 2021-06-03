@@ -5,14 +5,15 @@ import { AmpStoryPage } from "../index";
 import { CoverPageProps } from "./types";
 import { getAuthorNames } from "../../author/author";
 import styled from "styled-components";
-import { getImageAnimationProps } from "../web-story-page-components/web-story-page-components.helpers";
+import { getAnimationProps } from "../web-story-page-components/web-story-page-components.helpers";
+import { AnimationTypes } from "../web-story-page-components/types";
 
 export const CoverPageBase = ({ story, config }: CoverPageProps) => {
   const heroImgSrc = story["hero-image-s3-key"];
   const heroImgMetadata = story["hero-image-metadata"];
   const altText = story["hero-image-caption"] || story["hero-image-attribution"] || "";
   const authorNames = getAuthorNames(story.authors);
-  const imageAnimationProps = getImageAnimationProps(config);
+  const { imageAnimation, textAnimation }: AnimationTypes = getAnimationProps(config, story);
   const headline = story.headline || "";
   return (
     <Fragment>
@@ -26,7 +27,7 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
               slug={heroImgSrc}
               metadata={heroImgMetadata}
               lightbox={false}
-              {...imageAnimationProps}
+              {...imageAnimation}
             />
           ) : (
             <FullLengthDiv />
@@ -39,13 +40,15 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
         </amp-story-grid-layer>
         <amp-story-grid-layer template="thirds">
           <StyledTextWrapper>
-            <StyledHeadline className="qt-amp-visual-story-cover-headline">{headline}</StyledHeadline>
-            {authorNames && (
-              <Fragment>
-                <Spacer token="xs" />
-                <StyledAuthors>{authorNames}</StyledAuthors>
-              </Fragment>
-            )}
+            <div {...textAnimation}>
+              <StyledHeadline className="qt-amp-visual-story-cover-headline">{headline}</StyledHeadline>
+              {authorNames && (
+                <Fragment>
+                  <Spacer token="xs" />
+                  <StyledAuthors>{authorNames}</StyledAuthors>
+                </Fragment>
+              )}
+            </div>
           </StyledTextWrapper>
         </amp-story-grid-layer>
       </AmpStoryPage>

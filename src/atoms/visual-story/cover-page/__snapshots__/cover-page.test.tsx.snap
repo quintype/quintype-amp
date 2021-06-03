@@ -10,6 +10,9 @@ exports[`CoverPage Component should match snapshot 1`] = `
     >
       <Component
         alt=" <p>Masked woman</p>"
+        animate-in="zoom-in"
+        animate-in-delay="1s"
+        animate-in-duration="10s"
         aspectRatio={
           Array [
             480,
@@ -41,17 +44,19 @@ exports[`CoverPage Component should match snapshot 1`] = `
       template="thirds"
     >
       <styled.div>
-        <styled.h1
-          className="qt-amp-visual-story-cover-headline"
-        >
-          Pets are awesome
-        </styled.h1>
-        <Spacer
-          token="xs"
-        />
-        <styled.p>
-          Amogh Sahasrabhojanee
-        </styled.p>
+        <div>
+          <styled.h1
+            className="qt-amp-visual-story-cover-headline"
+          >
+            Pets are awesome
+          </styled.h1>
+          <Spacer
+            token="xs"
+          />
+          <styled.p>
+            Amogh Sahasrabhojanee
+          </styled.p>
+        </div>
       </styled.div>
     </amp-story-grid-layer>
   </Component>

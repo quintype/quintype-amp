@@ -1,6 +1,6 @@
 {
   "name": "@quintype/amp",
-  "version": "2.4.2",
+  "version": "2.4.3-visual-stories.4",
   "description": "Quintype's AMP component library for publisher apps to create amp layouts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

@@ -1,16 +1,15 @@
 import React, { Fragment } from "react";
 import { StoryElement, Image } from "../../../atoms";
-import { WebStoryPageComponentsTypes } from "./types";
+import { WebStoryPageComponentsTypes, AnimationTypes } from "./types";
 import styled from "styled-components";
 import { withStoryAndConfig } from "../../../context";
-import { getImageAnimationProps } from "./web-story-page-components.helpers";
+import { getAnimationProps } from "./web-story-page-components.helpers";
 
-const WebStoryPageComponentsBase = ({ card, config }: WebStoryPageComponentsTypes) => {
+const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageComponentsTypes) => {
   const titleElement = card["story-elements"].find((el) => el.type === "title");
   const textElements = card["story-elements"].filter((el) => el.type === "text");
   const imageElement = card["story-elements"].find((el) => el.type === "image");
-  const imageAnimationProps = getImageAnimationProps(config);
-
+  const { imageAnimation, textAnimation }: AnimationTypes = getAnimationProps(config, story);
   return (
     <Fragment>
       {imageElement && (
@@ -22,17 +21,19 @@ const WebStoryPageComponentsBase = ({ card, config }: WebStoryPageComponentsType
             aspectRatio={[480, 640]}
             alt={imageElement.title || imageElement["image-attribution"]}
             lightbox={false}
-            {...imageAnimationProps}
+            {...imageAnimation}
           />
         </amp-story-grid-layer>
       )}
       {(titleElement || textElements.length) && (
         <amp-story-grid-layer template="thirds">
           <TextWrapper>
-            {titleElement && <StoryElement element={titleElement} />}
-            {textElements.map((textElement) => (
-              <StoryElement key={textElement.id} element={textElement} />
-            ))}
+            <div {...textAnimation}>
+              {titleElement && <StoryElement element={titleElement} />}
+              {textElements.map((textElement) => (
+                <StoryElement key={textElement.id} element={textElement} />
+              ))}
+            </div>
           </TextWrapper>
         </amp-story-grid-layer>
       )}

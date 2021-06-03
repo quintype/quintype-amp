@@ -3,9 +3,10 @@ import { Helmet } from "react-helmet";
 import { withStoryAndConfig } from "../../../context";
 import { AutoAdsTypes } from "./types";
 import { getTargetingInfo } from "../../dfp-ad/helpers";
+import { getVisualStoryAdsSlot } from "../../../utils/visual-story-config";
 
 export const AmpStoryAutoAdsBase = ({ story, config }: AutoAdsTypes) => {
-  const dataSlot = config.opts?.featureConfig?.visualStories?.ads?.doubleclick?.dataSlot;
+  const dataSlot = getVisualStoryAdsSlot(config, story);
   if (!dataSlot) return null;
   const adConfig = {
     "ad-attributes": {

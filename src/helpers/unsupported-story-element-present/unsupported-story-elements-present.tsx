@@ -15,7 +15,7 @@ import flatten from "lodash.flatten";
  */
 
 export const unsupportedStoryElementsPresent = (story: Story): boolean => {
-  const cards = story.cards && story.cards.map((card) => card["story-elements"]) || [];
+  const cards = (story.cards && story.cards.map((card) => card["story-elements"])) || [];
   const flattened = flatten(cards);
   return flattened.map((storyElement) => matchStoryElement(storyElement)).includes(Unsupported);
 };

@@ -244,17 +244,32 @@ interface FeatureConfigTypes {
     menuGroupSlug?: string;
   };
   visualStories?: {
-    autoAdvanceAfter?: string;
-    bookendUrl?: string;
-    ads?: {
-      doubleclick?: {
-        dataSlot: string;
-      };
-    };
-    animation?: {
-      image: VisualStoryAnimationFeatureConfig;
-    };
-  };
+        autoAdvanceAfter?: string;
+        bookendUrl?: string;
+        ads?: {
+          doubleclick?: {
+            dataSlot: string;
+          };
+        };
+        animation?: {
+          image: VisualStoryAnimationFeatureConfig;
+        };
+      }
+    | [
+        {
+          autoAdvanceAfter?: string;
+          bookendUrl?: string;
+          ads?: {
+            doubleclick?: {
+              dataSlot: string;
+            };
+          };
+          animation?: {
+            image: VisualStoryAnimationFeatureConfig;
+            text?: VisualStoryAnimationFeatureConfig;
+          };
+        }
+      ];
 }
 
 interface VisualStoryAnimationFeatureConfig {

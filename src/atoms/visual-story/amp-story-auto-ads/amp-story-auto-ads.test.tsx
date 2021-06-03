@@ -5,7 +5,7 @@ import { shallow } from "enzyme";
 import { Config } from "../../../types/config";
 
 describe("amp-story-auto-ads", () => {
-  it("should match snapshot", () => {
+  it("should match snapshot if visualStories config is object", () => {
     const configWithAd: Config = config;
     configWithAd.opts = {
       featureConfig: {
@@ -16,6 +16,23 @@ describe("amp-story-auto-ads", () => {
             }
           }
         }
+      }
+    };
+    expect(shallow(<AmpStoryAutoAdsBase story={visualStory} config={configWithAd} />)).toMatchSnapshot();
+  });
+  it("should match snapshot if visualStories config is array of object", () => {
+    const configWithAd: Config = config;
+    configWithAd.opts = {
+      featureConfig: {
+        visualStories: [
+          {
+            ads: {
+              doubleclick: {
+                dataSlot: "foo"
+              }
+            }
+          }
+        ]
       }
     };
     expect(shallow(<AmpStoryAutoAdsBase story={visualStory} config={configWithAd} />)).toMatchSnapshot();
