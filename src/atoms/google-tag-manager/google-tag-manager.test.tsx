@@ -13,7 +13,7 @@ describe("Google Tag Manager", () => {
   it("should render", () => {
     const wrapper = shallow(<GoogleTagManagerBase config={config} />);
     expect(wrapper.find(Analytics).prop("config")).toEqual(
-      "https://www.googletagmanager.com/amp.json?id=GTM-1234%s&gtm.url=SOURCE_URL"
+      "https://www.googletagmanager.com/amp.json?id=GTM-1234&gtm.url=SOURCE_URL"
     );
   });
   it("should have data-credentials prop", () => {

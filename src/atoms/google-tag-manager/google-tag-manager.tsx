@@ -8,7 +8,7 @@ const GoogleTagManagerBase = ({ config }) => {
 
   return (
     <Analytics
-      config={`https://www.googletagmanager.com/amp.json?id=${gtmID}%s&gtm.url=SOURCE_URL`}
+      config={`https://www.googletagmanager.com/amp.json?id=${gtmID}&gtm.url=SOURCE_URL`}
       data-credentials="include"
     />
   );
