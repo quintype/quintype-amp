@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.4.3](https://github.com/quintype/quintype-amp/compare/v2.4.3-visual-stories.4...v2.4.3) (2021-06-03)
+
 ### [2.4.2](https://github.com/quintype/quintype-amp/compare/v2.4.1...v2.4.2) (2021-05-27)
 
 ### [2.4.1](https://github.com/quintype/quintype-amp/compare/v2.3.0...v2.4.1) (2021-04-23)
