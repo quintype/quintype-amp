@@ -35,7 +35,7 @@ export const getVisualStoryConfig = (config: Config, story: Story) => {
       const themeConfig2 = visualStoriesConfig[1];
       const imgAnimationFeatCfg2 = getAnimationConfig(themeConfig2, "image", {
         animateIn: "zoom-out",
-        animateInDuration: "15s",
+        animateInDuration: "10s",
         animateInDelay: "1s"
       });
       const textFeatCfg2 = getAnimationConfig(themeConfig2, "text", {
@@ -48,7 +48,7 @@ export const getVisualStoryConfig = (config: Config, story: Story) => {
       const themeConfig3 = visualStoriesConfig[2];
       const imgAnimationFeatCfg3 = getAnimationConfig(themeConfig3, "image", {
         animateIn: "fade-in",
-        animateInDuration: "10s",
+        animateInDuration: "5s",
         animateInDelay: "1s"
       });
       const textFeatCfg3 = getAnimationConfig(themeConfig3, "text", {
