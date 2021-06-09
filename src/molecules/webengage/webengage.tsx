@@ -12,12 +12,12 @@ export const WebEngageBase = ({ story, config, buttonText, width, height, visibi
   const helperIframeUrl = get(
     config,
     ["opts", "featureConfig", "webengage", "helperIframeUrl"],
-    "/amp-web-push-helper-iframe-url.v1.html"
+    "/amp-web-push-helper-iframe-url.html?version=1"
   );
   const permissionDialogUrl = get(
     config,
     ["opts", "featureConfig", "webengage", "permissionDialogUrl"],
-    "/amp-web-push-permission-dialog-url.v1.html"
+    "/amp-web-push-permission-dialog-url.html?version=1"
   );
   const serviceWorkerUrl = get(
     config,

@@ -73,10 +73,10 @@ describe("Webengage", () => {
     const wrapper = shallow(<WebEngageBase config={vikatanConfig} story={vikatanStory} />);
     expect(wrapper.find(Analytics).exists()).toBeTruthy();
     expect(wrapper.find(WebPush).prop("helper-iframe-url")).toBe(
-      "https://www.vikatan.com/amp-web-push-helper-iframe-url.v1.html"
+      "https://www.vikatan.com/amp-web-push-helper-iframe-url.html?version=1"
     );
     expect(wrapper.find(WebPush).prop("permission-dialog-url")).toBe(
-      "https://www.vikatan.com/amp-web-push-permission-dialog-url.v1.html"
+      "https://www.vikatan.com/amp-web-push-permission-dialog-url.html?version=1"
     );
     expect(wrapper.find(WebPush).prop("service-worker-url")).toBe("https://www.vikatan.com/service-worker.js");
     expect(wrapper.find(WebPushWidget).children()).toHaveLength(1);
