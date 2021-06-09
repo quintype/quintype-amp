@@ -73,14 +73,12 @@ describe("Webengage", () => {
     const wrapper = shallow(<WebEngageBase config={vikatanConfig} story={vikatanStory} />);
     expect(wrapper.find(Analytics).exists()).toBeTruthy();
     expect(wrapper.find(WebPush).prop("helper-iframe-url")).toBe(
-      "https://www.vikatan.com/api/amp-web-push-helper-frame.html?version=1"
+      "https://www.vikatan.com/amp-web-push-helper-iframe-url.v1.html"
     );
     expect(wrapper.find(WebPush).prop("permission-dialog-url")).toBe(
-      "https://www.vikatan.com/api/amp-permission-dialog-web-engage.html?version=1"
+      "https://www.vikatan.com/amp-web-push-permission-dialog-url.v1.html"
     );
-    expect(wrapper.find(WebPush).prop("service-worker-url")).toBe(
-      "https://www.vikatan.com/api/amp-service-worker-web-engage.js?licensecode=~134105365&version=1"
-    );
+    expect(wrapper.find(WebPush).prop("service-worker-url")).toBe("https://www.vikatan.com/service-worker.js");
     expect(wrapper.find(WebPushWidget).children()).toHaveLength(1);
   });
   it("should not render webengage component if config not provided", () => {

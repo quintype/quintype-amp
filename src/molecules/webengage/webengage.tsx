@@ -3,11 +3,27 @@ import { withStoryAndConfig } from "../../context";
 import { WebPush, WebPushWidget, WebengageSubscribeButton, Spacer, Analytics } from "../../atoms";
 import { WebEngageTypes } from "./types";
 import { getWebengageConfig } from "./helpers";
+import get from "lodash.get";
 
 export const WebEngageBase = ({ story, config, buttonText, width, height, visibility }: WebEngageTypes) => {
   const webengageConfig = getWebengageConfig({ story, config });
   if (!webengageConfig) return null;
-  const { trackingCode, websiteUrl, licenseCode } = webengageConfig;
+  const { trackingCode, websiteUrl } = webengageConfig;
+  const helperIframeUrl = get(
+    config,
+    ["opts", "featureConfig", "webengage", "helperIframeUrl"],
+    "/amp-web-push-helper-iframe-url.v1.html"
+  );
+  const permissionDialogUrl = get(
+    config,
+    ["opts", "featureConfig", "webengage", "permissionDialogUrl"],
+    "/amp-web-push-permission-dialog-url.v1.html"
+  );
+  const serviceWorkerUrl = get(
+    config,
+    ["opts", "featureConfig", "webengage", "serviceWorkerUrl"],
+    "/service-worker.js"
+  );
 
   return (
     <Fragment>
@@ -15,9 +31,9 @@ export const WebEngageBase = ({ story, config, buttonText, width, height, visibi
       <Analytics id="webengage" type="webengage" targets={trackingCode} />
       <WebPush
         id="amp-web-push"
-        helper-iframe-url={`${websiteUrl}/api/amp-web-push-helper-frame.html?version=1`}
-        permission-dialog-url={`${websiteUrl}/api/amp-permission-dialog-web-engage.html?version=1`}
-        service-worker-url={`${websiteUrl}/api/amp-service-worker-web-engage.js?licensecode=${licenseCode}&version=1`}
+        helper-iframe-url={`${websiteUrl}${helperIframeUrl}`}
+        permission-dialog-url={`${websiteUrl}${permissionDialogUrl}`}
+        service-worker-url={`${websiteUrl}${serviceWorkerUrl}`}
       />
       <WebPushWidget visibility={visibility || "unsubscribed"} width={width || "350px"} height={height || "60px"}>
         <WebengageSubscribeButton on="tap:amp-web-push.subscribe" text={buttonText} />

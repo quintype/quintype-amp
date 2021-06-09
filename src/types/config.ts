@@ -243,7 +243,13 @@ interface FeatureConfigTypes {
   sidebarMenu?: {
     menuGroupSlug?: string;
   };
-  visualStories?: {
+  webengage?: {
+    helperIframeUrl?: string;
+    permissionDialogUrl?: string;
+    serviceWorkerUrl?: string;
+  };
+  visualStories?:
+    | {
         autoAdvanceAfter?: string;
         bookendUrl?: string;
         ads?: {
