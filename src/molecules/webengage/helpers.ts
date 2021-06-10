@@ -4,7 +4,7 @@ export const getWebengageConfig = ({ story, config }) => {
   const webengageConfig = get(config, ["ampConfig", "webengage"], null);
   if (!webengageConfig) return null;
   const { "license-code": licenseCode, "india-data-center": indiaDataCenter } = webengageConfig;
-  const websiteUrl = config.publisherConfig["sketches-host"];
+  const host = get(config, ["opts", "featureConfig", "webengage", "host"], config.publisherConfig["sketches-host"]);
   const region = indiaDataCenter ? "in" : "us";
   const baseUrl = "${base}&eventName=Amp Article View&" + getAttributes({ story, config });
   const trackingCode = {
@@ -26,7 +26,7 @@ export const getWebengageConfig = ({ story, config }) => {
   };
   return {
     licenseCode,
-    websiteUrl,
+    host,
     trackingCode
   };
 };

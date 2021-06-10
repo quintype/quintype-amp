@@ -8,7 +8,7 @@ import get from "lodash.get";
 export const WebEngageBase = ({ story, config, buttonText, width, height, visibility }: WebEngageTypes) => {
   const webengageConfig = getWebengageConfig({ story, config });
   if (!webengageConfig) return null;
-  const { trackingCode, websiteUrl } = webengageConfig;
+  const { trackingCode, host } = webengageConfig;
   const helperIframeUrl = get(
     config,
     ["opts", "featureConfig", "webengage", "helperIframeUrl"],
@@ -31,9 +31,9 @@ export const WebEngageBase = ({ story, config, buttonText, width, height, visibi
       <Analytics id="webengage" type="webengage" targets={trackingCode} />
       <WebPush
         id="amp-web-push"
-        helper-iframe-url={`${websiteUrl}${helperIframeUrl}`}
-        permission-dialog-url={`${websiteUrl}${permissionDialogUrl}`}
-        service-worker-url={`${websiteUrl}${serviceWorkerUrl}`}
+        helper-iframe-url={`${host}${helperIframeUrl}`}
+        permission-dialog-url={`${host}${permissionDialogUrl}`}
+        service-worker-url={`${host}${serviceWorkerUrl}`}
       />
       <WebPushWidget visibility={visibility || "unsubscribed"} width={width || "350px"} height={height || "60px"}>
         <WebengageSubscribeButton on="tap:amp-web-push.subscribe" text={buttonText} />

@@ -100,12 +100,12 @@ describe("getWebengageConfig helper function", () => {
   it("should return correct values", () => {
     const webengageConfig = getWebengageConfig({ story: vikatanStory, config: vikatanConfig });
     if (!webengageConfig) throw new Error("Unexpected condition in webengage test");
-    const { trackingCode, websiteUrl, licenseCode } = webengageConfig;
+    const { trackingCode, host, licenseCode } = webengageConfig;
     const trackingCodeJson = JSON.stringify(trackingCode);
     const expectedTrackingCode =
       '{"vars":{"licenseCode":"~134105365","region":"us"},"requests":{"custom-attributes":{"baseUrl":"${base}&eventName=Amp Article View&ArticleTitle=ஆடைகளை ஊடுருவி படம் எடுக்கிறதா ஒன்ப்ளஸ் 8 ப்ரோ கேமரா... உண்மை என்ன? #VikatanAnalysis&ArticleId=ffa539a0-46f4-4309-8a13-dd1d6dfd8b6e&Category=technology&SubCategory=gadgets&Author=ம.காசி விஸ்வநாதன்&ArticleType=&tags=one plus,apple,technology,smart phones,gadgets,Spy Camera&event=pageview"}},"triggers":{"custom-attributesTrigger":{"on":"visible","request":"custom-attributes"}}}';
     expect(trackingCodeJson).toBe(expectedTrackingCode);
-    expect(websiteUrl).toBe("https://www.vikatan.com");
+    expect(host).toBe("https://www.vikatan.com");
     expect(licenseCode).toBe("~134105365");
   });
 });
