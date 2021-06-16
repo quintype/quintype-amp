@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const StoryContainer = styled.div`
+export const StoryContainer = styled.div.attrs({
+  id: "qt-amp-story-container"
+})`
   max-width: 600px;
   margin: 0 auto;
 `;

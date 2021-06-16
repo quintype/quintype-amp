@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet";
 import { ReactElement } from "react";
 import { ServerStyleSheet } from "styled-components";
 import ReactDOMServer from "react-dom/server";
+import { applyTransforms } from "../apply-transforms";
 
 /**
  * The renderToString function generates AMP Html string from react component.
@@ -14,9 +15,10 @@ import ReactDOMServer from "react-dom/server";
  * @param {Object} params.template template react component
  * @param {string} params.seo the SEO string that is to be added in the head
  * @param {string} params.langTag the lang tag that is to be added to the html element. eg: en, fr
+ * @param {Object} params.config the config object
  * @returns {string} ready to render amp html
  */
-export function renderToString({ template, seo, langTag }) {
+export function renderToString({ template, seo, langTag, config }) {
   let str = "";
   try {
     const { htmlStr, styles } = getHtmlAndStyledComponentsStyles(template);
@@ -31,7 +33,8 @@ export function renderToString({ template, seo, langTag }) {
     str += `${headEndBodyStart}`;
     str += `${htmlStr}`;
     str += `${bodyEnd}`;
-    return str;
+    const transformedStr = applyTransforms({ config, ampHtml: str });
+    return transformedStr;
   } catch (e) {
     return e;
   }

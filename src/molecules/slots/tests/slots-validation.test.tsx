@@ -11,7 +11,7 @@ import { renderToString } from "../../../helpers";
 import { isValidAmpHtml } from "../../../utils/validate-amp";
 
 const output = async (layout) => {
-  const ampHtml = renderToString({ template: layout, seo: "", langTag: "en" });
+  const ampHtml = renderToString({ template: layout, seo: "", langTag: "en", config });
   const ampValidatorOutput = await isValidAmpHtml(ampHtml);
   return ampValidatorOutput;
 };
