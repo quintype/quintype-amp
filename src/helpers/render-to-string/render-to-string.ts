@@ -33,7 +33,7 @@ export function renderToString({ template, seo, langTag, config }) {
     str += `${headEndBodyStart}`;
     str += `${htmlStr}`;
     str += `${bodyEnd}`;
-    const transformedStr = applyTransforms({ config, ampHtml: str });
+    return applyTransforms({ config, ampHtml: str });
     return transformedStr;
   } catch (e) {
     return e;
