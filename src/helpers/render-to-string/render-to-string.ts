@@ -34,7 +34,6 @@ export function renderToString({ template, seo, langTag, config }) {
     str += `${htmlStr}`;
     str += `${bodyEnd}`;
     return applyTransforms({ config, ampHtml: str });
-    return transformedStr;
   } catch (e) {
     return e;
   }
