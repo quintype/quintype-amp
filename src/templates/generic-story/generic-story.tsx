@@ -23,7 +23,10 @@ import { StoryCards } from "../../molecules/story-cards/story-card";
 import { infiniteScrollExists } from "../../helpers";
 
 const { TopSlot, BottomSlot } = StoryPageSlots;
-const StoryContainer = styled.div`
+const StoryContainer = styled.div.attrs({
+  id: "qt-amp-story-container",
+  className: "qt-amp-story-container-class"
+})`
   max-width: 600px;
   margin: 0 auto;
 `;

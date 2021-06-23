@@ -1,6 +1,6 @@
 {
   "name": "@quintype/amp",
-  "version": "2.4.5",
+  "version": "2.4.5-transforms.2",
   "description": "Quintype's AMP component library for publisher apps to create amp layouts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -22,7 +22,7 @@
     "test:ci": "jest --env=jsdom --coverage --maxWorkers=2",
     "format": "npx prettier --write",
     "lint": "tslint 'src/**/*.tsx'",
-    "sync": "npm run build && ./bin-dev-scripts/sync-to.sh"
+    "sync-files": "npx onchange --verbose --wait --await-write-finish 'src/**/*' -- ./bin-dev-scripts/sync-to.sh "
   },
   "repository": {
     "type": "git",
@@ -78,6 +78,7 @@
     "jest-styled-components": "^7.0.0",
     "jsdoc": "^3.6.4",
     "lint-staged": "^10.2.2",
+    "onchange": "^4.1.0",
     "prettier": "^1.19.1",
     "standard-version": "^8.0.0",
     "ts-jest": "^25.2.0",

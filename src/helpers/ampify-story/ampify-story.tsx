@@ -32,7 +32,7 @@ export function ampifyStory({
   const config = { publisherConfig, ampConfig, opts, additionalConfig };
   const template = getTemplate({ story, config, seo });
   const langTag = get(publisherConfig, ["language", "iso-code"], null);
-  return renderToString({ template, seo, langTag });
+  return renderToString({ template, seo, langTag, config });
 }
 
 const getTemplate = ({ story, config, seo }) => {
