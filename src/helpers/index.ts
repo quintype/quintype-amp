@@ -6,6 +6,7 @@ import { getImgSrcAndSrcset } from "./image-helpers";
 import { invertHexColor } from "./invert-color";
 import { infiniteScrollExists } from "./infinite-scroll-exists";
 import { unsupportedStoryElementsPresent } from "./unsupported-story-element-present";
+import { applyTransforms } from "./apply-transforms";
 
 export {
   renderToString,
@@ -15,5 +16,6 @@ export {
   invertHexColor,
   getImgSrcAndSrcset,
   infiniteScrollExists,
-  unsupportedStoryElementsPresent
+  unsupportedStoryElementsPresent,
+  applyTransforms
 };

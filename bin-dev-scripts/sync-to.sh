@@ -7,4 +7,5 @@ if [ -z $PATH_TO_APP ] ; then
   exit 1
 fi
 
+npm run build
 rsync -av dist/ "$PATH_TO_APP/node_modules/@quintype/amp/dist"
