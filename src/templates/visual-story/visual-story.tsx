@@ -4,7 +4,7 @@ import { ConfigProvider } from "../../context/config/config-context";
 import { Theme } from "../../context/theme";
 import { getTokensForDarkTheme } from "../../utils/theme";
 import { WebStory, CoverPage, AmpStoryAutoAds, WebStoryPageComponents, AmpStoryPage } from "../../atoms/visual-story";
-import { GoogleAnalytics, QuintypeAnalytics, Fonts } from "../../atoms";
+import { GoogleTagManager, GoogleAnalytics, QuintypeAnalytics, Fonts } from "../../atoms";
 import { CommonTemplateTypes } from "../common-template-types";
 import { getTokensForVisualStory } from "./visual-story.helpers";
 import { Card } from "../../types/story";
@@ -35,6 +35,7 @@ export const VisualStory = ({ story, config }: CommonTemplateTypes) => {
         <TopSlot />
         <AmpStoryAutoAds />
         <CoverPage />
+        <GoogleTagManager />
         {story.cards
           .filter((card) => canTakeCard(card))
           .map((card) => (
