@@ -17,7 +17,7 @@ const StyledFigcaption = styled.figcaption`
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 4x 8px;
+  padding: 4px 8px;
   max-height: 90px;
   color: ${(props) => props.theme.color.white};
   line-height: ${(props) => props.theme.font.lineHeight.level6};
