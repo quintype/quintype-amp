@@ -55,9 +55,11 @@ export const DefaultImageGalleryElement = ({
         alt={image.title}
         lightbox={imageGallery ? "imageGallery" : false}>
         {getFigcaptionText(image.title, image["image-attribution"]) && (
-          <StyledFigcaption
-            dangerouslySetInnerHTML={{ __html: getFigcaptionText(image.title, image["image-attribution"]) || "" }}
-          />
+          <StyledFigcaption>
+            <div
+              dangerouslySetInnerHTML={{ __html: getFigcaptionText(image.title, image["image-attribution"]) || "" }}
+            />
+          </StyledFigcaption>
         )}
       </Image>
     ));
