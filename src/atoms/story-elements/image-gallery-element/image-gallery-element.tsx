@@ -17,10 +17,10 @@ const StyledFigcaption = styled.figcaption`
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 8px;
+  padding: 4px 8px;
   max-height: 90px;
   color: ${(props) => props.theme.color.white};
-  line-height: ${(props) => props.theme.font.lineHeight.level1};
+  line-height: ${(props) => props.theme.font.lineHeight.level6};
   background: ${(props) => `${props.theme.color.black}60`};
   font-size: ${(props) => props.theme.font.size.xxs};
   z-index: ${(props) => props.theme.zIndex.z100};
@@ -55,7 +55,9 @@ export const DefaultImageGalleryElement = ({
         alt={image.title}
         lightbox={imageGallery ? "imageGallery" : false}>
         {getFigcaptionText(image.title, image["image-attribution"]) && (
-          <StyledFigcaption>{getFigcaptionText(image.title, image["image-attribution"])}</StyledFigcaption>
+          <StyledFigcaption
+            dangerouslySetInnerHTML={{ __html: getFigcaptionText(image.title, image["image-attribution"]) || "" }}
+          />
         )}
       </Image>
     ));
