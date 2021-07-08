@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.4.7](https://github.com/quintype/quintype-amp/compare/v2.4.6...v2.4.7) (2021-07-08)
+
+
+### Bug Fixes
+
+* Image galery caption fix ([#348](https://github.com/quintype/quintype-amp/issues/348)) ([1ba7d1f](https://github.com/quintype/quintype-amp/commit/1ba7d1f728cf0ea9b6f6999c60923c93156919ee))
+
 ### [2.4.6](https://github.com/quintype/quintype-amp/compare/v2.4.5...v2.4.6) (2021-06-30)
 
 ### [2.4.5](https://github.com/quintype/quintype-amp/compare/v2.4.4...v2.4.5) (2021-06-23)
