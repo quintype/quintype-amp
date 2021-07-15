@@ -33,6 +33,15 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
               {textElements.map((textElement) => (
                 <StoryElement key={textElement.id} element={textElement} />
               ))}
+              {imageElement && (
+                <ImageDetails>
+                  {imageElement.title && <ImageTitle>{imageElement.title}</ImageTitle>}{" "}
+                  {imageElement["image-attribution"] && imageElement.title ? <TextSeparator>|</TextSeparator> : null}
+                  {imageElement["image-attribution"] && (
+                    <ImageAttribution>{imageElement["image-attribution"]}</ImageAttribution>
+                  )}
+                </ImageDetails>
+              )}
             </div>
           </TextWrapper>
         </amp-story-grid-layer>
@@ -55,6 +64,23 @@ const TextWrapper = styled.div`
     rgba(0, 0, 0, 0.5) 50%,
     rgba(0, 0, 0, 0.75)
   );
+`;
+
+const ImageDetails = styled.div`
+  text-align: right;
+  font: ${(props) => {
+    const fontFamily = props.theme.font.family.primary;
+    const fontWeight = props.theme.font.weight.normal;
+    const fontSize = props.theme.font.size.tiny;
+    return `${fontWeight} ${fontSize} ${fontFamily}`;
+  }};
+  line-height: ${(props) => props.theme.font.lineHeight.level6};
+`;
+
+const ImageTitle = styled.span``;
+const ImageAttribution = styled.span``;
+const TextSeparator = styled.span`
+  margin: 0 4px;
 `;
 
 export const WebStoryPageComponents = withStoryAndConfig(WebStoryPageComponentsBase);
