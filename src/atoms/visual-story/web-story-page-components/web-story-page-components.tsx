@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import { StoryElement, Image } from "../../../atoms";
 import { WebStoryPageComponentsTypes, AnimationTypes } from "./types";
+import { getFigcaptionText } from "../../../molecules/hero-image/hero-image";
 import styled from "styled-components";
 import { withStoryAndConfig } from "../../../context";
 import { getAnimationProps } from "./web-story-page-components.helpers";
@@ -25,22 +26,19 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
           />
         </amp-story-grid-layer>
       )}
-      {(titleElement || textElements.length) && (
+      {(titleElement || textElements.length || imageElement) && (
         <amp-story-grid-layer template="thirds">
           <TextWrapper>
             <div {...textAnimation}>
               {titleElement && <StoryElement element={titleElement} />}
-              {textElements.map((textElement) => (
-                <StoryElement key={textElement.id} element={textElement} />
-              ))}
+              {textElements.length > 0 &&
+                textElements.map((textElement) => <StoryElement key={textElement.id} element={textElement} />)}
               {imageElement && (
-                <ImageDetails>
-                  {imageElement.title && <ImageTitle>{imageElement.title}</ImageTitle>}{" "}
-                  {imageElement["image-attribution"] && imageElement.title ? <TextSeparator>|</TextSeparator> : null}
-                  {imageElement["image-attribution"] && (
-                    <ImageAttribution>{imageElement["image-attribution"]}</ImageAttribution>
-                  )}
-                </ImageDetails>
+                <ImageDetails
+                  dangerouslySetInnerHTML={{
+                    __html: getFigcaptionText(imageElement.title, imageElement["image-attribution"]) || ""
+                  }}
+                />
               )}
             </div>
           </TextWrapper>
@@ -75,12 +73,10 @@ const ImageDetails = styled.div`
     return `${fontWeight} ${fontSize} ${fontFamily}`;
   }};
   line-height: ${(props) => props.theme.font.lineHeight.level6};
-`;
-
-const ImageTitle = styled.span``;
-const ImageAttribution = styled.span``;
-const TextSeparator = styled.span`
-  margin: 0 4px;
+  div,
+  p {
+    display: inline-block;
+  }
 `;
 
 export const WebStoryPageComponents = withStoryAndConfig(WebStoryPageComponentsBase);
