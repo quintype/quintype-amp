@@ -166,11 +166,11 @@ export const VisualStory = ({ story, config }: CommonTemplateTypes) => {
   return (
     &lt;Providers story={story} config={config} tokens={tokens}>
       &lt;WebStory>
+        &lt;GoogleTagManager />
         &lt;Fonts />
         &lt;TopSlot />
         &lt;AmpStoryAutoAds />
         &lt;CoverPage />
-        &lt;GoogleTagManager />
         {story.cards
           .filter((card) => canTakeCard(card))
           .map((card) => (
