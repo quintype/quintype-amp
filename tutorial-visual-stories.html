@@ -154,7 +154,7 @@ To do this, go to the file <code>app/server/routes.js</code> and add the followi
 <li>Only the following story elements are supported - image, title, also-read, answer, bigfact, blockquote, blurb, q-and-a, question, quote, summary, title, normal paragraph (text). All other story elements are ignored.</li>
 <li>At this point of time our CMS does not support uploading videos, so they're not supported by AmpLib.</li>
 <li>At the end, a <a href="https://amp.dev/documentation/components/amp-story-bookend/?format=stories">bookend</a> (which is an end screen of an AMP story, showcasing sharing and related content) is shown.</li>
-<li>There can be only one image per story card. If more than one image is added (per card), the first one is displayed.</li>
+<li>There can be only one image per story card. If more than one image is added (per card), the first one is displayed. If image caption and attribution are added, they're positioned at the bottom right with a pipe separator. We also support only Image caption/attribution. The <code>Rich Text Image Fields</code> feature which is available in Bold is also supported.</li>
 <li>Similarly, there can be only one <code>title</code> story element.</li>
 <li>There can be one or more (or a combination of) also-read, answer, bigfact, blockquote, blurb, q-and-a, question, quote, summary, title, normal paragraph story elements. They're positioned at the bottom of the visual story page.</li>
 </ul>
