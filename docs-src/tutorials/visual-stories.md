@@ -29,7 +29,7 @@ AMP [Visual Stories](https://amp.dev/about/stories/) consist of `pages`. These a
 - Only the following story elements are supported - image, title, also-read, answer, bigfact, blockquote, blurb, q-and-a, question, quote, summary, title, normal paragraph (text). All other story elements are ignored.
 - At this point of time our CMS does not support uploading videos, so they're not supported by AmpLib.
 - At the end, a [bookend](https://amp.dev/documentation/components/amp-story-bookend/?format=stories) (which is an end screen of an AMP story, showcasing sharing and related content) is shown.
-- There can be only one image per story card. If more than one image is added (per card), the first one is displayed.
+- There can be only one image per story card. If more than one image is added (per card), the first one is displayed. If image caption and attribution are added, they're positioned at the bottom right with a pipe separator. We also support only Image caption/attribution. The `Rich Text Image Fields` feature which is available in Bold is also supported.
 - Similarly, there can be only one `title` story element.
 - There can be one or more (or a combination of) also-read, answer, bigfact, blockquote, blurb, q-and-a, question, quote, summary, title, normal paragraph story elements. They're positioned at the bottom of the visual story page.
 
@@ -111,6 +111,7 @@ Currently, visual stories have 3 types of themes or templates that can be config
 - Image - `fade-in`, text - `fly-in-left`: This template will show the image `fade-in` with `fly-in-left` text. you can set `theme-3` as story attributes to render this template.
 
 Above are the default templates, these can be overriden from feature config (as we’ve shown already).
+
 #### Creating story attribute
 
 - In the editor, open the story and click on manage icon
