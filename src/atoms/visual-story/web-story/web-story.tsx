@@ -18,7 +18,7 @@ export const WebStoryBase = ({ story, config, children }: WebStoryTypes) => {
         title={story.headline}
         publisher={get(config, ["publisherConfig", "publisher-settings", "title"], "")}
         publisher-logo-src={publisherLogo}
-        poster-portrait-src={`//${config.publisherConfig["cdn-image"]}/${story["hero-image-s3-key"]}`}>
+        poster-portrait-src={`//${config.publisherConfig["cdn-image"]}/${story["hero-image-s3-key"]}?w=640&mode=crop&ar=3:4`}>
         {children}
       </amp-story>
     </Fragment>
