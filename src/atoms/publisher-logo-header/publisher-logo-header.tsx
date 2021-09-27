@@ -4,7 +4,7 @@ import { withConfig } from "../../context";
 import get from "lodash/get";
 import { Head } from "../index";
 
-export const PublisherLogoHeaderBase = ({ config, alignLogo = "" }: PublisherLogoHeaderTypes) => {
+export const PublisherLogoHeaderBase = ({ config, visualStoryLogoAlignment = "" }: PublisherLogoHeaderTypes) => {
   const publisherName = get(config, ["publisherConfig", "publisher-name"], "");
   const logo = get(config, ["ampConfig", "logo-url"], null);
 
@@ -28,8 +28,8 @@ export const PublisherLogoHeaderBase = ({ config, alignLogo = "" }: PublisherLog
           }
         `}</style>
       </Head>
-      {alignLogo ? (
-        <div className={`common ${alignLogo}`}>
+      {visualStoryLogoAlignment ? (
+        <div className={`common ${visualStoryLogoAlignment}`}>
           <amp-img class="qt-amp-publisher-logo-header" alt={publisherName} src={logo} width="96" height="96" />
         </div>
       ) : (
