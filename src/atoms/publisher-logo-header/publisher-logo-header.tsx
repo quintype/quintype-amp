@@ -18,7 +18,6 @@ export const PublisherLogoHeaderBase = ({ config, alignLogo = "" }: PublisherLog
           }
           .common {
             display: flex;
-            align-item: center;
           }
           .left {
             justify-content: start;
