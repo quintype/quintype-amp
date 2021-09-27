@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import get from "lodash/get";
 import { withStoryAndConfig } from "../../../context";
 import { Spacer, PublisherLogoHeader, Image } from "../../index";
 import { AmpStoryPage } from "../index";
@@ -7,6 +8,7 @@ import { getAuthorNames } from "../../author/author";
 import styled from "styled-components";
 import { getAnimationProps } from "../web-story-page-components/web-story-page-components.helpers";
 import { AnimationTypes } from "../web-story-page-components/types";
+import { Head } from "../../head";
 
 export const CoverPageBase = ({ story, config }: CoverPageProps) => {
   const heroImgSrc = story["hero-image-s3-key"];
@@ -15,6 +17,8 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
   const authorNames = getAuthorNames(story.authors);
   const { imageAnimation, textAnimation }: AnimationTypes = getAnimationProps(config, story);
   const headline = story.headline || "";
+  const alignLogo = get(config, ["opts", "featureConfig", "alignLogo"]);
+  const logoValue = alignLogo && alignLogo(config);
   return (
     <Fragment>
       <AmpStoryPage id="cover">
@@ -33,9 +37,16 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
             <FullLengthDiv />
           )}
         </amp-story-grid-layer>
-        <amp-story-grid-layer template="vertical">
+        <Head>
+          <style>{`
+            .reduce-padding-top {
+              padding-top: 20px;
+            }
+          `}</style>
+        </Head>
+        <amp-story-grid-layer template="vertical" class="reduce-padding-top">
           <LogoWrapper>
-            <PublisherLogoHeader />
+            <PublisherLogoHeader alignLogo={logoValue} />
           </LogoWrapper>
         </amp-story-grid-layer>
         <amp-story-grid-layer template="thirds">
