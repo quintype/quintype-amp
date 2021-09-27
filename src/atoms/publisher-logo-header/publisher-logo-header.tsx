@@ -24,6 +24,7 @@ export const PublisherLogoHeaderBase = ({ config, alignLogo = "" }: PublisherLog
           }
           .center {
             justify-content: center;
+            align-item: center;
           }
         `}</style>
       </Head>
