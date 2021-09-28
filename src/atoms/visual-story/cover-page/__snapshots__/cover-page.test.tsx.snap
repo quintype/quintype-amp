@@ -36,14 +36,14 @@ exports[`CoverPage Component should match snapshot 1`] = `
     <Component>
       <style>
         
-            .reduce-padding-top {
+            .padding-top {
               padding-top: 20px;
             }
           
       </style>
     </Component>
     <amp-story-grid-layer
-      class="reduce-padding-top"
+      class=" padding-top"
       template="vertical"
     >
       <styled.div>
