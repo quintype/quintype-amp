@@ -9,7 +9,8 @@ export const PublisherLogoHeaderBase = ({ config }: PublisherLogoHeaderTypes) =>
   const logo = get(config, ["ampConfig", "logo-url"], null);
 
   const visualStoryLogoAlignment = get(config, ["opts", "featureConfig", "visualStoryLogoAlignment"]);
-  const logoValue = visualStoryLogoAlignment && visualStoryLogoAlignment(config);
+  const logoValue =
+    typeof visualStoryLogoAlignment === "function" ? visualStoryLogoAlignment(config) : visualStoryLogoAlignment;
 
   if (!logo) return null;
   return (
