@@ -45,6 +45,9 @@ Sample featureConfig:
 dummyOpts = {
   featureConfig: {
     visualStories: {
+      logoAlgnment: "left",
+      logoUrl:
+        "https://thumbor-stg.assettype.com/malibu/2021-07/eb879d94-c255-46eb-9944-dc361d3da0c0/malibu_16_svg.png",
       autoAdvanceAfter: "5s",
       bookendUrl: "/amp/api/v1/bookend.json",
       ads: {
@@ -70,7 +73,11 @@ dummyOpts = {
 4. `animation`: (object) Optional.
 
 - `animation` > `image` applies animation props to the story image. We accept `animateIn`, `animateInDuration` and `animateInDelay`.
-- `animation` > `text` applies animation props to the story text. We accept `animateIn`, `animateInDuration` and `animateInDelay`. Refer [docs](https://amp.dev/documentation/guides-and-tutorials/start/visual_story/animating_elements/?format=stories)
+- `animation` > `text` applies animation props to the story text. We accept `animateIn`, `animateInDuration` and `animateInDelay`. Refer [docs](https://amp.dev/documentation/guides-and-tutorials/start/visual_story/animating_elements/?format=stories).
+
+5. `logoAlgnment` : (string/function) Optional. Aligns the publisher logo on the cover page of the visual story. Possible values are left, center and right. If omitted it aligns the logo in the centre.
+
+6. `logoUrl` : (string/function) Optional. We restricted the logo size should be `96*96`, this will help to improve seo. [docs](https://developers.google.com/search/docs/advanced/appearance/web-stories-creation-best-practices). If omitted it take the `logo-url` from `/api/v1/amp/config` API.
 
 #### Visual story templates:
 
@@ -81,6 +88,8 @@ dummyOpts = {
   featureConfig: {
     visualStories: [
       {
+        logoAlgnment: "left",
+        logoUrl: "https://thumbor-stg.assettype.com/malibu/2021-07/eb879d94-c255-46eb-9944-dc361d3da0c0/malibu_16_svg.png",
         autoAdvanceAfter: "5s",
         bookendUrl: "/amp/api/v1/bookend.json",
         ads: {
@@ -97,6 +106,9 @@ dummyOpts = {
         }
       },
       {
+         logoAlgnment: "right",
+        logoUrl: "other logo url",
+        ....
         // featureConfig for template 2
       }
     ]

@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import get from "lodash/get";
 import { withStoryAndConfig } from "../../../context";
 import { Spacer, PublisherLogoHeader, Image } from "../../index";
 import { AmpStoryPage } from "../index";
@@ -16,6 +17,17 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
   const authorNames = getAuthorNames(story.authors);
   const { imageAnimation, textAnimation }: AnimationTypes = getAnimationProps(config, story);
   const headline = story.headline || "";
+
+  const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"], {});
+  const logoAlignment =
+    typeof visualStoriesConfig.logoAlignment === "function"
+      ? visualStoriesConfig.logoAlignment(config)
+      : visualStoriesConfig.logoAlignment;
+  const logoUrl =
+    typeof visualStoriesConfig.logoUrl === "function"
+      ? visualStoriesConfig.logoUrl(config)
+      : visualStoriesConfig.logoUrl;
+  const logoObj = { logoUrl, logoAlignment };
 
   return (
     <Fragment>
@@ -44,7 +56,7 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
         </Head>
         <amp-story-grid-layer template="vertical" class=" padding-top">
           <LogoWrapper>
-            <PublisherLogoHeader />
+            <PublisherLogoHeader logoObj={logoObj} />
           </LogoWrapper>
         </amp-story-grid-layer>
         <amp-story-grid-layer template="thirds">

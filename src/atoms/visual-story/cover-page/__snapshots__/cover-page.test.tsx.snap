@@ -47,7 +47,14 @@ exports[`CoverPage Component should match snapshot 1`] = `
       template="vertical"
     >
       <styled.div>
-        <Component />
+        <Component
+          logoObj={
+            Object {
+              "logoAlignment": undefined,
+              "logoUrl": undefined,
+            }
+          }
+        />
       </styled.div>
     </amp-story-grid-layer>
     <amp-story-grid-layer

@@ -4,13 +4,11 @@ import { withConfig } from "../../context";
 import get from "lodash/get";
 import { Head } from "../index";
 
-export const PublisherLogoHeaderBase = ({ config }: PublisherLogoHeaderTypes) => {
+export const PublisherLogoHeaderBase = ({ config, logoObj }: PublisherLogoHeaderTypes) => {
   const publisherName = get(config, ["publisherConfig", "publisher-name"], "");
   const logo = get(config, ["ampConfig", "logo-url"], null);
-
-  const visualStoryLogoAlignment = get(config, ["opts", "featureConfig", "visualStoryLogoAlignment"]);
-  const logoValue =
-    typeof visualStoryLogoAlignment === "function" ? visualStoryLogoAlignment(config) : visualStoryLogoAlignment;
+  const logoAlignment = logoObj && logoObj.logoAlignment;
+  const logoUrl = (logoObj && logoObj.logoUrl) || logo;
 
   if (!logo) return null;
   return (
@@ -28,13 +26,16 @@ export const PublisherLogoHeaderBase = ({ config }: PublisherLogoHeaderTypes) =>
           }
           .center {
             justify-content: center;
-            align-item: center;
+          }
+          .right {
+            justify-content: end;
+            margin-right: 5px;
           }
         `}</style>
       </Head>
-      {logoValue ? (
-        <div className={`header-logo-wrapper ${logoValue}`}>
-          <amp-img class="qt-amp-publisher-logo-header" alt={publisherName} src={logo} width="96" height="96" />
+      {logoAlignment ? (
+        <div className={`header-logo-wrapper ${logoAlignment}`}>
+          <amp-img class="qt-amp-publisher-logo-header" alt={publisherName} src={logoUrl} width="96" height="96" />
         </div>
       ) : (
         <a href="/">
