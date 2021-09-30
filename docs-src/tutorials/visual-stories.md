@@ -45,7 +45,7 @@ Sample featureConfig:
 dummyOpts = {
   featureConfig: {
     visualStories: {
-      logoAlgnment: "left",
+      logoAlignment: "left",
       logoUrl:
         "https://thumbor-stg.assettype.com/malibu/2021-07/eb879d94-c255-46eb-9944-dc361d3da0c0/malibu_16_svg.png",
       autoAdvanceAfter: "5s",
@@ -88,7 +88,7 @@ dummyOpts = {
   featureConfig: {
     visualStories: [
       {
-        logoAlgnment: "left",
+        logoAlignment: "left",
         logoUrl: "https://thumbor-stg.assettype.com/malibu/2021-07/eb879d94-c255-46eb-9944-dc361d3da0c0/malibu_16_svg.png",
         autoAdvanceAfter: "5s",
         bookendUrl: "/amp/api/v1/bookend.json",
@@ -106,7 +106,7 @@ dummyOpts = {
         }
       },
       {
-         logoAlgnment: "right",
+         logoAlignment: "right",
         logoUrl: "other logo url",
         ....
         // featureConfig for template 2
