@@ -75,7 +75,7 @@ dummyOpts = {
 - `animation` > `image` applies animation props to the story image. We accept `animateIn`, `animateInDuration` and `animateInDelay`.
 - `animation` > `text` applies animation props to the story text. We accept `animateIn`, `animateInDuration` and `animateInDelay`. Refer [docs](https://amp.dev/documentation/guides-and-tutorials/start/visual_story/animating_elements/?format=stories).
 
-5. `logoAlgnment` : (string/function) Optional. Aligns the publisher logo on the cover page of the visual story. Possible values are left, center and right. If omitted it aligns the logo in the centre.
+5. `logoAlignment` : (string/function) Optional. Aligns the publisher logo on the cover page of the visual story. Possible values are left, center and right. If omitted it aligns the logo in the centre.
 
 6. `logoUrl` : (string/function) Optional. We restricted the logo size should be `96*96`, this will help to improve seo. [docs](https://developers.google.com/search/docs/advanced/appearance/web-stories-creation-best-practices). If omitted it take the `logo-url` from `/api/v1/amp/config` API.
 
