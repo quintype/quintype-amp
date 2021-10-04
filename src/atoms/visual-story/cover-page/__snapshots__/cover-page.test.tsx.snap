@@ -33,11 +33,28 @@ exports[`CoverPage Component should match snapshot 1`] = `
         slug="amplib/2020-10/6adaf26f-3b7b-45e0-9973-6f99abeecf5d/erin_agius_I7TLmA4j0c8_unsplash.jpg"
       />
     </amp-story-grid-layer>
+    <Component>
+      <style>
+        
+            .padding-top {
+              padding-top: 20px;
+            }
+          
+      </style>
+    </Component>
     <amp-story-grid-layer
+      class=" padding-top"
       template="vertical"
     >
       <styled.div>
-        <Component />
+        <Component
+          visualStoryConfig={
+            Object {
+              "logoAlignment": undefined,
+              "logoUrl": undefined,
+            }
+          }
+        />
       </styled.div>
     </amp-story-grid-layer>
     <amp-story-grid-layer

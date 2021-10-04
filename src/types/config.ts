@@ -243,7 +243,8 @@ interface FeatureConfigTypes {
   sidebarMenu?: {
     menuGroupSlug?: string;
   };
-  visualStories?: {
+  visualStories?:
+    | {
         autoAdvanceAfter?: string;
         bookendUrl?: string;
         ads?: {
@@ -276,4 +277,9 @@ interface VisualStoryAnimationFeatureConfig {
   animateIn?: string;
   animateInDelay?: string;
   animateInDuration?: string;
+}
+
+export interface VisualStoryConfig {
+  logoAlignment: string;
+  logoUrl: string;
 }
