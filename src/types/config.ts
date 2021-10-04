@@ -279,7 +279,7 @@ interface VisualStoryAnimationFeatureConfig {
   animateInDuration?: string;
 }
 
-export interface LogoObj {
+export interface VisualStoryConfig {
   logoAlignment: string;
   logoUrl: string;
 }

@@ -48,7 +48,7 @@ exports[`CoverPage Component should match snapshot 1`] = `
     >
       <styled.div>
         <Component
-          logoObj={
+          visualStoryConfig={
             Object {
               "logoAlignment": undefined,
               "logoUrl": undefined,

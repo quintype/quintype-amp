@@ -77,7 +77,7 @@ dummyOpts = {
 
 5. `logoAlignment` : (string/function) Optional. Aligns the publisher logo on the cover page of the visual story. Possible values are left, center and right. If omitted it aligns the logo in the centre.
 
-6. `logoUrl` : (string/function) Optional. We restricted the logo size should be `96*96`, this will help to improve seo. [docs](https://developers.google.com/search/docs/advanced/appearance/web-stories-creation-best-practices). If omitted it take the `logo-url` from `/api/v1/amp/config` API.
+6. `logoUrl` : (string/function) Optional. URL of a logo that will show up on the visual story. It is recommended that this logo should be of 1:1 aspect ratio. If omitted takes the default logo.
 
 #### Visual story templates:
 
@@ -106,7 +106,7 @@ dummyOpts = {
         }
       },
       {
-         logoAlignment: "right",
+        logoAlignment: "right",
         logoUrl: "other logo url",
         ....
         // featureConfig for template 2

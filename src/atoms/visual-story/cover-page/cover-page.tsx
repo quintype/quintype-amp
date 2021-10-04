@@ -27,7 +27,7 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
     typeof visualStoriesConfig.logoUrl === "function"
       ? visualStoriesConfig.logoUrl(config)
       : visualStoriesConfig.logoUrl;
-  const logoObj = { logoUrl, logoAlignment };
+  const visualStoryConfig = { logoUrl, logoAlignment };
 
   return (
     <Fragment>
@@ -56,7 +56,7 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
         </Head>
         <amp-story-grid-layer template="vertical" class=" padding-top">
           <LogoWrapper>
-            <PublisherLogoHeader logoObj={logoObj} />
+            <PublisherLogoHeader visualStoryConfig={visualStoryConfig} />
           </LogoWrapper>
         </amp-story-grid-layer>
         <amp-story-grid-layer template="thirds">
