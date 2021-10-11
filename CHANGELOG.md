@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.4.14](https://github.com/quintype/quintype-amp/compare/v2.4.13...v2.4.14) (2021-10-11)
+
+
+### Bug Fixes
+
+* **Visual story logo :** Change attribute name ([#356](https://github.com/quintype/quintype-amp/issues/356)) ([dda82ab](https://github.com/quintype/quintype-amp/commit/dda82ab3133e6548bf53d0136bfb838f8a7f6a97))
+
 ### [2.4.13](https://github.com/quintype/quintype-amp/compare/v2.4.10...v2.4.13) (2021-10-11)
 
 
