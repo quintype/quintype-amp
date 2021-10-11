@@ -36,7 +36,7 @@ export const PublisherLogoHeaderBase = ({ config, visualStoryConfig }: Publisher
       </Head>
       {logoAlignment ? (
         <div className={`logo-align-${logoAlignment}`}>
-          <amp-img alt={publisherName} src={logoUrl} Layout="fill" />
+          <amp-img alt={publisherName} src={logoUrl} layout="fill" />
         </div>
       ) : (
         <a href="/">
