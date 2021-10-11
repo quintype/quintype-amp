@@ -15,31 +15,32 @@ export const PublisherLogoHeaderBase = ({ config, visualStoryConfig }: Publisher
     <Fragment>
       <Head>
         <style>{`
-          .qt-amp-publisher-logo-header img {
-            object-fit: contain
+          .logo-align-left img {
+            object-fit: contain;
+            min-width: auto;
+            width: auto;
+            margin: inherit;
           }
-          .header-logo-wrapper {
-            display: flex;
+
+          .logo-align-right img {
+            min-width: auto;
+            width: auto;
+            margin-right: inherit;
+            object-fit: contain;
           }
-          .left {
-            justify-content: start;
-          }
-          .center {
-            justify-content: center;
-          }
-          .right {
-            justify-content: end;
-            margin-right: 5px;
+
+          .logo-align-center img {
+            object-fit: contain;
           }
         `}</style>
       </Head>
       {logoAlignment ? (
-        <div className={`header-logo-wrapper ${logoAlignment}`}>
-          <amp-img class="qt-amp-publisher-logo-header" alt={publisherName} src={logoUrl} width="96" height="96" />
+        <div className={`logo-align-${logoAlignment}`}>
+          <amp-img alt={publisherName} src={logoUrl} Layout="fill" />
         </div>
       ) : (
         <a href="/">
-          <amp-img class="qt-amp-publisher-logo-header" alt={publisherName} src={logo} layout="fill" />
+          <amp-img class="logo-align-center" alt={publisherName} src={logo} layout="fill" />
         </a>
       )}
     </Fragment>

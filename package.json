@@ -1,6 +1,6 @@
 {
   "name": "@quintype/amp",
-  "version": "2.4.12",
+  "version": "2.4.13-rm-logo-size.1",
   "description": "Quintype's AMP component library for publisher apps to create amp layouts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
