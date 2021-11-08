@@ -25,10 +25,15 @@ function genDummyConfig(arrayOfTransforms) {
   clonedConfig.opts.transforms = arrayOfTransforms;
   return clonedConfig;
 }
+const configWithLangTagAndRtl = cloneDeep(config);
+configWithLangTagAndRtl.publisherConfig.language = {
+  "iso-code": "ta",
+  direction: "rtl"
+};
 
 describe("renderToString helper function", () => {
   it("should return valid amp-html", async () => {
-    const ampHtml = renderToString({ template: dummyLayout, seo: "", langTag: "ta", config });
+    const ampHtml = renderToString({ template: dummyLayout, seo: "", config });
     const ampValidatorOutput = await isValidAmpHtml(ampHtml);
     expect(ampValidatorOutput).toBe(true);
     expect(ampHtml.includes(`<link data-react-helmet="true" rel="canonical" href="https://www.reddit.com/"/>`)).toBe(
@@ -39,17 +44,21 @@ describe("renderToString helper function", () => {
     ).toBe(true);
     expect(ampHtml.includes(`<html lang="ta" ⚡>`));
   });
-  it("should add langTag if passed", async () => {
-    const ampHtml = renderToString({ template: dummyLayout, seo: "", langTag: "ta", config });
-    expect(ampHtml.includes(`<html lang="ta" ⚡>`));
+  it("should add langTag if present", async () => {
+    const ampHtml = renderToString({ template: dummyLayout, seo: "", config: configWithLangTagAndRtl });
+    expect(ampHtml.includes(`<html lang="ta"`));
   });
-  it("should not add langTag if it's passed", async () => {
-    const ampHtml = renderToString({ template: dummyLayout, seo: "", langTag: "", config });
+  it("should not add langTag and text direction if not passed", async () => {
+    const ampHtml = renderToString({ template: dummyLayout, seo: "", config });
     expect(ampHtml.includes(`<html ⚡>`));
+  });
+  it("should add text direction if present", async () => {
+    const ampHtml = renderToString({ template: dummyLayout, seo: "", config: configWithLangTagAndRtl });
+    expect(ampHtml.includes(`<html lang="ta" dir="rtl" ⚡>`));
   });
   it("should apply transforms on the final string if passed from app", async () => {
     const dummyConfig = genDummyConfig([(str) => str.replace(`id="foo"`, `id="foo" data-foo="bar"`)]);
-    const ampHtml = renderToString({ template: dummyLayout, seo: "", langTag: "", config: dummyConfig });
+    const ampHtml = renderToString({ template: dummyLayout, seo: "", config: dummyConfig });
     expect(ampHtml.includes(`<div id="foo" data-foo="bar">Dummy Amp Story</div>`));
   });
 });

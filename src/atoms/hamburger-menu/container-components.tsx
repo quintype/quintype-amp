@@ -2,12 +2,12 @@ import React from "react";
 import { MenuItemComponentTypes, TreeNodeComponentTypes, SubMenuTypes } from "./types";
 import { StyledListItem, StyledAnchor, StyledCloseIcon, StyledList, SubmenuWrapper } from "./presentational-components";
 
-export const TreeNode = ({ item, textDirection }: TreeNodeComponentTypes) => {
+export const TreeNode = ({ item }: TreeNodeComponentTypes) => {
   return item["child-items"] && item["child-items"].length ? (
     <SubmenuWrapper>
       <MenuItem item={item} />
       <SubmenuOpen />
-      <SubMenu childItems={item["child-items"]} textDirection={textDirection} />
+      <SubMenu childItems={item["child-items"]} />
     </SubmenuWrapper>
   ) : (
     <StyledListItem>
@@ -35,11 +35,11 @@ export const DefaultItem = ({ item }: MenuItemComponentTypes) => (
   <StyledAnchor href={item.url || item.data.link}>{item.title}</StyledAnchor>
 );
 
-const SubMenu = ({ childItems, textDirection }: SubMenuTypes) => (
+const SubMenu = ({ childItems }: SubMenuTypes) => (
   <div amp-nested-submenu="">
-    <StyledList dir={textDirection}>
+    <StyledList>
       {childItems.map((childItem) => (
-        <TreeNode key={childItem.id} item={childItem} textDirection={textDirection} />
+        <TreeNode key={childItem.id} item={childItem} />
       ))}
       <SubmenuClose />
     </StyledList>

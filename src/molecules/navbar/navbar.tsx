@@ -25,12 +25,12 @@ const LogoWrapperInner = styled.div`
   width: 200px;
   height: 50px;
 `;
-export const HamburgerWrapper = styled.div<{ align: "left" | "right" }>`
+export const HamburgerWrapper = styled.div<{ align: "ltr" | "rtl" }>`
   position: absolute;
   top: 50%;
   cursor: pointer;
   ${(props) =>
-    props.align === "left"
+    props.align === "ltr"
       ? `
     transform: translate(15px, -50%);
   `
@@ -40,10 +40,10 @@ export const HamburgerWrapper = styled.div<{ align: "left" | "right" }>`
   `}
 `;
 
-export const NavbarBase = ({ align = "left", config, theme }: NavbarTypes) => {
+export const NavbarBase = ({ config, theme }: NavbarTypes) => {
   const isMenuEnabled = get(config, ["ampConfig", "menu", "enabled"], false);
   const hamburgerMenuItems = getDomainSpecificHamburgerMenuItems(config);
-  const textDirection = get(config, ["publisherConfig", "text-direction"], "ltr");
+  const align = get(config, ["publisherConfig", "language", "direction"], "ltr");
   const hamburgerColor = get(theme, ["color", "secondaryColor"], "currentColor");
   return (
     <StyledNavbar>
@@ -57,7 +57,7 @@ export const NavbarBase = ({ align = "left", config, theme }: NavbarTypes) => {
           <HamburgerWrapper role="button" tabIndex={0} on="tap:sidebar.open" align={align} aria-label="hamburger">
             <Hamburger width="40" height="40" color={hamburgerColor} />
           </HamburgerWrapper>
-          <HamburgerMenu align={align} textDirection={textDirection} items={hamburgerMenuItems} />
+          <HamburgerMenu items={hamburgerMenuItems} />
         </Fragment>
       )}
     </StyledNavbar>
@@ -66,10 +66,6 @@ export const NavbarBase = ({ align = "left", config, theme }: NavbarTypes) => {
 
 /**
  * Navbar Component uses the PublisherLogoHeader, HamburgerMenu and Hamburger atomic components internally.
- *
- * ```js
- * <Navbar align="right" />
- * ```
  *
  * @param {Object} props Object containing parameters passed to the render prop
  * @param {String} props.align Optional. A string of "right" or "left" which specifies the direction of the hamburger menu.

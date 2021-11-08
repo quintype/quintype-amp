@@ -3171,7 +3171,6 @@ exports[`visual story template should match snapshot 1`] = `
         },
         "sections": Array [],
         "sketches-host": "https://www.vikatan.com",
-        "text-direction": "ltr",
       },
     }
   }

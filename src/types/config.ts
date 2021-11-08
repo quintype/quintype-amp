@@ -13,7 +13,6 @@ export interface PublisherConfig {
   facebook: FBConfig;
   "cdn-name": string;
   "cdn-image": string;
-  "text-direction": "ltr" | "rtl";
   "publisher-name": string;
   env: string;
   "publisher-id": number;

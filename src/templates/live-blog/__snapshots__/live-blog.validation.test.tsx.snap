@@ -3171,7 +3171,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
         },
         "sections": Array [],
         "sketches-host": "https://www.vikatan.com",
-        "text-direction": "ltr",
       },
     }
   }
