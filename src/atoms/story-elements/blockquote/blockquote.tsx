@@ -5,13 +5,13 @@ import { Spacer } from "../../spacer";
 import { withStoryAndConfig } from "../../../context";
 import get from "lodash.get";
 
-const Wrapper = styled.div<{ baseDirection: "ltr" | "rtl" }>`
+const Wrapper = styled.div<{ textDirection: "ltr" | "rtl" }>`
   display: flex;
   flex-direction: column;
   position: relative;
 
   &:before {
-    ${(props) => (props.baseDirection === "ltr" ? ` left:0; ` : ` right: 0; `)}
+    ${(props) => (props.textDirection === "ltr" ? ` left:0; ` : ` right: 0; `)}
     content: "\\201C";
     font-size: ${(props) => props.theme.font.size.big};
     font-weight: bold;
@@ -21,8 +21,8 @@ const Wrapper = styled.div<{ baseDirection: "ltr" | "rtl" }>`
     top: 4px;
   }
 `;
-const StyledBlockQuote = styled.blockquote<{ baseDirection: "ltr" | "rtl" }>`
-  ${(props) => (props.baseDirection === "ltr" ? ` padding: 0 0 0 50px; ` : ` padding: 0 50px 0 0; `)}
+const StyledBlockQuote = styled.blockquote<{ textDirection: "ltr" | "rtl" }>`
+  ${(props) => (props.textDirection === "ltr" ? ` padding: 0 0 0 50px; ` : ` padding: 0 50px 0 0; `)}
   margin: 0;
   font-size: ${(props) => props.theme.font.size.l};
   color: ${(props) => props.theme.color.mono6};
@@ -76,13 +76,13 @@ export const FallbackBlockQuote = styled.div`
 `;
 
 export const DefaultBlockQuote = ({ element, config }: StoryElementProps) => {
-  const baseDirection = get(config, ["publisherConfig", "language", "direction"], "ltr");
+  const textDirection = get(config, ["publisherConfig", "language", "direction"], "ltr");
 
   if (element.metadata) {
     const { content, attribution } = element.metadata;
     return (
-      <Wrapper baseDirection={baseDirection}>
-        <StyledBlockQuote baseDirection={baseDirection}>{content}</StyledBlockQuote>
+      <Wrapper textDirection={textDirection}>
+        <StyledBlockQuote textDirection={textDirection}>{content}</StyledBlockQuote>
         {attribution && attribution.length && (
           <React.Fragment>
             <Spacer token="s" />

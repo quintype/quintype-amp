@@ -2,10 +2,10 @@
 
 exports[`BlockQuote should render default 1`] = `
 <styled.div
-  baseDirection="ltr"
+  textDirection="ltr"
 >
   <styled.blockquote
-    baseDirection="ltr"
+    textDirection="ltr"
   >
     People talk about jails and prisons being incubators for infection. How does that work exactly on Rikers?
   </styled.blockquote>
