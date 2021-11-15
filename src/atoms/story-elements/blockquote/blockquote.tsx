@@ -11,8 +11,7 @@ const Wrapper = styled.div<{ textDirection: "ltr" | "rtl" }>`
   position: relative;
 
   &:before {
-    ${(props) => (props.textDirection === "ltr" ? ` left:0; ` : ` right: 0; `)}
-    content: "\\201C";
+    ${(props) => (props.textDirection === "ltr" ? ` left:0; content: "\\201C";` : ` right: 0; content: "\\201D";`)}
     font-size: ${(props) => props.theme.font.size.big};
     font-weight: bold;
     color: ${(props) => props.theme.color.mono7};

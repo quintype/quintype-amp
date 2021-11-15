@@ -4,25 +4,33 @@ import { StoryElementProps } from "../../types";
 import { withStoryAndConfig } from "../../../../context";
 import get from "lodash.get";
 
-export const StyledAnswer = styled.div`
+export const StyledAnswer = styled.div<{ textDirection: "ltr" | "rtl" }>`
   font-size: ${(props) => props.theme.font.size.s};
   color: ${(props) => props.theme.color.mono7};
   line-height: ${(props) => props.theme.font.lineHeight.level5};
 
   & > p {
-    :before {
-      content: "A: ";
-      font-weight: ${(props) => props.theme.font.weight.bold};
-    }
+    ${(props) =>
+      props.textDirection === "ltr"
+        ? ` :before {
+          font-weight: ${props.theme.font.weight.bold};
+          content: "A: ";
+        } `
+        : ` :after {
+          font-weight: ${props.theme.font.weight.bold};
+          content: " :A";
+        } `}
   }
 `;
 
 export const AnswerBase = ({ element, story, config }: StoryElementProps) => {
   const answerElementRender = get(config, ["opts", "render", "storyElementRender", "answerElementRender"], null);
+  const textDirection = get(config, ["publisherConfig", "language", "direction"], "ltr");
+
   return answerElementRender ? (
     answerElementRender({ story, config, element })
   ) : (
-    <StyledAnswer dangerouslySetInnerHTML={{ __html: element.text || "" }} />
+    <StyledAnswer textDirection={textDirection} dangerouslySetInnerHTML={{ __html: element.text || "" }} />
   );
 };
 /**

@@ -8,6 +8,7 @@ import get from "lodash.get";
 export const QAndABase = ({ element, story, config }: StoryElementProps) => {
   const qAndAElementRender = get(config, ["opts", "render", "storyElementRender", "qAndAElementRender"], null);
   if (qAndAElementRender) return qAndAElementRender({ story, config, element });
+  const textDirection = get(config, ["publisherConfig", "language", "direction"], "ltr");
 
   const question = get(element, ["metadata", "question"], null);
   const answer = get(element, ["metadata", "answer"], null);
@@ -16,12 +17,12 @@ export const QAndABase = ({ element, story, config }: StoryElementProps) => {
     <div>
       {question && (
         <Fragment>
-          <StyledQuestion dangerouslySetInnerHTML={{ __html: question }} />
+          <StyledQuestion textDirection={textDirection} dangerouslySetInnerHTML={{ __html: question }} />
         </Fragment>
       )}
       {answer && (
         <Fragment>
-          <StyledAnswer dangerouslySetInnerHTML={{ __html: answer }} />
+          <StyledAnswer textDirection={textDirection} dangerouslySetInnerHTML={{ __html: answer }} />
         </Fragment>
       )}
     </div>
