@@ -1,8 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BlockQuote should render default 1`] = `
-<styled.div>
-  <styled.blockquote>
+<styled.div
+  baseDirection="ltr"
+>
+  <styled.blockquote
+    baseDirection="ltr"
+  >
     People talk about jails and prisons being incubators for infection. How does that work exactly on Rikers?
   </styled.blockquote>
   <Spacer
