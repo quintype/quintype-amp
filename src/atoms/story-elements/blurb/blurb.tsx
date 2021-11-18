@@ -4,12 +4,16 @@ import styled from "styled-components";
 import { withStoryAndConfig } from "../../../context";
 import get from "lodash.get";
 
-const StyledBlurb = styled.blockquote`
+const StyledBlurb = styled.blockquote<{ textDirection: "ltr" | "rtl" }>`
   font-size: ${(props) => props.theme.font.size.m};
   color: ${(props) => props.theme.color.mono7};
   margin: 0 ${(props) => props.theme.spacing.s};
   line-height: ${(props) => props.theme.font.lineHeight.level3};
-  border-left: 3px solid ${(props) => props.theme.color.mono7};
+  ${(props) =>
+    props.textDirection === "ltr"
+      ? ` border-left: 3px solid ${props.theme.color.mono7}; `
+      : ` border-right: 3px solid ${props.theme.color.mono7}; `}
+  
   padding: 0 ${(props) => props.theme.spacing.m};
 
   /* Applies when rendering direct html, fallback case */
@@ -18,17 +22,21 @@ const StyledBlurb = styled.blockquote`
   }
 `;
 
-export const DefaultBlurb = ({ element }: StoryElementProps) => {
+export const DefaultBlurb = ({ element, config }: StoryElementProps) => {
+  const textDirection = get(config, ["publisherConfig", "language", "direction"], "ltr");
+
   if (element.metadata && element.metadata.content) {
-    return <StyledBlurb>{element.metadata.content}</StyledBlurb>;
+    return <StyledBlurb textDirection={textDirection}>{element.metadata.content}</StyledBlurb>;
   }
-  return <StyledBlurb as="div" dangerouslySetInnerHTML={{ __html: element.text || "" }} />;
+  return (
+    <StyledBlurb textDirection={textDirection} as="div" dangerouslySetInnerHTML={{ __html: element.text || "" }} />
+  );
 };
 
 export const BlurbBase = ({ element, story, config }: StoryElementProps) => {
   const blurbRender = get(config, ["opts", "render", "storyElementRender", "blurbRender"], null);
 
-  return blurbRender ? blurbRender({ story, config, element }) : <DefaultBlurb element={element} />;
+  return blurbRender ? blurbRender({ story, config, element }) : <DefaultBlurb element={element} config={config} />;
 };
 
 /**
