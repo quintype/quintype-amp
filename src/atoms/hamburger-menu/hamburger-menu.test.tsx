@@ -7,7 +7,7 @@ import { textStory, config } from "../../__fixtures__";
 
 describe("HamburgerMenu", () => {
   it("should render", () => {
-    const wrapper = shallow(<HamburgerMenu textDirection="ltr" align="left" items={[]} />);
+    const wrapper = shallow(<HamburgerMenu items={[]} />);
     expect(wrapper).toMatchSnapshot();
   });
   it("should render menu items", () => {
@@ -57,7 +57,7 @@ describe("HamburgerMenu", () => {
     ];
     const Component = () => (
       <Layout story={textStory} config={config}>
-        <HamburgerMenu textDirection="ltr" align="left" items={dummyMenuItems} />
+        <HamburgerMenu items={dummyMenuItems} />
       </Layout>
     );
     const wrapper = mount(<Component />);

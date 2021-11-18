@@ -4,26 +4,32 @@ import { StoryElementProps } from "../../types";
 import { withStoryAndConfig } from "../../../../context";
 import get from "lodash.get";
 
-export const StyledQuestion = styled.div`
+export const StyledQuestion = styled.div<{ textDirection: "ltr" | "rtl" }>`
   font-size: ${(props) => props.theme.font.size.s};
   color: ${(props) => props.theme.color.mono7};
   line-height: ${(props) => props.theme.font.lineHeight.level5};
   font-weight: ${(props) => props.theme.font.weight.bold};
 
   & > p {
-    :before {
-      content: "Q: ";
-    }
+    ${(props) =>
+      props.textDirection === "ltr"
+        ? ` :before {
+          content: "Q: ";
+        } `
+        : ` :after {
+          content: " :Q";
+        } `}
   }
 `;
 
 export const QuestionBase = ({ element, story, config }: StoryElementProps) => {
   const questionElementRender = get(config, ["opts", "render", "storyElementRender", "questionElementRender"], null);
+  const textDirection = get(config, ["publisherConfig", "language", "direction"], "ltr");
 
   return questionElementRender ? (
     questionElementRender({ story, config, element })
   ) : (
-    <StyledQuestion dangerouslySetInnerHTML={{ __html: element.text || "" }} />
+    <StyledQuestion textDirection={textDirection} dangerouslySetInnerHTML={{ __html: element.text || "" }} />
   );
 };
 /**

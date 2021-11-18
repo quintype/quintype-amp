@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Blurb should render default 1`] = `
-<styled.blockquote>
+<styled.blockquote
+  textDirection="ltr"
+>
   In general—and this is a good P.S.A. reminder for everyone—if you are symptomatic, you are supposed to stay home for seven days, or three days past whenever your symptoms resolve, whichever one of those is longest.
 </styled.blockquote>
 `;
@@ -14,5 +16,6 @@ exports[`Blurb should render without metadata 1`] = `
       "__html": "<blockquote>In general—and this is a good P.S.A. reminder for everyone—if you are symptomatic, you are supposed to stay home for seven days, or three days past whenever your symptoms resolve, whichever one of those is longest.</blockquote>",
     }
   }
+  textDirection="ltr"
 />
 `;

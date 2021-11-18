@@ -3,6 +3,7 @@ import { ReactElement } from "react";
 import { ServerStyleSheet } from "styled-components";
 import ReactDOMServer from "react-dom/server";
 import { applyTransforms } from "../apply-transforms";
+import get from "lodash.get";
 
 /**
  * The renderToString function generates AMP Html string from react component.
@@ -18,13 +19,13 @@ import { applyTransforms } from "../apply-transforms";
  * @param {Object} params.config the config object
  * @returns {string} ready to render amp html
  */
-export function renderToString({ template, seo, langTag, config }) {
+export function renderToString({ template, seo, config }) {
   let str = "";
   try {
     const { htmlStr, styles } = getHtmlAndStyledComponentsStyles(template);
     const { title, script, customStyles, link, metaTags } = getHeadTagsFromHelmet();
     const seoStr = `${metaTags}${link}${seo}`;
-    str += getHeadStartStr(langTag);
+    str += getHeadStartStr(config);
     str += `${seoStr}`;
     str += `${script}`;
     str += `<style amp-custom>${customStyles}${styles}</style>`;
@@ -64,10 +65,13 @@ const getHtmlAndStyledComponentsStyles = (component: ReactElement) => {
   return { htmlStr, styles };
 };
 
-const getHeadStartStr = (langTag) => {
+const getHeadStartStr = (config) => {
+  const langTag = get(config, ["publisherConfig", "language", "iso-code"], null);
+  const dir = get(config, ["publisherConfig", "language", "direction"], null);
   const langTagStr = langTag ? `lang="${langTag}"` : "";
+  const dirAttr = dir ? `dir="${dir}"` : "";
   return `<!doctype html>
-  <html ${langTagStr} ⚡>
+  <html ${langTagStr} ${dirAttr} ⚡>
     <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">

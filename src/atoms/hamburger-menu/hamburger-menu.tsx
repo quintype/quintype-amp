@@ -21,7 +21,7 @@ const StyledNestedMenu = styled.div.attrs(({ inlineStyles }: StyledNestedMenuTyp
 export interface StyledNestedMenuTypes {
   inlineStyles?: object;
 }
-export const HamburgerMenu = ({ align, items, textDirection, inlineStyles }: HamburgerMenuTypes) => {
+export const HamburgerMenu = ({ items, inlineStyles }: HamburgerMenuTypes) => {
   const itemsTree: any = arrayToTree(items, {
     dataField: null,
     parentId: "parent-id",
@@ -37,18 +37,13 @@ export const HamburgerMenu = ({ align, items, textDirection, inlineStyles }: Ham
         <script async={undefined} custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js" />
       </Helmet>
       <StyledSidebar inlineStyles={inlineStyles}>
-        <amp-sidebar
-          id="sidebar"
-          layout="nodisplay"
-          side={align}
-          on="sidebarClose:nested-menu.reset"
-          style={sidebarStyles}>
+        <amp-sidebar id="sidebar" layout="nodisplay" on="sidebarClose:nested-menu.reset" style={sidebarStyles}>
           <StyledNestedMenu inlineStyles={inlineStyles}>
             <amp-nested-menu layout="fill" id="nested-menu">
-              <StyledList dir={textDirection}>
+              <StyledList>
                 <CloseButton />
                 {itemsTree.map((item) => (
-                  <TreeNode item={item} key={item.id} textDirection={textDirection} />
+                  <TreeNode item={item} key={item.id} />
                 ))}
               </StyledList>
             </amp-nested-menu>

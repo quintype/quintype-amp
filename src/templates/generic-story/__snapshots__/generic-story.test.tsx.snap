@@ -3171,7 +3171,6 @@ exports[`GenericStory Template should render 1`] = `
         },
         "sections": Array [],
         "sketches-host": "https://www.vikatan.com",
-        "text-direction": "ltr",
       },
     }
   }

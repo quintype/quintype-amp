@@ -3172,7 +3172,6 @@ exports[`RelatedStories should render default 1`] = `
           },
           "sections": Array [],
           "sketches-host": "https://www.vikatan.com",
-          "text-direction": "ltr",
         },
       }
     }

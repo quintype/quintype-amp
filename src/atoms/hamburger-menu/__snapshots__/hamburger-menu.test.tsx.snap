@@ -16,7 +16,6 @@ exports[`HamburgerMenu should render 1`] = `
       id="sidebar"
       layout="nodisplay"
       on="sidebarClose:nested-menu.reset"
-      side="left"
       style={
         Object {
           "width": "250px",
@@ -28,9 +27,7 @@ exports[`HamburgerMenu should render 1`] = `
           id="nested-menu"
           layout="fill"
         >
-          <styled.ul
-            dir="ltr"
-          >
+          <styled.ul>
             <Component />
           </styled.ul>
         </amp-nested-menu>
