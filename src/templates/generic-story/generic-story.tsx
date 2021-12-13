@@ -66,6 +66,8 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
     );
   }
   const templateName = "default";
+  const isWebEngageEnable = get(config, ["opts", "featureConfig", "webengage", "enable"], null);
+
   return (
     <Layout story={story} config={config}>
       <Subscription />
@@ -79,7 +81,7 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
         <Spacer token="s" />
         <StoryContainer>
           <HeaderCard />
-          <WebEngage />
+          {isWebEngageEnable ? <WebEngage /> : null}
           <Spacer token="m" />
           <StoryCards />
           <RelatedStories />

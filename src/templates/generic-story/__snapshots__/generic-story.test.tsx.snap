@@ -4140,7 +4140,6 @@ exports[`GenericStory Template should render 1`] = `
     />
     <styled.div>
       <Component />
-      <Component />
       <Spacer
         token="m"
       />
