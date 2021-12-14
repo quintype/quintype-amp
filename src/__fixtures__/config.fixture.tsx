@@ -661,6 +661,9 @@ export const configOpts: ConfigOpts = {
         grantReason: () => "SUBSCRIBER",
         data: { numberRemaining: 2, isLast: false, isLoggedIn: () => false }
       }
+    },
+    webengage: {
+      isEnabled: true
     }
   }
 };

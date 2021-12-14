@@ -225,7 +225,7 @@ interface FeatureConfigTypes {
     dataMaxItemsPerPage?: string;
   };
   webengage?: {
-    enable?: boolean;
+    isEnabled?: boolean;
   };
   enableAds?: {
     default?: {

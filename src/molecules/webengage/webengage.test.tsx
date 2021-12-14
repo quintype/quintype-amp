@@ -88,6 +88,13 @@ describe("Webengage", () => {
     expect(wrapper.find(WebPush).exists()).toBeFalsy();
     expect(wrapper.find(WebPushWidget).exists()).toBeFalsy();
   });
+  it("should not render webengage component if webengage is disabled", () => {
+    const dummyConfig = cloneDeep(vikatanConfig);
+    dummyConfig.opts.featureConfig.webengage.isEnabled = false;
+    const wrapper = shallow(<WebEngageBase config={dummyConfig} story={vikatanStory} />);
+    expect(wrapper.find(WebPush).exists()).toBeFalsy();
+    expect(wrapper.find(WebPushWidget).exists()).toBeFalsy();
+  });
   it("should pass custom text down to button", () => {
     const wrapper = shallow(<WebEngageBase config={vikatanConfig} buttonText="lorem ipsum" story={vikatanStory} />);
     expect(wrapper.find(WebengageSubscribeButton).prop("text")).toBe("lorem ipsum");
