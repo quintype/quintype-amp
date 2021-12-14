@@ -96,7 +96,7 @@ Feature config is an object that can be used to configure different features of 
    - This can be extended to subdomains as well. For example if you have a subdomain called `world-news`, set `opts.domains["world-news"].featureConfig.sidebarMenu.menuGroupSlug`. Now the sidebar menu on the subdomain `world-news` will pick items from whatever menu group you've set
    - go to {@tutorial hamburger-menu} for more info
 5. webengage
-   - isEnabled: This is a toggle used to enable or disable the webengage.
+   - isEnabled: (Boolean) Enable / disable the default webengage component.
 
 ```jsx
 const exampleFeatureConfig = {
