@@ -3138,6 +3138,9 @@ exports[`RelatedStories should render default 1`] = `
                 "pingbackUrl": [Function],
               },
             },
+            "webengage": Object {
+              "isEnabled": true,
+            },
           },
           "slots": Object {
             "story": Object {

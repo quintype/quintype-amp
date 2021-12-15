@@ -3137,6 +3137,9 @@ exports[`Subscriptions should render subscriptions 1`] = `
               "pingbackUrl": [Function],
             },
           },
+          "webengage": Object {
+            "isEnabled": true,
+          },
         },
         "slots": Object {
           "story": Object {

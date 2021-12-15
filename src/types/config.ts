@@ -224,6 +224,9 @@ interface FeatureConfigTypes {
     dataPollInterval?: string;
     dataMaxItemsPerPage?: string;
   };
+  webengage?: {
+    isEnabled?: boolean;
+  };
   enableAds?: {
     default?: {
       top?: boolean;

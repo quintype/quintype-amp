@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import get from "lodash.get";
 import { withStoryAndConfig } from "../../context";
 import { WebPush, WebPushWidget, WebengageSubscribeButton, Spacer, Analytics } from "../../atoms";
 import { WebEngageTypes } from "./types";
@@ -6,7 +7,9 @@ import { getWebengageConfig } from "./helpers";
 
 export const WebEngageBase = ({ story, config, buttonText, width, height, visibility }: WebEngageTypes) => {
   const webengageConfig = getWebengageConfig({ story, config });
-  if (!webengageConfig) return null;
+  const isWebEngageEnabled = get(config, ["opts", "featureConfig", "webengage", "isEnabled"], null);
+
+  if (!webengageConfig || !isWebEngageEnabled) return null;
   const { trackingCode, websiteUrl, licenseCode } = webengageConfig;
 
   return (

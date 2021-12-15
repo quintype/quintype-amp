@@ -3137,6 +3137,9 @@ exports[`visual story template should match snapshot 1`] = `
               "pingbackUrl": [Function],
             },
           },
+          "webengage": Object {
+            "isEnabled": true,
+          },
         },
         "slots": Object {
           "story": Object {

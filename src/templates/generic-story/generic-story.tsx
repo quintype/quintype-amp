@@ -66,6 +66,7 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
     );
   }
   const templateName = "default";
+
   return (
     <Layout story={story} config={config}>
       <Subscription />
