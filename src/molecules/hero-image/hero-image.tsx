@@ -40,20 +40,18 @@ export const HeroImageBase = ({ story }: HeroImageBaseTypes) => {
 
   const attribution: string | null = get(story, "hero-image-attribution", null);
   const caption: string | null = get(story, "hero-image-caption", null);
-  const figcaptionText = getFigcaptionText(caption, attribution);
 
   return (
     <div>
       <Image data-hero="true" metadata={metadata} slug={slug} alt={caption || attribution || ""}>
-        {figcaptionText && (
-          <StyledWrapper>
-            <StyledText dangerouslySetInnerHTML={{ __html: `${caption}` }} />
-            <Spacer token="2px" align="horizontal" />
-            |
-            <Spacer token="2px" align="horizontal" />
-            <StyledText dangerouslySetInnerHTML={{ __html: `${attribution}` }} />
-          </StyledWrapper>
-        )}
+        <StyledWrapper>
+          {caption && <StyledText dangerouslySetInnerHTML={{ __html: `${caption}` }} />}
+          <Spacer token="2" align="horizontal" />
+          {caption && attribution && <span>|</span>}
+          <Spacer token="2" align="horizontal" />
+          {attribution && <StyledText dangerouslySetInnerHTML={{ __html: `${attribution}` }} />}
+        </StyledWrapper>
+        )
       </Image>
     </div>
   );
