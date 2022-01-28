@@ -4,7 +4,7 @@ import { HeroImageMetadata } from "../../types/story";
 import styled from "styled-components";
 import { media } from "../../utils/media";
 import { withStoryAndConfig } from "../../context";
-import { Image, Spacer } from "../../atoms";
+import { Image } from "../../atoms";
 import get from "lodash.get";
 
 const StyledWrapper = styled.figcaption`
@@ -46,9 +46,7 @@ export const HeroImageBase = ({ story }: HeroImageBaseTypes) => {
       <Image data-hero="true" metadata={metadata} slug={slug} alt={caption || attribution || ""}>
         <StyledWrapper>
           {caption && <StyledText dangerouslySetInnerHTML={{ __html: `${caption}` }} />}
-          <Spacer token="2" align="horizontal" />
           {caption && attribution && <span>|</span>}
-          <Spacer token="2" align="horizontal" />
           {attribution && <StyledText dangerouslySetInnerHTML={{ __html: `${attribution}` }} />}
         </StyledWrapper>
         )
