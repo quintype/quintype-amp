@@ -7,13 +7,15 @@ import { withStoryAndConfig } from "../../context";
 import { Image } from "../../atoms";
 import get from "lodash.get";
 
-const StyledFigcaption = styled.figcaption`
+const StyledWrapper = styled.figcaption`
+  display: flex;
+  align-items: center;
   text-align: left;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 8px;
+  padding: 8px 0;
   max-height: 90px;
   color: ${(props) => props.theme.color.white};
   line-height: ${(props) => props.theme.font.lineHeight.level1};
@@ -27,6 +29,10 @@ const StyledFigcaption = styled.figcaption`
 	`}
 `;
 
+const StyledText = styled.div`
+  margin: 0 8px;
+`;
+
 export const HeroImageBase = ({ story }: HeroImageBaseTypes) => {
   const metadata: HeroImageMetadata = get(story, "hero-image-metadata", null);
   const slug: string | null = get(story, "hero-image-s3-key", null);
@@ -34,12 +40,16 @@ export const HeroImageBase = ({ story }: HeroImageBaseTypes) => {
 
   const attribution: string | null = get(story, "hero-image-attribution", null);
   const caption: string | null = get(story, "hero-image-caption", null);
-  const figcaptionText = getFigcaptionText(caption, attribution);
 
   return (
     <div>
       <Image data-hero="true" metadata={metadata} slug={slug} alt={caption || attribution || ""}>
-        {figcaptionText && <StyledFigcaption dangerouslySetInnerHTML={{ __html: figcaptionText || "" }} />}
+        <StyledWrapper>
+          {caption && <StyledText dangerouslySetInnerHTML={{ __html: `${caption}` }} />}
+          {caption && attribution && <span>|</span>}
+          {attribution && <StyledText dangerouslySetInnerHTML={{ __html: `${attribution}` }} />}
+        </StyledWrapper>
+        )
       </Image>
     </div>
   );
