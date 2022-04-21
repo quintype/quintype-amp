@@ -147,7 +147,7 @@ interface SlotsTypes {
 export interface ConfigOpts {
   domainSlug?: string | null;
   templates?: object;
-  prependLookup?: object;
+  localization?: object | (() => object);
   slots?: SlotsTypes;
   render?: {
     headerCardRender?: (props: Config) => any;

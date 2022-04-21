@@ -29,7 +29,8 @@ const myOptsObj = {
       // ... other SE renders
     }
   },
-  featureConfig: {}
+  featureConfig: {},
+  localization: { by: "بواسطة", published: "نشرت" },
 };
 ```
 
@@ -42,6 +43,7 @@ const myOptsObj = {
   - `headerCardRender`
   - `infiniteScrollRender`
 - `featureConfig` - used to provide config for amp lib features.
+- `localization` - used to provide localization of the hardcoded keywords (eg: "By", "Also Read" etc) to respective locale.
 
 <hr />
 This section is useful if you want to use custom templates. Else, jump to <a href="#slots_link">slots</a>

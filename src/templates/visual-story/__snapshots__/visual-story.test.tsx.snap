@@ -3141,6 +3141,10 @@ exports[`visual story template should match snapshot 1`] = `
             "isEnabled": true,
           },
         },
+        "localization": Object {
+          "by": "بواسطة",
+          "published": "نشرت",
+        },
         "slots": Object {
           "story": Object {
             "top-slot": [Function],

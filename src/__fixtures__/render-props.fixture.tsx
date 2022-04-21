@@ -1,13 +1,9 @@
 import React from "react";
-import get from "lodash.get";
 import { Layout, Head, Spacer } from "../atoms";
 import { DateUpdated, DateLastPublished } from "../molecules";
+import { getLocalizedWord } from "../utils/localize-words/localization";
 
 export const TopSlotTest = ({ story, config }) => {
-  const getLocalizedWord = (word, fallback) => {
-    return get(config, ["opts", "prependLookup", word], fallback);
-  };
-
   return (
     <Layout story={story} config={config}>
       <Head>
@@ -40,9 +36,9 @@ export const TopSlotTest = ({ story, config }) => {
       </Head>
       <div>This is the top slot</div>
       <div>
-        <DateLastPublished prepend={getLocalizedWord("published", "Published:")} />
+        <DateLastPublished prepend={getLocalizedWord(config, "published", "Published:")} />
         <Spacer token="m" align="horizontal" />
-        <DateUpdated prepend={getLocalizedWord("updated", "Updated:")} />
+        <DateUpdated prepend={getLocalizedWord(config, "updated", "Updated:")} />
       </div>
       <div
         dangerouslySetInnerHTML={{
