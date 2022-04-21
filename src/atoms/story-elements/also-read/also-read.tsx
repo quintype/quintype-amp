@@ -30,12 +30,14 @@ export const AlsoReadBase = ({ element, story, config }: StoryElementProps) => {
     return null;
   }
 
+  const alsoReadPrepend = get(config, ["opts", "prependLookup", "also_read"], "Also read:");
+
   return alsoReadRender ? (
     alsoReadRender({ story, config, element })
   ) : (
     <StyledAlsoRead>
       <Spacer token="m" align="horizontal" />
-      <span>Also read: </span>
+      <span>{alsoReadPrepend}</span>
       <Spacer token="s" align="horizontal" />
       <a href={linkedStory.url}>{linkedStory.headline}</a>
       <Spacer token="m" align="horizontal" />

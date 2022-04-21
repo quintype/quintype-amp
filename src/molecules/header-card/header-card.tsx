@@ -25,7 +25,8 @@ const HeaderCardContainer = styled.div`
 `;
 
 export const DefaultHeaderCard = ({ story, config }: CommonRenderPropTypes) => {
-  const { publisherConfig } = config;
+  const { publisherConfig, opts } = config;
+  const localizedPrepend = get(opts, ["prependLookup", "by"], "By");
   return (
     <div>
       <HeroImage />
@@ -35,7 +36,7 @@ export const DefaultHeaderCard = ({ story, config }: CommonRenderPropTypes) => {
         <Spacer token="xs" />
         <Headline>{story.headline}</Headline>
         <Spacer token="s" />
-        <Author authors={story.authors} prepend="By" />
+        <Author authors={story.authors} prepend={localizedPrepend} />
         <Spacer token="xxs" />
         <DateLastPublished />
         <Spacer token="m" />

@@ -9,6 +9,8 @@ import { withStoryAndConfig } from "../../context";
 export const CardUpdatedAtBase = ({ story, config, timeStamp, card }: CardUpdatedAtTypes) => {
   if (!timeStamp) return null;
 
+  const localizedPrepend = get(config, ["opts", "prependLookup", "updated_at"], "Updated at:");
+
   const cardTimeStampRender = get(config, ["opts", "render", "liveBlogCardTimeStamp"], null);
   if (cardTimeStampRender) return cardTimeStampRender({ story, config, card });
 
@@ -19,7 +21,7 @@ export const CardUpdatedAtBase = ({ story, config, timeStamp, card }: CardUpdate
   });
   return (
     <DateLineWrapper>
-      <DateTime formattedDate={humanizedDate} prepend="Updated at:" />
+      <DateTime formattedDate={humanizedDate} prepend={localizedPrepend} />
     </DateLineWrapper>
   );
 };
