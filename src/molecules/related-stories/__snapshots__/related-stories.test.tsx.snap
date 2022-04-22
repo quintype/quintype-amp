@@ -3144,7 +3144,7 @@ exports[`RelatedStories should render default 1`] = `
           },
           "localization": Object {
             "by": "بواسطة",
-            "published": "نشرت",
+            "publishedOn": "نشرت",
           },
           "slots": Object {
             "story": Object {

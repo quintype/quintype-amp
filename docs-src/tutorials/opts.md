@@ -30,7 +30,7 @@ const myOptsObj = {
     }
   },
   featureConfig: {},
-  localization: { by: "بواسطة", published: "نشرت" },
+  localization: { by: "بواسطة", publishedOn: "نشرت" },
 };
 ```
 

@@ -3143,7 +3143,7 @@ exports[`Subscriptions should render subscriptions 1`] = `
         },
         "localization": Object {
           "by": "بواسطة",
-          "published": "نشرت",
+          "publishedOn": "نشرت",
         },
         "slots": Object {
           "story": Object {

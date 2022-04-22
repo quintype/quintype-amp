@@ -639,7 +639,7 @@ export const configOpts: ConfigOpts = {
       "top-slot": ({ story, config }) => <TopSlotTest story={story} config={config} />
     }
   },
-  localization: { by: "بواسطة", published: "نشرت" },
+  localization: { by: "بواسطة", publishedOn: "نشرت" },
   featureConfig: {
     infiniteScroll: {
       infiniteScrollInlineConfig

@@ -5,5 +5,5 @@ export const getLocalizedWord = (config: Config | undefined, word: string, fallb
   const optsConfig = get(config, ["opts"], {});
   const localizationConfig =
     typeof optsConfig.localization === "function" ? optsConfig.localization(config) : optsConfig.localization;
-  return localizationConfig[word] || fallback;
+  return localizationConfig ? localizationConfig[word] : fallback;
 };
