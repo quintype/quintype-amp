@@ -639,7 +639,6 @@ export const configOpts: ConfigOpts = {
       "top-slot": ({ story, config }) => <TopSlotTest story={story} config={config} />
     }
   },
-  localization: { by: "بواسطة", publishedOn: "نشرت" },
   featureConfig: {
     infiniteScroll: {
       infiniteScrollInlineConfig
@@ -665,7 +664,8 @@ export const configOpts: ConfigOpts = {
     },
     webengage: {
       isEnabled: true
-    }
+    },
+    localization: { useLocaleDateStampOnGenericStory: () => false, translations: { by: "بواسطة", publishedOn: "نشرت" } }
   }
 };
 

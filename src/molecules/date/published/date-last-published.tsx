@@ -10,16 +10,18 @@ export const DateLastPublishedBase = ({ story, format, prepend, config }: DateLa
   if (!dateTime) return null;
 
   const languageCode = get(config, ["publisherConfig", "language", "ietf-code"]);
-  const { useLocaleDateStampOnGenericStory } = get(config, ["opts", "featureConfig", "localization"], {});
+  const localizationOpts = get(config, ["opts", "featureConfig", "localization"], {});
 
-  const isDateLocale =
-    typeof useLocaleDateStampOnGenericStory === "function"
-      ? useLocaleDateStampOnGenericStory(config)
-      : useLocaleDateStampOnGenericStory;
+  if ("useLocaleDateStampOnGenericStory" in localizationOpts) {
+    const useLocale =
+      typeof localizationOpts.useLocaleDateStampOnGenericStory === "function"
+        ? localizationOpts.useLocaleDateStampOnGenericStory(config)
+        : localizationOpts.useLocaleDateStampOnGenericStory;
 
-  if (isDateLocale) {
-    const date = new Date(dateTime).toLocaleDateString(languageCode);
-    return <DateTime formattedDate={date} prepend={prepend} />;
+    if (useLocale) {
+      const date = new Date(dateTime).toLocaleDateString(languageCode);
+      return <DateTime formattedDate={date} prepend={prepend} />;
+    }
   }
 
   const formatDateTime = format || "do MMM, yyyy 'at' p";

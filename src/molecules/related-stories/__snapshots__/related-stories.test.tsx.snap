@@ -608,6 +608,13 @@ exports[`RelatedStories should render default 1`] = `
             "infiniteScroll": Object {
               "infiniteScrollInlineConfig": "[{\\"image\\":\\"https://foo.com/puppies.jpg\\",\\"title\\":\\"Puppies Page\\",\\"url\\":\\"/puppies\\"}]",
             },
+            "localization": Object {
+              "translations": Object {
+                "by": "بواسطة",
+                "publishedOn": "نشرت",
+              },
+              "useLocaleDateStampOnGenericStory": [Function],
+            },
             "relatedStories": Object {
               "stories": Array [
                 Object {
@@ -3141,10 +3148,6 @@ exports[`RelatedStories should render default 1`] = `
             "webengage": Object {
               "isEnabled": true,
             },
-          },
-          "localization": Object {
-            "by": "بواسطة",
-            "publishedOn": "نشرت",
           },
           "slots": Object {
             "story": Object {

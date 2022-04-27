@@ -607,6 +607,13 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
           "infiniteScroll": Object {
             "infiniteScrollInlineConfig": "[{\\"image\\":\\"https://foo.com/puppies.jpg\\",\\"title\\":\\"Puppies Page\\",\\"url\\":\\"/puppies\\"}]",
           },
+          "localization": Object {
+            "translations": Object {
+              "by": "بواسطة",
+              "publishedOn": "نشرت",
+            },
+            "useLocaleDateStampOnGenericStory": [Function],
+          },
           "relatedStories": Object {
             "stories": Array [
               Object {
@@ -3140,10 +3147,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
           "webengage": Object {
             "isEnabled": true,
           },
-        },
-        "localization": Object {
-          "by": "بواسطة",
-          "publishedOn": "نشرت",
         },
         "slots": Object {
           "story": Object {
