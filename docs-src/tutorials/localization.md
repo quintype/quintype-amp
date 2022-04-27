@@ -1,6 +1,6 @@
 # Localization
 
-Keywords hardcoded in the default story template provided by AMP library can be translated to other languages by making use of localization feature. Pass the translation of the below words as an object to AmpLib via `opts` > `localization`, check `localization` in the [opts tutorial]{@tutorial opts} for the API.
+Keywords hardcoded in the default story template provided by AMP library can be translated to other languages by making use of localization feature. Pass the translation of the below words as an object to AmpLib via `opts` > `featureConfig` > `localization`, check `localization` in the [opts tutorial]{@tutorial opts} for the API.
 If the translation isn't provided, fallback english words will be used.
 
 Keyword : Object key
@@ -15,8 +15,8 @@ Keyword : Object key
 // sample
 const sampleOpts = {
   localization: {
-    "by": "द्वारा",
-    "publishedOn": "प्रकाशित"
+   translations: {"by": "द्वारा",
+    "publishedOn": "प्रकाशित"}
   ...
   }
 }
