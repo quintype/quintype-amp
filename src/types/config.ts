@@ -147,7 +147,6 @@ interface SlotsTypes {
 export interface ConfigOpts {
   domainSlug?: string | null;
   templates?: object;
-  localization?: object | (() => object);
   slots?: SlotsTypes;
   render?: {
     headerCardRender?: (props: Config) => any;
@@ -274,6 +273,12 @@ interface FeatureConfigTypes {
           };
         }
       ];
+  localization?: Localization;
+}
+
+interface Localization {
+  useLocaleDateStampOnGenericStory: object | ((config) => object);
+  translations: object | ((config) => object);
 }
 
 interface VisualStoryAnimationFeatureConfig {

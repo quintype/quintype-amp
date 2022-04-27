@@ -39,7 +39,7 @@ export const DefaultHeaderCard = ({ story, config }: CommonRenderPropTypes) => {
         <Spacer token="s" />
         <Author authors={story.authors} prepend={getLocalizedWord(config, "by", "By")} />
         <Spacer token="xxs" />
-        <DateLastPublished prepend={getLocalizedWord(config, "publishedOn", "Published on:")} />
+        <DateLastPublished config={config} prepend={getLocalizedWord(config, "publishedOn", "Published on:")} />
         <Spacer token="m" />
         <SocialShareHeader fbAppId={publisherConfig.facebook && publisherConfig.facebook["app-id"]} />
         <Spacer token="s" />
