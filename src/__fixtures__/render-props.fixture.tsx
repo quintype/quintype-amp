@@ -36,7 +36,7 @@ export const TopSlotTest = ({ story, config }) => {
       </Head>
       <div>This is the top slot</div>
       <div>
-        <DateLastPublished prepend={getLocalizedWord(config, "publishedOn", "Published on:")} />
+        <DateLastPublished prepend={getLocalizedWord(config, "publishedOn", "Published:")} />
         <Spacer token="m" align="horizontal" />
         <DateUpdated prepend={getLocalizedWord(config, "updated", "Updated:")} />
       </div>
