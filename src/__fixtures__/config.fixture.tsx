@@ -665,7 +665,7 @@ export const configOpts: ConfigOpts = {
     webengage: {
       isEnabled: true
     },
-    localization: { useLocaleDateStampOnGenericStory: () => false, translations: { by: "بواسطة", publishedOn: "نشرت" } }
+    localization: { useLocaleDateStampOnGenericStory: () => false, translations: { by: "بواسطة", published: "نشرت" } }
   }
 };
 

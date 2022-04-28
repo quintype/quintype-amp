@@ -610,7 +610,7 @@ exports[`visual story template should match snapshot 1`] = `
           "localization": Object {
             "translations": Object {
               "by": "بواسطة",
-              "publishedOn": "نشرت",
+              "published": "نشرت",
             },
             "useLocaleDateStampOnGenericStory": [Function],
           },

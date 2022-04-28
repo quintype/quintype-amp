@@ -610,7 +610,7 @@ exports[`GenericStory Template should render 1`] = `
           "localization": Object {
             "translations": Object {
               "by": "بواسطة",
-              "publishedOn": "نشرت",
+              "published": "نشرت",
             },
             "useLocaleDateStampOnGenericStory": [Function],
           },

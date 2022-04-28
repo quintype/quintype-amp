@@ -6,7 +6,7 @@ If the translation isn't provided, fallback english words will be used.
 Keyword : Object key
 
 - By : by
-- Published on : publishedOn
+- Published : published
 - Updated : updated
 - Also read : alsoRead
 - Updated at : updatedAt
@@ -16,7 +16,7 @@ Keyword : Object key
 const sampleOpts = {
   localization: {
    translations: {"by": "द्वारा",
-    "publishedOn": "प्रकाशित"}
+    "published": "प्रकाशित"}
   ...
   }
 }

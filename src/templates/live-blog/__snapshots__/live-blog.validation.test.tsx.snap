@@ -610,7 +610,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
           "localization": Object {
             "translations": Object {
               "by": "بواسطة",
-              "publishedOn": "نشرت",
+              "published": "نشرت",
             },
             "useLocaleDateStampOnGenericStory": [Function],
           },

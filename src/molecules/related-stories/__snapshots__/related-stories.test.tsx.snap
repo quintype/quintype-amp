@@ -611,7 +611,7 @@ exports[`RelatedStories should render default 1`] = `
             "localization": Object {
               "translations": Object {
                 "by": "بواسطة",
-                "publishedOn": "نشرت",
+                "published": "نشرت",
               },
               "useLocaleDateStampOnGenericStory": [Function],
             },
