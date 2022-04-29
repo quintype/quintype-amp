@@ -3165,7 +3165,7 @@ exports[`RelatedStories should render default 1`] = `
           },
           "language": Object {
             "direction": "ltr",
-            "ietf-code": "en-us",
+            "ietf-code": "de-DE",
             "iso-code": "en",
             "name": "english",
           },
