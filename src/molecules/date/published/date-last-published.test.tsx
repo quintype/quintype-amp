@@ -21,7 +21,7 @@ describe("DateLastPublished", () => {
     const wrapper = shallow(<DateLastPublishedBase story={getDummyStory()} prepend="lorem ipsum" />);
     expect(wrapper.find(DateTime).prop("prepend")).toBe("lorem ipsum");
   });
-  it.only("should pass prepend to <DateTime />", () => {
+  it("should pass localized formattedDate to <DateTime />", () => {
     const wrapper = shallow(<DateLastPublishedBase story={getDummyStory()} config={config} />);
     expect(wrapper.find(DateTime).prop("formattedDate")).toBe("27.5.2020");
   });
