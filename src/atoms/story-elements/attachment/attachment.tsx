@@ -2,6 +2,8 @@ import React from "react";
 import { StoryElementProps } from "../types";
 import styled from "styled-components";
 import { media } from "../../../utils/media";
+import { getLocalizedWord } from "../../../utils/localize-words/localization";
+import { withStoryAndConfig } from "../../../context";
 
 const AttachmentWrapper = styled.div`
   font-size: ${(props) => props.theme.font.size.m};
@@ -43,13 +45,15 @@ export const PreviewLink = styled.a`
  * @component
  */
 
-export const Attachment = ({ element }: StoryElementProps) => {
+export const AttachmentBase = ({ element, config }: StoryElementProps) => {
   return (
     <AttachmentWrapper>
       <div>{element["file-name"]}</div>
       <PreviewLink href={element.url} target="_blank" rel="noopener noreferrer" download="">
-        Preview
+        {getLocalizedWord(config, "attachmentElementPreview", "Preview")}
       </PreviewLink>
     </AttachmentWrapper>
   );
 };
+
+export const Attachment = withStoryAndConfig(AttachmentBase);
