@@ -36,7 +36,7 @@ export const AlsoReadBase = ({ element, story, config }: StoryElementProps) => {
   ) : (
     <StyledAlsoRead>
       <Spacer token="m" align="horizontal" />
-      <span>{getLocalizedWord(config, "alsoRead", "Also read:")}</span>
+      <span>{getLocalizedWord(config, "alsoReadStoryElement", "Also read:")}</span>
       <Spacer token="s" align="horizontal" />
       <a href={linkedStory.url}>{linkedStory.headline}</a>
       <Spacer token="m" align="horizontal" />

@@ -19,7 +19,14 @@ export const DateLastPublishedBase = ({ story, format, prepend, config }: DateLa
         : localizationOpts.useLocaleDateStampOnGenericStory;
 
     if (useLocale) {
-      const date = new Date(dateTime).toLocaleDateString(languageCode);
+      const date = new Date(dateTime).toLocaleDateString(languageCode, {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+        hour12: true
+      });
       return <DateTime formattedDate={date} prepend={prepend} />;
     }
   }
