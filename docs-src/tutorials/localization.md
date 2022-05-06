@@ -7,9 +7,9 @@ Keyword : Object key
 
 - By : by
 - Published : published
-- Updated : updated
-- Also read : alsoRead
 - Updated at : updatedAt
+- Also Read Story Element : alsoReadStoryElement
+- Related Stories Header Text : relatedStoriesHeaderText
 
 ```js
 // sample
