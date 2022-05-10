@@ -5,7 +5,6 @@ import styled from "styled-components";
 import get from "lodash.get";
 import { Author, Section, Spacer } from "../../atoms";
 import { HeroImage, SocialShareHeader, DateLastPublished } from "../index";
-import { getLocalizedWord } from "../../utils/localize-words/localization";
 
 export const HeaderCardBase = ({ story, config }: CommonRenderPropTypes) => {
   const headerCardRender = get(config, ["opts", "render", "headerCardRender"], null);
@@ -27,7 +26,6 @@ const HeaderCardContainer = styled.div`
 
 export const DefaultHeaderCard = ({ story, config }: CommonRenderPropTypes) => {
   const { publisherConfig } = config;
-
   return (
     <div>
       <HeroImage />
@@ -37,9 +35,9 @@ export const DefaultHeaderCard = ({ story, config }: CommonRenderPropTypes) => {
         <Spacer token="xs" />
         <Headline>{story.headline}</Headline>
         <Spacer token="s" />
-        <Author authors={story.authors} prepend={getLocalizedWord(config, "by", "By")} />
+        <Author authors={story.authors} prepend="By" />
         <Spacer token="xxs" />
-        <DateLastPublished config={config} prepend={getLocalizedWord(config, "published", "Published:")} />
+        <DateLastPublished />
         <Spacer token="m" />
         <SocialShareHeader fbAppId={publisherConfig.facebook && publisherConfig.facebook["app-id"]} />
         <Spacer token="s" />

@@ -2,7 +2,6 @@ import React from "react";
 import { DateLastPublishedBase } from "./date-last-published";
 import { shallow } from "enzyme";
 import { DateTime } from "../../../atoms";
-import { config } from "../../../__fixtures__";
 
 describe("DateLastPublished", () => {
   it("should match snapshot", () => {
@@ -20,10 +19,6 @@ describe("DateLastPublished", () => {
   it("should pass prepend to <DateTime />", () => {
     const wrapper = shallow(<DateLastPublishedBase story={getDummyStory()} prepend="lorem ipsum" />);
     expect(wrapper.find(DateTime).prop("prepend")).toBe("lorem ipsum");
-  });
-  it("should pass localized formattedDate to <DateTime />", () => {
-    const wrapper = shallow(<DateLastPublishedBase story={getDummyStory()} config={config} />);
-    expect(wrapper.find(DateTime).prop("formattedDate")).toBe("May 27, 2020, 6:01 AM");
   });
 });
 

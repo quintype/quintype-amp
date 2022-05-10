@@ -1,38 +1,16 @@
 import React from "react";
-import get from "lodash.get";
 import { DateTime } from "../../../atoms";
 import { withStoryAndConfig } from "../../../context";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 import { utcToZonedTime } from "date-fns-tz";
 import { DateUpdatedTypes } from "./types";
 
-export const DateUpdatedBase = ({ story, prepend, config }: DateUpdatedTypes) => {
+export const DateUpdatedBase = ({ story, prepend }: DateUpdatedTypes) => {
   const updatedAt = story["updated-at"];
   if (!updatedAt) return null;
 
   const timeZonedTime = utcToZonedTime(updatedAt, "Asia/Kolkata");
-  let humanizedString = formatDistanceToNow(timeZonedTime, { addSuffix: true });
-
-  const languageCode = get(config, ["publisherConfig", "language", "ietf-code"]);
-  const localizationOpts = get(config, ["opts", "featureConfig", "localization"], {});
-
-  if ("useLocaleDateStampOnGenericStory" in localizationOpts) {
-    const useLocale =
-      typeof localizationOpts.useLocaleDateStampOnGenericStory === "function"
-        ? localizationOpts.useLocaleDateStampOnGenericStory(config)
-        : localizationOpts.useLocaleDateStampOnGenericStory;
-
-    if (useLocale) {
-      humanizedString = new Date(updatedAt).toLocaleDateString(languageCode, {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-        hour: "numeric",
-        minute: "numeric",
-        hour12: true
-      });
-    }
-  }
+  const humanizedString = formatDistanceToNow(timeZonedTime, { addSuffix: true });
 
   return <DateTime formattedDate={humanizedString} prepend={prepend} />;
 };

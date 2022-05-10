@@ -607,13 +607,6 @@ exports[`GenericStory Template should render 1`] = `
           "infiniteScroll": Object {
             "infiniteScrollInlineConfig": "[{\\"image\\":\\"https://foo.com/puppies.jpg\\",\\"title\\":\\"Puppies Page\\",\\"url\\":\\"/puppies\\"}]",
           },
-          "localization": Object {
-            "translations": Object {
-              "by": "بواسطة",
-              "published": "نشرت",
-            },
-            "useLocaleDateStampOnGenericStory": [Function],
-          },
           "relatedStories": Object {
             "stories": Array [
               Object {
@@ -3164,7 +3157,7 @@ exports[`GenericStory Template should render 1`] = `
         },
         "language": Object {
           "direction": "ltr",
-          "ietf-code": "de-DE",
+          "ietf-code": "en-us",
           "iso-code": "en",
           "name": "english",
         },

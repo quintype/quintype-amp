@@ -5,9 +5,6 @@
   "opts": {
     "title": "The 'opts' object"
   },
-  "localization": {
-    "title": "Localization"
-  },
   "default-story-templates": {
     "title": "Default Story Templates"
   },

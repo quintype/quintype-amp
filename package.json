@@ -1,6 +1,6 @@
 {
   "name": "@quintype/amp",
-  "version": "2.4.20-amp-date-translation.4",
+  "version": "2.4.19",
   "description": "Quintype's AMP component library for publisher apps to create amp layouts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -62,7 +62,7 @@
     "@types/storybook__react": "^5.2.1",
     "@types/styled-components": "^5.1.3",
     "@types/webpack": "^4.41.7",
-    "amphtml-validator": "^1.0.35",
+    "amphtml-validator": "^1.0.30",
     "babel-loader": "^8.1.0",
     "babel-plugin-styled-components": "^1.10.7",
     "better-docs": "^2.0.1",

@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import { Attachment, AttachmentBase, PreviewLink } from "./attachment";
+import { Attachment, PreviewLink } from "./attachment";
 
 const sampleAttachmentElement = {
   description: "",
@@ -27,7 +27,7 @@ describe("Attachment", () => {
     expect(wrapper).toMatchSnapshot();
   });
   it("should set correct attributes on anchor tag", () => {
-    const wrapper = shallow(<AttachmentBase element={sampleAttachmentElement} />);
+    const wrapper = shallow(<Attachment element={sampleAttachmentElement} />);
     expect(wrapper.find(PreviewLink).prop("href")).toBe("https://www.foo-bar/baz.pdf");
     expect(wrapper.find(PreviewLink).prop("target")).toBe("_blank");
     expect(wrapper.find(PreviewLink).prop("rel")).toBe("noopener noreferrer");

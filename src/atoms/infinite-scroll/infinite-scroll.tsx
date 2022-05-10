@@ -4,7 +4,6 @@ import { withStoryAndConfig } from "../../context";
 import { InfiniteScrollTypes } from "./types";
 import get from "lodash.get";
 import styled from "styled-components";
-import { getLocalizedWord } from "../../utils/localize-words/localization";
 
 export const StyledSeparator = styled.div`
   display: flex;
@@ -40,9 +39,7 @@ export const InfiniteScrollBase = ({ story, config, children, inlineConfig, ...p
         <script type="application/json" dangerouslySetInnerHTML={{ __html: inlineConfig }} />
         <div separator="true">
           <StyledSeparator>
-            <div data-testid="infinite-scroll-separator">
-              {getLocalizedWord(config, "infiniteScrollSeparatorText", storySeparatorText)}
-            </div>
+            <div data-testid="infinite-scroll-separator">{storySeparatorText}</div>
           </StyledSeparator>
         </div>
         {children}

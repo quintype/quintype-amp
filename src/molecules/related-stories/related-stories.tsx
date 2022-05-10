@@ -6,7 +6,6 @@ import { withStoryAndConfig } from "../../context";
 import { Spacer } from "../../atoms";
 import get from "lodash.get";
 import { StoryPageSlots } from "../../molecules/slots";
-import { getLocalizedWord } from "../../utils/localize-words/localization";
 
 const { RelatedStoryCardSlot } = StoryPageSlots;
 
@@ -22,11 +21,11 @@ export const RelatedStoriesBase = ({ story, config, heading = "Also Read" }: Rel
   return (
     <Fragment>
       <Spacer token="m" />
-      <Heading>{getLocalizedWord(config, "relatedStoriesHeaderText", heading)}</Heading>
+      <Heading>{heading}</Heading>
       <div>
         {relatedStories.map((relatedStory, idx) => (
           <Fragment key={relatedStory.id}>
-            <RelatedStoryCard config={config} story={relatedStory} />
+            <RelatedStoryCard story={relatedStory} />
             <RelatedStoryCardSlot story={story} config={config} index={idx} relatedStory={relatedStory} />
           </Fragment>
         ))}

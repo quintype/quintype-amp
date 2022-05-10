@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import get from "lodash.get";
 import { Image, DateTime, Spacer } from "../../atoms";
 import { RelatedStoryCardTypes } from "./types";
 import { getHumanizedDateTime } from "../../utils/date-time";
@@ -19,7 +18,7 @@ const Headline = styled.h1`
   font-weight: bold;
 `;
 
-export const RelatedStoryCard = ({ story, config }: RelatedStoryCardTypes) => {
+export const RelatedStoryCard = ({ story }: RelatedStoryCardTypes) => {
   const {
     headline,
     url,
@@ -29,33 +28,11 @@ export const RelatedStoryCard = ({ story, config }: RelatedStoryCardTypes) => {
     "hero-image-caption": imgCaption,
     "last-published-at": lastPublishedAt
   } = story;
-
-  const languageCode = get(config, ["publisherConfig", "language", "ietf-code"]);
-  const localizationOpts = get(config, ["opts", "featureConfig", "localization"], {});
-  let humanizedDate = getHumanizedDateTime({
+  const humanizedDate = getHumanizedDateTime({
     dateFormat: "do MMM, yyyy 'at' p",
     timeZone: "Asia/Kolkata",
     timeStamp: lastPublishedAt
   });
-
-  if ("useLocaleDateStampOnGenericStory" in localizationOpts) {
-    const useLocale =
-      typeof localizationOpts.useLocaleDateStampOnGenericStory === "function"
-        ? localizationOpts.useLocaleDateStampOnGenericStory(config)
-        : localizationOpts.useLocaleDateStampOnGenericStory;
-
-    if (useLocale) {
-      humanizedDate = new Date(lastPublishedAt).toLocaleDateString(languageCode, {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-        hour: "numeric",
-        minute: "numeric",
-        hour12: true
-      });
-    }
-  }
-
   return (
     <Wrapper>
       <StyledAnchor href={url}>

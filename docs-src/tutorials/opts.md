@@ -29,7 +29,7 @@ const myOptsObj = {
       // ... other SE renders
     }
   },
-  featureConfig: {},
+  featureConfig: {}
 };
 ```
 
@@ -97,7 +97,6 @@ Feature config is an object that can be used to configure different features of 
    - go to {@tutorial hamburger-menu} for more info
 5. webengage
    - isEnabled: (Boolean) Enable / disable the default webengage component.
-6. localization - used to provide localization of the hardcoded keywords (eg: "By", "Also Read" etc) to respective locale.
 
 ```jsx
 const exampleFeatureConfig = {
@@ -127,11 +126,7 @@ const exampleFeatureConfig = {
   },
   webengage:{
     isEnabled: boolean;
-  },
-  localization: {
-    useLocaleDateStampOnGenericStory: object | function;
-    translations: object | function,
-  },
+  }
 };
 ```
 

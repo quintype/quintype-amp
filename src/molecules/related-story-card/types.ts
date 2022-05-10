@@ -1,8 +1,6 @@
-import { Config } from "../../types/config";
 import { Story } from "../../types/story";
 export interface RelatedStoryCardTypes {
   story: Story;
-  config?: Config;
 }
 
 export interface ImageForStoryTypes {

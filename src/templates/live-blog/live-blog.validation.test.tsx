@@ -19,7 +19,7 @@ describe("The LiveBlog Default Template", () => {
       story: liveBlogStory,
       publisherConfig,
       ampConfig,
-      opts: config.opts,
+      opts: {},
       seo: `<link rel="canonical" href="." />`,
       additionalConfig: null
     });

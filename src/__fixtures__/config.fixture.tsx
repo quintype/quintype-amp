@@ -26,7 +26,7 @@ export const publisherConfig: PublisherConfig = {
   domains: [],
   language: {
     "iso-code": "en",
-    "ietf-code": "de-DE",
+    "ietf-code": "en-us",
     name: "english",
     direction: "ltr"
   }
@@ -664,8 +664,7 @@ export const configOpts: ConfigOpts = {
     },
     webengage: {
       isEnabled: true
-    },
-    localization: { useLocaleDateStampOnGenericStory: () => true, translations: { by: "بواسطة", published: "نشرت" } }
+    }
   }
 };
 

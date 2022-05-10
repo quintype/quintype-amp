@@ -273,12 +273,6 @@ interface FeatureConfigTypes {
           };
         }
       ];
-  localization?: Localization;
-}
-
-interface Localization {
-  useLocaleDateStampOnGenericStory: object | ((config) => object);
-  translations: object | ((config) => object);
 }
 
 interface VisualStoryAnimationFeatureConfig {
