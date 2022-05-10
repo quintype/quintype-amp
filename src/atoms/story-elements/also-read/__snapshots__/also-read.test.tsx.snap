@@ -7,7 +7,7 @@ exports[`Also Read should render default 1`] = `
     token="m"
   />
   <span>
-    Also read: 
+    Also read:
   </span>
   <Spacer
     align="horizontal"

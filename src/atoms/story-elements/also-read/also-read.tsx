@@ -4,6 +4,7 @@ import get from "lodash.get";
 import styled from "styled-components";
 import { Spacer } from "../../spacer";
 import { withStoryAndConfig } from "../../../context";
+import { getLocalizedWord } from "../../../utils/localize-words/localization";
 
 export const StyledAlsoRead = styled.div`
   display: flex;
@@ -35,7 +36,7 @@ export const AlsoReadBase = ({ element, story, config }: StoryElementProps) => {
   ) : (
     <StyledAlsoRead>
       <Spacer token="m" align="horizontal" />
-      <span>Also read: </span>
+      <span>{getLocalizedWord(config, "alsoReadStoryElement", "Also read:")}</span>
       <Spacer token="s" align="horizontal" />
       <a href={linkedStory.url}>{linkedStory.headline}</a>
       <Spacer token="m" align="horizontal" />
