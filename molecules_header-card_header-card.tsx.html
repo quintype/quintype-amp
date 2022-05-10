@@ -74,6 +74,10 @@
                                 The 'opts' object
                             </a>
                         
+                            <a class="dropdown-item" href="tutorial-localization.html">
+                                Localization
+                            </a>
+                        
                             <a class="dropdown-item" href="tutorial-default-story-templates.html">
                                 Default Story Templates
                             </a>
@@ -140,6 +144,7 @@ import styled from "styled-components";
 import get from "lodash.get";
 import { Author, Section, Spacer } from "../../atoms";
 import { HeroImage, SocialShareHeader, DateLastPublished } from "../index";
+import { getLocalizedWord } from "../../utils/localize-words/localization";
 
 export const HeaderCardBase = ({ story, config }: CommonRenderPropTypes) => {
   const headerCardRender = get(config, ["opts", "render", "headerCardRender"], null);
@@ -161,6 +166,7 @@ const HeaderCardContainer = styled.div`
 
 export const DefaultHeaderCard = ({ story, config }: CommonRenderPropTypes) => {
   const { publisherConfig } = config;
+
   return (
     &lt;div>
       &lt;HeroImage />
@@ -170,9 +176,9 @@ export const DefaultHeaderCard = ({ story, config }: CommonRenderPropTypes) => {
         &lt;Spacer token="xs" />
         &lt;Headline>{story.headline}&lt;/Headline>
         &lt;Spacer token="s" />
-        &lt;Author authors={story.authors} prepend="By" />
+        &lt;Author authors={story.authors} prepend={getLocalizedWord(config, "by", "By")} />
         &lt;Spacer token="xxs" />
-        &lt;DateLastPublished />
+        &lt;DateLastPublished config={config} prepend={getLocalizedWord(config, "published", "Published:")} />
         &lt;Spacer token="m" />
         &lt;SocialShareHeader fbAppId={publisherConfig.facebook &amp;&amp; publisherConfig.facebook["app-id"]} />
         &lt;Spacer token="s" />

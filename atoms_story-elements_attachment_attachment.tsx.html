@@ -74,6 +74,10 @@
                                 The 'opts' object
                             </a>
                         
+                            <a class="dropdown-item" href="tutorial-localization.html">
+                                Localization
+                            </a>
+                        
                             <a class="dropdown-item" href="tutorial-default-story-templates.html">
                                 Default Story Templates
                             </a>
@@ -137,6 +141,8 @@
 import { StoryElementProps } from "../types";
 import styled from "styled-components";
 import { media } from "../../../utils/media";
+import { getLocalizedWord } from "../../../utils/localize-words/localization";
+import { withStoryAndConfig } from "../../../context";
 
 const AttachmentWrapper = styled.div`
   font-size: ${(props) => props.theme.font.size.m};
@@ -178,16 +184,18 @@ export const PreviewLink = styled.a`
  * @component
  */
 
-export const Attachment = ({ element }: StoryElementProps) => {
+export const AttachmentBase = ({ element, config }: StoryElementProps) => {
   return (
     &lt;AttachmentWrapper>
       &lt;div>{element["file-name"]}&lt;/div>
       &lt;PreviewLink href={element.url} target="_blank" rel="noopener noreferrer" download="">
-        Preview
+        {getLocalizedWord(config, "attachmentElementPreview", "Preview")}
       &lt;/PreviewLink>
     &lt;/AttachmentWrapper>
   );
 };
+
+export const Attachment = withStoryAndConfig(AttachmentBase);
 </code></pre>
         </article>
     </section>

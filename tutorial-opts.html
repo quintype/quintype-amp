@@ -72,6 +72,10 @@
                                 The 'opts' object
                             </a>
                         
+                            <a class="dropdown-item" href="tutorial-localization.html">
+                                Localization
+                            </a>
+                        
                             <a class="dropdown-item" href="tutorial-default-story-templates.html">
                                 Default Story Templates
                             </a>
@@ -114,7 +118,7 @@
             
             <nav>
                 
-                    <div class="category"><h3>Tutorials</h3><ul><li><a href="tutorial-overview.html">Overview</a></li><li><a href="tutorial-opts.html">The 'opts' object</a></li><li><a href="tutorial-default-story-templates.html">Default Story Templates</a></li><li><a href="tutorial-custom-story-templates.html">Custom Story Templates</a></li><li><a href="tutorial-library-exports.html">AMP Library Exports</a></li><li><a href="tutorial-migration-to-v2.html">Migration from @quintype/framework v3.x.x to v4.x.x</a></li><li><a href="tutorial-features.html">Features</a></li></ul></div>
+                    <div class="category"><h3>Tutorials</h3><ul><li><a href="tutorial-overview.html">Overview</a></li><li><a href="tutorial-opts.html">The 'opts' object</a></li><li><a href="tutorial-localization.html">Localization</a></li><li><a href="tutorial-default-story-templates.html">Default Story Templates</a></li><li><a href="tutorial-custom-story-templates.html">Custom Story Templates</a></li><li><a href="tutorial-library-exports.html">AMP Library Exports</a></li><li><a href="tutorial-migration-to-v2.html">Migration from @quintype/framework v3.x.x to v4.x.x</a></li><li><a href="tutorial-features.html">Features</a></li></ul></div>
                 
             </nav>
         </div>
@@ -154,7 +158,7 @@
       // ... other SE renders
     }
   },
-  featureConfig: {}
+  featureConfig: {},
 };
 </code></pre>
 <ul>
@@ -260,6 +264,7 @@ The <code>&lt;Head /&gt;</code> component may be used to put code in the head. U
 <li>isEnabled: (Boolean) Enable / disable the default webengage component.</li>
 </ul>
 </li>
+<li>localization - used to provide localization of the hardcoded keywords (eg: &quot;By&quot;, &quot;Also Read&quot; etc) to respective locale.</li>
 </ol>
 <pre class="prettyprint source lang-jsx"><code>const exampleFeatureConfig = {
   enableAds: {
@@ -288,7 +293,11 @@ The <code>&lt;Head /&gt;</code> component may be used to put code in the head. U
   },
   webengage:{
     isEnabled: boolean;
-  }
+  },
+  localization: {
+    useLocaleDateStampOnGenericStory: object | function;
+    translations: object | function,
+  },
 };
 </code></pre>
 <h2>Renders</h2>

@@ -74,6 +74,10 @@
                                 The 'opts' object
                             </a>
                         
+                            <a class="dropdown-item" href="tutorial-localization.html">
+                                Localization
+                            </a>
+                        
                             <a class="dropdown-item" href="tutorial-default-story-templates.html">
                                 Default Story Templates
                             </a>
@@ -141,6 +145,7 @@ import { withStoryAndConfig } from "../../context";
 import { Spacer } from "../../atoms";
 import get from "lodash.get";
 import { StoryPageSlots } from "../../molecules/slots";
+import { getLocalizedWord } from "../../utils/localize-words/localization";
 
 const { RelatedStoryCardSlot } = StoryPageSlots;
 
@@ -156,11 +161,11 @@ export const RelatedStoriesBase = ({ story, config, heading = "Also Read" }: Rel
   return (
     &lt;Fragment>
       &lt;Spacer token="m" />
-      &lt;Heading>{heading}&lt;/Heading>
+      &lt;Heading>{getLocalizedWord(config, "relatedStoriesHeaderText", heading)}&lt;/Heading>
       &lt;div>
         {relatedStories.map((relatedStory, idx) => (
           &lt;Fragment key={relatedStory.id}>
-            &lt;RelatedStoryCard story={relatedStory} />
+            &lt;RelatedStoryCard config={config} story={relatedStory} />
             &lt;RelatedStoryCardSlot story={story} config={config} index={idx} relatedStory={relatedStory} />
           &lt;/Fragment>
         ))}

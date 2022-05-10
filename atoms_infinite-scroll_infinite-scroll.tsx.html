@@ -74,6 +74,10 @@
                                 The 'opts' object
                             </a>
                         
+                            <a class="dropdown-item" href="tutorial-localization.html">
+                                Localization
+                            </a>
+                        
                             <a class="dropdown-item" href="tutorial-default-story-templates.html">
                                 Default Story Templates
                             </a>
@@ -139,6 +143,7 @@ import { withStoryAndConfig } from "../../context";
 import { InfiniteScrollTypes } from "./types";
 import get from "lodash.get";
 import styled from "styled-components";
+import { getLocalizedWord } from "../../utils/localize-words/localization";
 
 export const StyledSeparator = styled.div`
   display: flex;
@@ -174,7 +179,9 @@ export const InfiniteScrollBase = ({ story, config, children, inlineConfig, ...p
         &lt;script type="application/json" dangerouslySetInnerHTML={{ __html: inlineConfig }} />
         &lt;div separator="true">
           &lt;StyledSeparator>
-            &lt;div data-testid="infinite-scroll-separator">{storySeparatorText}&lt;/div>
+            &lt;div data-testid="infinite-scroll-separator">
+              {getLocalizedWord(config, "infiniteScrollSeparatorText", storySeparatorText)}
+            &lt;/div>
           &lt;/StyledSeparator>
         &lt;/div>
         {children}

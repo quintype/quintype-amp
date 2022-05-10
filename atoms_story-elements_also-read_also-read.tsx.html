@@ -74,6 +74,10 @@
                                 The 'opts' object
                             </a>
                         
+                            <a class="dropdown-item" href="tutorial-localization.html">
+                                Localization
+                            </a>
+                        
                             <a class="dropdown-item" href="tutorial-default-story-templates.html">
                                 Default Story Templates
                             </a>
@@ -139,6 +143,7 @@ import get from "lodash.get";
 import styled from "styled-components";
 import { Spacer } from "../../spacer";
 import { withStoryAndConfig } from "../../../context";
+import { getLocalizedWord } from "../../../utils/localize-words/localization";
 
 export const StyledAlsoRead = styled.div`
   display: flex;
@@ -170,7 +175,7 @@ export const AlsoReadBase = ({ element, story, config }: StoryElementProps) => {
   ) : (
     &lt;StyledAlsoRead>
       &lt;Spacer token="m" align="horizontal" />
-      &lt;span>Also read: &lt;/span>
+      &lt;span>{getLocalizedWord(config, "alsoReadStoryElement", "Also read:")}&lt;/span>
       &lt;Spacer token="s" align="horizontal" />
       &lt;a href={linkedStory.url}>{linkedStory.headline}&lt;/a>
       &lt;Spacer token="m" align="horizontal" />
