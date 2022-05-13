@@ -10,7 +10,7 @@ export const StyledText = styled.div<StoryElementProps>`
   font-size: ${(props) => props.theme.font.size.xs};
   font-family: ${(props) => props.theme.font.family.primary};
   line-height: ${(props) => props.theme.font.lineHeight.level3};
-  word-break: break-word;
+  word-break: break-all;
 
   p {
     margin: 0 0 ${(props) => props.theme.spacing.xs} 0;
