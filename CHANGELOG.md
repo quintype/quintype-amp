@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.4.21](https://github.com/quintype/quintype-amp/compare/v2.4.20...v2.4.21) (2022-05-18)
+
+
+### Bug Fixes
+
+* text overflow issue in amp stories ([#378](https://github.com/quintype/quintype-amp/issues/378)) ([31a324e](https://github.com/quintype/quintype-amp/commit/31a324e9f2990000ca99d7fee483c26e9ec464d4))
+
 ### [2.4.20](https://github.com/quintype/quintype-amp/compare/v2.4.19...v2.4.20) (2022-05-10)
 
 ### [2.4.19](https://github.com/quintype/quintype-amp/compare/v2.4.18...v2.4.19) (2022-02-01)
