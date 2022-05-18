@@ -12,6 +12,7 @@ exports[`webstory component should match snapshot 1`] = `
     />
   </HelmetWrapper>
   <amp-story
+    data-test-id="visual-story"
     poster-portrait-src="//gumlet.assettype.com/amplib/2020-10/6adaf26f-3b7b-45e0-9973-6f99abeecf5d/erin_agius_I7TLmA4j0c8_unsplash.jpg?w=640&mode=crop&ar=3:4"
     publisher="Newslaundry"
     publisher-logo-src="https://images.assettype.com/thecue/2020-01/fdf230c2-d529-4da6-86ad-535e54adfad8/TheCue_Logo_dark.png"

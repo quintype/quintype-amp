@@ -14,6 +14,7 @@ export const WebStoryBase = ({ story, config, children }: WebStoryTypes) => {
         <script async={undefined} custom-element="amp-story" src="https://cdn.ampproject.org/v0/amp-story-1.0.js" />
       </Helmet>
       <amp-story
+        data-test-id="visual-story"
         standalone=""
         title={story.headline}
         publisher={get(config, ["publisherConfig", "publisher-settings", "title"], "")}
