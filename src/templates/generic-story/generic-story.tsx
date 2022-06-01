@@ -75,6 +75,10 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
       <IncompatibleBanner />
       <GoogleTagManager />
       <Wrapper>
+        <div dir="ltr">
+          <div>Pagebuilder Config</div>
+          <div>{JSON.stringify(get(config, ["additionalConfig", "general", "amp"], "PB Config not found!"))}</div>
+        </div>
         <TopAd templateName={templateName} />
         <TopSlot />
         <Spacer token="s" />
