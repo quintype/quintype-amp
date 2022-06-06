@@ -18,15 +18,28 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
   const { imageAnimation, textAnimation }: AnimationTypes = getAnimationProps(config, story);
   const headline = story.headline || "";
 
-  const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"], {});
-  const logoAlignment =
-    typeof visualStoriesConfig.logoAlignment === "function"
-      ? visualStoriesConfig.logoAlignment(config)
-      : visualStoriesConfig.logoAlignment;
-  const logoUrl =
-    typeof visualStoriesConfig.logoUrl === "function"
-      ? visualStoriesConfig.logoUrl(config)
-      : visualStoriesConfig.logoUrl;
+  let logoAlignment = get(config, ["opts", "featureConfig", "visualStories", "logoAlignment"], null);
+  let logoUrl = get(config, ["opts", "featureConfig", "visualStories", "logoUrl"], null);
+
+  const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"]) || [];
+  if (Array.isArray(visualStoriesConfig)) {
+    const visualStoryTheme = get(story, ["metadata", "story-attributes", "visualstorytheme"]) || [];
+    const theme = visualStoryTheme[0];
+    switch (theme) {
+      case "theme-2":
+        logoAlignment = visualStoriesConfig[1] && typeof visualStoriesConfig[1].logoAlignment === "function" ? visualStoriesConfig[1].logoAlignment(config) : visualStoriesConfig[1].logoAlignment;
+        logoUrl = visualStoriesConfig[1] && typeof visualStoriesConfig[1].logoUrl === "function" ? visualStoriesConfig[1].logoUrl(config) : visualStoriesConfig[1].logoUrl;
+        break;
+      case "theme-3":
+        logoAlignment = visualStoriesConfig[2] && typeof visualStoriesConfig[2].logoAlignment === "function" ? visualStoriesConfig[2].logoAlignment(config) : visualStoriesConfig[2].logoAlignment;
+        logoUrl = visualStoriesConfig[2] && typeof visualStoriesConfig[2].logoUrl === "function" ? visualStoriesConfig[2].logoUrl(config) : visualStoriesConfig[2].logoUrl;
+        break;
+      default:
+        logoAlignment = visualStoriesConfig[0] && typeof visualStoriesConfig[0].logoAlignment === "function" ? visualStoriesConfig[0].logoAlignment(config) : visualStoriesConfig[0].logoAlignment;
+        logoUrl = visualStoriesConfig[0] && typeof visualStoriesConfig[0].logoUrl === "function" ? visualStoriesConfig[0].logoUrl(config) : visualStoriesConfig[0].logoUrl;
+    }
+  }
+
   const visualStoryConfig = { logoUrl, logoAlignment };
 
   return (

@@ -247,6 +247,8 @@ interface FeatureConfigTypes {
   };
   visualStories?:
     | {
+        logoAlignment?: string;
+        logoUrl?: string;
         autoAdvanceAfter?: string;
         bookendUrl?: string;
         ads?: {
@@ -260,6 +262,8 @@ interface FeatureConfigTypes {
       }
     | [
         {
+          logoAlignment?: string;
+          logoUrl?: string;
           autoAdvanceAfter?: string;
           bookendUrl?: string;
           ads?: {
