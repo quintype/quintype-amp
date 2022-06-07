@@ -47,7 +47,7 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
 
   const visualStoryConfig = { logoUrl, logoAlignment };
   const visualStoryConfigWithThemes = { logoAlignmentThemeBased , logoUrlThemeBased };
-  const logoConfig = visualStoriesConfig === "object" ? visualStoryConfig : visualStoryConfigWithThemes;
+  const logoConfig = typeof visualStoriesConfig === "object" ? visualStoryConfig : visualStoryConfigWithThemes;
 
   return (
     <Fragment>
