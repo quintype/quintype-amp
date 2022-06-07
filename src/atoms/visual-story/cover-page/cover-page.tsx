@@ -41,8 +41,14 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
     }
   }
 
-  const visualStoryConfig = { logoAlignmentThemeBased, logoUrlThemeBased };
-  
+  const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"], {}) || {};
+  const logoAlignment = typeof visualStoriesConfig.logoAlignment === "function" ? visualStoriesConfig.logoAlignment(config) : visualStoriesConfig.logoAlignment;
+  const logoUrl = typeof visualStoriesConfig.logoUrl === "function" ? visualStoriesConfig.logoUrl(config) : visualStoriesConfig.logoUrl;
+
+  const visualStoryConfig = { logoUrl, logoAlignment };
+  const visualStoryConfigWithThemes = { logoAlignmentThemeBased , logoUrlThemeBased };
+  const logoConfig = visualStoriesConfig === "object" ? visualStoryConfig : visualStoryConfigWithThemes;
+
   return (
     <Fragment>
       <AmpStoryPage id="cover">
@@ -70,7 +76,7 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
         </Head>
         <amp-story-grid-layer template="vertical" class=" padding-top">
           <LogoWrapper>
-            <PublisherLogoHeader visualStoryConfig={visualStoryConfig} />
+            <PublisherLogoHeader visualStoryConfig={logoConfig} />
           </LogoWrapper>
         </amp-story-grid-layer>
         <amp-story-grid-layer template="thirds">
