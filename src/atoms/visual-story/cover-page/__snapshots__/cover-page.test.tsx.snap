@@ -50,8 +50,8 @@ exports[`CoverPage Component should match snapshot 1`] = `
         <Component
           visualStoryConfig={
             Object {
-              "logoAlignment": "left",
-              "logoUrl": "https://thumbor-stg.assettype.com/nationalherald/2022-05/5cd71eff-e246-428a-a129-d9dfbf4dd4d1/nationalherald.png",
+              "logoAlignmentThemeBased": undefined,
+              "logoUrlThemeBased": undefined,
             }
           }
         />

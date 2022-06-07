@@ -3144,12 +3144,6 @@ exports[`Subscriptions should render subscriptions 1`] = `
               "pingbackUrl": [Function],
             },
           },
-          "visualStories": Array [
-            Object {
-              "logoAlignment": "left",
-              "logoUrl": "https://thumbor-stg.assettype.com/nationalherald/2022-05/5cd71eff-e246-428a-a129-d9dfbf4dd4d1/nationalherald.png",
-            },
-          ],
           "webengage": Object {
             "isEnabled": true,
           },
