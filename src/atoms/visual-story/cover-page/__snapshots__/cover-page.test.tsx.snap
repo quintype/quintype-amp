@@ -51,7 +51,9 @@ exports[`CoverPage Component should match snapshot 1`] = `
           visualStoryConfig={
             Object {
               "logoAlignment": undefined,
+              "logoAlignmentThemeBased": undefined,
               "logoUrl": undefined,
+              "logoUrlThemeBased": undefined,
             }
           }
         />
