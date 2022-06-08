@@ -8,8 +8,8 @@ export const PublisherLogoHeaderBase = ({ config, visualStoryConfig }: Publisher
   const publisherName = get(config, ["publisherConfig", "publisher-name"], "");
   const logo = get(config, ["ampConfig", "logo-url"], null);
   const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"]) || [];
-  const logoAlignment = visualStoryConfig && (typeof visualStoriesConfig === "object" ? visualStoryConfig.logoAlignment : visualStoriesConfig.logoAlignmentThemeBased);
-  const logoUrl = (visualStoryConfig && (typeof visualStoriesConfig === "object" ? visualStoryConfig.logoUrl : visualStoriesConfig.logoUrlThemeBased)) || logo;
+  const logoAlignment = visualStoryConfig && (typeof visualStoriesConfig === "object" ? visualStoryConfig.logoAlignment : visualStoryConfig.logoAlignmentThemeBased);
+  const logoUrl = (visualStoryConfig && (typeof visualStoriesConfig === "object" ? visualStoryConfig.logoUrl : visualStoryConfig.logoUrlThemeBased)) || logo;
 
   if (!logo) return null;
   return (
