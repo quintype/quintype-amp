@@ -35,7 +35,6 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
         logoUrlThemeBased = visualStoriesConfigWithThemes[2] && (typeof visualStoriesConfigWithThemes[2].logoUrl === "function" ? visualStoriesConfigWithThemes[2].logoUrlThemeBased(config) : visualStoriesConfigWithThemes[2].logoUrl);
         break;
       default:
-        null
         logoAlignmentThemeBased = visualStoriesConfigWithThemes[0] && (typeof visualStoriesConfigWithThemes[0].logoAlignment === "function" ? visualStoriesConfigWithThemes[0].logoAlignment(config) : visualStoriesConfigWithThemes[0].logoAlignment);
         logoUrlThemeBased = visualStoriesConfigWithThemes[0] && (typeof visualStoriesConfigWithThemes[0].logoUrl === "function" ? visualStoriesConfigWithThemes[0].logoUrlThemeBased(config) : visualStoriesConfigWithThemes[0].logoUrl);
     }
