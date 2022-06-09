@@ -21,10 +21,10 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
   let customTemplatelogoAlignment = get(config, ["opts", "featureConfig", "visualStories", "logoAlignment"], null);
   let customTemplatelogoUrl = get(config, ["opts", "featureConfig", "visualStories", "logoUrl"], null);
 
-  const visualStoriesConfigWithThemes = get(config, ["opts", "featureConfig", "visualStories"], []);
+  const visualStoriesConfigWithThemes = get(config, ["opts", "featureConfig", "visualStories"]) || [];
   
   if (Array.isArray(visualStoriesConfigWithThemes)) {
-    const visualStoryTheme = get(story, ["metadata", "story-attributes", "visualstorytheme"], []) || [];
+    const visualStoryTheme = get(story, ["metadata", "story-attributes", "visualstorytheme"]) || [];
     const theme = visualStoryTheme[0];
     switch (theme) {
       case "theme-2":
@@ -41,7 +41,7 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
     }
   }
 
-  const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"], {}) || {};
+  const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"]) || {};
   const logoAlignment = typeof visualStoriesConfig.logoAlignment === "function" ? visualStoriesConfig.logoAlignment(config) : visualStoriesConfig.logoAlignment;
   const logoUrl = typeof visualStoriesConfig.logoUrl === "function" ? visualStoriesConfig.logoUrl(config) : visualStoriesConfig.logoUrl;
 
