@@ -7,9 +7,9 @@ import { Head } from "../index";
 export const PublisherLogoHeaderBase = ({ config, visualStoryConfig }: PublisherLogoHeaderTypes) => {
   const publisherName = get(config, ["publisherConfig", "publisher-name"], "");
   const logo = get(config, ["ampConfig", "logo-url"], null);
-  const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"]) || [];
-  const logoAlignment = visualStoryConfig && (typeof visualStoriesConfig === "object" ? visualStoryConfig.logoAlignment : visualStoryConfig.logoAlignmentThemeBased);
-  const logoUrl = (visualStoryConfig && (typeof visualStoriesConfig === "object" ? visualStoryConfig.logoUrl : visualStoryConfig.logoUrlThemeBased)) || logo;
+  const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"], {});
+  const logoAlignment = visualStoryConfig && Array.isArray(visualStoriesConfig) === false ? visualStoryConfig.logoAlignment : visualStoryConfig.customTemplatelogoAlignment;
+  const logoUrl = visualStoryConfig && (Array.isArray(visualStoriesConfig) === false ?  visualStoryConfig.logoUrl : visualStoryConfig.customTemplatelogoUrl) || logo;
 
   if (!logo) return null;
   return (

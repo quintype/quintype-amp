@@ -294,6 +294,6 @@ interface VisualStoryAnimationFeatureConfig {
 export interface VisualStoryConfig {
   logoAlignment: string;
   logoUrl: string;
-  logoAlignmentThemeBased?: string;
-  logoUrlThemeBased?: string;
+  customTemplatelogoAlignment?: string;
+  customTemplatelogoUrl?: string;
 }
