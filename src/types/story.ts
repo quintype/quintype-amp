@@ -180,6 +180,8 @@ export interface StoryElementMetadata {
   "has-header"?: boolean;
   "cta-title"?: string;
   "cta-url"?: string;
+  "open-in-new-tab"?: boolean;
+  "no-follow"?: boolean;
 }
 
 export interface LinkedStory {
