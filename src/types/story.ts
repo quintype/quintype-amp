@@ -178,6 +178,8 @@ export interface StoryElementMetadata {
   question?: string;
   answer?: string;
   "has-header"?: boolean;
+  "cta-title"?: string;
+  "cta-url"?: string;
 }
 
 export interface LinkedStory {

@@ -61,6 +61,12 @@ dummyOpts = {
           animateInDuration: "120s",
           animateInDelay: "1s"
         }
+      },
+      outlinkProps: {
+        theme: "custom",
+        "cta-accent-element": "background",
+        "cta-accent-color": "#0047FF",
+        "cta-image": "none"
       }
     }
   }
@@ -79,6 +85,13 @@ dummyOpts = {
 
 6. `logoUrl` : (string/function) Optional. URL of a logo that will show up on the visual story. It is recommended that this logo should be of 1:1 aspect ratio. If omitted takes the default logo.
 
+7. `outlinkUrl`: (object/function) Optional. This object represents the color theme for CTA buttons. Default is `light`. `theme: "dark"` is black.
+ For `theme: "custom"` requires two additional attributes:
+ - `cta-accent-color`: String that represents the custom theme’s color.
+
+- `cta-accent-element`: String that represents the element to apply the custom theme to. Accepts values `text` and `background`.
+Contrast protection is automatically applied to ensure readability and a11y compliance. For example, when the accent element is "background", the higher contrast color (black or white) is applied to the text.
+- `cta-image`(optional): String representing a URL pointing to an image. Optimize performance and avoid distortion by using a 32x32px image. A link icon will be displayed by default. Specifying `cta-image: none` will remove the default link icon.
 #### Visual story templates:
 
 You can also create upto three different templates for visual stories. `featureConfig.visualStories` can either be an object like shown above, or an array of such objects. The 0th element of this array will be the featureConfig for the 1st template, and so on. Templates can be selected using _story attributes_ feature in BOLD.

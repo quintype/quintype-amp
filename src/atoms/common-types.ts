@@ -31,6 +31,7 @@ declare global {
       "amp-video";
       "amp-story-bookend";
       "amp-story-auto-ads";
+      "amp-story-page-outlink";
     }
   }
 }
