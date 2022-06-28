@@ -58,14 +58,18 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
        * Check the Placement section in Doc
        * https://amp.dev/documentation/components/amp-story-page-outlink/
        **/}
-      {ctaElements.map(
-        (ele) =>
+
+      {ctaElements.map((ele) => {
+        const url = get(ele, ["metadata", "cta-url"]);
+        const title = get(ele, ["metadata", "cta-title"]);
+        return (
           ele.metadata && (
             <amp-story-page-outlink layout="nodisplay" {...outlinkProps}>
-              <a href={ele.metadata["cta-url"]}>{ele.metadata["cta-title"]}</a>
+              <a href={url}>{title}</a>
             </amp-story-page-outlink>
           )
-      )}
+        );
+      })}
     </Fragment>
   );
 };

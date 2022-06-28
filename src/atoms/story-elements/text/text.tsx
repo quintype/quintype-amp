@@ -46,7 +46,7 @@ export const StyledText = styled.div<StoryElementProps>`
     margin: 0 0 ${(props) => props.theme.spacing.s} 0;
   }
 `;
-export const CtaText = styled.div<StoryElementProps>`
+const CtaText = styled.div<StoryElementProps>`
   margin: ${(props) => props.theme.spacing.l};
   text-align: center;
   a {
