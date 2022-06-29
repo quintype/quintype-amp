@@ -95,7 +95,7 @@ eg:
 
 `NOTE` : 
 CTA link will be opened in the same tab (Even we set it as "Open in New Tab" from BOLD). 
-This is amp library limitation (please refer. https://github.com/ampproject/amphtml/issues/32171)
+This is a limitation in Google AMP (please refer. https://github.com/ampproject/amphtml/issues/32171)
 #### Visual story templates:
 
 You can also create upto three different templates for visual stories. `featureConfig.visualStories` can either be an object like shown above, or an array of such objects. The 0th element of this array will be the featureConfig for the 1st template, and so on. Templates can be selected using _story attributes_ feature in BOLD.

@@ -72,7 +72,7 @@ describe("WebStoryPageComponents", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it("should set correct attributes on anchor tag", () => {
+  it("should add correct attributes to CTA element", () => {
     const wrapper = mount(<WebStoryPageComponents card={ctaCard} />);
     expect(wrapper.find("amp-story-page-outlink").length).toBe(1);
     expect(
