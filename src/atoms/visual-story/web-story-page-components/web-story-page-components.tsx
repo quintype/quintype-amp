@@ -20,6 +20,7 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
     typeof visualStoriesConfig.outlinkProps === "function"
       ? visualStoriesConfig.outlinkProps()
       : visualStoriesConfig.outlinkProps;
+
   return (
     <Fragment>
       {imageElement && (
@@ -64,7 +65,7 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
         const title = get(ele, ["metadata", "cta-title"]);
         return (
           ele.metadata && (
-            <amp-story-page-outlink layout="nodisplay" {...outlinkProps}>
+            <amp-story-page-outlink key={ele.title} layout="nodisplay" {...outlinkProps}>
               <a href={url}>{title}</a>
             </amp-story-page-outlink>
           )
