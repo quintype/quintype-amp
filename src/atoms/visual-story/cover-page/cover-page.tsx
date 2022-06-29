@@ -18,34 +18,30 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
   const { imageAnimation, textAnimation }: AnimationTypes = getAnimationProps(config, story);
   const headline = story.headline || "";
 
-  let customTemplatelogoAlignment = get(config, ["opts", "featureConfig", "visualStories", "logoAlignment"], null);
-  let customTemplatelogoUrl = get(config, ["opts", "featureConfig", "visualStories", "logoUrl"], null);
+  const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"]) || {};
 
-  const visualStoriesConfigWithThemes = get(config, ["opts", "featureConfig", "visualStories"]) || [];
+  let logoAlignment = visualStoriesConfig && (typeof visualStoriesConfig.logoAlignment === "function" ? visualStoriesConfig.logoAlignment(config) : visualStoriesConfig.logoAlignment) || null;
+  let logoUrl = visualStoriesConfig && (typeof visualStoriesConfig.logoUrl === "function" ? visualStoriesConfig.logoUrl(config) : visualStoriesConfig.logoUrl) || null;
   
-  if (Array.isArray(visualStoriesConfigWithThemes)) {
+  if (Array.isArray(visualStoriesConfig)) {
     const visualStoryTheme = get(story, ["metadata", "story-attributes", "visualstorytheme"]) || [];
     const theme = visualStoryTheme[0];
     switch (theme) {
       case "theme-2":
-        customTemplatelogoAlignment = visualStoriesConfigWithThemes[1] && (typeof visualStoriesConfigWithThemes[1].logoAlignment === "function" ? visualStoriesConfigWithThemes[1].logoAlignment(config) : visualStoriesConfigWithThemes[1].logoAlignment);
-        customTemplatelogoUrl = visualStoriesConfigWithThemes[1] && (typeof visualStoriesConfigWithThemes[1].logoUrl === "function" ? visualStoriesConfigWithThemes[1].logoUrlThemeBased(config) : visualStoriesConfigWithThemes[1].logoUrl);
+        logoAlignment = visualStoriesConfig[1] && (typeof visualStoriesConfig[1].logoAlignment === "function" ? visualStoriesConfig[1].logoAlignment(config) : visualStoriesConfig[1].logoAlignment);
+        logoUrl = visualStoriesConfig[1] && (typeof visualStoriesConfig[1].logoUrl === "function" ? visualStoriesConfig[1].logoUrl(config) : visualStoriesConfig[1].logoUrl);
         break;
       case "theme-3":
-        customTemplatelogoAlignment = visualStoriesConfigWithThemes[2] && (typeof visualStoriesConfigWithThemes[2].logoAlignment === "function" ? visualStoriesConfigWithThemes[2].logoAlignment(config) : visualStoriesConfigWithThemes[2].logoAlignment);
-        customTemplatelogoUrl = visualStoriesConfigWithThemes[2] && (typeof visualStoriesConfigWithThemes[2].logoUrl === "function" ? visualStoriesConfigWithThemes[2].logoUrlThemeBased(config) : visualStoriesConfigWithThemes[2].logoUrl);
+        logoAlignment = visualStoriesConfig[2] && (typeof visualStoriesConfig[2].logoAlignment === "function" ? visualStoriesConfig[2].logoAlignment(config) : visualStoriesConfig[2].logoAlignment);
+        logoUrl = visualStoriesConfig[2] && (typeof visualStoriesConfig[2].logoUrl === "function" ? visualStoriesConfig[2].logoUrl(config) : visualStoriesConfig[2].logoUrl);
         break;
       default:
-        customTemplatelogoAlignment = visualStoriesConfigWithThemes[0] && (typeof visualStoriesConfigWithThemes[0].logoAlignment === "function" ? visualStoriesConfigWithThemes[0].logoAlignment(config) : visualStoriesConfigWithThemes[0].logoAlignment);
-        customTemplatelogoUrl = visualStoriesConfigWithThemes[0] && (typeof visualStoriesConfigWithThemes[0].logoUrl === "function" ? visualStoriesConfigWithThemes[0].logoUrlThemeBased(config) : visualStoriesConfigWithThemes[0].logoUrl);
+        logoAlignment = visualStoriesConfig[0] && (typeof visualStoriesConfig[0].logoAlignment === "function" ? visualStoriesConfig[0].logoAlignment(config) : visualStoriesConfig[0].logoAlignment);
+        logoUrl = visualStoriesConfig[0] && (typeof visualStoriesConfig[0].logoUrl === "function" ? visualStoriesConfig[0].logoUrl(config) : visualStoriesConfig[0].logoUrl);
     }
   }
-
-  const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"]) || {};
-  const logoAlignment = typeof visualStoriesConfig.logoAlignment === "function" ? visualStoriesConfig.logoAlignment(config) : visualStoriesConfig.logoAlignment;
-  const logoUrl = typeof visualStoriesConfig.logoUrl === "function" ? visualStoriesConfig.logoUrl(config) : visualStoriesConfig.logoUrl;
-
-  const visualStoryConfig = { logoUrl, logoAlignment, customTemplatelogoAlignment , customTemplatelogoUrl };
+  
+  const visualStoryConfig = { logoUrl, logoAlignment };
 
   return (
     <Fragment>
