@@ -18,26 +18,57 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
   const { imageAnimation, textAnimation }: AnimationTypes = getAnimationProps(config, story);
   const headline = story.headline || "";
 
-  const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"]) || {};
+  const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"], {});
 
-  let logoAlignment = visualStoriesConfig && (typeof visualStoriesConfig.logoAlignment === "function" ? visualStoriesConfig.logoAlignment(config) : visualStoriesConfig.logoAlignment) || null;
-  let logoUrl = visualStoriesConfig && (typeof visualStoriesConfig.logoUrl === "function" ? visualStoriesConfig.logoUrl(config) : visualStoriesConfig.logoUrl) || null;
+  const isLogoAlignmentAFunction = typeof visualStoriesConfig.logoAlignment === "function"; // To support PB config
+  const getLogoAlignment = isLogoAlignmentAFunction ? visualStoriesConfig.logoAlignment(config) : get(visualStoriesConfig, ["logoAlignment"]);
+
+  let logoAlignment = get(getLogoAlignment, null);
+
+  const isLogoUrlAFunction = typeof visualStoriesConfig.logoUrl === "function"; // To support PB config
+  const getLogoUrl = isLogoUrlAFunction ? visualStoriesConfig.logoUrl(config) : get(visualStoriesConfig, ["logoUrl"]);
+
+  let logoUrl = get(getLogoUrl, null);
   
   if (Array.isArray(visualStoriesConfig)) {
-    const visualStoryTheme = get(story, ["metadata", "story-attributes", "visualstorytheme"]) || [];
-    const theme = visualStoryTheme[0];
+    const visualStoryTheme = get(story, ["metadata", "story-attributes", "visualstorytheme"], []);
+
+    // To support PB config
+    const isLogoAlignmentTheme1 = typeof visualStoriesConfig[1].logoAlignment === "function";
+    const isLogoAlignmentTheme2 = typeof visualStoriesConfig[2].logoAlignment === "function";
+    const isLogoAlignmentDefaultTheme = typeof visualStoriesConfig[0].logoAlignment === "function";
+
+
+    const getLogoAlignmentTheme1 = isLogoAlignmentTheme1 ? visualStoriesConfig[1].logoAlignment(config) : visualStoriesConfig[1].logoAlignment;
+    const getLogoAlignmentTheme2 = isLogoAlignmentTheme2 ? visualStoriesConfig[2].logoAlignment(config) : visualStoriesConfig[2].logoAlignment;
+    const getLogoAlignmentDefaultTheme = isLogoAlignmentDefaultTheme ? visualStoriesConfig[0].logoAlignment(config) : visualStoriesConfig[0].logoAlignment;
+
+    // To support PB config
+    const isLogoUrlTheme1 = typeof visualStoriesConfig[1].logoUrl === "function";
+    const isLogoUrlTheme2 = typeof visualStoriesConfig[2].logoUrl === "function";
+    const isLogoUrlDefaultTheme = typeof visualStoriesConfig[0].logoUrl === "function";
+
+    const getLogoUrlTheme1 = isLogoUrlTheme1 ? visualStoriesConfig[1].logoUrl(config) : visualStoriesConfig[1].logoUrl;
+    const getLogoUrlTheme2 = isLogoUrlTheme2 ? visualStoriesConfig[2].logoUrl(config) : visualStoriesConfig[2].logoUrl;
+    const getLogoUrlDefaultTheme = isLogoUrlDefaultTheme ? visualStoriesConfig[0].logoUrl(config) : visualStoriesConfig[0].logoUrl;
+
+    const theme = get(visualStoryTheme, [0]);
     switch (theme) {
-      case "theme-2":
-        logoAlignment = visualStoriesConfig[1] && (typeof visualStoriesConfig[1].logoAlignment === "function" ? visualStoriesConfig[1].logoAlignment(config) : visualStoriesConfig[1].logoAlignment);
-        logoUrl = visualStoriesConfig[1] && (typeof visualStoriesConfig[1].logoUrl === "function" ? visualStoriesConfig[1].logoUrl(config) : visualStoriesConfig[1].logoUrl);
+      case "theme-2": {
+        logoAlignment = visualStoriesConfig[1] && getLogoAlignmentTheme1;
+        logoUrl = visualStoriesConfig[1] && getLogoUrlTheme1;
         break;
-      case "theme-3":
-        logoAlignment = visualStoriesConfig[2] && (typeof visualStoriesConfig[2].logoAlignment === "function" ? visualStoriesConfig[2].logoAlignment(config) : visualStoriesConfig[2].logoAlignment);
-        logoUrl = visualStoriesConfig[2] && (typeof visualStoriesConfig[2].logoUrl === "function" ? visualStoriesConfig[2].logoUrl(config) : visualStoriesConfig[2].logoUrl);
+      }
+       
+      case "theme-3": {
+        logoAlignment = visualStoriesConfig[2] && getLogoAlignmentTheme2;
+        logoUrl = visualStoriesConfig[2] && getLogoUrlTheme2;
         break;
-      default:
-        logoAlignment = visualStoriesConfig[0] && (typeof visualStoriesConfig[0].logoAlignment === "function" ? visualStoriesConfig[0].logoAlignment(config) : visualStoriesConfig[0].logoAlignment);
-        logoUrl = visualStoriesConfig[0] && (typeof visualStoriesConfig[0].logoUrl === "function" ? visualStoriesConfig[0].logoUrl(config) : visualStoriesConfig[0].logoUrl);
+      }
+      default: {
+        logoAlignment = visualStoriesConfig[0] && getLogoAlignmentDefaultTheme;
+        logoUrl = visualStoriesConfig[0] && getLogoUrlDefaultTheme;
+      }
     }
   }
   
