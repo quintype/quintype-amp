@@ -15,40 +15,4 @@ describe("visual story template", () => {
     const wrapper = shallow(<VisualStory story={visualStory} config={config} />);
     expect(wrapper).toMatchSnapshot();
   });
-  it("should use /amp/api/v1/bookend.json as default bookend endpoint", () => {
-    const wrapper = shallow(<VisualStory story={visualStory} config={config} />);
-    expect(wrapper.find("amp-story-bookend").prop("src")).toBe(
-      `/amp/api/v1/bookend.json?storyId=${visualStory.id}&sectionId=${visualStory.sections[0].id}`
-    );
-  });
-  it("should take bookend URL if passed from featureConfig", () => {
-    const modifiedConfig = config;
-    modifiedConfig.opts = {
-      featureConfig: {
-        visualStories: {
-          bookendUrl: "/foo/bar.json"
-        }
-      }
-    };
-    const wrapper = shallow(<VisualStory story={visualStory} config={modifiedConfig} />);
-    expect(wrapper.find("amp-story-bookend").prop("src")).toBe(
-      `/foo/bar.json?storyId=${visualStory.id}&sectionId=${visualStory.sections[0].id}`
-    );
-  });
-  it("should take bookend URL if passed from visualStories in form of array of object", () => {
-    const modifiedConfig = config;
-    modifiedConfig.opts = {
-      featureConfig: {
-        visualStories: [
-          {
-            bookendUrl: "/foo/bar.json"
-          }
-        ]
-      }
-    };
-    const wrapper = shallow(<VisualStory story={visualStory} config={modifiedConfig} />);
-    expect(wrapper.find("amp-story-bookend").prop("src")).toBe(
-      `/foo/bar.json?storyId=${visualStory.id}&sectionId=${visualStory.sections[0].id}`
-    );
-  });
 });
