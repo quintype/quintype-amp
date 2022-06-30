@@ -4019,10 +4019,6 @@ exports[`visual story template should match snapshot 1`] = `
     </Component>
     <Component />
     <Component />
-    <amp-story-bookend
-      layout="nodisplay"
-      src="/amp/api/v1/bookend.json?storyId=e8e3a6d0-98ff-40eb-b400-5f9466599fb3&sectionId=47389"
-    />
   </Component>
 </Providers>
 `;

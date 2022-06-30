@@ -69,26 +69,6 @@ export const getVisualStoryConfig = (config: Config, story: Story) => {
   }
 };
 
-export const getVisualStoryBookendUrl = (config: Config, story: Story) => {
-  const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"]) || null;
-
-  if (!Array.isArray(visualStoriesConfig)) {
-    return get(config, ["opts", "featureConfig", "visualStories", "bookendUrl"], "/amp/api/v1/bookend.json");
-  }
-
-  switch (getTheme(story)) {
-    case "theme-2":
-      const themeConfig2 = visualStoriesConfig[1] || {};
-      return themeConfig2.bookendUrl || "/amp/api/v1/bookend.json";
-    case "theme-3":
-      const themeConfig3 = visualStoriesConfig[2] || {};
-      return themeConfig3.bookendUrl || "/amp/api/v1/bookend.json";
-    default:
-      const themeConfig = visualStoriesConfig[0] || {};
-      return themeConfig.bookendUrl || "/amp/api/v1/bookend.json";
-  }
-};
-
 export const getVisualStoryAdsSlot = (config: Config, story: Story) => {
   const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"]) || null;
 
