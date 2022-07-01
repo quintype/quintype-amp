@@ -20,60 +20,52 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
 
   const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"], {});
 
-  const isLogoAlignmentAFunction = typeof visualStoriesConfig.logoAlignment === "function"; // To support PB config
-  const getLogoAlignment = isLogoAlignmentAFunction ? visualStoriesConfig.logoAlignment(config) : get(visualStoriesConfig, ["logoAlignment"]);
+  // To support PB config
+  const isLogoAlignmentAFunction = typeof visualStoriesConfig.logoAlignment === "function"; 
+  const getLogoAlignment = isLogoAlignmentAFunction ? visualStoriesConfig.logoAlignment(config) : visualStoriesConfig.logoAlignment;
 
-  let logoAlignment = get(getLogoAlignment, null);
+  const isLogoUrlAFunction = typeof visualStoriesConfig.logoUrl === "function";
+  const getLogoUrl = isLogoUrlAFunction ? visualStoriesConfig.logoUrl(config) : visualStoriesConfig.logoUrl;
 
-  const isLogoUrlAFunction = typeof visualStoriesConfig.logoUrl === "function"; // To support PB config
-  const getLogoUrl = isLogoUrlAFunction ? visualStoriesConfig.logoUrl(config) : get(visualStoriesConfig, ["logoUrl"]);
+  let logoAlignment = getLogoAlignment;
+  let logoUrl = getLogoUrl;
 
-  let logoUrl = get(getLogoUrl, null);
-  
   if (Array.isArray(visualStoriesConfig)) {
     const visualStoryTheme = get(story, ["metadata", "story-attributes", "visualstorytheme"], []);
-
-    // To support PB config
-    const isLogoAlignmentTheme1 = typeof visualStoriesConfig[1].logoAlignment === "function";
-    const isLogoAlignmentTheme2 = typeof visualStoriesConfig[2].logoAlignment === "function";
-    const isLogoAlignmentDefaultTheme = typeof visualStoriesConfig[0].logoAlignment === "function";
-
-
-    const getLogoAlignmentTheme1 = isLogoAlignmentTheme1 ? visualStoriesConfig[1].logoAlignment(config) : visualStoriesConfig[1].logoAlignment;
-    const getLogoAlignmentTheme2 = isLogoAlignmentTheme2 ? visualStoriesConfig[2].logoAlignment(config) : visualStoriesConfig[2].logoAlignment;
-    const getLogoAlignmentDefaultTheme = isLogoAlignmentDefaultTheme ? visualStoriesConfig[0].logoAlignment(config) : visualStoriesConfig[0].logoAlignment;
-
-    // To support PB config
-    const isLogoUrlTheme1 = typeof visualStoriesConfig[1].logoUrl === "function";
-    const isLogoUrlTheme2 = typeof visualStoriesConfig[2].logoUrl === "function";
-    const isLogoUrlDefaultTheme = typeof visualStoriesConfig[0].logoUrl === "function";
-
-    const getLogoUrlTheme1 = isLogoUrlTheme1 ? visualStoriesConfig[1].logoUrl(config) : visualStoriesConfig[1].logoUrl;
-    const getLogoUrlTheme2 = isLogoUrlTheme2 ? visualStoriesConfig[2].logoUrl(config) : visualStoriesConfig[2].logoUrl;
-    const getLogoUrlDefaultTheme = isLogoUrlDefaultTheme ? visualStoriesConfig[0].logoUrl(config) : visualStoriesConfig[0].logoUrl;
-
     const theme = get(visualStoryTheme, [0]);
+    
+    // if theme 2, it will pick up value from 2nd array
+    // if theme 3, it will pick up value from 3rd array
+    // else, it will pick up from 1st array
+    const isTheme = theme === "theme-2" ? 1 : theme === "theme-3" ? 2 : 0;
+
+    // To support PB config
+    const isLogoAlignmentTheme = typeof visualStoriesConfig[isTheme].logoAlignment === "function";
+    const getLogoAlignmentTheme = isLogoAlignmentTheme ? visualStoriesConfig[isTheme].logoAlignment(config) : visualStoriesConfig[isTheme].logoAlignment;
+    
+    const isLogoUrlTheme = typeof visualStoriesConfig[isTheme].logoUrl === "function";
+    const getLogoUrlTheme = isLogoUrlTheme ? visualStoriesConfig[isTheme].logoUrl(config) : visualStoriesConfig[isTheme].logoUrl;
+   
     switch (theme) {
       case "theme-2": {
-        logoAlignment = visualStoriesConfig[1] && getLogoAlignmentTheme1;
-        logoUrl = visualStoriesConfig[1] && getLogoUrlTheme1;
+        logoAlignment = visualStoriesConfig[1] && getLogoAlignmentTheme;
+        logoUrl = visualStoriesConfig[1] && getLogoUrlTheme;
         break;
       }
-       
       case "theme-3": {
-        logoAlignment = visualStoriesConfig[2] && getLogoAlignmentTheme2;
-        logoUrl = visualStoriesConfig[2] && getLogoUrlTheme2;
+        logoAlignment = visualStoriesConfig[2] && getLogoAlignmentTheme;
+        logoUrl = visualStoriesConfig[2] && getLogoUrlTheme;
         break;
       }
       default: {
-        logoAlignment = visualStoriesConfig[0] && getLogoAlignmentDefaultTheme;
-        logoUrl = visualStoriesConfig[0] && getLogoUrlDefaultTheme;
+        logoAlignment = visualStoriesConfig[0] && getLogoAlignmentTheme;
+        logoUrl = visualStoriesConfig[0] && getLogoUrlTheme;
       }
     }
   }
   
   const visualStoryConfig = { logoUrl, logoAlignment };
-
+ 
   return (
     <Fragment>
       <AmpStoryPage id="cover">
