@@ -70,10 +70,11 @@ export const getVisualStoryConfig = (config: Config, story: Story) => {
 };
 
 export const getVisualStoryAdsSlot = (config: Config, story: Story) => {
-  const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"]) || null;
+  const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"], null);
 
   if (!Array.isArray(visualStoriesConfig)) {
-    return get(config, ["opts", "featureConfig", "visualStories", "ads", "doubleclick", "dataSlot"], null);
+    const adSlot = get(config, ["opts", "featureConfig", "visualStories", "ads", "doubleclick", "dataSlot"], null);
+    return typeof adSlot === "function" ? adSlot(config) : adSlot;
   }
 
   switch (getTheme(story)) {
