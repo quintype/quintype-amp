@@ -33,18 +33,6 @@ const StoryContainer = styled.div.attrs({
 const Wrapper = styled.div`
   padding: 0 ${(props) => props.theme.spacing.s};
 `;
-
-const StyledDiv = styled.div`
-  border: 5px slod blue;
-  background-color: ${(props) => props.theme.color.primaryColor};
-  width: 100%;
-  height: 100%;
-  align-items: center;
-`;
-
-const Message = styled.span`
-  border: 10px solid red;
-`;
 /**
  * The GenericStory template is the default story template
  *
@@ -88,15 +76,11 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
       <Wrapper>
         <TopAd templateName={templateName} />
         <TopSlot />
-        <div>Hello World</div>
         <Spacer token="s" />
         <StoryContainer>
           <HeaderCard />
           <WebEngage />
           <Spacer token="m" />
-          <StyledDiv>
-            <Message>Generic Test STORY Button</Message>
-          </StyledDiv>
           <StoryCards />
           <RelatedStories />
         </StoryContainer>
