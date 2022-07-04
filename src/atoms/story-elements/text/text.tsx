@@ -46,10 +46,24 @@ export const StyledText = styled.div<StoryElementProps>`
     margin: 0 0 ${(props) => props.theme.spacing.s} 0;
   }
 `;
+const CtaText = styled.div<StoryElementProps>`
+  margin: ${(props) => props.theme.spacing.l};
+  text-align: center;
+  a {
+    border: ${(props) => `1px solid ${props.theme.color.mono4}`};
+    border-radius: 3px;
+    padding: 10px;
+    color: unset;
+    text-decoration: none;
+  }
+`;
 
 export const DefaultText = ({ element, config }: StoryElementProps) => {
   let text = element.text || "";
   text = conditionExternalLinks({ text, config });
+  if (element.subtype === "cta") {
+    return <CtaText element={element} dangerouslySetInnerHTML={{ __html: text }} />;
+  }
   return <StyledText element={element} dangerouslySetInnerHTML={{ __html: text }} />;
 };
 

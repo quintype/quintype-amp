@@ -274,6 +274,23 @@ export const visualStory: Story = {
           subtype: "q-and-a",
           text:
             '<div><div class="question"><p>Arvind has 3 apples, 2 chocolates and one watermelon. What\'s the mass of Proxima Centauri?</p></div><div class="answer"><p>2.446 \u00D7 10^29 kg</p></div></div>'
+        },
+        {
+          description: "",
+          "page-url": "/story/9debf2ea-b0a0-4fb5-a6d9-9e19c6f35bd0/element/39664f53-e649-499b-bf79-8a3e6e9f5d34",
+          type: "text",
+          "family-id": "fe898bdb-fa19-43e5-99a3-80956e0d4846",
+          title: "",
+          id: "39664f53-e649-499b-bf79-8a3e6e9f5d34",
+          metadata: {
+            "cta-title": "Search Google",
+            "cta-url": "https://www.google.com",
+            "open-in-new-tab": true,
+            "no-follow": false
+          },
+          subtype: "cta",
+          text:
+            '<a class="cta-anchor" href="https://www.google.com" target="_blank" rel=""><span class="cta-text">Search Google</span></a>'
         }
       ],
       "card-updated-at": 1604397822735,
