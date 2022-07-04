@@ -34,6 +34,17 @@ const Wrapper = styled.div`
   padding: 0 ${(props) => props.theme.spacing.s};
 `;
 
+const StyledDiv = styled.div`
+  border: 5px slod blue;
+  background-color: ${(props) => props.theme.color.primaryColor};
+  width: 100%;
+  height: 100%;
+  align-items: center;
+`;
+
+const Message = styled.span`
+  border: 10px solid red;
+`;
 /**
  * The GenericStory template is the default story template
  *
@@ -82,6 +93,9 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
           <HeaderCard />
           <WebEngage />
           <Spacer token="m" />
+          <StyledDiv>
+            <Message>Generic Test STORY Button</Message>
+          </StyledDiv>
           <StoryCards />
           <RelatedStories />
         </StoryContainer>

@@ -4154,6 +4154,11 @@ exports[`GenericStory Template should render 1`] = `
       <Spacer
         token="m"
       />
+      <styled.div>
+        <styled.span>
+          Generic Test STORY Button
+        </styled.span>
+      </styled.div>
       <Component />
       <Component />
     </styled.div>
