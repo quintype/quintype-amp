@@ -4145,6 +4145,9 @@ exports[`GenericStory Template should render 1`] = `
       templateName="default"
     />
     <Component />
+    <div>
+      Hello World
+    </div>
     <Spacer
       token="s"
     />

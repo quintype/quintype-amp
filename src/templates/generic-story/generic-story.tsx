@@ -88,6 +88,7 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
       <Wrapper>
         <TopAd templateName={templateName} />
         <TopSlot />
+        <div>Hello World</div>
         <Spacer token="s" />
         <StoryContainer>
           <HeaderCard />
