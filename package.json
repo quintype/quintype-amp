@@ -93,7 +93,6 @@
   },
   "dependencies": {
     "@rvgpl/get-youtube-id": "^1.0.0",
-    "airbnb-browser-shims": "^3.3.0",
     "atob": "^2.1.2",
     "babel-preset-airbnb": "^5.0.0",
     "date-fns": "^2.11.0",
