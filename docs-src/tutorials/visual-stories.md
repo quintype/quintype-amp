@@ -61,6 +61,12 @@ dummyOpts = {
           animateInDuration: "120s",
           animateInDelay: "1s"
         }
+      },
+      outlinkProps: {
+        theme: "custom",
+        "cta-accent-element": "background",
+        "cta-accent-color": "#0047FF",
+        "cta-image": "none"
       }
     }
   }
@@ -79,6 +85,17 @@ dummyOpts = {
 
 6. `logoUrl` : (string/function) Optional. URL of a logo that will show up on the visual story. It is recommended that this logo should be of 1:1 aspect ratio. If omitted takes the default logo.
 
+7. `outlinkProps`: (string/function) Optional. Props to the (outlink)[https://amp.dev/documentation/components/amp-story-page-outlink/?format=stories] component. Can either be an object containing the props as key value pairs or a function that returns such an object. If nothing is passed, the default light theme will be applied for the CTA button.
+
+eg:
+
+ outlinkProps: { theme: "dark" } // sets dark theme
+ outlinkProps: { theme: "custom", "cta-accent-color":  "#0047FF", "cta-accent-element": "background"} // custom theme
+ outlinkProps: () => { return { theme: "dark" } } // function returning props obj
+
+`NOTE` : 
+CTA link will be opened in the same tab (Even we set it as "Open in New Tab" from BOLD). 
+This is a limitation in Google AMP (please refer. https://github.com/ampproject/amphtml/issues/32171)
 #### Visual story templates:
 
 You can also create upto three different templates for visual stories. `featureConfig.visualStories` can either be an object like shown above, or an array of such objects. The 0th element of this array will be the featureConfig for the 1st template, and so on. Templates can be selected using _story attributes_ feature in BOLD.
