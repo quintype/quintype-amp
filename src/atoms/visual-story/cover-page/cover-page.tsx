@@ -37,8 +37,10 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
     // if theme 2, it will pick up value from 2nd array
     // if theme 3, it will pick up value from 3rd array
     // else, it will pick up from 1st array
-    const isTheme = theme === "theme-2" ? 1 : theme === "theme-3" ? 2 : 0;
-
+    const isTheme2 = theme === "theme-2";
+    const isTheme3 = theme === "theme-3" ? 2 : 0;
+    const isTheme = isTheme2 ? 1 : isTheme3;
+    
     // To support PB config
     const isLogoAlignmentTheme = typeof visualStoriesConfig[isTheme].logoAlignment === "function";
     const getLogoAlignmentTheme = isLogoAlignmentTheme ? visualStoriesConfig[isTheme].logoAlignment(config) : visualStoriesConfig[isTheme].logoAlignment;
@@ -46,22 +48,8 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
     const isLogoUrlTheme = typeof visualStoriesConfig[isTheme].logoUrl === "function";
     const getLogoUrlTheme = isLogoUrlTheme ? visualStoriesConfig[isTheme].logoUrl(config) : visualStoriesConfig[isTheme].logoUrl;
    
-    switch (theme) {
-      case "theme-2": {
-        logoAlignment = visualStoriesConfig[1] && getLogoAlignmentTheme;
-        logoUrl = visualStoriesConfig[1] && getLogoUrlTheme;
-        break;
-      }
-      case "theme-3": {
-        logoAlignment = visualStoriesConfig[2] && getLogoAlignmentTheme;
-        logoUrl = visualStoriesConfig[2] && getLogoUrlTheme;
-        break;
-      }
-      default: {
-        logoAlignment = visualStoriesConfig[0] && getLogoAlignmentTheme;
-        logoUrl = visualStoriesConfig[0] && getLogoUrlTheme;
-      }
-    }
+    logoAlignment = visualStoriesConfig[isTheme] && getLogoAlignmentTheme,
+    logoUrl = visualStoriesConfig[isTheme] && getLogoUrlTheme
   }
   
   const visualStoryConfig = { logoUrl, logoAlignment };
