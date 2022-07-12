@@ -33,6 +33,7 @@ const StoryContainer = styled.div.attrs({
 const Wrapper = styled.div`
   padding: 0 ${(props) => props.theme.spacing.s};
 `;
+
 /**
  * The GenericStory template is the default story template
  *
