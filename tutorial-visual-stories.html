@@ -157,7 +157,6 @@ To do this, go to the file <code>app/server/routes.js</code> and add the followi
 <li>Every subsequent visual story page corresponds to a Quintype story card (i.e. the second visual story page will show the 1st storycard).</li>
 <li>Only the following story elements are supported - image, title, also-read, answer, bigfact, blockquote, blurb, q-and-a, question, quote, summary, title, normal paragraph (text). All other story elements are ignored.</li>
 <li>At this point of time our CMS does not support uploading videos, so they're not supported by AmpLib.</li>
-<li>At the end, a <a href="https://amp.dev/documentation/components/amp-story-bookend/?format=stories">bookend</a> (which is an end screen of an AMP story, showcasing sharing and related content) is shown.</li>
 <li>There can be only one image per story card. If more than one image is added (per card), the first one is displayed. If image caption and attribution are added, they're positioned at the bottom right with a pipe separator. We also support only Image caption/attribution. The <code>Rich Text Image Fields</code> feature which is available in Bold is also supported.</li>
 <li>Similarly, there can be only one <code>title</code> story element.</li>
 <li>There can be one or more (or a combination of) also-read, answer, bigfact, blockquote, blurb, q-and-a, question, quote, summary, title, normal paragraph story elements. They're positioned at the bottom of the visual story page.</li>
@@ -173,7 +172,6 @@ To do this, go to the file <code>app/server/routes.js</code> and add the followi
       logoUrl:
         &quot;https://thumbor-stg.assettype.com/malibu/2021-07/eb879d94-c255-46eb-9944-dc361d3da0c0/malibu_16_svg.png&quot;,
       autoAdvanceAfter: &quot;5s&quot;,
-      bookendUrl: &quot;/amp/api/v1/bookend.json&quot;,
       ads: {
         doubleclick: {
           dataSlot: &quot;/1009127/FOO_AMP_TOP&quot;
@@ -185,12 +183,6 @@ To do this, go to the file <code>app/server/routes.js</code> and add the followi
           animateInDuration: &quot;120s&quot;,
           animateInDelay: &quot;1s&quot;
         }
-      },
-      outlinkProps: {
-        theme: &quot;custom&quot;,
-        &quot;cta-accent-element&quot;: &quot;background&quot;,
-        &quot;cta-accent-color&quot;: &quot;#0047FF&quot;,
-        &quot;cta-image&quot;: &quot;none&quot;
       }
     }
   }
@@ -198,7 +190,6 @@ To do this, go to the file <code>app/server/routes.js</code> and add the followi
 </code></pre>
 <ol>
 <li><code>autoAdvanceAfter</code>: (String) Optional. Sets the time after which the page automatically advances. If omitted, the page will not automatically advance. Example: &quot;500ms&quot;, &quot;3s&quot;</li>
-<li><code>bookendUrl</code>: (String) Optional. The endpoint called by the bookend component. Defaults to <code>/amp/api/v1/bookend.json</code> if nothing is passed. If an endpoint is passed, please make sure that the route exists in your app and that it returns data in a valid format. <code>storyId</code> and <code>sectionId</code> are passed as query parameters. Refer <a href="https://amp.dev/documentation/components/amp-story-bookend/?format=stories">docs</a></li>
 <li>ad slot: (String) Optional. Example &quot;/1009443/PUBLISHER_AMP_TOP&quot; <code>featureConfig</code> &gt; <code>visualStories</code> &gt; <code>ads</code> &gt; <code>doubleclick</code> &gt; <code>dataSlot</code> sets the ad slot for visual stories. Ads are dynamically inserted, please read <a href="https://amp.dev/documentation/components/amp-story-auto-ads/?format=stories">docs</a></li>
 <li><code>animation</code>: (object) Optional.</li>
 </ol>
@@ -213,17 +204,7 @@ To do this, go to the file <code>app/server/routes.js</code> and add the followi
 <li>
 <p><code>logoUrl</code> : (string/function) Optional. URL of a logo that will show up on the visual story. It is recommended that this logo should be of 1:1 aspect ratio. If omitted takes the default logo.</p>
 </li>
-<li>
-<p><code>outlinkProps</code>: (string/function) Optional. Props to the (outlink)[https://amp.dev/documentation/components/amp-story-page-outlink/?format=stories] component. Can either be an object containing the props as key value pairs or a function that returns such an object. If nothing is passed, the default light theme will be applied for the CTA button.</p>
-</li>
 </ol>
-<p>eg:</p>
-<p>outlinkProps: { theme: &quot;dark&quot; } // sets dark theme
-outlinkProps: { theme: &quot;custom&quot;, &quot;cta-accent-color&quot;:  &quot;#0047FF&quot;, &quot;cta-accent-element&quot;: &quot;background&quot;} // custom theme
-outlinkProps: () =&gt; { return { theme: &quot;dark&quot; } } // function returning props obj</p>
-<p><code>NOTE</code> :
-CTA link will be opened in the same tab (Even we set it as &quot;Open in New Tab&quot; from BOLD).
-This is a limitation in Google AMP (please refer. https://github.com/ampproject/amphtml/issues/32171)</p>
 <h4>Visual story templates:</h4>
 <p>You can also create upto three different templates for visual stories. <code>featureConfig.visualStories</code> can either be an object like shown above, or an array of such objects. The 0th element of this array will be the featureConfig for the 1st template, and so on. Templates can be selected using <em>story attributes</em> feature in BOLD.</p>
 <pre class="prettyprint source lang-js"><code>dummyOpts = {
@@ -233,7 +214,6 @@ This is a limitation in Google AMP (please refer. https://github.com/ampproject/
         logoAlignment: &quot;left&quot;,
         logoUrl: &quot;https://thumbor-stg.assettype.com/malibu/2021-07/eb879d94-c255-46eb-9944-dc361d3da0c0/malibu_16_svg.png&quot;,
         autoAdvanceAfter: &quot;5s&quot;,
-        bookendUrl: &quot;/amp/api/v1/bookend.json&quot;,
         ads: {
           doubleclick: {
             dataSlot: &quot;/1009127/FOO_AMP_TOP&quot;
