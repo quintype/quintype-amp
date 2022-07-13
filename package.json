@@ -1,6 +1,6 @@
 {
   "name": "@quintype/amp",
-  "version": "2.4.23",
+  "version": "2.4.24-fix-logo-for-themes.1",
   "description": "Quintype's AMP component library for publisher apps to create amp layouts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -94,6 +94,7 @@
   "dependencies": {
     "@rvgpl/get-youtube-id": "^1.0.0",
     "atob": "^2.1.2",
+    "babel-preset-airbnb": "^5.0.0",
     "date-fns": "^2.11.0",
     "date-fns-tz": "^1.0.10",
     "lodash.clonedeep": "^4.5.0",

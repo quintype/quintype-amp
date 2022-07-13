@@ -19,16 +19,41 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
   const headline = story.headline || "";
 
   const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"], {});
-  const logoAlignment =
-    typeof visualStoriesConfig.logoAlignment === "function"
-      ? visualStoriesConfig.logoAlignment(config)
-      : visualStoriesConfig.logoAlignment;
-  const logoUrl =
-    typeof visualStoriesConfig.logoUrl === "function"
-      ? visualStoriesConfig.logoUrl(config)
-      : visualStoriesConfig.logoUrl;
-  const visualStoryConfig = { logoUrl, logoAlignment };
 
+  // To support PB config
+  const isLogoAlignmentAFunction = typeof visualStoriesConfig.logoAlignment === "function"; 
+  const getLogoAlignment = isLogoAlignmentAFunction ? visualStoriesConfig.logoAlignment(config) : visualStoriesConfig.logoAlignment;
+
+  const isLogoUrlAFunction = typeof visualStoriesConfig.logoUrl === "function";
+  const getLogoUrl = isLogoUrlAFunction ? visualStoriesConfig.logoUrl(config) : visualStoriesConfig.logoUrl;
+
+  let logoAlignment = getLogoAlignment;
+  let logoUrl = getLogoUrl;
+
+  if (Array.isArray(visualStoriesConfig)) {
+    const visualStoryTheme = get(story, ["metadata", "story-attributes", "visualstorytheme"], []);
+    const theme = get(visualStoryTheme, [0]);
+    
+    // if theme 2, it will pick up value from 2nd array
+    // if theme 3, it will pick up value from 3rd array
+    // else, it will pick up from 1st array
+    const isTheme2 = theme === "theme-2";
+    const isTheme3 = theme === "theme-3" ? 2 : 0;
+    const isTheme = isTheme2 ? 1 : isTheme3;
+    
+    // To support PB config
+    const isLogoAlignmentTheme = typeof visualStoriesConfig[isTheme].logoAlignment === "function";
+    const getLogoAlignmentTheme = isLogoAlignmentTheme ? visualStoriesConfig[isTheme].logoAlignment(config) : visualStoriesConfig[isTheme].logoAlignment;
+    
+    const isLogoUrlTheme = typeof visualStoriesConfig[isTheme].logoUrl === "function";
+    const getLogoUrlTheme = isLogoUrlTheme ? visualStoriesConfig[isTheme].logoUrl(config) : visualStoriesConfig[isTheme].logoUrl;
+   
+    logoAlignment = visualStoriesConfig[isTheme] && getLogoAlignmentTheme,
+    logoUrl = visualStoriesConfig[isTheme] && getLogoUrlTheme
+  }
+  
+  const visualStoryConfig = { logoUrl, logoAlignment };
+ 
   return (
     <Fragment>
       <AmpStoryPage id="cover">
