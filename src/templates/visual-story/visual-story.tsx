@@ -8,10 +8,8 @@ import { GoogleTagManager, GoogleAnalytics, QuintypeAnalytics, Fonts } from "../
 import { CommonTemplateTypes } from "../common-template-types";
 import { getTokensForVisualStory } from "./visual-story.helpers";
 import { Card } from "../../types/story";
-import get from "lodash.get";
 import merge from "lodash.merge";
 import { StoryPageSlots } from "../../molecules/slots";
-import { getVisualStoryBookendUrl } from "../../utils/visual-story-config";
 
 /**
  * The VisualStory template is rendered when the story-template is `visual-story`
@@ -23,9 +21,6 @@ import { getVisualStoryBookendUrl } from "../../utils/visual-story-config";
  */
 export const VisualStory = ({ story, config }: CommonTemplateTypes) => {
   const tokens = merge({}, getTokensForDarkTheme(config), getTokensForVisualStory());
-  const storyId = get(story, ["id"], "");
-  const sectionId = get(story, ["sections", 0, "id"], "");
-  const bookendUrl = getVisualStoryBookendUrl(config, story);
   const { TopSlot } = StoryPageSlots;
 
   return (
@@ -45,7 +40,6 @@ export const VisualStory = ({ story, config }: CommonTemplateTypes) => {
           ))}
         <GoogleAnalytics />
         <QuintypeAnalytics />
-        <amp-story-bookend src={`${bookendUrl}?storyId=${storyId}&sectionId=${sectionId}`} layout="nodisplay" />
       </WebStory>
     </Providers>
   );

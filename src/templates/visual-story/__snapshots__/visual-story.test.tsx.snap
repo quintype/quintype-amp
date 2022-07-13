@@ -3454,22 +3454,6 @@ exports[`visual story template should match snapshot 1`] = `
               "title": "",
               "type": "text",
             },
-            Object {
-              "description": "",
-              "family-id": "fe898bdb-fa19-43e5-99a3-80956e0d4846",
-              "id": "39664f53-e649-499b-bf79-8a3e6e9f5d34",
-              "metadata": Object {
-                "cta-title": "Search Google",
-                "cta-url": "https://www.google.com",
-                "no-follow": false,
-                "open-in-new-tab": true,
-              },
-              "page-url": "/story/9debf2ea-b0a0-4fb5-a6d9-9e19c6f35bd0/element/39664f53-e649-499b-bf79-8a3e6e9f5d34",
-              "subtype": "cta",
-              "text": "<a class=\\"cta-anchor\\" href=\\"https://www.google.com\\" target=\\"_blank\\" rel=\\"\\"><span class=\\"cta-text\\">Search Google</span></a>",
-              "title": "",
-              "type": "text",
-            },
           ],
           "version": 11,
         },
@@ -3944,22 +3928,6 @@ exports[`visual story template should match snapshot 1`] = `
                 "title": "",
                 "type": "text",
               },
-              Object {
-                "description": "",
-                "family-id": "fe898bdb-fa19-43e5-99a3-80956e0d4846",
-                "id": "39664f53-e649-499b-bf79-8a3e6e9f5d34",
-                "metadata": Object {
-                  "cta-title": "Search Google",
-                  "cta-url": "https://www.google.com",
-                  "no-follow": false,
-                  "open-in-new-tab": true,
-                },
-                "page-url": "/story/9debf2ea-b0a0-4fb5-a6d9-9e19c6f35bd0/element/39664f53-e649-499b-bf79-8a3e6e9f5d34",
-                "subtype": "cta",
-                "text": "<a class=\\"cta-anchor\\" href=\\"https://www.google.com\\" target=\\"_blank\\" rel=\\"\\"><span class=\\"cta-text\\">Search Google</span></a>",
-                "title": "",
-                "type": "text",
-              },
             ],
             "version": 11,
           }
@@ -4051,10 +4019,6 @@ exports[`visual story template should match snapshot 1`] = `
     </Component>
     <Component />
     <Component />
-    <amp-story-bookend
-      layout="nodisplay"
-      src="/amp/api/v1/bookend.json?storyId=e8e3a6d0-98ff-40eb-b400-5f9466599fb3&sectionId=47389"
-    />
   </Component>
 </Providers>
 `;

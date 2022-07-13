@@ -250,7 +250,6 @@ interface FeatureConfigTypes {
         logoAlignment?: string;
         logoUrl?: string;
         autoAdvanceAfter?: string;
-        bookendUrl?: string;
         ads?: {
           doubleclick?: {
             dataSlot: string;
@@ -265,7 +264,6 @@ interface FeatureConfigTypes {
           logoAlignment?: string;
           logoUrl?: string;
           autoAdvanceAfter?: string;
-          bookendUrl?: string;
           ads?: {
             doubleclick?: {
               dataSlot: string;
