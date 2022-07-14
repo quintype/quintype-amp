@@ -155,11 +155,11 @@ To do this, go to the file <code>app/server/routes.js</code> and add the followi
 <ul>
 <li>The first visual story page shows the hero image, headline, author name, and publisher logo.</li>
 <li>Every subsequent visual story page corresponds to a Quintype story card (i.e. the second visual story page will show the 1st storycard).</li>
-<li>Only the following story elements are supported - image, title, also-read, answer, bigfact, blockquote, blurb, q-and-a, question, quote, summary, title, normal paragraph (text). All other story elements are ignored.</li>
+<li>Only the following story elements are supported - image, title, also-read, answer, bigfact, blockquote, blurb, q-and-a, question, quote, summary, title, normal paragraph (text), CTA. All other story elements are ignored.</li>
 <li>At this point of time our CMS does not support uploading videos, so they're not supported by AmpLib.</li>
 <li>There can be only one image per story card. If more than one image is added (per card), the first one is displayed. If image caption and attribution are added, they're positioned at the bottom right with a pipe separator. We also support only Image caption/attribution. The <code>Rich Text Image Fields</code> feature which is available in Bold is also supported.</li>
 <li>Similarly, there can be only one <code>title</code> story element.</li>
-<li>There can be one or more (or a combination of) also-read, answer, bigfact, blockquote, blurb, q-and-a, question, quote, summary, title, normal paragraph story elements. They're positioned at the bottom of the visual story page.</li>
+<li>There can be one or more (or a combination of) CTA, also-read, answer, bigfact, blockquote, blurb, q-and-a, question, quote, summary, title, normal paragraph story elements. They're positioned at the bottom of the visual story page.</li>
 </ul>
 <hr />
 <h3>Customizing visual stories</h3>
@@ -176,6 +176,12 @@ To do this, go to the file <code>app/server/routes.js</code> and add the followi
         doubleclick: {
           dataSlot: &quot;/1009127/FOO_AMP_TOP&quot;
         }
+      },
+      outlinkProps: {
+        theme: &quot;custom&quot;,
+        &quot;cta-accent-element&quot;: &quot;background&quot;,
+        &quot;cta-accent-color&quot;: &quot;#0047FF&quot;,
+        &quot;cta-image&quot;: &quot;none&quot;
       },
       animation: {
         image: {
@@ -204,7 +210,17 @@ To do this, go to the file <code>app/server/routes.js</code> and add the followi
 <li>
 <p><code>logoUrl</code> : (string/function) Optional. URL of a logo that will show up on the visual story. It is recommended that this logo should be of 1:1 aspect ratio. If omitted takes the default logo.</p>
 </li>
+<li>
+<p><code>outlinkProps</code>: (string/function) Optional. Props to the (outlink)[https://amp.dev/documentation/components/amp-story-page-outlink/?format=stories] component. Can either be an object containing the props as key value pairs or a function that returns such an object. If nothing is passed, the default light theme will be applied for the CTA button.</p>
+</li>
 </ol>
+<p>eg:
+outlinkProps: { theme: &quot;dark&quot; } // sets dark theme
+outlinkProps: { theme: &quot;custom&quot;, &quot;cta-accent-color&quot;: &quot;#0047FF&quot;, &quot;cta-accent-element&quot;: &quot;background&quot;} // custom theme
+outlinkProps: () =&gt; { return { theme: &quot;dark&quot; } } // function returning props obj</p>
+<p><code>NOTE</code> :
+CTA link will be opened in the same tab (Even we set it as &quot;Open in New Tab&quot; from BOLD).
+This is a limitation in Google AMP (please refer. https://github.com/ampproject/amphtml/issues/32171)</p>
 <h4>Visual story templates:</h4>
 <p>You can also create upto three different templates for visual stories. <code>featureConfig.visualStories</code> can either be an object like shown above, or an array of such objects. The 0th element of this array will be the featureConfig for the 1st template, and so on. Templates can be selected using <em>story attributes</em> feature in BOLD.</p>
 <pre class="prettyprint source lang-js"><code>dummyOpts = {
