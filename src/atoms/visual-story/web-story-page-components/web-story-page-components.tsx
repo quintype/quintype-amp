@@ -14,10 +14,13 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
   const { imageAnimation, textAnimation }: AnimationTypes = getAnimationProps(config, story);
   const ctaElements = card["story-elements"].filter((el) => el.subtype === "cta");
   const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"], {});
-  const outlinkProps =
-    typeof visualStoriesConfig.outlinkProps === "function"
-      ? visualStoriesConfig.outlinkProps()
-      : visualStoriesConfig.outlinkProps;
+  let outlinkProps = {};
+  if (visualStoriesConfig.outlinkProps) {
+    outlinkProps =
+      typeof visualStoriesConfig.outlinkProps === "function"
+        ? visualStoriesConfig.outlinkProps()
+        : visualStoriesConfig.outlinkProps;
+  }
 
   return (
     <Fragment>
