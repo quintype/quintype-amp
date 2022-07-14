@@ -5,12 +5,23 @@ import { getFigcaptionText } from "../../../molecules/hero-image/hero-image";
 import styled from "styled-components";
 import { withStoryAndConfig } from "../../../context";
 import { getAnimationProps } from "./web-story-page-components.helpers";
+import get from "lodash/get";
 
 const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageComponentsTypes) => {
   const titleElement = card["story-elements"].find((el) => el.type === "title");
-  const textElements = card["story-elements"].filter((el) => el.type === "text");
+  const textElements = card["story-elements"].filter((el) => el.type === "text" && el.subtype !== "cta");
   const imageElement = card["story-elements"].find((el) => el.type === "image");
   const { imageAnimation, textAnimation }: AnimationTypes = getAnimationProps(config, story);
+  const ctaElements = card["story-elements"].filter((el) => el.subtype === "cta");
+  const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"], {});
+  let outlinkProps = {};
+  if (visualStoriesConfig.outlinkProps) {
+    outlinkProps =
+      typeof visualStoriesConfig.outlinkProps === "function"
+        ? visualStoriesConfig.outlinkProps()
+        : visualStoriesConfig.outlinkProps;
+  }
+
   return (
     <Fragment>
       {imageElement && (
@@ -44,6 +55,23 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
           </TextWrapper>
         </amp-story-grid-layer>
       )}
+      {/**
+       * Outlink component should be the last component on story.
+       * Check the Placement section in Doc
+       * https://amp.dev/documentation/components/amp-story-page-outlink/
+       **/}
+
+      {ctaElements.map((ele) => {
+        const url = get(ele, ["metadata", "cta-url"]);
+        const title = get(ele, ["metadata", "cta-title"]);
+        return (
+          ele.metadata && (
+            <amp-story-page-outlink key={ele.title} layout="nodisplay" {...outlinkProps}>
+              <a href={url}>{title}</a>
+            </amp-story-page-outlink>
+          )
+        );
+      })}
     </Fragment>
   );
 };

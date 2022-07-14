@@ -65,6 +65,10 @@ export interface Story {
   "updated-at": number;
   "is-amp-supported"?: boolean;
   "task-id"?: string;
+  "cta-title"?: string;
+  "cta-url"?: string;
+  "open-in-new-tab"?: boolean;
+  "no-follow"?: boolean;
 }
 
 export interface Author {
@@ -178,6 +182,10 @@ export interface StoryElementMetadata {
   question?: string;
   answer?: string;
   "has-header"?: boolean;
+  "cta-title"?: string;
+  "cta-url"?: string;
+  "open-in-new-tab"?: boolean;
+  "no-follow"?: boolean;
 }
 
 export interface LinkedStory {
