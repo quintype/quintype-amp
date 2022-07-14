@@ -65,6 +65,10 @@ export interface Story {
   "updated-at": number;
   "is-amp-supported"?: boolean;
   "task-id"?: string;
+  "cta-title"?: string;
+  "cta-url"?: string;
+  "open-in-new-tab"?: boolean;
+  "no-follow"?: boolean;
 }
 
 export interface Author {

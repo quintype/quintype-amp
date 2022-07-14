@@ -30,6 +30,7 @@ declare global {
       "amp-story";
       "amp-video";
       "amp-story-auto-ads";
+      "amp-story-page-outlink";
     }
   }
 }

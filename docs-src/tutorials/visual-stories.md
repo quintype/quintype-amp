@@ -26,11 +26,11 @@ AMP [Visual Stories](https://amp.dev/about/stories/) consist of `pages`. These a
 
 - The first visual story page shows the hero image, headline, author name, and publisher logo.
 - Every subsequent visual story page corresponds to a Quintype story card (i.e. the second visual story page will show the 1st storycard).
-- Only the following story elements are supported - image, title, also-read, answer, bigfact, blockquote, blurb, q-and-a, question, quote, summary, title, normal paragraph (text). All other story elements are ignored.
+- Only the following story elements are supported - image, title, also-read, answer, bigfact, blockquote, blurb, q-and-a, question, quote, summary, title, normal paragraph (text), CTA. All other story elements are ignored.
 - At this point of time our CMS does not support uploading videos, so they're not supported by AmpLib.
 - There can be only one image per story card. If more than one image is added (per card), the first one is displayed. If image caption and attribution are added, they're positioned at the bottom right with a pipe separator. We also support only Image caption/attribution. The `Rich Text Image Fields` feature which is available in Bold is also supported.
 - Similarly, there can be only one `title` story element.
-- There can be one or more (or a combination of) also-read, answer, bigfact, blockquote, blurb, q-and-a, question, quote, summary, title, normal paragraph story elements. They're positioned at the bottom of the visual story page.
+- There can be one or more (or a combination of) CTA, also-read, answer, bigfact, blockquote, blurb, q-and-a, question, quote, summary, title, normal paragraph story elements. They're positioned at the bottom of the visual story page.
 
 <hr />
 
@@ -52,6 +52,12 @@ dummyOpts = {
         doubleclick: {
           dataSlot: "/1009127/FOO_AMP_TOP"
         }
+      },
+      outlinkProps: {
+        theme: "custom",
+        "cta-accent-element": "background",
+        "cta-accent-color": "#0047FF",
+        "cta-image": "none"
       },
       animation: {
         image: {
@@ -75,6 +81,17 @@ dummyOpts = {
 5. `logoAlignment` : (string/function) Optional. Aligns the publisher logo on the cover page of the visual story. Possible values are left, center and right. If omitted it aligns the logo in the centre.
 
 6. `logoUrl` : (string/function) Optional. URL of a logo that will show up on the visual story. It is recommended that this logo should be of 1:1 aspect ratio. If omitted takes the default logo.
+
+7. `outlinkProps`: (string/function) Optional. Props to the (outlink)[https://amp.dev/documentation/components/amp-story-page-outlink/?format=stories] component. Can either be an object containing the props as key value pairs or a function that returns such an object. If nothing is passed, the default light theme will be applied for the CTA button.
+
+eg:
+outlinkProps: { theme: "dark" } // sets dark theme
+outlinkProps: { theme: "custom", "cta-accent-color": "#0047FF", "cta-accent-element": "background"} // custom theme
+outlinkProps: () => { return { theme: "dark" } } // function returning props obj
+
+`NOTE` :
+CTA link will be opened in the same tab (Even we set it as "Open in New Tab" from BOLD).
+This is a limitation in Google AMP (please refer. https://github.com/ampproject/amphtml/issues/32171)
 
 #### Visual story templates:
 
