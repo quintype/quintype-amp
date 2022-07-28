@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.4.27](https://github.com/quintype/quintype-amp/compare/v2.4.23...v2.4.27) (2022-07-28)
+
+
+### Bug Fixes
+
+* Support logo feature for visual story themes ([#382](https://github.com/quintype/quintype-amp/issues/382)) ([f8cb0ec](https://github.com/quintype/quintype-amp/commit/f8cb0ec32b2f9d228272618607b664cbabadc631))
+
 ### [2.4.26](https://github.com/quintype/quintype-amp/compare/v2.4.25...v2.4.26) (2022-07-14)
 
 ### [2.4.25](https://github.com/quintype/quintype-amp/compare/v2.4.24...v2.4.25) (2022-07-13)
