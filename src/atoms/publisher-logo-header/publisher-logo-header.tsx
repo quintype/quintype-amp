@@ -8,7 +8,7 @@ export const PublisherLogoHeaderBase = ({ config, visualStoryConfig }: Publisher
   const publisherName = get(config, ["publisherConfig", "publisher-name"], "");
   const logo = get(config, ["ampConfig", "logo-url"], null);
   const logoAlignment = get(visualStoryConfig, ["logoAlignment"], "");
-
+  const width = 600;
   if (!logo) return null;
 
   const logoUrl = get(visualStoryConfig, ["logoUrl"], logo);
@@ -38,11 +38,11 @@ export const PublisherLogoHeaderBase = ({ config, visualStoryConfig }: Publisher
       </Head>
       {logoAlignment ? (
         <div className={`logo-align-${logoAlignment}`}>
-          <amp-img alt={publisherName} src={logoUrl} layout="fill" />
+          <amp-img alt={publisherName} src={`${logoUrl}?w=${width}`} layout="fill" />
         </div>
       ) : (
         <a href="/">
-          <amp-img class="logo-align-center" alt={publisherName} src={logo} layout="fill" />
+          <amp-img class="logo-align-center" alt={publisherName} src={`${logo}?w=${width}`} layout="fill" />
         </a>
       )}
     </Fragment>
