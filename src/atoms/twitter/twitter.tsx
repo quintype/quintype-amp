@@ -16,7 +16,7 @@ export const Twitter = (props: TwitterTypes) => {
   return (
     <Fragment>
       <Helmet>
-        <script async={undefined} custom-element="amp-twitter" src="https://cdn.ampproject.org/v0/amp-twitter-0.1.js" />
+        <script async={undefined} custom-element="amp-twitter" src="https://cdn.ampproject.org/v0/amp-twitter-1.0.js" />
       </Helmet>
       <amp-twitter {...componentProps} />
     </Fragment>

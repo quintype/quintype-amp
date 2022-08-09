@@ -19,7 +19,7 @@ export const Facebook = (props: FacebookTypes) => {
         <script
           async={undefined}
           custom-element="amp-facebook"
-          src="https://cdn.ampproject.org/v0/amp-facebook-0.1.js"
+          src="https://cdn.ampproject.org/v0/amp-facebook-1.0.js"
         />
       </Helmet>
       <amp-facebook {...componentProps} title={title} />

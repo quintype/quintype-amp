@@ -34,7 +34,7 @@ export const HamburgerMenu = ({ items, inlineStyles }: HamburgerMenuTypes) => {
   return (
     <Fragment>
       <Helmet>
-        <script async={undefined} custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js" />
+        <script async={undefined} custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-1.0.js" />
       </Helmet>
       <StyledSidebar inlineStyles={inlineStyles}>
         <amp-sidebar id="sidebar" layout="nodisplay" on="sidebarClose:nested-menu.reset" style={sidebarStyles}>

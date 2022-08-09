@@ -21,7 +21,7 @@ const DailyMotion = ({
         <script
           async={undefined}
           custom-element="amp-dailymotion"
-          src="https://cdn.ampproject.org/v0/amp-dailymotion-0.1.js"
+          src="https://cdn.ampproject.org/v0/amp-dailymotion-1.0.js"
         />
       </Helmet>
       <StyledDailyMotion style={inlineStyles}>

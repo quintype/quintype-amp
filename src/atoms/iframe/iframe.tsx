@@ -22,7 +22,7 @@ const Iframe = ({
   return (
     <Fragment>
       <Helmet>
-        <script async={undefined} custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js" />
+        <script async={undefined} custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-1.0.js" />
       </Helmet>
       <StyledIframe style={inlineStyles} title={title}>
         <amp-iframe

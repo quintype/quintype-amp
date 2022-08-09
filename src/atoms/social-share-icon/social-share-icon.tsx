@@ -21,7 +21,7 @@ export const SocialShareIcon = ({
         <script
           async={undefined}
           custom-element="amp-social-share"
-          src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"
+          src="https://cdn.ampproject.org/v0/amp-social-share-1.0.js"
         />
       </Helmet>
       {type === "facebook" && (

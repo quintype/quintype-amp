@@ -22,7 +22,7 @@ describe("Test for head component", () => {
     expect(ampHtml.includes(`<title data-react-helmet="true">🐈 My Page 🐈</title>`)).toBe(true);
     expect(
       ampHtml.includes(
-        `<script data-react-helmet="true" async custom-element="amp-mathml" src="https://cdn.ampproject.org/v0/amp-mathml-0.1.js"></script>`
+        `<script data-react-helmet="true" async custom-element="amp-mathml" src="https://cdn.ampproject.org/v0/amp-mathml-1.0.js"></script>`
       )
     ).toBe(true);
   });
@@ -32,7 +32,7 @@ const sampleTextStory = ({ story, config }) => {
   return (
     <Layout story={story} config={config}>
       <Head>
-        <script async={undefined} custom-element="amp-mathml" src="https://cdn.ampproject.org/v0/amp-mathml-0.1.js" />
+        <script async={undefined} custom-element="amp-mathml" src="https://cdn.ampproject.org/v0/amp-mathml-1.0.js" />
         <title>🐈 My Page 🐈</title>
         <link rel="canonical" href="." />
       </Head>

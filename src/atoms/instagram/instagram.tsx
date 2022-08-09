@@ -19,7 +19,7 @@ export const Instagram = (props: InstagramTypes) => {
         <script
           async={undefined}
           custom-element="amp-instagram"
-          src="https://cdn.ampproject.org/v0/amp-instagram-0.1.js"
+          src="https://cdn.ampproject.org/v0/amp-instagram-1.0.js"
         />
       </Helmet>
       <amp-instagram {...componentProps} />

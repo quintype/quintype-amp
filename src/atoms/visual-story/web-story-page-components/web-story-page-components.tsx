@@ -1,17 +1,15 @@
 import React, { Fragment } from "react";
 import { StoryElement, Image } from "../../../atoms";
-import { WebStoryPageComponentsTypes, AnimationTypes } from "./types";
+import { WebStoryPageComponentsTypes } from "./types";
 import { getFigcaptionText } from "../../../molecules/hero-image/hero-image";
 import styled from "styled-components";
 import { withStoryAndConfig } from "../../../context";
-import { getAnimationProps } from "./web-story-page-components.helpers";
 import get from "lodash/get";
 
-const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageComponentsTypes) => {
+const WebStoryPageComponentsBase = ({ card, config }: WebStoryPageComponentsTypes) => {
   const titleElement = card["story-elements"].find((el) => el.type === "title");
   const textElements = card["story-elements"].filter((el) => el.type === "text" && el.subtype !== "cta");
   const imageElement = card["story-elements"].find((el) => el.type === "image");
-  const { imageAnimation, textAnimation }: AnimationTypes = getAnimationProps(config, story);
   const ctaElements = card["story-elements"].filter((el) => el.subtype === "cta");
   const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"], {});
   let outlinkProps = {};
@@ -33,14 +31,13 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
             aspectRatio={[480, 640]}
             alt={imageElement.title || imageElement["image-attribution"]}
             lightbox={false}
-            {...imageAnimation}
           />
         </amp-story-grid-layer>
       )}
       {(titleElement || textElements.length || imageElement) && (
         <amp-story-grid-layer template="thirds">
           <TextWrapper>
-            <div {...textAnimation}>
+            <div>
               {titleElement && <StoryElement element={titleElement} />}
               {textElements.length > 0 &&
                 textElements.map((textElement) => <StoryElement key={textElement.id} element={textElement} />)}

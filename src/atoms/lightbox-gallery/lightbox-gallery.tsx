@@ -9,7 +9,7 @@ export const LightboxGallery = () => {
       <script
         async={undefined}
         custom-element="amp-lightbox-gallery"
-        src="https://cdn.ampproject.org/v0/amp-lightbox-gallery-0.1.js"
+        src="https://cdn.ampproject.org/v0/amp-lightbox-gallery-1.0.js"
       />
     </Helmet>
   );

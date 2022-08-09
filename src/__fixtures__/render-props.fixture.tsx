@@ -10,7 +10,7 @@ export const TopSlotTest = ({ story, config }) => {
         <script
           async={undefined}
           custom-element="amp-date-countdown"
-          src="https://cdn.ampproject.org/v0/amp-date-countdown-0.1.js"
+          src="https://cdn.ampproject.org/v0/amp-date-countdown-1.0.js"
         />
         <script
           async={undefined}

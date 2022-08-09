@@ -8,7 +8,7 @@ exports[`Youtube should render default 1`] = `
   >
     <script
       custom-element="amp-youtube"
-      src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"
+      src="https://cdn.ampproject.org/v0/amp-youtube-1.0.js"
     />
   </HelmetWrapper>
   <amp-youtube
