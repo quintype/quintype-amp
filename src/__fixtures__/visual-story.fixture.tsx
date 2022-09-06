@@ -388,50 +388,6 @@ export const visualStory: Story = {
         },
         attributes: {}
       }
-    },
-    {
-      "story-elements": [
-        {
-          description: "",
-          "embed-js":
-            "PGRpdiBzdHlsZT0icG9zaXRpb246cmVsYXRpdmU7cGFkZGluZy1ib3R0b206NTYuMjUlO2hlaWdodDowO292ZXJmbG93OmhpZGRlbjsiPiA8aWZyYW1lIHN0eWxlPSJ3aWR0aDoxMDAlO2hlaWdodDoxMDAlO3Bvc2l0aW9uOmFic29sdXRlO2xlZnQ6MHB4O3RvcDowcHg7b3ZlcmZsb3c6aGlkZGVuIiBmcmFtZWJvcmRlcj0iMCIgdHlwZT0idGV4dC9odG1sIiBzcmM9Imh0dHBzOi8vd3d3LmRhaWx5bW90aW9uLmNvbS9lbWJlZC92aWRlby94N3g3YXR4P2F1dG9wbGF5PTEiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGFsbG93ZnVsbHNjcmVlbiBhbGxvdz0iYXV0b3BsYXkiPiA8L2lmcmFtZT4gPC9kaXY+Cg==",
-          "page-url": "/story/e8e3a6d0-98ff-40eb-b400-5f9466599fb3/element/3bd58c8f-35ef-4a3a-aed4-c6ef3c7244ca",
-          type: "jsembed",
-          "family-id": "82edcd91-afa1-4464-9599-350f4345f9f9",
-          title: "",
-          id: "3bd58c8f-35ef-4a3a-aed4-c6ef3c7244ca",
-          metadata: {},
-          subtype: null
-        }
-      ],
-      "card-updated-at": 1604398445200,
-      "content-version-id": "84dee571-fc1c-4b9c-98fb-a13250f4cbeb",
-      "card-added-at": 1604398361291,
-      status: "draft",
-      id: "6d819366-9dc7-4aa7-a816-e660ed34d6c3",
-      "content-id": "6d819366-9dc7-4aa7-a816-e660ed34d6c3",
-      version: 4,
-      metadata: {
-        "social-share": {
-          shareable: false,
-          title: "Pets are awesome",
-          message: null,
-          image: {
-            key: "amplib/2020-10/6adaf26f-3b7b-45e0-9973-6f99abeecf5d/erin_agius_I7TLmA4j0c8_unsplash.jpg",
-            url: null,
-            attribution: " <p>unsplash.com/</p>",
-            caption: " <p>Masked woman</p>",
-            metadata: {
-              width: 5792,
-              height: 8688,
-              "mime-type": "image/jpeg",
-              "file-size": 4016993,
-              "file-name": "erin-agius-I7TLmA4j0c8-unsplash.jpg"
-            }
-          }
-        },
-        attributes: {}
-      }
     }
   ],
   url: "https://amplib-web.qtstage.io/ampstories/entertainment/pets-are-awesome",

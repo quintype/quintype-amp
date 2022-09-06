@@ -33,11 +33,15 @@ export const VisualStory = ({ story, config }: CommonTemplateTypes) => {
         <CoverPage />
         {story.cards
           .filter((card) => canTakeCard(card))
-          .map((card) => (
-            <AmpStoryPage key={card.id} id={card.id}>
-              <WebStoryPageComponents card={card} />
-            </AmpStoryPage>
-          ))}
+          .map((card) => {
+            // // tslint:disable-next-line:no-console
+            // console.log("Inside visual-story.tsx --->", card)
+            return (
+              <AmpStoryPage key={card.id} id={card.id}>
+                <WebStoryPageComponents card={card} />
+              </AmpStoryPage>
+            );
+          })}
         <GoogleAnalytics />
         <QuintypeAnalytics />
       </WebStory>
@@ -46,7 +50,7 @@ export const VisualStory = ({ story, config }: CommonTemplateTypes) => {
 };
 
 export const canTakeCard = (card: Card) => {
-  const storyElementWhitelist = ["text", "title", "image"];
+  const storyElementWhitelist = ["text", "title", "image", "jsembed"];
   return card["story-elements"].some((el) => storyElementWhitelist.includes(el.type));
 };
 

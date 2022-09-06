@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import atob from "atob";
 import { StoryElement, Image } from "../../../atoms";
 import { WebStoryPageComponentsTypes, AnimationTypes } from "./types";
 import { getFigcaptionText } from "../../../molecules/hero-image/hero-image";
@@ -6,11 +7,20 @@ import styled from "styled-components";
 import { withStoryAndConfig } from "../../../context";
 import { getAnimationProps } from "./web-story-page-components.helpers";
 import get from "lodash/get";
+import { VideoWebStory } from "../../video-web-story";
 
 const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageComponentsTypes) => {
   const titleElement = card["story-elements"].find((el) => el.type === "title");
   const textElements = card["story-elements"].filter((el) => el.type === "text" && el.subtype !== "cta");
   const imageElement = card["story-elements"].find((el) => el.type === "image");
+
+  const videoElement = card["story-elements"].find((el) => el.type === "jsembed");
+  const videoUrl = videoElement && atob(`${videoElement["embed-js"]}`);
+  const formatWhitelist = ["mp4", "webm", "ogg"];
+  const isValidVideoUrl = formatWhitelist.some((format) => {
+    return videoUrl && videoUrl.endsWith(format);
+  });
+
   const { imageAnimation, textAnimation }: AnimationTypes = getAnimationProps(config, story);
   const ctaElements = card["story-elements"].filter((el) => el.subtype === "cta");
   const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"], {});
@@ -24,6 +34,7 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
 
   return (
     <Fragment>
+      {isValidVideoUrl && <VideoWebStory videoUrl={videoUrl} />}
       {imageElement && (
         <amp-story-grid-layer template="fill">
           <Image
