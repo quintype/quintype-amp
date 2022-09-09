@@ -1,7 +1,8 @@
 import React, { Fragment } from "react";
 import Helmet from "react-helmet";
 
-export const VideoWebStory = ({ videoUrl }) => {
+export const VideoWebStory = ({ videoUrl, config, imageElement }) => {
+  const poster = `https://${config.publisherConfig["cdn-image"]}/${imageElement["image-s3-key"]}`
   return (
     <Fragment>
       <Helmet>
@@ -10,7 +11,7 @@ export const VideoWebStory = ({ videoUrl }) => {
       <amp-story-grid-layer template="fill">
         <amp-video
           autoplay=""
-          poster="https://images.unsplash.com/photo-1662402400707-17c8d73685a8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1746&q=80"
+          poster={poster}
           width="640"
           height="360"
           layout="responsive">

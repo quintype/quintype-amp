@@ -16,10 +16,6 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
 
   const videoElement = card["story-elements"].find((el) => el.type === "jsembed");
   const videoUrl = videoElement && atob(`${videoElement["embed-js"]}`);
-  const formatWhitelist = ["mp4", "webm", "ogg"];
-  const isValidVideoUrl = formatWhitelist.some((format) => {
-    return videoUrl && videoUrl.endsWith(format);
-  });
 
   const { imageAnimation, textAnimation }: AnimationTypes = getAnimationProps(config, story);
   const ctaElements = card["story-elements"].filter((el) => el.subtype === "cta");
@@ -34,8 +30,8 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
 
   return (
     <Fragment>
-      {isValidVideoUrl && <VideoWebStory videoUrl={videoUrl} />}
-      {imageElement && (
+      {imageElement && videoUrl && <VideoWebStory videoUrl={videoUrl} config={config} imageElement={imageElement} />}
+      {imageElement && !videoElement && (
         <amp-story-grid-layer template="fill">
           <Image
             class="qt-amp-visual-story-img"

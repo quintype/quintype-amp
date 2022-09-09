@@ -10,6 +10,7 @@ import { getTokensForVisualStory } from "./visual-story.helpers";
 import { Card } from "../../types/story";
 import merge from "lodash.merge";
 import { StoryPageSlots } from "../../molecules/slots";
+import atob from "atob";
 
 /**
  * The VisualStory template is rendered when the story-template is `visual-story`
@@ -50,8 +51,20 @@ export const VisualStory = ({ story, config }: CommonTemplateTypes) => {
 };
 
 export const canTakeCard = (card: Card) => {
-  const storyElementWhitelist = ["text", "title", "image", "jsembed"];
-  return card["story-elements"].some((el) => storyElementWhitelist.includes(el.type));
+
+  const storyElementWhitelist = ["text", "title", "image"];
+  const validCards = card["story-elements"].some((el) => {
+    if (el.type === "jsembed") {
+      const videoUrl = el && atob(`${el["embed-js"]}`);
+      const formatWhitelist = ["mp4", "webm", "ogg"];
+      const isValidVideoUrl = formatWhitelist.some((format) => {
+        return videoUrl && videoUrl.endsWith(format);
+      });
+      return isValidVideoUrl
+    }
+    return storyElementWhitelist.includes(el.type)
+  });
+  return validCards
 };
 
 const Providers = ({ story, config, tokens, children }) => (
