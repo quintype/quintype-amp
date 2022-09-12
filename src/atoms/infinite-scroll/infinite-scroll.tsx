@@ -17,8 +17,8 @@ export const StyledSeparator = styled.div`
 
 export const InfiniteScrollBase = ({ story, config, children, inlineConfig, ...props }: InfiniteScrollTypes) => {
   const { "story-content-id": storyId } = story;
-  const { "sketches-host": host } = config.publisherConfig;
-  const jsonConfigUrl = `${host}/amp/api/v1/amp-infinite-scroll?story-id=${storyId}`;
+  const remoteEndPoint = get(config, ["opts", "featureConfig", "infiniteScroll", "remoteConfigEndpoint"], "/amp/api/v1/amp-infinite-scroll");
+  const jsonConfigUrl = `${remoteEndPoint}?story-id=${storyId}`;
   const infiniteScrollRender = get(config, ["opts", "render", "infiniteScrollRender"], null);
   const storySeparatorText = get(
     config,
