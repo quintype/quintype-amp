@@ -34,15 +34,11 @@ export const VisualStory = ({ story, config }: CommonTemplateTypes) => {
         <CoverPage />
         {story.cards
           .filter((card) => canTakeCard(card))
-          .map((card) => {
-            // // tslint:disable-next-line:no-console
-            // console.log("Inside visual-story.tsx --->", card)
-            return (
-              <AmpStoryPage key={card.id} id={card.id}>
-                <WebStoryPageComponents card={card} />
-              </AmpStoryPage>
-            );
-          })}
+          .map((card) => (
+            <AmpStoryPage key={card.id} id={card.id}>
+              <WebStoryPageComponents card={card} />
+            </AmpStoryPage>
+          ))}
         <GoogleAnalytics />
         <QuintypeAnalytics />
       </WebStory>
@@ -51,7 +47,6 @@ export const VisualStory = ({ story, config }: CommonTemplateTypes) => {
 };
 
 export const canTakeCard = (card: Card) => {
-
   const storyElementWhitelist = ["text", "title", "image"];
   const validCards = card["story-elements"].some((el) => {
     if (el.type === "jsembed") {
@@ -60,11 +55,11 @@ export const canTakeCard = (card: Card) => {
       const isValidVideoUrl = formatWhitelist.some((format) => {
         return videoUrl && videoUrl.endsWith(format);
       });
-      return isValidVideoUrl
+      return isValidVideoUrl;
     }
-    return storyElementWhitelist.includes(el.type)
+    return storyElementWhitelist.includes(el.type);
   });
-  return validCards
+  return validCards;
 };
 
 const Providers = ({ story, config, tokens, children }) => (
