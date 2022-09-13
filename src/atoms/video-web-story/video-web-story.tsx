@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import Helmet from "react-helmet";
 
 export const VideoWebStory = ({ videoUrl, config, imageElement }) => {
-  const poster = imageElement ? `https://${config.publisherConfig["cdn-image"]}/${imageElement["image-s3-key"]}` : "";
+  const poster = imageElement ? `https://${config.publisherConfig["cdn-image"]}/${imageElement["image-s3-key"]}` : null;
   return (
     <Fragment>
       <Helmet>
