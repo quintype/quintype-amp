@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import atob from "atob";
 import { StoryElement, Image } from "../../../atoms";
 import { WebStoryPageComponentsTypes, AnimationTypes } from "./types";
 import { getFigcaptionText } from "../../../molecules/hero-image/hero-image";
@@ -15,7 +14,6 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
   const imageElement = card["story-elements"].find((el) => el.type === "image");
 
   const videoElement = card["story-elements"].find((el) => el.type === "jsembed");
-  const videoUrl = videoElement && atob(`${videoElement["embed-js"]}`);
 
   const { imageAnimation, textAnimation }: AnimationTypes = getAnimationProps(config, story);
   const ctaElements = card["story-elements"].filter((el) => el.subtype === "cta");
@@ -30,7 +28,7 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
 
   return (
     <Fragment>
-      {videoUrl && <VideoWebStory videoUrl={videoUrl} config={config} imageElement={imageElement} />}
+      {videoElement && <VideoWebStory videoElement={videoElement} imageElement={imageElement} />}
       {imageElement && !videoElement && (
         <amp-story-grid-layer template="fill">
           <Image
@@ -44,7 +42,7 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
           />
         </amp-story-grid-layer>
       )}
-      {(titleElement || textElements.length || imageElement) && (
+      {(titleElement || textElements.length || imageElement) && !videoElement && (
         <amp-story-grid-layer template="thirds">
           <TextWrapper>
             <div {...textAnimation}>
