@@ -23,7 +23,7 @@ describe("DateLastPublished", () => {
   });
   it("should pass localized formattedDate to <DateTime />", () => {
     const wrapper = shallow(<DateLastPublishedBase story={getDummyStory()} config={config} />);
-    expect(wrapper.find(DateTime).prop("formattedDate")).toBe("27. Mai 2020, 6:01 AM");
+    expect(wrapper.find(DateTime).prop("formattedDate")).toBe("May 27, 2020, 6:01 AM");
   });
 });
 
