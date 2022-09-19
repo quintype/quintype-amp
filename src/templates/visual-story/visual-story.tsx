@@ -51,7 +51,7 @@ export const canTakeCard = (card: Card) => {
   const validCards = card["story-elements"].some((el) => {
     if (el.type === "jsembed") {
       const videoUrl = el && atob(`${el["embed-js"]}`);
-      const formatWhitelist = ["mp4", "webm", "ogg"];
+      const formatWhitelist = ["mp4", "webm", "ogv"];
       const isValidVideoUrl = formatWhitelist.some((format) => {
         return videoUrl && videoUrl.endsWith(format);
       });
