@@ -6,11 +6,15 @@ import styled from "styled-components";
 import { withStoryAndConfig } from "../../../context";
 import { getAnimationProps } from "./web-story-page-components.helpers";
 import get from "lodash/get";
+import { VideoWebStory } from "../../video-web-story";
 
 const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageComponentsTypes) => {
   const titleElement = card["story-elements"].find((el) => el.type === "title");
   const textElements = card["story-elements"].filter((el) => el.type === "text" && el.subtype !== "cta");
   const imageElement = card["story-elements"].find((el) => el.type === "image");
+
+  const videoElement = card["story-elements"].find((el) => el.type === "jsembed");
+
   const { imageAnimation, textAnimation }: AnimationTypes = getAnimationProps(config, story);
   const ctaElements = card["story-elements"].filter((el) => el.subtype === "cta");
   const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"], {});
@@ -24,7 +28,8 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
 
   return (
     <Fragment>
-      {imageElement && (
+      {videoElement && <VideoWebStory videoElement={videoElement} imageElement={imageElement} />}
+      {imageElement && !videoElement && (
         <amp-story-grid-layer template="fill">
           <Image
             class="qt-amp-visual-story-img"
@@ -37,7 +42,7 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
           />
         </amp-story-grid-layer>
       )}
-      {(titleElement || textElements.length || imageElement) && (
+      {(titleElement || textElements.length || imageElement) && !videoElement && (
         <amp-story-grid-layer template="thirds">
           <TextWrapper>
             <div {...textAnimation}>
