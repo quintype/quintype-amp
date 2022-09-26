@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66074042-1', 'auto');ga('send', 'pageview');</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AMP Library BlockQuote</title>
+  <title>AMP Library atoms/video-web-story/video-web-story.tsx</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -125,298 +127,55 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Components</p>
-                    <h1>BlockQuote</h1>
+                    <p>Source</p>
+                    <h1>atoms/video-web-story/video-web-story.tsx</h1>
                 </header>
                 
 
 
 
-
-<section>
-
-<header>
     
-        <h2>
-            &ltBlockQuote  /&gt
-        </h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class='vertical-section'>
-                <div class="members">
-                    <div class="member">
-                        <div class=name>
-                            <span class="tag">Constructor</span>
-                        </div>
-                        
-
-
-    
-    <h4 class="name" id="BlockQuote">
-        <a class="href-link" href="#BlockQuote">#</a>
-        
-        <span class="code-name">
-            
-                &ltBlockQuote  /&gt
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        <p>BlockQuote is a story element.
-The look of the BlockQuote can be changed using the render prop blockquoteRender. In case blockquoteRender is passed in the config, it is rendered. Otherwise a default BlockQuote is rendered.</p>
-    </div>
-    
-
-
-
-
-
-
-
-    
-
-
-
-    <h5>Parameters:</h5>
-    
-<div class="table-container">
-    <table class="params table">
-        <thead>
-        <tr>
-            
-            <th>Name</th>
-            
-
-            <th>Type</th>
-
-            
-
-            
-
-            <th class="last">Description</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>params</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Object</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>object containing parameters passed to the render prop</p></td>
-</tr>
-
-  
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>story</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Object</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>story object</p></td>
-</tr>
-
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>config</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Object</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>config object</p></td>
-</tr>
-
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>element</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Object</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>the story element. This is same as the story element found in the story API response</p>
-<pre class="prettyprint source lang-javascript"><code>...
-ampRoutes(app, {
- render: {
-   storyElementRender: {
-     blockquoteRender: ({ story, config, element }) => &lt;MyCustomBlockQuote story={story} config={config} storyElement={element} />
-   }
- }
-})
-...
-</code></pre></td>
-</tr>
-
-  
-
-
-        
-        </tbody>
-    </table>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="atoms_story-elements_blockquote_blockquote.tsx.html" class="button">View Source</a>
-            <span>
-                <a href="atoms_story-elements_blockquote_blockquote.tsx.html">atoms/story-elements/blockquote/blockquote.tsx</a>, <a href="atoms_story-elements_blockquote_blockquote.tsx.html#line91">line 91</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-                </div>
-            </div>
-        
-    
-    </div>
-    
-        
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { Fragment } from "react";
+import Helmet from "react-helmet";
+import atob from "atob";
+import { withConfig } from "../../context";
+
+export const VideoWebStoryBase = ({ config, videoElement, imageElement }) => {
+  const videoUrl = videoElement &amp;&amp; atob(`${videoElement["embed-js"]}`);
+  const format = videoUrl.split(".")[3];
+  const poster = imageElement ? `https://${config.publisherConfig["cdn-image"]}/${imageElement["image-s3-key"]}` : null;
+  return (
+    &lt;Fragment>
+      &lt;Helmet>
+        &lt;script async={undefined} custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js" />
+      &lt;/Helmet>
+      &lt;amp-story-grid-layer template="fill">
+        &lt;amp-video autoplay="" poster={poster} height="auto" layout="responsive">
+          &lt;source src={videoUrl} type={`video/${format}`} />
+        &lt;/amp-video>
+      &lt;/amp-story-grid-layer>
+    &lt;/Fragment>
+  );
+};
+
+/**
+ *
+ * VideoWebStory atom. Provides video support for web stories
+ *
+ * @param {Object} params required. The params object
+ * @param {Object} params.videoElement required. video element of the story card
+ * @param {Object} params.imageElement required. image element to show as a poster
+ *
+ * @category Atoms
+ * @component
+ */
+
+export const VideoWebStory = withConfig(VideoWebStoryBase);
+</code></pre>
+        </article>
+    </section>
 
 
 

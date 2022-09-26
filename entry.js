@@ -130,8 +130,11 @@ reactComponents['Navbar'] = Component34;
 import Component35 from '../src/molecules/related-stories/related-stories.tsx';
 reactComponents['RelatedStories'] = Component35;
 
-import Component36 from '../src/templates/visual-story/visual-story.tsx';
-reactComponents['VisualStory'] = Component36;
+import Component36 from '../src/atoms/video-web-story/video-web-story.tsx';
+reactComponents['VideoWebStory'] = Component36;
 
-import Component37 from '../src/molecules/webengage/webengage.tsx';
-reactComponents['WebEngage'] = Component37;
+import Component37 from '../src/templates/visual-story/visual-story.tsx';
+reactComponents['VisualStory'] = Component37;
+
+import Component38 from '../src/molecules/webengage/webengage.tsx';
+reactComponents['WebEngage'] = Component38;
