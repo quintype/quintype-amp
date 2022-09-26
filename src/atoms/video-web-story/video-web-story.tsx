@@ -21,4 +21,16 @@ export const VideoWebStoryBase = ({ config, videoElement, imageElement }) => {
   );
 };
 
+/**
+ *
+ * VideoWebStory atom. Provides video support for web stories
+ *
+ * @param {Object} params required. The params object
+ * @param {Object} params.videoElement required. video element of the story card
+ * @param {Object} params.imageElement required. image element to show as a poster
+ *
+ * @category Atoms
+ * @component
+ */
+
 export const VideoWebStory = withConfig(VideoWebStoryBase);
