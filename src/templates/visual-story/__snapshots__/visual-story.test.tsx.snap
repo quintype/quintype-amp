@@ -4051,6 +4051,7 @@ exports[`visual story template should match snapshot 1`] = `
     </Component>
     <Component />
     <Component />
+    <Component />
   </Component>
 </Providers>
 `;
