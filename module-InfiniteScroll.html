@@ -172,12 +172,51 @@
     
     
     <div class="description">
-        <p>Infinite Scroll:
-In order to enable infinite scroll in amp pages, there needs to be a collection created with slug <code>amp-infinite-scroll</code>. The stories from this collection power the infinite scroll.
-Please note that stories behind hard paywall (i.e. which have story.access === <code>subscription</code>) are not shown in infinite scroll.
-Infinite scroll can be disabled by deleting the collection having slug <code>amp-infinite-scroll</code>.</p>
-<p>The text for the separator that separates two stories in an infinite scroll can be customized. Pass the text of your choice to opts.featureConfig.infiniteScroll.storySeparatorText.</p>
+        <p>Infinite Scroll:</p>
+<ul>
+<li>
+<p>We can enable infinite scroll in amp pages in 3 ways:</p>
+</li>
+<li>
+<p>1:  If <code>featureConfig &gt; infiniteScroll &gt; source</code> is <code>custom</code>
+then provide an async custom function for <code>inlineConfig</code> &amp; <code>remoteConfigEndpoint</code>
+infiniteScroll is powered by <code>customFunction</code> response.</p>
+<ul>
+<li>The response should be in this format for inline configurations
+<ul>
+<li><code>[ { &quot;image&quot;: &quot;https://example.com/image.jpg&quot;, &quot;title&quot;: &quot;This article shows next&quot;, &quot;url&quot;: &quot;https://example.com/article.amp.html&quot; }, // ... ]</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Remote configurations require the server to return a JSON object with the pages key/value pair.</p>
+<ul>
+<li><code>{ pages: [ { &quot;image&quot;: &quot;https://example.com/image.jpg&quot;, &quot;title&quot;: &quot;This article shows next&quot;, &quot;url&quot;: &quot;https://example.com/article.amp.html&quot; } // ... ] }</code></li>
+</ul>
+</li>
+<li>
+<p>For more information, please go through <code>https://amp.dev/documentation/components/amp-next-page/</code></p>
+</li>
+<li>
+<p>2: If <code>featureConfig &gt; infiniteScroll &gt; source</code> is <code>relatedStoriesApi</code> - infiniteScroll is powered by <code>relatedStoriesApi</code> response.</p>
+</li>
+<li>
+<p>3: If <code>featureConfig &gt; infiniteScroll &gt; source</code> is <code>not provided</code>, there needs to be a collection created with slug <code>amp-infinite-scroll</code>. The stories from this collection power the infinite scroll.</p>
+</li>
+<li>
+<p>Please note that stories behind hard paywall (i.e. which have story.access === <code>subscription</code>) are not shown in infinite scroll.</p>
+</li>
+<li>
+<p>Infinite scroll can be disabled by deleting the collection having slug <code>amp-infinite-scroll</code>.</p>
+</li>
+<li>
+<p>The text for the separator that separates two stories in an infinite scroll can be customized. Pass the text of your choice to <code>opts.featureConfig.infiniteScroll.storySeparatorText</code>.</p>
+</li>
+<li>
 <p>If you wish to override infinite scroll content, you can do so using the <code>infiniteScrollRender</code> render prop. See opts tutorial for more info.</p>
+</li>
+</ul>
     </div>
     
 
