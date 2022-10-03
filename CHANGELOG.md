@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.6.0](https://github.com/quintype/quintype-amp/compare/v2.4.28...v2.6.0) (2022-10-03)
+
+
+### Features
+
+* add video support for webstories ([#389](https://github.com/quintype/quintype-amp/issues/389)) ([d8916c3](https://github.com/quintype/quintype-amp/commit/d8916c354e4d93c6a6509657480a0dd5af0839bf))
+
 ## [2.5.0](https://github.com/quintype/quintype-amp/compare/v2.4.28...v2.5.0) (2022-09-19)
 
 
