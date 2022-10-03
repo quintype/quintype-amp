@@ -606,6 +606,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
         "featureConfig": Object {
           "infiniteScroll": Object {
             "infiniteScrollInlineConfig": "[{\\"image\\":\\"https://foo.com/puppies.jpg\\",\\"title\\":\\"Puppies Page\\",\\"url\\":\\"/puppies\\"}]",
+            "remoteConfigEndpoint": "https://foo.com/amp/api/infinite-scroll",
           },
           "localization": Object {
             "translations": Object {
