@@ -15,7 +15,7 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
 
   const videoElement = card["story-elements"].find((el) => el.type === "jsembed");
 
-  const { imageAnimation, textAnimation }: AnimationTypes = getAnimationProps(config, story);
+  const { textAnimation }: AnimationTypes = getAnimationProps(config, story);
   const ctaElements = card["story-elements"].filter((el) => el.subtype === "cta");
   const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"], {});
   let outlinkProps = {};
@@ -38,7 +38,7 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
             aspectRatio={[480, 640]}
             alt={imageElement.title || imageElement["image-attribution"]}
             lightbox={false}
-            {...imageAnimation}
+          // {...imageAnimation}
           />
         </amp-story-grid-layer>
       )}
