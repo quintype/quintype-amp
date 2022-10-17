@@ -36,7 +36,7 @@ const myOptsObj = {
     infiniteScroll: {
       source: "custom",
       inlineConfig: async getCustomStoryList(){},
-      remoteConfigEndpoint: "/amp/api/infinite-scroll",
+      remoteConfigEndpoint: "amp/api/infinite-scroll",
     }
   },
 };
