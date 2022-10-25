@@ -41,19 +41,23 @@ const { TopSlot, BottomSlot, LiveBlogCardSlot } = StoryPageSlots;
  */
 export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
   const footerText = get(config, ["publisherConfig", "publisher-settings", "copyright"], null);
+  let showPoweredByQt = get(config, ["opts", "featureConfig", "showPoweredByQt"], true);
   const infiniteScrollInlineConfig = get(
     config,
     ["opts", "featureConfig", "infiniteScroll", "infiniteScrollInlineConfig"],
     null
   );
+
+  showPoweredByQt = typeof showPoweredByQt === "function" ? showPoweredByQt() : showPoweredByQt;
+
   const infiniteScrollExists = !!(infiniteScrollInlineConfig && infiniteScrollInlineConfig.length);
-  let lastComponent = <Footer text={footerText} />;
+  let lastComponent = <Footer text={footerText} showPoweredByQt={showPoweredByQt} />;
   let navbarComponent = <Navbar />;
   if (infiniteScrollExists) {
     lastComponent = (
       <InfiniteScroll inlineConfig={infiniteScrollInlineConfig}>
         <div next-page-hide="true" footer="true">
-          <Footer text={footerText} />
+          <Footer text={footerText} showPoweredByQt={showPoweredByQt} />
         </div>
       </InfiniteScroll>
     );

@@ -27,7 +27,7 @@ const StyledFooter = styled("footer")<FooterTypes>`
 `;
 
 const BaseFooter = (props: FooterTypes & { theme?: DefaultTheme }) => {
-  const { text, children, style } = props;
+  const { text, children, style, showPoweredByQt } = props;
 
   return (
     <StyledFooter style={style}>
@@ -36,9 +36,11 @@ const BaseFooter = (props: FooterTypes & { theme?: DefaultTheme }) => {
       ) : (
         <Fragment>
           {text && <p>{text}</p>}
-          <PoweredBy href="https://www.quintype.com/" rel="noreferrer noopener" target="_blank">
-            Powered by Quintype
-          </PoweredBy>
+          {showPoweredByQt && (
+            <PoweredBy href="https://www.quintype.com/" rel="noreferrer noopener" target="_blank">
+              Powered by Quintype
+            </PoweredBy>
+          )}
         </Fragment>
       )}
     </StyledFooter>
