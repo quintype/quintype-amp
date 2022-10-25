@@ -1,8 +1,10 @@
 import React, { Fragment } from "react";
-import styled, { css, DefaultTheme } from "styled-components";
+import styled, { css } from "styled-components";
+import get from "lodash.get";
 import { FooterTypes } from "./types";
 import { genStyles } from "../../helpers/gen-styles";
 import { withTheme } from "styled-components";
+import { withConfig } from "../../context";
 
 const baseStyles = css`
   display: flex;
@@ -22,13 +24,14 @@ const PoweredBy = styled.a`
   font-size: ${(props) => props.theme.font.size.xxs};
 `;
 
-const StyledFooter = styled("footer")<FooterTypes>`
+const StyledFooter = styled("footer") <FooterTypes>`
   ${(props) => genStyles(baseStyles, props.style, props)}
 `;
 
-const BaseFooter = (props: FooterTypes & { theme?: DefaultTheme }) => {
-  const { text, children, style, showPoweredByQt } = props;
+const BaseFooter = ({ text, children, style, config, theme }: FooterTypes) => {
+  let showPoweredByQt = get(config, ["opts", "featureConfig", "showPoweredByQt"], true);
 
+  showPoweredByQt = typeof showPoweredByQt === "function" ? showPoweredByQt(config) : showPoweredByQt;
   return (
     <StyledFooter style={style}>
       {children ? (
@@ -49,5 +52,5 @@ const BaseFooter = (props: FooterTypes & { theme?: DefaultTheme }) => {
 
 export { BaseFooter };
 
-const Footer = withTheme(BaseFooter);
+const Footer = withConfig(withTheme(BaseFooter));
 export { Footer };

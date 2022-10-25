@@ -44,22 +44,19 @@ const Wrapper = styled.div`
  */
 export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
   const footerText = get(config, ["publisherConfig", "publisher-settings", "copyright"], null);
-  let showPoweredByQt = get(config, ["opts", "featureConfig", "showPoweredByQt"], true);
   const infiniteScrollInlineConfig = get(
     config,
     ["opts", "featureConfig", "infiniteScroll", "infiniteScrollInlineConfig"],
     null
   );
 
-  showPoweredByQt = typeof showPoweredByQt === "function" ? showPoweredByQt() : showPoweredByQt;
-
-  let lastComponent = <Footer text={footerText} showPoweredByQt={showPoweredByQt} />;
+  let lastComponent = <Footer text={footerText} />;
   let navbarComponent = <Navbar />;
   if (infiniteScrollExists(config)) {
     lastComponent = (
       <InfiniteScroll inlineConfig={infiniteScrollInlineConfig}>
         <div next-page-hide="true" footer="true">
-          <Footer text={footerText} showPoweredByQt={showPoweredByQt} />
+          <Footer text={footerText} />
         </div>
       </InfiniteScroll>
     );
