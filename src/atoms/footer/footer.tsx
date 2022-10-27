@@ -18,17 +18,17 @@ const baseStyles = css`
   color: ${(props) => props.theme.color.footerTextColor};
 `;
 
-const PoweredBy = styled.a`
+export const PoweredBy = styled.a`
   text-decoration: none;
   color: ${(props) => props.theme.color.footerTextColor};
   font-size: ${(props) => props.theme.font.size.xxs};
 `;
 
-const StyledFooter = styled("footer") <FooterTypes>`
+const StyledFooter = styled("footer")<FooterTypes>`
   ${(props) => genStyles(baseStyles, props.style, props)}
 `;
 
-const BaseFooter = ({ text, children, style, config, theme }: FooterTypes) => {
+const BaseFooter = ({ text, children, style, config }: FooterTypes) => {
   let showPoweredByQt = get(config, ["opts", "featureConfig", "showPoweredByQt"], true);
 
   showPoweredByQt = typeof showPoweredByQt === "function" ? showPoweredByQt(config) : showPoweredByQt;
