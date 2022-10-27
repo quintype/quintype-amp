@@ -29,7 +29,7 @@ const StyledFooter = styled("footer") <FooterTypes>`
 `;
 
 const BaseFooter = ({ text, children, style, config }: FooterTypes) => {
-  let showPoweredByQt: boolean | (() => boolean) = get(config, ["opts", "featureConfig", "showPoweredByQt"], true);
+  let showPoweredByQt: boolean | ((config) => boolean) = get(config, ["opts", "featureConfig", "showPoweredByQt"], true);
 
   showPoweredByQt = typeof showPoweredByQt === "function" ? showPoweredByQt(config) : showPoweredByQt;
   return (

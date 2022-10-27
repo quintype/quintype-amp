@@ -5,7 +5,7 @@ export interface FooterTypes {
   text?: string;
   children?: JSX.Element[] | JSX.Element | React.ReactChildren | React.ReactChild;
   style?: (props) => CSSObject;
-  showPoweredByQt?: boolean | (() => boolean);
+  showPoweredByQt?: boolean | ((config) => boolean);
   config?: Config;
   theme?: DefaultTheme;
 }
