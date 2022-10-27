@@ -24,12 +24,12 @@ export const PoweredBy = styled.a`
   font-size: ${(props) => props.theme.font.size.xxs};
 `;
 
-const StyledFooter = styled("footer")<FooterTypes>`
+const StyledFooter = styled("footer") <FooterTypes>`
   ${(props) => genStyles(baseStyles, props.style, props)}
 `;
 
 const BaseFooter = ({ text, children, style, config }: FooterTypes) => {
-  let showPoweredByQt = get(config, ["opts", "featureConfig", "showPoweredByQt"], true);
+  let showPoweredByQt: boolean | (() => boolean) = get(config, ["opts", "featureConfig", "showPoweredByQt"], true);
 
   showPoweredByQt = typeof showPoweredByQt === "function" ? showPoweredByQt(config) : showPoweredByQt;
   return (
