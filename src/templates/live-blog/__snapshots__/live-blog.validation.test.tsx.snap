@@ -6002,7 +6002,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
       footer="true"
       next-page-hide="true"
     >
-      <WithTheme(BaseFooter)
+      <Component
         text="Copyright © 2020 Newslaundry Media Private Limited.  All Rights Reserved "
       />
     </div>

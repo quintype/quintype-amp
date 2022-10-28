@@ -208,6 +208,7 @@ interface SubscriptionRenderPropTypes {
 }
 
 interface FeatureConfigTypes {
+  showPoweredByQt?: boolean | (() => boolean);
   infiniteScroll?: {
     infiniteScrollInlineConfig: string;
     storySeparatorText?: string;
@@ -247,35 +248,35 @@ interface FeatureConfigTypes {
     menuGroupSlug?: string;
   };
   visualStories?:
-  | {
-    logoAlignment?: string;
-    logoUrl?: string;
-    autoAdvanceAfter?: string;
-    ads?: {
-      doubleclick?: {
-        dataSlot: string;
-      };
-    };
-    animation?: {
-      image: VisualStoryAnimationFeatureConfig;
-    };
-  }
-  | [
-    {
-      logoAlignment?: string;
-      logoUrl?: string;
-      autoAdvanceAfter?: string;
-      ads?: {
-        doubleclick?: {
-          dataSlot: string;
+    | {
+        logoAlignment?: string;
+        logoUrl?: string;
+        autoAdvanceAfter?: string;
+        ads?: {
+          doubleclick?: {
+            dataSlot: string;
+          };
         };
-      };
-      animation?: {
-        image: VisualStoryAnimationFeatureConfig;
-        text?: VisualStoryAnimationFeatureConfig;
-      };
-    }
-  ];
+        animation?: {
+          image: VisualStoryAnimationFeatureConfig;
+        };
+      }
+    | [
+        {
+          logoAlignment?: string;
+          logoUrl?: string;
+          autoAdvanceAfter?: string;
+          ads?: {
+            doubleclick?: {
+              dataSlot: string;
+            };
+          };
+          animation?: {
+            image: VisualStoryAnimationFeatureConfig;
+            text?: VisualStoryAnimationFeatureConfig;
+          };
+        }
+      ];
   localization?: Localization;
 }
 
