@@ -46,6 +46,7 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
     ["opts", "featureConfig", "infiniteScroll", "infiniteScrollInlineConfig"],
     null
   );
+
   const infiniteScrollExists = !!(infiniteScrollInlineConfig && infiniteScrollInlineConfig.length);
   let lastComponent = <Footer text={footerText} />;
   let navbarComponent = <Navbar />;

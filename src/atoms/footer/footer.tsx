@@ -1,8 +1,10 @@
 import React, { Fragment } from "react";
-import styled, { css, DefaultTheme } from "styled-components";
+import styled, { css } from "styled-components";
+import get from "lodash.get";
 import { FooterTypes } from "./types";
 import { genStyles } from "../../helpers/gen-styles";
 import { withTheme } from "styled-components";
+import { withConfig } from "../../context";
 
 const baseStyles = css`
   display: flex;
@@ -16,7 +18,7 @@ const baseStyles = css`
   color: ${(props) => props.theme.color.footerTextColor};
 `;
 
-const PoweredBy = styled.a`
+export const PoweredBy = styled.a`
   text-decoration: none;
   color: ${(props) => props.theme.color.footerTextColor};
   font-size: ${(props) => props.theme.font.size.xxs};
@@ -26,9 +28,14 @@ const StyledFooter = styled("footer")<FooterTypes>`
   ${(props) => genStyles(baseStyles, props.style, props)}
 `;
 
-const BaseFooter = (props: FooterTypes & { theme?: DefaultTheme }) => {
-  const { text, children, style } = props;
+const BaseFooter = ({ text, children, style, config }: FooterTypes) => {
+  let showPoweredByQt: boolean | ((config) => boolean) = get(
+    config,
+    ["opts", "featureConfig", "showPoweredByQt"],
+    true
+  );
 
+  showPoweredByQt = typeof showPoweredByQt === "function" ? showPoweredByQt(config) : showPoweredByQt;
   return (
     <StyledFooter style={style}>
       {children ? (
@@ -36,9 +43,11 @@ const BaseFooter = (props: FooterTypes & { theme?: DefaultTheme }) => {
       ) : (
         <Fragment>
           {text && <p>{text}</p>}
-          <PoweredBy href="https://www.quintype.com/" rel="noreferrer noopener" target="_blank">
-            Powered by Quintype
-          </PoweredBy>
+          {showPoweredByQt && (
+            <PoweredBy href="https://www.quintype.com/" rel="noreferrer noopener" target="_blank">
+              Powered by Quintype
+            </PoweredBy>
+          )}
         </Fragment>
       )}
     </StyledFooter>
@@ -47,5 +56,5 @@ const BaseFooter = (props: FooterTypes & { theme?: DefaultTheme }) => {
 
 export { BaseFooter };
 
-const Footer = withTheme(BaseFooter);
+const Footer = withConfig(withTheme(BaseFooter));
 export { Footer };

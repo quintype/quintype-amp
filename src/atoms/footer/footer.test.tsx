@@ -1,6 +1,8 @@
 import React from "react";
-import { BaseFooter } from "./footer";
+import { BaseFooter, PoweredBy } from "./footer";
 import { shallow } from "enzyme";
+import { Config } from "../../types/config";
+import { config } from "../../../src/__fixtures__";
 
 describe("Footer", () => {
   it("should render", () => {
@@ -19,5 +21,53 @@ describe("Footer", () => {
       </BaseFooter>
     );
     expect(wrapper.find("amp-img").length).toBe(1);
+  });
+  it("should render powered by quintype when showPoweredByQt attribute is not passed", () => {
+    const wrapper = shallow(<BaseFooter config={config} />);
+    expect(wrapper.find(PoweredBy).exists()).toBeTruthy();
+  });
+  it("should render powered by quintype when showPoweredByQt attribute is passed as a function with truthy value", () => {
+    const defaultConfig: Config = config;
+    defaultConfig.opts = {
+      featureConfig: {
+        showPoweredByQt: () => true
+      }
+    };
+
+    const wrapper = shallow(<BaseFooter config={defaultConfig} />);
+    expect(wrapper.find(PoweredBy).exists()).toBeTruthy();
+  });
+  it("should not render powered by quintype when showPoweredByQt attribute is passed as a function with falsy value", () => {
+    const defaultConfig: Config = config;
+    defaultConfig.opts = {
+      featureConfig: {
+        showPoweredByQt: () => false
+      }
+    };
+
+    const wrapper = shallow(<BaseFooter config={defaultConfig} />);
+    expect(wrapper.find(PoweredBy).exists()).toBeFalsy();
+  });
+  it("should render powered by quintype when showPoweredByQt attribute is passed as a boolean with truthy value", () => {
+    const defaultConfig: Config = config;
+    defaultConfig.opts = {
+      featureConfig: {
+        showPoweredByQt: true
+      }
+    };
+
+    const wrapper = shallow(<BaseFooter config={defaultConfig} />);
+    expect(wrapper.find(PoweredBy).exists()).toBeTruthy();
+  });
+  it("should not render powered by quintype when showPoweredByQt attribute is passed as a boolean with falsy value", () => {
+    const defaultConfig: Config = config;
+    defaultConfig.opts = {
+      featureConfig: {
+        showPoweredByQt: false
+      }
+    };
+
+    const wrapper = shallow(<BaseFooter config={defaultConfig} />);
+    expect(wrapper.find(PoweredBy).exists()).toBeFalsy();
   });
 });

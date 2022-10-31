@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.7.0](https://github.com/quintype/quintype-amp/compare/v2.6.2...v2.7.0) (2022-10-28)
+
+
+### Features
+
+* remove powered by quintype from the footer ([#399](https://github.com/quintype/quintype-amp/issues/399)) ([4204fd3](https://github.com/quintype/quintype-amp/commit/4204fd345aa969448e8654b501a77178f3a60b3d))
+
 ### [2.6.2](https://github.com/quintype/quintype-amp/compare/v2.6.0...v2.6.2) (2022-10-17)
 
 ## [2.6.0](https://github.com/quintype/quintype-amp/compare/v2.4.28...v2.6.0) (2022-10-03)
