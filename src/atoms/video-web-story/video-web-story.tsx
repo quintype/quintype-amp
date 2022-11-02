@@ -13,7 +13,7 @@ export const VideoWebStoryBase = ({ config, videoElement, imageElement }) => {
         <script async={undefined} custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js" />
       </Helmet>
       <amp-story-grid-layer template="fill">
-        <amp-video autoplay="" poster={poster} height="auto" layout="responsive">
+        <amp-video autoplay="" height="720" width="480" poster={poster} layout="responsive">
           <source src={videoUrl} type={`video/${format}`} />
         </amp-video>
       </amp-story-grid-layer>
