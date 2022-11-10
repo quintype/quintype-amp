@@ -13,7 +13,7 @@ describe("DateUpdated", () => {
   it("should pass correct date to <DateTime />", () => {
     const story = getDummyStory();
     const wrapper = shallow(<DateUpdatedBase story={story} />);
-    const timeZonedTime = utcToZonedTime(story["updated-at"], "Asia/Kolkata");
+    const timeZonedTime = utcToZonedTime(story["last-published-at"], "Asia/Kolkata");
     const humanizedString = formatDistanceToNow(timeZonedTime, { addSuffix: true });
     expect(wrapper.find(DateTime).prop("formattedDate")).toBe(humanizedString);
   });

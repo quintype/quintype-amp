@@ -6,7 +6,7 @@ import { RelatedStories } from "./related-stories";
 import { WebEngage } from "./webengage";
 import * as AmpAds from "./ads";
 import * as Slots from "./slots";
-import { DateLastPublished, DateUpdated } from "./date";
+import { DateLastPublished, DateUpdated, DateFirstPublished } from "./date";
 import { SocialShareHeader } from "./social-share-header";
 import { HardPaywallStoryContent } from "./hard-paywall-story-content";
 import { FullStoryContent } from "./full-story-content";
@@ -21,6 +21,7 @@ export {
   Slots,
   WebEngage,
   DateLastPublished,
+  DateFirstPublished,
   DateUpdated,
   SocialShareHeader,
   HardPaywallStoryContent,
