@@ -8,7 +8,7 @@ export const DatePublishedBase = ({ story, format, prepend, config, type = "firs
   const dateTime = type === "first" ? story["first-published-at"] : story["last-published-at"];
   if (!dateTime) return null;
 
-  const languageCode = get(config, ["publisherConfig", "language", "ietf-code"]);
+  const languageCode = get(config, ["publisherConfig", "language", "ietf-code"], "en");
   const localizationOpts = get(config, ["opts", "featureConfig", "localization"], {});
 
   if ("useLocaleDateStampOnGenericStory" in localizationOpts) {
