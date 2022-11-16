@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.8.0](https://github.com/quintype/quintype-amp/compare/v2.4.14...v2.8.0) (2022-11-16)
+
+
+### Features
+
+* add video support for webstories ([#389](https://github.com/quintype/quintype-amp/issues/389)) ([d8916c3](https://github.com/quintype/quintype-amp/commit/d8916c354e4d93c6a6509657480a0dd5af0839bf))
+* remove powered by quintype from the footer ([#399](https://github.com/quintype/quintype-amp/issues/399)) ([4204fd3](https://github.com/quintype/quintype-amp/commit/4204fd345aa969448e8654b501a77178f3a60b3d))
+
+
+### Bug Fixes
+
+* pass domain value to chartbeat  ([#401](https://github.com/quintype/quintype-amp/issues/401)) ([ff8d65f](https://github.com/quintype/quintype-amp/commit/ff8d65f320b5c185411ba9b841a0992abd417f63))
+* Support logo feature for visual story themes ([#382](https://github.com/quintype/quintype-amp/issues/382)) ([f8cb0ec](https://github.com/quintype/quintype-amp/commit/f8cb0ec32b2f9d228272618607b664cbabadc631))
+* text overflow issue in amp stories ([#378](https://github.com/quintype/quintype-amp/issues/378)) ([31a324e](https://github.com/quintype/quintype-amp/commit/31a324e9f2990000ca99d7fee483c26e9ec464d4))
+
 ### [2.7.4](https://github.com/quintype/quintype-amp/compare/v2.7.3...v2.7.4) (2022-11-08)
 
 
