@@ -1,5 +1,147 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`DateFirstPublished should match snapshot 1`] = `
+<Component
+  story={
+    Object {
+      "access": "subscription",
+      "access-level-value": null,
+      "alternative": Object {},
+      "asana-project-id": null,
+      "assignee-id": 708282,
+      "assignee-name": "Ravi Kanth",
+      "associated-series-collection-ids": Array [],
+      "author-id": 708282,
+      "author-name": "Ravi Kanth",
+      "authors": Array [
+        Object {
+          "avatar-s3-key": "barandbench/2020-01/82d5c350-9791-4cdb-88d5-f52b2d98a4ab/Bar_and_Bench_Icon_Purple.png",
+          "avatar-url": "https://images.assettype.com/barandbench/2020-01/82d5c350-9791-4cdb-88d5-f52b2d98a4ab/Bar_and_Bench_Icon_Purple.png",
+          "bio": null,
+          "contributor-role": null,
+          "id": 708282,
+          "name": "Ravi Kanth",
+          "slug": "ravi-kanth",
+          "twitter-handle": null,
+        },
+      ],
+      "autotags": Array [],
+      "breaking-news-linked-story-id": null,
+      "bullet-type": "123",
+      "canonical-url": null,
+      "cards": Array [],
+      "comments": null,
+      "content-created-at": 1581326633010,
+      "content-type": "story",
+      "content-updated-at": 1581503851699,
+      "contributors": null,
+      "created-at": 1581327522143,
+      "custom-slug": "Empowering India’s Future Lawyers and Leaders",
+      "entities": Object {},
+      "external-id": null,
+      "first-published-at": 1581503851412,
+      "headline": "#Sponsored: Empowering India’s Future Lawyers and Leaders",
+      "hero-image-attribution": "Create",
+      "hero-image-caption": null,
+      "hero-image-metadata": Object {
+        "file-name": "Discover_Law_Logo_1.jpg",
+        "file-size": 185634,
+        "focus-point": Array [
+          1275,
+          581,
+        ],
+        "height": 1162,
+        "mime-type": "image/jpeg",
+        "width": 2550,
+      },
+      "hero-image-s3-key": "barandbench/2020-02/43fb44c4-2028-4b90-95ad-dc54aad47a28/Discover_Law_Logo_1.jpg",
+      "id": "7f3d5bdb-ec52-4047-ac0d-df4036ec974b",
+      "is-amp-supported": true,
+      "is-live-blog": false,
+      "last-published-at": 1590539519368,
+      "linked-entities": Array [],
+      "linked-stories": Object {},
+      "linked-story-ids": Array [
+        "a7a06a3f-8d9a-450c-8eaa-387b7c8c6323",
+      ],
+      "metadata": Object {
+        "card-share": Object {
+          "shareable": false,
+        },
+        "sponsored-by": "Empowering India’s Future Lawyers and Leaders",
+      },
+      "owner-id": 708282,
+      "owner-name": "Ravi Kanth",
+      "publish-at": null,
+      "published-at": 1581503851412,
+      "publisher-id": 829,
+      "push-notification": null,
+      "push-notification-title": null,
+      "read-time": 5,
+      "sections": Array [
+        Object {
+          "collection": Object {
+            "id": 29911,
+            "name": "News",
+            "slug": "news",
+          },
+          "data": null,
+          "display-name": "News",
+          "domain-slug": null,
+          "id": 14017,
+          "name": "News",
+          "parent-id": null,
+          "section-url": "https://www.barandbench.com/news",
+          "slug": "news",
+        },
+      ],
+      "seo": Object {
+        "claim-reviews": Object {
+          "story": null,
+        },
+        "meta-description": "#Sponsored: New milestones and initiatives mark LSAC’s ongoing efforts to increase access to legal education in India. - Bar & Bench ",
+        "meta-keywords": Array [
+          "LSAC",
+          "Law School",
+          "legal Education",
+          "Lawyers",
+          "Advocates",
+          "India",
+          "Law",
+        ],
+        "meta-title": "Empowering India’s Future Lawyers and Leaders",
+      },
+      "sequence-no": null,
+      "slug": "news/empowering-indias-future-lawyers-and-leaders",
+      "status": "published",
+      "story-content-id": "7f3d5bdb-ec52-4047-ac0d-df4036ec974b",
+      "story-template": "text",
+      "story-version-id": "1110cdc2-a1d6-4a6c-9707-f4b9b516d49e",
+      "storyline-id": null,
+      "storyline-title": null,
+      "subheadline": "New milestones and initiatives mark LSAC’s ongoing efforts to increase access to legal education in India",
+      "summary": null,
+      "tags": Array [
+        Object {
+          "id": 2038546,
+          "meta-description": null,
+          "meta-title": null,
+          "name": "LSAC",
+          "slug": "lsac",
+          "tag-type": "Tag",
+        },
+      ],
+      "updated-at": 1581503848382,
+      "url": "https://www.barandbench.com/news/empowering-indias-future-lawyers-and-leaders",
+      "version": 12,
+      "votes": Object {},
+      "word-count": 1143,
+    }
+  }
+  type="first"
+/>
+`;
+
 exports[`DateLastPublished should match snapshot 1`] = `
 <Component
   story={

@@ -3984,7 +3984,7 @@ exports[`GenericStory Template should render 1`] = `
       "id": "7f3d5bdb-ec52-4047-ac0d-df4036ec974b",
       "is-amp-supported": true,
       "is-live-blog": false,
-      "last-published-at": 1581503851412,
+      "last-published-at": 1681503851412,
       "linked-entities": Array [],
       "linked-stories": Object {
         "a7a06a3f-8d9a-450c-8eaa-387b7c8c6323": Object {
