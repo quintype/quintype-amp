@@ -7,7 +7,7 @@
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66074042-1', 'auto');ga('send', 'pageview');</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AMP Library atoms/story-elements/instagram-element/instagram-element.tsx</title>
+  <title>AMP Library molecules/date/published/date-first-published.tsx</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -128,7 +128,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>atoms/story-elements/instagram-element/instagram-element.tsx</h1>
+                    <h1>molecules/date/published/date-first-published.tsx</h1>
                 </header>
                 
 
@@ -138,72 +138,30 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React from "react";
-import { StoryElementProps } from "../types";
-import { InstagramTypes } from "../../instagram/types";
-import { Instagram } from "../../instagram";
 import { withStoryAndConfig } from "../../../context";
-import get from "lodash.get";
-type InstagramElementProps = StoryElementProps &amp; Omit&lt;InstagramTypes, "data-shortcode">;
+import { DatePublishedTypes } from "./types";
+import { DatePublishedBase } from "./date-published-base";
 
-const getInstagramID = (url: string) => {
-  const exec = /instagram\.com\/p\/([^#\&amp;\?]*)\//.exec(url);
-  return exec ? exec[1] : null;
+export const DateFirstPublishedBase = ({ story, format, prepend, config }: DatePublishedTypes) => {
+  return &lt;DatePublishedBase story={story} format={format} prepend={prepend} config={config} type="first" />;
 };
 
-export const DefaultInstagramElement = ({
-  element,
-  layout = "responsive",
-  width = "16",
-  height = "9",
-  ...props
-}: InstagramElementProps) => {
-  const { metadata } = element;
-  let instagramID: string | null = null;
-
-  if (metadata &amp;&amp; metadata["instagram-id"]) {
-    instagramID = metadata["instagram-id"];
-  } else if (metadata &amp;&amp; metadata["instagram-url"]) {
-    instagramID = getInstagramID(metadata["instagram-url"]);
-  }
-  return instagramID ? (
-    &lt;Instagram data-shortcode={instagramID} layout={layout} width={width} height={height} {...props} />
-  ) : null;
-};
-
-export const InstagramElementBase = ({ element, story, config }: StoryElementProps) => {
-  const instagramElementRender = get(config, ["opts", "render", "storyElementRender", "instagramElementRender"], null);
-  return instagramElementRender ? (
-    instagramElementRender({ story, config, element })
-  ) : (
-    &lt;DefaultInstagramElement element={element} />
-  );
-};
 /**
- * InstagramElement is a story element.
- * The look of the InstagramElement can be changed using the render prop instagramElementRender. In case instagramElementRender is passed in the config, it is rendered. Otherwise a default InstagramElement is rendered.
+ * DateFirstPublished Component - uses library "date-fns-tz" to format the story publish date. Uses the "DateTime" atomic component internally
  *
- * @param {Object} params object containing parameters passed to the render prop
- * @param {Object} params.story story object
- * @param {Object} params.config config object
- * @param {Object} params.element the story element. This is same as the story element found in the story API response
- *
- * ```javascript
- * ...
- * ampRoutes(app, {
- *  render: {
- *    storyElementRender: {
- *      instagramElementRender: ({ story, config, element }) => &lt;MyCustomInstagramElement story={story} config={config} storyElement={element} />
- *    }
- *  }
- * })
- * ...
+ * ```js
+ * &lt;DateFirstPublished format="pp 'on' do MM yyyy" prepend="Date of publication: " />
  * ```
  *
- * @category StoryElements
- * @module InstagramElement
+ * @param {Object} props Object containing parameters passed to the render prop
+ * @param {String|Component} props.prepend Optional. String or Component (logo) that is prepended
+ * @param {String} props.format Optional. String that is used to format date. The default is "do MMM, yyyy 'at' p". For formatting info, check [the date-fns Docs]{@link https://date-fns.org/docs/format}
+ *
+ *  @category Molecules
  * @component
  */
-export const InstagramElement = withStoryAndConfig(InstagramElementBase);
+
+export const DateFirstPublished = withStoryAndConfig(DateFirstPublishedBase);
 </code></pre>
         </article>
     </section>

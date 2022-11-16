@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +5,7 @@
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66074042-1', 'auto');ga('send', 'pageview');</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AMP Library atoms/story-elements/instagram-element/instagram-element.tsx</title>
+  <title>AMP Library DateFirstPublished</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -127,86 +125,269 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Source</p>
-                    <h1>atoms/story-elements/instagram-element/instagram-element.tsx</h1>
+                    <p>Components</p>
+                    <h1>DateFirstPublished</h1>
                 </header>
                 
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>import React from "react";
-import { StoryElementProps } from "../types";
-import { InstagramTypes } from "../../instagram/types";
-import { Instagram } from "../../instagram";
-import { withStoryAndConfig } from "../../../context";
-import get from "lodash.get";
-type InstagramElementProps = StoryElementProps &amp; Omit&lt;InstagramTypes, "data-shortcode">;
+        <h2>
+            &ltDateFirstPublished  /&gt
+        </h2>
+        
+    
+</header>
 
-const getInstagramID = (url: string) => {
-  const exec = /instagram\.com\/p\/([^#\&amp;\?]*)\//.exec(url);
-  return exec ? exec[1] : null;
-};
+<article>
+    <div class="container-overview">
+    
+        
+            <div class='vertical-section'>
+                <div class="members">
+                    <div class="member">
+                        <div class=name>
+                            <span class="tag">Constructor</span>
+                        </div>
+                        
 
-export const DefaultInstagramElement = ({
-  element,
-  layout = "responsive",
-  width = "16",
-  height = "9",
-  ...props
-}: InstagramElementProps) => {
-  const { metadata } = element;
-  let instagramID: string | null = null;
 
-  if (metadata &amp;&amp; metadata["instagram-id"]) {
-    instagramID = metadata["instagram-id"];
-  } else if (metadata &amp;&amp; metadata["instagram-url"]) {
-    instagramID = getInstagramID(metadata["instagram-url"]);
-  }
-  return instagramID ? (
-    &lt;Instagram data-shortcode={instagramID} layout={layout} width={width} height={height} {...props} />
-  ) : null;
-};
+    
+    <h4 class="name" id="DateFirstPublished">
+        <a class="href-link" href="#DateFirstPublished">#</a>
+        
+        <span class="code-name">
+            
+                &ltDateFirstPublished  /&gt
+            
+        </span>
+    </h4>
+    
 
-export const InstagramElementBase = ({ element, story, config }: StoryElementProps) => {
-  const instagramElementRender = get(config, ["opts", "render", "storyElementRender", "instagramElementRender"], null);
-  return instagramElementRender ? (
-    instagramElementRender({ story, config, element })
-  ) : (
-    &lt;DefaultInstagramElement element={element} />
-  );
-};
-/**
- * InstagramElement is a story element.
- * The look of the InstagramElement can be changed using the render prop instagramElementRender. In case instagramElementRender is passed in the config, it is rendered. Otherwise a default InstagramElement is rendered.
- *
- * @param {Object} params object containing parameters passed to the render prop
- * @param {Object} params.story story object
- * @param {Object} params.config config object
- * @param {Object} params.element the story element. This is same as the story element found in the story API response
- *
- * ```javascript
- * ...
- * ampRoutes(app, {
- *  render: {
- *    storyElementRender: {
- *      instagramElementRender: ({ story, config, element }) => &lt;MyCustomInstagramElement story={story} config={config} storyElement={element} />
- *    }
- *  }
- * })
- * ...
- * ```
- *
- * @category StoryElements
- * @module InstagramElement
- * @component
- */
-export const InstagramElement = withStoryAndConfig(InstagramElementBase);
+    
+    
+    <div class="description">
+        <p>DateFirstPublished Component - uses library &quot;date-fns-tz&quot; to format the story publish date. Uses the &quot;DateTime&quot; atomic component internally</p>
+<pre class="prettyprint source lang-js"><code>&lt;DateFirstPublished format=&quot;pp 'on' do MM yyyy&quot; prepend=&quot;Date of publication: &quot; />
 </code></pre>
-        </article>
-    </section>
+    </div>
+    
+
+
+
+
+
+
+
+    
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>props</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">Object</span>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>Object containing parameters passed to the render prop</p></td>
+</tr>
+
+  
+  
+    
+<tr class="deep-level-1">
+  
+      <td class="name"><code>prepend</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Component</span>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>Optional. String or Component (logo) that is prepended</p></td>
+</tr>
+
+  
+    
+<tr class="deep-level-1">
+  
+      <td class="name"><code>format</code></td>
+  
+
+  <td class="type">
+  
+      
+<span class="param-type">String</span>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>Optional. String that is used to format date. The default is &quot;do MMM, yyyy 'at' p&quot;. For formatting info, check <a href="https://date-fns.org/docs/format">the date-fns Docs</a></p></td>
+</tr>
+
+  
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="molecules_date_published_date-first-published.tsx.html" class="button">View Source</a>
+            <span>
+                <a href="molecules_date_published_date-first-published.tsx.html">molecules/date/published/date-first-published.tsx</a>, <a href="molecules_date_published_date-first-published.tsx.html#line22">line 22</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        
+    
+    </div>
+    
+        
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
