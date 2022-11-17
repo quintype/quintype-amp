@@ -4,7 +4,7 @@ import { ConfigProvider } from "../../context/config/config-context";
 import { Theme } from "../../context/theme";
 import { getTokensForDarkTheme } from "../../utils/theme";
 import { WebStory, CoverPage, AmpStoryAutoAds, WebStoryPageComponents, AmpStoryPage } from "../../atoms/visual-story";
-import { GoogleTagManager, GoogleAnalytics, QuintypeAnalytics, Fonts } from "../../atoms";
+import { ComScore, GoogleTagManager, GoogleAnalytics, QuintypeAnalytics, Fonts } from "../../atoms";
 import { CommonTemplateTypes } from "../common-template-types";
 import { getTokensForVisualStory } from "./visual-story.helpers";
 import { Card } from "../../types/story";
@@ -41,6 +41,7 @@ export const VisualStory = ({ story, config }: CommonTemplateTypes) => {
           ))}
         <GoogleAnalytics />
         <QuintypeAnalytics />
+        <ComScore />
       </WebStory>
     </Providers>
   );
