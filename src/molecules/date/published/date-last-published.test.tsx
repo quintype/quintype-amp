@@ -1,33 +1,50 @@
 import React from "react";
 import { DateLastPublishedBase } from "./date-last-published";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 import { DateTime } from "../../../atoms";
 import { config } from "../../../__fixtures__";
-
+import { ThemeProvider } from "styled-components";
+import defaultTokens from "../../../context/theme/tokens";
 describe("DateLastPublished", () => {
   it("should match snapshot", () => {
     const wrapper = shallow(<DateLastPublishedBase story={getDummyStory()} />);
     expect(wrapper).toMatchSnapshot();
   });
   it("should pass date in default format to <DateTime />", () => {
-    const wrapper = shallow(<DateLastPublishedBase story={getDummyStory()} />);
+    const wrapper = mount(
+      <ThemeProvider theme={defaultTokens}>
+        <DateLastPublishedBase story={getDummyStory()} />
+      </ThemeProvider>
+    );
     expect(wrapper.find(DateTime).prop("formattedDate")).toBe("27th May, 2020 at 6:01 AM");
   });
   it("should pass date in custom format to <DateTime />", () => {
-    const wrapper = shallow(<DateLastPublishedBase story={getDummyStory()} format="dd MM yyyy" />);
+    const wrapper = mount(
+      <ThemeProvider theme={defaultTokens}>
+        <DateLastPublishedBase story={getDummyStory()} format="dd MM yyyy" />
+      </ThemeProvider>
+    );
     expect(wrapper.find(DateTime).prop("formattedDate")).toBe("27 05 2020");
   });
   it("should pass prepend to <DateTime />", () => {
-    const wrapper = shallow(<DateLastPublishedBase story={getDummyStory()} prepend="lorem ipsum" />);
+    const wrapper = mount(
+      <ThemeProvider theme={defaultTokens}>
+        <DateLastPublishedBase story={getDummyStory()} prepend="lorem ipsum" />
+      </ThemeProvider>
+    );
     expect(wrapper.find(DateTime).prop("prepend")).toBe("lorem ipsum");
   });
   it("should pass localized formattedDate to <DateTime />", () => {
-    const wrapper = shallow(<DateLastPublishedBase story={getDummyStory()} config={config} />);
+    const wrapper = mount(
+      <ThemeProvider theme={defaultTokens}>
+        <DateLastPublishedBase story={getDummyStory()} config={config} />
+      </ThemeProvider>
+    );
     expect(wrapper.find(DateTime).prop("formattedDate")).toBe("May 27, 2020, 6:01 AM");
   });
 });
 
-const getDummyStory = () => {
+export const getDummyStory = () => {
   return {
     "updated-at": 1581503848382,
     seo: {

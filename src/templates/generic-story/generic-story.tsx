@@ -49,6 +49,7 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
     ["opts", "featureConfig", "infiniteScroll", "infiniteScrollInlineConfig"],
     null
   );
+
   let lastComponent = <Footer text={footerText} />;
   let navbarComponent = <Navbar />;
   if (infiniteScrollExists(config)) {

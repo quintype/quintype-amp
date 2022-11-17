@@ -641,7 +641,8 @@ export const configOpts: ConfigOpts = {
   },
   featureConfig: {
     infiniteScroll: {
-      infiniteScrollInlineConfig
+      infiniteScrollInlineConfig,
+      remoteConfigEndpoint: "https://foo.com/amp/api/infinite-scroll"
     },
     relatedStories: {
       stories: relatedStories

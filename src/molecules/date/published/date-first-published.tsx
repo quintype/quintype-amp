@@ -3,15 +3,15 @@ import { withStoryAndConfig } from "../../../context";
 import { DatePublishedTypes } from "./types";
 import { DatePublishedBase } from "./date-published-base";
 
-export const DateLastPublishedBase = ({ story, format, prepend, config }: DatePublishedTypes) => {
-  return <DatePublishedBase story={story} format={format} prepend={prepend} config={config} type="last" />;
+export const DateFirstPublishedBase = ({ story, format, prepend, config }: DatePublishedTypes) => {
+  return <DatePublishedBase story={story} format={format} prepend={prepend} config={config} type="first" />;
 };
 
 /**
- * DateLastPublished Component - uses library "date-fns-tz" to format the story publish date. Uses the "DateTime" atomic component internally
+ * DateFirstPublished Component - uses library "date-fns-tz" to format the story publish date. Uses the "DateTime" atomic component internally
  *
  * ```js
- * <DateLastPublished format="pp 'on' do MM yyyy" prepend="Date of publication: " />
+ * <DateFirstPublished format="pp 'on' do MM yyyy" prepend="Date of publication: " />
  * ```
  *
  * @param {Object} props Object containing parameters passed to the render prop
@@ -22,4 +22,4 @@ export const DateLastPublishedBase = ({ story, format, prepend, config }: DatePu
  * @component
  */
 
-export const DateLastPublished = withStoryAndConfig(DateLastPublishedBase);
+export const DateFirstPublished = withStoryAndConfig(DateFirstPublishedBase);

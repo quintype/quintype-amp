@@ -9,6 +9,9 @@ const config = {
       uid: "61123",
       domain: "vikatan.com"
     }
+  },
+  publisherConfig: {
+    "sketches-host": "https://vikatan.com"
   }
 };
 const noChartbeat = {
@@ -20,6 +23,9 @@ const chartbeatWithoutUid = {
       uid: "",
       domain: "vikatan.com"
     }
+  },
+  publisherConfig: {
+    "sketches-host": "vikatan.com"
   }
 };
 describe("ChartBeat", () => {

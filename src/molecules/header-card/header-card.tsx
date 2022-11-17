@@ -4,7 +4,7 @@ import { CommonRenderPropTypes } from "../../types/config";
 import styled from "styled-components";
 import get from "lodash.get";
 import { Author, Section, Spacer } from "../../atoms";
-import { HeroImage, SocialShareHeader, DateLastPublished } from "../index";
+import { HeroImage, SocialShareHeader, DateFirstPublished } from "../index";
 import { getLocalizedWord } from "../../utils/localize-words/localization";
 
 export const HeaderCardBase = ({ story, config }: CommonRenderPropTypes) => {
@@ -39,7 +39,7 @@ export const DefaultHeaderCard = ({ story, config }: CommonRenderPropTypes) => {
         <Spacer token="s" />
         <Author authors={story.authors} prepend={getLocalizedWord(config, "by", "By")} />
         <Spacer token="xxs" />
-        <DateLastPublished config={config} prepend={getLocalizedWord(config, "published", "Published:")} />
+        <DateFirstPublished config={config} prepend={getLocalizedWord(config, "published", "Published:")} />
         <Spacer token="m" />
         <SocialShareHeader fbAppId={publisherConfig.facebook && publisherConfig.facebook["app-id"]} />
         <Spacer token="s" />

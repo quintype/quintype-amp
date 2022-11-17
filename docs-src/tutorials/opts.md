@@ -29,7 +29,16 @@ const myOptsObj = {
       // ... other SE renders
     }
   },
-  featureConfig: {},
+// InfiniteScroll is powered by default with `amp-infinite-scroll` collection (there needs to be a collection created with slug `amp-infinite-scroll`. The stories from this collection power the infinite scroll)
+ // if source is `custom` - we need to provide an async function for inlineConfig & remoteConfigEndpoint
+ // if source is `relatedStoriesApi` - infiniteScroll is powered by relatedStoriesApi
+  featureConfig: {
+    infiniteScroll: {
+      source: "custom",
+      inlineConfig: async getCustomStoryList(){},
+      remoteConfigEndpoint: "amp/api/infinite-scroll",
+    }
+  },
 };
 ```
 

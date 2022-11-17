@@ -7,7 +7,7 @@ import { utcToZonedTime } from "date-fns-tz";
 import { DateUpdatedTypes } from "./types";
 
 export const DateUpdatedBase = ({ story, prepend, config }: DateUpdatedTypes) => {
-  const updatedAt = story["updated-at"];
+  const updatedAt = story["last-published-at"];
   if (!updatedAt) return null;
 
   const timeZonedTime = utcToZonedTime(updatedAt, "Asia/Kolkata");

@@ -9,10 +9,11 @@ const ChartBeatBase = ({ story, config }) => {
   }
   const sections = story.sections.map((section) => section.name).join(",");
   const authors = story["author-name"];
+  const domain = config.publisherConfig["sketches-host"].replace("https://", "");
   const targets = {
     vars: {
       uid: chartbeatConfig.uid,
-      domain: chartbeatConfig.domain,
+      domain,
       useCanonical: true,
       sections,
       authors

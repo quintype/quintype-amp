@@ -208,9 +208,11 @@ interface SubscriptionRenderPropTypes {
 }
 
 interface FeatureConfigTypes {
+  showPoweredByQt?: boolean | (() => boolean);
   infiniteScroll?: {
     infiniteScrollInlineConfig: string;
     storySeparatorText?: string;
+    remoteConfigEndpoint?: string;
   };
   relatedStories?: {
     stories: Story[];
