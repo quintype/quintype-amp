@@ -42,6 +42,7 @@ const storyElementsTable = [
   ["image", none, ImageElement],
   ["jsembed", "avmm-vidible-video", Unsupported],
   ["jsembed", "dailymotion-video", DailyMotionElement],
+  ["jsembed", "dailymotion-embed-script", DailyMotionElement],
   ["jsembed", "dilmot-q-and-a", Unsupported],
   ["jsembed", "facebook-post", FacebookElement],
   ["jsembed", "facebook-video", FacebookElement],
