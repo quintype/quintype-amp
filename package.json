@@ -93,7 +93,7 @@
   },
   "dependencies": {
     "@rvgpl/get-youtube-id": "^1.0.0",
-    "atob": "^2.1.2",
+    "atob-utf-8": "^1.0.0",
     "babel-preset-airbnb": "^5.0.0",
     "date-fns": "^2.11.0",
     "date-fns-tz": "^1.0.10",
