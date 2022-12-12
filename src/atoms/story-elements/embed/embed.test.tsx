@@ -17,6 +17,19 @@ const sampleJsEmbedElement = {
   subtype: null
 };
 
+const sampleJsEmbedElement1 = {
+  description: "",
+  "embed-js":
+    "PGlmcmFtZSBzcmM9Imh0dHBzOi8vd3d3LmVyZW1uZXdzLmNvbS9zdG9yaWVzLzIwMjIvMTAvMTkv2YXYtdixLTEwLz9vcHRzPWZiOjEiIGZyYW1lYm9yZGVyPSIwIiBzY3JvbGxpbmc9Im5vIiBzdHlsZT0id2lkdGg6MzAwcHg7aGVpZ2h0OjYwMHB4O3Bvc2l0aW9uOnJlbGF0aXZlO21hcmdpbjowIGF1dG87ZGlzcGxheTpibG9jazsiPjwvaWZyYW1lPg==",
+  "page-url": "/story/455a3761-b36b-4e89-b7ab-82bcde10a575/element/90530086-53b9-446a-95e9-aaacded9dec1",
+  type: "jsembed",
+  "family-id": "a3ae9de4-0a89-41bb-b516-084f306d65d9",
+  title: "",
+  id: "90530086-53b9-446a-95e9-aaacded9dec1",
+  metadata: {},
+  subtype: null
+};
+
 const sampleJsEmbedElementWithoutIframe = {
   description: "embed code",
   "embed-js":
@@ -56,5 +69,14 @@ describe("getIframeSourceURL", () => {
   });
   it("should return null if source is missing", () => {
     expect(getIframeSourceURL('<script src="www.google.com" />')).toBe(null);
+  });
+});
+
+describe("decode base64", () => {
+  it("renders with correct decoded url", () => {
+    const wrapper = shallow(<DefaultEmbed element={sampleJsEmbedElement1} />);
+    expect(wrapper.find(Iframe).prop("src")).toEqual(
+      "https://www.eremnews.com/stories/2022/10/19/%D9%85%D8%B5%D8%B1-10/?opts=fb:1"
+    );
   });
 });

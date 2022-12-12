@@ -9,7 +9,7 @@ export const DefaultEmbed = ({ element }: StoryElementProps) => {
   const embedData = element["embed-js"] ? atob(element["embed-js"]) : "";
   const src = getIframeSourceURL(embedData);
   const title = element.subtype || element.title || "";
-  return src ? <Iframe src={src} title={title} /> : null;
+  return src ? <Iframe src={encodeURI(src)} title={title} /> : null;
 };
 
 export const getIframeSourceURL = (str: string): string | null => {
