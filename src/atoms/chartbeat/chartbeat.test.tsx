@@ -11,7 +11,7 @@ const config = {
     }
   },
   publisherConfig: {
-    "sketches-host": "https://vikatan.com"
+    "sketches-host": "https://www.vikatan.com"
   }
 };
 const noChartbeat = {
