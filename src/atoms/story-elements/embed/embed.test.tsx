@@ -75,8 +75,6 @@ describe("getIframeSourceURL", () => {
 describe("decode base64", () => {
   it("renders with correct decoded url", () => {
     const wrapper = shallow(<DefaultEmbed element={sampleJsEmbedElement1} />);
-    expect(wrapper.find(Iframe).prop("src")).toEqual(
-      "https://www.eremnews.com/stories/2022/10/19/%D9%85%D8%B5%D8%B1-10/?opts=fb:1"
-    );
+    expect(wrapper.find(Iframe).prop("src")).toEqual("https://www.eremnews.com/stories/2022/10/19/مصر-10/?opts=fb:1");
   });
 });
