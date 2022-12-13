@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.9.0](https://github.com/quintype/quintype-amp/compare/v2.9.0-atob-utf-8.4...v2.9.0) (2022-12-13)
+
+
+### Features
+
+* **decode:** Remove encoding uri ([a9d6324](https://github.com/quintype/quintype-amp/commit/a9d632492235d73abbdc2f686681f5d27d7ce3fc))
+
 ### [2.8.2](https://github.com/quintype/quintype-amp/compare/v2.8.1...v2.8.2) (2022-12-08)
 
 ### [2.8.1](https://github.com/quintype/quintype-amp/compare/v2.8.0...v2.8.1) (2022-11-17)
