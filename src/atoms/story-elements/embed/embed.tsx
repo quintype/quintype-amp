@@ -1,7 +1,7 @@
 import React from "react";
 import { StoryElementProps } from "../types";
 import { Iframe } from "../../iframe";
-import atob from "atob";
+import atob from "atob-utf-8";
 import { withStoryAndConfig } from "../../../context";
 import get from "lodash.get";
 

@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import Helmet from "react-helmet";
-import atob from "atob";
+import atob from "atob-utf-8";
 import { withConfig } from "../../context";
 
 export const VideoWebStoryBase = ({ config, videoElement, imageElement }) => {
