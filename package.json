@@ -1,6 +1,6 @@
 {
   "name": "@quintype/amp",
-  "version": "2.8.3-chartbeat-domain.3",
+  "version": "2.9.0",
   "description": "Quintype's AMP component library for publisher apps to create amp layouts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -93,7 +93,7 @@
   },
   "dependencies": {
     "@rvgpl/get-youtube-id": "^1.0.0",
-    "atob": "^2.1.2",
+    "atob-utf-8": "^1.0.4",
     "babel-preset-airbnb": "^5.0.0",
     "date-fns": "^2.11.0",
     "date-fns-tz": "^1.0.10",

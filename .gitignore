@@ -4,3 +4,4 @@ coverage/
 *.tgz
 docs
 .cache
+.idea
