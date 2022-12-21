@@ -1,6 +1,6 @@
 {
   "name": "@quintype/amp",
-  "version": "2.9.0",
+  "version": "2.9.1-chartbeat-domain.6",
   "description": "Quintype's AMP component library for publisher apps to create amp layouts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -81,14 +81,14 @@
     "onchange": "^4.1.0",
     "parcel": "^1.12.4",
     "prettier": "^1.19.1",
-    "standard-version": "^8.0.0",
+    "standard-version": "^8.0.2",
     "ts-jest": "^25.2.0",
     "ts-loader": "^7.0.5",
     "tslint": "^6.1.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-react": "^4.2.0",
     "typescript": "^3.7.5",
-    "webpack": "^4.43.0",
+    "webpack": "^4.46.0",
     "webpack-cli": "^3.3.11"
   },
   "dependencies": {
