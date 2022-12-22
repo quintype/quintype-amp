@@ -9,7 +9,8 @@ const ChartBeatBase = ({ story, config }) => {
   }
   const sections = story.sections.map((section) => section.name).join(",");
   const authors = story["author-name"];
-  const domain = config.publisherConfig["sketches-host"].replace("https://www.", "");
+  const host = new URL(config.publisherConfig["sketches-host"]).host
+  const domain = host.replace(/^www./, "");
   const targets = {
     vars: {
       uid: chartbeatConfig.uid,
