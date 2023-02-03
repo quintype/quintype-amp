@@ -34,9 +34,8 @@ export const RelatedStoryCard = ({ story, config }: RelatedStoryCardTypes) => {
   const localizationOpts = get(config, ["opts", "featureConfig", "localization"], {});
   let timeStamp = lastPublishedAt;
   const storyCardTime = get(config, ["opts", "featureConfig", "storyCardTime"], null);
-  const customTimeStamp = storyCardTime && typeof storyCardTime === "function" && storyCardTime(config, story);
-  if (customTimeStamp) {
-    timeStamp = customTimeStamp;
+  if (storyCardTime && typeof storyCardTime === "function") {
+    timeStamp = storyCardTime(config, story);
   }
   let humanizedDate = getHumanizedDateTime({
     dateFormat: "do MMM, yyyy 'at' p",
