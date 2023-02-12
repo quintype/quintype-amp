@@ -69,23 +69,54 @@ export const getVisualStoryConfig = (config: Config, story: Story) => {
   }
 };
 
-export const getVisualStoryAdsSlot = (config: Config, story: Story) => {
+export const getVisualStoryAdConfig = (config: Config, story: Story): VisialStoryAdConfig => {
   const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"], null);
 
   if (!Array.isArray(visualStoriesConfig)) {
-    const adSlot = get(config, ["opts", "featureConfig", "visualStories", "ads", "doubleclick", "dataSlot"], null);
-    return typeof adSlot === "function" ? adSlot(config) : adSlot;
+    const adsConfig = { doubleClick: null, adsense: { clientId: null, slotId: null } };
+    const doubleclickAdSlot = get(
+      config,
+      ["opts", "featureConfig", "visualStories", "ads", "doubleclick", "dataSlot"],
+      null
+    );
+    adsConfig.doubleClick = typeof doubleclickAdSlot === "function" ? doubleclickAdSlot(config) : doubleclickAdSlot;
+
+    const adsenseClientId = get(config, ["opts", "featureConfig", "visualStories", "ads", "adsense", "clientId"], null);
+    const adsenseSlotId = get(config, ["opts", "featureConfig", "visualStories", "ads", "adsense", "slotId"], null);
+    adsConfig.adsense.clientId = typeof adsenseClientId === "function" ? adsenseClientId(config) : adsenseClientId;
+    adsConfig.adsense.slotId = typeof adsenseSlotId === "function" ? adsenseSlotId(config) : adsenseSlotId;
+    return adsConfig;
   }
 
+  const adConfigForTheme = (themeConfig) => {
+    const adCfg = { doubleClick: null, adsense: { clientId: null, slotId: null } };
+    const doubleclickAdSlot = get(themeConfig, ["ads", "doubleclick", "dataSlot"], null);
+    adCfg.doubleClick = typeof doubleclickAdSlot === "function" ? doubleclickAdSlot(config) : doubleclickAdSlot;
+
+    const adsenseClientId = get(themeConfig, ["ads", "adsense", "clientId"], null);
+    const adsenseSlotId = get(config, ["ads", "adsense", "slotId"], null);
+    adCfg.adsense.clientId = typeof adsenseClientId === "function" ? adsenseClientId(config) : adsenseClientId;
+    adCfg.adsense.slotId = typeof adsenseSlotId === "function" ? adsenseSlotId(config) : adsenseSlotId;
+    return adCfg;
+  };
   switch (getTheme(story)) {
     case "theme-2":
       const themeConfig2 = visualStoriesConfig[1] || {};
-      return themeConfig2.ads?.doubleclick?.dataSlot;
+      return adConfigForTheme(themeConfig2);
     case "theme-3":
       const themeConfig3 = visualStoriesConfig[2] || {};
-      return themeConfig3.ads?.doubleclick?.dataSlot;
+      return adConfigForTheme(themeConfig3);
     default:
       const themeConfig = visualStoriesConfig[0] || {};
-      return themeConfig.ads?.doubleclick?.dataSlot;
+      return adConfigForTheme(themeConfig);
   }
 };
+
+interface VisialStoryAdConfig {
+  doubleClick: string | null;
+  adsense: AdSenseTypes;
+}
+interface AdSenseTypes {
+  clientId: string | null;
+  slotId: string | null;
+}
