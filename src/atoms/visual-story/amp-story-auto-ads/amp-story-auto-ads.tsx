@@ -3,18 +3,11 @@ import { Helmet } from "react-helmet";
 import { withStoryAndConfig } from "../../../context";
 import { AutoAdsTypes } from "./types";
 import { getTargetingInfo } from "../../dfp-ad/helpers";
-import { getVisualStoryAdsSlot } from "../../../utils/visual-story-config";
+import { getVisualStoryAdConfig } from "../../../utils/visual-story-config";
 
 export const AmpStoryAutoAdsBase = ({ story, config }: AutoAdsTypes) => {
-  const dataSlot = getVisualStoryAdsSlot(config, story);
-  if (!dataSlot) return null;
-  const adConfig = {
-    "ad-attributes": {
-      type: "doubleclick",
-      "data-slot": dataSlot,
-      json: getTargetingInfo({ config, story })
-    }
-  };
+  const { doubleClick, adsense } = getVisualStoryAdConfig(config, story);
+  if (!doubleClick && !adsense.clientId) return null;
   return (
     <Fragment>
       <Helmet>
@@ -25,7 +18,34 @@ export const AmpStoryAutoAdsBase = ({ story, config }: AutoAdsTypes) => {
         />
       </Helmet>
       <amp-story-auto-ads>
-        <script type="application/json" dangerouslySetInnerHTML={{ __html: JSON.stringify(adConfig) }} />
+        {doubleClick && (
+          <script
+            type="application/json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "ad-attributes": {
+                  type: "doubleclick",
+                  "data-slot": doubleClick,
+                  json: getTargetingInfo({ config, story })
+                }
+              })
+            }}
+          />
+        )}
+        {adsense.clientId && (
+          <script
+            type="application/json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "ad-attributes": {
+                  type: "adsense",
+                  "data-ad-client": adsense.clientId,
+                  "data-ad-slot": adsense.slotId
+                }
+              })
+            }}
+          />
+        )}
       </amp-story-auto-ads>
     </Fragment>
   );
