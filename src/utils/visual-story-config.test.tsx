@@ -1,5 +1,5 @@
 import { config, visualStory } from "../__fixtures__";
-import { getVisualStoryAdsSlot, getVisualStoryConfig } from "./visual-story-config";
+import { getVisualStoryAdConfig, getVisualStoryConfig } from "./visual-story-config";
 
 describe("getVisualStoryConfig", () => {
   it("should return image and text animation if it's present inside visualStories config in form of array", () => {
@@ -77,8 +77,8 @@ describe("getVisualStoryConfig", () => {
   });
 });
 
-describe("getVisualStoryAdsSlot", () => {
-  it("should return adSlot if ads are present inside visualStories config as array of object", () => {
+describe("getVisualStoryAdConfig", () => {
+  it("should return doubleclick adSlot if present inside visualStories config as array of object", () => {
     const modifiedConfig = config;
     modifiedConfig.opts = {
       featureConfig: {
@@ -94,11 +94,11 @@ describe("getVisualStoryAdsSlot", () => {
       }
     };
 
-    const adSlot = getVisualStoryAdsSlot(modifiedConfig, visualStory);
-    expect(adSlot).toBe("/1009127/FOO_AMP_TOP-1");
+    const { doubleClick } = getVisualStoryAdConfig(modifiedConfig, visualStory);
+    expect(doubleClick).toBe("/1009127/FOO_AMP_TOP-1");
   });
 
-  it("should return adSlot if ads are present inside visualStories config", async () => {
+  it("should return doubleclick adSlot if ads are present inside visualStories config", async () => {
     const modifiedConfig = config;
     modifiedConfig.opts = {
       featureConfig: {
@@ -112,8 +112,8 @@ describe("getVisualStoryAdsSlot", () => {
       }
     };
 
-    const adSlotRes = await getVisualStoryAdsSlot(modifiedConfig, visualStory);
-    expect(adSlotRes).toBe("/1009127/FOO_AMP_TOP-1");
+    const { doubleClick } = await getVisualStoryAdConfig(modifiedConfig, visualStory);
+    expect(doubleClick).toBe("/1009127/FOO_AMP_TOP-1");
   });
 
   it("should return undefined if ads are not present inside visualStories config", async () => {
@@ -124,7 +124,7 @@ describe("getVisualStoryAdsSlot", () => {
       }
     };
 
-    const adSlotRes = await getVisualStoryAdsSlot(modifiedConfig, visualStory);
-    expect(adSlotRes).toBe(null);
+    const { doubleClick } = await getVisualStoryAdConfig(modifiedConfig, visualStory);
+    expect(doubleClick).toBe(null);
   });
 });
