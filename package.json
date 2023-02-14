@@ -8,7 +8,6 @@
     "dist"
   ],
   "scripts": {
-    "copy": "npm run build && rm /Users/amogh/work/malibu/node_modules/@quintype/amp/dist/index.js && cp /Users/amogh/work/quintype-amp/dist/index.js /Users/amogh/work/malibu/node_modules/@quintype/amp/dist",
     "prepublishOnly": "./bin-dev-scripts/standard-version-release.sh",
     "storybook": "start-storybook -s ./storybook-assets -p 9001",
     "docs:build": "rm -rf docs && jsdoc -c jsdoc.json",
