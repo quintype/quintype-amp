@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.9.1](https://github.com/quintype/quintype-amp/compare/v2.9.0...v2.9.1) (2022-12-21)
+
+
+### Bug Fixes
+
+* Chartbeat domain ([#410](https://github.com/quintype/quintype-amp/issues/410)) ([1f82712](https://github.com/quintype/quintype-amp/commit/1f82712275f1a50b5f256e7345d4f373dec49482))
+
 ## [2.9.0](https://github.com/quintype/quintype-amp/compare/v2.9.0-atob-utf-8.4...v2.9.0) (2022-12-13)
 
 
