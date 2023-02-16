@@ -13,8 +13,6 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
   const textElements = card["story-elements"].filter((el) => el.type === "text" && el.subtype !== "cta");
   const imageElement = card["story-elements"].find((el) => el.type === "image");
   const heroImgSrc = story["hero-image-s3-key"];
-  const heroImgMetadata = story["hero-image-metadata"];
-  const altText = story["hero-image-caption"] || story["hero-image-attribution"] || "";
 
   const videoElement = card["story-elements"].find((el) => el.type === "jsembed");
 
@@ -31,7 +29,7 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
 
   return (
     <Fragment>
-      {videoElement && <VideoWebStory videoElement={videoElement} imageElement={imageElement} />}
+      {videoElement && <VideoWebStory videoElement={videoElement} imageElement={imageElement} heroImage={heroImgSrc} />}
       {imageElement && !videoElement && (
         <amp-story-grid-layer template="fill">
           <Image
@@ -40,19 +38,6 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
             metadata={imageElement["image-metadata"]}
             aspectRatio={[480, 640]}
             alt={imageElement.title || imageElement["image-attribution"]}
-            lightbox={false}
-            {...imageAnimation}
-          />
-        </amp-story-grid-layer>
-      )}
-      {!imageElement && videoElement && (
-        <amp-story-grid-layer template="fill">
-          <Image
-            class="qt-amp-visual-story-img"
-            aspectRatio={[480, 640]}
-            alt={altText}
-            slug={heroImgSrc}
-            metadata={heroImgMetadata}
             lightbox={false}
             {...imageAnimation}
           />

@@ -3,10 +3,10 @@ import Helmet from "react-helmet";
 import atob from "atob-utf-8";
 import { withConfig } from "../../context";
 
-export const VideoWebStoryBase = ({ config, videoElement, imageElement }) => {
+export const VideoWebStoryBase = ({ config, videoElement, imageElement, heroImage }) => {
   const videoUrl = videoElement && atob(`${videoElement["embed-js"]}`);
   const format = videoUrl.split(".")[3];
-  const poster = imageElement ? `https://${config.publisherConfig["cdn-image"]}/${imageElement["image-s3-key"]}` : null;
+  const poster = imageElement ? `https://${config.publisherConfig["cdn-image"]}/${imageElement["image-s3-key"]}` : `https://${config.publisherConfig["cdn-image"]}/${heroImage["hero-image-s3-key"]}` ;
   return (
     <Fragment>
       <Helmet>
