@@ -12,6 +12,9 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
   const titleElement = card["story-elements"].find((el) => el.type === "title");
   const textElements = card["story-elements"].filter((el) => el.type === "text" && el.subtype !== "cta");
   const imageElement = card["story-elements"].find((el) => el.type === "image");
+  const heroImgSrc = story["hero-image-s3-key"];
+  const heroImgMetadata = story["hero-image-metadata"];
+  const altText = story["hero-image-caption"] || story["hero-image-attribution"] || "";
 
   const videoElement = card["story-elements"].find((el) => el.type === "jsembed");
 
@@ -42,6 +45,19 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
           />
         </amp-story-grid-layer>
       )}
+      {!imageElement && videoElement && (
+        <amp-story-grid-layer template="fill">
+          <Image
+            class="qt-amp-visual-story-img"
+            aspectRatio={[480, 640]}
+            alt={altText}
+            slug={heroImgSrc}
+            metadata={heroImgMetadata}
+            lightbox={false}
+            {...imageAnimation}
+          />
+        </amp-story-grid-layer>
+      )}
       {(titleElement || textElements.length || imageElement) && !videoElement && (
         <amp-story-grid-layer template="thirds">
           <TextWrapper>
@@ -54,7 +70,7 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
                   dangerouslySetInnerHTML={{
                     __html: getFigcaptionText(imageElement.title, imageElement["image-attribution"]) || ""
                   }}
-                />
+                /> 
               )}
             </div>
           </TextWrapper>
