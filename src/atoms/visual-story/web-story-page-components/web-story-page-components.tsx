@@ -12,6 +12,7 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
   const titleElement = card["story-elements"].find((el) => el.type === "title");
   const textElements = card["story-elements"].filter((el) => el.type === "text" && el.subtype !== "cta");
   const imageElement = card["story-elements"].find((el) => el.type === "image");
+  const heroImgSrc = story["hero-image-s3-key"];
 
   const videoElement = card["story-elements"].find((el) => el.type === "jsembed");
 
@@ -28,7 +29,7 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
 
   return (
     <Fragment>
-      {videoElement && <VideoWebStory videoElement={videoElement} imageElement={imageElement} />}
+      {videoElement && <VideoWebStory videoElement={videoElement} imageElement={imageElement} heroImage={heroImgSrc} />}
       {imageElement && !videoElement && (
         <amp-story-grid-layer template="fill">
           <Image
@@ -54,7 +55,7 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
                   dangerouslySetInnerHTML={{
                     __html: getFigcaptionText(imageElement.title, imageElement["image-attribution"]) || ""
                   }}
-                />
+                /> 
               )}
             </div>
           </TextWrapper>
