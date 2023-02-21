@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.9.3](https://github.com/quintype/quintype-amp/compare/v2.9.2...v2.9.3) (2023-02-20)
+
+
+### Bug Fixes
+
+* Add fallback to poster images in visual story template ([#419](https://github.com/quintype/quintype-amp/issues/419)) ([09697bc](https://github.com/quintype/quintype-amp/commit/09697bc4ff808c562990876761de5243ae4ffb7c))
+
 ### [2.9.2](https://github.com/quintype/quintype-amp/compare/v2.9.1...v2.9.2) (2023-02-14)
 
 ### [2.9.1](https://github.com/quintype/quintype-amp/compare/v2.9.0...v2.9.1) (2022-12-21)
