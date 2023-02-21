@@ -32,10 +32,15 @@ export const RelatedStoryCard = ({ story, config }: RelatedStoryCardTypes) => {
 
   const languageCode = get(config, ["publisherConfig", "language", "ietf-code"]);
   const localizationOpts = get(config, ["opts", "featureConfig", "localization"], {});
+  let timeStamp = lastPublishedAt;
+  const storyCardTime = get(config, ["opts", "featureConfig", "storyCardTime"], null);
+  if (storyCardTime && typeof storyCardTime === "function") {
+    timeStamp = storyCardTime(config, story);
+  }
   let humanizedDate = getHumanizedDateTime({
     dateFormat: "do MMM, yyyy 'at' p",
     timeZone: "Asia/Kolkata",
-    timeStamp: lastPublishedAt
+    timeStamp
   });
 
   if ("useLocaleDateStampOnGenericStory" in localizationOpts) {
@@ -45,7 +50,7 @@ export const RelatedStoryCard = ({ story, config }: RelatedStoryCardTypes) => {
         : localizationOpts.useLocaleDateStampOnGenericStory;
 
     if (useLocale) {
-      humanizedDate = new Date(lastPublishedAt).toLocaleDateString(languageCode, {
+      humanizedDate = new Date(timeStamp).toLocaleDateString(languageCode, {
         year: "numeric",
         month: "long",
         day: "numeric",
