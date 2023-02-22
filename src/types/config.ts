@@ -207,8 +207,15 @@ interface SubscriptionRenderPropTypes {
   fallbackEntitlement?: FallbackEntitlementProps;
 }
 
+export interface DateSettings {
+  enableFirstPublished: boolean;
+  enableLastPublished: boolean;
+}
+
 interface FeatureConfigTypes {
   showPoweredByQt?: boolean | (() => boolean);
+  storyCardTime?: (config: Config, story: Story) => number;
+  dateConfig?: (config: Config, storyType: "live-blog" | "text") => DateSettings;
   infiniteScroll?: {
     infiniteScrollInlineConfig: string;
     storySeparatorText?: string;
