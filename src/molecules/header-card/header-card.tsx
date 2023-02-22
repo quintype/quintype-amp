@@ -51,12 +51,19 @@ export const DefaultHeaderCard = ({ story, config, storyType }: HeaderCardProps)
         <Author authors={story.authors} prepend={getLocalizedWord(config, "by", "By")} />
         <Spacer token="xxs" />
         {!!enableFirstPublished && (
-          <DateFirstPublished config={config} prepend={getLocalizedWord(config, "published", "Published:")} />
+          <>
+            <DateFirstPublished config={config} prepend={getLocalizedWord(config, "published", "Published:")} />
+            <Spacer token="m" />
+          </>
         )}
+
         {!!enableLastPublished && (
-          <DateLastPublished config={config} prepend={getLocalizedWord(config, "updatedAt", "Updated:")} />
+          <>
+            <DateLastPublished config={config} prepend={getLocalizedWord(config, "updatedAt", "Updated:")} />
+            <Spacer token="m" />
+          </>
         )}
-        <Spacer token="m" />
+
         <SocialShareHeader fbAppId={publisherConfig.facebook && publisherConfig.facebook["app-id"]} />
         <Spacer token="s" />
       </HeaderCardContainer>
