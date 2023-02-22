@@ -4105,7 +4105,9 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
       token="s"
     />
     <styled.div>
-      <Component />
+      <Component
+        storyType="live-blog"
+      />
       <Component />
       <Spacer
         token="m"
