@@ -212,10 +212,12 @@ export interface DateSettings {
   enableLastPublished: boolean;
 }
 
+export type DateStoryTypes = "live-blog" | "text";
+
 interface FeatureConfigTypes {
   showPoweredByQt?: boolean | (() => boolean);
   storyCardTime?: (config: Config, story: Story) => number;
-  dateConfig?: (config: Config, storyType: "live-blog" | "text") => DateSettings;
+  dateConfig?: (config: Config, storyType: DateStoryTypes) => DateSettings;
   infiniteScroll?: {
     infiniteScrollInlineConfig: string;
     storySeparatorText?: string;
