@@ -1,7 +1,7 @@
 import { format, utcToZonedTime } from "date-fns-tz";
 import get from "lodash.get";
-import { Config, DateSettings, DateStoryTypes } from "../../types/config";
 
+import { Config, DateSettings, DateStoryTypes } from "../../types/config";
 import { HumanizedDateTimeTypes } from "./types";
 
 export const getHumanizedDateTime = ({ dateFormat, timeZone, timeStamp }: HumanizedDateTimeTypes) => {
