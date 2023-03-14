@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.11.0](https://github.com/quintype/quintype-amp/compare/v2.10.0...v2.11.0) (2023-03-14)
+
+
+### Features
+
+* support last published time in story page ([#420](https://github.com/quintype/quintype-amp/issues/420)) ([c28b337](https://github.com/quintype/quintype-amp/commit/c28b3373e71acbb590c2ef7dbc6b08793e2f724c))
+
+
+### Bug Fixes
+
+* date updated test ([#424](https://github.com/quintype/quintype-amp/issues/424)) ([41614e9](https://github.com/quintype/quintype-amp/commit/41614e9e8fbdab2c4882882c80b00714649d9e36))
+* header test ([#423](https://github.com/quintype/quintype-amp/issues/423)) ([87219cb](https://github.com/quintype/quintype-amp/commit/87219cb0990303f3bc8455c3532c1f332d059c19))
+* update lock ([#425](https://github.com/quintype/quintype-amp/issues/425)) ([44e91c1](https://github.com/quintype/quintype-amp/commit/44e91c1910fb932103e353ade5e33248cbbf8f9e))
+
 ## [2.10.0](https://github.com/quintype/quintype-amp/compare/v2.9.1...v2.10.0) (2023-02-21)
 
 
