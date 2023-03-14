@@ -4,12 +4,21 @@ import { CommonRenderPropTypes } from "../../types/config";
 import styled from "styled-components";
 import get from "lodash.get";
 import { Author, Section, Spacer } from "../../atoms";
-import { HeroImage, SocialShareHeader, DateFirstPublished } from "../index";
+import { HeroImage, SocialShareHeader, DateFirstPublished, DateLastPublished } from "../index";
 import { getLocalizedWord } from "../../utils/localize-words/localization";
+import { getDateSettings } from "../../utils/date-time";
 
-export const HeaderCardBase = ({ story, config }: CommonRenderPropTypes) => {
+interface HeaderCardProps extends CommonRenderPropTypes {
+  storyType: "text" | "live-blog";
+}
+
+export const HeaderCardBase = ({ story, config, storyType }: HeaderCardProps) => {
   const headerCardRender = get(config, ["opts", "render", "headerCardRender"], null);
-  return headerCardRender ? headerCardRender({ story, config }) : <DefaultHeaderCard story={story} config={config} />;
+  return headerCardRender ? (
+    headerCardRender({ story, config })
+  ) : (
+    <DefaultHeaderCard story={story} config={config} storyType={storyType} />
+  );
 };
 
 const Headline = styled.h1`
@@ -25,8 +34,10 @@ const HeaderCardContainer = styled.div`
   border-bottom: ${(props) => `1px solid ${props.theme.color.black}`};
 `;
 
-export const DefaultHeaderCard = ({ story, config }: CommonRenderPropTypes) => {
+export const DefaultHeaderCard = ({ story, config, storyType }: HeaderCardProps) => {
   const { publisherConfig } = config;
+
+  const { enableLastPublished, enableFirstPublished } = getDateSettings(config, storyType);
 
   return (
     <div>
@@ -39,8 +50,20 @@ export const DefaultHeaderCard = ({ story, config }: CommonRenderPropTypes) => {
         <Spacer token="s" />
         <Author authors={story.authors} prepend={getLocalizedWord(config, "by", "By")} />
         <Spacer token="xxs" />
-        <DateFirstPublished config={config} prepend={getLocalizedWord(config, "published", "Published:")} />
-        <Spacer token="m" />
+        {!!enableFirstPublished && (
+          <>
+            <DateFirstPublished config={config} prepend={getLocalizedWord(config, "published", "Published:")} />
+            <Spacer token="m" />
+          </>
+        )}
+
+        {!!enableLastPublished && (
+          <>
+            <DateLastPublished config={config} prepend={getLocalizedWord(config, "updatedAt", "Updated:")} />
+            <Spacer token="m" />
+          </>
+        )}
+
         <SocialShareHeader fbAppId={publisherConfig.facebook && publisherConfig.facebook["app-id"]} />
         <Spacer token="s" />
       </HeaderCardContainer>

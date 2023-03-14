@@ -4150,7 +4150,9 @@ exports[`GenericStory Template should render 1`] = `
       token="s"
     />
     <styled.div>
-      <Component />
+      <Component
+        storyType="text"
+      />
       <Component />
       <Spacer
         token="m"

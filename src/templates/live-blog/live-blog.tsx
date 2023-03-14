@@ -76,7 +76,7 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
         <TopSlot />
         <Spacer token="s" />
         <StoryContainer>
-          <HeaderCard />
+          <HeaderCard storyType="live-blog" />
           <WebEngage />
           <Spacer token="m" />
           <LiveList>
