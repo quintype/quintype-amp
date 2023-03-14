@@ -6,7 +6,7 @@ import { textStory, config } from "../../__fixtures__";
 
 describe("Header Card", () => {
   it("should render Default header card component", () => {
-    const wrapper = shallow(<HeaderCardBase story={textStory} config={config} />);
+    const wrapper = shallow(<HeaderCardBase story={textStory} config={config} storyType="text" />);
     expect(wrapper.find(DefaultHeaderCard).length).toBe(1);
   });
   it("should call headerCardRender when passed in opts", () => {
@@ -17,7 +17,7 @@ describe("Header Card", () => {
         headerCardRender
       }
     };
-    const wrapper = shallow(<HeaderCardBase story={textStory} config={modifiedConfig} />);
+    const wrapper = shallow(<HeaderCardBase story={textStory} config={modifiedConfig} storyType="text" />);
     expect(headerCardRender.mock.calls.length).toBe(1);
     expect(wrapper.find(DefaultHeaderCard).length).toBe(0);
   });
