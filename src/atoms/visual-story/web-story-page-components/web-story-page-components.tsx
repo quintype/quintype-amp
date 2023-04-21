@@ -39,6 +39,7 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
             aspectRatio={[480, 640]}
             alt={imageElement.title || imageElement["image-attribution"]}
             lightbox={false}
+            isVisualStory={story["story-template"] === "visual-story"}
             {...imageAnimation}
           />
         </amp-story-grid-layer>
@@ -55,7 +56,7 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
                   dangerouslySetInnerHTML={{
                     __html: getFigcaptionText(imageElement.title, imageElement["image-attribution"]) || ""
                   }}
-                /> 
+                />
               )}
             </div>
           </TextWrapper>

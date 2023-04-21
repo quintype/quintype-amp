@@ -1,17 +1,30 @@
 import { FocusedImage } from "quintype-js";
 import { HeroImageMetadata } from "../../types/story";
 
-export const getImgSrcAndSrcset = ({ opts, slug, metadata, aspectRatio, cdnImage }: GetImgSrcAndSrcsetTypes) => {
+export const getImgSrcAndSrcset = ({
+  opts,
+  slug,
+  metadata,
+  aspectRatio,
+  cdnImage,
+  isVisualStory
+}: GetImgSrcAndSrcsetTypes) => {
   const isGumlet = cdnImage.includes("gumlet");
   const imgOpts = isGumlet ? { format: "auto", ...opts } : opts;
   const src = focusedImagePath({ opts: imgOpts, slug, metadata, aspectRatio, cdnImage });
   let srcset = "";
-  const srcsetOpts = [
-    { ...imgOpts, w: 480 },
-    { ...imgOpts, w: 960 },
-    { ...imgOpts, w: 1200 },
-    { ...imgOpts, w: 2048 }
-  ];
+  const srcsetOpts = isVisualStory
+    ? [
+        { ...imgOpts, w: 480 },
+        { ...imgOpts, w: 960 },
+        { ...imgOpts, w: 1200 }
+      ]
+    : [
+        { ...imgOpts, w: 480 },
+        { ...imgOpts, w: 960 },
+        { ...imgOpts, w: 1200 },
+        { ...imgOpts, w: 2048 }
+      ];
   srcsetOpts.forEach((val, i) => {
     if (i === srcsetOpts.length - 1) {
       srcset += `${focusedImagePath({ opts: val, slug, metadata, aspectRatio, cdnImage })} ${val.w}w`;
@@ -44,4 +57,5 @@ interface GetImgSrcAndSrcsetTypes {
   cdnImage: string;
   metadata: HeroImageMetadata | null;
   opts?: object;
+  isVisualStory?: boolean;
 }

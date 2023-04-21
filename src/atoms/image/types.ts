@@ -10,6 +10,7 @@ export interface ImageTypes extends Common {
   opts?: object;
   attribution?: string;
   lightbox?: string | boolean;
+  isVisualStory?: boolean;
   useFallbackImage?: boolean;
 }
 
