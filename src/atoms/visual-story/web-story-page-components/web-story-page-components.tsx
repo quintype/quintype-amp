@@ -13,8 +13,8 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
   const textElements = card["story-elements"].filter((el) => el.type === "text" && el.subtype !== "cta");
   const imageElement = card["story-elements"].find((el) => el.type === "image");
   const heroImgSrc = story["hero-image-s3-key"];
-
   const videoElement = card["story-elements"].find((el) => el.type === "jsembed");
+  const isVisualStory = story["story-template"] === "visual-story" ;
 
   const { imageAnimation, textAnimation }: AnimationTypes = getAnimationProps(config, story);
   const ctaElements = card["story-elements"].filter((el) => el.subtype === "cta");
@@ -39,7 +39,7 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
             aspectRatio={[480, 640]}
             alt={imageElement.title || imageElement["image-attribution"]}
             lightbox={false}
-            isVisualStory={story["story-template"] === "visual-story"}
+            isVisualStory={isVisualStory}
             {...imageAnimation}
           />
         </amp-story-grid-layer>
