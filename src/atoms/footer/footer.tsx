@@ -28,7 +28,7 @@ const StyledFooter = styled("footer")<FooterTypes>`
   ${(props) => genStyles(baseStyles, props.style, props)}
 `;
 
-const BaseFooter = ({ text, children, style, config }: FooterTypes) => {
+export const DefaultFooter = ({ text, children, style, config }: FooterTypes) => {
   let showPoweredByQt: boolean | ((config) => boolean) = get(
     config,
     ["opts", "featureConfig", "showPoweredByQt"],
@@ -51,6 +51,16 @@ const BaseFooter = ({ text, children, style, config }: FooterTypes) => {
         </Fragment>
       )}
     </StyledFooter>
+  );
+};
+
+const BaseFooter = ({ text, children, style, config  }: FooterTypes) => {
+  const footerRender = get(config, ["opts", "render", "footerRender"], null);
+
+  return footerRender ? (
+    footerRender({ text, children, style, config })
+  ) : (
+    <DefaultFooter text={text} children={children} style={style} config={config} />
   );
 };
 
