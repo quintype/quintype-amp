@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import styled, { CSSObject, css } from "styled-components";
+import styled, { css } from "styled-components";
 import get from "lodash.get";
 import { FooterTypes } from "./types";
 import { genStyles } from "../../helpers/gen-styles";
