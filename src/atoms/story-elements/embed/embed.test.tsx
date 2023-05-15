@@ -1,5 +1,5 @@
 import React from "react";
-import { getIframeSourceURL, EmbedBase, DefaultEmbed } from "./embed";
+import { getIframeContent, EmbedBase, DefaultEmbed } from "./embed";
 import { shallow } from "enzyme";
 import { Iframe } from "../../iframe";
 import { config, textStory } from "../../../__fixtures__";
@@ -63,12 +63,15 @@ describe("Embed", () => {
 
 describe("getIframeSourceURL", () => {
   it("should return source of iframe", () => {
-    expect(getIframeSourceURL('<iframe frameborder="0" src="https://www.google.com" title="google" />')).toBe(
-      "https://www.google.com"
-    );
+    expect(
+      getIframeContent(
+        '<iframe frameborder="0" src="https://www.google.com" title="google" />',
+        /(?<=src=").*?(?=[*"])/
+      )
+    ).toBe("https://www.google.com");
   });
   it("should return null if source is missing", () => {
-    expect(getIframeSourceURL('<script src="www.google.com" />')).toBe(null);
+    expect(getIframeContent('<script src="www.google.com" />', /(?<=src=").*?(?=[*"])/)).toBe(null);
   });
 });
 
