@@ -22,5 +22,10 @@ exports[`Fonts component Should match snapshot 1`] = `
     href="https://fonts.googleapis.com/css?family=Mukta+Malar:400,400italic,700,700italic&display=swap"
     rel="preload"
   />
+  <link
+    as="style"
+    crossorigin="anonymous"
+    rel="preload"
+  />
 </HelmetWrapper>
 `;

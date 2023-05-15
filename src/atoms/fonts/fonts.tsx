@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { withStoryAndConfig } from "../../context";
 
 export const FontsBase = ({ config }) => {
-  const { primary, secondary } = config.ampConfig.fonts;
+  const { primary, secondary, custom } = config.ampConfig.fonts;
 
   return (
     <Helmet>
@@ -20,6 +20,7 @@ export const FontsBase = ({ config }) => {
         crossorigin="anonymous"
         href={`https://fonts.googleapis.com/css?family=${secondary.url}&display=swap`}
       />
+      <link rel="preload" as="style" crossorigin="anonymous" href={custom} />
     </Helmet>
   );
 };

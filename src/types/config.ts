@@ -71,6 +71,7 @@ export interface AMPConfig {
       url: string;
       family: string;
     };
+    custom: string;
   };
   colors: Colors;
   "logo-url": string;

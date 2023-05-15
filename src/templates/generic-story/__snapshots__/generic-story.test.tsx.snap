@@ -43,6 +43,7 @@ exports[`GenericStory Template should render 1`] = `
           },
         },
         "fonts": Object {
+          "custom": "https://fonts.googleapis.com/css?family=Tangerine",
           "primary": Object {
             "family": "\\"Open Sans\\", sans-serif",
             "url": "Open+Sans:300,400,600,700",
