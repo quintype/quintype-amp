@@ -54,13 +54,20 @@ export const DefaultFooter = ({ text, children, style, config }: FooterTypes) =>
   );
 };
 
-const BaseFooter = ({ text, children, style, config  }: FooterTypes) => {
+const BaseFooter = ({ text, children, style, config, story, collection }: FooterTypes) => {
   const footerRender = get(config, ["opts", "render", "footerRender"], null);
 
   return footerRender ? (
-    footerRender({ text, children, style, config })
+    footerRender({ text, children, style, config, story, collection })
   ) : (
-    <DefaultFooter text={text} children={children} style={style} config={config} />
+    <DefaultFooter
+      text={text}
+      children={children}
+      style={style}
+      config={config}
+      story={story}
+      collection={collection}
+    />
   );
 };
 
