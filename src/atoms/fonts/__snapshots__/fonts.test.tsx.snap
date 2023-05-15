@@ -25,6 +25,7 @@ exports[`Fonts component Should match snapshot 1`] = `
   <link
     as="style"
     crossorigin="anonymous"
+    href={null}
     rel="preload"
   />
 </HelmetWrapper>
