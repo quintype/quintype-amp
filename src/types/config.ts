@@ -150,7 +150,12 @@ export interface ConfigOpts {
   templates?: object;
   slots?: SlotsTypes;
   render?: {
-    customFonts?: string;
+    customFonts?: {
+      primary1?: string | null;
+      secondary1?: string | null;
+      primary2?: string | null;
+      secondary2?: string | null;
+    };
     headerCardRender?: (props: Config) => any;
     relatedStoriesRender?: (props: RelatedStoriesRenderPropTypes) => any;
     infiniteScrollRender?: (props: InfiniteScrollRenderPropTypes) => any;

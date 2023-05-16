@@ -25,7 +25,25 @@ exports[`Fonts component Should match snapshot 1`] = `
   <link
     as="style"
     crossorigin="anonymous"
-    href={null}
+    href="https://fea.assettype.com/malibu/assets/MalibuHeadlineSemiBold1.woff2"
+    rel="preload"
+  />
+  <link
+    as="style"
+    crossorigin="anonymous"
+    href="https://fea.assettype.com/malibu/assets/MalibuHeadlineTextRegular1.woff2"
+    rel="preload"
+  />
+  <link
+    as="style"
+    crossorigin="anonymous"
+    href="https://fea.assettype.com/malibu/assets/MalibuHeadlineSemiBold2.woff2"
+    rel="preload"
+  />
+  <link
+    as="style"
+    crossorigin="anonymous"
+    href="https://fea.assettype.com/malibu/assets/MalibuHeadlineTextRegular2.woff2"
     rel="preload"
   />
 </HelmetWrapper>
