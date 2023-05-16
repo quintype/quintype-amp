@@ -150,6 +150,7 @@ export interface ConfigOpts {
   slots?: SlotsTypes;
   render?: {
     headerCardRender?: (props: Config) => any;
+    navbarRender?: (props: Config) => any;
     relatedStoriesRender?: (props: RelatedStoriesRenderPropTypes) => any;
     infiniteScrollRender?: (props: InfiniteScrollRenderPropTypes) => any;
     subscriptionRender?: {
