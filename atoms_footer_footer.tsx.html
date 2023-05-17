@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66074042-1', 'auto');ga('send', 'pageview');</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AMP Library Blurb</title>
+  <title>AMP Library atoms/footer/footer.tsx</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -125,298 +127,129 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Components</p>
-                    <h1>Blurb</h1>
+                    <p>Source</p>
+                    <h1>atoms/footer/footer.tsx</h1>
                 </header>
                 
 
 
 
-
-<section>
-
-<header>
     
-        <h2>
-            &ltBlurb  /&gt
-        </h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class='vertical-section'>
-                <div class="members">
-                    <div class="member">
-                        <div class=name>
-                            <span class="tag">Constructor</span>
-                        </div>
-                        
-
-
-    
-    <h4 class="name" id="Blurb">
-        <a class="href-link" href="#Blurb">#</a>
-        
-        <span class="code-name">
-            
-                &ltBlurb  /&gt
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        <p>Blurb is a story element.
-The look of the Blurb can be changed using the render prop blurbRender. In case blurbRender is passed in the config, it is rendered. Otherwise a default Blurb is rendered.</p>
-    </div>
-    
-
-
-
-
-
-
-
-    
-
-
-
-    <h5>Parameters:</h5>
-    
-<div class="table-container">
-    <table class="params table">
-        <thead>
-        <tr>
-            
-            <th>Name</th>
-            
-
-            <th>Type</th>
-
-            
-
-            
-
-            <th class="last">Description</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>params</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Object</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>object containing parameters passed to the render prop</p></td>
-</tr>
-
-  
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>story</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Object</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>story object</p></td>
-</tr>
-
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>config</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Object</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>config object</p></td>
-</tr>
-
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>element</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Object</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>the story element. This is same as the story element found in the story API response</p>
-<pre class="prettyprint source lang-javascript"><code>...
-ampRoutes(app, {
- render: {
-   storyElementRender: {
-     blurbRender: ({ story, config, element }) => &lt;MyCustomBlurb story={story} config={config} storyElement={element} />
-   }
- }
-})
-...
-</code></pre></td>
-</tr>
-
-  
-
-
-        
-        </tbody>
-    </table>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="atoms_story-elements_blurb_blurb.tsx.html" class="button">View Source</a>
-            <span>
-                <a href="atoms_story-elements_blurb_blurb.tsx.html">atoms/story-elements/blurb/blurb.tsx</a>, <a href="atoms_story-elements_blurb_blurb.tsx.html#line33">line 33</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-                </div>
-            </div>
-        
-    
-    </div>
-    
-        
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { Fragment } from "react";
+import styled, { css } from "styled-components";
+import get from "lodash.get";
+import { FooterTypes } from "./types";
+import { genStyles } from "../../helpers/gen-styles";
+import { withTheme } from "styled-components";
+import { withConfig } from "../../context";
+
+const baseStyles = css`
+  display: flex;
+  padding: 8px 4px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  min-height: 50px;
+  font-family: ${(props) => props.theme.font.family.secondary};
+  background-color: ${(props) => props.theme.color.footerBackground};
+  color: ${(props) => props.theme.color.footerTextColor};
+`;
+
+export const PoweredBy = styled.a`
+  text-decoration: none;
+  color: ${(props) => props.theme.color.footerTextColor};
+  font-size: ${(props) => props.theme.font.size.xxs};
+`;
+
+const StyledFooter = styled("footer")&lt;FooterTypes>`
+  ${(props) => genStyles(baseStyles, props.style, props)}
+`;
+
+export const DefaultFooter = ({ text, children, style, config }: FooterTypes) => {
+  let showPoweredByQt: boolean | ((config) => boolean) = get(
+    config,
+    ["opts", "featureConfig", "showPoweredByQt"],
+    true
+  );
+
+  showPoweredByQt = typeof showPoweredByQt === "function" ? showPoweredByQt(config) : showPoweredByQt;
+  return (
+    &lt;StyledFooter style={style}>
+      {children ? (
+        children
+      ) : (
+        &lt;Fragment>
+          {text &amp;&amp; &lt;p>{text}&lt;/p>}
+          {showPoweredByQt &amp;&amp; (
+            &lt;PoweredBy href="https://www.quintype.com/" rel="noreferrer noopener" target="_blank">
+              Powered by Quintype
+            &lt;/PoweredBy>
+          )}
+        &lt;/Fragment>
+      )}
+    &lt;/StyledFooter>
+  );
+};
+
+const BaseFooter = ({ text, children, style, config, story, collection }: FooterTypes) => {
+  const footerRender = get(config, ["opts", "render", "footerRender"], null);
+
+  return footerRender ? (
+    footerRender({ text, children, style, config, story, collection })
+  ) : (
+    &lt;DefaultFooter text={text} children={children} style={style} config={config} />
+  );
+};
+
+export { BaseFooter };
+
+/**
+ *
+ * Footer component is the footer which comes at the bottom of the page.
+ * The look of the Footer can be changed using the render prop footerRender. In case footerRender is passed in the config,
+ * it is rendered. Otherwise a default Footer is rendered
+ *
+ * ```javascript
+ * import React from "react";
+ * import { AMP } from "@quintype/amp";
+ * import { Layout, Head } = AMP;
+ * const MyCustomFooter = ({ story, config }) => (
+ * &lt;Layout story={story} config={config}>
+ *    &lt;Head>
+ *      &lt;style>{`
+ *        .footerWrapper {
+ *         display: flex;
+ *         align-items: center;
+ *       }
+ *     `}&lt;/style
+ *    &lt;/Head>
+ *    &lt;p className="footerWrapper">This is my new footer&lt;/p>
+ *  &lt;/Layout>
+ * )
+ *
+ * ...
+ * ampRoutes(app, {
+ *    footerRender: ({ story, config }) => &lt;MyCustomFooter story={story} config={config} />
+ * })
+ * ...
+ * ```
+ *
+ * @category Atoms
+ * @module Footer
+ * @component
+ * @param {FooterTypes} props
+ * @param {CSSObject} props.style Optional. Used to pass custom styles
+ * @param {string} props.text Optional. Used to add custom text.
+ * @param {(JSX.Element[] | JSX.Element | React.ReactChildren | React.ReactChild)} props.children Optional. If children is passed, children are shown orelse the default powered by text is shown
+ */
+
+const Footer = withConfig(withTheme(BaseFooter));
+export { Footer };
+</code></pre>
+        </article>
+    </section>
 
 
 

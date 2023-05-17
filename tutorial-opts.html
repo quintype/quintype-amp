@@ -55,7 +55,6 @@
                 >
                     API Documentation
                 </a>
-                
                 <div class="dropdown is-hoverable is-right">
                     <a class="dropdown-trigger link">
                         Tutorials
@@ -64,42 +63,43 @@
                     <div class="dropdown-menu">
                         <div class="dropdown-content">
                         
-                            <a class="dropdown-item" href="tutorial-overview.html">
-                                Overview
-                            </a>
-                        
-                            <a class="dropdown-item" href="tutorial-opts.html">
-                                The 'opts' object
-                            </a>
-                        
-                            <a class="dropdown-item" href="tutorial-localization.html">
-                                Localization
-                            </a>
-                        
-                            <a class="dropdown-item" href="tutorial-default-story-templates.html">
-                                Default Story Templates
-                            </a>
-                        
-                            <a class="dropdown-item" href="tutorial-custom-story-templates.html">
-                                Custom Story Templates
-                            </a>
-                        
-                            <a class="dropdown-item" href="tutorial-library-exports.html">
-                                AMP Library Exports
-                            </a>
-                        
-                            <a class="dropdown-item" href="tutorial-migration-to-v2.html">
-                                Migration from @quintype/framework v3.x.x to v4.x.x
-                            </a>
-                        
-                            <a class="dropdown-item" href="tutorial-features.html">
-                                Features
-                            </a>
+                            
+                                <a class="dropdown-item" href="tutorial-overview.html">
+                                    Overview
+                                </a>
+                            
+                                <a class="dropdown-item" href="tutorial-opts.html">
+                                    The 'opts' object
+                                </a>
+                            
+                                <a class="dropdown-item" href="tutorial-localization.html">
+                                    Localization
+                                </a>
+                            
+                                <a class="dropdown-item" href="tutorial-default-story-templates.html">
+                                    Default Story Templates
+                                </a>
+                            
+                                <a class="dropdown-item" href="tutorial-custom-story-templates.html">
+                                    Custom Story Templates
+                                </a>
+                            
+                                <a class="dropdown-item" href="tutorial-library-exports.html">
+                                    AMP Library Exports
+                                </a>
+                            
+                                <a class="dropdown-item" href="tutorial-migration-to-v2.html">
+                                    Migration from @quintype/framework v3.x.x to v4.x.x
+                                </a>
+                            
+                                <a class="dropdown-item" href="tutorial-features.html">
+                                    Features
+                                </a>
+                            
                         
                         </div>
                     </div>
                 </div>
-                
                 
                 
             </div>
@@ -130,6 +130,10 @@
                 </header>
                 <section>
 
+<header>
+    
+</header>
+
 <article>
     <p>The AMP library accepts customizations via the &quot;opts&quot; javascript object.</p>
 <h1>AMP story pages</h1>
@@ -149,6 +153,7 @@
   },
   render: {
     headerCardRender: ({ story, config }) => &lt;CustHeaderCard story={story} config={config} />,
+    footerRender: ({ story, config }) => &lt;CustFooter story={story} config={config} />,
     infiniteScrollRender: ({ story, config, inlineConfig }) => &lt;CustomInfiniteScroll story={story} config={config} firstFiveStoriesConfig={inlineConfig} />
     // ... other renders
     storyElementRender: {
@@ -179,6 +184,7 @@
 <li><code>storyElementRender</code></li>
 <li><code>relatedStoriesRender</code></li>
 <li><code>headerCardRender</code></li>
+<li><code>footerRender</code></li>
 <li><code>infiniteScrollRender</code></li>
 </ul>
 </li>
@@ -315,6 +321,7 @@ The <code>&lt;Head /&gt;</code> component may be used to put code in the head. U
 <pre class="prettyprint source lang-jsx"><code>ampRoutes(app, {
   render: {
     headerCardRender: ({story, config}) => &lt;div>CUSTOM HEADER CARD&lt;/div>
+    footerRender: ({story, config}) => &lt;div>CUSTOM FOOTER&lt;/div>
     storyElementRender: {
       textElementRender: ({ story, config, element }) => (
         &lt;div>

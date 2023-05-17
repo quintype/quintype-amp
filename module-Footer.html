@@ -5,7 +5,7 @@
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66074042-1', 'auto');ga('send', 'pageview');</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AMP Library Blurb</title>
+  <title>AMP Library Footer</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -126,7 +126,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Components</p>
-                    <h1>Blurb</h1>
+                    <h1>Footer</h1>
                 </header>
                 
 
@@ -138,7 +138,7 @@
 <header>
     
         <h2>
-            &ltBlurb  /&gt
+            &ltFooter  /&gt
         </h2>
         
     
@@ -158,12 +158,12 @@
 
 
     
-    <h4 class="name" id="Blurb">
-        <a class="href-link" href="#Blurb">#</a>
+    <h4 class="name" id="Footer">
+        <a class="href-link" href="#Footer">#</a>
         
         <span class="code-name">
             
-                &ltBlurb  /&gt
+                &ltFooter  /&gt
             
         </span>
     </h4>
@@ -172,8 +172,32 @@
     
     
     <div class="description">
-        <p>Blurb is a story element.
-The look of the Blurb can be changed using the render prop blurbRender. In case blurbRender is passed in the config, it is rendered. Otherwise a default Blurb is rendered.</p>
+        <p>Footer component is the footer which comes at the bottom of the page.
+The look of the Footer can be changed using the render prop footerRender. In case footerRender is passed in the config,
+it is rendered. Otherwise a default Footer is rendered</p>
+<pre class="prettyprint source lang-javascript"><code>import React from &quot;react&quot;;
+import { AMP } from &quot;@quintype/amp&quot;;
+import { Layout, Head } = AMP;
+const MyCustomFooter = ({ story, config }) => (
+&lt;Layout story={story} config={config}>
+   &lt;Head>
+     &lt;style>{`
+       .footerWrapper {
+        display: flex;
+        align-items: center;
+      }
+    `}&lt;/style
+   &lt;/Head>
+   &lt;p className=&quot;footerWrapper&quot;>This is my new footer&lt;/p>
+ &lt;/Layout>
+)
+
+...
+ampRoutes(app, {
+   footerRender: ({ story, config }) => &lt;MyCustomFooter story={story} config={config} />
+})
+...
+</code></pre>
     </div>
     
 
@@ -213,13 +237,13 @@ The look of the Blurb can be changed using the render prop blurbRender. In case 
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>params</code></td>
+      <td class="name"><code>props</code></td>
   
 
   <td class="type">
   
       
-<span class="param-type">Object</span>
+<span class="param-type">FooterTypes</span>
 
 
   
@@ -229,7 +253,7 @@ The look of the Blurb can be changed using the render prop blurbRender. In case 
 
   
 
-  <td class="description last"><p>object containing parameters passed to the render prop</p></td>
+  <td class="description last"></td>
 </tr>
 
   
@@ -237,13 +261,13 @@ The look of the Blurb can be changed using the render prop blurbRender. In case 
     
 <tr class="deep-level-1">
   
-      <td class="name"><code>story</code></td>
+      <td class="name"><code>style</code></td>
   
 
   <td class="type">
   
       
-<span class="param-type">Object</span>
+<span class="param-type">CSSObject</span>
 
 
   
@@ -253,20 +277,20 @@ The look of the Blurb can be changed using the render prop blurbRender. In case 
 
   
 
-  <td class="description last"><p>story object</p></td>
+  <td class="description last"><p>Optional. Used to pass custom styles</p></td>
 </tr>
 
   
     
 <tr class="deep-level-1">
   
-      <td class="name"><code>config</code></td>
+      <td class="name"><code>text</code></td>
   
 
   <td class="type">
   
       
-<span class="param-type">Object</span>
+<span class="param-type">string</span>
 
 
   
@@ -276,20 +300,29 @@ The look of the Blurb can be changed using the render prop blurbRender. In case 
 
   
 
-  <td class="description last"><p>config object</p></td>
+  <td class="description last"><p>Optional. Used to add custom text.</p></td>
 </tr>
 
   
     
 <tr class="deep-level-1">
   
-      <td class="name"><code>element</code></td>
+      <td class="name"><code>children</code></td>
   
 
   <td class="type">
   
       
-<span class="param-type">Object</span>
+<span class="param-type">Array.&lt;JSX.Element></span>
+|
+
+<span class="param-type">JSX.Element</span>
+|
+
+<span class="param-type">React.ReactChildren</span>
+|
+
+<span class="param-type">React.ReactChild</span>
 
 
   
@@ -299,17 +332,7 @@ The look of the Blurb can be changed using the render prop blurbRender. In case 
 
   
 
-  <td class="description last"><p>the story element. This is same as the story element found in the story API response</p>
-<pre class="prettyprint source lang-javascript"><code>...
-ampRoutes(app, {
- render: {
-   storyElementRender: {
-     blurbRender: ({ story, config, element }) => &lt;MyCustomBlurb story={story} config={config} storyElement={element} />
-   }
- }
-})
-...
-</code></pre></td>
+  <td class="description last"><p>Optional. If children is passed, children are shown orelse the default powered by text is shown</p></td>
 </tr>
 
   
@@ -357,9 +380,9 @@ ampRoutes(app, {
 
     
         <p class="tag-source">
-            <a href="atoms_story-elements_blurb_blurb.tsx.html" class="button">View Source</a>
+            <a href="atoms_footer_footer.tsx.html" class="button">View Source</a>
             <span>
-                <a href="atoms_story-elements_blurb_blurb.tsx.html">atoms/story-elements/blurb/blurb.tsx</a>, <a href="atoms_story-elements_blurb_blurb.tsx.html#line33">line 33</a>
+                <a href="atoms_footer_footer.tsx.html">atoms/footer/footer.tsx</a>, <a href="atoms_footer_footer.tsx.html#line39">line 39</a>
             </span>
         </p>
     
