@@ -79,7 +79,7 @@
     "jsdoc": "^3.6.11",
     "lint-staged": "^10.2.2",
     "onchange": "^4.1.0",
-    "parcel": "^1.12.4",
+    "parcel": "1.12.3",
     "prettier": "^1.19.1",
     "standard-version": "^8.0.2",
     "ts-jest": "^25.2.0",
