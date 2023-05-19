@@ -74,7 +74,36 @@ export const NavbarBase = ({ config, theme }: NavbarTypes) => {
 };
 
 /**
- * Navbar Component uses the PublisherLogoHeader, HamburgerMenu and Hamburger atomic components internally.
+ * 
+ * Navbar Component by default uses the PublisherLogoHeader, HamburgerMenu and Hamburger atomic components internally.
+ * We can also render the customized navbar by passing the render prop navbarRender from the frontend inside app > server > app.js file under ampRoutes as shown below:
+ *
+ * ```javascript
+ * import React from "react";
+ * import { AMP } from "@quintype/amp";
+ * import { Layout, Head } = AMP;
+ * const CustomNavbar = ({ config, theme }) => (
+ * <Layout config={config} theme={theme} >
+ *   <Head>
+  *    <style>{`
+  *    .customNavbar {
+  *       width: 100%;
+  *       height: 60px;
+  *       position: relative;
+  *       background-color: ${(props) => props.theme.color.headerBackground};
+  *     }
+  *   `}</style>
+ *   </Head>
+ *   <h1 className="customNavbar"> CUSTOM NAVBAR </h1>
+ * </Layout>
+ * )
+ * ...
+ * ...
+ * ampRoutes(app, {
+ *    navbarRender: ({ config, theme }) => <CustomNavbar config={config} theme={theme} />
+ * })
+ * ...
+ * 
  *
  * @param {Object} props Object containing parameters passed to the render prop
  * @param {String} props.align Optional. A string of "right" or "left" which specifies the direction of the hamburger menu.
