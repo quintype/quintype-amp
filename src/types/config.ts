@@ -1,4 +1,5 @@
 import { FallbackEntitlementProps, ServicesProps, ScoreProps } from "../atoms/subscriptions/types";
+import { FooterTypes } from "../atoms/footer/types";
 import { Story } from "./story";
 
 export interface Config {
@@ -152,6 +153,7 @@ export interface ConfigOpts {
     headerCardRender?: (props: Config) => any;
     relatedStoriesRender?: (props: RelatedStoriesRenderPropTypes) => any;
     infiniteScrollRender?: (props: InfiniteScrollRenderPropTypes) => any;
+    footerRender?: (props: FooterTypes) => any;
     subscriptionRender?: {
       meterRender?: (props: SubscriptionRenderPropTypes) => any;
       LastStoryMeterRender?: (props: SubscriptionRenderPropTypes) => any;
