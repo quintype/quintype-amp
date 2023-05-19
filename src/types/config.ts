@@ -1,4 +1,5 @@
 import { FallbackEntitlementProps, ServicesProps, ScoreProps } from "../atoms/subscriptions/types";
+import { FooterTypes } from "../atoms/footer/types";
 import { Story } from "./story";
 import { NavbarTypes } from "../molecules/navbar/types";
 
@@ -154,6 +155,7 @@ export interface ConfigOpts {
     navbarRender?: (props: NavbarTypes) => any;
     relatedStoriesRender?: (props: RelatedStoriesRenderPropTypes) => any;
     infiniteScrollRender?: (props: InfiniteScrollRenderPropTypes) => any;
+    footerRender?: (props: FooterTypes) => any;
     subscriptionRender?: {
       meterRender?: (props: SubscriptionRenderPropTypes) => any;
       LastStoryMeterRender?: (props: SubscriptionRenderPropTypes) => any;

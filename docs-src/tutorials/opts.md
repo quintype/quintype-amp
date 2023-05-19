@@ -21,6 +21,7 @@ const myOptsObj = {
   render: {
     navbarRender: ({ config, theme }) => <CustomNavbar theme={theme} config={config} />,
     headerCardRender: ({ story, config }) => <CustHeaderCard story={story} config={config} />,
+    footerRender: ({ story, config }) => <CustFooter story={story} config={config} />,
     infiniteScrollRender: ({ story, config, inlineConfig }) => <CustomInfiniteScroll story={story} config={config} firstFiveStoriesConfig={inlineConfig} />
     // ... other renders
     storyElementRender: {
@@ -50,6 +51,7 @@ const myOptsObj = {
   - `storyElementRender`
   - `relatedStoriesRender`
   - `headerCardRender`
+  - `footerRender`
   - `infiniteScrollRender`
   - `navbarRender`
 - `featureConfig` - used to provide config for amp lib features.
@@ -157,6 +159,7 @@ ampRoutes(app, {
   render: {
     navbarRender: ({config, theme}) => <div>CUSTOM NAVBAR</div>
     headerCardRender: ({story, config}) => <div>CUSTOM HEADER CARD</div>
+    footerRender: ({story, config}) => <div>CUSTOM FOOTER</div>
     storyElementRender: {
       textElementRender: ({ story, config, element }) => (
         <div>
