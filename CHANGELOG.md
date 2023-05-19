@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.12.0](https://github.com/quintype/quintype-amp/compare/v2.6.2...v2.12.0) (2023-05-19)
+
+
+### Features
+
+* **atob:** Change atob decode to utf-8 ([fa6f44c](https://github.com/quintype/quintype-amp/commit/fa6f44c99a3dd30f15d208e01f475dd1d3c6eec2))
+* **decode:** Remove encoding uri ([a9d6324](https://github.com/quintype/quintype-amp/commit/a9d632492235d73abbdc2f686681f5d27d7ce3fc))
+* remove powered by quintype from the footer ([#399](https://github.com/quintype/quintype-amp/issues/399)) ([4204fd3](https://github.com/quintype/quintype-amp/commit/4204fd345aa969448e8654b501a77178f3a60b3d))
+* support custom time stamp in story cards ([#415](https://github.com/quintype/quintype-amp/issues/415)) ([a403da6](https://github.com/quintype/quintype-amp/commit/a403da6501857636ad1abe9f7dfb667890d8ce7c))
+* support last published time in story page ([#420](https://github.com/quintype/quintype-amp/issues/420)) ([c28b337](https://github.com/quintype/quintype-amp/commit/c28b3373e71acbb590c2ef7dbc6b08793e2f724c))
+
+
+### Bug Fixes
+
+* Add fallback to poster images in visual story template ([#419](https://github.com/quintype/quintype-amp/issues/419)) ([09697bc](https://github.com/quintype/quintype-amp/commit/09697bc4ff808c562990876761de5243ae4ffb7c))
+* Chartbeat domain ([#410](https://github.com/quintype/quintype-amp/issues/410)) ([1f82712](https://github.com/quintype/quintype-amp/commit/1f82712275f1a50b5f256e7345d4f373dec49482))
+* date updated test ([#424](https://github.com/quintype/quintype-amp/issues/424)) ([41614e9](https://github.com/quintype/quintype-amp/commit/41614e9e8fbdab2c4882882c80b00714649d9e36))
+* header test ([#423](https://github.com/quintype/quintype-amp/issues/423)) ([87219cb](https://github.com/quintype/quintype-amp/commit/87219cb0990303f3bc8455c3532c1f332d059c19))
+* pass domain value to chartbeat  ([#401](https://github.com/quintype/quintype-amp/issues/401)) ([ff8d65f](https://github.com/quintype/quintype-amp/commit/ff8d65f320b5c185411ba9b841a0992abd417f63))
+* update lock ([#425](https://github.com/quintype/quintype-amp/issues/425)) ([44e91c1](https://github.com/quintype/quintype-amp/commit/44e91c1910fb932103e353ade5e33248cbbf8f9e))
+
 ### [2.11.1](https://github.com/quintype/quintype-amp/compare/v2.11.0...v2.11.1) (2023-05-17)
 
 ## [2.11.0](https://github.com/quintype/quintype-amp/compare/v2.10.0...v2.11.0) (2023-03-14)
