@@ -152,6 +152,7 @@
     }
   },
   render: {
+    navbarRender: ({ config, theme }) => &lt;CustomNavbar theme={theme} config={config} />,
     headerCardRender: ({ story, config }) => &lt;CustHeaderCard story={story} config={config} />,
     footerRender: ({ story, config }) => &lt;CustFooter story={story} config={config} />,
     infiniteScrollRender: ({ story, config, inlineConfig }) => &lt;CustomInfiniteScroll story={story} config={config} firstFiveStoriesConfig={inlineConfig} />
@@ -186,6 +187,7 @@
 <li><code>headerCardRender</code></li>
 <li><code>footerRender</code></li>
 <li><code>infiniteScrollRender</code></li>
+<li><code>navbarRender</code></li>
 </ul>
 </li>
 <li><code>featureConfig</code> - used to provide config for amp lib features.</li>
@@ -320,6 +322,7 @@ The <code>&lt;Head /&gt;</code> component may be used to put code in the head. U
 <p>For example,</p>
 <pre class="prettyprint source lang-jsx"><code>ampRoutes(app, {
   render: {
+    navbarRender: ({config, theme}) => &lt;div>CUSTOM NAVBAR&lt;/div>
     headerCardRender: ({story, config}) => &lt;div>CUSTOM HEADER CARD&lt;/div>
     footerRender: ({story, config}) => &lt;div>CUSTOM FOOTER&lt;/div>
     storyElementRender: {
