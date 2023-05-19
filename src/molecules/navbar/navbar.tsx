@@ -80,8 +80,22 @@ export const NavbarBase = ({ config, theme }: NavbarTypes) => {
  *
  * ```javascript
  * import React from "react";
+ * import { AMP } from "@quintype/amp";
+ * import { Layout, Head } = AMP;
  * const CustomNavbar = ({ config, theme }) => (
- *   <h1> CUSTOM NAVBAR </h1>
+ * <Layout config={config} theme={theme} >
+ *   <Head>
+  *    <style>{`
+  *    .customNavbar {
+  *       width: 100%;
+  *       height: 60px;
+  *       position: relative;
+  *       background-color: ${(props) => props.theme.color.headerBackground};
+  *     }
+  *   `}</style>
+ *   </Head>
+ *   <h1 className="customNavbar"> CUSTOM NAVBAR </h1>
+ * </Layout>
  * )
  * ...
  * ...
