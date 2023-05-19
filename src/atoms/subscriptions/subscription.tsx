@@ -29,7 +29,7 @@ const SubscriptionBase = ({ story, config }: SubscriptionProps) => {
           custom-template="amp-mustache"
           src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"
         />
-        <script type="application/json" id="amp-subscriptions">
+        <script type="application/json" crossorigin="anonymous" id="amp-subscriptions">
           {JSON.stringify({
             services,
             score,
