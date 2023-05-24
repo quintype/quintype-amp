@@ -2,7 +2,7 @@ import React from "react";
 import { withConfig } from "../../context";
 import { Analytics } from "../analytics";
 import { infiniteScrollExists } from "../../helpers";
-import { Ga4Json } from "./ga4";
+// import { Ga4Json } from "./ga4";
 import get from "lodash.get";
 
 const DefaultGoogleAnalytics = ({ config }) => {
@@ -26,19 +26,19 @@ const DefaultGoogleAnalytics = ({ config }) => {
   return <Analytics type="googleanalytics" targets={gaConfig} />;
 };
 
-const GoogleAnalytics4 = ({ config }) => {
+const GoogleAnalytics4 = ({config}) => {
   const Ga4ConfigObject = get(config, ["opts", "featureConfig", "ga4Config"], null);
-  return <Analytics type="googleanalytics" targets={Ga4ConfigObject} config={Ga4Json} data-credentials="include" />;
+  return <Analytics type="googleanalytics" targets={Ga4ConfigObject} config="https://amp.analytics-debugger.com/ga4.json" data-credentials="include"/>;
 };
 
-const GoogleAnalyticsBase = ({ config }) => {
-  const googleAnalyticsTrackingId = config.ampConfig["google-analytics-tracking-id"];
-  if (!googleAnalyticsTrackingId) return null;
+const GoogleAnalyticsBase = ({config}) => {
+  // const googleAnalyticsTrackingId = config.ampConfig["google-analytics-tracking-id"];
+  // if (!googleAnalyticsTrackingId) return null;
 
   const regex = /^UA-/;
-  const isGA3 = regex.test(googleAnalyticsTrackingId);
+  const isGA3 = regex.test("G-8V3JM8CSKL");
 
-  return isGA3 ? <DefaultGoogleAnalytics config={config} /> : <GoogleAnalytics4 config={Ga4Json} />;
+  return isGA3 ? <DefaultGoogleAnalytics config={config} /> : <GoogleAnalytics4 config={config} />;
 };
 
 /**
