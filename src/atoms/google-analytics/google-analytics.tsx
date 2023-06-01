@@ -32,11 +32,11 @@ const GoogleAnalytics4 = ({config}) => {
 };
 
 const GoogleAnalyticsBase = ({config}) => {
-  // const googleAnalyticsTrackingId = config.ampConfig["google-analytics-tracking-id"];
-  // if (!googleAnalyticsTrackingId) return null;
+  const googleAnalyticsTrackingId = config.ampConfig["google-analytics-tracking-id"];
+  if (!googleAnalyticsTrackingId) return null;
 
   const regex = /^UA-/;
-  const isGA3 = regex.test("G-8V3JM8CSKL");
+  const isGA3 = regex.test(googleAnalyticsTrackingId);
 
   return isGA3 ? <DefaultGoogleAnalytics config={config} /> : <GoogleAnalytics4 config={config} />;
 };
