@@ -7,7 +7,7 @@
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66074042-1', 'auto');ga('send', 'pageview');</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AMP Library atoms/story-elements/text/q-and-a/q-and-a.tsx</title>
+  <title>AMP Library atoms/google-analytics/google-analytics.tsx</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -128,7 +128,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>atoms/story-elements/text/q-and-a/q-and-a.tsx</h1>
+                    <h1>atoms/google-analytics/google-analytics.tsx</h1>
                 </header>
                 
 
@@ -137,62 +137,89 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React, { Fragment } from "react";
-import { StoryElementProps } from "../../types";
-import { withStoryAndConfig } from "../../../../context";
-import { StyledQuestion } from "../question/question";
-import { StyledAnswer } from "../answer/answer";
+            <pre class="prettyprint source linenums"><code>import React from "react";
+import { withConfig } from "../../context";
+import { Analytics } from "../analytics";
+import { infiniteScrollExists } from "../../helpers";
 import get from "lodash.get";
 
-export const QAndABase = ({ element, story, config }: StoryElementProps) => {
-  const qAndAElementRender = get(config, ["opts", "render", "storyElementRender", "qAndAElementRender"], null);
-  if (qAndAElementRender) return qAndAElementRender({ story, config, element });
-  const textDirection = get(config, ["publisherConfig", "language", "direction"], "ltr");
+const DefaultGoogleAnalytics = ({ config }) => {
+  const googleAnalyticsTrackingId = config.ampConfig["google-analytics-tracking-id"];
+  if (!googleAnalyticsTrackingId) return null;
 
-  const question = get(element, ["metadata", "question"], null);
-  const answer = get(element, ["metadata", "answer"], null);
-
-  return (
-    &lt;div>
-      {question &amp;&amp; (
-        &lt;Fragment>
-          &lt;StyledQuestion textDirection={textDirection} dangerouslySetInnerHTML={{ __html: question }} />
-        &lt;/Fragment>
-      )}
-      {answer &amp;&amp; (
-        &lt;Fragment>
-          &lt;StyledAnswer textDirection={textDirection} dangerouslySetInnerHTML={{ __html: answer }} />
-        &lt;/Fragment>
-      )}
-    &lt;/div>
-  );
+  const gaConfig = {
+    vars: {
+      account: googleAnalyticsTrackingId
+    },
+    triggers: {
+      trackPageview: {
+        on: infiniteScrollExists(config) ? "amp-next-page-scroll" : "visible",
+        request: "pageview",
+        scrollSpec: {
+          useInitialPageSize: infiniteScrollExists(config)
+        }
+      }
+    }
+  };
+  return &lt;Analytics type="googleanalytics" targets={gaConfig} />;
 };
+
+const GoogleAnalytics4 = ({config}) => {
+  const Ga4ConfigObject = get(config, ["opts", "featureConfig", "ga4Config"], null);
+  return &lt;Analytics type="googleanalytics" targets={Ga4ConfigObject} config="./ga4.json" data-credentials="include"/>;
+};
+
+const GoogleAnalyticsBase = ({config}) => {
+  const googleAnalyticsTrackingId = config.ampConfig["google-analytics-tracking-id"];
+  if (!googleAnalyticsTrackingId) return null;
+
+  const regex = /^UA-/;
+  const isGA3 = regex.test(googleAnalyticsTrackingId);
+
+  return isGA3 ? &lt;DefaultGoogleAnalytics config={config} /> : &lt;GoogleAnalytics4 config={config} />;
+};
+
 /**
- * QAndA is a story element.
- * The look of the Question can be changed using the render prop qAndAElementRender. In case qAndAElementRender is passed in the config, it is rendered. Otherwise a default QAndA element is rendered.
- *
- * @param {Object} params object containing parameters passed to the render prop
- * @param {Object} params.story story object
- * @param {Object} params.config config object
- * @param {Object} params.element the story element. This is same as the story element found in the story API response
- *
- * ```javascript
+ * Google Analytics Component can be used for analytics purposes. This supports GA4 and the older version. 
+ * Id will be picked from Amp config of BOLD. `Settings > Configure > AMP > GA tracking id`.
+ * 
+ * GA4 config will be picked up from `featureConfig`. Page Builder clients can add this config inside Amp configuration settings that is under `general > manage > AMP` and custom clients can add inside `ampRoutes` function in `app.js` file. The config will be an object with the required parameters and values. 
+ * Example: 
+ * {
+ *   vars: {
+      "GA4_MEASUREMENT_ID": "G-XXXXXXXX",
+      "GA4_ENDPOINT_HOSTNAME": "www.google-analytics.com",
+      "DEFAULT_PAGEVIEW_ENABLED": true,    
+      "GOOGLE_CONSENT_ENABLED": false,
+      "WEBVITALS_TRACKING": false,
+      "PERFORMANCE_TIMING_TRACKING": false,
+      "SEND_DOUBLECLICK_BEACON": false
+    }
+    triggers: {}
+ * }
  * ...
  * ampRoutes(app, {
- *  render: {
- *    storyElementRender: {
- *      qAndAElementRender: ({ story, config, element }) => &lt;MyCustomQAndAElement story={story} config={config} storyElement={element} />
- *    }
+ *  featureConfig: {
+ *    ga4Config: { 
+        "GA4_MEASUREMENT_ID": "G-XXXXXXXX",
+        "GA4_ENDPOINT_HOSTNAME": "www.google-analytics.com",
+        "DEFAULT_PAGEVIEW_ENABLED": true,    
+        "GOOGLE_CONSENT_ENABLED": false,
+        "WEBVITALS_TRACKING": false,
+        "PERFORMANCE_TIMING_TRACKING": false,
+        "SEND_DOUBLECLICK_BEACON": false
+     }
  *  }
  * })
  * ...
  * ```
- *
- * @category StoryElements
- * @module QAndA
+ * @category Atoms
  * @component
+ * 
  */
-export const QAndA = withStoryAndConfig(QAndABase);
+
+const GoogleAnalytics = withConfig(GoogleAnalyticsBase);
+export { GoogleAnalytics, GoogleAnalyticsBase, DefaultGoogleAnalytics, GoogleAnalytics4 };
 </code></pre>
         </article>
     </section>
