@@ -66,7 +66,11 @@ export const DefaultNavbar = ({ config, theme }: NavbarTypes) => {
 
 export const NavbarBase = ({ config, theme }: NavbarTypes) => {
   const customNavbar = get(config, ["opts", "render", "navbarRender"], null);
-  return customNavbar ? customNavbar({ config, theme }) : <DefaultNavbar config={config} theme={theme} />;
+  return customNavbar ? (
+    customNavbar({ config, theme })
+  ) : (
+    <DefaultNavbar config={config} theme={theme} />
+  );
 };
 
 /**
