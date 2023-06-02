@@ -2,7 +2,6 @@ import React from "react";
 import { withConfig } from "../../context";
 import { Analytics } from "../analytics";
 import { infiniteScrollExists } from "../../helpers";
-// import { Ga4Json } from "./ga4";
 import get from "lodash.get";
 
 const DefaultGoogleAnalytics = ({ config }) => {
@@ -28,7 +27,7 @@ const DefaultGoogleAnalytics = ({ config }) => {
 
 const GoogleAnalytics4 = ({config}) => {
   const Ga4ConfigObject = get(config, ["opts", "featureConfig", "ga4Config"], null);
-  return <Analytics type="googleanalytics" targets={Ga4ConfigObject} config="https://amp.analytics-debugger.com/ga4.json" data-credentials="include"/>;
+  return <Analytics type="googleanalytics" targets={Ga4ConfigObject} config="./ga4.json" data-credentials="include"/>;
 };
 
 const GoogleAnalyticsBase = ({config}) => {
