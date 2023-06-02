@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar } from "./navbar";
+import { Navbar, DefaultNavbar, NavbarBase } from "./navbar";
 import { mount, shallow } from "enzyme";
 import { configWithMenuDisabled, configWithNoHamburgerMenuItems } from "./navbar.stories";
 import { Layout, HamburgerMenu } from "../../atoms";
@@ -23,6 +23,7 @@ import {
   sidebarMenuNewsItems,
   sidebarMenuItemsMainDomain
 } from "./test-data";
+import { config } from "../../__fixtures__";
 
 const LayoutWithMenuDisabled = () => (
   <Layout story={textStory} config={configWithMenuDisabled}>
@@ -49,6 +50,13 @@ describe("Navbar", () => {
     const wrapper = mount(<LayoutWithNoHamburgerMenuItems />);
     expect(wrapper.find(Hamburger).exists()).toBeFalsy();
     expect(wrapper.find(HamburgerMenu).exists()).toBeFalsy();
+  });
+  it("should return customized navbar when navbarRender prop is passed in opts from frontend", () => {
+    const navbarRender = jest.fn();
+    const modifiedConfig = { ...config, opts: { render: { navbarRender } } };
+    const wrapper = shallow(<NavbarBase config={modifiedConfig} />);
+    expect(navbarRender.mock.calls.length).toBe(1);
+    expect(wrapper.find(DefaultNavbar).length).toBe(0);
   });
 });
 

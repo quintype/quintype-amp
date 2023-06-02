@@ -14,6 +14,7 @@ const Iframe = ({
   frameborder = "0",
   width = "16",
   height = "9",
+  scrolling = "yes",
   children,
   inlineStyles,
   title,
@@ -33,6 +34,7 @@ const Iframe = ({
           frameborder={frameborder}
           src={src}
           title={title}
+          scrolling={scrolling}
           {...restProps}>
           {children && children}
         </amp-iframe>
