@@ -53,6 +53,7 @@ export const BaseImage = ({
     case "responsive":
       imgAttrs.width = imgAspectRatio[0];
       imgAttrs.height = imgAspectRatio[1];
+      imgAttrs["object-fit"] = "contain";
       break;
   }
   return lightbox ? (

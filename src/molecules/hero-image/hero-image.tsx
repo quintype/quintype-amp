@@ -33,6 +33,10 @@ const StyledText = styled.div`
   margin: 0 8px;
 `;
 
+const StyledDiv = styled.div`
+  background-color: #e4e4e4;
+`;
+
 export const HeroImageBase = ({ story }: HeroImageBaseTypes) => {
   const metadata: HeroImageMetadata = get(story, "hero-image-metadata", null);
   const slug: string | null = get(story, "hero-image-s3-key", null);
@@ -42,16 +46,15 @@ export const HeroImageBase = ({ story }: HeroImageBaseTypes) => {
   const caption: string | null = get(story, "hero-image-caption", null);
 
   return (
-    <div>
+    <StyledDiv>
       <Image data-hero="true" metadata={metadata} slug={slug} alt={caption || attribution || ""}>
         <StyledWrapper>
           {caption && <StyledText dangerouslySetInnerHTML={{ __html: `${caption}` }} />}
           {caption && attribution && <span>|</span>}
           {attribution && <StyledText dangerouslySetInnerHTML={{ __html: `${attribution}` }} />}
         </StyledWrapper>
-        )
       </Image>
-    </div>
+    </StyledDiv>
   );
 };
 
