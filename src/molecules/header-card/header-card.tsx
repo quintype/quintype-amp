@@ -1,7 +1,7 @@
 import React from "react";
 import { withStoryAndConfig } from "../../context";
 import { CommonRenderPropTypes } from "../../types/config";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import get from "lodash.get";
 import { Author, Section, Spacer } from "../../atoms";
 import { HeroImage, SocialShareHeader, DateFirstPublished, DateLastPublished } from "../index";
@@ -37,7 +37,19 @@ const HeaderCardContainer = styled.div`
 export const DefaultHeaderCard = ({ story, config, storyType }: HeaderCardProps) => {
   const { publisherConfig } = config;
 
+  const theme = useTheme();
+
   const { enableLastPublished, enableFirstPublished } = getDateSettings(config, storyType);
+
+  function authorCardRender(data) {
+    let authorUi;
+    const authorCard = get(config, ["opts", "featureConfig", "renderAuthorCard"], null);
+
+    if (authorCard) {
+      authorUi = authorCard({ ...data, theme });
+    }
+    return authorUi || <Author authors={story.authors} prepend={getLocalizedWord(config, "by", "By")} />;
+  }
 
   return (
     <div>
@@ -48,7 +60,7 @@ export const DefaultHeaderCard = ({ story, config, storyType }: HeaderCardProps)
         <Spacer token="xs" />
         <Headline>{story.headline}</Headline>
         <Spacer token="s" />
-        <Author authors={story.authors} prepend={getLocalizedWord(config, "by", "By")} />
+        {authorCardRender({ story, config, storyType })}
         <Spacer token="xxs" />
         {!!enableFirstPublished && (
           <>
