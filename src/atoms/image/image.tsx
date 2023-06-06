@@ -53,16 +53,15 @@ export const BaseImage = ({
     case "responsive":
       imgAttrs.width = imgAspectRatio[0];
       imgAttrs.height = imgAspectRatio[1];
-      imgAttrs["object-fit"] = "contain";
       break;
   }
   return lightbox ? (
     <Fragment>
       <LightboxGallery />
-      <amp-img {...imgAttrs} lightbox={lightbox} />
+      <amp-img {...imgAttrs} lightbox={lightbox} object-fit="contain" />
     </Fragment>
   ) : (
-    <amp-img {...imgAttrs} />
+    <amp-img {...imgAttrs} object-fit="contain" />
   );
 };
 

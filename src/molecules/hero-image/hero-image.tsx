@@ -34,7 +34,7 @@ const StyledText = styled.div`
 `;
 
 const StyledDiv = styled.div`
-  background-color: #e4e4e4;
+  background-color: ${(props) => props.theme.color.mono2};
 `;
 
 export const HeroImageBase = ({ story }: HeroImageBaseTypes) => {
