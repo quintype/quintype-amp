@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.13.0](https://github.com/quintype/quintype-amp/compare/v2.12.2...v2.13.0) (2023-06-07)
+
+
+### Features
+
+* **comscore:** support tag on every image ([#438](https://github.com/quintype/quintype-amp/issues/438)) ([e88afa1](https://github.com/quintype/quintype-amp/commit/e88afa1b774944029a64c3e0be1afc4eeba0449a))
+
 ### [2.12.2](https://github.com/quintype/quintype-amp/compare/v2.12.1...v2.12.2) (2023-06-02)
 
 ### [2.12.1](https://github.com/quintype/quintype-amp/compare/v2.12.0...v2.12.1) (2023-05-19)
