@@ -17,59 +17,6 @@ describe("Image", () => {
   const s3key =
     "barandbench/2020-01/0329b37d-5ec6-4bb4-b16f-2009bbaf13c9/LSAC_Launches_New_Initiatives_to_Support_Law_School_Enrollment_Efforts_in_India.JPG";
 
-  it("should render fixed-height layout", () => {
-    const wrapper = shallow(
-      <BaseImage
-        alt="Sample Image"
-        layout={"fixed-height"}
-        metadata={metadata}
-        slug={s3key}
-        aspectRatio={[0, 100]}
-        config={config}
-      />
-    );
-    expect(wrapper.find(`amp-img`).prop("width")).toBeUndefined();
-    expect(wrapper.find(`amp-img`).prop("height")).toBe("100");
-    expect(wrapper.find(`amp-img`).prop("layout")).toBe("fixed-height");
-  });
-  it("should render fixed layout", () => {
-    const wrapper = shallow(
-      <BaseImage
-        alt="Sample Image"
-        config={config}
-        layout="fixed"
-        metadata={metadata}
-        slug={s3key}
-        aspectRatio={[500, 500]}
-      />
-    );
-    expect(wrapper.find(`amp-img`).prop("width")).toBe("500");
-    expect(wrapper.find(`amp-img`).prop("height")).toBe("500");
-    expect(wrapper.find(`amp-img`).prop("layout")).toBe("fixed");
-  });
-  it("should render intrinsic layout", () => {
-    const wrapper = shallow(
-      <BaseImage
-        alt="Sample Image"
-        config={config}
-        layout="intrinsic"
-        metadata={metadata}
-        slug={s3key}
-        aspectRatio={[500, 500]}
-      />
-    );
-    expect(wrapper.find(`amp-img`).prop("width")).toBe("500");
-    expect(wrapper.find(`amp-img`).prop("height")).toBe("500");
-    expect(wrapper.find(`amp-img`).prop("layout")).toBe("intrinsic");
-  });
-  it("should render nodisplay layout", () => {
-    const wrapper = shallow(
-      <BaseImage alt="Sample Image" config={config} layout="nodisplay" metadata={metadata} slug={s3key} />
-    );
-    expect(wrapper.find(`amp-img`).prop("layout")).toBe("nodisplay");
-    expect(wrapper.find(`amp-img`).prop("width")).toBeUndefined();
-    expect(wrapper.find(`amp-img`).prop("height")).toBeUndefined();
-  });
   it("should render responsive layout by default and set width, height from aspectRatio if passed", () => {
     const wrapper = shallow(
       <BaseImage metadata={metadata} slug={s3key} alt="Sample Image" config={config} aspectRatio={[21, 9]} />
@@ -130,24 +77,16 @@ describe("Image", () => {
   });
   it("should encode the url when the metadata is not passed", () => {
     const wrapper = shallow(
-      <BaseImage
-        alt="Sample Image"
-        layout={"fixed-height"}
-        metadata={null}
-        slug="slug with a space"
-        aspectRatio={[0, 100]}
-        config={config}
-      />
+      <BaseImage alt="Sample Image" metadata={null} slug="slug with a space" aspectRatio={[0, 100]} config={config} />
     );
     expect(wrapper.find("amp-img").prop("src")).toBe(
       `https://gumlet.assettype.com/${encodeURIComponent("slug with a space")}`
     );
   });
-  it("should should not double encode the slug when the metadata is passed", () => {
+  it("should not double encode the slug when the metadata is passed", () => {
     const wrapper = shallow(
       <BaseImage
         alt="Sample Image"
-        layout={"fixed-height"}
         metadata={metadata}
         slug="slug with a space"
         aspectRatio={[0, 100]}
