@@ -4,6 +4,7 @@ import { getImgSrcAndSrcset } from "../../helpers";
 import { withConfig } from "../../context";
 import { LightboxGallery } from "../lightbox-gallery";
 import { base64FallbackImage } from "../../helpers/image-helpers";
+import { Head } from "../index";
 
 export const BaseImage = ({
   metadata,
@@ -55,13 +56,30 @@ export const BaseImage = ({
       imgAttrs.height = imgAspectRatio[1];
       break;
   }
-  return lightbox ? (
+  return (
     <Fragment>
-      <LightboxGallery />
-      <amp-img {...imgAttrs} lightbox={lightbox} object-fit="contain" />
+      <Head>
+        <style>{`
+          .hero-image img{
+            object-fit: contain;
+          }
+        `}</style>
+      </Head>
+      {lightbox ? (
+        <Fragment>
+          <LightboxGallery />
+          {layout === "responsive" ? (
+            <amp-img class="hero-image" {...imgAttrs} lightbox={lightbox} />
+          ) : (
+            <amp-img {...imgAttrs} lightbox={lightbox} />
+          )}
+        </Fragment>
+      ) : layout === "responsive" ? (
+        <amp-img class="hero-image" {...imgAttrs} />
+      ) : (
+        <amp-img {...imgAttrs} />
+      )}
     </Fragment>
-  ) : (
-    <amp-img {...imgAttrs} object-fit="contain" />
   );
 };
 
