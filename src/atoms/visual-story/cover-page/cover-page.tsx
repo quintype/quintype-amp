@@ -131,7 +131,7 @@ const StyledHeadline = styled.h1`
   font-weight: ${(props) => props.theme.font.weight.medium};
   font-size: ${(props) => props.theme.font.size.huge};
   font-family: ${(props) => props.theme.font.family.primary};
-  word-break: break-word;
+  word-break: normal;
 `;
 const StyledAuthors = styled.p`
   font-size: ${(props) => props.theme.font.size.xs};
