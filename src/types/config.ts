@@ -219,6 +219,7 @@ export interface DateSettings {
 export type DateStoryTypes = "live-blog" | "text";
 
 interface FeatureConfigTypes {
+  ga4Config?: object;
   showPoweredByQt?: boolean | (() => boolean);
   storyCardTime?: (config: Config, story: Story) => number;
   dateConfig?: (config: Config, storyType: DateStoryTypes) => DateSettings;
