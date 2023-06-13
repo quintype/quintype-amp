@@ -25,12 +25,12 @@ const DefaultGoogleAnalytics = ({ config }) => {
   return <Analytics type="googleanalytics" targets={gaConfig} />;
 };
 
-const GoogleAnalytics4 = ({config}) => {
+const GoogleAnalytics4 = ({ config }) => {
   const Ga4ConfigObject = get(config, ["opts", "featureConfig", "ga4Config"], null);
-  return <Analytics type="googleanalytics" targets={Ga4ConfigObject} config="./ga4.json" data-credentials="include"/>;
+  return <Analytics type="googleanalytics" targets={Ga4ConfigObject} config="./ga4.json" data-credentials="include" />;
 };
 
-const GoogleAnalyticsBase = ({config}) => {
+const GoogleAnalyticsBase = ({ config }) => {
   const googleAnalyticsTrackingId = config.ampConfig["google-analytics-tracking-id"];
   if (!googleAnalyticsTrackingId) return null;
 
