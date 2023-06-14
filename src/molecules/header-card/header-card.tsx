@@ -41,12 +41,11 @@ export const DefaultHeaderCard = ({ story, config, storyType }: HeaderCardProps)
 
   const { enableLastPublished, enableFirstPublished } = getDateSettings(config, storyType);
 
-  function authorCardRender(data) {
+  function authorCard() {
     let authorUi;
-    const authorCard = get(config, ["opts", "featureConfig", "renderAuthorCard"], null);
-
-    if (authorCard) {
-      authorUi = authorCard({ ...data, theme });
+    const getAuthorCard = get(config, ["opts", "featureConfig", "authorCardRender"], null);
+    if (getAuthorCard && typeof getAuthorCard === "function") {
+      authorUi = getAuthorCard({ story, config, storyType, theme });
     }
     return authorUi || <Author authors={story.authors} prepend={getLocalizedWord(config, "by", "By")} />;
   }
@@ -60,7 +59,7 @@ export const DefaultHeaderCard = ({ story, config, storyType }: HeaderCardProps)
         <Spacer token="xs" />
         <Headline>{story.headline}</Headline>
         <Spacer token="s" />
-        {authorCardRender({ story, config, storyType })}
+        {authorCard()}
         <Spacer token="xxs" />
         {!!enableFirstPublished && (
           <>
