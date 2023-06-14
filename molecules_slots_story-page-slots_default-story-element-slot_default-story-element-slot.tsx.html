@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66074042-1', 'auto');ga('send', 'pageview');</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AMP Library Home</title>
+  <title>AMP Library molecules/slots/story-page-slots/default-story-element-slot/default-story-element-slot.tsx</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -125,51 +127,41 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Title</p>
-                    <h1>Home</h1>
+                    <p>Source</p>
+                    <h1>molecules/slots/story-page-slots/default-story-element-slot/default-story-element-slot.tsx</h1>
                 </header>
                 
 
 
 
     
-
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
     <section>
-        <article><p><em>Go through the <a href="tutorial-overview.html">Overview</a></em> tutorial for more info.</p>
-<p>It's cumbersome to build AMP pages from scratch. Wouldn't it be cool if you could build them like how you'd build non-amp pages - using a library like React?
-Quintype's <a href="https://www.npmjs.com/package/@quintype/amp">AMP Library</a> does just that!</p>
-<h2>Backstory - why does the AMP library exist?</h2>
-<p>Until now, AMP pages were handled by platform. The frontend app would route amp page requests upstream, and would get ready-to-render AMP HTML. As the number of publishers using the platform grew, there were more feature and customization requests. There arose a need to create something that would keep up with the feature requests and be scalable and maintainable</p>
-<h2>What all does the library export?</h2>
-<p>For a comprehensive list of items, go to <a href="tutorial-library-exports.html">AMP Library Exports</a></p>
-<ul>
-<li>React components with base styles that you can use to build amp pages for your malibu app</li>
-<li>Helper functions</li>
-<li>Default templates built using these components</li>
-</ul>
-<h2>Set up process</h2>
-<p>Setting up your app to consume the amp library is Easy. Follow the <a href="https://developers.quintype.com/malibu/tutorial/amp-library-integration.html">integration guide</a></p>
-<p><em>This library is part of the <a href="https://developers.quintype.com/malibu">Malibu Framework</a>.</em></p></article>
+        <article>
+            <pre class="prettyprint source linenums"><code>import get from "lodash.get";
+import { withStoryAndConfig } from "../../../../context";
+
+/**
+ * default-story-element-slot is a story page slot. It's placed after every story element on a non live blog story.
+ *
+ * @category Molecules
+ * @module default-story-element-slot
+ * @param {Props} props
+ * @param {Story} props.story
+ * @param {Config} props.config
+ * @param {number} props.cardIdx index of the card
+ * @param {number} props.storyElementIdx index of the story element
+ * @param {Card} props.storyElement gives the storyElement that's above this slot
+ */
+
+const DefaultStoryElementSlotBase = ({ story, config, cardIdx, storyElementIdx, storyElement }) => {
+  const render = get(config, ["opts", "slots", "story", "default-story-element-slot"], null);
+  return render &amp;&amp; render({ story, config, cardIdx, storyElementIdx, storyElement });
+};
+
+export const DefaultStoryElementSlot = withStoryAndConfig(DefaultStoryElementSlotBase);
+</code></pre>
+        </article>
     </section>
-
-
 
 
 

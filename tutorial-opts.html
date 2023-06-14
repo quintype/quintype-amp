@@ -208,6 +208,7 @@ The <code>&lt;Head /&gt;</code> component may be used to put code in the head. U
        &quot;bottom-slot&quot;: ({story, config}) => &lt;MyBottomSlot story={story} config={config} />
        &quot;live-blog-card-slot&quot;: ({story, config, index, card}) => &lt;MyLiveBlogCardSlot />
        &quot;default-story-card-slot&quot;: ({story, config, index, card}) => &lt;MyStoryCardSlot />
+       &quot;default-story-element-slot&quot;: ({story, config, cardIdx, storyElementIdx, storyElement}) => &lt;MyStoryElementSlot/>
      }
    }
 })
@@ -246,6 +247,12 @@ The <code>&lt;Head /&gt;</code> component may be used to put code in the head. U
 <td>story</td>
 <td>obj - {story, config, index, card}</td>
 <td>This slot is placed after every card on non-liveblog story templates</td>
+</tr>
+<tr>
+<td>default-story-element-slot</td>
+<td>story</td>
+<td>obj - {story, config, cardIdx, storyElementIdx, storyElement}</td>
+<td>This slot is placed after every story element on a non-liveblog story</td>
 </tr>
 <tr>
 <td>related-story-card-slot</td>
