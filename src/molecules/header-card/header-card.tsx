@@ -124,6 +124,35 @@ export const DefaultHeaderCard = ({ story, config, storyType }: HeaderCardProps)
  *    headerCardRender: ({ story, config }) => <MyCustomHeadercard story={story} config={config} />
  * })
  * ...
+ *
+ * ### How to pass custom Author component?
+ * ...
+ * featureConfig: {
+ *     authorCardRender({ story, config, storyType, theme }) {
+ *     const authorSettings =
+ *         get(
+ *           config,
+ *           ["additionalConfig", "story", `${camelCase(storyType)}-story`, "settings", "authorDetails"],
+ *           {}
+ *         ) || {};
+ *       const authorStyle = get(authorSettings, ["template"], "default");
+ *       if (authorStyle !== "default") return null;
+ *       const { enableLocalization = false, localizedElements = {} } = get(
+ *         config,
+ *         ["additionalConfig", "general", "localization"],
+ *         {}
+ *       );
+ *       const localizedElementData = enableLocalization ? localizedElements : {};
+ *       const { buttonLabels = {} } = localizedElementData;
+ *       const { authorLabel: localizedAuthorLabel, guestAuthorLabel: localizedGuestAuthorLabel } = buttonLabels;
+ *       const authorConfig = {
+ *         ...authorSettings,
+ *         localizedAuthorLabel,
+ *         localizedGuestAuthorLabel,
+ *       };
+ *       return <AuthorCard authors={story.authors} config={authorConfig} theme={theme} />;
+ *     },
+ *   ...
  * ```
  *
  * @category Molecules
