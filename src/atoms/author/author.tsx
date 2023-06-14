@@ -27,7 +27,41 @@ export const getAuthorNames = (authors: AuthorTypesStory[]) =>
   }, "");
 
 /**
- * Author Component - displays all authors passed as an array
+ * By default Author Component displays all authors passed as an array.
+ *
+ * ###How to pass custom Author component?
+ * ```
+ * featureConfig: {
+ *   render: {
+ *     authorCardRender({ story, config, storyType, theme }) {
+ *     const authorSettings =
+ *         get(
+ *           config,
+ *           ["additionalConfig", "story", `${camelCase(storyType)}-story`, "settings", "authorDetails"],
+ *           {}
+ *         ) || {};
+ *       const authorStyle = get(authorSettings, ["template"], "default");
+ *       if (authorStyle !== "default") return null;
+ *       const { enableLocalization = false, localizedElements = {} } = get(
+ *         config,
+ *         ["additionalConfig", "general", "localization"],
+ *         {}
+ *       );
+ *       const localizedElementData = enableLocalization ? localizedElements : {};
+ *       const { buttonLabels = {} } = localizedElementData;
+ *       const { authorLabel: localizedAuthorLabel, guestAuthorLabel: localizedGuestAuthorLabel } = buttonLabels;
+ *       const authorConfig = {
+ *         ...authorSettings,
+ *         localizedAuthorLabel,
+ *         localizedGuestAuthorLabel,
+ *       };
+ *       return <AuthorCard authors={story.authors} config={authorConfig} theme={theme} />;
+ *     },
+ *   },
+ *   ...
+ *   ```
+ *
+ *
  *
  * @category Atoms
  * @module Author
@@ -36,7 +70,14 @@ export const getAuthorNames = (authors: AuthorTypesStory[]) =>
  * @param {Author[]} props.authors Array containing details about all authors of the story. Comes from Story API
  * @param {(string | React.Component)} props.prepend Optional. Used to prepend either some string or a component containing some icon to authors.
  */
-const Author = ({ authors, prepend }: AuthorProps) => {
+
+import get from "lodash.get";
+
+const Author = ({ authors, prepend, config, storyType, story, theme }: AuthorProps) => {
+  const getAuthorCard = get(config, ["opts", "featureConfig", "render", "authorCardRender"], null);
+  if (getAuthorCard && typeof getAuthorCard === "function") {
+    return getAuthorCard({ story, config, storyType, theme });
+  }
   return (
     <StyledAuthor>
       {prepend && prepend}
