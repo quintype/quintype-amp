@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.15.0](https://github.com/quintype/quintype-amp/compare/v2.14.0...v2.15.0) (2023-06-14)
+
+
+### Features
+
+* support author labels ([#439](https://github.com/quintype/quintype-amp/issues/439)) ([d844fac](https://github.com/quintype/quintype-amp/commit/d844fac0d5fe15b371ef7f4d40180a3e83a3c85d))
+
 ## [2.14.0](https://github.com/quintype/quintype-amp/compare/v2.12.2...v2.14.0) (2023-06-07)
 
 
