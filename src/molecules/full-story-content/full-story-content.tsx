@@ -10,13 +10,15 @@ const { DefaultStoryCardSlot } = StoryPageSlots;
 
 // Renders all the cards in the story
 export const FullStoryContent = ({ story }) => {
-    return story.cards.map((card, cardIdx) => {
-        return <Fragment key={card.id}>
-            {card["story-elements"].map((element) => (
-                <StoryElement key={element.id} element={element} />
-            ))}
-            {cardIdx === 0 && <BodyAd />}
-            <DefaultStoryCardSlot index={cardIdx} card={card} />
-        </Fragment>;
-    })
+  return story.cards.map((card, cardIdx) => {
+    return (
+      <Fragment key={card.id}>
+        {card["story-elements"].map((element, storyElementIdx) => (
+          <StoryElement key={element.id} element={element} cardIdx={cardIdx} storyElementIdx={storyElementIdx} />
+        ))}
+        {cardIdx === 0 && <BodyAd />}
+        <DefaultStoryCardSlot index={cardIdx} card={card} />
+      </Fragment>
+    );
+  });
 };
