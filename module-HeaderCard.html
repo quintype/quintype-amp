@@ -211,6 +211,35 @@ ampRoutes(app, {
    headerCardRender: ({ story, config }) => &lt;MyCustomHeadercard story={story} config={config} />
 })
 ...
+
+### How to pass custom Author component?
+...
+featureConfig: {
+    authorCardRender({ story, config, storyType, theme }) {
+    const authorSettings =
+        get(
+          config,
+          [&quot;additionalConfig&quot;, &quot;story&quot;, `${camelCase(storyType)}-story`, &quot;settings&quot;, &quot;authorDetails&quot;],
+          {}
+        ) || {};
+      const authorStyle = get(authorSettings, [&quot;template&quot;], &quot;default&quot;);
+      if (authorStyle !== &quot;default&quot;) return null;
+      const { enableLocalization = false, localizedElements = {} } = get(
+        config,
+        [&quot;additionalConfig&quot;, &quot;general&quot;, &quot;localization&quot;],
+        {}
+      );
+      const localizedElementData = enableLocalization ? localizedElements : {};
+      const { buttonLabels = {} } = localizedElementData;
+      const { authorLabel: localizedAuthorLabel, guestAuthorLabel: localizedGuestAuthorLabel } = buttonLabels;
+      const authorConfig = {
+        ...authorSettings,
+        localizedAuthorLabel,
+        localizedGuestAuthorLabel,
+      };
+      return &lt;AuthorCard authors={story.authors} config={authorConfig} theme={theme} />;
+    },
+  ...
 </code></pre>
     </div>
     
@@ -264,7 +293,7 @@ ampRoutes(app, {
         <p class="tag-source">
             <a href="molecules_header-card_header-card.tsx.html" class="button">View Source</a>
             <span>
-                <a href="molecules_header-card_header-card.tsx.html">molecules/header-card/header-card.tsx</a>, <a href="molecules_header-card_header-card.tsx.html#line48">line 48</a>
+                <a href="molecules_header-card_header-card.tsx.html">molecules/header-card/header-card.tsx</a>, <a href="molecules_header-card_header-card.tsx.html#line57">line 57</a>
             </span>
         </p>
     
