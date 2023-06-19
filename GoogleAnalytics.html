@@ -174,31 +174,13 @@
     <div class="description">
         <p>Google Analytics Component can be used for analytics purposes. This supports GA4 and the older version.
 Id will be picked from Amp config of BOLD. <code>Settings &gt; Configure &gt; AMP &gt; GA tracking id</code>.</p>
-<p>GA4 config will be picked up from <code>featureConfig</code>. Page Builder clients can add this config inside Amp configuration settings that is under <code>general &gt; manage &gt; AMP</code> and custom clients can add inside <code>ampRoutes</code> function in <code>app.js</code> file. The config will be an object with the required parameters and values.
+<p>GA4 config will be picked up from <code>featureConfig</code>
 Example:
-{
-vars: {
-&quot;GA4_MEASUREMENT_ID&quot;: &quot;G-XXXXXXXX&quot;,
-&quot;GA4_ENDPOINT_HOSTNAME&quot;: &quot;www.google-analytics.com&quot;,
-&quot;DEFAULT_PAGEVIEW_ENABLED&quot;: true,
-&quot;GOOGLE_CONSENT_ENABLED&quot;: false,
-&quot;WEBVITALS_TRACKING&quot;: false,
-&quot;PERFORMANCE_TIMING_TRACKING&quot;: false,
-&quot;SEND_DOUBLECLICK_BEACON&quot;: false
-}
-triggers: {}
-}
 ...
 ampRoutes(app, {
 featureConfig: {
-ga4Config: {
-&quot;GA4_MEASUREMENT_ID&quot;: &quot;G-XXXXXXXX&quot;,
-&quot;GA4_ENDPOINT_HOSTNAME&quot;: &quot;www.google-analytics.com&quot;,
-&quot;DEFAULT_PAGEVIEW_ENABLED&quot;: true,
-&quot;GOOGLE_CONSENT_ENABLED&quot;: false,
-&quot;WEBVITALS_TRACKING&quot;: false,
-&quot;PERFORMANCE_TIMING_TRACKING&quot;: false,
-&quot;SEND_DOUBLECLICK_BEACON&quot;: false
+analytics: {
+googleAnalytics: { id: &quot;G-XXXXXXXX&quot; }
 }
 }
 })
@@ -256,7 +238,7 @@ ga4Config: {
         <p class="tag-source">
             <a href="atoms_google-analytics_google-analytics.tsx.html" class="button">View Source</a>
             <span>
-                <a href="atoms_google-analytics_google-analytics.tsx.html">atoms/google-analytics/google-analytics.tsx</a>, <a href="atoms_google-analytics_google-analytics.tsx.html#line77">line 77</a>
+                <a href="atoms_google-analytics_google-analytics.tsx.html">atoms/google-analytics/google-analytics.tsx</a>, <a href="atoms_google-analytics_google-analytics.tsx.html#line223">line 223</a>
             </span>
         </p>
     
