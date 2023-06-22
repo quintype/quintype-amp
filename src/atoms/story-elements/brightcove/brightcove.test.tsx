@@ -1,7 +1,6 @@
 import React from "react";
-import { DefaultBrightcove, BrightcoveBase } from "./brightcove";
+import { DefaultBrightcove } from "./brightcove";
 import { shallow } from "enzyme";
-import { textStory, config } from "../../../__fixtures__";
 
 const sampleBrightcoveElement = {
   description: "",
@@ -24,7 +23,6 @@ const sampleBrightcoveElement = {
   },
   subtype: "brightcove-video"
 };
-const { url, ...sampleBrightcoveElementWithoutUrl } = sampleBrightcoveElement;
 
 describe("Brightcove", () => {
   it("should render default", () => {
