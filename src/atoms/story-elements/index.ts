@@ -16,6 +16,7 @@ import { TwitterElement } from "./twitter-element";
 import { FacebookElement } from "./facebook-element";
 import { InstagramElement } from "./instagram-element";
 import { VidibleElement } from "./vidible-element";
+import { Brightcove } from "./brightcove";
 import { Title } from "./title";
 import { ImageGalleryElement } from "./image-gallery-element";
 import { Attachment } from "./attachment";
@@ -45,7 +46,8 @@ const StoryElements = {
   ImageGalleryElement,
   Attachment,
   TableElement,
-  Unsupported
+  Unsupported,
+  Brightcove
 };
 export {
   Text,
@@ -70,6 +72,7 @@ export {
   ImageGalleryElement,
   Attachment,
   TableElement,
-  Unsupported
+  Unsupported,
+  Brightcove
 };
 export { StoryElements };
