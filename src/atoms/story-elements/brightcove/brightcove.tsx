@@ -10,17 +10,16 @@ export const DefaultBrightcove = ({
   width = "480",
   height = "270"
 }: DefaultBrightcoveElementTypes) => {
-  console.log("eement-------", element);
   return (
     <Fragment>
       <Helmet>
         <script async custom-element="amp-brightcove" src="https://cdn.ampproject.org/v0/amp-brightcove-0.1.js" />
       </Helmet>
       <amp-brightcove
-        data-account="12345"
-        data-player="default"
+        data-account={get(element, ["metadata", "account-id"])}
+        data-player={get(element, ["metadata", "player-id"])}
         data-embed="default"
-        data-video-id="1234"
+        data-video-id={get(element, ["metadata", "video-id"])}
         layout={layout}
         width={width}
         height={height}
