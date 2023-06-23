@@ -1,6 +1,7 @@
 import React from "react";
-import { DefaultBrightcove } from "./brightcove";
+import { DefaultBrightcove, BrightcoveBase } from "./brightcove";
 import { shallow } from "enzyme";
+import { textStory, config } from "../../../__fixtures__";
 
 const sampleBrightcoveElement = {
   description: "",
@@ -23,23 +24,24 @@ const sampleBrightcoveElement = {
   },
   subtype: "brightcove-video"
 };
+const { metadata, ...sampleBrightcoveElementWithoutMeta } = sampleBrightcoveElement;
 
 describe("Brightcove", () => {
   it("should render default", () => {
     const wrapper = shallow(<DefaultBrightcove element={sampleBrightcoveElement} />);
     expect(wrapper).toMatchSnapshot();
   });
-  //   it("should call brightcoveElementRender when passed", () => {
-  //     const brightcoveElementRender = jest.fn();
-  //     const modifiedConfig = { ...config, opts: { render: { storyElementRender: { brightcoveElementRender } } } };
-  //     const wrapper = shallow(
-  //       <BrightcoveBase element={sampleBrightcoveElement} story={textStory} config={modifiedConfig} />
-  //     );
-  //     expect(brightcoveElementRender.mock.calls.length).toBe(1);
-  //     expect(wrapper.find(DefaultBrightcove).length).toBe(0);
-  //   });
-  //   it("shouldn't render brightcove", () => {
-  //     const wrapper = shallow(<DefaultBrightcove element={sampleBrightcoveElementWithoutUrl} />);
-  //     expect(wrapper.find("amp-brightcove").length).toBe(0);
-  //   });
+  it("should call brightcoveElementRender when passed", () => {
+    const brightcoveElementRender = jest.fn();
+    const modifiedConfig = { ...config, opts: { render: { storyElementRender: { brightcoveElementRender } } } };
+    const wrapper = shallow(
+      <BrightcoveBase element={sampleBrightcoveElement} story={textStory} config={modifiedConfig} />
+    );
+    expect(brightcoveElementRender.mock.calls.length).toBe(1);
+    expect(wrapper.find(DefaultBrightcove).length).toBe(0);
+  });
+  it("shouldn't render brightcove", () => {
+    const wrapper = shallow(<DefaultBrightcove element={sampleBrightcoveElementWithoutMeta} />);
+    expect(wrapper.find("amp-brightcove").length).toBe(0);
+  });
 });

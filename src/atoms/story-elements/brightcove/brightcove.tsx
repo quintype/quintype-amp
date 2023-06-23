@@ -10,16 +10,25 @@ export const DefaultBrightcove = ({
   width = "480",
   height = "270"
 }: DefaultBrightcoveElementTypes) => {
+  const { "account-id": accountId, "player-id": playerId = "default", "video-id": videoId } = get(
+    element,
+    ["metadata"],
+    {}
+  );
+  if (!accountId && !videoId) {
+    return null;
+  }
+
   return (
     <Fragment>
       <Helmet>
         <script async custom-element="amp-brightcove" src="https://cdn.ampproject.org/v0/amp-brightcove-0.1.js" />
       </Helmet>
       <amp-brightcove
-        data-account={get(element, ["metadata", "account-id"])}
-        data-player={get(element, ["metadata", "player-id"])}
+        data-account={accountId}
+        data-player={playerId}
         data-embed="default"
-        data-video-id={get(element, ["metadata", "video-id"])}
+        data-video-id={videoId}
         layout={layout}
         width={width}
         height={height}
@@ -27,6 +36,7 @@ export const DefaultBrightcove = ({
     </Fragment>
   );
 };
+
 export const BrightcoveBase = ({ element, story, config }: BrightcoveElementTypes) => {
   const brightcoveElementRender = get(
     config,
@@ -40,6 +50,7 @@ export const BrightcoveBase = ({ element, story, config }: BrightcoveElementType
     <DefaultBrightcove element={element} />
   );
 };
+
 /**
  * Brightcove is a story element.
  * The look of the Brightcove can be changed using the render prop BrightcoveElementRender. In case BrightcoveElementRender is passed in the config, it is rendered. Otherwise a default Brightcove is rendered.
