@@ -15,7 +15,7 @@ export const DefaultBrightcove = ({
     ["metadata"],
     {}
   );
-  if (!accountId && !videoId) {
+  if (!accountId || !videoId || playerId === "default") {
     return null;
   }
 
