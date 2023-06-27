@@ -1,3 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Brightcove should render default 1`] = `""`;
+exports[`Brightcove should render default 1`] = `
+<Fragment>
+  <HelmetWrapper
+    defer={true}
+    encodeSpecialCharacters={true}
+  >
+    <script
+      async={true}
+      custom-element="amp-brightcove"
+      src="https://cdn.ampproject.org/v0/amp-brightcove-0.1.js"
+    />
+  </HelmetWrapper>
+  <amp-brightcove
+    data-account="1752604059001"
+    data-embed="default"
+    data-player="H1xW7NWcz"
+    data-video-id="6156696074001"
+    height="270"
+    layout="responsive"
+    width="480"
+  />
+</Fragment>
+`;

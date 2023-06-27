@@ -15,7 +15,7 @@ const sampleBrightcoveElement = {
   "content-type": "video/brightcove",
   metadata: {
     "account-id": "1752604059001",
-    "player-id": "default",
+    "player-id": "H1xW7NWcz",
     "player-media": "default",
     "video-id": "6156696074001",
     "embed-code":
