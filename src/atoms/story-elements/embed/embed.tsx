@@ -15,8 +15,8 @@ export const getIframeContent = (str, regex) => {
 
 export const DefaultEmbed = ({ element }: StoryElementProps) => {
   const embedData = element["embed-js"] ? atob(element["embed-js"]) : "";
-  const src = getIframeContent(embedData, /(?<=src=").*?(?=[*"])/);
-  const scrolling = getIframeContent(embedData, /(?<=scrolling=").*?(?=[*"])/);
+  const src = getIframeContent(embedData, /(?<=src=["']).*?(?=[*"'])/);
+  const scrolling = getIframeContent(embedData, /(?<=scrolling=["']).*?(?=[*"'])/);
   const title = element.subtype || element.title || "";
   return src ? <Iframe src={src} scrolling={scrolling} title={title} /> : null;
 };

@@ -182,6 +182,7 @@ export interface ConfigOpts {
       blurbRender?: (props: CommonRenderPropTypes) => any;
       alsoReadRender?: (props: CommonRenderPropTypes) => any;
       tableElementRender?: (props: CommonRenderPropTypes) => any;
+      brightcoveElementRender?: (props: CommonRenderPropTypes) => any;
     };
   };
   featureConfig?: FeatureConfigTypes;
