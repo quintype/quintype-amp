@@ -134,7 +134,7 @@ export interface StoryElement {
   description?: string;
   "embed-js"?: string;
   "page-url"?: string;
-  url?: string | null;
+  url?: string | undefined;
   "image-metadata"?: object | null;
   "image-attribution"?: string;
   "image-s3-key"?: string;
