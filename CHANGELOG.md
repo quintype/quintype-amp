@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.17.0](https://github.com/quintype/quintype-amp/compare/v2.12.2...v2.17.0) (2023-06-28)
+
+
+### Features
+
+* **comscore:** support tag on every image ([#438](https://github.com/quintype/quintype-amp/issues/438)) ([e88afa1](https://github.com/quintype/quintype-amp/commit/e88afa1b774944029a64c3e0be1afc4eeba0449a))
+* support author labels ([#439](https://github.com/quintype/quintype-amp/issues/439)) ([d844fac](https://github.com/quintype/quintype-amp/commit/d844fac0d5fe15b371ef7f4d40180a3e83a3c85d))
+* support brightcove element ([#445](https://github.com/quintype/quintype-amp/issues/445)) ([17cebc2](https://github.com/quintype/quintype-amp/commit/17cebc250d3c24d1d7b4a3693ff858967dad2f5e))
+
+
+### Bug Fixes
+
+* ga4 changes ([#443](https://github.com/quintype/quintype-amp/issues/443)) ([41d733d](https://github.com/quintype/quintype-amp/commit/41d733d528088782dc3829454ca73b064df9df4a))
+* package-lock ([#447](https://github.com/quintype/quintype-amp/issues/447)) ([6148849](https://github.com/quintype/quintype-amp/commit/6148849916343ac2796946f6ef77572106e76104))
+
 ## [2.16.0](https://github.com/quintype/quintype-amp/compare/v2.15.2...v2.16.0) (2023-06-28)
 
 
