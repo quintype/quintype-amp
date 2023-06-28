@@ -73,77 +73,80 @@ reactComponents['BlockQuote'] = Component15;
 import Component16 from '../src/atoms/story-elements/blurb/blurb.tsx';
 reactComponents['Blurb'] = Component16;
 
-import Component17 from '../src/atoms/story-elements/daily-motion-element/daily-motion-element.tsx';
-reactComponents['DailyMotionElement'] = Component17;
+import Component17 from '../src/atoms/story-elements/brightcove/brightcove.tsx';
+reactComponents['Brightcove'] = Component17;
 
-import Component18 from '../src/atoms/story-elements/embed/embed.tsx';
-reactComponents['Embed'] = Component18;
+import Component18 from '../src/atoms/story-elements/daily-motion-element/daily-motion-element.tsx';
+reactComponents['DailyMotionElement'] = Component18;
 
-import Component19 from '../src/atoms/story-elements/attachment/attachment.tsx';
-reactComponents['FacebookElement'] = Component19;
+import Component19 from '../src/atoms/story-elements/embed/embed.tsx';
+reactComponents['Embed'] = Component19;
 
-import Component20 from '../src/atoms/story-elements/facebook-element/facebook-element.tsx';
+import Component20 from '../src/atoms/story-elements/attachment/attachment.tsx';
 reactComponents['FacebookElement'] = Component20;
 
-import Component21 from '../src/atoms/footer/footer.tsx';
-reactComponents['Footer'] = Component21;
+import Component21 from '../src/atoms/story-elements/facebook-element/facebook-element.tsx';
+reactComponents['FacebookElement'] = Component21;
 
-import Component22 from '../src/molecules/header-card/header-card.tsx';
-reactComponents['HeaderCard'] = Component22;
+import Component22 from '../src/atoms/footer/footer.tsx';
+reactComponents['Footer'] = Component22;
 
-import Component23 from '../src/atoms/story-elements/image-element/image-element.tsx';
-reactComponents['ImageElement'] = Component23;
+import Component23 from '../src/molecules/header-card/header-card.tsx';
+reactComponents['HeaderCard'] = Component23;
 
-import Component24 from '../src/atoms/story-elements/image-gallery-element/image-gallery-element.tsx';
-reactComponents['ImageGalleryElement'] = Component24;
+import Component24 from '../src/atoms/story-elements/image-element/image-element.tsx';
+reactComponents['ImageElement'] = Component24;
 
-import Component25 from '../src/atoms/infinite-scroll/infinite-scroll.tsx';
-reactComponents['InfiniteScroll'] = Component25;
+import Component25 from '../src/atoms/story-elements/image-gallery-element/image-gallery-element.tsx';
+reactComponents['ImageGalleryElement'] = Component25;
 
-import Component26 from '../src/atoms/story-elements/instagram-element/instagram-element.tsx';
-reactComponents['InstagramElement'] = Component26;
+import Component26 from '../src/atoms/infinite-scroll/infinite-scroll.tsx';
+reactComponents['InfiniteScroll'] = Component26;
 
-import Component27 from '../src/atoms/story-elements/text/q-and-a/q-and-a.tsx';
-reactComponents['QAndA'] = Component27;
+import Component27 from '../src/atoms/story-elements/instagram-element/instagram-element.tsx';
+reactComponents['InstagramElement'] = Component27;
 
-import Component28 from '../src/atoms/story-elements/text/question/question.tsx';
-reactComponents['Question'] = Component28;
+import Component28 from '../src/atoms/story-elements/text/q-and-a/q-and-a.tsx';
+reactComponents['QAndA'] = Component28;
 
-import Component29 from '../src/atoms/story-elements/text/summary/summary.tsx';
-reactComponents['Summary'] = Component29;
+import Component29 from '../src/atoms/story-elements/text/question/question.tsx';
+reactComponents['Question'] = Component29;
 
-import Component30 from '../src/atoms/story-elements/table-element/table-element.tsx';
-reactComponents['TableElement'] = Component30;
+import Component30 from '../src/atoms/story-elements/text/summary/summary.tsx';
+reactComponents['Summary'] = Component30;
 
-import Component31 from '../src/atoms/story-elements/text/text.tsx';
-reactComponents['Text'] = Component31;
+import Component31 from '../src/atoms/story-elements/table-element/table-element.tsx';
+reactComponents['TableElement'] = Component31;
 
-import Component32 from '../src/atoms/story-elements/title/title.tsx';
-reactComponents['Title'] = Component32;
+import Component32 from '../src/atoms/story-elements/text/text.tsx';
+reactComponents['Text'] = Component32;
 
-import Component33 from '../src/atoms/story-elements/unsupported/unsupported.tsx';
+import Component33 from '../src/atoms/story-elements/title/title.tsx';
 reactComponents['Title'] = Component33;
 
-import Component34 from '../src/atoms/story-elements/twitter-element/twitter-element.tsx';
-reactComponents['TwitterElement'] = Component34;
+import Component34 from '../src/atoms/story-elements/unsupported/unsupported.tsx';
+reactComponents['Title'] = Component34;
 
-import Component35 from '../src/atoms/story-elements/vidible-element/vidible-element.tsx';
-reactComponents['VidibleElement'] = Component35;
+import Component35 from '../src/atoms/story-elements/twitter-element/twitter-element.tsx';
+reactComponents['TwitterElement'] = Component35;
 
-import Component36 from '../src/atoms/story-elements/youtube/youtube.tsx';
-reactComponents['YouTube'] = Component36;
+import Component36 from '../src/atoms/story-elements/vidible-element/vidible-element.tsx';
+reactComponents['VidibleElement'] = Component36;
 
-import Component37 from '../src/molecules/navbar/navbar.tsx';
-reactComponents['Navbar'] = Component37;
+import Component37 from '../src/atoms/story-elements/youtube/youtube.tsx';
+reactComponents['YouTube'] = Component37;
 
-import Component38 from '../src/molecules/related-stories/related-stories.tsx';
-reactComponents['RelatedStories'] = Component38;
+import Component38 from '../src/molecules/navbar/navbar.tsx';
+reactComponents['Navbar'] = Component38;
 
-import Component39 from '../src/atoms/video-web-story/video-web-story.tsx';
-reactComponents['VideoWebStory'] = Component39;
+import Component39 from '../src/molecules/related-stories/related-stories.tsx';
+reactComponents['RelatedStories'] = Component39;
 
-import Component40 from '../src/templates/visual-story/visual-story.tsx';
-reactComponents['VisualStory'] = Component40;
+import Component40 from '../src/atoms/video-web-story/video-web-story.tsx';
+reactComponents['VideoWebStory'] = Component40;
 
-import Component41 from '../src/molecules/webengage/webengage.tsx';
-reactComponents['WebEngage'] = Component41;
+import Component41 from '../src/templates/visual-story/visual-story.tsx';
+reactComponents['VisualStory'] = Component41;
+
+import Component42 from '../src/molecules/webengage/webengage.tsx';
+reactComponents['WebEngage'] = Component42;
