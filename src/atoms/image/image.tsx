@@ -8,7 +8,7 @@ import { base64FallbackImage } from "../../helpers/image-helpers";
 export const BaseImage = ({
   metadata,
   slug,
-  aspectRatio,
+  aspectRatio = [16, 9],
   alt,
   layout = "responsive",
   opts = {},
@@ -18,7 +18,8 @@ export const BaseImage = ({
   ...rest
 }: ImageTypes) => {
   const cdnImage = config.publisherConfig["cdn-image"];
-  const imgAspectRatio: string[] = getAspectRatio({ aspectRatio, metadata }).map((el) => el.toString());
+  const imgAspectRatio: string[] = aspectRatio.map((el) => el.toString());
+
   const imgAttrs: AmpImgPropTypes = {
     alt,
     layout,
@@ -65,12 +66,6 @@ export const BaseImage = ({
   );
 };
 
-const getAspectRatio = ({ aspectRatio, metadata }): number[] => {
-  if (aspectRatio) return aspectRatio;
-  if (metadata && metadata.width && metadata.height) return [metadata.width, metadata.height];
-  return [16, 9];
-};
-
 /**
  *
  * Image atom. Publishers are advised not to use this atom, since the API might change. For internal use
@@ -78,7 +73,7 @@ const getAspectRatio = ({ aspectRatio, metadata }): number[] => {
  * @param {Object} params required. The params object
  * @param {Object | null} params.metadata required (can be null). Story element metadata. if present, metadata.width and metadata.height are used to calculate image width and height
  * @param {String | null} params.slug required (can be null). Pass the image s3-key here. If falsy, fallback image is displayed
- * @param {Number[]} params.aspectRatio optional. If passed, metadata.width and metadata.height are ignored. If aspectRatio is not passed and if metadata.width & metadata.height aren't present, a default of 16:9 is assumed
+ * @param {Number[]} params.aspectRatio optional. If not passed defaults to 16:9
  * @param {String} params.alt required. Alt text for image
  * @param {String} params.layout optional. If not passed, defaults to "responsive"
  * @param {Object} params.opts optional. This object is passed to quintype-js FocusedImage while calculating image src

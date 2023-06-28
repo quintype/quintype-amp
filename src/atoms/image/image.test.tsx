@@ -78,17 +78,11 @@ describe("Image", () => {
     expect(wrapper.find(`amp-img`).prop("width")).toBe("21");
     expect(wrapper.find(`amp-img`).prop("height")).toBe("9");
   });
-  it("should set width, height from metadata if aspectRatio is not passed", () => {
+  it("should set 16:9 if aspectRatio is not passed", () => {
     const wrapper = shallow(<BaseImage metadata={metadata} slug={s3key} alt="Sample Image" config={config} />);
     expect(wrapper.find(`amp-img`).prop("layout")).toBe("responsive");
-    expect(wrapper.find(`amp-img`).prop("width")).toBe(metadata.width.toString());
-    expect(wrapper.find(`amp-img`).prop("height")).toBe(metadata.height.toString());
-  });
-  it("should render with fallback aspect ratio of 16:9 if aspectRatio and metadata are not given", () => {
-    const wrapper = shallow(<BaseImage alt="abc" config={config} slug={s3key} metadata={null} />);
     expect(wrapper.find(`amp-img`).prop("width")).toBe("16");
     expect(wrapper.find(`amp-img`).prop("height")).toBe("9");
-    expect(wrapper.find(`amp-img`).prop("layout")).toBe("responsive");
   });
   it("should render fallback image if slug is falsy and useFallbackImage is true", () => {
     const wrapper = shallow(<BaseImage alt="abc" config={config} slug="" metadata={null} useFallbackImage={true} />);

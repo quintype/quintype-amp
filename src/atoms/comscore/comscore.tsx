@@ -10,6 +10,12 @@ const ComScoreBase = ({ config }) => {
     vars: { ...config.ampConfig["comscore-tracking-vars"] },
     extraUrlParams: {
       comscorekw: "amp"
+    },
+    triggers: {
+      storyPageview: {
+        on: "story-page-visible",
+        request: "pageview"
+      }
     }
   };
   return <Analytics type="comscore" targets={targets} />;
