@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.16.0](https://github.com/quintype/quintype-amp/compare/v2.15.2...v2.16.0) (2023-06-28)
+
+
+### Features
+
+* support brightcove element ([#445](https://github.com/quintype/quintype-amp/issues/445)) ([17cebc2](https://github.com/quintype/quintype-amp/commit/17cebc250d3c24d1d7b4a3693ff858967dad2f5e))
+
 ### [2.15.2](https://github.com/quintype/quintype-amp/compare/v2.15.1...v2.15.2) (2023-06-19)
 
 
