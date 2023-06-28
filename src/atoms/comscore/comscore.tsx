@@ -1,24 +1,24 @@
-import React from 'react';
-import { withConfig } from '../../context';
-import { Analytics } from '../analytics';
+import React from "react";
+import { withConfig } from "../../context";
+import { Analytics } from "../analytics";
 
 const ComScoreBase = ({ config }) => {
-  if (!config.ampConfig['comscore-tracking-vars']) {
+  if (!config.ampConfig["comscore-tracking-vars"]) {
     return null;
   }
   const targets = {
-    vars: { ...config.ampConfig['comscore-tracking-vars'] },
+    vars: { ...config.ampConfig["comscore-tracking-vars"] },
     extraUrlParams: {
-      comscorekw: 'amp'
+      comscorekw: "amp"
     },
     triggers: {
       storyPageview: {
-        on: 'story-page-visible',
-        request: 'pageview'
+        on: "story-page-visible",
+        request: "pageview"
       }
     }
   };
-  return <Analytics type='comscore' targets={targets} />;
+  return <Analytics type="comscore" targets={targets} />;
 };
 
 const ComScore = withConfig(ComScoreBase);

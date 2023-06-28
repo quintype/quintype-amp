@@ -80,6 +80,7 @@ ampRoutes(app, {
        "bottom-slot": ({story, config}) => <MyBottomSlot story={story} config={config} />
        "live-blog-card-slot": ({story, config, index, card}) => <MyLiveBlogCardSlot />
        "default-story-card-slot": ({story, config, index, card}) => <MyStoryCardSlot />
+       "default-story-element-slot": ({story, config, cardIdx, storyElementIdx, storyElement}) => <MyStoryElementSlot/>
      }
    }
 })
@@ -87,13 +88,14 @@ ampRoutes(app, {
 
 Here, `story` and `config` is same as what's mentioned <a href="#storyConfig_link">above</a>.
 
-| Slot Name               | Slot Type | props                                      | description                                                                   |
-| ----------------------- | --------- | ------------------------------------------ | ----------------------------------------------------------------------------- |
-| top-slot                | story     | obj - {story, config}                      |                                                                               |
-| bottom-slot             | story     | obj - {story, config}                      |                                                                               |
-| live-blog-card-slot     | story     | obj - {story, config, index, card}         | card - the card above this slot. index - the 1st card has 0th index and so on |
-| default-story-card-slot | story     | obj - {story, config, index, card}         | This slot is placed after every card on non-liveblog story templates          |
-| related-story-card-slot | story     | obj - {story, config, index, relatedStory} | This slot is placed after every related story card (also read)                |
+| Slot Name                  | Slot Type | props                                                         | description                                                                   |
+| -------------------------- | --------- | ------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| top-slot                   | story     | obj - {story, config}                                         |                                                                               |
+| bottom-slot                | story     | obj - {story, config}                                         |                                                                               |
+| live-blog-card-slot        | story     | obj - {story, config, index, card}                            | card - the card above this slot. index - the 1st card has 0th index and so on |
+| default-story-card-slot    | story     | obj - {story, config, index, card}                            | This slot is placed after every card on non-liveblog story templates          |
+| default-story-element-slot | story     | obj - {story, config, cardIdx, storyElementIdx, storyElement} | This slot is placed after every story element on a non-liveblog story         |
+| related-story-card-slot    | story     | obj - {story, config, index, relatedStory}                    | This slot is placed after every related story card (also read)                |
 
 ## Feature Config
 
