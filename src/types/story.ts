@@ -134,7 +134,7 @@ export interface StoryElement {
   description?: string;
   "embed-js"?: string;
   "page-url"?: string;
-  url?: string;
+  url?: string | undefined;
   "image-metadata"?: object | null;
   "image-attribution"?: string;
   "image-s3-key"?: string;
@@ -151,8 +151,8 @@ export interface StoryElement {
   text?: string;
   "story-elements"?: StoryElement[];
   data?: StoryElementData | null;
+  "file-type"?: string;
 }
-
 interface StoryElementData {
   content: string;
   "content-type": string;
@@ -186,8 +186,11 @@ export interface StoryElementMetadata {
   "cta-url"?: string;
   "open-in-new-tab"?: boolean;
   "no-follow"?: boolean;
+  "account-id"?: string;
+  "player-id"?: string;
+  "player-media"?: string;
+  "embed-code"?: string;
 }
-
 export interface LinkedStory {
   headline: string;
   "story-content-id": string;
