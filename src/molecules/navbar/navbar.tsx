@@ -40,7 +40,7 @@ export const HamburgerWrapper = styled.div<{ align: "ltr" | "rtl" }>`
   `}
 `;
 
-export const NavbarBase = ({ config, theme }: NavbarTypes) => {
+export const DefaultNavbar = ({ config, theme }: NavbarTypes) => {
   const isMenuEnabled = get(config, ["ampConfig", "menu", "enabled"], false);
   const hamburgerMenuItems = getDomainSpecificHamburgerMenuItems(config);
   const align = get(config, ["publisherConfig", "language", "direction"], "ltr");
@@ -61,6 +61,15 @@ export const NavbarBase = ({ config, theme }: NavbarTypes) => {
         </Fragment>
       )}
     </StyledNavbar>
+  );
+};
+
+export const NavbarBase = ({ config, theme }: NavbarTypes) => {
+  const customNavbar = get(config, ["opts", "render", "navbarRender"], null);
+  return customNavbar ? (
+    customNavbar({ config, theme })
+  ) : (
+    <DefaultNavbar config={config} theme={theme} />
   );
 };
 

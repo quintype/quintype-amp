@@ -24,6 +24,12 @@ describe("ComScore", () => {
       },
       extraUrlParams: {
         comscorekw: "amp"
+      },
+      triggers: {
+        storyPageview: {
+          on: "story-page-visible",
+          request: "pageview"
+        }
       }
     });
   });

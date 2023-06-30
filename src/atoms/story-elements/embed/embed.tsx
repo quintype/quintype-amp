@@ -5,11 +5,20 @@ import atob from "atob-utf-8";
 import { withStoryAndConfig } from "../../../context";
 import get from "lodash.get";
 
+export const getIframeContent = (str, regex) => {
+  if (/iframe/.test(str)) {
+    const regExecArray = regex.exec(str);
+    return regExecArray && regExecArray.length > 0 ? regExecArray[0] : null;
+  }
+  return null;
+};
+
 export const DefaultEmbed = ({ element }: StoryElementProps) => {
   const embedData = element["embed-js"] ? atob(element["embed-js"]) : "";
-  const src = getIframeSourceURL(embedData);
+  const src = getIframeContent(embedData, /(?<=src=["']).*?(?=[*"'])/);
+  const scrolling = getIframeContent(embedData, /(?<=scrolling=["']).*?(?=[*"'])/);
   const title = element.subtype || element.title || "";
-  return src ? <Iframe src={src} title={title} /> : null;
+  return src ? <Iframe src={src} scrolling={scrolling} title={title} /> : null;
 };
 
 export const getIframeSourceURL = (str: string): string | null => {

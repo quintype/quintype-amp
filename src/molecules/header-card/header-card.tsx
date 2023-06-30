@@ -1,7 +1,7 @@
 import React from "react";
 import { withStoryAndConfig } from "../../context";
 import { CommonRenderPropTypes } from "../../types/config";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import get from "lodash.get";
 import { Author, Section, Spacer } from "../../atoms";
 import { HeroImage, SocialShareHeader, DateFirstPublished, DateLastPublished } from "../index";
@@ -37,7 +37,18 @@ const HeaderCardContainer = styled.div`
 export const DefaultHeaderCard = ({ story, config, storyType }: HeaderCardProps) => {
   const { publisherConfig } = config;
 
+  const theme = useTheme();
+
   const { enableLastPublished, enableFirstPublished } = getDateSettings(config, storyType);
+
+  function authorCard() {
+    let authorUi;
+    const getAuthorCard = get(config, ["opts", "featureConfig", "authorCardRender"], null);
+    if (getAuthorCard && typeof getAuthorCard === "function") {
+      authorUi = getAuthorCard({ story, config, storyType, theme });
+    }
+    return authorUi || <Author authors={story.authors} prepend={getLocalizedWord(config, "by", "By")} />;
+  }
 
   return (
     <div>
@@ -48,7 +59,7 @@ export const DefaultHeaderCard = ({ story, config, storyType }: HeaderCardProps)
         <Spacer token="xs" />
         <Headline>{story.headline}</Headline>
         <Spacer token="s" />
-        <Author authors={story.authors} prepend={getLocalizedWord(config, "by", "By")} />
+        {authorCard()}
         <Spacer token="xxs" />
         {!!enableFirstPublished && (
           <>
@@ -113,6 +124,35 @@ export const DefaultHeaderCard = ({ story, config, storyType }: HeaderCardProps)
  *    headerCardRender: ({ story, config }) => <MyCustomHeadercard story={story} config={config} />
  * })
  * ...
+ *
+ * ### How to pass custom Author component?
+ * ...
+ * featureConfig: {
+ *     authorCardRender({ story, config, storyType, theme }) {
+ *     const authorSettings =
+ *         get(
+ *           config,
+ *           ["additionalConfig", "story", `${camelCase(storyType)}-story`, "settings", "authorDetails"],
+ *           {}
+ *         ) || {};
+ *       const authorStyle = get(authorSettings, ["template"], "default");
+ *       if (authorStyle !== "default") return null;
+ *       const { enableLocalization = false, localizedElements = {} } = get(
+ *         config,
+ *         ["additionalConfig", "general", "localization"],
+ *         {}
+ *       );
+ *       const localizedElementData = enableLocalization ? localizedElements : {};
+ *       const { buttonLabels = {} } = localizedElementData;
+ *       const { authorLabel: localizedAuthorLabel, guestAuthorLabel: localizedGuestAuthorLabel } = buttonLabels;
+ *       const authorConfig = {
+ *         ...authorSettings,
+ *         localizedAuthorLabel,
+ *         localizedGuestAuthorLabel,
+ *       };
+ *       return <AuthorCard authors={story.authors} config={authorConfig} theme={theme} />;
+ *     },
+ *   ...
  * ```
  *
  * @category Molecules
