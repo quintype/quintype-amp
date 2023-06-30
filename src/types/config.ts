@@ -73,6 +73,7 @@ export interface AMPConfig {
       url: string;
       family: string;
     };
+    custom: string;
   };
   colors: Colors;
   "logo-url": string;
@@ -151,6 +152,12 @@ export interface ConfigOpts {
   templates?: object;
   slots?: SlotsTypes;
   render?: {
+    customFonts?: {
+      primary1?: string | null;
+      secondary1?: string | null;
+      primary2?: string | null;
+      secondary2?: string | null;
+    };
     headerCardRender?: (props: Config) => any;
     navbarRender?: (props: NavbarTypes) => any;
     relatedStoriesRender?: (props: RelatedStoriesRenderPropTypes) => any;

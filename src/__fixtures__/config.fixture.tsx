@@ -581,7 +581,8 @@ export const ampConfig: AMPConfig = {
     secondary: {
       url: "PT+Serif:400,400italic,700,700italic",
       family: "'PT Serif', sans-serif"
-    }
+    },
+    custom: "https://fonts.googleapis.com/css?family=Tangerine"
   },
   colors: {
     primary: "#294f32",
