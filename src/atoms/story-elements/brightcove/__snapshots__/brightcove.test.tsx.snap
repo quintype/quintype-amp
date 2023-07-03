@@ -8,10 +8,6 @@ exports[`Brightcove should render default 1`] = `
   >
     <script
       async={true}
-      src="https://cdn.ampproject.org/v0.js"
-    />
-    <script
-      async={true}
       custom-element="amp-brightcove"
       src="https://cdn.ampproject.org/v0/amp-brightcove-0.1.js"
     />
@@ -20,7 +16,6 @@ exports[`Brightcove should render default 1`] = `
     data-account="1752604059001"
     data-embed="default"
     data-player="H1xW7NWcz"
-    data-player-id="H1xW7NWcz"
     data-video-id="6156696074001"
     height="270"
     layout="responsive"

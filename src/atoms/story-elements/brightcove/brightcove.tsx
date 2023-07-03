@@ -4,12 +4,7 @@ import { withStoryAndConfig } from "../../../context";
 import get from "lodash.get";
 import { BrightcoveElementTypes, DefaultBrightcoveElementTypes } from "./types";
 
-export const DefaultBrightcove = ({
-  element,
-  layout = "responsive",
-  width = "480",
-  height = "270"
-}: DefaultBrightcoveElementTypes) => {
+export const DefaultBrightcove = ({ element, width = "480", height = "270" }: DefaultBrightcoveElementTypes) => {
   const { "account-id": accountId, "player-id": playerId = "default", "video-id": videoId } = get(
     element,
     ["metadata"],
@@ -22,19 +17,19 @@ export const DefaultBrightcove = ({
   return (
     <Fragment>
       <Helmet>
-        <script async src="https://cdn.ampproject.org/v0.js" />
-        <script async custom-element="amp-brightcove" src="https://cdn.ampproject.org/v0/amp-brightcove-0.1.js" />
+        <script
+          async
+          custom-element="amp-brightcove"
+          src="https://cdn.ampproject.org/v0/amp-brightcove-0.1.js"></script>
       </Helmet>
       <amp-brightcove
-        data-player-id={playerId}
         data-account={accountId}
         data-player={playerId}
         data-embed="default"
         data-video-id={videoId}
-        layout={layout}
+        layout="responsive"
         width={width}
-        height={height}
-      />
+        height={height}></amp-brightcove>
     </Fragment>
   );
 };
