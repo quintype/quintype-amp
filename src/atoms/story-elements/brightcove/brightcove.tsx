@@ -15,7 +15,7 @@ export const DefaultBrightcove = ({
     ["metadata"],
     {}
   );
-  if (!accountId || !videoId || playerId === "default") {
+  if (!accountId || !videoId) {
     return null;
   }
 
@@ -25,6 +25,7 @@ export const DefaultBrightcove = ({
         <script async custom-element="amp-brightcove" src="https://cdn.ampproject.org/v0/amp-brightcove-0.1.js" />
       </Helmet>
       <amp-brightcove
+        data-player-id={playerId}
         data-account={accountId}
         data-player={playerId}
         data-embed="default"

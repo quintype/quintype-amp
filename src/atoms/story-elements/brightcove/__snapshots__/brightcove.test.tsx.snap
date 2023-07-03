@@ -16,6 +16,7 @@ exports[`Brightcove should render default 1`] = `
     data-account="1752604059001"
     data-embed="default"
     data-player="H1xW7NWcz"
+    data-player-id="H1xW7NWcz"
     data-video-id="6156696074001"
     height="270"
     layout="responsive"
