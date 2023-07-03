@@ -22,6 +22,7 @@ export const DefaultBrightcove = ({
   return (
     <Fragment>
       <Helmet>
+        <script async src="https://cdn.ampproject.org/v0.js" />
         <script async custom-element="amp-brightcove" src="https://cdn.ampproject.org/v0/amp-brightcove-0.1.js" />
       </Helmet>
       <amp-brightcove
