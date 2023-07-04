@@ -172,6 +172,10 @@ const StyledText = styled.div`
   margin: 0 8px;
 `;
 
+const StyledDiv = styled.div`
+  background-color: ${(props) => props.theme.color.mono2};
+`;
+
 export const HeroImageBase = ({ story }: HeroImageBaseTypes) => {
   const metadata: HeroImageMetadata = get(story, "hero-image-metadata", null);
   const slug: string | null = get(story, "hero-image-s3-key", null);
@@ -181,16 +185,15 @@ export const HeroImageBase = ({ story }: HeroImageBaseTypes) => {
   const caption: string | null = get(story, "hero-image-caption", null);
 
   return (
-    &lt;div>
+    &lt;StyledDiv>
       &lt;Image data-hero="true" metadata={metadata} slug={slug} alt={caption || attribution || ""}>
         &lt;StyledWrapper>
           {caption &amp;&amp; &lt;StyledText dangerouslySetInnerHTML={{ __html: `${caption}` }} />}
           {caption &amp;&amp; attribution &amp;&amp; &lt;span>|&lt;/span>}
           {attribution &amp;&amp; &lt;StyledText dangerouslySetInnerHTML={{ __html: `${attribution}` }} />}
         &lt;/StyledWrapper>
-        )
       &lt;/Image>
-    &lt;/div>
+    &lt;/StyledDiv>
   );
 };
 
