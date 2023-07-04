@@ -1,5 +1,5 @@
 import React from "react";
-import { GoogleAnalyticsBase } from "./google-analytics";
+import { DefaultGoogleAnalytics, GoogleAnalyticsBase } from "./google-analytics";
 import { shallow } from "enzyme";
 import { Analytics } from "../analytics";
 
@@ -24,9 +24,10 @@ const configWithInfiniteScroll = {
     }
   }
 };
+
 describe("Google Analytics", () => {
   it("should render", () => {
-    const wrapper = shallow(<GoogleAnalyticsBase config={config} />);
+    const wrapper = shallow(<DefaultGoogleAnalytics gaId="UX-656565" config={config} />);
     expect(wrapper.find(Analytics).prop("targets")).toEqual({
       vars: {
         account: "UX-656565"
@@ -43,7 +44,7 @@ describe("Google Analytics", () => {
     });
   });
   it("should have type prop", () => {
-    const wrapper = shallow(<GoogleAnalyticsBase config={config} />);
+    const wrapper = shallow(<DefaultGoogleAnalytics gaId="UX-656565" config={config} />);
     expect(wrapper.find(Analytics).prop("type")).toEqual("googleanalytics");
   });
   it("should not render if GA config isn't present", () => {
@@ -55,7 +56,7 @@ describe("Google Analytics", () => {
     expect(wrapper.find(Analytics).length).toBe(0);
   });
   it("should request pageview on event 'amp-next-page-scroll' and set scrollSpec.useInitialPageSize to true if infinite scroll is enabled", () => {
-    const wrapper = shallow(<GoogleAnalyticsBase config={configWithInfiniteScroll} />);
+    const wrapper = shallow(<DefaultGoogleAnalytics gaId="UX-656565" config={configWithInfiniteScroll} />);
     expect(wrapper.find(Analytics).prop("targets")).toEqual({
       vars: {
         account: "UX-656565"

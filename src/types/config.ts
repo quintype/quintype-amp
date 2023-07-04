@@ -1,5 +1,7 @@
 import { FallbackEntitlementProps, ServicesProps, ScoreProps } from "../atoms/subscriptions/types";
+import { FooterTypes } from "../atoms/footer/types";
 import { Story } from "./story";
+import { NavbarTypes } from "../molecules/navbar/types";
 
 export interface Config {
   publisherConfig: PublisherConfig;
@@ -150,8 +152,10 @@ export interface ConfigOpts {
   slots?: SlotsTypes;
   render?: {
     headerCardRender?: (props: Config) => any;
+    navbarRender?: (props: NavbarTypes) => any;
     relatedStoriesRender?: (props: RelatedStoriesRenderPropTypes) => any;
     infiniteScrollRender?: (props: InfiniteScrollRenderPropTypes) => any;
+    footerRender?: (props: FooterTypes) => any;
     subscriptionRender?: {
       meterRender?: (props: SubscriptionRenderPropTypes) => any;
       LastStoryMeterRender?: (props: SubscriptionRenderPropTypes) => any;
@@ -178,6 +182,7 @@ export interface ConfigOpts {
       blurbRender?: (props: CommonRenderPropTypes) => any;
       alsoReadRender?: (props: CommonRenderPropTypes) => any;
       tableElementRender?: (props: CommonRenderPropTypes) => any;
+      brightcoveElementRender?: (props: CommonRenderPropTypes) => any;
     };
   };
   featureConfig?: FeatureConfigTypes;
@@ -215,6 +220,7 @@ export interface DateSettings {
 export type DateStoryTypes = "live-blog" | "text";
 
 interface FeatureConfigTypes {
+  ga4Config?: object;
   showPoweredByQt?: boolean | (() => boolean);
   storyCardTime?: (config: Config, story: Story) => number;
   dateConfig?: (config: Config, storyType: DateStoryTypes) => DateSettings;
