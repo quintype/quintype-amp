@@ -179,6 +179,13 @@ To do this, go to the file <code>app/server/routes.js</code> and add the followi
       ads: {
         doubleclick: {
           dataSlot: &quot;/1009127/FOO_AMP_TOP&quot;
+        },
+        adsense: {
+          clientId: &quot;KSP199948000-2&quot;,
+          slotId: &quot;1004788&quot;,
+        },
+        mgId: {
+          widgetId: &quot;1282689&quot;
         }
       },
       outlinkProps: {
@@ -192,6 +199,11 @@ To do this, go to the file <code>app/server/routes.js</code> and add the followi
           animateIn: &quot;zoom-in&quot;,
           animateInDuration: &quot;120s&quot;,
           animateInDelay: &quot;1s&quot;
+        },
+        text: {
+          animateIn: &quot;fly-in-bottom&quot;,
+          animateInDuration: &quot;1s&quot;,
+          animateInDelay: &quot;1s&quot;
         }
       }
     }
@@ -200,7 +212,7 @@ To do this, go to the file <code>app/server/routes.js</code> and add the followi
 </code></pre>
 <ol>
 <li><code>autoAdvanceAfter</code>: (String) Optional. Sets the time after which the page automatically advances. If omitted, the page will not automatically advance. Example: &quot;500ms&quot;, &quot;3s&quot;</li>
-<li>ad slot: (String) Optional. Example &quot;/1009443/PUBLISHER_AMP_TOP&quot; <code>featureConfig</code> &gt; <code>visualStories</code> &gt; <code>ads</code> &gt; <code>doubleclick</code> &gt; <code>dataSlot</code> sets the ad slot for visual stories. Ads are dynamically inserted, please read <a href="https://amp.dev/documentation/components/amp-story-auto-ads/?format=stories">docs</a></li>
+<li>ad slot: (String) Optional. Example &quot;/1009443/PUBLISHER_AMP_TOP&quot; <code>featureConfig</code> &gt; <code>visualStories</code> &gt; <code>ads</code> &gt; <code>doubleclick</code> &gt; <code>dataSlot</code> sets the ad slot for visual stories. Adsense and MGID are also supported. Ads are dynamically inserted, please read <a href="https://amp.dev/documentation/components/amp-story-auto-ads/?format=stories">docs</a></li>
 <li><code>animation</code>: (object) Optional.</li>
 </ol>
 <ul>
@@ -237,12 +249,24 @@ This is a limitation in Google AMP (please refer. https://github.com/ampproject/
         ads: {
           doubleclick: {
             dataSlot: &quot;/1009127/FOO_AMP_TOP&quot;
+          },
+          adsense: {
+            clientId: &quot;KSP199948000-2&quot;,
+            slotId: &quot;1004788&quot;,
+          },
+          mgId: {
+            widgetId: &quot;1282689&quot;
           }
         },
         animation: {
           image: {
             animateIn: &quot;zoom-in&quot;,
             animateInDuration: &quot;120s&quot;,
+            animateInDelay: &quot;1s&quot;
+          },
+          text: {
+            animateIn: &quot;fly-in-bottom&quot;,
+            animateInDuration: &quot;1s&quot;,
             animateInDelay: &quot;1s&quot;
           }
         }
