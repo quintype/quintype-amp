@@ -15,10 +15,25 @@ export const DefaultBrightcove = ({
     ["metadata"],
     {}
   );
+  console.log(
+    "accountId",
+    accountId,
+    "videoId",
+    videoId,
+    "playerId",
+    playerId,
+    "layout",
+    layout,
+    "width",
+    width,
+    "height",
+    height
+  );
   if (!accountId || !videoId) {
+    console.log("cam in if");
     return null;
   }
-
+  console.log("cam in else");
   return (
     <Fragment>
       <Helmet>
