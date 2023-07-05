@@ -1,6 +1,6 @@
 import { Common } from "../common-types";
 import { Config } from "../../types/config";
-
+import { Story } from "../../types/story";
 export interface ImageTypes extends Common {
   metadata: ImageMetadata | null;
   config: Config;
@@ -10,8 +10,8 @@ export interface ImageTypes extends Common {
   opts?: object;
   attribution?: string;
   lightbox?: string | boolean;
-  isVisualStory?: boolean;
   useFallbackImage?: boolean;
+  story?: Story;
 }
 
 interface ImageMetadata {

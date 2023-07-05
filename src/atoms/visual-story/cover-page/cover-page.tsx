@@ -19,7 +19,6 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
   const headline = story.headline || "";
 
   const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"], {});
-  const isVisualStory = story["story-template"] === "visual-story" ;
 
   // To support PB config
   const isLogoAlignmentAFunction = typeof visualStoriesConfig.logoAlignment === "function";
@@ -73,7 +72,7 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
               slug={heroImgSrc}
               metadata={heroImgMetadata}
               lightbox={false}
-              isVisualStory={isVisualStory}
+              story={story}
               {...imageAnimation}
             />
           ) : (

@@ -14,7 +14,7 @@ export const BaseImage = ({
   opts = {},
   config,
   lightbox = true,
-  isVisualStory = false,
+  story,
   useFallbackImage = false,
   ...rest
 }: ImageTypes) => {
@@ -33,7 +33,7 @@ export const BaseImage = ({
       metadata,
       aspectRatio: imgAspectRatio,
       cdnImage,
-      isVisualStory
+      story
     });
     imgAttrs.src = src;
     imgAttrs.srcset = srcset;
@@ -41,9 +41,6 @@ export const BaseImage = ({
     imgAttrs.src = base64FallbackImage;
     imgAttrs.alt = "fallback image";
   }
-  imgAttrs.sizes = isVisualStory
-    ? " (min-width: 300px) 480px, (min-width: 500px) 960px, (min-width: 900px) 1200px"
-    : "";
   if (!imgAttrs.src) return null;
 
   imgAttrs.layout = "responsive";

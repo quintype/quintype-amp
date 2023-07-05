@@ -1,17 +1,11 @@
 import { FocusedImage } from "quintype-js";
-import { HeroImageMetadata } from "../../types/story";
+import { HeroImageMetadata, Story } from "../../types/story";
 
-export const getImgSrcAndSrcset = ({
-  opts,
-  slug,
-  metadata,
-  aspectRatio,
-  cdnImage,
-  isVisualStory
-}: GetImgSrcAndSrcsetTypes) => {
+export const getImgSrcAndSrcset = ({ opts, slug, metadata, aspectRatio, cdnImage, story }: GetImgSrcAndSrcsetTypes) => {
   const isGumlet = cdnImage.includes("gumlet");
   const imgOpts = isGumlet ? { format: "auto", ...opts } : opts;
   const src = focusedImagePath({ opts: imgOpts, slug, metadata, aspectRatio, cdnImage });
+  const isVisualStory = story && story["story-template"] === "visual-story";
   let srcset = "";
   const srcsetOpts = isVisualStory
     ? [
@@ -57,5 +51,5 @@ interface GetImgSrcAndSrcsetTypes {
   cdnImage: string;
   metadata: HeroImageMetadata | null;
   opts?: object;
-  isVisualStory?: boolean;
+  story?: Story;
 }
