@@ -1,4 +1,5 @@
 import React from "react";
+import get from "lodash.get";
 import styled from "styled-components";
 import { Author as AuthorTypesStory } from "../../types/story";
 import { AuthorProps } from "./types";
@@ -35,8 +36,15 @@ export const getAuthorNames = (authors: AuthorTypesStory[]) =>
  * @param {AuthorProps} props
  * @param {Author[]} props.authors Array containing details about all authors of the story. Comes from Story API
  * @param {(string | React.Component)} props.prepend Optional. Used to prepend either some string or a component containing some icon to authors.
+ *
  */
-const Author = ({ authors, prepend }: AuthorProps) => {
+const Author = ({ authors, prepend, story, config, storyType, theme }: AuthorProps) => {
+  const getAuthorCard = get(config, ["opts", "render", "authorCardRender"], null);
+
+  if (getAuthorCard && typeof getAuthorCard === "function") {
+    return getAuthorCard({ story, config, storyType, theme });
+  }
+
   return (
     <StyledAuthor>
       {prepend && prepend}
@@ -45,5 +53,49 @@ const Author = ({ authors, prepend }: AuthorProps) => {
     </StyledAuthor>
   );
 };
+
+/**
+ *
+ * ### How to pass custom Author component from the app?
+ * ...
+ * ...
+ * ampRoutes(app, {
+ *  ...
+ *  ...
+ *  render: {
+ *    authorCardRender: ({ story, config, storyType, theme }) => {
+ *     const authorSettings =
+ *         get(
+ *           config,
+ *           ["additionalConfig", "story", `${camelCase(storyType)}-story`, "settings", "authorDetails"],
+ *           {}
+ *         ) || {};
+ *       const authorStyle = get(authorSettings, ["template"], "default");
+ *       if (authorStyle !== "default") return null;
+ *       const { enableLocalization = false, localizedElements = {} } = get(
+ *         config,
+ *         ["additionalConfig", "general", "localization"],
+ *         {}
+ *       );
+ *       const localizedElementData = enableLocalization ? localizedElements : {};
+ *       const { buttonLabels = {} } = localizedElementData;
+ *       const { authorLabel: localizedAuthorLabel, guestAuthorLabel: localizedGuestAuthorLabel } = buttonLabels;
+ *       const authorConfig = {
+ *         ...authorSettings,
+ *         localizedAuthorLabel,
+ *         localizedGuestAuthorLabel,
+ *       };
+ *       return <AuthorCard authors={story.authors} config={authorConfig} theme={theme} />;
+ *     }
+ *  },
+ * }
+ *  ...
+ *  ...
+ * ```
+ *
+ * @category Molecules
+ * @module Author
+ * @component
+ */
 
 export { Author };
