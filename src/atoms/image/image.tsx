@@ -14,6 +14,7 @@ export const BaseImage = ({
   opts = {},
   config,
   lightbox = true,
+  story,
   useFallbackImage = false,
   ...rest
 }: ImageTypes) => {
@@ -31,7 +32,8 @@ export const BaseImage = ({
       slug: metadata ? slug : encodeURIComponent(slug),
       metadata,
       aspectRatio: imgAspectRatio,
-      cdnImage
+      cdnImage,
+      story
     });
     imgAttrs.src = src;
     imgAttrs.srcset = srcset;

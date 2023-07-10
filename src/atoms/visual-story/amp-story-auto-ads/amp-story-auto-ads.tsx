@@ -53,7 +53,7 @@ export const AmpStoryAutoAdsBase = ({ story, config }: AutoAdsTypes) => {
               __html: JSON.stringify({
                 "ad-attributes": {
                   type: "mgid",
-                  "data-widget": mgId.widgetId ,
+                  "data-widget": mgId.widgetId
                 }
               })
             }}

@@ -72,6 +72,7 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
               slug={heroImgSrc}
               metadata={heroImgMetadata}
               lightbox={false}
+              story={story}
               {...imageAnimation}
             />
           ) : (
