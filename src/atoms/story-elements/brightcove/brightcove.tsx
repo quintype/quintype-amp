@@ -29,9 +29,10 @@ export const DefaultBrightcove = ({
     "height",
     height
   );
+
   if (!accountId || !videoId) {
     console.log("cam in if");
-    return null;
+    return <div>{`videoId ${videoId} playerId ${playerId} layout ${layout} not present `}</div>;
   }
   console.log("cam in else");
   return (
@@ -39,6 +40,7 @@ export const DefaultBrightcove = ({
       <Helmet>
         <script async custom-element="amp-brightcove" src="https://cdn.ampproject.org/v0/amp-brightcove-0.1.js" />
       </Helmet>
+      <div>{`videoId ${videoId} playerId ${playerId} layout ${layout} present `}</div>
       <amp-brightcove
         data-account={accountId}
         data-player={playerId}
