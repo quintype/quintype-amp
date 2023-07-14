@@ -15,32 +15,15 @@ export const DefaultBrightcove = ({
     ["metadata"],
     {}
   );
-  console.log(
-    "accountId",
-    accountId,
-    "videoId",
-    videoId,
-    "playerId",
-    playerId,
-    "layout",
-    layout,
-    "width",
-    width,
-    "height",
-    height
-  );
 
   if (!accountId || !videoId) {
-    console.log("cam in if");
-    return <div>{`videoId ${videoId} playerId ${playerId} layout ${layout} not present `}</div>;
+    return null;
   }
-  console.log("cam in else");
   return (
     <Fragment>
       <Helmet>
         <script async custom-element="amp-brightcove" src="https://cdn.ampproject.org/v0/amp-brightcove-0.1.js" />
       </Helmet>
-      <div>{`videoId ${videoId} playerId ${playerId} layout ${layout} present `}</div>
       <amp-brightcove
         data-account={accountId}
         data-player={playerId}

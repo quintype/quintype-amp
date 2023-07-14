@@ -12,9 +12,6 @@ exports[`Brightcove should render default 1`] = `
       src="https://cdn.ampproject.org/v0/amp-brightcove-0.1.js"
     />
   </HelmetWrapper>
-  <div>
-    videoId 6156696074001 playerId H1xW7NWcz layout responsive present 
-  </div>
   <amp-brightcove
     data-account="1752604059001"
     data-embed="default"
