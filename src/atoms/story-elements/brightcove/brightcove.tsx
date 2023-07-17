@@ -15,10 +15,10 @@ export const DefaultBrightcove = ({
     ["metadata"],
     {}
   );
-  if (!accountId || !videoId || playerId === "default") {
+
+  if (!accountId || !videoId) {
     return null;
   }
-
   return (
     <Fragment>
       <Helmet>
