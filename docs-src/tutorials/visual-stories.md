@@ -51,6 +51,13 @@ dummyOpts = {
       ads: {
         doubleclick: {
           dataSlot: "/1009127/FOO_AMP_TOP"
+        },
+        adsense: {
+          clientId: "KSP199948000-2",
+          slotId: "1004788",
+        },
+        mgId: {
+          widgetId: "1282689"
         }
       },
       outlinkProps: {
@@ -64,6 +71,11 @@ dummyOpts = {
           animateIn: "zoom-in",
           animateInDuration: "120s",
           animateInDelay: "1s"
+        },
+        text: {
+          animateIn: "fly-in-bottom",
+          animateInDuration: "1s",
+          animateInDelay: "1s"
         }
       }
     }
@@ -72,7 +84,7 @@ dummyOpts = {
 ```
 
 1. `autoAdvanceAfter`: (String) Optional. Sets the time after which the page automatically advances. If omitted, the page will not automatically advance. Example: "500ms", "3s"
-2. ad slot: (String) Optional. Example "/1009443/PUBLISHER_AMP_TOP" `featureConfig` > `visualStories` > `ads` > `doubleclick` > `dataSlot` sets the ad slot for visual stories. Ads are dynamically inserted, please read [docs](https://amp.dev/documentation/components/amp-story-auto-ads/?format=stories)
+2. ad slot: (String) Optional. Example "/1009443/PUBLISHER_AMP_TOP" `featureConfig` > `visualStories` > `ads` > `doubleclick` > `dataSlot` sets the ad slot for visual stories. Adsense and MGID are also supported. Ads are dynamically inserted, please read [docs](https://amp.dev/documentation/components/amp-story-auto-ads/?format=stories)
 3. `animation`: (object) Optional.
 
 - `animation` > `image` applies animation props to the story image. We accept `animateIn`, `animateInDuration` and `animateInDelay`.
@@ -108,12 +120,24 @@ dummyOpts = {
         ads: {
           doubleclick: {
             dataSlot: "/1009127/FOO_AMP_TOP"
+          },
+          adsense: {
+            clientId: "KSP199948000-2",
+            slotId: "1004788",
+          },
+          mgId: {
+            widgetId: "1282689"
           }
         },
         animation: {
           image: {
             animateIn: "zoom-in",
             animateInDuration: "120s",
+            animateInDelay: "1s"
+          },
+          text: {
+            animateIn: "fly-in-bottom",
+            animateInDuration: "1s",
             animateInDelay: "1s"
           }
         }
