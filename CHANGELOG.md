@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.17.6](https://github.com/quintype/quintype-amp/compare/v2.17.5...v2.17.6) (2023-07-17)
+
+
+### Bug Fixes
+
+* **brightcove:** remove condition ([#451](https://github.com/quintype/quintype-amp/issues/451)) ([7f47ba4](https://github.com/quintype/quintype-amp/commit/7f47ba4bbd242af912d169c0c1dd8b29393ed9c0))
+
+### [2.17.5](https://github.com/quintype/quintype-amp/compare/v2.17.4...v2.17.5) (2023-07-10)
+
 ### [2.17.4](https://github.com/quintype/quintype-amp/compare/v2.17.3...v2.17.4) (2023-07-05)
 
 ### [2.17.3](https://github.com/quintype/quintype-amp/compare/v2.17.2...v2.17.3) (2023-07-05)

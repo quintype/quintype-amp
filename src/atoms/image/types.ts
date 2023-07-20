@@ -1,6 +1,6 @@
 import { Common } from "../common-types";
 import { Config } from "../../types/config";
-
+import { Story } from "../../types/story";
 export interface ImageTypes extends Common {
   metadata: ImageMetadata | null;
   config: Config;
@@ -11,6 +11,7 @@ export interface ImageTypes extends Common {
   attribution?: string;
   lightbox?: string | boolean;
   useFallbackImage?: boolean;
+  story?: Story;
 }
 
 interface ImageMetadata {
