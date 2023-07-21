@@ -38,12 +38,10 @@ export const getAuthorNames = (authors: AuthorTypesStory[]) =>
  * @param {(string | React.Component)} props.prepend Optional. Used to prepend either some string or a component containing some icon to authors.
  *
  */
-const Author = ({ authors, prepend, story, config, storyType, theme }: AuthorProps) => {
-  const getAuthorCard = get(config, ["opts", "render", "authorCardRender"], null);
+const Author = ({ authors, prepend, story, config, theme }: AuthorProps) => {
+  const authorCardRender = get(config, ["opts", "render", "authorCardRender"], null);
 
-  if (getAuthorCard && typeof getAuthorCard === "function") {
-    return getAuthorCard({ story, config, storyType, theme });
-  }
+  if (authorCardRender && typeof authorCardRender === "function") return authorCardRender({ story, config, theme });
 
   return (
     <StyledAuthor>
@@ -63,7 +61,7 @@ const Author = ({ authors, prepend, story, config, storyType, theme }: AuthorPro
  *  ...
  *  ...
  *  render: {
- *    authorCardRender: ({ story, config, storyType, theme }) => {
+ *    authorCardRender: ({ story, config, theme }) => {
  *     const authorSettings =
  *         get(
  *           config,

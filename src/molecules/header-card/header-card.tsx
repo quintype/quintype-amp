@@ -55,7 +55,6 @@ export const DefaultHeaderCard = ({ story, config, storyType }: HeaderCardProps)
           prepend={getLocalizedWord(config, "by", "By")}
           story={story}
           config={config}
-          storyType={storyType}
           theme={theme}
         />
         <Spacer token="xxs" />
