@@ -23,7 +23,7 @@ const myOptsObj = {
     headerCardRender: ({ story, config }) => <CustHeaderCard story={story} config={config} />,
     footerRender: ({ story, config }) => <CustFooter story={story} config={config} />,
     infiniteScrollRender: ({ story, config, inlineConfig }) => <CustomInfiniteScroll story={story} config={config} firstFiveStoriesConfig={inlineConfig} />,
-    authorCardRender:({story, config, theme}) => <CustomAuthorCard authors={story.authors} config={authorConfig} theme={theme} />,
+    authorCardRender:({story, config, theme}) => <CustomAuthorCard authors={story.authors} config={config} theme={theme} />,
     // ... other renders
     storyElementRender: {
       bigfactElementRender: ({ story, config, element }) => (
