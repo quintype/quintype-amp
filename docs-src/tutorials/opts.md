@@ -22,7 +22,8 @@ const myOptsObj = {
     navbarRender: ({ config, theme }) => <CustomNavbar theme={theme} config={config} />,
     headerCardRender: ({ story, config }) => <CustHeaderCard story={story} config={config} />,
     footerRender: ({ story, config }) => <CustFooter story={story} config={config} />,
-    infiniteScrollRender: ({ story, config, inlineConfig }) => <CustomInfiniteScroll story={story} config={config} firstFiveStoriesConfig={inlineConfig} />
+    infiniteScrollRender: ({ story, config, inlineConfig }) => <CustomInfiniteScroll story={story} config={config} firstFiveStoriesConfig={inlineConfig} />,
+    authorCardRender:({story, config, theme}) => <CustomAuthorCard authors={story.authors} config={config} theme={theme} />,
     // ... other renders
     storyElementRender: {
       bigfactElementRender: ({ story, config, element }) => (
@@ -54,6 +55,7 @@ const myOptsObj = {
   - `footerRender`
   - `infiniteScrollRender`
   - `navbarRender`
+  - `authorCardRender`
 - `featureConfig` - used to provide config for amp lib features.
 
 <hr />
@@ -162,6 +164,8 @@ ampRoutes(app, {
     navbarRender: ({config, theme}) => <div>CUSTOM NAVBAR</div>
     headerCardRender: ({story, config}) => <div>CUSTOM HEADER CARD</div>
     footerRender: ({story, config}) => <div>CUSTOM FOOTER</div>
+    authorCardRender: ({story, config, theme}) => <div>CUSTOM AUTHOR CARD</div>,
+
     storyElementRender: {
       textElementRender: ({ story, config, element }) => (
         <div>
