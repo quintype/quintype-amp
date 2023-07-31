@@ -11,16 +11,14 @@ exports[`Fonts component Should match snapshot 1`] = `
     rel="preconnect dns-prefetch"
   />
   <link
-    as="style"
     crossorigin="anonymous"
     href="https://fonts.googleapis.com/css?family=Mukta+Malar:300,400,600,700&display=swap"
-    rel="preload"
+    rel="stylesheet"
   />
   <link
-    as="style"
     crossorigin="anonymous"
     href="https://fonts.googleapis.com/css?family=Mukta+Malar:400,400italic,700,700italic&display=swap"
-    rel="preload"
+    rel="stylesheet"
   />
 </HelmetWrapper>
 `;
