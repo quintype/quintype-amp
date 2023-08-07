@@ -7,7 +7,7 @@ import { Author, Section, Spacer } from "../../atoms";
 import { HeroImage, SocialShareHeader, DateFirstPublished, DateLastPublished } from "../index";
 import { getLocalizedWord } from "../../utils/localize-words/localization";
 import { getDateSettings } from "../../utils/date-time";
-import { getFigcaptionText } from "../hero-image/hero-image";
+import { media } from "../../utils/media";
 
 interface HeaderCardProps extends CommonRenderPropTypes {
   storyType: "text" | "live-blog";
@@ -35,6 +35,22 @@ const HeaderCardContainer = styled.div`
   border-bottom: ${(props) => `1px solid ${props.theme.color.black}`};
 `;
 
+const StyledWrapper = styled.figcaption`
+  display: flex;
+  align-items: center;
+  max-height: 90px;
+  line-height: ${(props) => props.theme.font.lineHeight.level1};
+  font-size: ${(props) => props.theme.font.size.xxs};
+  ${media.laptop`
+		max-height: 130px;
+		overflow-y: scroll;
+	`}
+`;
+
+const StyledText = styled.div`
+  margin: 0 8px;
+`;
+
 export const DefaultHeaderCard = ({ story, config, storyType }: HeaderCardProps) => {
   const { publisherConfig } = config;
 
@@ -48,7 +64,11 @@ export const DefaultHeaderCard = ({ story, config, storyType }: HeaderCardProps)
   return (
     <div>
       <HeroImage />
-      <p>{getFigcaptionText(caption, attribution)}</p>
+      <StyledWrapper>
+        {caption && <StyledText dangerouslySetInnerHTML={{ __html: `${caption}` }} />}
+        {caption && attribution && <span>|</span>}
+        {attribution && <StyledText dangerouslySetInnerHTML={{ __html: `${attribution}` }} />}
+      </StyledWrapper>
       <Spacer token="xs" />
       <HeaderCardContainer>
         <Section section={story.sections[0]} />
