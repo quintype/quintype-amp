@@ -7,6 +7,7 @@ import { Author, Section, Spacer } from "../../atoms";
 import { HeroImage, SocialShareHeader, DateFirstPublished, DateLastPublished } from "../index";
 import { getLocalizedWord } from "../../utils/localize-words/localization";
 import { getDateSettings } from "../../utils/date-time";
+import { getFigcaptionText } from "../hero-image/hero-image";
 
 interface HeaderCardProps extends CommonRenderPropTypes {
   storyType: "text" | "live-blog";
@@ -41,9 +42,13 @@ export const DefaultHeaderCard = ({ story, config, storyType }: HeaderCardProps)
 
   const { enableLastPublished, enableFirstPublished } = getDateSettings(config, storyType);
 
+  const attribution: string | null = get(story, "hero-image-attribution", null);
+  const caption: string | null = get(story, "hero-image-caption", null);
+
   return (
     <div>
       <HeroImage />
+      <p>{getFigcaptionText(caption, attribution)}</p>
       <Spacer token="xs" />
       <HeaderCardContainer>
         <Section section={story.sections[0]} />
