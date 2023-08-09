@@ -6,6 +6,7 @@ import get from "lodash.get";
 export const StyledSummary = styled.p<StoryElementProps>`
   margin: 0 0 ${(props) => props.theme.spacing.xs} 0;
   line-height: ${(props) => props.theme.font.lineHeight.level6};
+  font-family: ${(props) => props.theme.font.family.primary};
   p {
     margin: 0 0 ${(props) => props.theme.spacing.xs} 0;
     line-height: ${(props) => props.theme.font.lineHeight.level6};

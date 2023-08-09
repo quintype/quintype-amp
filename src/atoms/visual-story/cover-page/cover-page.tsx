@@ -136,6 +136,7 @@ const StyledHeadline = styled.h1`
 `;
 const StyledAuthors = styled.p`
   font-size: ${(props) => props.theme.font.size.xs};
+  font-family: ${(props) => props.theme.font.family.secondary};
 `;
 const LogoWrapper = styled.div`
   position: relative;

@@ -12,6 +12,7 @@ const { RelatedStoryCardSlot } = StoryPageSlots;
 
 export const Heading = styled.h2`
   font-size: ${(props) => props.theme.font.size.l};
+  font-family: ${(props) => props.theme.font.family.primary};
 `;
 
 export const RelatedStoriesBase = ({ story, config, heading = "Also Read" }: RelatedStoriesTypes) => {
