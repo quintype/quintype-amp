@@ -38,11 +38,8 @@ const HeaderCardContainer = styled.div`
 const StyledWrapper = styled.figcaption`
   display: flex;
   align-items: center;
-  max-height: 90px;
-  line-height: ${(props) => props.theme.font.lineHeight.level1};
   font-size: ${(props) => props.theme.font.size.xxs};
   ${media.laptop`
-		max-height: 130px;
 		overflow-y: scroll;
 	`}
 `;
