@@ -22,7 +22,7 @@ describe("Fonts component", () => {
     const wrapper = shallow(<FontsBase config={dummyConfig} />);
     expect(wrapper).toMatchSnapshot();
   });
-  it("Should preconnect to fonts provider and preload fonts", () => {
+  it("Should preconnect to fonts provider", () => {
     const wrapper = shallow(<FontsBase config={dummyConfig} />);
     expect(
       wrapper
@@ -41,7 +41,7 @@ describe("Fonts component", () => {
         .find(`link`)
         .at(1)
         .prop("rel")
-    ).toBe("preload");
+    ).toBe("stylesheet");
     expect(
       wrapper
         .find(`link`)
@@ -59,7 +59,7 @@ describe("Fonts component", () => {
         .find(`link`)
         .at(2)
         .prop("rel")
-    ).toBe("preload");
+    ).toBe("stylesheet");
     expect(
       wrapper
         .find(`link`)

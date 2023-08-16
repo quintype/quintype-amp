@@ -9,14 +9,12 @@ export const FontsBase = ({ config }) => {
     <Helmet>
       <link rel="preconnect dns-prefetch" href="https://fonts.gstatic.com" crossorigin="anonymous" />
       <link
-        rel="preload"
-        as="style"
+        rel="stylesheet"
         crossorigin="anonymous"
         href={`https://fonts.googleapis.com/css?family=${primary.url}&display=swap`}
       />
       <link
-        rel="preload"
-        as="style"
+        rel="stylesheet"
         crossorigin="anonymous"
         href={`https://fonts.googleapis.com/css?family=${secondary.url}&display=swap`}
       />
