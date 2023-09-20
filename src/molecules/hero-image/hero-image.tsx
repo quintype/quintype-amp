@@ -11,15 +11,8 @@ const StyledWrapper = styled.figcaption`
   display: flex;
   align-items: center;
   text-align: left;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 8px 0;
-  max-height: 90px;
-  color: ${(props) => props.theme.color.white};
+  color: ${(props) => props.theme.color.black};
   line-height: ${(props) => props.theme.font.lineHeight.level1};
-  background: ${(props) => `${props.theme.color.black}60`};
   font-size: ${(props) => props.theme.font.size.xxs};
   z-index: ${(props) => props.theme.zIndex.z100};
 
@@ -33,6 +26,9 @@ const StyledText = styled.div`
   margin: 0 8px;
 `;
 
+const StyledAttributionText = styled.div`
+   font-weight: bold;
+`;
 const StyledDiv = styled.div`
   background-color: ${(props) => props.theme.color.mono2};
 `;
@@ -48,12 +44,11 @@ export const HeroImageBase = ({ story }: HeroImageBaseTypes) => {
   return (
     <StyledDiv>
       <Image data-hero="true" metadata={metadata} slug={slug} alt={caption || attribution || ""}>
-        <StyledWrapper>
-          {caption && <StyledText dangerouslySetInnerHTML={{ __html: `${caption}` }} />}
-          {caption && attribution && <span>|</span>}
-          {attribution && <StyledText dangerouslySetInnerHTML={{ __html: `${attribution}` }} />}
-        </StyledWrapper>
       </Image>
+       <StyledWrapper>
+          {caption && <StyledText dangerouslySetInnerHTML={{ __html: `${caption}` }} />}
+          {attribution && <StyledAttributionText dangerouslySetInnerHTML={{ __html: `${attribution}` }} />}
+        </StyledWrapper>
     </StyledDiv>
   );
 };
