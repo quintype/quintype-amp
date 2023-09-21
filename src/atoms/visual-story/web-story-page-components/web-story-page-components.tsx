@@ -92,8 +92,8 @@ const TextWrapper = styled.div`
   background-image: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0.2) 5%,
-    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.1) 5%,
+    rgba(0, 0, 0, 0.6) 50%,
     rgba(0, 0, 0, 0.75)
   );
 `;

@@ -6,10 +6,10 @@ import get from "lodash.get";
 import { conditionExternalLinks } from "./text.helpers";
 
 export const StyledText = styled.div<StoryElementProps>`
-  color: ${(props) => props.theme.color.mono6};
+  color: ${(props) => props.theme.color.mono7};
   font-size: ${(props) => props.theme.font.size.xs};
   font-family: ${(props) => props.theme.font.family.primary};
-  line-height: ${(props) => props.theme.font.lineHeight.level3};
+  line-height: normal;
   overflow-wrap: break-word;
 
   p {
