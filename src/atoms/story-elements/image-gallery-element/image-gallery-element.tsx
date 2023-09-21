@@ -13,11 +13,18 @@ const StyledGallery = styled.div`
 `;
 const StyledFigcaption = styled.figcaption`
   text-align: left;
-  color: ${(props) => props.theme.color.black};
-  line-height: ${(props) => props.theme.font.lineHeight.level1};
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 4px 8px;
+  max-height: 90px;
+  color: ${(props) => props.theme.color.white};
+  line-height: ${(props) => props.theme.font.lineHeight.level6};
+  background: ${(props) => `${props.theme.color.black}60`};
   font-size: ${(props) => props.theme.font.size.xxs};
   z-index: ${(props) => props.theme.zIndex.z100};
-  
+
   ${media.laptop`
 		max-height: 130px;
 		overflow-y: scroll;
@@ -40,7 +47,6 @@ export const DefaultImageGalleryElement = ({
   const images =
     element["story-elements"] &&
     element["story-elements"].map((image) => (
-      <>
       <Image
         key={image.id}
         metadata={image["image-metadata"]}
@@ -48,13 +54,12 @@ export const DefaultImageGalleryElement = ({
         aspectRatio={aspectRatio}
         alt={image.title}
         lightbox={imageGallery ? "imageGallery" : false}>
+        {getFigcaptionText(image.title, image["image-attribution"]) && (
+          <StyledFigcaption
+            dangerouslySetInnerHTML={{ __html: getFigcaptionText(image.title, image["image-attribution"]) || "" }}
+          />
+        )}
       </Image>
-       {getFigcaptionText(image.title, image["image-attribution"]) && (
-        <StyledFigcaption
-          dangerouslySetInnerHTML={{ __html: getFigcaptionText(image.title, image["image-attribution"]) || "" }}
-        />
-      )}
-      </>
     ));
   const storyElements = element["story-elements"] && element["story-elements"].length >= 1;
   return (
