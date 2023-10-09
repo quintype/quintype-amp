@@ -5,7 +5,7 @@ import { withStoryAndConfig } from "../../../context";
 import get from "lodash.get";
 import { conditionExternalLinks } from "./text.helpers";
 
-export const StyledText = styled.div<StoryElementProps>`
+export const StyledVisualStoryText = styled.div<StoryElementProps>`
   color: ${(props) => props.theme.color.mono7};
   font-size: ${(props) => props.theme.font.size.xs};
   font-family: ${(props) => props.theme.font.family.primary};
@@ -44,6 +44,48 @@ export const StyledText = styled.div<StoryElementProps>`
   }
 `;
 
+export const StyledText = styled.div<StoryElementProps>`
+  color: ${(props) => props.theme.color.mono7};
+  font-size: ${(props) => props.theme.font.size.xs};
+  font-family: ${(props) => props.theme.font.family.primary};
+  line-height: ${(props) => props.theme.font.lineHeight.level3};
+  overflow-wrap: break-word;
+
+  p {
+    margin: 0 0 ${(props) => props.theme.spacing.xs} 0;
+    line-height: ${(props) => props.theme.font.lineHeight.level6};
+    font-size: ${(props) => props.theme.font.size.xs};
+  }
+  a {
+    color: ${(props) => props.theme.color.mono6};
+  }
+  ul {
+    list-style: disc;
+    margin: 0;
+    padding: 0 0 0 ${(props) => props.theme.spacing.l};
+  }
+
+  ol {
+    list-style: decimal;
+    margin: 0;
+    padding: 0 0 0 ${(props) => props.theme.spacing.l};
+  }
+
+  h2 {
+    font-size: ${(props) => props.theme.font.size.huge};
+    line-height: ${(props) => props.theme.font.lineHeight.level5};
+    font-family: ${(props) => props.theme.font.family.primary};
+    margin: 0 0 ${(props) => props.theme.spacing.s} 0;
+  }
+
+  h3 {
+    font-size: ${(props) => props.theme.font.size.xl};
+    line-height: ${(props) => props.theme.font.lineHeight.level5};
+    font-family: ${(props) => props.theme.font.family.primary};
+    margin: 0 0 ${(props) => props.theme.spacing.s} 0;
+  }
+`;
+
 const CtaText = styled.div<StoryElementProps>`
   margin: ${(props) => props.theme.spacing.l};
   text-align: center;
@@ -56,11 +98,15 @@ const CtaText = styled.div<StoryElementProps>`
   }
 `;
 
-export const DefaultText = ({ element, config }: StoryElementProps) => {
+export const DefaultText = ({ element, config, story }: StoryElementProps) => {
   let text = element.text || "";
   text = conditionExternalLinks({ text, config });
+  const storyTemplate = story && story["story-template"] === "visual-story";
   if (element.subtype === "cta") {
     return <CtaText element={element} dangerouslySetInnerHTML={{ __html: text }} />;
+  }
+  if (storyTemplate) {
+    return <StyledVisualStoryText element={element} dangerouslySetInnerHTML={{ __html: text }} />;
   }
   return <StyledText element={element} dangerouslySetInnerHTML={{ __html: text }} />;
 };
@@ -70,7 +116,7 @@ export const TextBase = ({ element, story, config }: StoryElementProps) => {
   return textElementRender ? (
     textElementRender({ story, config, element })
   ) : (
-    <DefaultText element={element} config={config} />
+    <DefaultText element={element} config={config} story={story} />
   );
 };
 /**
