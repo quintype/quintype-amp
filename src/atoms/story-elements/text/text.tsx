@@ -75,11 +75,12 @@ const CtaText = styled.div<StoryElementProps>`
 export const DefaultText = ({ element, config, story }: StoryElementProps) => {
   let text = element.text || "";
   text = conditionExternalLinks({ text, config });
-  const storyTemplate = story && story["story-template"] === "visual-story";
+  const visualStoryTemplate = get(story, ["story-template"], null) === "visual-story";
+
   if (element.subtype === "cta") {
     return <CtaText element={element} dangerouslySetInnerHTML={{ __html: text }} />;
   }
-  return storyTemplate ? (
+  return visualStoryTemplate ? (
     <StyledVisualStoryText element={element} dangerouslySetInnerHTML={{ __html: text }} />
   ) : (
     <StyledText element={element} dangerouslySetInnerHTML={{ __html: text }} />
