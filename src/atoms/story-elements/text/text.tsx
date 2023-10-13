@@ -5,45 +5,6 @@ import { withStoryAndConfig } from "../../../context";
 import get from "lodash.get";
 import { conditionExternalLinks } from "./text.helpers";
 
-export const StyledVisualStoryText = styled.div<StoryElementProps>`
-  color: ${(props) => props.theme.color.mono7};
-  font-size: ${(props) => props.theme.font.size.xs};
-  font-family: ${(props) => props.theme.font.family.primary};
-  line-height: normal;
-  overflow-wrap: break-word;
-
-  p {
-    margin: 0 0 ${(props) => props.theme.spacing.xs} 0;
-    font-size: ${(props) => props.theme.font.size.xs};
-  }
-  a {
-    color: ${(props) => props.theme.color.mono6};
-  }
-  ul {
-    list-style: disc;
-    margin: 0;
-    padding: 0 0 0 ${(props) => props.theme.spacing.l};
-  }
-
-  ol {
-    list-style: decimal;
-    margin: 0;
-    padding: 0 0 0 ${(props) => props.theme.spacing.l};
-  }
-
-  h2 {
-    font-size: ${(props) => props.theme.font.size.huge};
-    font-family: ${(props) => props.theme.font.family.primary};
-    margin: 0 0 ${(props) => props.theme.spacing.s} 0;
-  }
-
-  h3 {
-    font-size: ${(props) => props.theme.font.size.xl};
-    font-family: ${(props) => props.theme.font.family.primary};
-    margin: 0 0 ${(props) => props.theme.spacing.s} 0;
-  }
-`;
-
 export const StyledText = styled.div<StoryElementProps>`
   color: ${(props) => props.theme.color.mono7};
   font-size: ${(props) => props.theme.font.size.xs};
@@ -86,6 +47,19 @@ export const StyledText = styled.div<StoryElementProps>`
   }
 `;
 
+export const StyledVisualStoryText = styled(StyledText)`
+  line-height: normal;
+  p {
+    line-height: normal;
+  }
+  h2 {
+    line-height: normal;
+  }
+  h3 {
+    line-height: normal;
+  }
+`;
+
 const CtaText = styled.div<StoryElementProps>`
   margin: ${(props) => props.theme.spacing.l};
   text-align: center;
@@ -105,10 +79,11 @@ export const DefaultText = ({ element, config, story }: StoryElementProps) => {
   if (element.subtype === "cta") {
     return <CtaText element={element} dangerouslySetInnerHTML={{ __html: text }} />;
   }
-  if (storyTemplate) {
-    return <StyledVisualStoryText element={element} dangerouslySetInnerHTML={{ __html: text }} />;
-  }
-  return <StyledText element={element} dangerouslySetInnerHTML={{ __html: text }} />;
+  return storyTemplate ? (
+    <StyledVisualStoryText element={element} dangerouslySetInnerHTML={{ __html: text }} />
+  ) : (
+    <StyledText element={element} dangerouslySetInnerHTML={{ __html: text }} />
+  );
 };
 
 export const TextBase = ({ element, story, config }: StoryElementProps) => {
