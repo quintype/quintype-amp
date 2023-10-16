@@ -11,6 +11,7 @@ const StyledText = styled.span`
   color: ${(props) => props.theme.color.mono6};
   line-height: ${(props) => props.theme.font.lineHeight.level1};
   font-size: ${(props) => props.theme.font.size.xxs};
+  word-wrap: break-word;
 `;
 
 const StyledAttributionText = styled.span`
