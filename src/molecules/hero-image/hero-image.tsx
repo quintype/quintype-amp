@@ -9,7 +9,7 @@ import get from "lodash.get";
 const StyledText = styled.span`
   margin-right: 8px;
   color: ${(props) => props.theme.color.mono6};
-  line-height: ${(props) => props.theme.font.lineHeight.level1};
+  line-height: ${(props) => props.theme.font.lineHeight.level3};
   font-size: ${(props) => props.theme.font.size.xxs};
   word-wrap: break-word;
 `;
@@ -17,6 +17,8 @@ const StyledText = styled.span`
 const StyledAttributionText = styled.span`
    color: ${(props) => props.theme.color.mono4};
    font-size: ${(props) => props.theme.font.size.xxs};
+   line-height: ${(props) => props.theme.font.lineHeight.level3};
+   word-wrap: break-word;
 `;
 const StyledDiv = styled.div`
   background-color: ${(props) => props.theme.color.mono2};
