@@ -1,2 +1,2 @@
-import { YouTube } from "./youtube";
-export { YouTube };
+import { YouTube, DefaultYouTube } from "./youtube";
+export { YouTube, DefaultYouTube };

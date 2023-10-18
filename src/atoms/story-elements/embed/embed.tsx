@@ -1,9 +1,11 @@
 import React from "react";
 import { StoryElementProps } from "../types";
-import { Iframe } from "../../iframe";
-import atob from "atob-utf-8";
+// import { Iframe } from "../../iframe";
+// import atob from "atob-utf-8";
 import { withStoryAndConfig } from "../../../context";
 import get from "lodash.get";
+import { YouTube } from "../youtube";
+
 
 export const getIframeContent = (str, regex) => {
   if (/iframe/.test(str)) {
@@ -13,13 +15,16 @@ export const getIframeContent = (str, regex) => {
   return null;
 };
 
-export const DefaultEmbed = ({ element }: StoryElementProps) => {
-  const embedData = element["embed-js"] ? atob(element["embed-js"]) : "";
-  const src = getIframeContent(embedData, /(?<=src=["']).*?(?=[*"'])/);
-  const scrolling = getIframeContent(embedData, /(?<=scrolling=["']).*?(?=[*"'])/);
-  const title = element.subtype || element.title || "";
-  return src ? <Iframe src={src} scrolling={scrolling} title={title} /> : null;
-};
+// export const DefaultEmbed = ({ element }: StoryElementProps) => {
+//   const embedData = element["embed-js"] ? atob(element["embed-js"]) : "";
+//   const src = getIframeContent(embedData, /(?<=src=["']).*?(?=[*"'])/);
+//   const scrolling = getIframeContent(embedData, /(?<=scrolling=["']).*?(?=[*"'])/);
+//   const title = element.subtype || element.title || "";
+//   console.log(embedData, "<--embedData");
+//   return src ? <Iframe src={src} scrolling={scrolling} title={title} /> : null;
+// };
+
+
 
 export const getIframeSourceURL = (str: string): string | null => {
   if (/iframe/.test(str)) {
@@ -31,7 +36,7 @@ export const getIframeSourceURL = (str: string): string | null => {
 
 export const EmbedBase = ({ element, story, config }: StoryElementProps) => {
   const embedRender = get(config, ["opts", "render", "storyElementRender", "embedRender"], null);
-  return embedRender ? embedRender({ story, config, element }) : <DefaultEmbed element={element} />;
+  return embedRender ? embedRender({ story, config, element }) : <YouTube element={element} />;
 };
 
 /**
