@@ -10,7 +10,7 @@ import {
   ImageElement,
   Blurb,
   AlsoRead,
-  YouTube,
+  // YouTube,
   Embed,
   DailyMotionElement,
   TwitterElement,
@@ -65,7 +65,7 @@ const storyElementsTable = [
   ["text", "summary", Summary],
   ["text", anyType, Text],
   ["title", none, Title],
-  ["youtube-video", none, YouTube],
+  ["youtube-video", none, Embed],
   [anyType, anyType, Unsupported]
 ];
 
