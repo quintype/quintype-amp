@@ -46,7 +46,7 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
       {(titleElement || textElements.length || imageElement) && !videoElement && (
         <amp-story-grid-layer template="thirds">
           <TextWrapper>
-            <div {...textAnimation}>
+            <div {...textAnimation} style={{ alignSelf: "flex-end" }}>
               {titleElement && <StoryElement element={titleElement} />}
               {textElements.length > 0 &&
                 textElements.map((textElement) => <StoryElement key={textElement.id} element={textElement} />)}
@@ -89,6 +89,8 @@ const TextWrapper = styled.div`
   bottom: 0;
   padding: 24px;
   width: 100%;
+  display: flex;
+  word-break: break-all;
   background-image: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0),
