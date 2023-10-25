@@ -544,7 +544,13 @@ exports[`CoverPage Component should match snapshot 1`] = `
       template="thirds"
     >
       <styled.div>
-        <div>
+        <div
+          style={
+            Object {
+              "alignSelf": "flex-end",
+            }
+          }
+        >
           <styled.h1
             className="qt-amp-visual-story-cover-headline"
           >

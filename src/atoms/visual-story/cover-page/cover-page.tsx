@@ -93,7 +93,7 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
         </amp-story-grid-layer>
         <amp-story-grid-layer template="thirds">
           <StyledTextWrapper>
-            <div {...textAnimation}>
+            <div {...textAnimation} style={{ alignSelf: "flex-end" }}>
               <StyledHeadline className="qt-amp-visual-story-cover-headline">{headline}</StyledHeadline>
               {authorNames && (
                 <Fragment>
@@ -118,6 +118,8 @@ const StyledTextWrapper = styled.div`
   bottom: 0;
   padding: 32px;
   color: ${(props) => props.theme.color.white};
+  display: flex;
+  word-break: break-all;
   background-image: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0),
