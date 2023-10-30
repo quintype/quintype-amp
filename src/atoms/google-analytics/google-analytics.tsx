@@ -5,42 +5,50 @@ import { infiniteScrollExists } from "../../helpers";
 import get from "lodash.get";
 
 const DefaultGoogleAnalytics = ({ gaId, config }) => {
-  const gaConfig = {
-    vars: {
-      account: gaId
-    },
-    triggers: {
-      trackPageview: {
-        on: infiniteScrollExists(config) ? "amp-next-page-scroll" : "visible",
-        request: "pageview",
-        scrollSpec: {
-          useInitialPageSize: infiniteScrollExists(config)
+  if (typeof gaId !== "string") return null;
+  const componentArr = gaId.split(",").map((id) => {
+    const gaConfig = {
+      vars: {
+        account: id
+      },
+      triggers: {
+        trackPageview: {
+          on: infiniteScrollExists(config) ? "amp-next-page-scroll" : "visible",
+          request: "pageview",
+          scrollSpec: {
+            useInitialPageSize: infiniteScrollExists(config)
+          }
         }
       }
-    }
-  };
-  return <Analytics type="googleanalytics" targets={gaConfig} />;
+    };
+    return <Analytics type="googleanalytics" targets={gaConfig} />;
+  });
+  return <>{componentArr}</>;
 };
 
 const GoogleAnalytics4 = ({ gaId, config }) => {
-  const gaConfig = {
-    vars: {
-      gtag_id: gaId,
-      config: {
-        [gaId]: { groups: "default" }
-      }
-    },
-    triggers: {
-      trackPageview: {
-        on: infiniteScrollExists(config) ? "amp-next-page-scroll" : "visible",
-        request: "pageview",
-        scrollSpec: {
-          useInitialPageSize: infiniteScrollExists(config)
+  if (typeof gaId !== "string") return null;
+  const componentArr = gaId.split(",").map((id) => {
+    const gaConfig = {
+      vars: {
+        gtag_id: id,
+        config: {
+          [id]: { groups: "default" }
+        }
+      },
+      triggers: {
+        trackPageview: {
+          on: infiniteScrollExists(config) ? "amp-next-page-scroll" : "visible",
+          request: "pageview",
+          scrollSpec: {
+            useInitialPageSize: infiniteScrollExists(config)
+          }
         }
       }
-    }
-  };
-  return <Analytics type="gtag" targets={gaConfig} data-credentials="include" />;
+    };
+    return <Analytics type="gtag" targets={gaConfig} data-credentials="include" />;
+  });
+  return <>{componentArr}</>;
 };
 
 const GoogleAnalyticsBase = ({ config }) => {
