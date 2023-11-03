@@ -6,7 +6,7 @@ import { withStoryAndConfig } from "../../context";
 import { Image } from "../../atoms";
 import get from "lodash.get";
 
-const StyledText = styled.span`
+const StyledCaption = styled.span`
   margin-right: 8px;
   color: ${(props) => props.theme.color.mono6};
   line-height: ${(props) => props.theme.font.lineHeight.level3};
@@ -14,7 +14,7 @@ const StyledText = styled.span`
   word-wrap: break-word;
 `;
 
-const StyledAttributionText = styled.span`
+const StyledAttribution = styled.span`
    color: ${(props) => props.theme.color.mono4};
    font-size: ${(props) => props.theme.font.size.xxs};
    line-height: ${(props) => props.theme.font.lineHeight.level3};
@@ -42,8 +42,8 @@ export const HeroImageBase = ({ story }: HeroImageBaseTypes) => {
         </Image>
       </StyledDiv>
       <StyledFigcaption>
-        {caption && <StyledText dangerouslySetInnerHTML={{ __html: `${caption}` + '&nbsp;' }} />}
-        {attribution && <StyledAttributionText dangerouslySetInnerHTML={{ __html: `${attribution}` }} />}
+        {caption && <StyledCaption dangerouslySetInnerHTML={{ __html: `${caption}` + '&nbsp;' }} />}
+        {attribution && <StyledAttribution dangerouslySetInnerHTML={{ __html: `${attribution}` }} />}
       </StyledFigcaption>
     </>
   );
