@@ -90,7 +90,6 @@ const TextWrapper = styled.div`
   padding: 24px;
   width: 100%;
   display: flex;
-  word-break: break-all;
   background-image: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0),

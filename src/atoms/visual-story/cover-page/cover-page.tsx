@@ -119,7 +119,6 @@ const StyledTextWrapper = styled.div`
   padding: 32px;
   color: ${(props) => props.theme.color.white};
   display: flex;
-  word-break: break-all;
   background-image: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0),
