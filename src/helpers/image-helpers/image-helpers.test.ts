@@ -18,7 +18,7 @@ test("getImgSrcAndSrcset helper", () => {
   const { src, srcset } = getImgSrcAndSrcset(dummyProps);
   expect(src).toBe("https://thumbor-stg.assettype.com/foo%2Fbar%2Fimage.png?rect=0%2C0%2C1528%2C3480&lorem=ipsum");
   expect(srcset).toBe(
-    "https://thumbor-stg.assettype.com/foo%2Fbar%2Fimage.png?rect=0%2C0%2C1528%2C3480&lorem=ipsum&w=480 480w, https://thumbor-stg.assettype.com/foo%2Fbar%2Fimage.png?rect=0%2C0%2C1528%2C3480&lorem=ipsum&w=960 960w, https://thumbor-stg.assettype.com/foo%2Fbar%2Fimage.png?rect=0%2C0%2C1528%2C3480&lorem=ipsum&w=1200 1200w, https://thumbor-stg.assettype.com/foo%2Fbar%2Fimage.png?rect=0%2C0%2C1528%2C3480&lorem=ipsum&w=2048 2048w"
+    "https://thumbor-stg.assettype.com/foo%2Fbar%2Fimage.png?rect=0%2C0%2C1528%2C3480&lorem=ipsum&w=640 640w"
   );
 });
 
@@ -46,7 +46,5 @@ test("focusedImagePath helper", () => {
 test("getImgSrcAndSrcset helper", () => {
   const { src, srcset } = getImgSrcAndSrcset(dummyPropsWithoutMetadata);
   expect(src).toBe("https://thumbor-stg.assettype.com/foo/bar/image.png");
-  expect(srcset).toBe(
-    "https://thumbor-stg.assettype.com/foo/bar/image.png 480w, https://thumbor-stg.assettype.com/foo/bar/image.png 960w, https://thumbor-stg.assettype.com/foo/bar/image.png 1200w, https://thumbor-stg.assettype.com/foo/bar/image.png 2048w"
-  );
+  expect(srcset).toBe("https://thumbor-stg.assettype.com/foo/bar/image.png 640w");
 });
