@@ -6,7 +6,7 @@ import get from "lodash.get";
 import { conditionExternalLinks } from "./text.helpers";
 
 export const StyledText = styled.div<StoryElementProps>`
-  color: ${(props) => props.theme.color.mono6};
+  color: ${(props) => props.theme.color.mono7};
   font-size: ${(props) => props.theme.font.size.xs};
   font-family: ${(props) => props.theme.font.family.primary};
   line-height: ${(props) => props.theme.font.lineHeight.level3};
@@ -47,6 +47,19 @@ export const StyledText = styled.div<StoryElementProps>`
   }
 `;
 
+export const StyledVisualStoryText = styled(StyledText)`
+  line-height: normal;
+  p {
+    line-height: normal;
+  }
+  h2 {
+    line-height: normal;
+  }
+  h3 {
+    line-height: normal;
+  }
+`;
+
 const CtaText = styled.div<StoryElementProps>`
   margin: ${(props) => props.theme.spacing.l};
   text-align: center;
@@ -59,13 +72,19 @@ const CtaText = styled.div<StoryElementProps>`
   }
 `;
 
-export const DefaultText = ({ element, config }: StoryElementProps) => {
+export const DefaultText = ({ element, config, story }: StoryElementProps) => {
   let text = element.text || "";
   text = conditionExternalLinks({ text, config });
+  const visualStoryTemplate = get(story, ["story-template"], null) === "visual-story";
+
   if (element.subtype === "cta") {
     return <CtaText element={element} dangerouslySetInnerHTML={{ __html: text }} />;
   }
-  return <StyledText element={element} dangerouslySetInnerHTML={{ __html: text }} />;
+  return visualStoryTemplate ? (
+    <StyledVisualStoryText element={element} dangerouslySetInnerHTML={{ __html: text }} />
+  ) : (
+    <StyledText element={element} dangerouslySetInnerHTML={{ __html: text }} />
+  );
 };
 
 export const TextBase = ({ element, story, config }: StoryElementProps) => {
@@ -73,7 +92,7 @@ export const TextBase = ({ element, story, config }: StoryElementProps) => {
   return textElementRender ? (
     textElementRender({ story, config, element })
   ) : (
-    <DefaultText element={element} config={config} />
+    <DefaultText element={element} config={config} story={story} />
   );
 };
 /**

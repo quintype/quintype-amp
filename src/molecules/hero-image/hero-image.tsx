@@ -15,10 +15,10 @@ const StyledCaption = styled.span`
 `;
 
 const StyledAttribution = styled.span`
-   color: ${(props) => props.theme.color.mono4};
-   font-size: ${(props) => props.theme.font.size.xxs};
-   line-height: ${(props) => props.theme.font.lineHeight.level3};
-   word-wrap: break-word;
+  color: ${(props) => props.theme.color.mono4};
+  font-size: ${(props) => props.theme.font.size.xxs};
+  line-height: ${(props) => props.theme.font.lineHeight.level3};
+  word-wrap: break-word;
 `;
 const StyledDiv = styled.div`
   background-color: ${(props) => props.theme.color.mono2};
@@ -36,13 +36,12 @@ export const HeroImageBase = ({ story }: HeroImageBaseTypes) => {
   const caption: string | null = get(story, "hero-image-caption", null);
 
   return (
-   <>
+    <>
       <StyledDiv>
-        <Image data-hero="true" metadata={metadata} slug={slug} alt={caption || attribution || ""}>
-        </Image>
+        <Image data-hero="true" metadata={metadata} slug={slug} alt={caption || attribution || ""}></Image>
       </StyledDiv>
       <StyledFigcaption>
-        {caption && <StyledCaption dangerouslySetInnerHTML={{ __html: `${caption}` + '&nbsp;' }} />}
+        {caption && <StyledCaption dangerouslySetInnerHTML={{ __html: `${caption}` + "&nbsp;" }} />}
         {attribution && <StyledAttribution dangerouslySetInnerHTML={{ __html: `${attribution}` }} />}
       </StyledFigcaption>
     </>
