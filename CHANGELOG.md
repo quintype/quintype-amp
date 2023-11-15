@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.17.13](https://github.com/quintype/quintype-amp/compare/v2.17.11...v2.17.13) (2023-11-15)
+
+
+### Bug Fixes
+
+* **images:** Impose size restriction to 640 across images ([#461](https://github.com/quintype/quintype-amp/issues/461)) ([f1d5a6a](https://github.com/quintype/quintype-amp/commit/f1d5a6a4bc8fa4ea80c25e8c7ec6ee12a81648d3))
+
 ### [2.17.12](https://github.com/quintype/quintype-amp/compare/v2.17.11...v2.17.12) (2023-11-14)
 
 ### [2.17.11](https://github.com/quintype/quintype-amp/compare/v2.17.10...v2.17.11) (2023-11-07)
