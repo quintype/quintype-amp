@@ -31,7 +31,9 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
   return (
     <Fragment>
       {videoElement && <VideoWebStory videoElement={videoElement} imageElement={imageElement} heroImage={heroImgSrc} />}
-      {videoClipElement && <VideoClipStory videoClipElement={videoClipElement} />}
+      {videoClipElement && (
+        <VideoClipStory videoClipElement={videoClipElement} imageElement={imageElement} heroImage={heroImgSrc} />
+      )}
       {imageElement && !videoElement && (
         <amp-story-grid-layer template="fill">
           <Image
