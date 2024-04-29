@@ -7,15 +7,15 @@ import { withStoryAndConfig } from "../../../context";
 import { getAnimationProps } from "./web-story-page-components.helpers";
 import get from "lodash/get";
 import { VideoWebStory } from "../../video-web-story";
-import { VideoClipStory } from "../../video-clip-story";
 
 const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageComponentsTypes) => {
   const titleElement = card["story-elements"].find((el) => el.type === "title");
   const textElements = card["story-elements"].filter((el) => el.type === "text" && el.subtype !== "cta");
   const imageElement = card["story-elements"].find((el) => el.type === "image");
   const heroImgSrc = story["hero-image-s3-key"];
-  const videoElement = card["story-elements"].find((el) => el.type === "jsembed");
-  const videoClipElement = card["story-elements"].find((el) => el.type === "video" && el.subtype === "video-clip");
+  const videoElement = card["story-elements"].find(
+    (el) => el.type === "jsembed" || (el.type === "video" && el.subtype === "video-clip")
+  );
 
   const { imageAnimation, textAnimation }: AnimationTypes = getAnimationProps(config, story);
   const ctaElements = card["story-elements"].filter((el) => el.subtype === "cta");
@@ -31,9 +31,6 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
   return (
     <Fragment>
       {videoElement && <VideoWebStory videoElement={videoElement} imageElement={imageElement} heroImage={heroImgSrc} />}
-      {videoClipElement && (
-        <VideoClipStory videoClipElement={videoClipElement} imageElement={imageElement} heroImage={heroImgSrc} />
-      )}
       {imageElement && !videoElement && (
         <amp-story-grid-layer template="fill">
           <Image
