@@ -11,7 +11,7 @@ const getVideoData = (videoElement) => {
     videoUrl = atob(`${videoElement["embed-js"]}`);
     format = videoUrl.split(".")[3];
   } else if (videoElementType === "video") {
-    videoUrl = videoElement?.["video-url"];
+    videoUrl = videoElement?.["video-url"] || videoElement?.["metadata"]?.["video-clip-url"];
     const splittedURL = videoUrl?.split("/");
     const videoName = splittedURL?.[splittedURL.length - 1]?.split(".");
     format = videoName?.[videoName.length - 1];
