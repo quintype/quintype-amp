@@ -11,7 +11,7 @@ const getVideoData = (videoElement) => {
     videoUrl = atob(`${videoElement["embed-js"]}`);
     format = videoUrl.split(".")[3];
   } else if (videoElementType === "video") {
-    videoUrl = videoElement?.["video-url"] || videoElement?.["metadata"]?.["video-clip-url"];
+    videoUrl = videoElement?.["metadata"]?.["video-clip-url"];
     const splittedURL = videoUrl?.split("/");
     const videoName = splittedURL?.[splittedURL.length - 1]?.split(".");
     format = videoName?.[videoName.length - 1];
@@ -21,6 +21,8 @@ const getVideoData = (videoElement) => {
 
 export const VideoWebStoryBase = ({ config, videoElement, imageElement, heroImage }) => {
   const { videoUrl, format } = getVideoData(videoElement);
+  console.log("amp--videoUrl", videoUrl);
+  console.log("amp--format", format);
   const poster = imageElement
     ? `https://${config.publisherConfig["cdn-image"]}/${imageElement["image-s3-key"]}`
     : `https://${config.publisherConfig["cdn-image"]}/${heroImage["hero-image-s3-key"]}`;
