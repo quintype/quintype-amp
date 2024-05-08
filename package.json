@@ -1,6 +1,6 @@
 {
   "name": "@quintype/amp",
-  "version": "2.18.0-feat-video-amp-story.4",
+  "version": "2.18.0-feat-video-amp-story.5",
   "description": "Quintype's AMP component library for publisher apps to create amp layouts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
