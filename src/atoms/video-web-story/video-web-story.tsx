@@ -21,8 +21,6 @@ const getVideoData = (videoElement) => {
 
 export const VideoWebStoryBase = ({ config, videoElement, imageElement, heroImage }) => {
   const { videoUrl, format } = getVideoData(videoElement);
-  console.log("amp--videoUrl", videoUrl);
-  console.log("amp--format", format);
   const poster = imageElement
     ? `https://${config.publisherConfig["cdn-image"]}/${imageElement["image-s3-key"]}`
     : `https://${config.publisherConfig["cdn-image"]}/${heroImage["hero-image-s3-key"]}`;

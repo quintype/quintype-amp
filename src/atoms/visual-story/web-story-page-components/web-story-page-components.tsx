@@ -17,9 +17,6 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
     (el) => el.type === "jsembed" || (el.type === "video" && el.subtype === "video-clip")
   );
 
-  console.log("amp--card", card);
-  console.log("amp--videoElement", videoElement);
-
   const { imageAnimation, textAnimation }: AnimationTypes = getAnimationProps(config, story);
   const ctaElements = card["story-elements"].filter((el) => el.subtype === "cta");
   const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"], {});
