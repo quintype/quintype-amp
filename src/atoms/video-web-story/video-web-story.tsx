@@ -23,7 +23,7 @@ export const VideoWebStoryBase = ({ config, videoElement, imageElement, heroImag
   const { videoUrl, format } = getVideoData(videoElement);
   const poster = imageElement
     ? `https://${config.publisherConfig["cdn-image"]}/${imageElement["image-s3-key"]}`
-    : `https://${config.publisherConfig["cdn-image"]}/${heroImage["hero-image-s3-key"]}`;
+    : `https://${config.publisherConfig["cdn-image"]}/${heroImage?.["hero-image-s3-key"]}`;
   return (
     <Fragment>
       <Helmet>
