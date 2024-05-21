@@ -34,11 +34,13 @@ export const HeroImageBase = ({ story }: HeroImageBaseTypes) => {
 
   const attribution: string | null = get(story, "hero-image-attribution", null);
   const caption: string | null = get(story, "hero-image-caption", null);
+  const altText: string | null = get(story, "hero-image-alt-text", null);
+
 
   return (
     <>
       <StyledDiv>
-        <Image data-hero="true" metadata={metadata} slug={slug} alt={caption || attribution || ""}></Image>
+        <Image data-hero="true" metadata={metadata} slug={slug} alt={altText || caption || attribution || ""}></Image>
       </StyledDiv>
       <StyledFigcaption>
         {caption && <StyledCaption dangerouslySetInnerHTML={{ __html: `${caption}` + "&nbsp;" }} />}

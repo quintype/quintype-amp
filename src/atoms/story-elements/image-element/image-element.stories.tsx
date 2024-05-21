@@ -18,6 +18,7 @@ const sampleImageElement = {
   "image-attribution": "Someone ",
   title: "Wash your hands",
   id: "2c31b5ad-0189-4bad-841e-e105d738ca80",
+  "alt-text": "Handwashing",
   "image-s3-key":
     "ace/2020-03/ad503d63-4d05-41e6-9722-fdfe3acb2405/handwashing_8_wide_eb1f71948877c7a15d27a82cd7d90b324b956a89.jpg",
   metadata: {},

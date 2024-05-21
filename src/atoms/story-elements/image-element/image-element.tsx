@@ -28,11 +28,11 @@ const StyledFigCaption = styled.figcaption`
 
 export const ImageElementBase = ({ element, story, config }: StoryElementProps) => {
   const imageElementRender = get(config, ["opts", "render", "storyElementRender", "imageElementRender"], null);
-  const imageAttribution = element["image-attribution"] || element.title || "";
+  const imageAltText = element["alt-text"] || element["image-attribution"] || element.title || "";
   return imageElementRender ? (
     imageElementRender({ story, config, element })
   ) : (
-    <Image slug={element["image-s3-key"]} metadata={element["image-metadata"]} alt={imageAttribution}>
+    <Image slug={element["image-s3-key"]} metadata={element["image-metadata"]} alt={imageAltText}>
       {element.title && element.title.length > 1 && (
         <StyledFigCaption dangerouslySetInnerHTML={{ __html: element.title }} />
       )}

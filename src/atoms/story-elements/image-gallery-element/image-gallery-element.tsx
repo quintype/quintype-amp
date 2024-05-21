@@ -52,7 +52,7 @@ export const DefaultImageGalleryElement = ({
         metadata={image["image-metadata"]}
         slug={image["image-s3-key"]}
         aspectRatio={aspectRatio}
-        alt={image.title}
+        alt={image["alt-text"] || image.title}
         lightbox={imageGallery ? "imageGallery" : false}>
         {getFigcaptionText(image.title, image["image-attribution"]) && (
           <StyledFigcaption

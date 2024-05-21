@@ -13,7 +13,7 @@ import { Head } from "../../head";
 export const CoverPageBase = ({ story, config }: CoverPageProps) => {
   const heroImgSrc = story["hero-image-s3-key"];
   const heroImgMetadata = story["hero-image-metadata"];
-  const altText = story["hero-image-caption"] || story["hero-image-attribution"] || "";
+  const altText = story["hero-image-alt-text"] || story["hero-image-caption"] || story["hero-image-attribution"] || "";
   const authorNames = getAuthorNames(story.authors);
   const { imageAnimation, textAnimation }: AnimationTypes = getAnimationProps(config, story);
   const headline = story.headline || "";
