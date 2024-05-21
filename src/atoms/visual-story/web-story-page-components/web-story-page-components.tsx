@@ -45,7 +45,7 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
           />
         </amp-story-grid-layer>
       )}
-      {(titleElement || textElements.length || imageElement) && !videoElement && (
+      {(titleElement || textElements.length || imageElement) && (
         <amp-story-grid-layer template="thirds">
           <TextWrapper>
             <div {...textAnimation} style={{ alignSelf: "flex-end" }}>
