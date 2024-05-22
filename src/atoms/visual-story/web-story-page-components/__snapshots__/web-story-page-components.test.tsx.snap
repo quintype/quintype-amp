@@ -44,6 +44,7 @@ exports[`WebStoryPageComponents should match snapshot 1`] = `
           "type": "text",
         },
         Object {
+          "alt-text": "Alt text",
           "description": "",
           "family-id": "f9c3c481-06fa-4c7e-ad38-f9c3c8cc1ef0",
           "id": "43e7d7d6-a3f6-40b5-88d5-a2f23663a845",

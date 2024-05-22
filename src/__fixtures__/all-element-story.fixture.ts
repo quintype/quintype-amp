@@ -71,6 +71,7 @@ const allElementsStory = {
             height: 1169
           },
           "hero-image-attribution": "Attribution",
+          "hero-image-alt-text": "Alt text",
           "hero-image-s3-key":
             "ace/2020-03/4f3bfc9a-209c-4f5d-a59e-616ac4d1f7cc/106329196_1578602903227gettyimages_1194751175.jpeg",
           "creator-id": null,
@@ -133,6 +134,7 @@ const allElementsStory = {
   "hero-image-attribution": null,
   "bullet-type": "123",
   id: "05066b94-784b-4913-971b-c01a1bcfb43d",
+  "hero-image-alt-text": "Alt text",
   "hero-image-s3-key": "ace/2018-02/b2e9d05a-d633-4046-9433-3cce782b2638/hero_hd.jpg",
   contributors: [],
   "associated-series-collection-ids": [],
@@ -168,6 +170,7 @@ const allElementsStory = {
               "image-attribution": "Attribution of an imitation game",
               title: "Chase: An Imitation Game - A Story On Dharavi's Fake Leather Bags",
               id: "5c375339-5fb0-481a-a811-ae271d894b3b",
+              "alt-text": "Alt text",
               "image-s3-key":
                 "ace/2020-03/ad503d63-4d05-41e6-9722-fdfe3acb2405/handwashing_8_wide_eb1f71948877c7a15d27a82cd7d90b324b956a89.jpg",
               metadata: {},
@@ -184,6 +187,7 @@ const allElementsStory = {
               "image-attribution": "Ramsharan Gorur Jayaraman",
               title: "Caption",
               id: "48b14295-99ed-4fc8-ad99-4cb1d85a29ae",
+              "alt-text": "Alt text",
               "image-s3-key": "ace/2019-06/051658dc-43f0-4945-92bd-f2da2a206e40/panda.jpg",
               metadata: {},
               subtype: null
@@ -213,6 +217,7 @@ const allElementsStory = {
               "image-attribution": "",
               title: "Are college interviews now a saffron litmus test?",
               id: "36452445-2155-496a-b471-de48870b713a",
+              "alt-text": "Alt text",
               "image-s3-key": "ace/2019-06/051658dc-43f0-4945-92bd-f2da2a206e40/panda.jpg",
               metadata: {},
               subtype: null
@@ -229,6 +234,7 @@ const allElementsStory = {
               "image-attribution": "unsplash",
               title: "Traffic cones",
               id: "0898278c-9fac-4685-a0ae-d9caf8c1e7a7",
+              "alt-text": "Alt text",
               "image-s3-key":
                 "ace/2020-03/ad503d63-4d05-41e6-9722-fdfe3acb2405/handwashing_8_wide_eb1f71948877c7a15d27a82cd7d90b324b956a89.jpg",
               metadata: {},
@@ -280,6 +286,7 @@ const allElementsStory = {
           "image-attribution": "Someone ",
           title: "Wash your hands",
           id: "2c31b5ad-0189-4bad-841e-e105d738ca80",
+          "alt-text": "Alt text",
           "image-s3-key":
             "ace/2020-03/ad503d63-4d05-41e6-9722-fdfe3acb2405/handwashing_8_wide_eb1f71948877c7a15d27a82cd7d90b324b956a89.jpg",
           metadata: {},
@@ -560,6 +567,7 @@ const allElementsStory = {
             url: null,
             attribution: "Someone ",
             caption: null,
+            "alt-text": "alt text",
             metadata: {
               "original-url":
                 "https://media.npr.org/assets/img/2020/03/20/handwashing-8_wide-eb1f71948877c7a15d27a82cd7d90b324b956a89.jpg?s=1400",

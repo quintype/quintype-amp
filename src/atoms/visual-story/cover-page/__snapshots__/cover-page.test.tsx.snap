@@ -104,6 +104,7 @@ exports[`CoverPage Component should match snapshot 1`] = `
                     "type": "text",
                   },
                   Object {
+                    "alt-text": "Alt text",
                     "description": "",
                     "family-id": "f9c3c481-06fa-4c7e-ad38-f9c3c8cc1ef0",
                     "id": "43e7d7d6-a3f6-40b5-88d5-a2f23663a845",
@@ -177,6 +178,7 @@ exports[`CoverPage Component should match snapshot 1`] = `
                     "type": "title",
                   },
                   Object {
+                    "alt-text": "Alt text",
                     "description": "",
                     "family-id": "2f5c50ac-da8c-4cff-86ca-105569586e2c",
                     "id": "49a709aa-cb16-4d45-9437-80db506c8017",
@@ -449,6 +451,7 @@ exports[`CoverPage Component should match snapshot 1`] = `
             "external-id": null,
             "first-published-at": 1603197986228,
             "headline": "Pets are awesome",
+            "hero-image-alt-text": null,
             "hero-image-attribution": " <p>unsplash.com/</p>",
             "hero-image-caption": " <p>Masked woman</p>",
             "hero-image-metadata": Object {

@@ -127,6 +127,7 @@ export const getDummyStory = () => {
     status: "published",
     "hero-image-attribution": "Create",
     "bullet-type": "123",
+    "hero-image-alt-text": null,
     id: "7f3d5bdb-ec52-4047-ac0d-df4036ec974b",
     "hero-image-s3-key": "barandbench/2020-02/43fb44c4-2028-4b90-95ad-dc54aad47a28/Discover_Law_Logo_1.jpg",
     contributors: null,

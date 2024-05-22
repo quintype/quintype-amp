@@ -58,6 +58,7 @@ export const visualStory: Story = {
   status: "published",
   "hero-image-attribution": " <p>unsplash.com/</p>",
   "bullet-type": "123",
+  "hero-image-alt-text": null,
   id: "e8e3a6d0-98ff-40eb-b400-5f9466599fb3",
   "hero-image-s3-key": "amplib/2020-10/6adaf26f-3b7b-45e0-9973-6f99abeecf5d/erin_agius_I7TLmA4j0c8_unsplash.jpg",
   contributors: [],
@@ -91,6 +92,7 @@ export const visualStory: Story = {
           "image-attribution": "",
           title: " <p>Masked man</p>",
           id: "43e7d7d6-a3f6-40b5-88d5-a2f23663a845",
+          "alt-text": "Alt text",
           "image-s3-key": "amplib/2020-10/7e318e3a-7cec-47e9-8bc0-ccf9dee7f7d2/littpro_inc_og5eHNNyy7k_unsplash.jpg",
           metadata: {},
           subtype: null
@@ -164,6 +166,7 @@ export const visualStory: Story = {
           "image-attribution": "",
           title: " <p>Dog</p>",
           id: "49a709aa-cb16-4d45-9437-80db506c8017",
+          "alt-text": "Alt text",
           "image-s3-key": "amplib/2020-10/7a492e2e-6b69-4b27-b616-0e9001196cc5/eric_ward_ISg37AI2A_s_unsplash.jpg",
           metadata: {},
           subtype: null

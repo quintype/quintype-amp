@@ -149,6 +149,7 @@ export const textStory: Story = {
   status: "published",
   "hero-image-attribution": "Create",
   "bullet-type": "123",
+  "hero-image-alt-text": null,
   id: "7f3d5bdb-ec52-4047-ac0d-df4036ec974b",
   "hero-image-s3-key": "barandbench/2020-02/43fb44c4-2028-4b90-95ad-dc54aad47a28/Discover_Law_Logo_1.jpg",
   contributors: null,
@@ -267,6 +268,7 @@ export const textStory: Story = {
               "image-attribution": "a man saying out",
               title: "out !!!!!!",
               id: "e6b487d3-2114-4dac-81e8-678bd847c55e",
+              "alt-text": "Alt text",
               "image-s3-key": "ace/2020-05/7270e0ef-2e16-4848-8be4-4de481d20bfb/reuters_spain_la_liga_06Dec19.JPG",
               metadata: {},
               subtype: null
@@ -283,6 +285,7 @@ export const textStory: Story = {
               "image-attribution": "football",
               title: "football",
               id: "bbc046b4-bb82-42cc-83a0-c7ecccdd8d9b",
+              "alt-text": "Alt text",
               "image-s3-key":
                 "ace/2020-05/a9d04bce-56a1-4dea-8694-6e291db7a529/LEWANDOW059746243_LR2EB9M1I218R_RTRMADP_3_GERMNY_SOCCER_1_.JPG",
               metadata: {},
@@ -300,6 +303,7 @@ export const textStory: Story = {
               "image-attribution": "Buildings",
               title: "Huge Buildings",
               id: "6ee8af2b-cb2d-4579-9022-3cc8a7045a5d",
+              "alt-text": "Alt text",
               "image-s3-key": "ace/2020-05/097d3bf3-693e-43af-901f-d8458aae1343/Durham_Austin_iStock.jpg",
               metadata: {},
               subtype: null
@@ -316,6 +320,7 @@ export const textStory: Story = {
               "image-attribution": "",
               title: "Wallpaper",
               id: "bfdf590b-3097-481f-81c6-e5288b8429a7",
+              "alt-text": "Alt text",
               "image-s3-key": "ace/2020-05/35544a89-4eea-4040-973b-450b7194f1bc/JGYSQ7JERZBZVIBL7RHVOXSKQI.png",
               metadata: {},
               subtype: null
@@ -332,6 +337,7 @@ export const textStory: Story = {
               "image-attribution": "",
               title: "Flag",
               id: "0acd7945-3440-48a2-b47c-2b22830bd7b4",
+              "alt-text": "Alt text",
               "image-s3-key":
                 "ace/2020-05/c03eeadb-54f8-418a-ad34-6c3e8bee0004/14a3c7aa_791a_4ccf_bf0d_a1532c508c46_1140x641.jpg",
               metadata: {},
@@ -349,6 +355,7 @@ export const textStory: Story = {
               "image-attribution": "",
               title: "",
               id: "e35ff882-1dbd-41d7-b59d-f141bd595b75",
+              "alt-text": "Alt text",
               "image-s3-key":
                 "ace/2020-05/ea17ec96-81cf-435f-97c6-bdf3fcc33cd8/2020_05_10T220259Z_1240337357_RC2ULG9IPO5H_RTRMADP_3_HEALTH_CORONAVIRUS_BRITAIN_JOHNSON.JPG",
               metadata: {},
@@ -366,6 +373,7 @@ export const textStory: Story = {
               "image-attribution": "",
               title: "",
               id: "79f2bad2-d299-4f01-9394-1d12009f82a5",
+              "alt-text": "Alt text",
               "image-s3-key": "ace/2020-05/6451e3d3-8e7e-41bb-a7fa-26df0018056d/BJCEPXUQVII6VKOAOO4TIIWWSE.jpg",
               metadata: {},
               subtype: null
@@ -382,6 +390,7 @@ export const textStory: Story = {
               "image-attribution": "",
               title: "",
               id: "02d71172-6324-4894-a4ed-95f1d47aa18f",
+              "alt-text": "Alt text",
               "image-s3-key":
                 "ace/2020-05/d233ded8-9e98-4156-a2c6-43b97256164d/7e2b0e40_50b4_4d54_b550_7a7662b0842f_1140x641.jpg",
               metadata: {},
@@ -399,6 +408,7 @@ export const textStory: Story = {
               "image-attribution": "",
               title: "",
               id: "56137c4f-f6c5-4362-a978-f4fd066c0dc1",
+              "alt-text": "Alt text",
               "image-s3-key":
                 "ace/2020-05/59d8f44e-153a-41d1-a002-db0ed876327c/gettyimages_1211277548_wide_7def4a4c352e1ec820cd8a0384526a847797b67d.jpg",
               metadata: {},
@@ -492,6 +502,7 @@ export const textStory: Story = {
           title:
             "The judgment was delivered by a three-judge Bench of Justices R Banumathi, AS Bopanna and Hrishikesh Roy",
           id: "e7b80c61-3745-48ac-9fdf-f5c3af5e24f3",
+          "alt-text": "Alt text",
           "image-s3-key":
             "barandbench/2020-03/4565d24e-e4ac-413b-a462-8d698ab4b742/R_Banumathi__AS_Bopanna_and_Hrishikesh_Roy.jpg",
           metadata: {},

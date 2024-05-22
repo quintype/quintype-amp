@@ -36,7 +36,7 @@ export interface Story {
   status: string;
   "hero-image-attribution": string | null;
   "bullet-type": string;
-  "hero-image-alt-text": string | null;
+  "hero-image-alt-text"?: string | null;
   id: string;
   "hero-image-s3-key": string | null;
   contributors: any[] | null;
@@ -120,7 +120,7 @@ export interface Image {
   attribution: string | null;
   caption: string | null;
   metadata: HeroImageMetadata | null;
-  "alt-text": string | null;
+  "alt-text"?: string | null;
 }
 
 export interface HeroImageMetadata {
@@ -139,13 +139,13 @@ export interface StoryElement {
   url?: string | undefined;
   "image-metadata"?: object | null;
   "image-attribution"?: string;
+  "alt-text"?: string;
   "image-s3-key"?: string;
   "embed-url"?: string;
   type: string;
   "family-id"?: string;
   title?: string;
   id: string;
-  "alt-text": string | null;
   metadata?: StoryElementMetadata | null;
   "file-name"?: string;
   "s3-key"?: string;

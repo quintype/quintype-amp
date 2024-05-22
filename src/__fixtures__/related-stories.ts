@@ -144,6 +144,7 @@ export const relatedStories = [
     status: "published",
     "hero-image-attribution": null,
     "bullet-type": "123",
+    "hero-image-alt-text": null,
     id: "ecfc249c-a760-49b5-bfd6-485773ab14c6",
     "hero-image-s3-key": "barandbench/2020-03/980fbb13-7d99-46bf-b9d1-8fcbe0aa17c1/SC_Leaders.jpg",
     contributors: null,
@@ -699,6 +700,7 @@ export const relatedStories = [
             "image-attribution": "",
             title: "Senior Advocate AM Singhvi",
             id: "2f687e61-5706-48bf-a732-f84345380941",
+            "alt-text": "Alt text",
             "image-s3-key": "barandbench/2020-03/75a79c28-cd62-4cda-a1de-d8daa8ccb818/AM_singhivi.jpg",
             metadata: {},
             subtype: null
@@ -1106,6 +1108,7 @@ export const relatedStories = [
     status: "published",
     "hero-image-attribution": "Jaipur Lit Fest",
     "bullet-type": "123",
+    "hero-image-alt-text": null,
     id: "b554a23c-3a48-41bd-9e0a-4ab7aacb6f80",
     "hero-image-s3-key": null,
     contributors: [],
@@ -1607,6 +1610,7 @@ export const relatedStories = [
     status: "published",
     "hero-image-attribution": null,
     "bullet-type": "123",
+    "hero-image-alt-text": null,
     id: "e46ad145-c0e2-472a-abe0-5fa0fd2e85e6",
     "hero-image-s3-key": "barandbench/import/2019/10/NCLAT-7.jpg",
     contributors: [],
@@ -2254,6 +2258,7 @@ export const relatedStories = [
     status: "published",
     "hero-image-attribution": null,
     "bullet-type": "123",
+    "hero-image-alt-text": null,
     id: "1ddb7538-5ac3-4939-947d-bbda4912152d",
     "hero-image-s3-key":
       "barandbench/2020-04/0505243f-0130-4189-8636-cf21ad9e61c5/Tablighi_Jamaat_and_supreme_court.jpg",
@@ -2355,6 +2360,7 @@ export const relatedStories = [
             "image-attribution": "",
             title: "Media on Markaz: Corona Jihad etc",
             id: "c048c43e-da73-4130-9fc6-4a672fd28983",
+            "alt-text": "Alt text",
             "image-s3-key":
               "barandbench/2020-04/bed7d33a-74c2-4505-b6a7-113913020a40/Screenshot_2020_04_05_at_6_26_24_PM.png",
             metadata: {},
