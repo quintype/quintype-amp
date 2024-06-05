@@ -142,10 +142,27 @@ import Helmet from "react-helmet";
 import atob from "atob-utf-8";
 import { withConfig } from "../../context";
 
+const getVideoData = (videoElement) => {
+  const videoElementType = videoElement.type;
+  let videoUrl = "";
+  let format = "";
+  if (videoElementType === "jsembed") {
+    videoUrl = atob(`${videoElement["embed-js"]}`);
+    format = videoUrl.split(".")[3];
+  } else if (videoElementType === "video") {
+    videoUrl = videoElement?.["metadata"]?.["video-clip-url"];
+    const splittedURL = videoUrl?.split("/");
+    const videoName = splittedURL?.[splittedURL.length - 1]?.split(".");
+    format = videoName?.[videoName.length - 1];
+  }
+  return { videoUrl, format };
+};
+
 export const VideoWebStoryBase = ({ config, videoElement, imageElement, heroImage }) => {
-  const videoUrl = videoElement &amp;&amp; atob(`${videoElement["embed-js"]}`);
-  const format = videoUrl.split(".")[3];
-  const poster = imageElement ? `https://${config.publisherConfig["cdn-image"]}/${imageElement["image-s3-key"]}` : `https://${config.publisherConfig["cdn-image"]}/${heroImage["hero-image-s3-key"]}` ;
+  const { videoUrl, format } = getVideoData(videoElement);
+  const poster = imageElement
+    ? `https://${config.publisherConfig["cdn-image"]}/${imageElement["image-s3-key"]}`
+    : `https://${config.publisherConfig["cdn-image"]}/${heroImage?.["hero-image-s3-key"]}`;
   return (
     &lt;Fragment>
       &lt;Helmet>
