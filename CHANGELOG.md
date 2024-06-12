@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.18.2](https://github.com/quintype/quintype-amp/compare/v2.18.1...v2.18.2) (2024-06-12)
+
 ### [2.18.1](https://github.com/quintype/quintype-amp/compare/v2.18.0...v2.18.1) (2024-06-05)
 
 ## [2.18.0](https://github.com/quintype/quintype-amp/compare/v2.17.13...v2.18.0) (2024-06-05)
