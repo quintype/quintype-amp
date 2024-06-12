@@ -173,11 +173,13 @@ export const HeroImageBase = ({ story }: HeroImageBaseTypes) => {
 
   const attribution: string | null = get(story, "hero-image-attribution", null);
   const caption: string | null = get(story, "hero-image-caption", null);
+  const altText: string | null = get(story, "hero-image-alt-text", null);
+
 
   return (
     &lt;>
       &lt;StyledDiv>
-        &lt;Image data-hero="true" metadata={metadata} slug={slug} alt={caption || attribution || ""}>&lt;/Image>
+        &lt;Image data-hero="true" metadata={metadata} slug={slug} alt={altText || caption || attribution || ""}>&lt;/Image>
       &lt;/StyledDiv>
       &lt;StyledFigcaption>
         {caption &amp;&amp; &lt;StyledCaption dangerouslySetInnerHTML={{ __html: `${caption}` + "&amp;nbsp;" }} />}
