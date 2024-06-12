@@ -48,7 +48,7 @@ export const VisualStory = ({ story, config }: CommonTemplateTypes) => {
 };
 
 export const canTakeCard = (card: Card) => {
-  const storyElementWhitelist = ["text", "title", "image"];
+  const storyElementWhitelist = ["text", "title", "image", "video"];
   const validCards = card["story-elements"].some((el) => {
     if (el.type === "jsembed") {
       const videoUrl = el && atob(`${el["embed-js"]}`);
