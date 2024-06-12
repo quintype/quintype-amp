@@ -243,6 +243,7 @@ export const story: Story = {
   status: "published",
   "hero-image-attribution": "Youtube / Ben Geskin",
   "bullet-type": "123",
+  "hero-image-alt-text": null,
   id: "ffa539a0-46f4-4309-8a13-dd1d6dfd8b6e",
   "hero-image-s3-key": "vikatan/2020-05/23ac7b04-e28b-4ab2-85fd-e7a272b3e630/TN.png",
   contributors: [],
@@ -374,6 +375,7 @@ export const story: Story = {
               "image-attribution": "Twitter",
               title: "ஊடுருவி படம்பிடிக்கும் ஒன்ப்ளஸ் கேமரா",
               id: "86c17090-53bc-4ba1-a099-4b33c8704e72",
+              "alt-text": "Alt text",
               "image-s3-key":
                 "vikatan/2020-05/1f372411-7e3a-4392-b68d-d3b275021f67/OnePlus_8_Pro_Color_Filter_X_Ray_12.jpg",
               metadata: {},
@@ -393,6 +395,7 @@ export const story: Story = {
               "image-attribution": "Twitter",
               title: "ஊடுருவி படம்பிடிக்கும் ஒன்ப்ளஸ் கேமரா",
               id: "6ef1628a-4189-48ea-85b6-0f844947c206",
+              "alt-text": "Alt text",
               "image-s3-key":
                 "vikatan/2020-05/b81486a8-2aa9-40c6-a29d-ae6d275c3c4d/OnePlus_8_Pro_Color_Filter_X_Ray_15.jpg",
               metadata: {},
@@ -412,6 +415,7 @@ export const story: Story = {
               "image-attribution": "Twitter",
               title: "ஊடுருவி படம்பிடிக்கும் ஒன்ப்ளஸ் கேமரா",
               id: "64015c65-a13c-4850-b168-7f746da994ad",
+              "alt-text": "Alt text",
               "image-s3-key":
                 "vikatan/2020-05/8c605395-6d72-4626-a65b-d20849a2f904/OnePlus_8_Pro_Color_Filter_X_Ray_09.jpg",
               metadata: {},
@@ -431,6 +435,7 @@ export const story: Story = {
               "image-attribution": "Twitter",
               title: "ஊடுருவி படம்பிடிக்கும் ஒன்ப்ளஸ் கேமரா",
               id: "7067749d-57cf-423a-b3d0-8639f32894ec",
+              "alt-text": "Alt text",
               "image-s3-key":
                 "vikatan/2020-05/8091b4b1-053a-4471-a518-a12e31200ec4/OnePlus_8_Pro_Color_Filter_X_Ray_14.jpg",
               metadata: {},
@@ -531,6 +536,7 @@ export const story: Story = {
           "image-attribution": "",
           title: "ஒன்ப்ளஸ் 8 ப்ரோ கலர் ஃபில்டர் கேமரா ",
           id: "b627379d-4494-446f-95ad-6c761a938088",
+          "alt-text": "Alt text",
           "image-s3-key": "vikatan/2020-05/8851d667-151f-43e8-ba6e-7b92bacc6e6f/EVkt_jCUwAQFe_E.webp",
           metadata: {},
           subtype: null
@@ -710,6 +716,7 @@ export const story: Story = {
           "image-attribution": "Source: AndroidPIT",
           title: "ஆடைகளை ஊடுருவி பார்க்கும் ஒன்ப்ளஸ் கேமரா",
           id: "92b2de5d-54aa-441c-84e2-a4d8086630b4",
+          "alt-text": "Alt text",
           "image-s3-key": "vikatan/2020-05/eabfc563-d155-45b8-9adb-6938a5f28641/OnePlus_8_Pro_see_through_camera.jpg",
           metadata: {},
           subtype: null
@@ -782,6 +789,7 @@ export const story: Story = {
           "image-attribution": "",
           title: "ஒன்ப்ளஸ்",
           id: "b11df715-bc9c-44d5-bff9-5220669e0f7b",
+          "alt-text": "Alt text",
           "image-s3-key": "vikatan/2020-04/8fb16d46-68a4-4a82-9d83-e750a970c3c3/1.webp",
           metadata: {},
           subtype: null

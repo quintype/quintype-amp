@@ -27,6 +27,7 @@ export const RelatedStoryCard = ({ story, config }: RelatedStoryCardTypes) => {
     "hero-image-s3-key": imgS3Key,
     "hero-image-attribution": imgAttr,
     "hero-image-caption": imgCaption,
+    "hero-image-alt-text": imgAltText,
     "last-published-at": lastPublishedAt
   } = story;
 
@@ -64,7 +65,7 @@ export const RelatedStoryCard = ({ story, config }: RelatedStoryCardTypes) => {
   return (
     <Wrapper>
       <StyledAnchor href={url}>
-        <Image metadata={imgMetadata} slug={imgS3Key} alt={imgCaption || imgAttr || "image"} useFallbackImage={true} />
+        <Image metadata={imgMetadata} slug={imgS3Key} alt={imgAltText || imgCaption || imgAttr || "image"} useFallbackImage={true} />
         <Headline>{headline}</Headline>
         <DateTime formattedDate={humanizedDate} />
         <Spacer token="s" />

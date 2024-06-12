@@ -38,7 +38,7 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
             slug={imageElement["image-s3-key"]}
             metadata={imageElement["image-metadata"]}
             aspectRatio={[480, 640]}
-            alt={imageElement.title || imageElement["image-attribution"]}
+            alt={imageElement["alt-text"] || imageElement.title || imageElement["image-attribution"]}
             lightbox={false}
             story={story}
             {...imageAnimation}

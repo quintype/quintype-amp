@@ -5,6 +5,7 @@ exports[`Image Element should not render fig caption when there is no caption 1`
   config={Object {}}
   element={
     Object {
+      "alt-text": "Handwashing",
       "description": "",
       "family-id": "c608c12f-f45b-4266-8a60-9de857ee92fd",
       "id": "2c31b5ad-0189-4bad-841e-e105d738ca80",
@@ -31,6 +32,7 @@ exports[`Image Element should render amp image 1`] = `
   config={Object {}}
   element={
     Object {
+      "alt-text": "Handwashing",
       "description": "",
       "family-id": "c608c12f-f45b-4266-8a60-9de857ee92fd",
       "id": "2c31b5ad-0189-4bad-841e-e105d738ca80",
@@ -57,6 +59,7 @@ exports[`Image Element should render fig caption with caption wrapped inside an 
   config={Object {}}
   element={
     Object {
+      "alt-text": "Handwashing",
       "description": "",
       "family-id": "c608c12f-f45b-4266-8a60-9de857ee92fd",
       "id": "2c31b5ad-0189-4bad-841e-e105d738ca80",

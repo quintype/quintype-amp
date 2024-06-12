@@ -164,6 +164,7 @@ export const liveBlogStory: Story = {
   status: "published",
   "hero-image-attribution": null,
   "bullet-type": "123",
+  "hero-image-alt-text": null,
   id: "def11515-e565-4625-9a1f-296727cc3967",
   "hero-image-s3-key": "barandbench/2020-07/5197a740-088f-4a48-a594-e9e3917b02b0/Rajasthan_High_Court.jpg",
   contributors: [],
@@ -197,6 +198,7 @@ export const liveBlogStory: Story = {
           "image-attribution": "",
           title: "Senior Advocate Mukul Rohatgi",
           id: "d84a916f-b911-4295-9e1f-fa13f1470a93",
+          "alt-text": "Alt text",
           "image-s3-key": "barandbench/2020-01/fc12158c-b449-4cc0-aeb1-ac26350a3512/Mukul_Rohatgi.jpg",
           metadata: {},
           subtype: null

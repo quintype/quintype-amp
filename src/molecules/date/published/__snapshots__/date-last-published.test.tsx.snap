@@ -41,6 +41,7 @@ exports[`DateLastPublished should match snapshot 1`] = `
       "external-id": null,
       "first-published-at": 1581503851412,
       "headline": "#Sponsored: Empowering India’s Future Lawyers and Leaders",
+      "hero-image-alt-text": null,
       "hero-image-attribution": "Create",
       "hero-image-caption": null,
       "hero-image-metadata": Object {

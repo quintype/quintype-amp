@@ -7,7 +7,7 @@ import get from "lodash.get";
 
 const metadata = get(textStory, "hero-image-metadata");
 const s3key = get(textStory, "hero-image-s3-key");
-const caption = get(textStory, "hero-image-caption");
+const altText = get(textStory, "hero-image-alt-text");
 const aspectRatio = [16, 9];
 
 storiesOf("Image", module)
@@ -17,10 +17,10 @@ storiesOf("Image", module)
     </Layout>
   ))
   .add("layout responsive", () => {
-    return <Image metadata={metadata} slug={s3key} alt={caption} />;
+    return <Image metadata={metadata} slug={s3key} alt={altText} />;
   })
   .add("layout responsive with aspect ratio specified", () => {
-    return <Image metadata={metadata} slug={s3key} alt={caption} aspectRatio={aspectRatio} />;
+    return <Image metadata={metadata} slug={s3key} alt={altText} aspectRatio={aspectRatio} />;
   })
   .add("layout fixed-height", () => (
     <Image
@@ -29,7 +29,7 @@ storiesOf("Image", module)
       slug={s3key}
       aspectRatio={aspectRatio}
       height={"100"}
-      alt={caption}
+      alt={altText}
     />
   ))
   .add("layout fixed-height with focus point at 0,0", () => {
@@ -41,7 +41,7 @@ storiesOf("Image", module)
         slug={s3key}
         aspectRatio={aspectRatio}
         height={"100"}
-        alt={caption}
+        alt={altText}
       />
     );
   })
@@ -54,7 +54,7 @@ storiesOf("Image", module)
         slug={s3key}
         aspectRatio={aspectRatio}
         height={"100"}
-        alt={caption}
+        alt={altText}
       />
     );
   })
@@ -67,23 +67,23 @@ storiesOf("Image", module)
         aspectRatio={aspectRatio}
         width={"500"}
         height={"500"}
-        alt={caption}
+        alt={altText}
       />
     );
   })
   .add("layout nodisplay", () => {
-    return <Image layout={"nodisplay"} metadata={metadata} slug={s3key} aspectRatio={aspectRatio} alt={caption} />;
+    return <Image layout={"nodisplay"} metadata={metadata} slug={s3key} aspectRatio={aspectRatio} alt={altText} />;
   })
   .add("layout fill", () => {
     return (
       <div style={{ width: "250px", height: "250px", position: "relative" }}>
-        <Image layout={"fill"} metadata={metadata} slug={s3key} aspectRatio={aspectRatio} alt={caption} />
+        <Image layout={"fill"} metadata={metadata} slug={s3key} aspectRatio={aspectRatio} alt={altText} />
       </div>
     );
   })
   .add("Without lightbox", () => {
-    return <Image metadata={metadata} slug={s3key} alt={caption} lightbox={false} />;
+    return <Image metadata={metadata} slug={s3key} alt={altText} lightbox={false} />;
   })
   .add("Lightbox with value 'hero'", () => {
-    return <Image metadata={metadata} slug={s3key} alt={caption} lightbox="hero" />;
+    return <Image metadata={metadata} slug={s3key} alt={altText} lightbox="hero" />;
   });

@@ -1212,6 +1212,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
                         "type": "text",
                       },
                       Object {
+                        "alt-text": "Alt text",
                         "description": "",
                         "family-id": "e4162d62-0912-455f-b3e8-724dc7bbbec7",
                         "id": "2f687e61-5706-48bf-a732-f84345380941",
@@ -1468,6 +1469,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
                 "external-id": null,
                 "first-published-at": 1586779628383,
                 "headline": "Governor must bear in mind that purpose of ordering trust vote is not to displace governments: SC on Madhya Pradesh Political Crisis",
+                "hero-image-alt-text": null,
                 "hero-image-attribution": null,
                 "hero-image-caption": null,
                 "hero-image-metadata": Object {
@@ -1982,6 +1984,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
                 "external-id": null,
                 "first-published-at": 1586779427147,
                 "headline": "The above image might either be blank or contain a fallback",
+                "hero-image-alt-text": null,
                 "hero-image-attribution": "Jaipur Lit Fest",
                 "hero-image-caption": "Ashok Desai",
                 "hero-image-metadata": null,
@@ -2542,6 +2545,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
                 "external-id": null,
                 "first-published-at": 1586779255932,
                 "headline": "The NCLAT's majority decision on acknowledgement of debt in balance sheets: An appeal to the brooding spirit of law",
+                "hero-image-alt-text": null,
                 "hero-image-attribution": null,
                 "hero-image-caption": "NCLAT",
                 "hero-image-metadata": Object {
@@ -2795,6 +2799,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
                         "type": "text",
                       },
                       Object {
+                        "alt-text": "Alt text",
                         "description": "",
                         "family-id": "0dd8dafe-a02c-4331-8f2e-69612cd6db15",
                         "id": "c048c43e-da73-4130-9fc6-4a672fd28983",
@@ -2966,6 +2971,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
                 "external-id": null,
                 "first-published-at": 1586777615361,
                 "headline": "We cannot curb Freedom of Press, make Press Council of India a party: SC on Jamiat Ulema-e-Hind plea against communalization of Markaz Issue",
+                "hero-image-alt-text": null,
                 "hero-image-attribution": null,
                 "hero-image-caption": "Tablighi Jamaat",
                 "hero-image-metadata": Object {
@@ -3255,6 +3261,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
               "type": "title",
             },
             Object {
+              "alt-text": "Alt text",
               "description": "",
               "family-id": "f87fa6df-f709-4d34-9c3a-ae5db45a9773",
               "id": "d84a916f-b911-4295-9e1f-fa13f1470a93",
@@ -3896,6 +3903,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
       "external-id": null,
       "first-published-at": 1595309567595,
       "headline": "Rajasthan Political Crisis: HC reserves order on plea by Sachin Pilot, other Rebel MLAs challenging Speaker's notice [LIVE UPDATES]",
+      "hero-image-alt-text": null,
       "hero-image-attribution": null,
       "hero-image-caption": null,
       "hero-image-metadata": Object {
@@ -4139,6 +4147,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
           <Component
             element={
               Object {
+                "alt-text": "Alt text",
                 "description": "",
                 "family-id": "f87fa6df-f709-4d34-9c3a-ae5db45a9773",
                 "id": "d84a916f-b911-4295-9e1f-fa13f1470a93",
@@ -4204,6 +4213,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
                     "type": "title",
                   },
                   Object {
+                    "alt-text": "Alt text",
                     "description": "",
                     "family-id": "f87fa6df-f709-4d34-9c3a-ae5db45a9773",
                     "id": "d84a916f-b911-4295-9e1f-fa13f1470a93",
@@ -4274,6 +4284,7 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
                     "type": "title",
                   },
                   Object {
+                    "alt-text": "Alt text",
                     "description": "",
                     "family-id": "f87fa6df-f709-4d34-9c3a-ae5db45a9773",
                     "id": "d84a916f-b911-4295-9e1f-fa13f1470a93",

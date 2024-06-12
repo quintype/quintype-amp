@@ -63,6 +63,7 @@ export const storyWithManyJsEmbeds: Story = {
   status: "published",
   "hero-image-attribution": "test",
   "bullet-type": "123",
+  "hero-image-alt-text": null,
   id: "af018d6b-2166-4344-b167-40405a148e41",
   "hero-image-s3-key": "newslaundry/2020-02/d86e6b88-b04a-4621-afa1-92f368cdb7ed/image7.jpeg",
   contributors: [],
