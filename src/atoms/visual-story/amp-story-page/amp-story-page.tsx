@@ -28,11 +28,13 @@ export const AmpStoryPageBase = ({ config, story, card, children, ...props }: Am
     );
   }
 
+  const enableAutoAdvance = get(config, ["additionalConfig", "general", "amp", "enableAutoAdvance"], true);
+
   if (card?.id && getVideoElement(card)) {
     autoAdvanceAfter = `video-${card.id}`;
   }
   return (
-    <amp-story-page auto-advance-after={autoAdvanceAfter} {...props}>
+    <amp-story-page auto-advance-after={enableAutoAdvance ? autoAdvanceAfter : ""} {...props}>
       {children}
     </amp-story-page>
   );
