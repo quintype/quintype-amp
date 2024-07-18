@@ -22,7 +22,8 @@ import {
   Attachment,
   TableElement,
   Unsupported,
-  Brightcove
+  Brightcove,
+  Quote
 } from "../../atoms/story-elements";
 
 const anyType = "any";
@@ -61,7 +62,7 @@ const storyElementsTable = [
   ["text", "blurb", Blurb],
   ["text", "q-and-a", QAndA],
   ["text", "question", Question],
-  ["text", "quote", BlockQuote],
+  ["text", "quote", Quote],
   ["text", "summary", Summary],
   ["text", anyType, Text],
   ["title", none, Title],

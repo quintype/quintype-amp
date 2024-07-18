@@ -22,6 +22,7 @@ import { ImageGalleryElement } from "./image-gallery-element";
 import { Attachment } from "./attachment";
 import { TableElement } from "./table-element";
 import { Unsupported } from "./unsupported";
+import { Quote } from "./quote";
 
 const StoryElements = {
   Text,
@@ -47,7 +48,8 @@ const StoryElements = {
   Attachment,
   TableElement,
   Unsupported,
-  Brightcove
+  Brightcove,
+  Quote
 };
 export {
   Text,
@@ -73,6 +75,7 @@ export {
   Attachment,
   TableElement,
   Unsupported,
-  Brightcove
+  Brightcove,
+  Quote
 };
 export { StoryElements };
