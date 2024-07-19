@@ -12,8 +12,11 @@ const { DefaultStoryCardSlot } = StoryPageSlots;
 // Renders all the cards in the story
 export const FullStoryContent = ({ story, config }) => {
   return story.cards.map((card, cardIdx) => {
-    const gulfNewsRender = get(config, ["opts", "render", "storyCardRender", "gulfNewsRender"], null);
-    if (gulfNewsRender) return gulfNewsRender({ story, config, card });
+    const customCardRender = get(config, ["opts", "render", "storyCardRenderProps"], {});
+    const cardtype = get(card, ["metadata", "attributes", "cardtype", "0"], "");
+    if (customCardRender[cardtype] && typeof customCardRender[cardtype] === "function") {
+      return customCardRender[cardtype]({ story, config, card });
+    }
     return (
       <Fragment key={card.id}>
         {card["story-elements"].map((element, storyElementIdx) => (
