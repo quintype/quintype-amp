@@ -12,12 +12,19 @@ describe("amp-story-page", () => {
     );
     expect(wrapper).toMatchSnapshot();
   });
-  it("should add autoAdvanceAfter prop if passed in visualStories config in form of object inside featureConfig", () => {
+  it("should add autoAdvanceAfter prop if passed in visualStories config in form of object inside featureConfig and autoAdvance is enabled", () => {
     const modifiedConfig = config;
     modifiedConfig.opts = {
       featureConfig: {
         visualStories: {
           autoAdvanceAfter: "5555ms"
+        }
+      }
+    };
+    modifiedConfig.additionalConfig = {
+      general: {
+        amp: {
+          enableAutoAdvance: true
         }
       }
     };
