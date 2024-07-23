@@ -163,6 +163,7 @@ export interface ConfigOpts {
     };
     storyElementRender?: {
       bigfactElementRender?: (props: CommonRenderPropTypes) => any;
+      attachmentRender?: (props: CommonRenderPropTypes) => any;
       answerElementRender?: (props: CommonRenderPropTypes) => any;
       questionElementRender?: (props: CommonRenderPropTypes) => any;
       qAndAElementRender?: (props: CommonRenderPropTypes) => any;
