@@ -82,18 +82,11 @@ export function getFigcaptionText(caption, attribution) {
   else return false;
 }
 export const ImageGalleryElementBase = ({ element, story, config }: StoryElementProps) => {
-  const eleMetadataType = get(element, ["metadata", "type"], "");
-
   const imageGalleryElementRender = get(
     config,
     ["opts", "render", "storyElementRender", "imageGalleryElementRender"],
     null
   );
-  const slideshowElementRender = get(config, ["opts", "render", "storyElementRender", "slideshowElementRender"], null);
-
-  if (eleMetadataType === "slideshow" && slideshowElementRender) {
-    return slideshowElementRender({ story, config, element });
-  }
 
   return imageGalleryElementRender ? (
     imageGalleryElementRender({ story, config, element })
