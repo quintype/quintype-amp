@@ -1,16 +1,11 @@
 import React, { Fragment } from "react";
 import get from "lodash.get";
 import Helmet from "react-helmet";
-import styled from "styled-components";
 import { withStoryAndConfig } from "../../../context";
 import { StoryElementProps } from "../types";
 import { TiktokTypes } from "./types";
 type TiktokElementProps = StoryElementProps & Omit<TiktokTypes, "data-src">;
 
-const StyledTiktok = styled.div`
-  display: flex;
-  justify-content: center;
-`;
 export const Tiktok = (props: TiktokTypes) => {
   const { width, height } = props;
   const setDefaultLayout = !width || !height;
@@ -27,9 +22,7 @@ export const Tiktok = (props: TiktokTypes) => {
       <Helmet>
         <script async={undefined} custom-element="amp-tiktok" src="https://cdn.ampproject.org/v0/amp-tiktok-0.1.js" />
       </Helmet>
-      <StyledTiktok>
-        <amp-tiktok {...componentProps} />
-      </StyledTiktok>
+      <amp-tiktok {...componentProps} />
     </Fragment>
   );
 };
