@@ -174,7 +174,7 @@ export const VisualStory = ({ story, config }: CommonTemplateTypes) => {
         {story.cards
           .filter((card) => canTakeCard(card))
           .map((card) => (
-            &lt;AmpStoryPage key={card.id} id={card.id}>
+            &lt;AmpStoryPage key={card.id} id={card.id} card={card}>
               &lt;WebStoryPageComponents card={card} />
             &lt;/AmpStoryPage>
           ))}

@@ -158,7 +158,7 @@ const getVideoData = (videoElement) => {
   return { videoUrl, format };
 };
 
-export const VideoWebStoryBase = ({ config, videoElement, imageElement, heroImage }) => {
+export const VideoWebStoryBase = ({ config, videoElement, imageElement, heroImage, videoId }) => {
   const { videoUrl, format } = getVideoData(videoElement);
   const poster = imageElement
     ? `https://${config.publisherConfig["cdn-image"]}/${imageElement["image-s3-key"]}`
@@ -169,7 +169,7 @@ export const VideoWebStoryBase = ({ config, videoElement, imageElement, heroImag
         &lt;script async={undefined} custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js" />
       &lt;/Helmet>
       &lt;amp-story-grid-layer template="fill">
-        &lt;amp-video autoplay="" height="720" width="480" poster={poster} layout="responsive">
+        &lt;amp-video autoplay="" height="720" width="480" poster={poster} layout="responsive" id={videoId}>
           &lt;source src={videoUrl} type={`video/${format}`} />
         &lt;/amp-video>
       &lt;/amp-story-grid-layer>
