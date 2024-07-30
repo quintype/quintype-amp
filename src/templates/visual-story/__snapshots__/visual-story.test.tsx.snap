@@ -3741,6 +3741,82 @@ exports[`visual story template should match snapshot 1`] = `
     <Component />
     <Component />
     <Component
+      card={
+        Object {
+          "card-added-at": 1603197704132,
+          "card-updated-at": 1604385109145,
+          "content-id": "2bd1e574-0f4d-4c1e-8e58-a394425deadf",
+          "content-version-id": "b57a015f-07c3-424b-97d3-8d1ee589162f",
+          "id": "2bd1e574-0f4d-4c1e-8e58-a394425deadf",
+          "metadata": Object {
+            "attributes": Object {},
+            "social-share": Object {
+              "image": Object {
+                "attribution": "",
+                "caption": null,
+                "key": "amplib/2020-10/7e318e3a-7cec-47e9-8bc0-ccf9dee7f7d2/littpro_inc_og5eHNNyy7k_unsplash.jpg",
+                "metadata": Object {
+                  "file-name": "littpro-inc-og5eHNNyy7k-unsplash.jpg",
+                  "file-size": 1887693,
+                  "height": 5772,
+                  "mime-type": "image/jpeg",
+                  "width": 3848,
+                },
+                "url": null,
+              },
+              "message": null,
+              "shareable": false,
+              "title": "Pets are awesome",
+            },
+          },
+          "status": "draft",
+          "story-elements": Array [
+            Object {
+              "description": "",
+              "family-id": "b31cd496-d269-466b-90a0-2a1c8c8e29a1",
+              "id": "568a8637-b3c6-426d-9c13-d560ffe0dc5f",
+              "metadata": Object {},
+              "page-url": "/story/e8e3a6d0-98ff-40eb-b400-5f9466599fb3/element/568a8637-b3c6-426d-9c13-d560ffe0dc5f",
+              "subtype": null,
+              "text": "<p>1st card - 1st text element</p>",
+              "title": "",
+              "type": "text",
+            },
+            Object {
+              "alt-text": "Alt text",
+              "description": "",
+              "family-id": "f9c3c481-06fa-4c7e-ad38-f9c3c8cc1ef0",
+              "id": "43e7d7d6-a3f6-40b5-88d5-a2f23663a845",
+              "image-attribution": "",
+              "image-metadata": Object {
+                "file-name": "littpro-inc-og5eHNNyy7k-unsplash.jpg",
+                "file-size": 1887693,
+                "height": 5772,
+                "mime-type": "image/jpeg",
+                "width": 3848,
+              },
+              "image-s3-key": "amplib/2020-10/7e318e3a-7cec-47e9-8bc0-ccf9dee7f7d2/littpro_inc_og5eHNNyy7k_unsplash.jpg",
+              "metadata": Object {},
+              "page-url": "/story/e8e3a6d0-98ff-40eb-b400-5f9466599fb3/element/43e7d7d6-a3f6-40b5-88d5-a2f23663a845",
+              "subtype": null,
+              "title": " <p>Masked man</p>",
+              "type": "image",
+            },
+            Object {
+              "description": "",
+              "family-id": "db39bb3b-16a3-472a-b19d-a42373b63646",
+              "id": "6820ab9d-5f95-4e17-824f-e7511b29639a",
+              "metadata": Object {},
+              "page-url": "/story/e8e3a6d0-98ff-40eb-b400-5f9466599fb3/element/6820ab9d-5f95-4e17-824f-e7511b29639a",
+              "subtype": null,
+              "text": "<p>1st card - second text element</p>",
+              "title": "",
+              "type": "text",
+            },
+          ],
+          "version": 13,
+        }
+      }
       id="2bd1e574-0f4d-4c1e-8e58-a394425deadf"
       key="2bd1e574-0f4d-4c1e-8e58-a394425deadf"
     >
@@ -3824,6 +3900,71 @@ exports[`visual story template should match snapshot 1`] = `
       />
     </Component>
     <Component
+      card={
+        Object {
+          "card-added-at": 1603197896748,
+          "card-updated-at": 1604385109145,
+          "content-id": "fcc102b0-e41e-4d5a-bbba-6da7ae10d4e6",
+          "content-version-id": "7c1a0836-685f-4fea-a139-27ecad312441",
+          "id": "fcc102b0-e41e-4d5a-bbba-6da7ae10d4e6",
+          "metadata": Object {
+            "attributes": Object {},
+            "social-share": Object {
+              "image": Object {
+                "attribution": "",
+                "caption": null,
+                "key": "amplib/2020-10/7a492e2e-6b69-4b27-b616-0e9001196cc5/eric_ward_ISg37AI2A_s_unsplash.jpg",
+                "metadata": Object {
+                  "file-name": "eric-ward-ISg37AI2A-s-unsplash.jpg",
+                  "file-size": 1288181,
+                  "height": 2772,
+                  "mime-type": "image/jpeg",
+                  "width": 4150,
+                },
+                "url": null,
+              },
+              "message": null,
+              "shareable": false,
+              "title": "Pets are awesome",
+            },
+          },
+          "status": "draft",
+          "story-elements": Array [
+            Object {
+              "description": "",
+              "family-id": "c4cd514c-0c93-44d8-92dd-f1a82209085b",
+              "id": "a945bf7f-2140-4069-aca5-c15ba39128de",
+              "metadata": Object {},
+              "page-url": "/story/e8e3a6d0-98ff-40eb-b400-5f9466599fb3/element/a945bf7f-2140-4069-aca5-c15ba39128de",
+              "subtype": null,
+              "text": "Second card title element",
+              "title": "",
+              "type": "title",
+            },
+            Object {
+              "alt-text": "Alt text",
+              "description": "",
+              "family-id": "2f5c50ac-da8c-4cff-86ca-105569586e2c",
+              "id": "49a709aa-cb16-4d45-9437-80db506c8017",
+              "image-attribution": "",
+              "image-metadata": Object {
+                "file-name": "eric-ward-ISg37AI2A-s-unsplash.jpg",
+                "file-size": 1288181,
+                "height": 2772,
+                "mime-type": "image/jpeg",
+                "width": 4150,
+              },
+              "image-s3-key": "amplib/2020-10/7a492e2e-6b69-4b27-b616-0e9001196cc5/eric_ward_ISg37AI2A_s_unsplash.jpg",
+              "metadata": Object {},
+              "page-url": "/story/e8e3a6d0-98ff-40eb-b400-5f9466599fb3/element/49a709aa-cb16-4d45-9437-80db506c8017",
+              "subtype": null,
+              "title": " <p>Dog</p>",
+              "type": "image",
+            },
+          ],
+          "version": 8,
+        }
+      }
       id="fcc102b0-e41e-4d5a-bbba-6da7ae10d4e6"
       key="fcc102b0-e41e-4d5a-bbba-6da7ae10d4e6"
     >
@@ -3896,6 +4037,82 @@ exports[`visual story template should match snapshot 1`] = `
       />
     </Component>
     <Component
+      card={
+        Object {
+          "card-added-at": 1604295895316,
+          "card-updated-at": 1604397822735,
+          "content-id": "3d56e690-2256-49b3-95f6-c88669b70b4e",
+          "content-version-id": "a7f9afcf-013a-4276-8ad3-ee8cfbb42a74",
+          "id": "3d56e690-2256-49b3-95f6-c88669b70b4e",
+          "metadata": Object {
+            "attributes": Object {},
+            "social-share": Object {
+              "image": Object {
+                "attribution": " <p>unsplash.com/</p>",
+                "caption": " <p>Masked woman</p>",
+                "key": "amplib/2020-10/6adaf26f-3b7b-45e0-9973-6f99abeecf5d/erin_agius_I7TLmA4j0c8_unsplash.jpg",
+                "metadata": Object {
+                  "file-name": "erin-agius-I7TLmA4j0c8-unsplash.jpg",
+                  "file-size": 4016993,
+                  "height": 8688,
+                  "mime-type": "image/jpeg",
+                  "width": 5792,
+                },
+                "url": null,
+              },
+              "message": null,
+              "shareable": false,
+              "title": "Pets are awesome",
+            },
+          },
+          "status": "draft",
+          "story-elements": Array [
+            Object {
+              "description": "",
+              "embed-url": "https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Filyanaazman%2Fsets%2Fbestofchillnation&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=true",
+              "family-id": "f4552014-ace6-4d95-9bbc-6f9e84572d68",
+              "id": "9de60d4e-ee94-488e-a41a-2150cfcaf9d0",
+              "metadata": Object {},
+              "page-url": "/story/e8e3a6d0-98ff-40eb-b400-5f9466599fb3/element/9de60d4e-ee94-488e-a41a-2150cfcaf9d0",
+              "subtype": null,
+              "title": "",
+              "type": "soundcloud-audio",
+              "url": "https://soundcloud.com/ilyanaazman/sets/bestofchillnation",
+            },
+            Object {
+              "description": "",
+              "family-id": "773c50b6-14a4-4b6c-a125-3cd4f804d3dc",
+              "id": "73b428bb-6563-4c45-9055-d34ebf3340d3",
+              "metadata": Object {
+                "answer": "<p>2.446 × 10^29 kg</p>",
+                "question": "<p>Arvind has 3 apples, 2 chocolates and one watermelon. What's the mass of Proxima Centauri?</p>",
+              },
+              "page-url": "/story/e8e3a6d0-98ff-40eb-b400-5f9466599fb3/element/73b428bb-6563-4c45-9055-d34ebf3340d3",
+              "subtype": "q-and-a",
+              "text": "<div><div class=\\"question\\"><p>Arvind has 3 apples, 2 chocolates and one watermelon. What's the mass of Proxima Centauri?</p></div><div class=\\"answer\\"><p>2.446 × 10^29 kg</p></div></div>",
+              "title": "",
+              "type": "text",
+            },
+            Object {
+              "description": "",
+              "family-id": "fe898bdb-fa19-43e5-99a3-80956e0d4846",
+              "id": "39664f53-e649-499b-bf79-8a3e6e9f5d34",
+              "metadata": Object {
+                "cta-title": "Search Google",
+                "cta-url": "https://www.google.com",
+                "no-follow": false,
+                "open-in-new-tab": true,
+              },
+              "page-url": "/story/9debf2ea-b0a0-4fb5-a6d9-9e19c6f35bd0/element/39664f53-e649-499b-bf79-8a3e6e9f5d34",
+              "subtype": "cta",
+              "text": "<a class=\\"cta-anchor\\" href=\\"https://www.google.com\\" target=\\"_blank\\" rel=\\"\\"><span class=\\"cta-text\\">Search Google</span></a>",
+              "title": "",
+              "type": "text",
+            },
+          ],
+          "version": 11,
+        }
+      }
       id="3d56e690-2256-49b3-95f6-c88669b70b4e"
       key="3d56e690-2256-49b3-95f6-c88669b70b4e"
     >
@@ -3979,6 +4196,82 @@ exports[`visual story template should match snapshot 1`] = `
       />
     </Component>
     <Component
+      card={
+        Object {
+          "card-added-at": 1604385109145,
+          "card-updated-at": 1604385109145,
+          "content-id": "253e5b57-617c-489d-a2a8-f6b11137e292",
+          "content-version-id": "875e8f3c-ff82-4eea-8247-39889af2c052",
+          "id": "253e5b57-617c-489d-a2a8-f6b11137e292",
+          "metadata": Object {
+            "attributes": Object {},
+            "social-share": Object {
+              "image": Object {
+                "attribution": " <p>unsplash.com/</p>",
+                "caption": " <p>Masked woman</p>",
+                "key": "amplib/2020-10/6adaf26f-3b7b-45e0-9973-6f99abeecf5d/erin_agius_I7TLmA4j0c8_unsplash.jpg",
+                "metadata": Object {
+                  "file-name": "erin-agius-I7TLmA4j0c8-unsplash.jpg",
+                  "file-size": 4016993,
+                  "height": 8688,
+                  "mime-type": "image/jpeg",
+                  "width": 5792,
+                },
+                "url": null,
+              },
+              "message": null,
+              "shareable": false,
+              "title": "Pets are awesome",
+            },
+          },
+          "status": "draft",
+          "story-elements": Array [
+            Object {
+              "description": "",
+              "family-id": "7046b851-4db4-494a-96d0-085ea5ddb091",
+              "id": "4b456043-7754-44b9-af60-c8d3d1858017",
+              "metadata": Object {
+                "attribution": "quote attr",
+                "content": "this is a quote",
+              },
+              "page-url": "/story/e8e3a6d0-98ff-40eb-b400-5f9466599fb3/element/4b456043-7754-44b9-af60-c8d3d1858017",
+              "subtype": "quote",
+              "text": "<div><blockquote>this is a quote</blockquote><span class=\\"attribution\\">quote attr</span></div>",
+              "title": "",
+              "type": "text",
+            },
+            Object {
+              "description": "",
+              "family-id": "45128ec7-eb99-4e24-bfd4-f0441442c53d",
+              "id": "f80b1d45-e0ad-4810-9f79-2bf73e394048",
+              "metadata": Object {
+                "attribution": "Description of bigfact",
+                "content": "This is a Bigfact ",
+              },
+              "page-url": "/story/e8e3a6d0-98ff-40eb-b400-5f9466599fb3/element/f80b1d45-e0ad-4810-9f79-2bf73e394048",
+              "subtype": "bigfact",
+              "text": "<div><div class=\\"bigfact-title\\">This is a Bigfact </div><div class=\\"bigfact-description\\">Description of bigfact</div></div>",
+              "title": "",
+              "type": "text",
+            },
+            Object {
+              "description": "",
+              "family-id": "0d564b2b-e560-4fd6-b62a-b3bb6814a0d8",
+              "id": "150d1590-e347-44d7-8987-a2c995081c04",
+              "metadata": Object {
+                "attribution": "block quote attr",
+                "content": "This is a block quote",
+              },
+              "page-url": "/story/e8e3a6d0-98ff-40eb-b400-5f9466599fb3/element/150d1590-e347-44d7-8987-a2c995081c04",
+              "subtype": "blockquote",
+              "text": "<div><blockquote>This is a block quote</blockquote><span class=\\"attribution\\">block quote attr</span></div>",
+              "title": "",
+              "type": "text",
+            },
+          ],
+          "version": 1,
+        }
+      }
       id="253e5b57-617c-489d-a2a8-f6b11137e292"
       key="253e5b57-617c-489d-a2a8-f6b11137e292"
     >

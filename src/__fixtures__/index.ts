@@ -5,7 +5,7 @@ import { relatedStories } from "./related-stories";
 import { seo } from "./seo.fixture";
 import { allElementsStory } from "./all-element-story.fixture";
 import { liveBlogStory } from "./live-blog-story.fixture";
-import { visualStory } from "./visual-story.fixture";
+import { visualStory, card } from "./visual-story.fixture";
 
 export {
   allElementsStory,
@@ -18,5 +18,6 @@ export {
   configOpts,
   seo,
   liveBlogStory,
-  visualStory
+  visualStory,
+  card
 };
