@@ -22,7 +22,8 @@ import {
   Attachment,
   TableElement,
   Unsupported,
-  Brightcove
+  Brightcove,
+  TiktokElement
 } from "../../atoms/story-elements";
 
 const anyType = "any";
@@ -51,6 +52,7 @@ const storyElementsTable = [
   ["jsembed", "social-media", Unsupported],
   ["jsembed", "tweet", TwitterElement],
   ["jsembed", "vidible-video", VidibleElement],
+  ["jsembed", "tiktok-video", TiktokElement],
   ["jsembed", anyType, Embed],
   ["polltype", "opinion-poll", Unsupported],
   ["soundcloud-audio", none, Unsupported],
