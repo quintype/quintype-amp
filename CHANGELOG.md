@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.19.0](https://github.com/quintype/quintype-amp/compare/v2.18.2...v2.19.0) (2024-07-30)
+
+
+### Features
+
+* **auto advance cards:** auto advance images and videos in  visual stories ([#467](https://github.com/quintype/quintype-amp/issues/467)) ([70ab1f5](https://github.com/quintype/quintype-amp/commit/70ab1f53fc63444eb58ccd97ed93357ce90cbf46))
+
 ### [2.18.2](https://github.com/quintype/quintype-amp/compare/v2.18.1...v2.18.2) (2024-06-12)
 
 ### [2.18.1](https://github.com/quintype/quintype-amp/compare/v2.18.0...v2.18.1) (2024-06-05)

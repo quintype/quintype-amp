@@ -1,18 +1,18 @@
 import React from "react";
-import { visualStory, config } from "../../../__fixtures__";
+import { visualStory, config, card } from "../../../__fixtures__";
 import { AmpStoryPageBase } from "./amp-story-page";
 import { shallow } from "enzyme";
 
 describe("amp-story-page", () => {
   it("should match snapshot", () => {
     const wrapper = shallow(
-      <AmpStoryPageBase story={visualStory} config={config} id="123">
+      <AmpStoryPageBase story={visualStory} card={card} config={config} id="123">
         <div>child</div>
       </AmpStoryPageBase>
     );
     expect(wrapper).toMatchSnapshot();
   });
-  it("should add autoAdvanceAfter prop if passed in visualStories config in form of object inside featureConfig", () => {
+  it("should add autoAdvanceAfter prop if passed in visualStories config in form of object inside featureConfig and autoAdvance is enabled", () => {
     const modifiedConfig = config;
     modifiedConfig.opts = {
       featureConfig: {
@@ -21,8 +21,15 @@ describe("amp-story-page", () => {
         }
       }
     };
+    modifiedConfig.additionalConfig = {
+      general: {
+        amp: {
+          enableAutoAdvance: true
+        }
+      }
+    };
     const wrapper = shallow(
-      <AmpStoryPageBase story={visualStory} config={modifiedConfig} id="123">
+      <AmpStoryPageBase story={visualStory} card={card} config={modifiedConfig} id="123">
         <div>child</div>
       </AmpStoryPageBase>
     );
@@ -41,7 +48,7 @@ describe("amp-story-page", () => {
       }
     };
     const wrapper = shallow(
-      <AmpStoryPageBase story={visualStory} config={modifiedConfig} id="123">
+      <AmpStoryPageBase story={visualStory} card={card} config={modifiedConfig} id="123">
         <div>child</div>
       </AmpStoryPageBase>
     );
@@ -54,7 +61,7 @@ describe("amp-story-page", () => {
       featureConfig: {}
     };
     const wrapper = shallow(
-      <AmpStoryPageBase story={visualStory} config={modifiedConfig} id="123">
+      <AmpStoryPageBase story={visualStory} card={card} config={modifiedConfig} id="123">
         <div>child</div>
       </AmpStoryPageBase>
     );
