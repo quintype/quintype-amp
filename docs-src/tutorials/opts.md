@@ -115,6 +115,7 @@ Feature config is an object that can be used to configure different features of 
 5. webengage
    - isEnabled: (Boolean) Enable / disable the default webengage component.
 6. localization - used to provide localization of the hardcoded keywords (eg: "By", "Also Read" etc) to respective locale.
+7. customMetaTags (string/function) - used to add custom meta tags in the head of the amp page. Can be either a string or function. If a function is passed, it's called by passing an obj = {story, config} as params and it's return value is added in the html head
 
 ```jsx
 const exampleFeatureConfig = {

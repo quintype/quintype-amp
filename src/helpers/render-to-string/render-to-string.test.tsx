@@ -33,7 +33,7 @@ configWithLangTagAndRtl.publisherConfig.language = {
 
 describe("renderToString helper function", () => {
   it("should return valid amp-html", async () => {
-    const ampHtml = renderToString({ template: dummyLayout, seo: "", config });
+    const ampHtml = renderToString({ template: dummyLayout, seo: "", config, story: {} });
     const ampValidatorOutput = await isValidAmpHtml(ampHtml);
     expect(ampValidatorOutput).toBe(true);
     expect(ampHtml.includes(`<link data-react-helmet="true" rel="canonical" href="https://www.reddit.com/"/>`)).toBe(
@@ -45,20 +45,20 @@ describe("renderToString helper function", () => {
     expect(ampHtml.includes(`<html lang="ta" ⚡>`));
   });
   it("should add langTag if present", async () => {
-    const ampHtml = renderToString({ template: dummyLayout, seo: "", config: configWithLangTagAndRtl });
+    const ampHtml = renderToString({ template: dummyLayout, seo: "", config: configWithLangTagAndRtl, story: {} });
     expect(ampHtml.includes(`<html lang="ta"`));
   });
   it("should not add langTag and text direction if not passed", async () => {
-    const ampHtml = renderToString({ template: dummyLayout, seo: "", config });
+    const ampHtml = renderToString({ template: dummyLayout, seo: "", config, story: {} });
     expect(ampHtml.includes(`<html ⚡>`));
   });
   it("should add text direction if present", async () => {
-    const ampHtml = renderToString({ template: dummyLayout, seo: "", config: configWithLangTagAndRtl });
+    const ampHtml = renderToString({ template: dummyLayout, seo: "", config: configWithLangTagAndRtl, story: {} });
     expect(ampHtml.includes(`<html lang="ta" dir="rtl" ⚡>`));
   });
   it("should apply transforms on the final string if passed from app", async () => {
     const dummyConfig = genDummyConfig([(str) => str.replace(`id="foo"`, `id="foo" data-foo="bar"`)]);
-    const ampHtml = renderToString({ template: dummyLayout, seo: "", config: dummyConfig });
+    const ampHtml = renderToString({ template: dummyLayout, seo: "", config: dummyConfig, story: {} });
     expect(ampHtml.includes(`<div id="foo" data-foo="bar">Dummy Amp Story</div>`));
   });
 });
