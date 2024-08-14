@@ -291,6 +291,7 @@ The <code>&lt;Head /&gt;</code> component may be used to put code in the head. U
 </ul>
 </li>
 <li>localization - used to provide localization of the hardcoded keywords (eg: &quot;By&quot;, &quot;Also Read&quot; etc) to respective locale.</li>
+<li>customMetaTags (string/function) - used to add custom meta tags in the head of the amp page. Can be either a string or function. If a function is passed, it's called by passing an obj = {story, config} as params and it's return value is added in the html head</li>
 </ol>
 <pre class="prettyprint source lang-jsx"><code>const exampleFeatureConfig = {
   enableAds: {

@@ -170,7 +170,7 @@ export function ampifyStory({
 }: AmpifyStoryTypes) {
   const config = { publisherConfig, ampConfig, opts, additionalConfig };
   const template = getTemplate({ story, config, seo });
-  return renderToString({ template, seo, config });
+  return renderToString({ template, seo, config, story });
 }
 
 const getTemplate = ({ story, config, seo }) => {
