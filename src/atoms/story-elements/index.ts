@@ -8,6 +8,7 @@ import { Bigfact } from "./text/bigfact";
 import { BlockQuote } from "./blockquote";
 import { ImageElement } from "./image-element";
 import { Blurb } from "./blurb";
+import { References } from "./references";
 import { AlsoRead } from "./also-read";
 import { YouTube } from "./youtube";
 import { Embed } from "./embed";
@@ -34,6 +35,7 @@ const StoryElements = {
   Pending,
   ImageElement,
   Blurb,
+  References,
   AlsoRead,
   YouTube,
   Embed,
@@ -60,6 +62,7 @@ export {
   BlockQuote,
   ImageElement,
   Blurb,
+  References,
   AlsoRead,
   YouTube,
   Embed,

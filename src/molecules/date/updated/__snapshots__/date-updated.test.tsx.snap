@@ -2,7 +2,7 @@
 
 exports[`DateUpdated should match snapshot 1`] = `
 <Component
-  formattedDate="about 4 years ago"
+  formattedDate="over 4 years ago"
   prepend="Story Updated:"
 />
 `;
