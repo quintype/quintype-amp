@@ -2,8 +2,9 @@ import React from "react";
 import { AmpStoryPageTypes } from "./types";
 import get from "lodash.get";
 import { withStoryAndConfig } from "../../../context";
+import { getVideoElement } from "../../../utils/utils";
 
-export const AmpStoryPageBase = ({ config, story, children, ...props }: AmpStoryPageTypes) => {
+export const AmpStoryPageBase = ({ config, story, card, children, ...props }: AmpStoryPageTypes) => {
   let autoAdvanceAfter = get(config, ["opts", "featureConfig", "visualStories", "autoAdvanceAfter"], null);
 
   const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"]) || [];
@@ -20,9 +21,20 @@ export const AmpStoryPageBase = ({ config, story, children, ...props }: AmpStory
       default:
         autoAdvanceAfter = visualStoriesConfig[0] && visualStoriesConfig[0].autoAdvanceAfter;
     }
+    return (
+      <amp-story-page auto-advance-after={autoAdvanceAfter} {...props}>
+        {children}
+      </amp-story-page>
+    );
+  }
+
+  const enableAutoAdvance = get(config, ["additionalConfig", "general", "amp", "enableAutoAdvance"], false);
+
+  if (card?.id && getVideoElement(card)) {
+    autoAdvanceAfter = `video-${card.id}`;
   }
   return (
-    <amp-story-page auto-advance-after={autoAdvanceAfter} {...props}>
+    <amp-story-page auto-advance-after={enableAutoAdvance ? autoAdvanceAfter : ""} {...props}>
       {children}
     </amp-story-page>
   );

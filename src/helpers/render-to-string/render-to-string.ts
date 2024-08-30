@@ -17,9 +17,11 @@ import get from "lodash.get";
  * @param {string} params.seo the SEO string that is to be added in the head
  * @param {string} params.langTag the lang tag that is to be added to the html element. eg: en, fr
  * @param {Object} params.config the config object
+ * @param {Object} params.story the story object
  * @returns {string} ready to render amp html
  */
-export function renderToString({ template, seo, config }) {
+export function renderToString({ template, seo, config, story }) {
+  const customMetaTags = getCustomMetaTagStr({ story, config });
   let str = "";
   try {
     const { htmlStr, styles } = getHtmlAndStyledComponentsStyles(template);
@@ -31,6 +33,7 @@ export function renderToString({ template, seo, config }) {
     str += `<style amp-custom>${customStyles}${styles}</style>`;
     str += `${ampBoilerplate}`;
     str += `${title}`;
+    if (customMetaTags) str += customMetaTags;
     str += `${headEndBodyStart}`;
     str += `${htmlStr}`;
     str += `${bodyEnd}`;
@@ -81,3 +84,9 @@ const getHeadStartStr = (config) => {
 const ampBoilerplate = `<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>`;
 const headEndBodyStart = `</head><body>`;
 const bodyEnd = `</body></html>`;
+
+const getCustomMetaTagStr = ({ story, config }): string => {
+  const customMetaTags = get(config, ["opts", "featureConfig", "customMetaTags"]);
+  if (!customMetaTags) return "";
+  return typeof customMetaTags === "function" ? customMetaTags({ story, config }) : customMetaTags;
+};

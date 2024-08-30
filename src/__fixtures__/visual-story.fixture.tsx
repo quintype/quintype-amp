@@ -470,3 +470,78 @@ export const visualStory: Story = {
   "publish-at": null,
   "assignee-name": "Amogh Sahasrabhojanee"
 };
+
+export const card = {
+  "story-elements": [
+    {
+      description: "",
+      "page-url": "/story/e8e3a6d0-98ff-40eb-b400-5f9466599fb3/element/568a8637-b3c6-426d-9c13-d560ffe0dc5f",
+      type: "text",
+      "family-id": "b31cd496-d269-466b-90a0-2a1c8c8e29a1",
+      title: "",
+      id: "568a8637-b3c6-426d-9c13-d560ffe0dc5f",
+      metadata: {},
+      subtype: null,
+      text: "<p>1st card - 1st text element</p>"
+    },
+    {
+      description: "",
+      "image-metadata": {
+        width: 3848,
+        height: 5772,
+        "mime-type": "image/jpeg",
+        "file-size": 1887693,
+        "file-name": "littpro-inc-og5eHNNyy7k-unsplash.jpg"
+      },
+      "page-url": "/story/e8e3a6d0-98ff-40eb-b400-5f9466599fb3/element/43e7d7d6-a3f6-40b5-88d5-a2f23663a845",
+      type: "image",
+      "family-id": "f9c3c481-06fa-4c7e-ad38-f9c3c8cc1ef0",
+      "image-attribution": "",
+      title: " <p>Masked man</p>",
+      id: "43e7d7d6-a3f6-40b5-88d5-a2f23663a845",
+      "alt-text": "Alt text",
+      "image-s3-key": "amplib/2020-10/7e318e3a-7cec-47e9-8bc0-ccf9dee7f7d2/littpro_inc_og5eHNNyy7k_unsplash.jpg",
+      metadata: {},
+      subtype: null
+    },
+    {
+      description: "",
+      "page-url": "/story/e8e3a6d0-98ff-40eb-b400-5f9466599fb3/element/6820ab9d-5f95-4e17-824f-e7511b29639a",
+      type: "text",
+      "family-id": "db39bb3b-16a3-472a-b19d-a42373b63646",
+      title: "",
+      id: "6820ab9d-5f95-4e17-824f-e7511b29639a",
+      metadata: {},
+      subtype: null,
+      text: "<p>1st card - second text element</p>"
+    }
+  ],
+  "card-updated-at": 1604385109145,
+  "content-version-id": "b57a015f-07c3-424b-97d3-8d1ee589162f",
+  "card-added-at": 1603197704132,
+  status: "draft",
+  id: "2bd1e574-0f4d-4c1e-8e58-a394425deadf",
+  "content-id": "2bd1e574-0f4d-4c1e-8e58-a394425deadf",
+  version: 13,
+  metadata: {
+    "social-share": {
+      shareable: false,
+      title: "Pets are awesome",
+      message: null,
+      image: {
+        key: "amplib/2020-10/7e318e3a-7cec-47e9-8bc0-ccf9dee7f7d2/littpro_inc_og5eHNNyy7k_unsplash.jpg",
+        url: null,
+        attribution: "",
+        caption: null,
+        metadata: {
+          width: 3848,
+          height: 5772,
+          "mime-type": "image/jpeg",
+          "file-size": 1887693,
+          "file-name": "littpro-inc-og5eHNNyy7k-unsplash.jpg"
+        }
+      }
+    },
+    attributes: {}
+  }
+};

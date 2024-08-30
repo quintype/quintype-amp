@@ -35,7 +35,7 @@ export const VisualStory = ({ story, config }: CommonTemplateTypes) => {
         {story.cards
           .filter((card) => canTakeCard(card))
           .map((card) => (
-            <AmpStoryPage key={card.id} id={card.id}>
+            <AmpStoryPage key={card.id} id={card.id} card={card}>
               <WebStoryPageComponents card={card} />
             </AmpStoryPage>
           ))}
