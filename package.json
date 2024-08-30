@@ -1,6 +1,6 @@
 {
   "name": "@quintype/amp",
-  "version": "2.18.3-also-in-package-story-element.8",
+  "version": "2.18.3-also-in-package-story-element.9",
   "description": "Quintype's AMP component library for publisher apps to create amp layouts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
