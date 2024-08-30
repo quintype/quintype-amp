@@ -1,6 +1,7 @@
 // This file should not exist. Move all components inside appropriate atoms/molecules
 
 import React from "react";
+import get from "lodash.get";
 import { StoryElement } from "../../atoms";
 import { Fragment } from "react";
 import { BodyAd } from "../ads";
@@ -9,8 +10,13 @@ import { StoryPageSlots } from "../slots";
 const { DefaultStoryCardSlot } = StoryPageSlots;
 
 // Renders all the cards in the story
-export const FullStoryContent = ({ story }) => {
+export const FullStoryContent = ({ story, config }) => {
   return story.cards.map((card, cardIdx) => {
+    const customCardRender = get(config, ["opts", "render", "storyCardRenderProps"], {});
+    const cardtype = get(card, ["metadata", "attributes", "cardtype", "0"], "");
+    if (customCardRender[cardtype] && typeof customCardRender[cardtype] === "function") {
+      return customCardRender[cardtype]({ story, config, card });
+    }
     return (
       <Fragment key={card.id}>
         {card["story-elements"].map((element, storyElementIdx) => (
