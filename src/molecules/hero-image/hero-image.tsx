@@ -27,7 +27,7 @@ const StyledFigcaption = styled.div`
   text-align: left;
   padding-top: 8px;
 `;
-export const HeroImageBase = ({ story }: HeroImageBaseTypes) => {
+export const HeroImageBase = ({ story, config }: HeroImageBaseTypes) => {
   const metadata: HeroImageMetadata = get(story, "hero-image-metadata", null);
   const slug: string | null = get(story, "hero-image-s3-key", null);
   if (!slug || !metadata) return null;
@@ -35,12 +35,17 @@ export const HeroImageBase = ({ story }: HeroImageBaseTypes) => {
   const attribution: string | null = get(story, "hero-image-attribution", null);
   const caption: string | null = get(story, "hero-image-caption", null);
   const altText: string | null = get(story, "hero-image-alt-text", null);
-
+  const disableImgPreload = get(config, ["opts", "optimizeAmpHtml"], true);
 
   return (
     <>
       <StyledDiv>
-        <Image data-hero="true" metadata={metadata} slug={slug} alt={altText || caption || attribution || ""}></Image>
+        <Image
+          data-hero="true"
+          metadata={metadata}
+          slug={slug}
+          alt={altText || caption || attribution || ""}
+          disableImgPreload={disableImgPreload}></Image>
       </StyledDiv>
       <StyledFigcaption>
         {caption && <StyledCaption dangerouslySetInnerHTML={{ __html: `${caption}` + "&nbsp;" }} />}

@@ -16,6 +16,7 @@ export const BaseImage = ({
   lightbox = true,
   story,
   useFallbackImage = false,
+  disableImgPreload,
   ...rest
 }: ImageTypes) => {
   const cdnImage = config.publisherConfig["cdn-image"];
@@ -50,11 +51,16 @@ export const BaseImage = ({
   return (
     <Fragment>
       <Head>
-        <style>{`
+        <>
+          {imgAttrs?.["data-hero"] && disableImgPreload && (
+            <link rel="preload" as="image" href={imgAttrs?.src} fetchPriority="high" />
+          )}
+          <style>{`
           .hero-image img{
             object-fit: contain;
           }
         `}</style>
+        </>
       </Head>
       {lightbox ? (
         <Fragment>
