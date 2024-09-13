@@ -1,6 +1,6 @@
 {
   "name": "@quintype/amp",
-  "version": "2.19.2-fix-img-preload.2",
+  "version": "2.19.2-fix-img-preload.3",
   "description": "Quintype's AMP component library for publisher apps to create amp layouts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
