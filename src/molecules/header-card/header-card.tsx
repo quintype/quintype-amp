@@ -43,7 +43,7 @@ export const DefaultHeaderCard = ({ story, config, storyType }: HeaderCardProps)
 
   return (
     <div>
-      <HeroImage />
+      <HeroImage config={config} />
       <Spacer token="xs" />
       <HeaderCardContainer>
         <Section section={story.sections[0]} />

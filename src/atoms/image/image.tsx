@@ -5,6 +5,7 @@ import { withConfig } from "../../context";
 import { LightboxGallery } from "../lightbox-gallery";
 import { base64FallbackImage } from "../../helpers/image-helpers";
 import { Head } from "../index";
+import get from "lodash.get";
 
 export const BaseImage = ({
   metadata,
@@ -16,6 +17,7 @@ export const BaseImage = ({
   lightbox = true,
   story,
   useFallbackImage = false,
+  disableImgPreload = false,
   ...rest
 }: ImageTypes) => {
   const cdnImage = config.publisherConfig["cdn-image"];
@@ -42,20 +44,35 @@ export const BaseImage = ({
     imgAttrs.alt = "fallback image";
   }
   if (!imgAttrs.src) return null;
-
   imgAttrs.layout = "responsive";
   imgAttrs.width = imgAspectRatio[0];
   imgAttrs.height = imgAspectRatio[1];
 
+  const isHeroImage: boolean = get(imgAttrs, ["data-hero"], "false") === "true";
+  const imgSrcSet = get(imgAttrs, ["srcset"]);
+  const imgSrcSetUrl = imgSrcSet?.split(" ")?.[0];
+  const imgSrc = imgSrcSetUrl || get(imgAttrs, ["src"]);
+
   return (
     <Fragment>
-      <Head>
-        <style>{`
+      {isHeroImage && !disableImgPreload && imgSrc ? (
+        <Head>
+          <link rel="preload" as="image" href={imgSrc} fetchPriority="high" />
+          <style>{`
+        .hero-image img{
+          object-fit: contain;
+        }
+      `}</style>
+        </Head>
+      ) : (
+        <Head>
+          <style>{`
           .hero-image img{
             object-fit: contain;
           }
         `}</style>
-      </Head>
+        </Head>
+      )}
       {lightbox ? (
         <Fragment>
           <LightboxGallery />

@@ -80,7 +80,7 @@ export const GenericStory = ({ story, config }: CommonTemplateTypes) => {
         <TopSlot />
         <Spacer token="s" />
         <StoryContainer>
-          <HeaderCard storyType="text" />
+          <HeaderCard storyType="text" config={config} />
           <WebEngage />
           <Spacer token="m" />
           <StoryCards />

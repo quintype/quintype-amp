@@ -150,6 +150,7 @@ export interface ConfigOpts {
   domainSlug?: string | null;
   templates?: object;
   slots?: SlotsTypes;
+  optimizeAmpHtml?: boolean;
   render?: {
     headerCardRender?: (props: Config) => any;
     navbarRender?: (props: NavbarTypes) => any;
