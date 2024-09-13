@@ -44,11 +44,14 @@ export const BaseImage = ({
     imgAttrs.alt = "fallback image";
   }
   if (!imgAttrs.src) return null;
-  const isHeroImage: boolean = get(imgAttrs, ["data-hero"], "false") === "true";
-  const imgSrc = get(imgAttrs, ["src"]);
   imgAttrs.layout = "responsive";
   imgAttrs.width = imgAspectRatio[0];
   imgAttrs.height = imgAspectRatio[1];
+
+  const isHeroImage: boolean = get(imgAttrs, ["data-hero"], "false") === "true";
+  const imgSrcSet = get(imgAttrs, ["srcset"]);
+  const imgSrcSetUrl = imgSrcSet?.split(" ")?.[0];
+  const imgSrc = imgSrcSetUrl || get(imgAttrs, ["src"]);
 
   return (
     <Fragment>
@@ -56,10 +59,10 @@ export const BaseImage = ({
         <Head>
           <link rel="preload" as="image" href={imgSrc} fetchPriority="high" />
           <style>{`
-          .hero-image img{
-            object-fit: contain;
-          }
-        `}</style>
+        .hero-image img{
+          object-fit: contain;
+        }
+      `}</style>
         </Head>
       ) : (
         <Head>
