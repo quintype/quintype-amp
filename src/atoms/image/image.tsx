@@ -52,7 +52,7 @@ export const BaseImage = ({
 
   return (
     <Fragment>
-      {isHeroImage && disableImgPreload && imgSrc ? (
+      {isHeroImage && !disableImgPreload && imgSrc ? (
         <Head>
           <link rel="preload" as="image" href={imgSrc} fetchPriority="high" />
           <style>{`
