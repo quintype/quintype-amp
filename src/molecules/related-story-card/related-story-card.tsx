@@ -61,11 +61,17 @@ export const RelatedStoryCard = ({ story, config }: RelatedStoryCardTypes) => {
       });
     }
   }
-
+  const disableImgPreload: boolean = get(config, ["opts", "optimizeAmpHtml"], true);
   return (
     <Wrapper>
       <StyledAnchor href={url}>
-        <Image metadata={imgMetadata} slug={imgS3Key} alt={imgAltText || imgCaption || imgAttr || "image"} useFallbackImage={true} />
+        <Image
+          metadata={imgMetadata}
+          slug={imgS3Key}
+          alt={imgAltText || imgCaption || imgAttr || "image"}
+          useFallbackImage={true}
+          disableImgPreload={disableImgPreload}
+        />
         <Headline>{headline}</Headline>
         <DateTime formattedDate={humanizedDate} />
         <Spacer token="s" />

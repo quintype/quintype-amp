@@ -35,13 +35,13 @@ export const HeroImageBase = ({ story, config }: HeroImageBaseTypes) => {
   const attribution: string | null = get(story, "hero-image-attribution", null);
   const caption: string | null = get(story, "hero-image-caption", null);
   const altText: string | null = get(story, "hero-image-alt-text", null);
-  const disableImgPreload = get(config, ["opts", "optimizeAmpHtml"], true);
+  const disableImgPreload: boolean = get(config, ["opts", "optimizeAmpHtml"], true);
 
   return (
     <>
       <StyledDiv>
         <Image
-          data-hero="true"
+          data-hero={"true"}
           metadata={metadata}
           slug={slug}
           alt={altText || caption || attribution || ""}
