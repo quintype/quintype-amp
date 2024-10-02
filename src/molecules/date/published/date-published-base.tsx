@@ -28,11 +28,7 @@ export const DatePublishedBase = ({ story, format, prepend, config, type = "firs
         hour12: true,
         timeZone: timeZone
       });
-      return (
-        <>
-          <DateTime formattedDate={date} prepend={prepend} />
-        </>
-      );
+      return <DateTime formattedDate={date} prepend={prepend} />;
     }
   }
 
