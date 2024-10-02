@@ -18,13 +18,6 @@ export const DatePublishedBase = ({ story, format, prepend, config, type = "firs
         ? localizationOpts.useLocaleDateStampOnGenericStory(config)
         : localizationOpts.useLocaleDateStampOnGenericStory;
 
-    //
-    console.log("aa--dateTime", typeof dateTime, dateTime);
-    console.log("aa--useLocale", typeof useLocale, useLocale);
-    console.log("aa--timeZone", typeof timeZone, timeZone);
-    console.log("aa--new Date(dateTime)", typeof new Date(dateTime), new Date(dateTime));
-    console.log("aa--languageCode", typeof languageCode, languageCode);
-
     if (useLocale) {
       const date = new Date(dateTime).toLocaleDateString(languageCode, {
         year: "numeric",
@@ -35,17 +28,8 @@ export const DatePublishedBase = ({ story, format, prepend, config, type = "firs
         hour12: true,
         timeZone: timeZone
       });
-      console.log("aa--finalDate", typeof date, date);
-      // console.log("aa--finalDate", date);
       return (
         <>
-          <div>
-            timeZone={timeZone} <br />
-            dateTime={dateTime} <br />
-            {/* new Date of dateTime={new Date(dateTime)} <br /> */}
-            languageCode={languageCode} <br />
-            finalDate={date} <br />
-          </div>
           <DateTime formattedDate={date} prepend={prepend} />
         </>
       );
