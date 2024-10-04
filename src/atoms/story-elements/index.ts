@@ -24,6 +24,7 @@ import { Attachment } from "./attachment";
 import { TableElement } from "./table-element";
 import { Unsupported } from "./unsupported";
 import { Quote } from "./quote";
+import { TiktokElement } from "./tiktok-element/tiktok-element";
 
 const StoryElements = {
   Text,
@@ -51,7 +52,8 @@ const StoryElements = {
   TableElement,
   Unsupported,
   Brightcove,
-  Quote
+  Quote,
+  TiktokElement
 };
 export {
   Text,
@@ -79,6 +81,7 @@ export {
   TableElement,
   Unsupported,
   Brightcove,
-  Quote
+  Quote,
+  TiktokElement
 };
 export { StoryElements };
