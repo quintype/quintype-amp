@@ -9,6 +9,7 @@ import { BlockQuote } from "./blockquote";
 import { ImageElement } from "./image-element";
 import { Blurb } from "./blurb";
 import { AlsoRead } from "./also-read";
+import { References } from "./references";
 import { YouTube } from "./youtube";
 import { Embed } from "./embed";
 import { DailyMotionElement } from "./daily-motion-element";
@@ -35,6 +36,7 @@ const StoryElements = {
   Pending,
   ImageElement,
   Blurb,
+  References,
   AlsoRead,
   YouTube,
   Embed,
@@ -62,6 +64,7 @@ export {
   BlockQuote,
   ImageElement,
   Blurb,
+  References,
   AlsoRead,
   YouTube,
   Embed,
