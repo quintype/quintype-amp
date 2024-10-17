@@ -55,11 +55,11 @@ export const DefaultHeaderCard = ({ story, config, storyType }: HeaderCardProps)
       <Spacer token="xs" />
       <HeaderCardContainer>
         <Section section={story.sections[0]} />
-        <Spacer token="s" />
+        <Spacer token="m" />
         <Headline>{story.headline}</Headline>
-        <Spacer token="xs" />
-        <SubHeadline>{story.subheadline}</SubHeadline>
         <Spacer token="s" />
+        <SubHeadline>{story.subheadline}</SubHeadline>
+        <Spacer token="m" />
         <Author
           authors={story.authors}
           prepend={getLocalizedWord(config, "by", "By")}
