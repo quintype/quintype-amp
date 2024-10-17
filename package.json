@@ -1,6 +1,6 @@
 {
   "name": "@quintype/amp",
-  "version": "2.19.3-story-sub-title.0",
+  "version": "2.19.3-story-sub-title.1",
   "description": "Quintype's AMP component library for publisher apps to create amp layouts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
