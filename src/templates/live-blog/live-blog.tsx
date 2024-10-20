@@ -92,6 +92,7 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
                     data-sort-time={card["card-added-at"]}
                     data-update-time={card["card-updated-at"]}>
                     {customCardRender[cardtype]({ story, config, card })}
+                    <CardUpdatedAt timeStamp={card["card-added-at"]} card={card} />
                   </div>
                 );
               }
