@@ -154,6 +154,7 @@ export const DateUpdatedBase = ({ story, prepend, config }: DateUpdatedTypes) =>
 
   const languageCode = get(config, ["publisherConfig", "language", "ietf-code"]);
   const localizationOpts = get(config, ["opts", "featureConfig", "localization"], {});
+  const timeZone = get(config, ["additionalConfig", "general", "timeZone"], "Asia/Kolkata");
 
   if ("useLocaleDateStampOnGenericStory" in localizationOpts) {
     const useLocale =
@@ -168,7 +169,8 @@ export const DateUpdatedBase = ({ story, prepend, config }: DateUpdatedTypes) =>
         day: "numeric",
         hour: "numeric",
         minute: "numeric",
-        hour12: true
+        hour12: true,
+        timeZone: timeZone
       });
     }
   }
