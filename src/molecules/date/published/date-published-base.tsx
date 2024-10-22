@@ -10,6 +10,7 @@ export const DatePublishedBase = ({ story, format, prepend, config, type = "firs
 
   const languageCode = get(config, ["publisherConfig", "language", "ietf-code"], "en");
   const localizationOpts = get(config, ["opts", "featureConfig", "localization"], {});
+  const timeZone = get(config, ["additionalConfig", "general", "timeZone"], "Asia/Kolkata");
 
   if ("useLocaleDateStampOnGenericStory" in localizationOpts) {
     const useLocale =
@@ -24,7 +25,8 @@ export const DatePublishedBase = ({ story, format, prepend, config, type = "firs
         day: "numeric",
         hour: "numeric",
         minute: "numeric",
-        hour12: true
+        hour12: true,
+        timeZone: timeZone
       });
       return <DateTime formattedDate={date} prepend={prepend} />;
     }
