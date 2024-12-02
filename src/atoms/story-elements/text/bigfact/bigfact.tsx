@@ -12,19 +12,22 @@ export const StyledBigfact = styled.div<StoryElementProps>`
   }
 `;
 
-export const BigfactBase = ({ element, story, config }: StoryElementProps) => {
+export const BigfactBase = ({ element, story, config, counter }: StoryElementProps) => {
   const bigfactElementRender = get(config, ["opts", "render", "storyElementRender", "bigfactElementRender"], null);
 
   return bigfactElementRender ? (
-    bigfactElementRender({ story, config, element })
+    bigfactElementRender({ story, config, element, counter })
   ) : (
-    <StyledBigfact
-      element={element}
-      story={story}
-      config={config}
-      as="div"
-      dangerouslySetInnerHTML={{ __html: element.text || "" }}
-    />
+    <div>
+      <div style={{ width: "350px", height: "350px", backgroundColor: "grey" }}></div>
+      <StyledBigfact
+        element={element}
+        story={story}
+        config={config}
+        as="div"
+        dangerouslySetInnerHTML={{ __html: element.text || "" }}
+      />
+    </div>
   );
 };
 /**
