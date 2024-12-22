@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.20.0](https://github.com/quintype/quintype-amp/compare/v2.19.3...v2.20.0) (2024-10-22)
+
+
+### Features
+
+* **sub headline:** Add story sub headline to amp stories ([#475](https://github.com/quintype/quintype-amp/issues/475)) ([48a7a2b](https://github.com/quintype/quintype-amp/commit/48a7a2bf9d3b905ebfbd73e6282eff75bec67e5f))
+
+### [2.19.3](https://github.com/quintype/quintype-amp/compare/v2.19.2...v2.19.3) (2024-10-22)
+
+
+### Bug Fixes
+
+* **publish time:** fix amp publish time ([#474](https://github.com/quintype/quintype-amp/issues/474)) ([6533efd](https://github.com/quintype/quintype-amp/commit/6533efd02474f34640a014e229b8dfb33444a81a))
+
+### [2.19.2](https://github.com/quintype/quintype-amp/compare/v2.19.1...v2.19.2) (2024-09-13)
+
+
+### Bug Fixes
+
+* **Hero image:** preload image link ([#473](https://github.com/quintype/quintype-amp/issues/473)) ([c6e619e](https://github.com/quintype/quintype-amp/commit/c6e619e15a176af0aa065070c1af272e6e40e12d))
+
 ### [2.19.1](https://github.com/quintype/quintype-amp/compare/v2.19.0...v2.19.1) (2024-08-14)
 
 ## [2.19.0](https://github.com/quintype/quintype-amp/compare/v2.18.2...v2.19.0) (2024-07-30)

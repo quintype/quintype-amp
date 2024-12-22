@@ -29,6 +29,14 @@ const Headline = styled.h1`
   margin: 0;
   font-weight: bold;
 `;
+const SubHeadline = styled.h2`
+  font-family: ${(props) => props.theme.font.family.secondary};
+  font-size: ${(props) => props.theme.font.size.xs};
+  color: ${(props) => props.theme.color.black};
+  margin: 0;
+  font-weight: normal;
+`;
+
 const HeaderCardContainer = styled.div`
   padding: 0 ${(props) => props.theme.spacing.s};
   border-bottom: ${(props) => `1px solid ${props.theme.color.black}`};
@@ -43,13 +51,15 @@ export const DefaultHeaderCard = ({ story, config, storyType }: HeaderCardProps)
 
   return (
     <div>
-      <HeroImage />
+      <HeroImage config={config} />
       <Spacer token="xs" />
       <HeaderCardContainer>
         <Section section={story.sections[0]} />
-        <Spacer token="xs" />
+        <Spacer token="m" />
         <Headline>{story.headline}</Headline>
         <Spacer token="s" />
+        <SubHeadline>{story.subheadline}</SubHeadline>
+        <Spacer token="m" />
         <Author
           authors={story.authors}
           prepend={getLocalizedWord(config, "by", "By")}

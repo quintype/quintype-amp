@@ -12,6 +12,7 @@ export const CardUpdatedAtBase = ({ story, config, timeStamp, card }: CardUpdate
 
   const cardTimeStampRender = get(config, ["opts", "render", "liveBlogCardTimeStamp"], null);
   const languageCode = get(config, ["publisherConfig", "language", "ietf-code"]);
+  const timeZone = get(config, ["additionalConfig", "general", "timeZone"], "Asia/Kolkata");
   const localizationOpts = get(config, ["opts", "featureConfig", "localization"], {});
 
   if (cardTimeStampRender) return cardTimeStampRender({ story, config, card });
@@ -35,7 +36,8 @@ export const CardUpdatedAtBase = ({ story, config, timeStamp, card }: CardUpdate
         day: "numeric",
         hour: "numeric",
         minute: "numeric",
-        hour12: true
+        hour12: true,
+        timeZone
       });
     }
   }
