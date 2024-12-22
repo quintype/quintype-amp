@@ -11,6 +11,8 @@ const { DefaultStoryCardSlot } = StoryPageSlots;
 
 // Renders all the cards in the story
 export const FullStoryContent = ({ story, config }) => {
+  const counter = { ads: 0, paragraphs: 0 };
+
   return story.cards.map((card, cardIdx) => {
     const customCardRender = get(config, ["opts", "render", "storyCardRenderProps"], {});
     const cardtype = get(card, ["metadata", "attributes", "cardtype", "0"], "");
@@ -20,7 +22,13 @@ export const FullStoryContent = ({ story, config }) => {
     return (
       <Fragment key={card.id}>
         {card["story-elements"].map((element, storyElementIdx) => (
-          <StoryElement key={element.id} element={element} cardIdx={cardIdx} storyElementIdx={storyElementIdx} />
+          <StoryElement
+            key={element.id}
+            element={element}
+            cardIdx={cardIdx}
+            storyElementIdx={storyElementIdx}
+            counter={counter}
+          />
         ))}
         {cardIdx === 0 && <BodyAd />}
         <DefaultStoryCardSlot index={cardIdx} card={card} />

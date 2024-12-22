@@ -81,7 +81,8 @@ export function getFigcaptionText(caption, attribution) {
   else if (caption || attribution) return `${caption || attribution}`;
   else return false;
 }
-export const ImageGalleryElementBase = ({ element, story, config }: StoryElementProps) => {
+
+export const ImageGalleryElementBase = ({ element, story, config, counter }: StoryElementProps) => {
   const imageGalleryElementRender = get(
     config,
     ["opts", "render", "storyElementRender", "imageGalleryElementRender"],
@@ -89,7 +90,7 @@ export const ImageGalleryElementBase = ({ element, story, config }: StoryElement
   );
 
   return imageGalleryElementRender ? (
-    imageGalleryElementRender({ story, config, element })
+    imageGalleryElementRender({ story, config, element, counter })
   ) : (
     <DefaultImageGalleryElement element={element} config={config} />
   );
