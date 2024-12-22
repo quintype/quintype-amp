@@ -2,10 +2,10 @@ import { StoryElementProps } from "../types";
 import { withStoryAndConfig } from "../../../context";
 import get from "lodash.get";
 
-export const ReferencesBase = ({ element, story, config }: StoryElementProps) => {
+export const ReferencesBase = ({ element, story, config, counter }: StoryElementProps) => {
   const referencesRender = get(config, ["opts", "render", "storyElementRender", "referencesRender"], null);
 
-  return referencesRender ? referencesRender({ story, config, element }) : null;
+  return referencesRender ? referencesRender({ story, config, element, counter }) : null;
 };
 
 /**

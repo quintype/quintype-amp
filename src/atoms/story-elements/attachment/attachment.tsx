@@ -45,11 +45,11 @@ export const PreviewLink = styled.a`
  * @module FacebookElement
  * @component
  */
-export const AttachmentBase = ({ element, story, config }: StoryElementProps) => {
+export const AttachmentBase = ({ element, story, config, counter }: StoryElementProps) => {
   const attachmentRender = get(config, ["opts", "render", "storyElementRender", "attachmentRender"], null);
 
   return attachmentRender ? (
-    attachmentRender({ story, config, element })
+    attachmentRender({ story, config, element, counter })
   ) : (
     <AttachmentWrapper>
       <div>{element["file-name"]}</div>
