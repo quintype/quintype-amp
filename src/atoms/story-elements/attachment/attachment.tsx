@@ -1,4 +1,5 @@
 import React from "react";
+import get from "lodash.get";
 import { StoryElementProps } from "../types";
 import styled from "styled-components";
 import { media } from "../../../utils/media";
@@ -44,9 +45,12 @@ export const PreviewLink = styled.a`
  * @module FacebookElement
  * @component
  */
+export const AttachmentBase = ({ element, story, config, counter }: StoryElementProps) => {
+  const attachmentRender = get(config, ["opts", "render", "storyElementRender", "attachmentRender"], null);
 
-export const AttachmentBase = ({ element, config }: StoryElementProps) => {
-  return (
+  return attachmentRender ? (
+    attachmentRender({ story, config, element, counter })
+  ) : (
     <AttachmentWrapper>
       <div>{element["file-name"]}</div>
       <PreviewLink href={element.url} target="_blank" rel="noopener noreferrer" download="">

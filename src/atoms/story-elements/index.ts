@@ -9,6 +9,7 @@ import { BlockQuote } from "./blockquote";
 import { ImageElement } from "./image-element";
 import { Blurb } from "./blurb";
 import { AlsoRead } from "./also-read";
+import { References } from "./references";
 import { YouTube } from "./youtube";
 import { Embed } from "./embed";
 import { DailyMotionElement } from "./daily-motion-element";
@@ -22,6 +23,8 @@ import { ImageGalleryElement } from "./image-gallery-element";
 import { Attachment } from "./attachment";
 import { TableElement } from "./table-element";
 import { Unsupported } from "./unsupported";
+import { Quote } from "./quote";
+import { TiktokElement } from "./tiktok-element/tiktok-element";
 
 const StoryElements = {
   Text,
@@ -34,6 +37,7 @@ const StoryElements = {
   Pending,
   ImageElement,
   Blurb,
+  References,
   AlsoRead,
   YouTube,
   Embed,
@@ -47,7 +51,9 @@ const StoryElements = {
   Attachment,
   TableElement,
   Unsupported,
-  Brightcove
+  Brightcove,
+  Quote,
+  TiktokElement
 };
 export {
   Text,
@@ -60,6 +66,7 @@ export {
   BlockQuote,
   ImageElement,
   Blurb,
+  References,
   AlsoRead,
   YouTube,
   Embed,
@@ -73,6 +80,8 @@ export {
   Attachment,
   TableElement,
   Unsupported,
-  Brightcove
+  Brightcove,
+  Quote,
+  TiktokElement
 };
 export { StoryElements };

@@ -6,6 +6,7 @@ import { seo } from "./seo.fixture";
 import { allElementsStory } from "./all-element-story.fixture";
 import { liveBlogStory } from "./live-blog-story.fixture";
 import { visualStory, card } from "./visual-story.fixture";
+import { tiktokElement } from "./tiktok.fixture";
 
 export {
   allElementsStory,
@@ -19,5 +20,6 @@ export {
   seo,
   liveBlogStory,
   visualStory,
-  card
+  card,
+  tiktokElement
 };
