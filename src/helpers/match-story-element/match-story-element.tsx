@@ -22,7 +22,8 @@ import {
   Attachment,
   TableElement,
   Unsupported,
-  Brightcove
+  Brightcove,
+  JwPlayer
 } from "../../atoms/story-elements";
 
 const anyType = "any";
@@ -36,7 +37,7 @@ const storyElementsTable = [
   ["data", "table", TableElement],
   ["external-file", "bitgravity-video", Unsupported],
   ["external-file", "brightcove-video", Brightcove],
-  ["external-file", "jwplayer", Unsupported],
+  ["external-file", "jwplayer", JwPlayer],
   ["external-file", "vod-video", Unsupported],
   ["external-file", anyType, Unsupported],
   ["file", "attachment", Attachment],

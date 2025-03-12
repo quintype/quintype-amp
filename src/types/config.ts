@@ -184,6 +184,7 @@ export interface ConfigOpts {
       alsoReadRender?: (props: CommonRenderPropTypes) => any;
       tableElementRender?: (props: CommonRenderPropTypes) => any;
       brightcoveElementRender?: (props: CommonRenderPropTypes) => any;
+      jwPlayerElementRender?: (props: CommonRenderPropTypes) => any;
     };
   };
   featureConfig?: FeatureConfigTypes;
