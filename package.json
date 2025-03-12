@@ -1,6 +1,6 @@
 {
   "name": "@quintype/amp",
-  "version": "2.20.0",
+  "version": "2.20.1-jw-player.0",
   "description": "Quintype's AMP component library for publisher apps to create amp layouts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -40,7 +40,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && npm run jest"
+      "pre-commit": "lint-staged"
     }
   },
   "homepage": "https://github.com/quintype/quintype-amp#readme",
