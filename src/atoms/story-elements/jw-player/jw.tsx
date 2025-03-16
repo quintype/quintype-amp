@@ -17,7 +17,7 @@ export interface DefaultJwTypes extends Common {
 }
 
 export const DefaultJwPlayer = ({ element, layout = "responsive", width = "16", height = "9" }: DefaultJwTypes) => {
-  const { "player-id": playerId, "video-id": videoId } = get(element, ["metadata"], {});
+  const { "player-id": playerId, "video-id": videoId } = get(element, ["metadata"], {}) || {};
 
   if (!playerId || !videoId) {
     return null;

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Jw Player should render default 1`] = `
+<Fragment>
+  <HelmetWrapper
+    defer={true}
+    encodeSpecialCharacters={true}
+  >
+    <script
+      async={true}
+      custom-element="amp-jwplayer"
+      src="https://cdn.ampproject.org/v0/amp-jwplayer-0.1.js"
+    />
+  </HelmetWrapper>
+  <amp-jwplayer
+    data-media-id="OIqdGtgX"
+    data-player-id="w6gmf5Fj"
+    height="9"
+    layout="responsive"
+    width="16"
+  />
+</Fragment>
+`;
