@@ -1,6 +1,6 @@
 {
   "name": "@quintype/amp",
-  "version": "2.20.1-jw-player.1",
+  "version": "2.20.1-jw-player.2",
   "description": "Quintype's AMP component library for publisher apps to create amp layouts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
