@@ -7,7 +7,6 @@ exports[`Jw Player should render default 1`] = `
     encodeSpecialCharacters={true}
   >
     <script
-      async={true}
       custom-element="amp-jwplayer"
       src="https://cdn.ampproject.org/v0/amp-jwplayer-0.1.js"
     />

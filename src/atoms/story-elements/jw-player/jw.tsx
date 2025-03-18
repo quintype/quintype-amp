@@ -26,7 +26,11 @@ export const DefaultJwPlayer = ({ element, layout = "responsive", width = "16", 
   return (
     <Fragment>
       <Helmet>
-        <script async custom-element="amp-jwplayer" src="https://cdn.ampproject.org/v0/amp-jwplayer-0.1.js" />
+        <script
+          async={undefined}
+          custom-element="amp-jwplayer"
+          src="https://cdn.ampproject.org/v0/amp-jwplayer-0.1.js"
+        />
       </Helmet>
       <amp-jwplayer data-player-id={playerId} data-media-id={videoId} layout={layout} width={width} height={height} />
     </Fragment>
