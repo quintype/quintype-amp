@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66074042-1', 'auto');ga('send', 'pageview');</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AMP Library VideoWebStory</title>
+  <title>AMP Library atoms/story-elements/jw-player/jw.tsx</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -125,264 +127,94 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Components</p>
-                    <h1>VideoWebStory</h1>
+                    <p>Source</p>
+                    <h1>atoms/story-elements/jw-player/jw.tsx</h1>
                 </header>
                 
 
 
 
-
-<section>
-
-<header>
     
-        <h2>
-            &ltVideoWebStory  /&gt
-        </h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class='vertical-section'>
-                <div class="members">
-                    <div class="member">
-                        <div class=name>
-                            <span class="tag">Constructor</span>
-                        </div>
-                        
-
-
-    
-    <h4 class="name" id="VideoWebStory">
-        <a class="href-link" href="#VideoWebStory">#</a>
-        
-        <span class="code-name">
-            
-                &ltVideoWebStory  /&gt
-            
-        </span>
-    </h4>
-    
-
-    
-    
-    <div class="description">
-        <p>VideoWebStory atom. Provides video support for web stories</p>
-    </div>
-    
-
-
-
-
-
-
-
-    
-
-
-
-    <h5>Parameters:</h5>
-    
-<div class="table-container">
-    <table class="params table">
-        <thead>
-        <tr>
-            
-            <th>Name</th>
-            
-
-            <th>Type</th>
-
-            
-
-            
-
-            <th class="last">Description</th>
-        </tr>
-        </thead>
-
-        <tbody>
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>params</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Object</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>required. The params object</p></td>
-</tr>
-
-  
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>videoElement</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Object</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>required. video element of the story card</p></td>
-</tr>
-
-  
-    
-<tr class="deep-level-1">
-  
-      <td class="name"><code>imageElement</code></td>
-  
-
-  <td class="type">
-  
-      
-<span class="param-type">Object</span>
-
-
-  
-  </td>
-
-  
-
-  
-
-  <td class="description last"><p>required. image element to show as a poster</p></td>
-</tr>
-
-  
-
-
-        
-        </tbody>
-    </table>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="atoms_video-web-story_video-web-story.tsx.html" class="button">View Source</a>
-            <span>
-                <a href="atoms_video-web-story_video-web-story.tsx.html">atoms/video-web-story/video-web-story.tsx</a>, <a href="atoms_video-web-story_video-web-story.tsx.html#line45">line 45</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-                </div>
-            </div>
-        
-    
-    </div>
-    
-        
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { Fragment } from "react";
+import Helmet from "react-helmet";
+import { withStoryAndConfig } from "../../../context";
+import get from "lodash.get";
+import { Common } from "../../../atoms/common-types";
+import { Config } from "../../../types/config";
+import { Story, StoryElement } from "../../../types/story";
+
+export interface JwElementTypes {
+  story: Story;
+  config: Config;
+  element: StoryElement;
+}
+
+export interface DefaultJwTypes extends Common {
+  element: StoryElement;
+}
+
+export const DefaultJwPlayer = ({ element, layout = "responsive", width = "16", height = "9" }: DefaultJwTypes) => {
+  const { "player-id": playerId, "video-id": videoId } = get(element, ["metadata"], {}) || {};
+
+  if (!playerId || !videoId) {
+    return null;
+  }
+
+  return (
+    &lt;Fragment>
+      &lt;Helmet>
+        &lt;script
+          async={undefined}
+          custom-element="amp-jwplayer"
+          src="https://cdn.ampproject.org/v0/amp-jwplayer-0.1.js"
+        />
+      &lt;/Helmet>
+      &lt;amp-jwplayer data-player-id={playerId} data-media-id={videoId} layout={layout} width={width} height={height} />
+    &lt;/Fragment>
+  );
+};
+
+export const JwPlayerBase = ({ element, story, config }: JwElementTypes) => {
+  const jwPlayerElementRender = get(config, ["opts", "render", "storyElementRender", "jwPlayerElementRender"], null);
+
+  return jwPlayerElementRender ? (
+    jwPlayerElementRender({ story, config, element })
+  ) : (
+    &lt;DefaultJwPlayer element={element} />
+  );
+};
+
+/**
+ * JwPlayer is a story element.
+ * The look of the JwPlayer can be changed using the render prop jwPlayerElementRender. In case jwPlayerElementRender is passed in the config, it is rendered. Otherwise a default JwPlayer is rendered.
+ *
+ * @param {Object} params object containing parameters passed to the render prop
+ * @param {Object} params.story story object
+ * @param {Object} params.config config object
+ * @param {Object} params.element the story element. This is same as the story element found in the story API response
+ *
+ * ```javascript
+ * ...
+ * ampRoutes(app, {
+ *  render: {
+ *    storyElementRender: {
+ *      jwPlayerElementRender: ({ story, config, element }) => &lt;MyCustomJwPlayer story={story} config={config} storyElement={element} />
+ *    }
+ *  }
+ * })
+ * ...
+ * ```
+ *
+ * @category StoryElements
+ * @module JwPlayer
+ * @component
+ */
+export const JwPlayer = withStoryAndConfig(JwPlayerBase);
+</code></pre>
+        </article>
+    </section>
 
 
 
