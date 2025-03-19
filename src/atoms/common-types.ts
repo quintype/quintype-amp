@@ -32,6 +32,7 @@ declare global {
       "amp-story-auto-ads";
       "amp-story-page-outlink";
       "amp-brightcove";
+      "amp-jwplayer";
     }
   }
 }
