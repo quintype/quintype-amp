@@ -34,7 +34,7 @@ export const AmpStoryPageBase = ({ config, story, card, children, ...props }: Am
     autoAdvanceAfter = `video-${card.id}`;
   }
   return (
-    <amp-story-page auto-advance-after={enableAutoAdvance ? autoAdvanceAfter : ""} {...props}>
+    <amp-story-page auto-advance-after={"5s"} {...props}>
       {children}
     </amp-story-page>
   );

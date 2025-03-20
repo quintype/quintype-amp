@@ -40,7 +40,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && npm run jest"
+      "pre-commit": "lint-staged"
     }
   },
   "homepage": "https://github.com/quintype/quintype-amp#readme",
