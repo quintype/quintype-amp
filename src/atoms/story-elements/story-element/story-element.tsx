@@ -5,10 +5,11 @@ import { StoryElementTypes } from "./types";
 import { DefaultStoryElementSlot } from "../../../molecules/slots/story-page-slots";
 
 export const StoryElement = ({ element, noSpacer, storyElementIdx, cardIdx, counter, ...props }: StoryElementTypes) => {
+  const excludeCounterProp = ["jsembed", "youtube-video", "external-file"].indexOf(element.type) !== -1;
   const Component = matchStoryElement(element);
   return (
     <Fragment>
-      <Component element={element} counter={counter} {...props} />
+      {excludeCounterProp ? <Component element={element} {...props} /> : <Component element={element} counter={counter} {...props} />}
       {!noSpacer && <Spacer token="s" />}
       <DefaultStoryElementSlot cardIdx={cardIdx} storyElementIdx={storyElementIdx} storyElement={element} />
     </Fragment>
