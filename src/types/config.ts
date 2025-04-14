@@ -187,6 +187,7 @@ export interface ConfigOpts {
       tableElementRender?: (props: CommonRenderPropTypes) => any;
       brightcoveElementRender?: (props: CommonRenderPropTypes) => any;
       tiktokElementRender?: (props: CommonRenderPropTypes) => any;
+      jwPlayerElementRender?: (props: CommonRenderPropTypes) => any;
     };
   };
   featureConfig?: FeatureConfigTypes;

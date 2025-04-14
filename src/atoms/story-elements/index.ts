@@ -18,6 +18,7 @@ import { FacebookElement } from "./facebook-element";
 import { InstagramElement } from "./instagram-element";
 import { VidibleElement } from "./vidible-element";
 import { Brightcove } from "./brightcove";
+import { JwPlayer } from "./jw-player";
 import { Title } from "./title";
 import { ImageGalleryElement } from "./image-gallery-element";
 import { Attachment } from "./attachment";
@@ -53,7 +54,8 @@ const StoryElements = {
   Unsupported,
   Brightcove,
   Quote,
-  TiktokElement
+  TiktokElement,
+  JwPlayer
 };
 export {
   Text,
@@ -82,6 +84,7 @@ export {
   Unsupported,
   Brightcove,
   Quote,
-  TiktokElement
+  TiktokElement,
+  JwPlayer
 };
 export { StoryElements };

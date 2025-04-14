@@ -33,6 +33,7 @@ declare global {
       "amp-story-page-outlink";
       "amp-brightcove";
       "amp-tiktok";
+      "amp-jwplayer";
     }
   }
 }
