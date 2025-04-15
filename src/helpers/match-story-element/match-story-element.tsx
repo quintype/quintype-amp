@@ -9,6 +9,7 @@ import {
   BlockQuote,
   ImageElement,
   Blurb,
+  References,
   AlsoRead,
   YouTube,
   Embed,
@@ -23,6 +24,8 @@ import {
   TableElement,
   Unsupported,
   Brightcove,
+  Quote,
+  TiktokElement,
   JwPlayer
 } from "../../atoms/story-elements";
 
@@ -33,7 +36,7 @@ const storyElementsTable = [
   ["composite", "image-gallery", ImageGalleryElement],
   ["composite", "ingredients", Unsupported],
   ["composite", "playlist", Unsupported],
-  ["composite", "references", Unsupported],
+  ["composite", "references", References],
   ["data", "table", TableElement],
   ["external-file", "bitgravity-video", Unsupported],
   ["external-file", "brightcove-video", Brightcove],
@@ -52,6 +55,7 @@ const storyElementsTable = [
   ["jsembed", "social-media", Unsupported],
   ["jsembed", "tweet", TwitterElement],
   ["jsembed", "vidible-video", VidibleElement],
+  ["jsembed", "tiktok-video", TiktokElement],
   ["jsembed", anyType, Embed],
   ["polltype", "opinion-poll", Unsupported],
   ["soundcloud-audio", none, Unsupported],
@@ -62,7 +66,7 @@ const storyElementsTable = [
   ["text", "blurb", Blurb],
   ["text", "q-and-a", QAndA],
   ["text", "question", Question],
-  ["text", "quote", BlockQuote],
+  ["text", "quote", Quote],
   ["text", "summary", Summary],
   ["text", anyType, Text],
   ["title", none, Title],

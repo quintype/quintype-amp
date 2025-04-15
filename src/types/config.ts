@@ -164,6 +164,7 @@ export interface ConfigOpts {
     };
     storyElementRender?: {
       bigfactElementRender?: (props: CommonRenderPropTypes) => any;
+      attachmentRender?: (props: CommonRenderPropTypes) => any;
       answerElementRender?: (props: CommonRenderPropTypes) => any;
       questionElementRender?: (props: CommonRenderPropTypes) => any;
       qAndAElementRender?: (props: CommonRenderPropTypes) => any;
@@ -180,10 +181,12 @@ export interface ConfigOpts {
       embedRender?: (props: CommonRenderPropTypes) => any;
       dailyMotionRender?: (props: CommonRenderPropTypes) => any;
       blockquoteRender?: (props: CommonRenderPropTypes) => any;
+      quoteRender?: (props: CommonRenderPropTypes) => any;
       blurbRender?: (props: CommonRenderPropTypes) => any;
       alsoReadRender?: (props: CommonRenderPropTypes) => any;
       tableElementRender?: (props: CommonRenderPropTypes) => any;
       brightcoveElementRender?: (props: CommonRenderPropTypes) => any;
+      tiktokElementRender?: (props: CommonRenderPropTypes) => any;
       jwPlayerElementRender?: (props: CommonRenderPropTypes) => any;
     };
   };
