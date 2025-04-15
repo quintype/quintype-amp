@@ -11,7 +11,6 @@ then
   npm run docs:deploy
   npx standard-version
 else
-  npm install
   npm run build
   npx standard-version --prerelease "$BRANCH" --skip.changelog=true
 fi
