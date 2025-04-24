@@ -27,7 +27,7 @@ export const BaseImage = ({
     alt,
     ...rest
   };
-
+  console.log("imgAttrs 1--", imgAttrs);
   if (slug) {
     const { src, srcset } = getImgSrcAndSrcset({
       opts,
@@ -39,9 +39,11 @@ export const BaseImage = ({
     });
     imgAttrs.src = src;
     imgAttrs.srcset = srcset;
+    console.log("imgAttrs 2--", imgAttrs);
   } else if (useFallbackImage) {
     imgAttrs.src = base64FallbackImage;
     imgAttrs.alt = "fallback image";
+    console.log("imgAttrs 3--", imgAttrs);
   }
   if (!imgAttrs.src) return null;
   imgAttrs.layout = "responsive";
@@ -52,7 +54,7 @@ export const BaseImage = ({
   const imgSrcSet = get(imgAttrs, ["srcset"]);
   const imgSrcSetUrl = imgSrcSet?.split(" ")?.[0];
   const imgSrc = imgSrcSetUrl || get(imgAttrs, ["src"]);
-
+  console.log("cover image image-----", isHeroImage, disableImgPreload, imgSrc);
   return (
     <Fragment>
       {isHeroImage && !disableImgPreload && imgSrc ? (

@@ -20,6 +20,7 @@ exports[`CoverPage Component should match snapshot 1`] = `
           ]
         }
         class="qt-amp-visual-story-img-cover"
+        data-hero="true"
         lightbox={false}
         metadata={
           Object {

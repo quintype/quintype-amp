@@ -59,13 +59,14 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
   }
 
   const visualStoryConfig = { logoUrl, logoAlignment };
-
+  console.log("cover image first card card-----");
   return (
     <Fragment>
       <AmpStoryPage id="cover">
         <amp-story-grid-layer template="fill">
           {heroImgSrc ? (
             <Image
+              data-hero={"true"}
               class="qt-amp-visual-story-img-cover"
               aspectRatio={[480, 640]}
               alt={altText}
