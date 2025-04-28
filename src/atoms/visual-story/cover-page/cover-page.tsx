@@ -67,6 +67,7 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
           {heroImgSrc ? (
             <Image
               class="qt-amp-visual-story-img-cover"
+              data-hero={"true"}
               aspectRatio={[480, 640]}
               alt={altText}
               slug={heroImgSrc}
