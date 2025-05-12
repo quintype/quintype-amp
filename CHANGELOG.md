@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.21.1](https://github.com/quintype/quintype-amp/compare/v2.21.0...v2.21.1) (2025-05-12)
+
+
+### Bug Fixes
+
+* Preload visual story hero image ([#478](https://github.com/quintype/quintype-amp/issues/478)) ([0014212](https://github.com/quintype/quintype-amp/commit/0014212ffcc5c0e82edab1e1f57f04a5eb169172))
+
 ## [2.21.0](https://github.com/quintype/quintype-amp/compare/v2.20.0...v2.21.0) (2025-03-19)
 
 
