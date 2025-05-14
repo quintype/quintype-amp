@@ -6,9 +6,18 @@ export const getImgSrcAndSrcset = ({ opts, slug, metadata, aspectRatio, cdnImage
   const imgOpts = isGumlet ? { format: "auto", ...opts } : opts;
   const src = focusedImagePath({ opts: imgOpts, slug, metadata, aspectRatio, cdnImage });
   let srcset = "";
-  const srcsetOpt = { ...imgOpts, w: 640 };
-  srcset += `${focusedImagePath({ opts: srcsetOpt, slug, metadata, aspectRatio, cdnImage })} ${srcsetOpt.w}w`;
-
+  const srcsetOpts = [
+    { ...imgOpts, w: 404 },
+    { ...imgOpts, w: 640 },
+    { ...imgOpts, w: 808 }
+  ];
+  srcsetOpts.forEach((val, i) => {
+    if (i === srcsetOpts.length - 1) {
+      srcset += `${focusedImagePath({ opts: val, slug, metadata, aspectRatio, cdnImage })} ${val.w}w`;
+    } else {
+      srcset += `${focusedImagePath({ opts: val, slug, metadata, aspectRatio, cdnImage })} ${val.w}w, `;
+    }
+  });
   return { src, srcset };
 };
 
