@@ -7,9 +7,9 @@ export const getImgSrcAndSrcset = ({ opts, slug, metadata, aspectRatio, cdnImage
   const src = focusedImagePath({ opts: imgOpts, slug, metadata, aspectRatio, cdnImage });
   let srcset = "";
   const srcsetOpts = [
+    { ...imgOpts, w: 360 },
     { ...imgOpts, w: 404 },
-    { ...imgOpts, w: 640 },
-    { ...imgOpts, w: 808 }
+    { ...imgOpts, w: 640 }
   ];
   srcsetOpts.forEach((val, i) => {
     if (i === srcsetOpts.length - 1) {
