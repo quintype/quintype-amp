@@ -30,19 +30,20 @@ const StyledFigcaption = styled.div`
 export const HeroImageBase = ({ story, config }: HeroImageBaseTypes) => {
   const metadata: HeroImageMetadata = get(story, "hero-image-metadata", null);
   const slug: string | null = get(story, "hero-image-s3-key", null);
-  if (!slug || !metadata) return null;
+  if (!slug) return null;
 
   const attribution: string | null = get(story, "hero-image-attribution", null);
   const caption: string | null = get(story, "hero-image-caption", null);
   const altText: string | null = get(story, "hero-image-alt-text", null);
   const disableImgPreload: boolean = get(config, ["opts", "optimizeAmpHtml"], true);
+  const defaultDimensions = { height: 675, width: 1200 };
 
   return (
     <>
       <StyledDiv>
         <Image
           data-hero={"true"}
-          metadata={metadata}
+          metadata={metadata || defaultDimensions}
           slug={slug}
           alt={altText || caption || attribution || ""}
           disableImgPreload={disableImgPreload}></Image>
