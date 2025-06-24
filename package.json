@@ -1,6 +1,6 @@
 {
   "name": "@quintype/amp",
-  "version": "2.21.2-fix-amp-hero-image.0",
+  "version": "2.21.2-fix-amp-hero-image.1",
   "description": "Quintype's AMP component library for publisher apps to create amp layouts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -40,7 +40,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged && npm run jest"
     }
   },
   "homepage": "https://github.com/quintype/quintype-amp#readme",
