@@ -53,6 +53,7 @@ const storyElementsTable = [
   ["jsembed", "tweet", TwitterElement],
   ["jsembed", "vidible-video", VidibleElement],
   ["jsembed", anyType, Embed],
+  ["jsembed", "null", Embed],
   ["polltype", "opinion-poll", Unsupported],
   ["soundcloud-audio", none, Unsupported],
   ["text", "also-read", AlsoRead],
