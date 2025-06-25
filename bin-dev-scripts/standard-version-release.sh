@@ -4,7 +4,7 @@ BRANCH=$(git symbolic-ref --short HEAD)
 
 if [ "$BRANCH" == 'master' ]
 then
-  npm install
+  npm install --legacy-peer-deps
   npm run jest
   npm run build:prod
   git diff --quiet
