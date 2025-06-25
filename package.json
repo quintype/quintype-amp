@@ -1,6 +1,6 @@
 {
   "name": "@quintype/amp",
-  "version": "2.21.2-fix-amp-hero-image.1",
+  "version": "2.21.2-fix-test-failures.0",
   "description": "Quintype's AMP component library for publisher apps to create amp layouts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -106,6 +106,7 @@
     "performant-array-to-tree": "^1.7.1",
     "quintype-js": "^1.2.1",
     "react-helmet": "^5.2.1",
+    "react-is": "^19.1.0",
     "styled-components": "^5.1.1"
   },
   "peerDependencies": {
