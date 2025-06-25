@@ -14,11 +14,18 @@ export const getIframeContent = (str, regex) => {
 };
 
 export const DefaultEmbed = ({ element }: StoryElementProps) => {
+  console.log("element", element);
   const embedData = element["embed-js"] ? atob(element["embed-js"]) : "";
   const src = getIframeContent(embedData, /(?<=src=["']).*?(?=[*"'])/);
   const scrolling = getIframeContent(embedData, /(?<=scrolling=["']).*?(?=[*"'])/);
   const title = element.subtype || element.title || "";
-  return src ? <Iframe src={src} scrolling={scrolling} title={title} /> : null;
+  if (src) {
+    return <Iframe src={src} scrolling={scrolling} title={title} />;
+  } else if (embedData) {
+    console.log("embedData", embedData);
+    return <div dangerouslySetInnerHTML={{ __html: embedData }} />;
+  }
+  return null;
 };
 
 export const getIframeSourceURL = (str: string): string | null => {
