@@ -81,6 +81,7 @@
     "onchange": "^4.1.0",
     "parcel": "1.12.3",
     "prettier": "^1.19.1",
+    "react-is": "^19.1.0",
     "standard-version": "^8.0.2",
     "ts-jest": "^25.2.0",
     "ts-loader": "^7.0.5",
