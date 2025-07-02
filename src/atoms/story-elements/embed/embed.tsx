@@ -18,7 +18,20 @@ export const DefaultEmbed = ({ element }: StoryElementProps) => {
   const src = getIframeContent(embedData, /(?<=src=["']).*?(?=[*"'])/);
   const scrolling = getIframeContent(embedData, /(?<=scrolling=["']).*?(?=[*"'])/);
   const title = element.subtype || element.title || "";
-  return src ? <Iframe src={src} scrolling={scrolling} title={title} /> : null;
+  if (src) {
+    return <Iframe src={src} scrolling={scrolling} title={title} />;
+  } else if (
+    embedData &&
+    !/<(script|iframe|form|style|object|embed|frame|frameset|meta|link|base)[\s>]/i.test(embedData) &&
+    !/\bon\w+=/i.test(embedData) &&
+    !/javascript:/i.test(embedData)
+  ) {
+    // Ensure embedData does not contain disallowed tags (e.g., <script>, <iframe>, etc.),
+    // inline event handlers (e.g., onclick=, onmouseover=), or javascript: URLs
+    // to prevent XSS and unsafe content injection.
+    return <div dangerouslySetInnerHTML={{ __html: embedData }} />;
+  }
+  return null;
 };
 
 export const getIframeSourceURL = (str: string): string | null => {
