@@ -26,6 +26,9 @@ export const DefaultEmbed = ({ element }: StoryElementProps) => {
     !/\bon\w+=/i.test(embedData) &&
     !/javascript:/i.test(embedData)
   ) {
+    // Ensure embedData does not contain disallowed tags (e.g., <script>, <iframe>, etc.),
+    // inline event handlers (e.g., onclick=, onmouseover=), or javascript: URLs
+    // to prevent XSS and unsafe content injection.
     return <div dangerouslySetInnerHTML={{ __html: embedData }} />;
   }
   return null;
