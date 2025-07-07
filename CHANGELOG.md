@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.21.4](https://github.com/quintype/quintype-amp/compare/v2.21.1...v2.21.4) (2025-07-07)
+
+
+### Bug Fixes
+
+* hero image in amp migrated stories ([#481](https://github.com/quintype/quintype-amp/issues/481)) ([44ccfff](https://github.com/quintype/quintype-amp/commit/44ccfff56a848175ed7a25c0cb255a61363d8944))
+* **jsembed:** fallback support for non-iframe elements ([#485](https://github.com/quintype/quintype-amp/issues/485)) ([c603116](https://github.com/quintype/quintype-amp/commit/c603116340282bfa1ea6943b28ddf801ee0ac16f))
+* prod version release due to dependency mismatch ([#483](https://github.com/quintype/quintype-amp/issues/483)) ([204ac42](https://github.com/quintype/quintype-amp/commit/204ac42d16593b9051d7101dae846308e5a786fa))
+* release prod version for amp hero image changes ([#484](https://github.com/quintype/quintype-amp/issues/484)) ([c7a29dc](https://github.com/quintype/quintype-amp/commit/c7a29dc0e9b940dd9115377eeac8bf5937087ae4))
+
 ### [2.21.1](https://github.com/quintype/quintype-amp/compare/v2.21.0...v2.21.1) (2025-05-12)
 
 
