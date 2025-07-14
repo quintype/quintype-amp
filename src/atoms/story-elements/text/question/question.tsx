@@ -22,12 +22,12 @@ export const StyledQuestion = styled.div<{ textDirection: "ltr" | "rtl" }>`
   }
 `;
 
-export const QuestionBase = ({ element, story, config }: StoryElementProps) => {
+export const QuestionBase = ({ element, story, config, counter }: StoryElementProps) => {
   const questionElementRender = get(config, ["opts", "render", "storyElementRender", "questionElementRender"], null);
   const textDirection = get(config, ["publisherConfig", "language", "direction"], "ltr");
 
   return questionElementRender ? (
-    questionElementRender({ story, config, element })
+    questionElementRender({ story, config, element, counter })
   ) : (
     <StyledQuestion textDirection={textDirection} dangerouslySetInnerHTML={{ __html: element.text || "" }} />
   );

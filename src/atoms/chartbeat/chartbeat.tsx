@@ -8,8 +8,10 @@ const ChartBeatBase = ({ story, config }) => {
     return null;
   }
   const sections = story.sections.map((section) => section.name).join(",");
-  const authors = story["author-name"];
-  const domain = config.publisherConfig["sketches-host"].replace("https://www.", "");
+  const authors = story.authors.map((author) => author.name).join(",");
+  const domain = config.publisherConfig["sketches-host"].includes("https://www.")
+    ? config.publisherConfig["sketches-host"].replace("https://www.", "")
+    : config.publisherConfig["sketches-host"].replace("https://", "");
   const targets = {
     vars: {
       uid: chartbeatConfig.uid,
