@@ -67,7 +67,7 @@ const storyElementsTable = [
   ["text", "blurb", Blurb],
   ["text", "q-and-a", QAndA],
   ["text", "question", Question],
-  ["text", "quote", BlockQuote],
+  ["text", "blockquote", BlockQuote],
   ["text", "summary", Summary],
   ["text", anyType, Text],
   ["title", none, Title],
