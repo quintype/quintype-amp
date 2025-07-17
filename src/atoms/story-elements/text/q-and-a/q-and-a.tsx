@@ -5,9 +5,9 @@ import { StyledQuestion } from "../question/question";
 import { StyledAnswer } from "../answer/answer";
 import get from "lodash.get";
 
-export const QAndABase = ({ element, story, config }: StoryElementProps) => {
+export const QAndABase = ({ element, story, config, counter }: StoryElementProps) => {
   const qAndAElementRender = get(config, ["opts", "render", "storyElementRender", "qAndAElementRender"], null);
-  if (qAndAElementRender) return qAndAElementRender({ story, config, element });
+  if (qAndAElementRender) return qAndAElementRender({ story, config, element, counter });
   const textDirection = get(config, ["publisherConfig", "language", "direction"], "ltr");
 
   const question = get(element, ["metadata", "question"], null);

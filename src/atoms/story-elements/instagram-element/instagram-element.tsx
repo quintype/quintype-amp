@@ -6,8 +6,11 @@ import { withStoryAndConfig } from "../../../context";
 import get from "lodash.get";
 type InstagramElementProps = StoryElementProps & Omit<InstagramTypes, "data-shortcode">;
 
-const getInstagramID = (url: string) => {
-  const exec = /instagram\.com\/p\/([^#\&\?]*)\//.exec(url);
+const getInstagramID = (url: string, isReelSupported: boolean) => {
+  const instagramEmbedRegex = isReelSupported
+    ? /instagram\.com\/(?:p|reel)\/([^#\&\?\/]+)/
+    : /instagram\.com\/p\/([^#\&\?]*)\//;
+  const exec = instagramEmbedRegex.exec(url);
   return exec ? exec[1] : null;
 };
 
@@ -16,6 +19,7 @@ export const DefaultInstagramElement = ({
   layout = "responsive",
   width = "16",
   height = "9",
+  isReelSupported = false,
   ...props
 }: InstagramElementProps) => {
   const { metadata } = element;
@@ -24,7 +28,7 @@ export const DefaultInstagramElement = ({
   if (metadata && metadata["instagram-id"]) {
     instagramID = metadata["instagram-id"];
   } else if (metadata && metadata["instagram-url"]) {
-    instagramID = getInstagramID(metadata["instagram-url"]);
+    instagramID = getInstagramID(metadata["instagram-url"], isReelSupported);
   }
   return instagramID ? (
     <Instagram data-shortcode={instagramID} layout={layout} width={width} height={height} {...props} />
@@ -33,10 +37,11 @@ export const DefaultInstagramElement = ({
 
 export const InstagramElementBase = ({ element, story, config }: StoryElementProps) => {
   const instagramElementRender = get(config, ["opts", "render", "storyElementRender", "instagramElementRender"], null);
+  const isReelSupported = get(config, ["opts", "featureConfig", "isInstagramReelSupported"], false);
   return instagramElementRender ? (
     instagramElementRender({ story, config, element })
   ) : (
-    <DefaultInstagramElement element={element} />
+    <DefaultInstagramElement element={element} isReelSupported={isReelSupported} />
   );
 };
 /**

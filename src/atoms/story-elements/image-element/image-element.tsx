@@ -26,11 +26,11 @@ const StyledFigCaption = styled.figcaption`
 	`}
 `;
 
-export const ImageElementBase = ({ element, story, config }: StoryElementProps) => {
+export const ImageElementBase = ({ element, story, config, counter }: StoryElementProps) => {
   const imageElementRender = get(config, ["opts", "render", "storyElementRender", "imageElementRender"], null);
   const imageAltText = element["alt-text"] || element["image-attribution"] || element.title || "";
   return imageElementRender ? (
-    imageElementRender({ story, config, element })
+    imageElementRender({ story, config, element, counter })
   ) : (
     <Image slug={element["image-s3-key"]} metadata={element["image-metadata"]} alt={imageAltText}>
       {element.title && element.title.length > 1 && (

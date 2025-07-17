@@ -95,18 +95,18 @@ export const DefaultBlockQuote = ({ element, config }: StoryElementProps) => {
   return <FallbackBlockQuote dangerouslySetInnerHTML={{ __html: element.text || "" }} />;
 };
 
-export const BlockQuoteBase = ({ element, story, config, counter }: StoryElementProps) => {
-  const blockquoteRender = get(config, ["opts", "render", "storyElementRender", "blockquoteRender"], null);
+export const QuoteBase = ({ element, story, config }: StoryElementProps) => {
+  const quoteRender = get(config, ["opts", "render", "storyElementRender", "quoteRender"], null);
 
-  return blockquoteRender ? (
-    blockquoteRender({ story, config, element, counter })
+  return quoteRender ? (
+    quoteRender({ story, config, element })
   ) : (
     <DefaultBlockQuote element={element} config={config} />
   );
 };
 /**
- * BlockQuote is a story element.
- * The look of the BlockQuote can be changed using the render prop blockquoteRender. In case blockquoteRender is passed in the config, it is rendered. Otherwise a default BlockQuote is rendered.
+ * Quote is a story element.
+ * The look of the Quote can be changed using the render prop quoteRender. In case quoteRender is passed in the config, it is rendered. Otherwise a default BlockQuote is rendered.
  *
  * @param {Object} params object containing parameters passed to the render prop
  * @param {Object} params.story story object
@@ -118,7 +118,7 @@ export const BlockQuoteBase = ({ element, story, config, counter }: StoryElement
  * ampRoutes(app, {
  *  render: {
  *    storyElementRender: {
- *      blockquoteRender: ({ story, config, element }) => <MyCustomBlockQuote story={story} config={config} storyElement={element} />
+ *      quoteRender: ({ story, config, element }) => <MyCustomQuote story={story} config={config} storyElement={element} />
  *    }
  *  }
  * })
@@ -126,7 +126,7 @@ export const BlockQuoteBase = ({ element, story, config, counter }: StoryElement
  * ```
  *
  * @category StoryElements
- * @module BlockQuote
+ * @module Quote
  * @component
  */
-export const BlockQuote = withStoryAndConfig(BlockQuoteBase);
+export const Quote = withStoryAndConfig(QuoteBase);
