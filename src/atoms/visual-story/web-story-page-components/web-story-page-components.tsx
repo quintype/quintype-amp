@@ -98,13 +98,7 @@ const TextWrapper = styled.div`
   padding: 24px;
   width: 100%;
   display: flex;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0.1) 5%,
-    rgba(0, 0, 0, 0.6) 50%,
-    rgba(0, 0, 0, 0.75)
-  );
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000 76.39%);
 `;
 
 const ImageDetails = styled.div`

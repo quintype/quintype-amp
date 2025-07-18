@@ -120,13 +120,7 @@ const StyledTextWrapper = styled.div`
   padding: 32px;
   color: ${(props) => props.theme.color.white};
   display: flex;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0.2) 5%,
-    rgba(0, 0, 0, 0.5) 50%,
-    rgba(0, 0, 0, 0.75)
-  );
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000 76.39%);
 `;
 const StyledHeadline = styled.h1`
   margin-top: ${(props) => props.theme.spacing.s};
