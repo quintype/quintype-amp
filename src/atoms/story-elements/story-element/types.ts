@@ -5,5 +5,4 @@ export interface StoryElementTypes {
   noSpacer?: boolean;
   storyElementIdx?: number;
   cardIdx?: number;
-  counter?: object;
 }

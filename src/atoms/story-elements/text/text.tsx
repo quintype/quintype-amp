@@ -87,10 +87,10 @@ export const DefaultText = ({ element, config, story }: StoryElementProps) => {
   );
 };
 
-export const TextBase = ({ element, story, config, counter }: StoryElementProps) => {
+export const TextBase = ({ element, story, config }: StoryElementProps) => {
   const textElementRender = get(config, ["opts", "render", "storyElementRender", "textElementRender"], null);
   return textElementRender ? (
-    textElementRender({ story, config, element, counter })
+    textElementRender({ story, config, element })
   ) : (
     <DefaultText element={element} config={config} story={story} />
   );

@@ -82,7 +82,7 @@ export function getFigcaptionText(caption, attribution) {
   else return false;
 }
 
-export const ImageGalleryElementBase = ({ element, story, config, counter }: StoryElementProps) => {
+export const ImageGalleryElementBase = ({ element, story, config }: StoryElementProps) => {
   const imageGalleryElementRender = get(
     config,
     ["opts", "render", "storyElementRender", "imageGalleryElementRender"],
@@ -90,7 +90,7 @@ export const ImageGalleryElementBase = ({ element, story, config, counter }: Sto
   );
 
   return imageGalleryElementRender ? (
-    imageGalleryElementRender({ story, config, element, counter })
+    imageGalleryElementRender({ story, config, element })
   ) : (
     <DefaultImageGalleryElement element={element} config={config} />
   );

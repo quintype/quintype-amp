@@ -14,11 +14,11 @@ export const StyledSummary = styled.p<StoryElementProps>`
   }
 `;
 
-export const SummaryBase = ({ element, story, config, counter }: StoryElementProps) => {
+export const SummaryBase = ({ element, story, config }: StoryElementProps) => {
   const summaryElementRender = get(config, ["opts", "render", "storyElementRender", "summaryElementRender"], null);
 
   return summaryElementRender ? (
-    summaryElementRender({ story, config, element, counter })
+    summaryElementRender({ story, config, element })
   ) : (
     <StyledSummary
       element={element}

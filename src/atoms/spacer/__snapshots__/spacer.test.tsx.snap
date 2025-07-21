@@ -2,7 +2,6 @@
 
 exports[`Spacer should render 1`] = `
 <styled.div
-  data-test-id="styled-space-vertical"
   token="m"
 />
 `;

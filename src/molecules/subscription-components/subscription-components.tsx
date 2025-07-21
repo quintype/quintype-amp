@@ -13,8 +13,7 @@ const StoryCardsWithSubscriptionsBase = ({ story, config }) => {
   // tslint:disable-next-line:no-shadowed-variable
   const isReasonGranted = (story, config): string => {
     const grantedReasonFunction = get(
-      config,
-      ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "grantReason"],
+      config, ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "grantReason"],
       "SUBSCRIBER"
     );
     const grantedReason = grantedReasonFunction && grantedReasonFunction({ story, config });
@@ -23,8 +22,7 @@ const StoryCardsWithSubscriptionsBase = ({ story, config }) => {
   // tslint:disable-next-line:no-shadowed-variable
   const isGranted = (story, config): boolean => {
     const grantedFunction = get(
-      config,
-      ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "granted"],
+      config, ["opts", "featureConfig", "subscriptions", "fallbackEntitlement", "granted"],
       true
     );
     const granted = grantedFunction && grantedFunction({ story, config });
@@ -37,7 +35,7 @@ const StoryCardsWithSubscriptionsBase = ({ story, config }) => {
   let storyContent;
   if (isHardPaywallStory || !hardPaywallAccessGranted)
     storyContent = <HardPaywallStoryContent story={story} config={config} />;
-  else storyContent = <FullStoryContent story={story} config={config} />;
+  else storyContent = <FullStoryContent story={story} />;
 
   return (
     <Fragment>

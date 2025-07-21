@@ -22,7 +22,7 @@ export const StyledAlsoRead = styled.div`
   }
 `;
 
-export const AlsoReadBase = ({ element, story, config, counter }: StoryElementProps) => {
+export const AlsoReadBase = ({ element, story, config }: StoryElementProps) => {
   const linkedStoryId = get(element, ["metadata", "linked-story-id"]);
   const linkedStory = get(story, ["linked-stories", linkedStoryId]);
   const alsoReadRender = get(config, ["opts", "render", "storyElementRender", "alsoReadRender"], null);
@@ -32,7 +32,7 @@ export const AlsoReadBase = ({ element, story, config, counter }: StoryElementPr
   }
 
   return alsoReadRender ? (
-    alsoReadRender({ story, config, element, counter })
+    alsoReadRender({ story, config, element })
   ) : (
     <StyledAlsoRead>
       <Spacer token="m" align="horizontal" />

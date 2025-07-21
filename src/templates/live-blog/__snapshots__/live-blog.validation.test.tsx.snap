@@ -7312,7 +7312,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
       <Component>
         <div
           data-sort-time={1595309398502}
-          data-test-id="styled-live-blog-cards"
           data-update-time={1595309566241}
           id="e033dae1-8e77-49a5-bd66-902be4b72016"
           key="e033dae1-8e77-49a5-bd66-902be4b72016"
@@ -7502,7 +7501,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
         </div>
         <div
           data-sort-time={1595309398502}
-          data-test-id="styled-live-blog-cards"
           data-update-time={1595309566241}
           id="1103e2ab-7a92-4b55-a6b5-c4e655317e33"
           key="1103e2ab-7a92-4b55-a6b5-c4e655317e33"
@@ -7670,7 +7668,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
         </div>
         <div
           data-sort-time={1595309693361}
-          data-test-id="styled-live-blog-cards"
           data-update-time={1595310701812}
           id="86081c3c-c7b2-4284-8397-78ca184bc7fb"
           key="86081c3c-c7b2-4284-8397-78ca184bc7fb"
@@ -7799,7 +7796,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
         </div>
         <div
           data-sort-time={1595309759462}
-          data-test-id="styled-live-blog-cards"
           data-update-time={1595310701812}
           id="9dc9b844-f2ab-4c89-bddf-96fca4f58b07"
           key="9dc9b844-f2ab-4c89-bddf-96fca4f58b07"
@@ -7928,7 +7924,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
         </div>
         <div
           data-sort-time={1595310223414}
-          data-test-id="styled-live-blog-cards"
           data-update-time={1595310701812}
           id="405fffd2-69f6-4568-b641-ce65935769fd"
           key="405fffd2-69f6-4568-b641-ce65935769fd"
@@ -8096,7 +8091,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
         </div>
         <div
           data-sort-time={1595310277389}
-          data-test-id="styled-live-blog-cards"
           data-update-time={1595310701812}
           id="6d67b7f5-5125-439a-9f3e-ffe3728c6d33"
           key="6d67b7f5-5125-439a-9f3e-ffe3728c6d33"
@@ -8225,7 +8219,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
         </div>
         <div
           data-sort-time={1595310277389}
-          data-test-id="styled-live-blog-cards"
           data-update-time={1595310701812}
           id="1e7e3c7d-6f68-4572-b4ee-5ba6f42ea014"
           key="1e7e3c7d-6f68-4572-b4ee-5ba6f42ea014"
@@ -8354,7 +8347,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
         </div>
         <div
           data-sort-time={1595310701812}
-          data-test-id="styled-live-blog-cards"
           data-update-time={1595310701812}
           id="6dde1432-4eee-4f78-ae28-a00a6b88ac81"
           key="6dde1432-4eee-4f78-ae28-a00a6b88ac81"
@@ -8483,7 +8475,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
         </div>
         <div
           data-sort-time={1595310859439}
-          data-test-id="styled-live-blog-cards"
           data-update-time={1595315980861}
           id="4a1a26c1-946b-4320-8b23-35436fbb081d"
           key="4a1a26c1-946b-4320-8b23-35436fbb081d"
@@ -8684,7 +8675,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
         </div>
         <div
           data-sort-time={1595311337341}
-          data-test-id="styled-live-blog-cards"
           data-update-time={1595315980861}
           id="5b332973-a775-4465-983d-dbde7fd5c116"
           key="5b332973-a775-4465-983d-dbde7fd5c116"
@@ -8813,7 +8803,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
         </div>
         <div
           data-sort-time={1595313225506}
-          data-test-id="styled-live-blog-cards"
           data-update-time={1595315980861}
           id="f85e63d5-deb2-4303-8d6b-ea0c590d033f"
           key="f85e63d5-deb2-4303-8d6b-ea0c590d033f"
@@ -8942,7 +8931,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
         </div>
         <div
           data-sort-time={1595313236619}
-          data-test-id="styled-live-blog-cards"
           data-update-time={1595315980861}
           id="e663e830-c713-4f62-90cb-f11582d254ef"
           key="e663e830-c713-4f62-90cb-f11582d254ef"
@@ -9071,7 +9059,6 @@ exports[`The LiveBlog Default Template should match snapshot 1`] = `
         </div>
         <div
           data-sort-time={1595315980861}
-          data-test-id="styled-live-blog-cards"
           data-update-time={1595315980861}
           id="25b150b8-2063-4deb-8843-d3da24ba7df2"
           key="25b150b8-2063-4deb-8843-d3da24ba7df2"

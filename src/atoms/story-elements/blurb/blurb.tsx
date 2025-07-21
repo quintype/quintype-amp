@@ -33,14 +33,10 @@ export const DefaultBlurb = ({ element, config }: StoryElementProps) => {
   );
 };
 
-export const BlurbBase = ({ element, story, config, counter }: StoryElementProps) => {
+export const BlurbBase = ({ element, story, config }: StoryElementProps) => {
   const blurbRender = get(config, ["opts", "render", "storyElementRender", "blurbRender"], null);
 
-  return blurbRender ? (
-    blurbRender({ story, config, element, counter })
-  ) : (
-    <DefaultBlurb element={element} config={config} />
-  );
+  return blurbRender ? blurbRender({ story, config, element }) : <DefaultBlurb element={element} config={config} />;
 };
 
 /**

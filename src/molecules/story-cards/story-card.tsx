@@ -5,15 +5,16 @@ import { withStoryAndConfig } from "../../context";
 import { subscriptionsEnabled } from "../../atoms/subscriptions/subscriptions.helpers";
 
 const StoryCardsBase = ({ story, config }) => {
-  return (
-    <Fragment>
-      {subscriptionsEnabled(story, config) ? (
-        <StoryCardsWithSubscriptions story={story} config={config} />
-      ) : (
-        <FullStoryContent story={story} config={config} />
-      )}
-    </Fragment>
-  );
+
+    return (
+        <Fragment>
+            {subscriptionsEnabled(story, config) ? (
+                <StoryCardsWithSubscriptions story={story} config={config} />
+            ) : (
+                    <FullStoryContent story={story} />
+                )}
+        </Fragment>
+    );
 };
 
 export const StoryCards = withStoryAndConfig(StoryCardsBase);

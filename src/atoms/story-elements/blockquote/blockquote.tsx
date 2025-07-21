@@ -95,11 +95,11 @@ export const DefaultBlockQuote = ({ element, config }: StoryElementProps) => {
   return <FallbackBlockQuote dangerouslySetInnerHTML={{ __html: element.text || "" }} />;
 };
 
-export const BlockQuoteBase = ({ element, story, config, counter }: StoryElementProps) => {
+export const BlockQuoteBase = ({ element, story, config }: StoryElementProps) => {
   const blockquoteRender = get(config, ["opts", "render", "storyElementRender", "blockquoteRender"], null);
 
   return blockquoteRender ? (
-    blockquoteRender({ story, config, element, counter })
+    blockquoteRender({ story, config, element })
   ) : (
     <DefaultBlockQuote element={element} config={config} />
   );

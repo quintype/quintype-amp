@@ -30,9 +30,9 @@ const makeSpace = (token: string, align?: SpaceDirection) => {
 
 const Spacer = ({ token, align }: SpacerProps) =>
   align === "horizontal" ? (
-    <StyledSpacerHorizontal data-test-id="styled-space-horizontal" token={token} align={align} />
+    <StyledSpacerHorizontal token={token} align={align} />
   ) : (
-    <StyledSpacerVertical data-test-id="styled-space-vertical" token={token} align={align} />
+    <StyledSpacerVertical token={token} align={align} />
   );
 
 export { Spacer, makeSpace };

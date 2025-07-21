@@ -23,12 +23,12 @@ export const StyledAnswer = styled.div<{ textDirection: "ltr" | "rtl" }>`
   }
 `;
 
-export const AnswerBase = ({ element, story, config, counter }: StoryElementProps) => {
+export const AnswerBase = ({ element, story, config }: StoryElementProps) => {
   const answerElementRender = get(config, ["opts", "render", "storyElementRender", "answerElementRender"], null);
   const textDirection = get(config, ["publisherConfig", "language", "direction"], "ltr");
 
   return answerElementRender ? (
-    answerElementRender({ story, config, element, counter })
+    answerElementRender({ story, config, element })
   ) : (
     <StyledAnswer textDirection={textDirection} dangerouslySetInnerHTML={{ __html: element.text || "" }} />
   );
