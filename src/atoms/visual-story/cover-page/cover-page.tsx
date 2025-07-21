@@ -121,6 +121,7 @@ const StyledTextWrapper = styled.div`
   color: ${(props) => props.theme.color.white};
   display: flex;
   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000 76.39%);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
 `;
 const StyledHeadline = styled.h1`
   margin-top: ${(props) => props.theme.spacing.s};
@@ -129,10 +130,12 @@ const StyledHeadline = styled.h1`
   font-size: ${(props) => props.theme.font.size.huge};
   font-family: ${(props) => props.theme.font.family.primary};
   overflow-wrap: break-word;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
 `;
 const StyledAuthors = styled.p`
   font-size: ${(props) => props.theme.font.size.xs};
   font-family: ${(props) => props.theme.font.family.secondary};
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
 `;
 const LogoWrapper = styled.div`
   position: relative;

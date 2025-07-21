@@ -99,6 +99,7 @@ const TextWrapper = styled.div`
   width: 100%;
   display: flex;
   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000 76.39%);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
 `;
 
 const ImageDetails = styled.div`
@@ -109,6 +110,7 @@ const ImageDetails = styled.div`
     const fontSize = props.theme.font.size.tiny;
     return `${fontWeight} ${fontSize} ${fontFamily}`;
   }};
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
   line-height: ${(props) => props.theme.font.lineHeight.level6};
   div,
   p {
