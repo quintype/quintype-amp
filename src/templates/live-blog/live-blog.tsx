@@ -81,6 +81,21 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
           <Spacer token="m" />
           <LiveList>
             {story.cards.map((card, idx) => {
+              const customCardRender = get(config, ["opts", "render", "storyCardRenderProps"], {});
+              const cardtype = get(card, ["metadata", "attributes", "cardtype", "0"], "");
+              if (customCardRender[cardtype] && typeof customCardRender[cardtype] === "function") {
+                return (
+                  <div
+                    key={card.id}
+                    id={card.id}
+                    data-test-id="styled-live-blog-cards"
+                    data-sort-time={card["card-added-at"]}
+                    data-update-time={card["card-updated-at"]}>
+                    {customCardRender[cardtype]({ story, config, card })}
+                    <CardUpdatedAt timeStamp={card["card-added-at"]} card={card} />
+                  </div>
+                );
+              }
               const storyCard = card["story-elements"].map((element) => (
                 <StoryElement key={element.id} element={element} noSpacer={true} />
               ));
@@ -89,6 +104,7 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
                   key={card.id}
                   id={card.id}
                   data-sort-time={card["card-added-at"]}
+                  data-test-id="styled-live-blog-cards"
                   data-update-time={card["card-updated-at"]}>
                   {storyCard}
                   <CardUpdatedAt timeStamp={card["card-updated-at"]} card={card} />
