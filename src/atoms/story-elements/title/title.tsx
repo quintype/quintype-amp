@@ -12,11 +12,11 @@ export const StyledTitle = styled.h3`
   text-transform: uppercase;
 `;
 
-export const TitleBase = ({ element, story, config }: StoryElementProps) => {
+export const TitleBase = ({ element, story, config, counter }: StoryElementProps) => {
   const titleElementRender = get(config, ["opts", "render", "storyElementRender", "titleElementRender"], null);
 
   return titleElementRender ? (
-    titleElementRender({ story, config, element })
+    titleElementRender({ story, config, element, counter })
   ) : (
     <StyledTitle>{element.text}</StyledTitle>
   );
