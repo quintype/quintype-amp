@@ -3,8 +3,12 @@ import { Helmet } from "react-helmet";
 import { DfpAdTypes } from "./types";
 import { withStoryAndConfig } from "../../context";
 import { getTargetingInfo } from "./helpers";
+import get from "lodash.get";
 
 export const DfpAdBase = ({ story, config, children, prefetchScript, ...rest }: DfpAdTypes) => {
+  const adFree = get(config, ["additionalConfig", "subscriber"], false);
+
+  if (adFree) return null;
   return (
     <Fragment>
       <Helmet>
