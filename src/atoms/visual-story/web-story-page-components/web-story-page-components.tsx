@@ -91,15 +91,29 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
 };
 
 const TextWrapper = styled.div`
-  max-height: 100%;
-  color: ${(props) => props.theme.color.white};
   position: absolute;
   bottom: 0;
-  padding: 24px;
   width: 100%;
+  padding: 24px;
+  color: ${(props) => props.theme.color.white};
   display: flex;
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000 76.39%);
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 1;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 300px); // extend 100px above the text
+    background-image: linear-gradient(to top, #000, rgba(0, 0, 0, 0));
+    z-index: -1;
+  }
+
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+
   p {
     font-size: 18px;
     line-height: normal;
