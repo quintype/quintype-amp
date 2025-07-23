@@ -98,7 +98,7 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
               <StyledHeadline className="qt-amp-visual-story-cover-headline">{headline}</StyledHeadline>
               {authorNames && (
                 <Fragment>
-                  <Spacer token="xs" />
+                  <Spacer token="s" />
                   <StyledAuthors>{authorNames}</StyledAuthors>
                 </Fragment>
               )}
@@ -126,8 +126,8 @@ const StyledTextWrapper = styled.div`
 const StyledHeadline = styled.h1`
   margin-top: ${(props) => props.theme.spacing.s};
   line-height: normal;
-  font-weight: ${(props) => props.theme.font.weight.medium};
-  font-size: ${(props) => props.theme.font.size.huge};
+  font-weight: ${(props) => props.theme.font.weight.bold};
+  font-size: ${(props) => props.theme.font.size.xxl};
   font-family: ${(props) => props.theme.font.family.primary};
   overflow-wrap: break-word;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);

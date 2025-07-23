@@ -561,7 +561,7 @@ exports[`CoverPage Component should match snapshot 1`] = `
             Pets are awesome
           </styled.h1>
           <Spacer
-            token="xs"
+            token="s"
           />
           <styled.p>
             Amogh Sahasrabhojanee

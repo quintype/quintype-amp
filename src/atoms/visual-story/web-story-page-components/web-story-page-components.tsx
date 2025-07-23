@@ -100,6 +100,10 @@ const TextWrapper = styled.div`
   display: flex;
   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000 76.39%);
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+  p {
+    font-size: 18px;
+    line-height: normal;
+  }
 `;
 
 const ImageDetails = styled.div`
