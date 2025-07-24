@@ -107,12 +107,12 @@ const TextWrapper = styled.div`
     bottom: 0;
     left: 0;
     width: 100%;
-    height: calc(100% + 300px); // extend 100px above the text
-    background-image: linear-gradient(to top, #000, rgba(0, 0, 0, 0));
+    height: calc(100%);
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5));
     z-index: -1;
   }
 
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
 
   p {
     font-size: 18px;
