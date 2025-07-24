@@ -133,6 +133,7 @@ const ImageDetails = styled.div`
   div,
   p {
     display: inline-block;
+    font-size: 16px;
   }
 `;
 
