@@ -3,6 +3,7 @@ import { StoryProvider } from "../../context/story/story-context";
 import { ConfigProvider } from "../../context/config/config-context";
 import { Theme } from "../../context/theme";
 import { getTokensForDarkTheme } from "../../utils/theme";
+import get from "lodash.get";
 import { WebStory, CoverPage, AmpStoryAutoAds, WebStoryPageComponents, AmpStoryPage } from "../../atoms/visual-story";
 import { ComScore, GoogleTagManager, GoogleAnalytics, QuintypeAnalytics, Fonts } from "../../atoms";
 import { CommonTemplateTypes } from "../common-template-types";
@@ -22,6 +23,7 @@ import atob from "atob-utf-8";
  */
 export const VisualStory = ({ story, config }: CommonTemplateTypes) => {
   const tokens = merge({}, getTokensForDarkTheme(config), getTokensForVisualStory());
+  const isAdfree = get(config, ["additionalConfig", "subscriber"], false);
   const { TopSlot } = StoryPageSlots;
 
   return (
@@ -30,7 +32,7 @@ export const VisualStory = ({ story, config }: CommonTemplateTypes) => {
         <GoogleTagManager />
         <Fonts />
         <TopSlot />
-        <AmpStoryAutoAds />
+        {!isAdfree && <AmpStoryAutoAds />}
         <CoverPage />
         {story.cards
           .filter((card) => canTakeCard(card))
