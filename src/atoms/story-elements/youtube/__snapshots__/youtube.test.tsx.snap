@@ -12,6 +12,7 @@ exports[`Youtube should render default 1`] = `
     />
   </HelmetWrapper>
   <amp-youtube
+    amp-access="loggedIn"
     data-videoid="jlEbFvGwcUc"
     height="270"
     layout="responsive"

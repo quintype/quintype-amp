@@ -18,7 +18,7 @@ export const Twitter = (props: TwitterTypes) => {
       <Helmet>
         <script async={undefined} custom-element="amp-twitter" src="https://cdn.ampproject.org/v0/amp-twitter-0.1.js" />
       </Helmet>
-      <amp-twitter {...componentProps} />
+      <amp-twitter amp-access="loggedIn" {...componentProps} />
     </Fragment>
   );
 };

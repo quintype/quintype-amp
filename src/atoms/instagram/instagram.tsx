@@ -22,7 +22,7 @@ export const Instagram = (props: InstagramTypes) => {
           src="https://cdn.ampproject.org/v0/amp-instagram-0.1.js"
         />
       </Helmet>
-      <amp-instagram {...componentProps} />
+      <amp-instagram amp-access="loggedIn" {...componentProps} />
     </Fragment>
   );
 };

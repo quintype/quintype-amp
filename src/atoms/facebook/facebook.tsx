@@ -22,7 +22,7 @@ export const Facebook = (props: FacebookTypes) => {
           src="https://cdn.ampproject.org/v0/amp-facebook-0.1.js"
         />
       </Helmet>
-      <amp-facebook {...componentProps} title={title} />
+      <amp-facebook amp-access="loggedIn" {...componentProps} title={title} />
     </Fragment>
   );
 };

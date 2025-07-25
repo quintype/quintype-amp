@@ -22,7 +22,7 @@ export const DefaultYouTube = ({
       <Helmet>
         <script async={undefined} custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js" />
       </Helmet>
-      <amp-youtube data-videoid={youtubeID} layout={layout} width={width} height={height} />
+      <amp-youtube amp-access="loggedIn" data-videoid={youtubeID} layout={layout} width={width} height={height} />
     </Fragment>
   );
 };
