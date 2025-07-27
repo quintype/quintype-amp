@@ -125,7 +125,7 @@ const ImageDetails = styled.div`
   font: ${(props) => {
     const fontFamily = props.theme.font.family.primary;
     const fontWeight = props.theme.font.weight.normal;
-    const fontSize = props.theme.font.size.tiny;
+    const fontSize = props.theme.font.size.xs;
     return `${fontWeight} ${fontSize} ${fontFamily}`;
   }};
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
