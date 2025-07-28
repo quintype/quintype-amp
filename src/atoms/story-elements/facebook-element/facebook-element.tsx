@@ -16,6 +16,10 @@ export const FacebookElementBase = ({ element, story, config, ...props }: Facebo
   const { metadata } = element;
   const facebookElementRender = get(config, ["opts", "render", "storyElementRender", "facebookElementRender"], null);
   const title = element.subtype || element.title || "";
+
+  const enableAmpAccess = get(config, ["additionalConfig", "isAmpAccessEnabled"], false);
+  const ampAccess = enableAmpAccess ? { "amp-access": "loggedIn" } : {};
+
   if (!(metadata && metadata.provider && metadata["facebook-url"])) {
     return null;
   }
@@ -26,7 +30,7 @@ export const FacebookElementBase = ({ element, story, config, ...props }: Facebo
       data-href={metadata["facebook-url"]}
       data-embed-as={embedAs[metadata.provider]}
       title={title}
-      config={config}
+      {...ampAccess}
       {...props}
     />
   );

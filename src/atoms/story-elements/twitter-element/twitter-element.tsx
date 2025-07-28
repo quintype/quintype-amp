@@ -11,12 +11,16 @@ export const TwitterElementBase = ({ element, story, config, ...props }: Twitter
   const { metadata } = element;
   const twitterElementRender = get(config, ["opts", "render", "storyElementRender", "twitterElementRender"], null);
   const title = element.subtype || element.title || "";
+
+  const enableAmpAccess = get(config, ["additionalConfig", "isAmpAccessEnabled"], false);
+  const ampAccess = enableAmpAccess ? { "amp-access": "loggedIn" } : {};
+
   if (!(metadata && metadata["tweet-id"])) return null;
 
   return twitterElementRender ? (
     twitterElementRender({ story, config, element })
   ) : (
-    <Twitter config={config} data-tweetid={metadata["tweet-id"]} {...props} title={title} />
+    <Twitter data-tweetid={metadata["tweet-id"]} {...props} title={title} {...ampAccess} />
   );
 };
 /**

@@ -20,6 +20,7 @@ export const DefaultInstagramElement = ({
   width = "16",
   height = "9",
   isReelSupported = false,
+  ampAccess = {},
   config,
   ...props
 }: InstagramElementProps) => {
@@ -32,17 +33,20 @@ export const DefaultInstagramElement = ({
     instagramID = getInstagramID(metadata["instagram-url"], isReelSupported);
   }
   return instagramID ? (
-    <Instagram data-shortcode={instagramID} layout={layout} width={width} height={height} {...props} config={config} />
+    <Instagram data-shortcode={instagramID} layout={layout} width={width} height={height} {...ampAccess} {...props} />
   ) : null;
 };
 
 export const InstagramElementBase = ({ element, story, config }: StoryElementProps) => {
   const instagramElementRender = get(config, ["opts", "render", "storyElementRender", "instagramElementRender"], null);
   const isReelSupported = get(config, ["opts", "featureConfig", "isInstagramReelSupported"], false);
+  const enableAmpAccess = get(config, ["additionalConfig", "isAmpAccessEnabled"], false);
+  const ampAccess = enableAmpAccess ? { "amp-access": "loggedIn" } : {};
+
   return instagramElementRender ? (
     instagramElementRender({ story, config, element })
   ) : (
-    <DefaultInstagramElement element={element} isReelSupported={isReelSupported} config={config} />
+    <DefaultInstagramElement element={element} isReelSupported={isReelSupported} ampAccess={ampAccess} />
   );
 };
 /**

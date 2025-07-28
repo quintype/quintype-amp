@@ -6,4 +6,5 @@ export interface FacebookTypes extends Common {
   "data-include-comment-parent"?: boolean;
   "data-align-center"?: boolean;
   title?: string;
+  ampAccess?: object;
 }

@@ -10,4 +10,5 @@ export interface YoutubeElementTypes {
 
 export interface DefaultYoutubeElementTypes extends Common {
   element: StoryElement;
+  ampAccess?: object;
 }

@@ -1,13 +1,10 @@
 import React, { Fragment } from "react";
 import { TwitterTypes } from "./types";
 import { Helmet } from "react-helmet";
-import get from "lodash.get";
 
-export const Twitter = (config, props: TwitterTypes) => {
+export const Twitter = (props: TwitterTypes) => {
   const { width, height, layout } = props;
   const setDefaultLayout = !width || !height || !layout;
-  const enableAmpAccess = get(config, ["additionalConfig", "isAmpAccessEnabled"], false);
-  const ampAccess = enableAmpAccess && { "amp-access": "loggedIn" };
 
   const componentProps: TwitterTypes = setDefaultLayout
     ? {
@@ -22,7 +19,7 @@ export const Twitter = (config, props: TwitterTypes) => {
       <Helmet>
         <script async={undefined} custom-element="amp-twitter" src="https://cdn.ampproject.org/v0/amp-twitter-0.1.js" />
       </Helmet>
-      <amp-twitter {...ampAccess} {...componentProps} />
+      <amp-twitter {...componentProps} />
     </Fragment>
   );
 };
