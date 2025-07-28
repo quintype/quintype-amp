@@ -22,6 +22,7 @@ export const BaseImage = ({
 }: ImageTypes) => {
   const cdnImage = config.publisherConfig["cdn-image"];
   const imgAspectRatio: string[] = aspectRatio.map((el) => el.toString());
+  const shouldDecodeImage = get(config, ["opts", "featureConfig", "shouldDecodeImage"], false);
 
   const imgAttrs: AmpImgPropTypes = {
     alt,
@@ -37,8 +38,8 @@ export const BaseImage = ({
       cdnImage,
       story
     });
-    imgAttrs.src = src;
-    imgAttrs.srcset = srcset;
+    imgAttrs.src = shouldDecodeImage ? decodeURIComponent(src) : src;
+    imgAttrs.srcset = shouldDecodeImage && srcset ? decodeURIComponent(srcset) : srcset;
   } else if (useFallbackImage) {
     imgAttrs.src = base64FallbackImage;
     imgAttrs.alt = "fallback image";
