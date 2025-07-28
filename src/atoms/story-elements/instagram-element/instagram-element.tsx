@@ -20,6 +20,7 @@ export const DefaultInstagramElement = ({
   width = "16",
   height = "9",
   isReelSupported = false,
+  config,
   ...props
 }: InstagramElementProps) => {
   const { metadata } = element;
@@ -31,7 +32,7 @@ export const DefaultInstagramElement = ({
     instagramID = getInstagramID(metadata["instagram-url"], isReelSupported);
   }
   return instagramID ? (
-    <Instagram data-shortcode={instagramID} layout={layout} width={width} height={height} {...props} />
+    <Instagram data-shortcode={instagramID} layout={layout} width={width} height={height} {...props} config={config} />
   ) : null;
 };
 
@@ -41,7 +42,7 @@ export const InstagramElementBase = ({ element, story, config }: StoryElementPro
   return instagramElementRender ? (
     instagramElementRender({ story, config, element })
   ) : (
-    <DefaultInstagramElement element={element} isReelSupported={isReelSupported} />
+    <DefaultInstagramElement element={element} isReelSupported={isReelSupported} config={config} />
   );
 };
 /**

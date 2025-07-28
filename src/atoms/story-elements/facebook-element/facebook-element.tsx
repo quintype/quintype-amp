@@ -26,6 +26,7 @@ export const FacebookElementBase = ({ element, story, config, ...props }: Facebo
       data-href={metadata["facebook-url"]}
       data-embed-as={embedAs[metadata.provider]}
       title={title}
+      config={config}
       {...props}
     />
   );

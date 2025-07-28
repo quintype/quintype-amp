@@ -5,13 +5,14 @@ import { withStoryAndConfig } from "../../../context";
 import get from "lodash.get";
 import { YoutubeElementTypes, DefaultYoutubeElementTypes } from "./types";
 
-export const DefaultYouTube = ({
-  element,
-  layout = "responsive",
-  width = "480",
-  height = "270"
-}: DefaultYoutubeElementTypes) => {
-  const youtubeID = element.url && getYouTubeID(element.url);
+export const DefaultYouTube = (
+  config,
+  { element, layout = "responsive", width = "480", height = "270" }: DefaultYoutubeElementTypes
+) => {
+  const youtubeID = element?.url && getYouTubeID(element.url);
+  const enableAmpAccess = get(config, ["additionalConfig", "isAmpAccessEnabled"], false);
+  const ampAccess = enableAmpAccess && { "amp-access": "loggedIn" };
+  console.log("FROM YOUTUBE ---------", config?.additionalConfig, ampAccess);
 
   if (!youtubeID) {
     return null;
@@ -22,14 +23,18 @@ export const DefaultYouTube = ({
       <Helmet>
         <script async={undefined} custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js" />
       </Helmet>
-      <amp-youtube amp-access="loggedIn" data-videoid={youtubeID} layout={layout} width={width} height={height} />
+      <amp-youtube {...ampAccess} data-videoid={youtubeID} layout={layout} width={width} height={height} />
     </Fragment>
   );
 };
 export const YouTubeBase = ({ element, story, config }: YoutubeElementTypes) => {
   const youtubeElementRender = get(config, ["opts", "render", "storyElementRender", "youtubeElementRender"], null);
 
-  return youtubeElementRender ? youtubeElementRender({ story, config, element }) : <DefaultYouTube element={element} />;
+  return youtubeElementRender ? (
+    youtubeElementRender({ story, config, element })
+  ) : (
+    <DefaultYouTube config={config} element={element} />
+  );
 };
 /**
  * YouTube is a story element.

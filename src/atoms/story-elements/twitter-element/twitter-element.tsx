@@ -16,7 +16,7 @@ export const TwitterElementBase = ({ element, story, config, ...props }: Twitter
   return twitterElementRender ? (
     twitterElementRender({ story, config, element })
   ) : (
-    <Twitter data-tweetid={metadata["tweet-id"]} {...props} title={title} />
+    <Twitter config={config} data-tweetid={metadata["tweet-id"]} {...props} title={title} />
   );
 };
 /**
