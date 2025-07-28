@@ -91,20 +91,33 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
 };
 
 const TextWrapper = styled.div`
-  max-height: 100%;
-  color: ${(props) => props.theme.color.white};
   position: absolute;
   bottom: 0;
-  padding: 24px;
   width: 100%;
+  padding: 24px;
+  color: ${(props) => props.theme.color.white};
   display: flex;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0.1) 5%,
-    rgba(0, 0, 0, 0.6) 50%,
-    rgba(0, 0, 0, 0.75)
-  );
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 1;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100%);
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5));
+    z-index: -1;
+  }
+
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+
+  p {
+    font-size: 18px;
+    line-height: normal;
+  }
 `;
 
 const ImageDetails = styled.div`
@@ -112,13 +125,15 @@ const ImageDetails = styled.div`
   font: ${(props) => {
     const fontFamily = props.theme.font.family.primary;
     const fontWeight = props.theme.font.weight.normal;
-    const fontSize = props.theme.font.size.tiny;
+    const fontSize = props.theme.font.size.xs;
     return `${fontWeight} ${fontSize} ${fontFamily}`;
   }};
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
   line-height: ${(props) => props.theme.font.lineHeight.level6};
   div,
   p {
     display: inline-block;
+    font-size: 16px;
   }
 `;
 
