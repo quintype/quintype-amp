@@ -1,20 +1,19 @@
-import React from "react";
-import { Analytics } from "../analytics";
 import { withStoryAndConfig } from "../../context";
 
-export const QuintypeAnalyticsBase = ({ story, config }) => {
+export const QuintypeAnalyticsBase = ({ story }) => {
   if (!story.id) {
     return null;
   }
-  const targets = {
-    requests: {
-      storyview:
-        "https://prod-analytics.qlitics.com/api/${random}/amp?publisher-id=${publisherId}&event-type=${eventType}&story-content-id=${storyContentId}&url=${ampdocUrl}&referrer=${documentReferrer}"
-    },
-    vars: { publisherId: config.publisherConfig["publisher-id"], storyContentId: story.id },
-    triggers: { trackStoryview: { on: "visible", request: "storyview", vars: { eventType: "story-view" } } }
-  };
-  return <Analytics targets={targets} />;
+
+  // Show deprecation warning in all environments
+  console.warn(
+    "QuintypeAnalytics (qlitics) is deprecated and has been disabled. " +
+      "The qlitics service is being discontinued. " +
+      "Note: There is no direct replacement for qlitics story view tracking."
+  );
+
+  // Always return null - qlitics is completely deprecated
+  return null;
 };
 
 const QuintypeAnalytics = withStoryAndConfig(QuintypeAnalyticsBase);
