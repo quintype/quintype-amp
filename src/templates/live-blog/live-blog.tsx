@@ -42,7 +42,9 @@ const { TopSlot, BottomSlot, LiveBlogCardSlot } = StoryPageSlots;
  */
 export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
   const changeLiveBlogCardsOrder = get(config, ["opts", "featureConfig", "changeLiveBlogCardsOrder"], true);
-  if (!changeLiveBlogCardsOrder && get(story, ["metadata", "is-closed"], false) == true) {
+  console.log(!changeLiveBlogCardsOrder, get(story, ["metadata", "is-closed"], false) === true);
+  if (!changeLiveBlogCardsOrder && get(story, ["metadata", "is-closed"], false) === true) {
+    console.log("story.cards", story.cards, story.cards.reverse());
     story.cards = story.cards.reverse();
   }
   const footerText = get(config, ["publisherConfig", "publisher-settings", "copyright"], null);
