@@ -35,17 +35,15 @@ const { TopSlot, BottomSlot, LiveBlogCardSlot } = StoryPageSlots;
  * featureConfig: In addition to all feature configs provided by generic story template, live blog accepts following feature configs. They can be accessed via opts.featureConfig.liveBlog
  *  - dataPollInterval: sets the data-poll-interval attr on <amp-live-list />
  *  - dataMaxItemsPerPage: sets the data-max-items-per-page attr on <amp-live-list />
- *  - changeLiveBlogCardsOrder: sets the order of the cards in the live blog. If set to true, the cards are reversed after the live blog is closed. If set to false, the cards are not reversed. Default is true.
+ *  - changeLiveBlogCardsOrder: sets the order of the cards in the live blog. If set to true, the cards are reversed by the api(first to latest) after the live blog is closed. If set to false, the cards are not reversed(latest to first reverse done here). Default is true.
  *
  * @category Default Templates
  * @component
  */
 export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
   const changeLiveBlogCardsOrder = get(config, ["opts", "featureConfig", "changeLiveBlogCardsOrder"], true);
-  console.log(!changeLiveBlogCardsOrder, get(story, ["metadata", "is-closed"], false) === true);
   if (!changeLiveBlogCardsOrder && get(story, ["metadata", "is-closed"], false) === true) {
-    console.log("story.cards", story.cards, story.cards.reverse());
-    story.cards = story.cards.reverse();
+    story.cards.reverse();
   }
   const footerText = get(config, ["publisherConfig", "publisher-settings", "copyright"], null);
   const infiniteScrollInlineConfig = get(
