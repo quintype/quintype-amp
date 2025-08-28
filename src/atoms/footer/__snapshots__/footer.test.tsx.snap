@@ -4,7 +4,7 @@ exports[`Footer should render 1`] = `
 <styled.footer>
   <styled.a
     href="https://www.quintype.com/"
-    rel="noreferrer noopener"
+    rel="nofollow noreferrer noopener"
     target="_blank"
   >
     Powered by Quintype
