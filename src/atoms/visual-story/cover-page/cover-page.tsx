@@ -98,7 +98,7 @@ export const CoverPageBase = ({ story, config }: CoverPageProps) => {
               <StyledHeadline className="qt-amp-visual-story-cover-headline">{headline}</StyledHeadline>
               {authorNames && (
                 <Fragment>
-                  <Spacer token="xs" />
+                  <Spacer token="s" />
                   <StyledAuthors>{authorNames}</StyledAuthors>
                 </Fragment>
               )}
@@ -117,34 +117,38 @@ const StyledTextWrapper = styled.div`
   max-height: 100%;
   position: absolute;
   bottom: 0;
-  padding: 32px;
+  padding-right: 32px;
+  padding-bottom: 32px;
+  padding-left: 32px;
   color: ${(props) => props.theme.color.white};
   display: flex;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0.2) 5%,
-    rgba(0, 0, 0, 0.5) 50%,
-    rgba(0, 0, 0, 0.75)
-  );
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5));
+  z-index: -1;
 `;
+
 const StyledHeadline = styled.h1`
   margin-top: ${(props) => props.theme.spacing.s};
   line-height: normal;
-  font-weight: ${(props) => props.theme.font.weight.medium};
-  font-size: ${(props) => props.theme.font.size.huge};
+  font-weight: ${(props) => props.theme.font.weight.bold};
+  font-size: ${(props) => props.theme.font.size.xxl};
   font-family: ${(props) => props.theme.font.family.primary};
   overflow-wrap: break-word;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
 `;
+
 const StyledAuthors = styled.p`
   font-size: ${(props) => props.theme.font.size.xs};
   font-family: ${(props) => props.theme.font.family.secondary};
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
 `;
+
 const LogoWrapper = styled.div`
   position: relative;
   height: 50px;
   margin: auto;
 `;
+
 const FullLengthDiv = styled.div`
   height: 100%;
 `;

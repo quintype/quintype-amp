@@ -44,7 +44,7 @@ export const DefaultFooter = ({ text, children, style, config }: FooterTypes) =>
         <Fragment>
           {text && <p>{text}</p>}
           {showPoweredByQt && (
-            <PoweredBy href="https://www.quintype.com/" rel="noreferrer noopener" target="_blank">
+            <PoweredBy href="https://www.quintype.com/" rel="nofollow noreferrer noopener" target="_blank">
               Powered by Quintype
             </PoweredBy>
           )}
