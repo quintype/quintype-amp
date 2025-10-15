@@ -1,6 +1,6 @@
 {
   "name": "@quintype/amp",
-  "version": "2.22.0",
+  "version": "2.22.1-version-upgrade.0",
   "description": "Quintype's AMP component library for publisher apps to create amp layouts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -113,9 +113,9 @@
     "shell-quote": "^1.8.3",
     "styled-components": "^5.1.1"
   },
-  "engines":{
-    "node":"^20.0.0",
-    "npm":"^10.0.0"
+  "engines": {
+    "node": "^20.0.0",
+    "npm": "^10.0.0"
   },
   "peerDependencies": {
     "react": "^19.2.0",
