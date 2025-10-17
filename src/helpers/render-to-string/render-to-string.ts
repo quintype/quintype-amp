@@ -26,14 +26,15 @@ export function renderToString({ template, seo, config, story }) {
   try {
     const { htmlStr, styles } = getHtmlAndStyledComponentsStyles(template);
     const { title, script, customStyles, link, metaTags } = getHeadTagsFromHelmet();
+    const { ampCustomStyles, otherMetaTags } = extractAmpCustomStyles(customMetaTags);
     const seoStr = `${metaTags}${link}${seo}`;
     str += getHeadStartStr(config);
     str += `${seoStr}`;
     str += `${script}`;
-    str += `<style amp-custom>${customStyles}${styles}</style>`;
+    str += `<style amp-custom>${customStyles}${styles}${ampCustomStyles}</style>`;
     str += `${ampBoilerplate}`;
     str += `${title}`;
-    if (customMetaTags) str += customMetaTags;
+    if (otherMetaTags) str += otherMetaTags;
     str += `${headEndBodyStart}`;
     str += `${htmlStr}`;
     str += `${bodyEnd}`;
@@ -45,6 +46,28 @@ export function renderToString({ template, seo, config, story }) {
 
 const stripStyleTag = (str: string) => str.replace(/<style[^>]*>|<\/style>/g, "");
 const discardEmptyTitle = (str: string) => str.replace(/<title data-react-helmet="true"><\/title>/, "");
+
+/**
+ * Extracts amp-custom style content from customMetaTags and returns:
+ * - ampCustomStyles: the content inside <style amp-custom> tags
+ * - otherMetaTags: remaining meta tags without the <style amp-custom> tag
+ */
+const extractAmpCustomStyles = (customMetaTags: string): { ampCustomStyles: string; otherMetaTags: string } => {
+  if (!customMetaTags) {
+    return { ampCustomStyles: "", otherMetaTags: "" };
+  }
+
+  let ampCustomStyles = "";
+
+  const otherMetaTags = customMetaTags
+    .replace(/<style\s+amp-custom[^>]*>([\s\S]*?)<\/style>/gi, (_match, styleContent) => {
+      ampCustomStyles += styleContent;
+      return ""; // Remove the tag from the output
+    })
+    .trim();
+
+  return { ampCustomStyles, otherMetaTags };
+};
 
 const getHeadTagsFromHelmet = () => {
   // IMP NOTE! - this has to come after `ReactDOMServer.renderToStaticMarkup` has run otherwise helmet.script returns empty
