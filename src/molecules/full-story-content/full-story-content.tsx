@@ -22,11 +22,7 @@ export const FullStoryContent = ({ story, config }) => {
     const multipleBodyAds = get(config, ["ampConfig", "doubleclick", "body-ads"], null);
     const isMultipleAds = Array.isArray(multipleBodyAds) && multipleBodyAds.length > 0;
     const allowedBodyAdList = (multipleBodyAds || []).slice(0, 3);
-    const multipleAdProps =
-      isMultipleAds &&
-      allowedBodyAdList.length > 0 &&
-      allowedBodyAdList[cardIdx] !== undefined &&
-      allowedBodyAdList[cardIdx];
+    const multipleAdProps = isMultipleAds ? allowedBodyAdList[cardIdx] : undefined;
 
     return (
       <Fragment key={card.id}>
