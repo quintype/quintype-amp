@@ -31,6 +31,13 @@ exports[`GenericStory Template should render 1`] = `
             "unit-path": "/60988533/AMP_Body",
             "width": 300,
           },
+          "body-ads": Array [
+            Object {
+              "height": 250,
+              "unit-path": "/60988533/AMP_Body",
+              "width": 300,
+            },
+          ],
           "bottom-ad": Object {
             "height": 250,
             "unit-path": "/35096353/amptesting/formats/sticky",
@@ -4197,6 +4204,13 @@ exports[`GenericStory Template should render 1`] = `
                   "unit-path": "/60988533/AMP_Body",
                   "width": 300,
                 },
+                "body-ads": Array [
+                  Object {
+                    "height": 250,
+                    "unit-path": "/60988533/AMP_Body",
+                    "width": 300,
+                  },
+                ],
                 "bottom-ad": Object {
                   "height": 250,
                   "unit-path": "/35096353/amptesting/formats/sticky",

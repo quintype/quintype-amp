@@ -603,6 +603,13 @@ export const ampConfig: AMPConfig = {
       height: 250,
       "unit-path": "/60988533/AMP_Body"
     },
+    "body-ads": [
+      {
+        width: 300,
+        height: 250,
+        "unit-path": "/60988533/AMP_Body"
+      }
+    ],
     "bottom-ad": {
       width: 300,
       height: 250,

@@ -25,6 +25,7 @@ describe("Body DFP Ad", () => {
   });
   it("Should not render if ad config isn't present", () => {
     const configWithoutBodyAd = cloneDeep(config);
+    configWithoutBodyAd.ampConfig.doubleclick["body-ads"] = [];
     configWithoutBodyAd.ampConfig.doubleclick["body-ad"] = {};
     const wrapper = shallow(<BodyAdBase templateName="liveBlog" config={configWithoutBodyAd} />);
     expect(wrapper.find(DfpAd).exists()).toBe(false);

@@ -61,3 +61,17 @@ test("getPropsForDfpAd gives priority to overriding props over the props defined
   };
   expect(value).toMatchObject(expectedValue);
 });
+test("getPropsForDfpAd should convert unit-path to data-slot in overriding props", () => {
+  const value = getPropsForDfpAd({
+    overridingProps: { width: 300, height: 250, "unit-path": "/5463099287/PB-AMP-300x250" },
+    config: dummyConfig,
+    adName: "body-ad"
+  });
+  const expectedValue = {
+    width: 300,
+    height: 250,
+    "data-slot": "/5463099287/PB-AMP-300x250"
+  };
+  expect(value).toMatchObject(expectedValue);
+  expect(value).not.toHaveProperty("unit-path");
+});

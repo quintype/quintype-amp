@@ -7,16 +7,21 @@ import { AdWrapper } from "../shared/components";
 import get from "lodash.get";
 
 export const BodyAdBase = ({ children, config, templateName, ...overridingProps }: CommonDfpAdTypes) => {
-  const propsForBodyAd = getPropsForDfpAd({ overridingProps, config, adName: "body-ad" });
-  const enabled = !!propsForBodyAd && get(config, ["opts", "featureConfig", "enableAds", templateName, "body"], true);
+  const enabled = get(config, ["opts", "featureConfig", "enableAds", templateName, "body"], true);
+  if (!enabled) return null;
+
+  const multipleBodyAds = getPropsForDfpAd({ overridingProps, config, adName: "body-ads" });
+
+  const propsForBodyAd = multipleBodyAds || getPropsForDfpAd({ overridingProps, config, adName: "body-ad" });
+
+  if (!propsForBodyAd) return null;
+
   return (
-    enabled && (
-      <AdWrapper>
-        <Spacer token="s" />
-        <DfpAd {...propsForBodyAd}>{children}</DfpAd>
-        <Spacer token="s" />
-      </AdWrapper>
-    )
+    <AdWrapper>
+      <Spacer token="s" />
+      <DfpAd {...propsForBodyAd}>{children}</DfpAd>
+      <Spacer token="s" />
+    </AdWrapper>
   );
 };
 
