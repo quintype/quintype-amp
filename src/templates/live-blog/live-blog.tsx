@@ -21,6 +21,7 @@ import { StoryContainer, Wrapper } from "./presentational-components";
 import { CardUpdatedAt } from "./container-components";
 import get from "lodash.get";
 import { StoryPageSlots } from "../../molecules/slots";
+import { BODY_AD_MAX_LIMIT } from "../../constants";
 
 const { TopSlot, BottomSlot, LiveBlogCardSlot } = StoryPageSlots;
 
@@ -41,6 +42,11 @@ const { TopSlot, BottomSlot, LiveBlogCardSlot } = StoryPageSlots;
  */
 export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
   const footerText = get(config, ["publisherConfig", "publisher-settings", "copyright"], null);
+  // checking for body-ads key
+  const bodyAdsConfig = get(config, ["ampConfig", "doubleclick", "body-ads"], null);
+  const hasMultipleBodyAds = Array.isArray(bodyAdsConfig) && bodyAdsConfig.length > 0;
+  const bodyAdsToRender = (bodyAdsConfig || []).slice(0, BODY_AD_MAX_LIMIT);
+
   const infiniteScrollInlineConfig = get(
     config,
     ["opts", "featureConfig", "infiniteScroll", "infiniteScrollInlineConfig"],
@@ -99,6 +105,7 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
               const storyCard = card["story-elements"].map((element) => (
                 <StoryElement key={element.id} element={element} noSpacer={true} />
               ));
+              const adSlot = hasMultipleBodyAds ? bodyAdsToRender[idx] : undefined;
               return (
                 <div
                   key={card.id}
@@ -108,7 +115,9 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
                   data-update-time={card["card-updated-at"]}>
                   {storyCard}
                   <CardUpdatedAt timeStamp={card["card-updated-at"]} card={card} />
-                  {idx === 0 && <BodyAd templateName={templateName} />}
+                  {hasMultipleBodyAds
+                    ? adSlot && <BodyAd adSlot={adSlot} templateName={templateName} />
+                    : idx === 0 && <BodyAd templateName={templateName} />}
                   <LiveBlogCardSlot index={idx} card={card} />
                 </div>
               );

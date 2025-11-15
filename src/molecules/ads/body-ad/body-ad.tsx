@@ -6,9 +6,13 @@ import { CommonDfpAdTypes } from "../shared/types";
 import { AdWrapper } from "../shared/components";
 import get from "lodash.get";
 
-export const BodyAdBase = ({ children, config, templateName, ...overridingProps }: CommonDfpAdTypes) => {
-  const propsForBodyAd = getPropsForDfpAd({ overridingProps, config, adName: "body-ad" });
+export const BodyAdBase = ({ children, config, templateName, adSlot, ...overridingProps }: CommonDfpAdTypes) => {
+  const propsForBodyAd =
+    getPropsForDfpAd({ overridingProps, config, adName: "body-ads", adSlot }) ||
+    getPropsForDfpAd({ overridingProps, config, adName: "body-ad" });
+
   const enabled = !!propsForBodyAd && get(config, ["opts", "featureConfig", "enableAds", templateName, "body"], true);
+  console.log("propsForBodyAd AD SLOT  ----->", { overridingProps, adSlot });
   return (
     enabled && (
       <AdWrapper>
