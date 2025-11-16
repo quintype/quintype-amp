@@ -4,7 +4,16 @@ import cloneDeep from "lodash.clonedeep";
 export const isEmpty = (obj: object) => Object.keys(obj).length === 0;
 
 export const getPropsForDfpAd = ({ overridingProps, config, adName }) => {
-  if (!isEmpty(overridingProps)) return overridingProps;
+  if (!isEmpty(overridingProps)) {
+    // Convert unit-path to data-slot even when overriding props are provided
+    const props = cloneDeep(overridingProps);
+    const unitPath = get(props, "unit-path", null);
+    if (unitPath) {
+      props["data-slot"] = unitPath;
+      delete props["unit-path"];
+    }
+    return props;
+  }
 
   const clone = cloneDeep(config);
   const adPropsFromConfig = get(clone, ["ampConfig", "doubleclick", adName], null);

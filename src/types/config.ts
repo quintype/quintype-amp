@@ -79,6 +79,7 @@ export interface AMPConfig {
   doubleclick: {
     "top-ad": DoubleClickAdTypes;
     "body-ad": DoubleClickAdTypes;
+    "body-ads"?: DoubleClickAdTypes[];
     "bottom-ad": DoubleClickAdTypes;
   };
   webengage?: {

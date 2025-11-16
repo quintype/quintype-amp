@@ -18,6 +18,12 @@ export const FullStoryContent = ({ story, config }) => {
     if (customCardRender[cardtype] && typeof customCardRender[cardtype] === "function") {
       return customCardRender[cardtype]({ story, config, card, counter });
     }
+    // checking for body-ads key
+    const multipleBodyAds = get(config, ["ampConfig", "doubleclick", "body-ads"], null);
+    const isMultipleAds = Array.isArray(multipleBodyAds) && multipleBodyAds.length > 0;
+    const allowedBodyAdList = (multipleBodyAds || []).slice(0, 3);
+    const multipleAdProps = isMultipleAds ? allowedBodyAdList[cardIdx] : undefined;
+
     return (
       <Fragment key={card.id}>
         {card["story-elements"].map((element, storyElementIdx) => (
@@ -29,7 +35,7 @@ export const FullStoryContent = ({ story, config }) => {
             counter={counter}
           />
         ))}
-        {cardIdx === 0 && <BodyAd />}
+        {multipleAdProps ? <BodyAd {...multipleAdProps} /> : cardIdx === 0 && <BodyAd />}
         <DefaultStoryCardSlot index={cardIdx} card={card} />
       </Fragment>
     );
