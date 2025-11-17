@@ -12,7 +12,6 @@ export const BodyAdBase = ({ children, config, templateName, adSlot, ...overridi
     getPropsForDfpAd({ overridingProps, config, adName: "body-ad" });
 
   const enabled = !!propsForBodyAd && get(config, ["opts", "featureConfig", "enableAds", templateName, "body"], true);
-  console.log("propsForBodyAd AD SLOT  ----->", { overridingProps, adSlot });
   return (
     enabled && (
       <AdWrapper>
