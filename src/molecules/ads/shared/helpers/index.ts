@@ -8,7 +8,7 @@ export const getPropsForDfpAd = ({ overridingProps, config, adSlot = {}, adName 
 
   // If adSlot is provided, use it (for dynamic ad slots)
   if (!isEmpty(adSlot)) {
-    const unitPath = adSlot["unit-path"];
+    const unitPath = adSlot?.["unit-path"];
     if (!unitPath) return null;
 
     const slotClone = cloneDeep(adSlot);
