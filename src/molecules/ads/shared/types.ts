@@ -4,6 +4,7 @@ import { ReactElement } from "react";
 export interface CommonDfpAdTypes {
   config: Config;
   templateName: "default" | "liveBlog";
+  adSlot?: object;
   width?: number;
   height?: number;
   "data-slot"?: string;
