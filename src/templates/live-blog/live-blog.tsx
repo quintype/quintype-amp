@@ -21,7 +21,9 @@ import { StoryContainer, Wrapper } from "./presentational-components";
 import { CardUpdatedAt } from "./container-components";
 import get from "lodash.get";
 import { StoryPageSlots } from "../../molecules/slots";
-import { BODY_AD_MAX_LIMIT } from "../../constants";
+import { BODY_AD_MAX_LIMIT, BODY_WIDGET_MAX_LIMIT } from "../../constants";
+import { AdWrapper } from "../../molecules/ads/shared/components";
+import { decodeB64, isBase64 } from "../../utils/utils";
 
 const { TopSlot, BottomSlot, LiveBlogCardSlot } = StoryPageSlots;
 
@@ -46,6 +48,16 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
   const bodyAdsConfig = get(config, ["ampConfig", "doubleclick", "body-ads"], null);
   const hasMultipleBodyAds = Array.isArray(bodyAdsConfig) && bodyAdsConfig.length > 0;
   const bodyAdsToRender = (bodyAdsConfig || []).slice(0, BODY_AD_MAX_LIMIT);
+
+  const customAmpWidgets = get(config, ["opts", "customAmpWidgets"]);
+  const widgets =
+    get(config, ["additionalConfig", "story", "ampWidgets"]) ||
+    (typeof customAmpWidgets === "function" ? customAmpWidgets() : customAmpWidgets);
+
+  const widgetArray = Array.isArray(widgets) ? widgets : [];
+
+  const bodyWidgetsToRender = widgetArray.slice(0, BODY_AD_MAX_LIMIT);
+  const enabledWidgets = widgetArray.filter((w) => w?.enable && w?.code);
 
   const infiniteScrollInlineConfig = get(
     config,
@@ -106,6 +118,16 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
                 <StoryElement key={element.id} element={element} noSpacer={true} />
               ));
               const adSlot = hasMultipleBodyAds ? bodyAdsToRender[idx] : undefined;
+
+              const slot = bodyWidgetsToRender[idx];
+
+              const widgetSlot =
+                idx < BODY_WIDGET_MAX_LIMIT && slot?.enable
+                  ? isBase64(slot.code)
+                    ? decodeB64(slot.code)
+                    : slot.code
+                  : null;
+
               return (
                 <div
                   key={card.id}
@@ -115,9 +137,22 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
                   data-update-time={card["card-updated-at"]}>
                   {storyCard}
                   <CardUpdatedAt timeStamp={card["card-updated-at"]} card={card} />
-                  {hasMultipleBodyAds
-                    ? adSlot && <BodyAd adSlot={adSlot} templateName={templateName} />
-                    : idx === 0 && <BodyAd templateName={templateName} />}
+                  {enabledWidgets.length > 0 ? (
+                    <AdWrapper>
+                      {widgetSlot && (
+                        <>
+                          {idx === 0 && <BodyAd templateName={templateName} />}
+                          <Spacer token="s" />
+                          <div dangerouslySetInnerHTML={{ __html: widgetSlot }} />
+                          <Spacer token="s" />
+                        </>
+                      )}
+                    </AdWrapper>
+                  ) : hasMultipleBodyAds ? (
+                    adSlot && <BodyAd adSlot={adSlot} templateName={templateName} />
+                  ) : (
+                    idx === 0 && <BodyAd templateName={templateName} />
+                  )}
                   <LiveBlogCardSlot index={idx} card={card} />
                 </div>
               );

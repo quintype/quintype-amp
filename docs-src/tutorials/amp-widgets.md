@@ -42,43 +42,7 @@ function getCustomWidgetsForAmpStory() {
       data-slot="/5463099287/PB-AMP-300x200"
       data-loading-strategy="prefer-viewability-over-views"></amp-ad>`
     },
-    {
-      "enable" : true,
-      'code': `<amp-ad width="300" height="250" layout="fixed"
-                        type="doubleclick"
-                        data-slot="/5463099287/PB-AMP-300x250"
-                        data-loading-strategy="prefer-viewability-over-views">
-                      </amp-ad>`
-    },
-    {
-      "enable" : true,
-      'code': `<amp-youtube
-      data-videoid="g6c4_FHbkUA"
-      layout="responsive"
-      width="560"
-      height="315">
-    </amp-youtube>`
-    },
-    {
-      "enable" : true,
-      'code': `<amp-fx-flying-carpet height="300px">
-                      <amp-ad width="300" height="600" layout="fixed"
-                        type="doubleclick"
-                        data-slot="/5463099287/PB-AMP-300x600"
-                        data-loading-strategy="prefer-viewability-over-views">
-                      </amp-ad>
-                    </amp-fx-flying-carpet>`
-    },
-    {
-      "enable" : true,
-      'code': `<amp-fx-flying-carpet height="300px">
-                      <amp-ad width="300" height="600" layout="fixed"
-                        type="doubleclick"
-                        data-slot="/5463099287/PB-AMP-300x600"
-                        data-loading-strategy="prefer-viewability-over-views">
-                      </amp-ad>
-                    </amp-fx-flying-carpet>`
-    }
+   ....
   ];
 
   return customWidgets;
@@ -87,13 +51,21 @@ function getCustomWidgetsForAmpStory() {
 
 The `customAmpWidgets` function is executed safely, so any errors thrown within it will be caught and logged, preventing the application from crashing.
 
+### Required Scripts
+Ensure that you include the necessary AMP scripts in the `<head>` of your `layout.ejs` file for the components you are using. 
+
+```html
+<script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+<script async custom-element="amp-fx-flying-carpet" src="https://cdn.ampproject.org/v0/amp-fx-flying-carpet-0.1.js"></script>
+```
+
 ## Scope (Phase 1)
 
 ### In-Scope
 - **Custom Components**: Ability to insert custom AMP components in up to 6 slots (after story card 1–6).
 - **Allowed Types**: Widgets give flexibility to add any type. Adding valid types will always work, while adding invalid AMP HTML tags can cause unpredictable behavior (e.g., ads not showing up or AMP page traffic dipping).
-- **No Validation**: There is no validation of AMP code.
-- **Coexistence**: The BOLD ads (Header, Footer & Body-Ad) will coexist with the ads/widgets served via the PB functionality.
+- **No Validation**: There is no validation of AMP code done on Amp Library side.
+- **Coexistence**: The BOLD ads (Header, Footer & Body-Ad) will coexist with the ads/widgets served via the Custom publisher FE App / PB functionality.
 
 ### Out of Scope
 - **Individual Story Configuration**: Individual story type ad configuration is not supported.
