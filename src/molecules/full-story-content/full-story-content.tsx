@@ -27,8 +27,8 @@ export const FullStoryContent = ({ story, config }) => {
 
   const widgetArray = Array.isArray(widgets) ? widgets : [];
 
-  const bodyWidgetsToRender = widgetArray.slice(0, BODY_AD_MAX_LIMIT);
-  const enabledWidgets = widgetArray.filter((w) => w?.enable && w?.code);
+  const bodyWidgetsToRender = widgetArray.slice(0, BODY_WIDGET_MAX_LIMIT);
+  const enabledWidgets = bodyWidgetsToRender.filter((w) => w?.enable && w?.code);
 
   return story.cards.map((card, cardIdx) => {
     const customCardRender = get(config, ["opts", "render", "storyCardRenderProps"], {});
@@ -54,22 +54,19 @@ export const FullStoryContent = ({ story, config }) => {
             counter={counter}
           />
         ))}
-        {enabledWidgets.length > 0 ? (
-          <AdWrapper>
-            {widgetSlot && (
+        {enabledWidgets.length > 0
+          ? widgetSlot && (
               <>
                 {cardIdx === 0 && <BodyAd templateName="default" />}
-                <Spacer token="s" />
-                <div dangerouslySetInnerHTML={{ __html: widgetSlot }} />
-                <Spacer token="s" />
+                <AdWrapper>
+                  <div dangerouslySetInnerHTML={{ __html: widgetSlot }} />
+                  <Spacer token="s" />
+                </AdWrapper>
               </>
-            )}
-          </AdWrapper>
-        ) : hasMultipleBodyAds ? (
-          adSlot && <BodyAd adSlot={adSlot} templateName="default" />
-        ) : (
-          cardIdx === 0 && <BodyAd templateName="default" />
-        )}
+            )
+          : hasMultipleBodyAds
+          ? adSlot && <BodyAd adSlot={adSlot} templateName="default" />
+          : cardIdx === 0 && <BodyAd templateName="default" />}
         <DefaultStoryCardSlot index={cardIdx} card={card} />
       </Fragment>
     );
