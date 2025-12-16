@@ -138,16 +138,15 @@ export const LiveBlog = ({ story, config }: CommonTemplateTypes) => {
                   {storyCard}
                   <CardUpdatedAt timeStamp={card["card-updated-at"]} card={card} />
                   {enabledWidgets.length > 0 ? (
-                    <AdWrapper>
+                    <>
+                      {idx === 0 && <BodyAd templateName={templateName} />}
                       {widgetSlot && (
-                        <>
-                          {idx === 0 && <BodyAd templateName={templateName} />}
-                          <Spacer token="s" />
+                        <AdWrapper>
                           <div dangerouslySetInnerHTML={{ __html: widgetSlot }} />
                           <Spacer token="s" />
-                        </>
+                        </AdWrapper>
                       )}
-                    </AdWrapper>
+                    </>
                   ) : hasMultipleBodyAds ? (
                     adSlot && <BodyAd adSlot={adSlot} templateName={templateName} />
                   ) : (
