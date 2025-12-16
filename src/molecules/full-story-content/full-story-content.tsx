@@ -54,19 +54,21 @@ export const FullStoryContent = ({ story, config }) => {
             counter={counter}
           />
         ))}
-        {enabledWidgets.length > 0
-          ? widgetSlot && (
-              <>
-                {cardIdx === 0 && <BodyAd templateName="default" />}
-                <AdWrapper>
-                  <div dangerouslySetInnerHTML={{ __html: widgetSlot }} />
-                  <Spacer token="s" />
-                </AdWrapper>
-              </>
-            )
-          : hasMultipleBodyAds
-          ? adSlot && <BodyAd adSlot={adSlot} templateName="default" />
-          : cardIdx === 0 && <BodyAd templateName="default" />}
+        {enabledWidgets.length > 0 ? (
+          <>
+            {cardIdx === 0 && <BodyAd templateName="default" />}
+            {widgetSlot && (
+              <AdWrapper>
+                <div dangerouslySetInnerHTML={{ __html: widgetSlot }} />
+                <Spacer token="s" />
+              </AdWrapper>
+            )}
+          </>
+        ) : hasMultipleBodyAds ? (
+          adSlot && <BodyAd adSlot={adSlot} templateName="default" />
+        ) : (
+          cardIdx === 0 && <BodyAd templateName="default" />
+        )}
         <DefaultStoryCardSlot index={cardIdx} card={card} />
       </Fragment>
     );
