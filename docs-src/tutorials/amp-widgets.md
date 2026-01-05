@@ -72,8 +72,6 @@ Ensure that you include the necessary AMP scripts in the `<head>` of your `layou
 - **Header/Footer Configuration**: Header/footer ad configuration is still controlled by BOLD only.
 - **Validation**: No AMP-validation checks.
 - **Preview**: No PB Preview for AMP ads.
-- **Optimization**: No weight optimization or restrictions beyond the 6 custom slots.
-- **Usage**: Will not be utilized by PB/Ahead publishers.
 
 ## Functional Requirements
 - **Positions**: PB will support 6 positions: After Card 1, 2... to 6.
