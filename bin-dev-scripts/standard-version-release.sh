@@ -11,6 +11,8 @@ then
   npm run docs:deploy
   npx standard-version
 else
+  npm install --legacy-peer-deps
+  npm run jest
   npm run build
   npx standard-version --prerelease "$BRANCH" --skip.changelog=true
 fi
