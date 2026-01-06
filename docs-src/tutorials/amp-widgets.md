@@ -2,8 +2,16 @@
 
 AMP widgets can be configured in two ways: through the Page Builder (PB) UI or via custom configuration for publishers.
 
+- Ability to insert custom widgets in up to 6 slots (after story card 1–6).
+- Widgets give flexibility to add any type. Adding valid types will always work, while adding invalid AMP HTML tags can cause unpredictable behavior (e.g., ads not showing up).
+- There is no validation of AMP code done on Amp Library side.
+- The BOLD ads (Header, Footer & Body-Ad) will coexist with the newly added custom ads/widgets .
+- Manual AMP-validation check has to be done before passing widget code in both PB / FE.
+- Individual story type ad configuration is not supported.
+- No PB Preview for AMP ads.
+
 ## Page Builder Configuration
-Page Builder provides an option to configure widgets directly through the UI. This is the standard way to manage widgets for stories.
+Page Builder provides an option to configure widgets directly through the UI. This is the standard way to manage widgets for stories. ![Alt text](image.png) 
 
 ## Custom Publisher Configuration
 For custom publishers, you can provide the widget configuration through `ampConfig` in your `ampRoutes` setup. This allows for dynamic or code-based widget definitions.
@@ -19,7 +27,11 @@ ampRoutes(app, {
   customAmpWidgets: getCustomWidgetsForAmpStory,
   // ... other options
 });
+```
 
+Sample `customAmpWidgets` function is given below:
+
+```
 function getCustomWidgetsForAmpStory() {
   const customWidgets = [
     {
@@ -49,44 +61,21 @@ function getCustomWidgetsForAmpStory() {
 }
 ```
 
-The `customAmpWidgets` function is executed safely, so any errors thrown within it will be caught and logged, preventing the application from crashing.
-
 ### Required Scripts
 Ensure that you include the necessary AMP scripts in the `<head>` of your `layout.ejs` file for the components you are using. 
 
-```html
+```
 <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
-<script async custom-element="amp-fx-flying-carpet" src="https://cdn.ampproject.org/v0/amp-fx-flying-carpet-0.1.js"></script>
+<script 
+  async custom-element="amp-fx-flying-carpet" 
+  src="https://cdn.ampproject.org/v0/amp-fx-flying-carpet-0.1.js">
+<script>
 ```
 
-## Scope (Phase 1)
-
-### In-Scope
-- **Custom Components**: Ability to insert custom AMP components in up to 6 slots (after story card 1–6).
-- **Allowed Types**: Widgets give flexibility to add any type. Adding valid types will always work, while adding invalid AMP HTML tags can cause unpredictable behavior (e.g., ads not showing up or AMP page traffic dipping).
-- **No Validation**: There is no validation of AMP code done on Amp Library side.
-- **Coexistence**: The BOLD ads (Header, Footer & Body-Ad) will coexist with the ads/widgets served via the Custom publisher FE App / PB functionality.
-
-### Out of Scope
-- **Individual Story Configuration**: Individual story type ad configuration is not supported.
-- **Header/Footer Configuration**: Header/footer ad configuration is still controlled by BOLD only.
-- **Validation**: No AMP-validation checks.
-- **Preview**: No PB Preview for AMP ads.
-
-## Functional Requirements
-- **Positions**: PB will support 6 positions: After Card 1, 2... to 6.
-- **Global Settings**: These are global settings applied to all AMP articles, present in the current custom code layout under AMP configuration settings.
-- **Slot Logic**: If a story has fewer than X cards, that slot is simply ignored (AMP code is not rendered).
-- **Existing Ads**: Header and footer ads continue to be injected only by BOLD.
-- **Input Format**: PB allows publishers to paste AMP-compatible HTML in a multi-line input field.
-- **Supported Patterns**: Includes any AMP compatible/valid types.
-
-## Risks to be Considered
-- **Validation Failures**: Pages may fail AMP validation if publishers paste invalid components.
-- **Layout Shifts**: Excessive ad inserts may cause layout shifts or violate Google AMP policies.
-- **Misunderstanding**: Publishers may misunderstand that "position = exact appearance".
-
-## Additional Dev Notes
-- **Rendering**: We can render any tags passed from custom widgets. Whether they work as expected depends on if the widget code added is AMP compliant.
+## Notes
+-  AMP supports 6 positions: After Card 1, 2... to 6 , If a story has fewer than X cards, that slot is simply ignored (AMP code is not rendered).
+- Header and footer ads continue to be injected only by BOLD.
+- PB allows publishers to paste compatible custom widget (ie., amp validated code) in a multi-line input field , same is applicable when passed from custom FE .
+- We can render any tags passed from custom widgets. Whether they work as expected depends on if the widget code added is AMP compliant.
   - *Example*: If the publisher adds `amp-sticky-ad` in the widget and forgets to add the required script in the head, we will render the widget but no ad is loaded.
-- **Ad Limits**: The AMP library itself doesn't restrict the number of ads. The ad provider may choose not to serve many creatives.
+- The AMP library itself doesn't restrict the number of ads. The ad provider may choose not to serve many creatives.
