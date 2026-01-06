@@ -11,10 +11,10 @@ then
   npm run docs:deploy
   npx standard-version
 else
-  npm install --legacy-peer-deps
-  npm run jest
   npm run build
   npx standard-version --prerelease "$BRANCH" --skip.changelog=true
 fi
-
+npm install --package-lock-only --legacy-peer-deps
+git add package-lock.json
+git commit --amend --no-edit
 git push --follow-tags origin "$BRANCH"
