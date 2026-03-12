@@ -22,5 +22,8 @@
   },
   "features": {
     "title": "Features"
+  },
+  "amp-widgets": {
+    "title": "AMP Widgets Configuration"
   }
 }

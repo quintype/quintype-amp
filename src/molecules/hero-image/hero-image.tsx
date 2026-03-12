@@ -35,6 +35,7 @@ export const HeroImageBase = ({ story, config }: HeroImageBaseTypes) => {
   const attribution: string | null = get(story, "hero-image-attribution", null);
   const caption: string | null = get(story, "hero-image-caption", null);
   const altText: string | null = get(story, "hero-image-alt-text", null);
+  const headline: string | null = get(story, "headline", null);
   const disableImgPreload: boolean = get(config, ["opts", "optimizeAmpHtml"], true);
   const defaultDimensions = { height: 675, width: 1200 };
 
@@ -45,7 +46,7 @@ export const HeroImageBase = ({ story, config }: HeroImageBaseTypes) => {
           data-hero={"true"}
           metadata={metadata || defaultDimensions}
           slug={slug}
-          alt={altText || caption || attribution || ""}
+          alt={altText || caption || attribution || headline || ""}
           disableImgPreload={disableImgPreload}></Image>
       </StyledDiv>
       <StyledFigcaption>

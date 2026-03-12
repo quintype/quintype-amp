@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.22.10](https://github.com/quintype/quintype-amp/compare/v2.22.9...v2.22.10) (2026-01-05)
+
+### [2.22.9](https://github.com/quintype/quintype-amp/compare/v2.22.8...v2.22.9) (2026-01-05)
+
+### [2.22.8](https://github.com/quintype/quintype-amp/compare/v2.22.1...v2.22.8) (2025-11-21)
+
+### [2.22.7](https://github.com/quintype/quintype-amp/compare/v2.22.1...v2.22.7) (2025-11-21)
+
+### [2.22.6](https://github.com/quintype/quintype-amp/compare/v2.22.1...v2.22.6) (2025-11-21)
+
+### [2.22.5](https://github.com/quintype/quintype-amp/compare/v2.22.2...v2.22.5) (2025-10-17)
+
+### [2.22.4](https://github.com/quintype/quintype-amp/compare/v2.22.2...v2.22.4) (2025-10-17)
+
+### [2.22.3](https://github.com/quintype/quintype-amp/compare/v2.22.2...v2.22.3) (2025-10-17)
+
+### [2.22.2](https://github.com/quintype/quintype-amp/compare/v2.22.0...v2.22.2) (2025-10-17)
+
+### [2.22.1](https://github.com/quintype/quintype-amp/compare/v2.22.0...v2.22.1) (2025-09-01)
+
 ## [2.22.0](https://github.com/quintype/quintype-amp/compare/v2.21.4...v2.22.0) (2025-07-21)
 
 ## [2.22.0-beta.0](https://github.com/quintype/quintype-amp/compare/v2.22.0-468-duplicate.0...v2.22.0-beta.0) (2025-07-14)
