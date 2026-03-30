@@ -21,7 +21,7 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
   const elements = card["story-elements"] as StoryElementType[];
   const { titleElement, imageElement, textElements, ctaElements } = elements.reduce<ExtractedElements>(
     (acc, el) => {
-      // !acc.titleElement && !acc.imageElement just to fetch the first title element and first image element in the array
+      // !acc.titleElement && !acc.imageElement Prevents reassignment after the first title and image elements are found
       if (el.type === "title" && !acc.titleElement) {
         acc.titleElement = el;
       } else if (el.type === "image" && !acc.imageElement) {
