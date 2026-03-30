@@ -54,7 +54,7 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
       {(titleElement || textElements.length || imageElement) && (
         <amp-story-grid-layer template="thirds">
           <TextWrapper>
-            <div {...textAnimation} style={{ alignSelf: "flex-end" }}>
+            <div {...textAnimation} style={{ minWidth: "100%" }}>
               {titleElement && <StoryElement element={titleElement} />}
               {textElements.length > 0 &&
                 textElements.map((textElement) => <StoryElement key={textElement.id} element={textElement} />)}
