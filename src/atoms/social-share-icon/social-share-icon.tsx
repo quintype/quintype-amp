@@ -38,7 +38,10 @@ export const SocialShareIcon = ({
       )}
       {type !== "facebook" && (
         <StyledSocialShare style={inlineStyles}>
-          <amp-social-share style={styles} type={type} width={width} height={height} aria-label="socialshare icon" />
+          <>
+            <amp-social-share style={styles} type={type} width={width} height={height} aria-label="socialshare icon" />
+            <a href="#" className="fallback" aria-hidden="true" rel="nofollow noopener" target="_blank" />
+          </>
         </StyledSocialShare>
       )}
     </Fragment>
