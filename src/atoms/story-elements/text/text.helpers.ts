@@ -1,5 +1,5 @@
-import get from "lodash.get";
-import { parse } from "node-html-parser";
+// import get from "lodash.get";
+// import { parse } from "node-html-parser";
 
 // export const conditionExternalLinks = ({ text, config }) => {
 //   // finds external links and adds rel=”nofollow noopener” target="_blank" to them
@@ -32,9 +32,9 @@ import { parse } from "node-html-parser";
 //   return accumulator;
 // };
 
-function escapeRegex(str: string) {
-  return str.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&");
-}
+// function escapeRegex(str: string) {
+//   return str.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&");
+// }
 
 export const conditionExternalLinks = () => {
   console.log("kjgdasd");
