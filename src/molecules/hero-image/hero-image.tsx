@@ -43,6 +43,8 @@ export const HeroImageBase = ({ story, config }: HeroImageBaseTypes) => {
     <>
       <StyledDiv>
         <Image
+          {...(config ? { config } : {})}
+          {...(story ? { story } : {})}
           data-hero={"true"}
           metadata={metadata || defaultDimensions}
           slug={slug}
