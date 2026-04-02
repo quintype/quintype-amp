@@ -21,6 +21,11 @@ describe("HeroImage", () => {
     expect(wrapper.find(Image).prop("config")).toBe(config);
     expect(wrapper.find(Image).prop("story")).toBe(textStory);
   });
+
+  it("Should not forward config to Image when config is undefined, to avoid overriding context value", () => {
+    const wrapper = shallow(<HeroImageBase story={textStory} />);
+    expect(wrapper.find(Image).prop("config")).toBeUndefined();
+  });
 });
 
 test("getFigcaptionText should return caption and attribution", () => {
