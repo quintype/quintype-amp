@@ -203,7 +203,9 @@ export interface LinkedStory {
 }
 
 export enum StoryTemplate {
-  Text = "text"
+  Text = "text",
+  VisualStory = "visual-story",
+  LiveBlog = "live-blog"
 }
 
 export interface Section {

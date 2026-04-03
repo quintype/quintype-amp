@@ -4,6 +4,22 @@ import { GenericStory, LiveBlog } from "../../templates";
 import get from "lodash.get";
 import React from "react";
 import { VisualStory } from "../../templates/visual-story/visual-story";
+import { Story } from "../../types/story";
+
+/**
+ * isVisualStory checks if a story is a visual story based on its story-template field.
+ * This can be used by the framework to route visual stories to the appropriate
+ * AMP-based preview handler instead of the generic story page renderer.
+ *
+ * @category Helper
+ * @module isVisualStory
+ * @function isVisualStory
+ * @param {Object} story the story object
+ * @returns {boolean} true if the story is a visual story
+ */
+export const isVisualStory = (story: Story): boolean => {
+  return story["story-template"] === "visual-story";
+};
 
 /**
  * The ampifyStory function is used behind the scenes by `quintype/framework`
@@ -20,7 +36,6 @@ import { VisualStory } from "../../templates/visual-story/visual-story";
  * @param {Object} params.opts opts object containing customizations and configs
  * @returns {function} the renderToString function
  */
-
 export function ampifyStory({
   story,
   publisherConfig,
