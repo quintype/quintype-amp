@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 
-import { ampifyStory } from "./ampify-story";
+import { ampifyStory, isVisualStory } from "./ampify-story";
 import { isValidAmpHtml } from "../../utils/validate-amp";
 import {
   allElementsStory,
@@ -116,5 +116,25 @@ describe("Ampify Story", () => {
     expect(customVideoTemplate.mock.calls.length).toBe(1);
     expect(customTextTemplate.mock.calls.length).toBe(0);
     expect(customLiveBlogTemplate.mock.calls.length).toBe(0);
+  });
+
+  describe("isVisualStory", () => {
+    it("should return true for a visual story", () => {
+      expect(isVisualStory(visualStory)).toBe(true);
+    });
+
+    it("should return false for a text story", () => {
+      expect(isVisualStory(textStory)).toBe(false);
+    });
+
+    it("should return false for a live-blog story", () => {
+      const liveBlogStory = mockStoryType("live-blog");
+      expect(isVisualStory(liveBlogStory)).toBe(false);
+    });
+
+    it("should return true for a story with visual-story template", () => {
+      const visualStoryByTemplate = mockStoryType("visual-story");
+      expect(isVisualStory(visualStoryByTemplate)).toBe(true);
+    });
   });
 });
