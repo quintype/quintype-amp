@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import { StoryElement, Image } from "../../../atoms";
+import { StoryElement as StoryElementType } from "../../../types/story";
 import { WebStoryPageComponentsTypes, AnimationTypes } from "./types";
 import { getFigcaptionText } from "../../../molecules/hero-image/hero-image";
 import styled from "styled-components";
@@ -10,14 +11,39 @@ import { VideoWebStory } from "../../video-web-story";
 import { getVideoElement } from "../../../utils/utils";
 
 const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageComponentsTypes) => {
-  const titleElement = card["story-elements"].find((el) => el.type === "title");
-  const textElements = card["story-elements"].filter((el) => el.type === "text" && el.subtype !== "cta");
-  const imageElement = card["story-elements"].find((el) => el.type === "image");
+  type ExtractedElements = {
+    titleElement: StoryElementType | null;
+    imageElement: StoryElementType | null;
+    textElements: StoryElementType[];
+    ctaElements: StoryElementType[];
+  };
+
+  const elements = card["story-elements"] as StoryElementType[];
+  const { titleElement, imageElement, textElements, ctaElements } = elements.reduce<ExtractedElements>(
+    (acc, el) => {
+      // !acc.titleElement && !acc.imageElement Prevents reassignment after the first title and image elements are found
+      if (el.type === "title" && !acc.titleElement) {
+        acc.titleElement = el;
+      } else if (el.type === "image" && !acc.imageElement) {
+        acc.imageElement = el;
+      } else if (el.type === "text") {
+        (el.subtype === "cta" ? acc.ctaElements : acc.textElements).push(el);
+      }
+      return acc;
+    },
+    {
+      titleElement: null,
+      imageElement: null,
+      textElements: [],
+      ctaElements: []
+    }
+  );
+
   const heroImgSrc = story["hero-image-s3-key"];
   const videoElement = getVideoElement(card);
 
   const { imageAnimation, textAnimation }: AnimationTypes = getAnimationProps(config, story);
-  const ctaElements = card["story-elements"].filter((el) => el.subtype === "cta");
+
   const visualStoriesConfig = get(config, ["opts", "featureConfig", "visualStories"], {});
   let outlinkProps = {};
   if (visualStoriesConfig.outlinkProps) {
@@ -54,7 +80,7 @@ const WebStoryPageComponentsBase = ({ card, config, story }: WebStoryPageCompone
       {(titleElement || textElements.length || imageElement) && (
         <amp-story-grid-layer template="thirds">
           <TextWrapper>
-            <div {...textAnimation} style={{ alignSelf: "flex-end" }}>
+            <div {...textAnimation} style={{ width: "100%" }}>
               {titleElement && <StoryElement element={titleElement} />}
               {textElements.length > 0 &&
                 textElements.map((textElement) => <StoryElement key={textElement.id} element={textElement} />)}
