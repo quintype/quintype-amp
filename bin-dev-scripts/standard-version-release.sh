@@ -12,7 +12,8 @@ then
   npx standard-version
 else
   npm run build
-  npx standard-version --prerelease "$BRANCH" --skip.changelog=true
+  SAFE_BRANCH=$(echo "$BRANCH" | tr '/' '-')
+  npx standard-version --prerelease "$SAFE_BRANCH" --skip.changelog=true
 fi
 
 git push --follow-tags origin "$BRANCH"
