@@ -2,7 +2,7 @@ import get from "lodash.get";
 import { parse } from "node-html-parser";
 
 export const conditionExternalLinks = ({ text, config }) => {
-  // finds external links and adds rel=”nofollow noopener” target="_blank" to them
+  // finds external links and adds target="_blank" to them if not already set
 
   const internalHosts: string[] = [];
 
@@ -21,11 +21,12 @@ export const conditionExternalLinks = ({ text, config }) => {
   let accumulator = text;
   anchorsArr.forEach((el) => {
     const href = el.rawAttributes.href || null;
-    if (href && regex.test(href)) {
+    const target = el.rawAttributes.target || null;
+    if (href && regex.test(href) && !target) {
       const escapedHref = escapeRegex(href);
       accumulator = accumulator.replace(
         new RegExp(`href="${escapedHref}"`),
-        `href="${href}" rel="nofollow noopener" target="_blank"`
+        `href="${href}" target="_blank"`
       );
     }
   });
