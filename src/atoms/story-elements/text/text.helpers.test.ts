@@ -63,3 +63,49 @@ test("conditionExternalLinks should not introduce any change in text elements co
   const output = conditionExternalLinks({ text: dummyText, config: dummyConfig });
   expect(output).toBe(dummyText);
 });
+
+test("conditionExternalLinks should treat www and non-www variants of sketches-host as internal", async () => {
+  const dummyText = `<p><a href="https://www.analyticsinsight.net/article/foo">internal www link</a> and <a href="https://analyticsinsight.net/article/bar">internal non-www link</a> and <a href="https://www.facebook.com/foo">external link</a></p>`;
+  const dummyConfig = {
+    publisherConfig: {
+      "sketches-host": "https://analyticsinsight.net",
+      domains: []
+    }
+  };
+  const output = conditionExternalLinks({ text: dummyText, config: dummyConfig });
+  expect(output).toBe(
+    `<p><a href="https://www.analyticsinsight.net/article/foo">internal www link</a> and <a href="https://analyticsinsight.net/article/bar">internal non-www link</a> and <a href="https://www.facebook.com/foo" target="_blank">external link</a></p>`
+  );
+});
+
+test("conditionExternalLinks should treat www and non-www variants of domain host-urls as internal", async () => {
+  const dummyText = `<p><a href="https://www.sports.example.com/foo">internal www domain link</a> and <a href="https://sports.example.com/bar">internal non-www domain link</a> and <a href="https://www.twitter.com/foo">external link</a></p>`;
+  const dummyConfig = {
+    publisherConfig: {
+      "sketches-host": "https://www.example.com",
+      domains: [
+        {
+          name: "sports",
+          slug: "sports",
+          "host-url": "https://sports.example.com",
+          "section-ids": []
+        }
+      ]
+    }
+  };
+  const output = conditionExternalLinks({ text: dummyText, config: dummyConfig });
+  expect(output).toBe(
+    `<p><a href="https://www.sports.example.com/foo">internal www domain link</a> and <a href="https://sports.example.com/bar">internal non-www domain link</a> and <a href="https://www.twitter.com/foo" target="_blank">external link</a></p>`
+  );
+});
+
+test("conditionExternalLinks should return text unchanged when no sketches-host or domains are configured", async () => {
+  const dummyText = `<p><a href="https://www.facebook.com/foo">some link</a></p>`;
+  const dummyConfig = {
+    publisherConfig: {
+      domains: []
+    }
+  };
+  const output = conditionExternalLinks({ text: dummyText, config: dummyConfig });
+  expect(output).toBe(dummyText);
+});
