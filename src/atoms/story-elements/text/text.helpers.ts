@@ -2,8 +2,8 @@ import get from "lodash.get";
 import { parse } from "node-html-parser";
 
 export const conditionExternalLinks = ({ text, config }) => {
-  // finds external links and adds target="_blank" to them
-  // rel (nofollow/noopener) is intentionally omitted — it must be set explicitly by the editor in Bold CMS;
+  // finds external links and adds target="_blank" to them (unless they already have a target set)
+  // rel (nofollow/noopener) is never modified — it must be set explicitly by the editor in Bold CMS;
 
   const internalHosts: string[] = [];
 
@@ -22,8 +22,8 @@ export const conditionExternalLinks = ({ text, config }) => {
   let accumulator = text;
   anchorsArr.forEach((el) => {
     const href = el.rawAttributes.href || null;
-    const rel = el.rawAttributes.rel || null;
-    if (href && !rel && regex.test(href)) {
+    const target = el.rawAttributes.target || null;
+    if (href && !target && regex.test(href)) {
       const escapedHref = escapeRegex(href);
       accumulator = accumulator.replace(new RegExp(`href="${escapedHref}"`), `href="${href}" target="_blank"`);
     }

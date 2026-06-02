@@ -37,7 +37,7 @@ test("conditionExternalLinks should add target blank on external links without a
   );
 });
 
-test("conditionExternalLinks should not overwrite an existing rel attribute set by the editor", async () => {
+test("conditionExternalLinks should add target blank to external links even when rel is already set by the editor", async () => {
   const dummyText = `<p><a href="https://www.example.com/page" rel="sponsored">Sponsored link</a> and <a href="https://www.other.com/page">external link</a></p>`;
   const dummyConfig = {
     publisherConfig: {
@@ -48,7 +48,7 @@ test("conditionExternalLinks should not overwrite an existing rel attribute set 
 
   const output = conditionExternalLinks({ text: dummyText, config: dummyConfig });
   expect(output).toBe(
-    `<p><a href="https://www.example.com/page" rel="sponsored">Sponsored link</a> and <a href="https://www.other.com/page" target="_blank">external link</a></p>`
+    `<p><a href="https://www.example.com/page" target="_blank" rel="sponsored">Sponsored link</a> and <a href="https://www.other.com/page" target="_blank">external link</a></p>`
   );
 });
 
