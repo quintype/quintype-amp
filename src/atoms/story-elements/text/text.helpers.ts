@@ -3,7 +3,7 @@ import { parse } from "node-html-parser";
 
 export const conditionExternalLinks = ({ text, config }) => {
   // finds external links and adds target="_blank" to them
-  // rel (nofollow/noopener) is intentionally omitted — it must be set explicitly by the editor in Bold CMS
+  // rel (nofollow/noopener) is intentionally omitted — it must be set explicitly by the editor in Bold CMS;
 
   const internalHosts: string[] = [];
 
@@ -22,13 +22,10 @@ export const conditionExternalLinks = ({ text, config }) => {
   let accumulator = text;
   anchorsArr.forEach((el) => {
     const href = el.rawAttributes.href || null;
-    const existingRel = el.rawAttributes.rel || null;
-    if (href && !existingRel && regex.test(href)) {
+    const rel = el.rawAttributes.rel || null;
+    if (href && !rel && regex.test(href)) {
       const escapedHref = escapeRegex(href);
-      accumulator = accumulator.replace(
-        new RegExp(`href="${escapedHref}"`),
-        `href="${href}" target="_blank"`
-      );
+      accumulator = accumulator.replace(new RegExp(`href="${escapedHref}"`), `href="${href}" target="_blank"`);
     }
   });
   return accumulator;
