@@ -2,8 +2,7 @@ import get from "lodash.get";
 import { parse } from "node-html-parser";
 
 export const conditionExternalLinks = ({ text, config }) => {
-  // finds external links and adds target="_blank" to them (unless they already have a target set)
-  // rel (nofollow/noopener) is never modified — it must be set explicitly by the editor in Bold CMS;
+  // Adds target="_blank" to external links that do not already specify a target; rel attributes (e.g., nofollow) is not modified and must be configured in Bold CMS.
 
   const internalHosts: string[] = [];
 
@@ -25,7 +24,10 @@ export const conditionExternalLinks = ({ text, config }) => {
     const target = el.rawAttributes.target || null;
     if (href && !target && regex.test(href)) {
       const escapedHref = escapeRegex(href);
-      accumulator = accumulator.replace(new RegExp(`href="${escapedHref}"`), `href="${href}" target="_blank"`);
+      accumulator = accumulator.replace(
+        new RegExp(`href="${escapedHref}"`),
+        `href="${href}" target="_blank"`
+        );
     }
   });
   return accumulator;
