@@ -15,6 +15,10 @@ export const conditionExternalLinks = ({ text, config }) => {
     if (hostUrl) internalHosts.push(escapeRegex(hostUrl));
   });
 
+  const disableRelNoFollow = get(config, ["opts", "featureConfig", "disableRelNoFollow"], false);
+  const relNoFollowAttr = disableRelNoFollow ? "" : `rel="nofollow noopener"`;
+  console.log("LOGS 1234 ------------>", { disableRelNoFollow, relNoFollowAttr });
+
   const regex = new RegExp(`^((?!${internalHosts.join("|")}).)*$`);
   const domTree = parse(text);
   const anchorsArr = domTree.querySelectorAll("a");
@@ -25,7 +29,7 @@ export const conditionExternalLinks = ({ text, config }) => {
       const escapedHref = escapeRegex(href);
       accumulator = accumulator.replace(
         new RegExp(`href="${escapedHref}"`),
-        `href="${href}" rel="nofollow noopener" target="_blank"`
+        `href="${href}" ${relNoFollowAttr} target="_blank"`
       );
     }
   });
