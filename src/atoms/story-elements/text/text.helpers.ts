@@ -17,7 +17,6 @@ export const conditionExternalLinks = ({ text, config }) => {
 
   const disableRelNoFollow = get(config, ["opts", "featureConfig", "disableRelNoFollow"], false);
   const relNoFollowAttr = disableRelNoFollow ? "" : `rel="nofollow noopener"`;
-  console.log("DEBUG LOGS ------------>", { disableRelNoFollow, relNoFollowAttr });
 
   const regex = new RegExp(`^((?!${internalHosts.join("|")}).)*$`);
   const domTree = parse(text);
