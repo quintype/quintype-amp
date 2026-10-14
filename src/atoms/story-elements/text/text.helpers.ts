@@ -24,11 +24,13 @@ export const conditionExternalLinks = ({ text, config }) => {
   let accumulator = text;
   anchorsArr.forEach((el) => {
     const href = el.rawAttributes.href || null;
+    const hasTarget = el.rawAttributes.target !== undefined;
     if (href && regex.test(href)) {
       const escapedHref = escapeRegex(href);
+      const targetAttr = hasTarget ? "" : 'target="_self"';
       accumulator = accumulator.replace(
         new RegExp(`href="${escapedHref}"`),
-        `href="${href}" ${relNoFollowAttr} target="_blank"`
+        `href="${href}" ${relNoFollowAttr} ${targetAttr}`.trim()
       );
     }
   });
