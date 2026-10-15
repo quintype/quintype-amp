@@ -21,16 +21,27 @@ const sampleAttachmentElement = {
   subtype: "attachment"
 };
 
+const sampleAttachmentElementWithBlankTarget = {
+  ...sampleAttachmentElement,
+  target: "_blank"
+};
+
 describe("Attachment", () => {
   it("should match snapshot", () => {
     const wrapper = shallow(<Attachment element={sampleAttachmentElement} />);
     expect(wrapper).toMatchSnapshot();
   });
-  it("should set correct attributes on anchor tag", () => {
+  it("should open in same tab when target is not provided", () => {
     const wrapper = shallow(<AttachmentBase element={sampleAttachmentElement} />);
     expect(wrapper.find(PreviewLink).prop("href")).toBe("https://www.foo-bar/baz.pdf");
-    expect(wrapper.find(PreviewLink).prop("target")).toBe("_blank");
+    expect(wrapper.find(PreviewLink).prop("target")).toBeUndefined();
     expect(wrapper.find(PreviewLink).prop("rel")).toBe("noopener noreferrer");
     expect(wrapper.find(PreviewLink).prop("download")).toBe("");
+  });
+
+  it("should open in new tab when target is _blank", () => {
+    const wrapper = shallow(<AttachmentBase element={sampleAttachmentElementWithBlankTarget} />);
+    expect(wrapper.find(PreviewLink).prop("target")).toBe("_blank");
+    expect(wrapper.find(PreviewLink).prop("rel")).toBe("noopener noreferrer");
   });
 });

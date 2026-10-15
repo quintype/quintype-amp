@@ -155,6 +155,7 @@ export interface StoryElement {
   "story-elements"?: StoryElement[];
   data?: StoryElementData | null;
   "file-type"?: string;
+  target?: string;
 }
 interface StoryElementData {
   content: string;
