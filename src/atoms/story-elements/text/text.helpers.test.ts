@@ -5,7 +5,7 @@
 import { conditionExternalLinks } from "./text.helpers";
 
 describe("conditionExternalLinks", () => {
-  test("should preserve target='_blank', default an undefined target to '_self', and preserve an empty target", () => {
+  test("should preserve target='_blank', default an undefined target to '_self', and remove an empty target", () => {
     const dummyText = `<p>
     <a href="https://external.com/with-target" target="_blank">Blank target</a>
     <a href="https://external.com/without-target">Undefined target</a>
@@ -28,7 +28,7 @@ describe("conditionExternalLinks", () => {
       `<p>
     <a href="https://external.com/with-target" rel="nofollow noopener" target="_blank">Blank target</a>
     <a href="https://external.com/without-target" rel="nofollow noopener" target="_self">Undefined target</a>
-    <a href="https://external.com/empty-target" rel="nofollow noopener" target="">Empty target</a>
+    <a href="https://external.com/empty-target" rel="nofollow noopener">Empty target</a>
   </p>`
     );
   });
