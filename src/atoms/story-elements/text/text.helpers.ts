@@ -2,8 +2,6 @@ import get from "lodash.get";
 import { parse } from "node-html-parser";
 
 export const conditionExternalLinks = ({ text, config }) => {
-  // finds external links and adds rel=”nofollow noopener” target="_blank" to them
-
   const internalHosts: string[] = [];
 
   const sketchesHost = get(config, ["publisherConfig", "sketches-host"]);
@@ -34,6 +32,7 @@ export const conditionExternalLinks = ({ text, config }) => {
       );
     }
   });
+  accumulator = accumulator.replace(/\s+target\s*=\s*(["'])\s*\1/gi, "");
   return accumulator;
 };
 
