@@ -196,7 +196,7 @@ export const AttachmentBase = ({ element, story, config, counter }: StoryElement
   ) : (
     &lt;AttachmentWrapper>
       &lt;div>{element["file-name"]}&lt;/div>
-      &lt;PreviewLink href={element.url} target="_blank" rel="noopener noreferrer" download="">
+      &lt;PreviewLink href={element.url} target={element.target || undefined} rel="noopener noreferrer" download="">
         {getLocalizedWord(config, "attachmentElementPreview", "Preview")}
       &lt;/PreviewLink>
     &lt;/AttachmentWrapper>
