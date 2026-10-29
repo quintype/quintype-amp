@@ -25,10 +25,10 @@ export const conditionExternalLinks = ({ text, config }) => {
     const hasTarget = el.rawAttributes.target !== undefined;
     if (href && regex.test(href)) {
       const escapedHref = escapeRegex(href);
-      const targetAttr = hasTarget ? "" : 'target="_self"';
+      const targetAttr = hasTarget ? ' target="_blank"' : "";
       accumulator = accumulator.replace(
         new RegExp(`href="${escapedHref}"`),
-        `href="${href}" ${relNoFollowAttr} ${targetAttr}`.trim()
+        `href="${href}" ${relNoFollowAttr}${targetAttr}`.trim()
       );
     }
   });
